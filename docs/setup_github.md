@@ -4,6 +4,8 @@
 **サイトの公開（ホスティング）はここでは行いません**（別フェーズ・別手段で実施）。
 **🔐 認証が必要** な操作は、あなた自身のアカウントで実施してください。
 
+> 注意：下のコマンドはコメント（説明文）を含めず、コマンド行だけを貼ってください。zsh では `#` で始まる行を貼ると `command not found: #` になります。
+
 ---
 
 ## 事前準備
@@ -14,21 +16,32 @@
 ---
 
 ## 1. ローカルをGit管理にする
-`katagami` フォルダ内で実行します。
+
+プロジェクトフォルダ `~/Desktop/dev/katagami` の中で実行します（置き場所が違う場合はパスを読み替え）。
+
+まずフォルダへ移動し、中身を確認します（`index.html` と `docs` が見えればOK）。
 
 ```bash
-cd katagami
+cd ~/Desktop/dev/katagami
+ls
+```
 
-# 初回だけ：コミット署名
-git config --global user.name "あなたの名前"
-git config --global user.email "you@example.com"
+コミットの署名（名前・メール）を設定します。**下の値は必ず自分のものに置き換えてください。**（設定済みなら飛ばして可）
 
+```bash
+git config --global user.name "自分の名前"
+git config --global user.email "自分のメール"
+```
+
+Git管理を開始し、最初のコミットを作ります。
+
+```bash
 git init
 git add .
 git commit -m "初回コミット: 型紙生成ツールと要件定義一式"
 ```
 
-以降は変更のたびに小さくコミット：
+成功すると警告は出ず、`git commit` のあとに変更ファイル数が短く表示されます。以降は変更のたびに小さくコミットします（例）。
 
 ```bash
 git add docs/requirements_spec.md
@@ -36,7 +49,14 @@ git commit -m "要件定義: 印刷の対応端末を両対応に確定"
 ```
 
 ## 2. 非公開リポジトリを作って push
-**🔐** GitHub で新規リポジトリを作成。**Visibility は必ず「Private」** を選択（空で作成）。
+
+**🔐** GitHub で新規リポジトリを作成します。設定は次のとおり。
+
+- リポジトリ名：`katagami`（`dev` は付けない。`dev` はローカルの入れ物フォルダで、プロジェクト名ではない）
+- Visibility：**必ず「Private」**
+- **Add README / Add .gitignore / Add license は「付けない（空で作成）」** — ローカルに既にあるため。GitHub側で付けると最初のコミットが二重になり、push時に衝突してエラーになります。
+
+作成後、リモートに接続して push します（`<あなたのID>` は自分のGitHub ID。例では `apricot626`）。
 
 ```bash
 git remote add origin https://github.com/<あなたのID>/katagami.git
@@ -73,6 +93,9 @@ git push -u origin main
 ## 困ったとき
 | 症状 | 確認 |
 |---|---|
+| `cd` で no such file | フォルダの場所を確認。`ls ~/Desktop/dev` で `katagami` があるか |
+| `command not found: #` | コメント行を貼っている。コマンド行だけ貼る |
+| push で `rejected`（衝突） | GitHub側でREADME等を付けてしまった可能性。空で作り直すか `git pull --rebase` |
 | push で認証エラー | `gh auth login` か Personal Access Token |
 | 間違って公開リポジトリで作った | Settings → General → Danger Zone → Change visibility で Private に変更 |
 | ドキュメントの図表が崩れる | GitHub の Markdown プレビューで確認、必要ならテーブル記法を調整 |
