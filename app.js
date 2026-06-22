@@ -16,8 +16,8 @@ const WRAP_W=640;                       // この幅でレイアウト改行
 /* ---- 状態 & UI ---- */
 const state={mode:"human", pat:"skirt", params:{}, toggles:{}, sa:1.0, showSew:true};
 const MODES=[
-  {key:"human",label:"服（大人）"},
-  {key:"kids", label:"子供"},
+  {key:"human",label:"大人服"},
+  {key:"kids", label:"子供服"},
   {key:"small",label:"小物"},
   {key:"bag",  label:"バッグ"},
   {key:"pet",  label:"ペット"},
