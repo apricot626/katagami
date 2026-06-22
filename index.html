@@ -100,6 +100,15 @@
 
   .toggle{display:flex;align-items:center;gap:8px;font-size:12.5px;margin-bottom:13px;cursor:pointer}
   .toggle input{accent-color:var(--chalk);width:16px;height:16px}
+  .presets{margin-bottom:14px}
+  .presets .ptitle{font-size:11px;color:var(--muted);margin-bottom:6px}
+  .presets .prow{display:flex;gap:6px;flex-wrap:wrap}
+  .presets button{
+    font-family:inherit;font-size:12px;cursor:pointer;padding:6px 10px;
+    border:1.5px solid var(--ink);background:var(--paper);border-radius:2px;
+    color:var(--ink);transition:.12s;line-height:1.2;
+  }
+  .presets button:hover{background:var(--tape)}
 
   .divider{border:none;border-top:1px dashed var(--rule);margin:16px 0}
   .sec-h{font-size:11px;letter-spacing:.14em;color:var(--muted);margin:0 0 10px;font-weight:700}
@@ -345,6 +354,12 @@ const PATTERNS={
       {key:"drop",label:"ヒップ下がり",unit:"cm",min:14,max:24,step:0.5,val:19},
       {key:"flare",label:"裾フレア（脇に+）",unit:"cm",min:0,max:25,step:0.5,val:9},
     ],
+    presets:[
+      {label:"S",  vals:{waist:62, hip:86,  len:56, drop:18, flare:8}},
+      {label:"M",  vals:{waist:70, hip:94,  len:58, drop:19, flare:9}},
+      {label:"L",  vals:{waist:78, hip:102, len:60, drop:20, flare:10}},
+      {label:"LL", vals:{waist:86, hip:110, len:62, drop:21, flare:11}},
+    ],
     toggles:[],
     gen(p,sa){
       const qW=cm(p.waist)/4, qH=cm(p.hip)/4, L=cm(p.len), drop=cm(p.drop), fl=cm(p.flare);
@@ -391,6 +406,12 @@ const PATTERNS={
       {key:"cuff",label:"袖口（裁ち幅）",unit:"cm",min:10,max:32,step:1,val:18},
       {key:"neckw",label:"衿ぐり幅",unit:"cm",min:14,max:24,step:0.5,val:18},
       {key:"ease",label:"ゆとり（総量）",unit:"cm",min:0,max:30,step:1,val:12},
+    ],
+    presets:[
+      {label:"レディースS", vals:{bust:84,  len:58, shoulder:38, sleeve:18, cuff:16, neckw:17, ease:12}},
+      {label:"レディースM", vals:{bust:90,  len:62, shoulder:40, sleeve:19, cuff:17, neckw:18, ease:12}},
+      {label:"メンズM",     vals:{bust:96,  len:68, shoulder:44, sleeve:20, cuff:18, neckw:18, ease:12}},
+      {label:"メンズL",     vals:{bust:104, len:71, shoulder:46, sleeve:22, cuff:19, neckw:19, ease:14}},
     ],
     toggles:[],
     gen(p,sa){
@@ -515,6 +536,11 @@ const PATTERNS={
       {key:"legw",label:"前足ぐり大きさ",unit:"cm",min:3,max:14,step:0.5,val:7},
       {key:"ease",label:"ゆとり（総量）",unit:"cm",min:0,max:16,step:1,val:6},
     ],
+    presets:[
+      {label:"小型犬S", vals:{chest:36, len:26, bellylen:18, neck:22, legpos:8,  legw:5,  ease:5}},
+      {label:"中型犬M", vals:{chest:56, len:40, bellylen:28, neck:34, legpos:12, legw:8,  ease:6}},
+      {label:"大型犬L", vals:{chest:76, len:52, bellylen:36, neck:44, legpos:15, legw:10, ease:8}},
+    ],
     toggles:[],
     gen(p,sa){
       const HW=cm(p.chest)/4+cm(p.ease)/4, NWh=cm(p.neck)/4;
@@ -591,6 +617,20 @@ function buildFields(){
   const def=PATTERNS[state.pat];
   el("patNote").textContent=def.note;
   const box=el("fields"); box.innerHTML="";
+  if(def.presets && def.presets.length){
+    const ps=document.createElement("div"); ps.className="presets";
+    const row=def.presets.map(pr=>`<button type="button">${pr.label}</button>`).join("");
+    ps.innerHTML=`<div class="ptitle">目安サイズ（クリックで数値を入れる）</div><div class="prow">${row}</div>`;
+    ps.querySelectorAll(".prow button").forEach((btn,i)=>{
+      btn.onclick=()=>{
+        const vals=def.presets[i].vals;
+        def.params.forEach(f=>{ if(f.key in vals){
+          state.params[f.key]=Math.min(f.max,Math.max(f.min,vals[f.key])); } });
+        buildFields(); render();
+      };
+    });
+    box.appendChild(ps);
+  }
   def.params.forEach(f=>{
     const fd=document.createElement("div"); fd.className="field";
     fd.innerHTML=`<label>${f.label}<span><span class="v mono">${state.params[f.key]}</span><span class="unit">${f.unit}</span></span></label>
