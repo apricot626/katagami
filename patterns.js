@@ -372,7 +372,7 @@ const PATTERNS={
         ...pc, foldX:0,
         grain:{x1:W/2,y1:cm(p.casing)+16,x2:W/2,y2:H-16},
         notches:[], labelAt:{x:W/2,y:H/2},
-        casingLines:[cm(p.casing)]
+        casingLines:[cm(p.casing)], casingLabel:"ウエスト折り返し"
       }],
       memo:`上端を${p.casing}cm折り返してゴムを通す前提。仕上がりウエストはゴムの長さで決まります。`};
     }
@@ -401,4 +401,133 @@ PATTERNS.kidstee={
     {label:"120cm", vals:{bust:66, len:46, shoulder:31, sleeve:14, cuff:13, neckw:14, ease:10}},
     {label:"130cm", vals:{bust:70, len:50, shoulder:33, sleeve:15, cuff:14, neckw:15, ease:10}},
   ],
+};
+
+/* ---- シュシュ ---- */
+PATTERNS.shuushu={
+  mode:"small",
+  name:"シュシュ",
+  note:"布を筒状に縫ってゴムを通すヘアアクセサリー。長さでふんわり感、幅でボリュームが決まります。短辺を縫い合わせるとき少しずらしてゴムを通す口を残してください。",
+  params:[
+    {key:"len",label:"布の長さ",unit:"cm",min:40,max:100,step:2,val:68},
+    {key:"w",  label:"裁ち幅", unit:"cm",min:6, max:18, step:0.5,val:10},
+  ],
+  presets:[
+    {label:"細め",     vals:{len:58, w:8}},
+    {label:"標準",     vals:{len:68, w:10}},
+    {label:"ふんわり", vals:{len:82, w:14}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const W=cm(p.len), H=cm(p.w);
+    const fin=[{x:0,y:0},{x:W,y:0},{x:W,y:H},{x:0,y:H}];
+    const pc=pieceFrom(fin,()=>false,sa);
+    return {pieces:[{
+      title:"シュシュ本体", cutInfo:"1枚 ／ 長辺を縫って筒にし、短辺同士を縫い合わせる",
+      ...pc, foldX:null,
+      grain:{x1:W/2,y1:6,x2:W/2,y2:H-6},
+      notches:[], labelAt:{x:W/2,y:H/2}
+    }],
+    memo:`ゴム長さの目安：${Math.round(p.len*0.35)}〜${Math.round(p.len*0.4)}cm`};
+  }
+};
+
+/* ---- ブックカバー ---- */
+PATTERNS.bookcover={
+  mode:"small",
+  name:"ブックカバー",
+  note:"本を包んで折り返すシンプルなカバー。上下をミシンで縫い、左右のフラップ（破線部分）を折り返して差し込むだけで固定できます。",
+  params:[
+    {key:"bh",   label:"本の高さ",      unit:"cm",min:10,max:26,step:0.5,val:14.8},
+    {key:"bw",   label:"本の幅（片面）",unit:"cm",min:7, max:16,step:0.5,val:10.5},
+    {key:"thick",label:"本の厚み",       unit:"cm",min:0.5,max:5,step:0.5,val:1.5},
+    {key:"flap", label:"折り返し幅",     unit:"cm",min:3, max:8, step:0.5,val:4},
+  ],
+  presets:[
+    {label:"文庫",  vals:{bh:14.8, bw:10.5, thick:1.5, flap:4}},
+    {label:"新書",  vals:{bh:17.3, bw:10.8, thick:1.8, flap:4}},
+    {label:"B6",    vals:{bh:18.2, bw:12.8, thick:2.0, flap:4}},
+    {label:"A5",    vals:{bh:21.0, bw:14.8, thick:2.0, flap:5}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const BH=cm(p.bh), BW=cm(p.bw), TH=cm(p.thick), FL=cm(p.flap);
+    const W=FL+BW+TH+BW+FL;
+    const fin=[{x:0,y:0},{x:W,y:0},{x:W,y:BH},{x:0,y:BH}];
+    // 左右辺はフラップの折り返し端 → 縫い代なし
+    const isFold=(a,b)=>(a.x===0&&b.x===0)||(a.x===W&&b.x===W);
+    const pc=pieceFrom(fin,isFold,sa);
+    return {pieces:[{
+      title:"ブックカバー", cutInfo:"1枚 ／ 上下を縫い代分折ってから左右フラップを折り込む",
+      ...pc, foldX:null,
+      grain:{x1:W/2,y1:8,x2:W/2,y2:BH-8},
+      notches:[],
+      vFoldLines:[FL, FL+BW, FL+BW+TH, FL+BW+TH+BW],
+      labelAt:{x:W/2,y:BH/2}
+    }]};
+  }
+};
+
+/* ---- ファスナーポーチ ---- */
+PATTERNS.pouch={
+  mode:"bag",
+  name:"ファスナーポーチ",
+  note:"ファスナーを上に付けるフラットポーチ。前後2枚を縫い合わせるシンプルな作りです。ファスナーの長さ＝仕上がり幅が目安。",
+  params:[
+    {key:"w",label:"仕上がり幅", unit:"cm",min:8, max:40,step:1,val:20},
+    {key:"h",label:"仕上がり高さ",unit:"cm",min:6, max:30,step:1,val:15},
+  ],
+  presets:[
+    {label:"カード入れ",vals:{w:14, h:10}},
+    {label:"コスメS",   vals:{w:18, h:13}},
+    {label:"コスメM",   vals:{w:22, h:16}},
+    {label:"コスメL",   vals:{w:28, h:20}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const W=cm(p.w), H=cm(p.h);
+    const fin=[{x:0,y:0},{x:W,y:0},{x:W,y:H},{x:0,y:H}];
+    const pc=pieceFrom(fin,()=>false,sa);
+    return {pieces:[{
+      title:"ポーチ前/後", cutInfo:"2枚（前後）",
+      ...pc, foldX:null,
+      grain:{x1:W/2,y1:10,x2:W/2,y2:H-10},
+      notches:[], labelAt:{x:W/2,y:H/2}
+    }],
+    memo:`ファスナー長さの目安：${p.w}cm`};
+  }
+};
+
+/* ---- マナーベルト（犬用） ---- */
+PATTERNS.mannerbelt={
+  mode:"pet",
+  name:"マナーベルト",
+  note:"マーキング防止のお腹まきベルト。布を長さ方向に二つ折りにして筒状に縫い、面ファスナーで固定します。お腹周りよりやや長めに仕上げて重ね代で調整します。",
+  params:[
+    {key:"belly",  label:"お腹回り",          unit:"cm",min:20,max:80,step:1,  val:42},
+    {key:"w",      label:"ベルト幅（仕上がり）",unit:"cm",min:4, max:15,step:0.5,val:8},
+    {key:"overlap",label:"面ファスナー重ね",   unit:"cm",min:2, max:8, step:0.5,val:4},
+  ],
+  presets:[
+    {label:"小型犬S",vals:{belly:28, w:6,  overlap:3}},
+    {label:"中型犬M",vals:{belly:42, w:8,  overlap:4}},
+    {label:"大型犬L",vals:{belly:58, w:10, overlap:5}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const W=cm(p.belly)+cm(p.overlap);
+    const H=cm(p.w)*2;   // 二つ折りにするので裁ち幅は仕上がりの2倍
+    const fin=[{x:0,y:0},{x:W,y:0},{x:W,y:H},{x:0,y:H}];
+    const pc=pieceFrom(fin,()=>false,sa);
+    const ov=cm(p.overlap);
+    return {pieces:[{
+      title:"マナーベルト", cutInfo:"1枚 ／ 長さ方向に二つ折りにして縫い、面ファスナーを付ける",
+      ...pc, foldX:null,
+      grain:{x1:W/2,y1:8,x2:W/2,y2:H-8},
+      casingLines:[H/2], casingLabel:"二つ折り線",
+      notches:[{x:ov/2,y:0},{x:ov/2,y:H},{x:W-ov/2,y:0},{x:W-ov/2,y:H}],
+      labelAt:{x:W/2,y:H/2}
+    }],
+    memo:`面ファスナーは両端から約${p.overlap/2}cmの位置に付ける`};
+  }
 };

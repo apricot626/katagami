@@ -198,7 +198,15 @@ function drawPiece(parent, p, ox, oy, opt){
         stroke:"var(--chalk)","stroke-width":lw(0.7),"stroke-dasharray":`${lw(3)} ${lw(2)}`}));
     });
     const t=S("text",{x:bbox(p.cut).x1-lw(2),y:p.casingLines[0]-lw(1.5),"text-anchor":"end",
-      fill:"var(--chalk)","font-size":lw(3.6)}); t.textContent="ひも通し口"; g.appendChild(t);
+      fill:"var(--chalk)","font-size":lw(3.6)}); t.textContent=p.casingLabel||"ひも通し口"; g.appendChild(t);
+  }
+  // 縦折り線（ブックカバー等）
+  if(p.vFoldLines){
+    const bb=bbox(p.cut);
+    p.vFoldLines.forEach(fx=>{
+      g.appendChild(S("line",{x1:fx,y1:bb.y0,x2:fx,y2:bb.y1,
+        stroke:"var(--chalk)","stroke-width":lw(0.7),"stroke-dasharray":`${lw(3)} ${lw(2)}`}));
+    });
   }
   // マチ切り欠き（トート）
   if(p.cornerMark){
