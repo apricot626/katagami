@@ -239,6 +239,11 @@ const PATTERNS={
       {key:"h",label:"仕上がり高さ",unit:"cm",min:8,max:50,step:0.5,val:26},
       {key:"casing",label:"ひも通し下がり",unit:"cm",min:2,max:8,step:0.5,val:4},
     ],
+    presets:[
+      {label:"給食袋",     vals:{w:18, h:22, casing:3.5}},
+      {label:"体操着袋",   vals:{w:30, h:35, casing:4}},
+      {label:"お着替え袋", vals:{w:35, h:40, casing:4}},
+    ],
     toggles:[],
     gen(p,sa){
       const W=cm(p.w),H=cm(p.h),cas=cm(p.casing);
@@ -529,5 +534,88 @@ PATTERNS.mannerbelt={
       labelAt:{x:W/2,y:H/2}
     }],
     memo:`面ファスナーは両端から約${p.overlap/2}cmの位置に付ける`};
+  }
+};
+
+/* ---- ポーチ（マチあり） ---- */
+PATTERNS.pouchgusset={
+  mode:"bag",
+  name:"ポーチ（マチあり）",
+  note:"底角を三角につまんで縫うことでマチを作るフラットポーチ。前後2枚を縫い合わせ、底角をつまんでマチ縫い線（破線）で縫います。",
+  params:[
+    {key:"w",label:"仕上がり幅", unit:"cm",min:10,max:40,step:1,val:22},
+    {key:"h",label:"仕上がり高さ",unit:"cm",min:6, max:30,step:1,val:15},
+    {key:"d",label:"マチ（底の奥行き）",unit:"cm",min:2,max:12,step:1,val:5},
+  ],
+  presets:[
+    {label:"コスメS",    vals:{w:18, h:12, d:4}},
+    {label:"コスメM",    vals:{w:22, h:15, d:5}},
+    {label:"コスメL",    vals:{w:26, h:17, d:6}},
+    {label:"ペンケース", vals:{w:20, h:10, d:4}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const W=cm(p.w), H=cm(p.h), D=cm(p.d);
+    const Hcut=H+D/2;
+    const fin=[{x:0,y:0},{x:W,y:0},{x:W,y:Hcut},{x:0,y:Hcut}];
+    const pc=pieceFrom(fin,()=>false,sa);
+    return {pieces:[{
+      title:"ポーチ前/後", cutInfo:"2枚（前後）／ 底角を三角につまんでマチ縫い線で縫う",
+      ...pc, foldX:null,
+      grain:{x1:W/2,y1:10,x2:W/2,y2:Hcut-10},
+      casingLines:[H], casingLabel:"マチ縫い線（底角をつまんでここで縫う）",
+      notches:[], labelAt:{x:W/2,y:H/2}
+    }],
+    memo:`ファスナー長さの目安：${p.w}cm　マチ：${p.d}cm`};
+  }
+};
+
+/* ---- エプロン ---- */
+PATTERNS.apron={
+  mode:"human",
+  name:"エプロン",
+  note:"台形本体＋腰ひも2本＋衿ひも1本の3ピース。腰ひも付け位置は破線で表示。ポケットは好みで追加してください。",
+  params:[
+    {key:"chest", label:"胸幅（上端）",        unit:"cm",min:24,max:50,step:1,  val:34},
+    {key:"hip",   label:"裾幅",                unit:"cm",min:40,max:80,step:1,  val:58},
+    {key:"len",   label:"エプロン丈",           unit:"cm",min:40,max:90,step:1,  val:70},
+    {key:"waist", label:"腰ひも位置（上から）", unit:"cm",min:15,max:45,step:1,  val:28},
+    {key:"tieL",  label:"腰ひも長さ（片側）",  unit:"cm",min:50,max:120,step:5, val:65},
+    {key:"neckL", label:"衿ひも長さ",           unit:"cm",min:50,max:100,step:5, val:65},
+    {key:"tieW",  label:"ひも裁ち幅",           unit:"cm",min:4, max:10, step:0.5,val:6},
+  ],
+  presets:[
+    {label:"大人フル",   vals:{chest:34, hip:58, len:70, waist:28, tieL:65, neckL:65, tieW:6}},
+    {label:"大人ハーフ", vals:{chest:30, hip:52, len:42, waist:20, tieL:62, neckL:62, tieW:6}},
+    {label:"子供",       vals:{chest:26, hip:44, len:55, waist:22, tieL:50, neckL:55, tieW:5}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const CW=cm(p.chest), HW=cm(p.hip), L=cm(p.len), off=(HW-CW)/2;
+    // 本体（台形）
+    const bodyFin=[{x:off,y:0},{x:off+CW,y:0},{x:HW,y:L},{x:0,y:L}];
+    const bodypc=pieceFrom(bodyFin,()=>false,sa);
+    const body={title:"本体", cutInfo:"1枚",
+      ...bodypc, foldX:null,
+      grain:{x1:HW/2,y1:L*0.15,x2:HW/2,y2:L*0.85},
+      casingLines:[cm(p.waist)], casingLabel:"腰ひも付け位置",
+      notches:[], labelAt:{x:HW/2,y:L*0.6}};
+    // 腰ひも（2枚）
+    const TL=cm(p.tieL), TW=cm(p.tieW);
+    const tieFin=[{x:0,y:0},{x:TW,y:0},{x:TW,y:TL},{x:0,y:TL}];
+    const tiepc=pieceFrom(tieFin,()=>false,sa);
+    const tie={title:"腰ひも", cutInfo:"2枚",
+      ...tiepc, foldX:null,
+      grain:{x1:TW/2,y1:12,x2:TW/2,y2:TL-12},
+      notches:[], labelAt:{x:TW/2,y:TL/2}};
+    // 衿ひも（1枚）
+    const NL=cm(p.neckL);
+    const neckFin=[{x:0,y:0},{x:TW,y:0},{x:TW,y:NL},{x:0,y:NL}];
+    const neckpc=pieceFrom(neckFin,()=>false,sa);
+    const neck={title:"衿ひも", cutInfo:"1枚（二つ折りで縫う）",
+      ...neckpc, foldX:null,
+      grain:{x1:TW/2,y1:12,x2:TW/2,y2:NL-12},
+      notches:[], labelAt:{x:TW/2,y:NL/2}};
+    return {pieces:[body,tie,neck]};
   }
 };
