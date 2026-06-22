@@ -724,6 +724,24 @@ function S(tag,attrs){const e=document.createElementNS(SVGNS,tag);
   for(const k in attrs)e.setAttribute(k,attrs[k]);return e;}
 function ptsStr(a){return a.map(p=>`${p.x.toFixed(2)},${p.y.toFixed(2)}`).join(" ");}
 
+/* 印刷透かし：各シートSVGに斜め反復テキストを挿入 */
+let _wmSeq=0;
+function addWatermark(svg){
+  const id='wm'+(++_wmSeq);
+  let defs=svg.querySelector('defs');
+  if(!defs){defs=S('defs',{});svg.insertBefore(defs,svg.firstChild);}
+  const pat=S('pattern',{id,x:0,y:0,width:84,height:48,
+    patternTransform:'rotate(32)',patternUnits:'userSpaceOnUse'});
+  const t=S('text',{x:2,y:34,'font-size':8,'font-family':'sans-serif',
+    fill:'#1B1D1A','fill-opacity':'0.07','font-weight':'700','letter-spacing':'3'});
+  t.textContent='カタガミ';
+  pat.appendChild(t);
+  defs.appendChild(pat);
+  // watermark rect: insert right after defs so it renders behind all content
+  svg.insertBefore(S('rect',{x:0,y:0,width:PAGE_W,height:PAGE_H,fill:'url(#'+id+')'}),
+    defs.nextSibling);
+}
+
 function initParams(){
   const def=PATTERNS[state.pat];
   state.params={}; def.params.forEach(f=>state.params[f.key]=f.val);
@@ -1039,6 +1057,7 @@ function buildPrintSheets(){
   // 注意書き
   const warn=S("text",{x:MARGIN,y:PAGE_H-MARGIN-4,"font-size":3.4,fill:"#C24033","font-family":"sans-serif","font-weight":"700"});
   warn.textContent="印刷倍率＝100%（実際のサイズ）／「用紙に合わせる」はオフ"; gs.appendChild(warn);
+  addWatermark(gs);
 
   /* --- タイル群 --- */
   for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){
@@ -1099,6 +1118,7 @@ function buildPrintSheets(){
     if(r>0){const t=S("text",{x:mid(x0,x1),y:y0+4,"text-anchor":"middle","font-size":2.8,
       fill:"#999","font-family":"sans-serif"});
       t.textContent=`${tileCode(c,r-1)} と重ねる`; svg.appendChild(t);}
+    addWatermark(svg);
   }
 }
 
