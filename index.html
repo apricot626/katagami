@@ -453,7 +453,7 @@ const PATTERNS={
 
   /* ---- 巾着（子供用の小袋） ---- */
   kinchaku:{
-    mode:"kids",
+    mode:"small",
     name:"巾着・小袋",
     note:"1枚の布を底（下端）で輪に折って両脇を縫う、いちばん簡単な巾着。上部の点線がひも通し口（折り返し）の目安です。",
     params:[
@@ -480,7 +480,7 @@ const PATTERNS={
 
   /* ---- 蝶ネクタイ ---- */
   bowtie:{
-    mode:"kids",
+    mode:"small",
     name:"蝶ネクタイ",
     note:"本体を中央で輪に折り、ギャザーを寄せて中央バンドで巻く定番タイプ。サイズ次第で人・子供・犬（首輪に通す）どれにも。",
     params:[
@@ -563,7 +563,67 @@ const PATTERNS={
       };
       return {pieces:[panel(false),panel(true)]};
     }
+  },
+
+  /* ---- ギャザースカート（ゴムウエスト・矩形ベース） ---- */
+  gather:{
+    mode:"kids",
+    name:"ギャザースカート",
+    note:"長方形を上端で折り返してゴムを通す、いちばん簡単なギャザースカート。前後2枚を脇で縫います。左端は「わ」（中心）。ギャザー倍率で布幅＝ふんわり具合が決まります。",
+    params:[
+      {key:"hip",label:"ヒップ（目安）",unit:"cm",min:45,max:130,step:1,val:88},
+      {key:"len",label:"スカート丈",unit:"cm",min:20,max:90,step:1,val:50},
+      {key:"full",label:"ギャザー倍率",unit:"倍",min:1.3,max:3,step:0.1,val:1.8},
+      {key:"casing",label:"ウエスト折り返し",unit:"cm",min:2,max:8,step:0.5,val:4},
+    ],
+    presets:[
+      {label:"子供100", vals:{hip:58, len:28, full:1.8, casing:3}},
+      {label:"子供110", vals:{hip:62, len:32, full:1.8, casing:3}},
+      {label:"子供120", vals:{hip:66, len:36, full:1.8, casing:3}},
+      {label:"子供130", vals:{hip:70, len:40, full:1.8, casing:3}},
+      {label:"大人M",   vals:{hip:92, len:55, full:1.8, casing:4}},
+    ],
+    toggles:[],
+    gen(p,sa){
+      const W=cm(p.hip)*p.full/2;          // 左端を「わ」：開くと hip×倍率
+      const H=cm(p.len)+cm(p.casing);      // 丈＋ウエスト折り返し分
+      const fin=[{x:0,y:0},{x:W,y:0},{x:W,y:H},{x:0,y:H}];
+      const isFold=(a,b)=>a.x===0&&b.x===0; // 左端=わ（中心）
+      const pc=pieceFrom(fin,isFold,sa);
+      return {pieces:[{
+        title:"前/後 スカート", cutInfo:"中心を「わ」に置いて 前1枚・後1枚（計2枚）",
+        ...pc, foldX:0,
+        grain:{x1:W/2,y1:cm(p.casing)+16,x2:W/2,y2:H-16},
+        notches:[], labelAt:{x:W/2,y:H/2},
+        casingLines:[cm(p.casing)]
+      }],
+      memo:`上端を${p.casing}cm折り返してゴムを通す前提。仕上がりウエストはゴムの長さで決まります。`};
+    }
   }
+};
+
+/* ---- 子供Tシャツ：Tシャツの製図ロジックを流用し、寸法とプリセットのみ子供向けに ---- */
+PATTERNS.kidstee={
+  ...PATTERNS.tee,
+  mode:"kids",
+  name:"子供Tシャツ",
+  note:"大人Tシャツと同じドロップショルダーのボックスT。寸法は子供向け。身長別プリセットを出発点に、まず仮縫いで衿ぐり・袖ぐりを確認してください。ニット地向き。",
+  params:[
+    {key:"bust",label:"バスト",unit:"cm",min:48,max:90,step:1,val:64},
+    {key:"len",label:"着丈",unit:"cm",min:28,max:60,step:1,val:40},
+    {key:"shoulder",label:"肩幅",unit:"cm",min:22,max:42,step:1,val:30},
+    {key:"sleeve",label:"袖丈",unit:"cm",min:5,max:45,step:1,val:14},
+    {key:"cuff",label:"袖口（裁ち幅）",unit:"cm",min:8,max:24,step:1,val:13},
+    {key:"neckw",label:"衿ぐり幅",unit:"cm",min:10,max:20,step:0.5,val:14},
+    {key:"ease",label:"ゆとり（総量）",unit:"cm",min:0,max:24,step:1,val:10},
+  ],
+  presets:[
+    {label:"90cm",  vals:{bust:54, len:34, shoulder:27, sleeve:11, cuff:12, neckw:13, ease:8}},
+    {label:"100cm", vals:{bust:58, len:38, shoulder:28, sleeve:12, cuff:12, neckw:13, ease:8}},
+    {label:"110cm", vals:{bust:62, len:42, shoulder:30, sleeve:13, cuff:13, neckw:14, ease:10}},
+    {label:"120cm", vals:{bust:66, len:46, shoulder:31, sleeve:14, cuff:13, neckw:14, ease:10}},
+    {label:"130cm", vals:{bust:70, len:50, shoulder:33, sleeve:15, cuff:14, neckw:15, ease:10}},
+  ],
 };
 
 /* ============================================================
@@ -571,8 +631,9 @@ const PATTERNS={
    ============================================================ */
 const state={mode:"human", pat:"skirt", params:{}, toggles:{}, sa:1.0, showSew:true};
 const MODES=[
-  {key:"human",label:"服（人）"},
-  {key:"kids", label:"こども・小物"},
+  {key:"human",label:"服（大人）"},
+  {key:"kids", label:"子供"},
+  {key:"small",label:"小物"},
   {key:"bag",  label:"バッグ"},
   {key:"pet",  label:"ペット"},
 ];
