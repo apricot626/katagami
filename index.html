@@ -6,6 +6,14 @@
 <title>カタガミ｜数値入力でつくる洋裁の型紙</title>
 <meta name="description" content="採寸した数値を入れるだけで、Tシャツ・巾着・トートバッグ・蝶ネクタイ・犬服などの型紙を自動製図。A4分割で実寸印刷でき、50mm校正枠で倍率も確認できる無料ツールです。">
 <meta name="keywords" content="型紙,洋裁,自動製図,A4,実寸,印刷,Tシャツ,巾着,トートバッグ,蝶ネクタイ,犬服,ハンドメイド">
+<!-- Google Analytics (F-25) — 測定 ID「G-XXXXXXXXXX」を実際の値に差し替えてください -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js',new Date());
+  gtag('config','G-XXXXXXXXXX');
+</script>
 <meta property="og:type" content="website">
 <meta property="og:title" content="カタガミ｜数値入力でつくる洋裁の型紙">
 <meta property="og:description" content="数値を入れるだけで洋裁の型紙を自動製図。A4分割で実寸印刷できます。">
@@ -660,6 +668,7 @@ function buildModes(){
       const list=patsInMode(m.key);
       if(!list.includes(state.pat)) state.pat=list[0];
       initParams(); buildModes(); buildTabs(); buildFields(); render();
+      ga('select_mode',{mode:m.key,mode_label:m.label});
     };
     wrap.appendChild(b);
   });
@@ -670,7 +679,9 @@ function buildTabs(){
     const v=PATTERNS[k];
     const b=document.createElement("button");
     b.textContent=v.name; b.setAttribute("aria-pressed", k===state.pat);
-    b.onclick=()=>{state.pat=k; initParams(); render(); buildFields(); buildTabs();};
+    b.onclick=()=>{state.pat=k; initParams(); render(); buildFields(); buildTabs();
+      ga('select_pattern',{pattern:k,pattern_name:v.name,mode:state.mode});
+    };
     wrap.appendChild(b);
   });
 }
@@ -1021,8 +1032,15 @@ function buildPrintSheets(){
 
 el("printBtn").onclick=()=>{
   buildPrintSheets();
+  const {canvasW,canvasH}=layout();
+  const {cols,rows}=tileGrid(canvasW,canvasH);
+  ga('print_pattern',{pattern:state.pat,pattern_name:PATTERNS[state.pat].name,
+    mode:state.mode,sheet_count:cols*rows,seam_allowance:state.sa});
   setTimeout(()=>window.print(),60);
 };
+
+/* ---- GA4 イベント送信（gtag 未ロード時は無視） ---- */
+function ga(name,params){if(typeof gtag==='function')gtag('event',name,params);}
 
 /* ---- 起動 ---- */
 initParams(); buildModes(); buildTabs(); buildFields(); buildSAControls(); render();
