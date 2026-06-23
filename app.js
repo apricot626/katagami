@@ -434,6 +434,63 @@ function buildPrintSheets(){
   }
 }
 
+/* ============================================================
+   採寸プロファイル保存／呼び出し（F-20）
+   ============================================================ */
+const PROFILES_KEY='katagami_profiles';
+function getProfiles(){try{return JSON.parse(localStorage.getItem(PROFILES_KEY)||'[]');}catch{return [];}}
+function saveProfiles(arr){localStorage.setItem(PROFILES_KEY,JSON.stringify(arr));}
+
+function saveProfile(){
+  const name=window.prompt('この設定の名前を入力してください（例：娘90cm夏）');
+  if(!name||!name.trim())return;
+  const arr=getProfiles();
+  arr.push({name:name.trim(), pat:state.pat, params:{...state.params}, toggles:{...state.toggles}, sa:state.sa});
+  saveProfiles(arr);
+  renderProfiles();
+  ga('save_profile',{pattern:state.pat});
+}
+
+function applyProfile(idx){
+  const arr=getProfiles(); const p=arr[idx]; if(!p)return;
+  // パターン存在確認
+  if(!PATTERNS[p.pat])return;
+  state.pat=p.pat;
+  // modeをパターンに合わせる
+  state.mode=PATTERNS[p.pat].mode;
+  initParams();
+  // 保存値で上書き（範囲チェック付き）
+  const def=PATTERNS[state.pat];
+  def.params.forEach(f=>{if(p.params&&p.params[f.key]!=null){
+    state.params[f.key]=Math.min(f.max,Math.max(f.min,p.params[f.key]));
+  }});
+  (def.toggles||[]).forEach(t=>{if(p.toggles&&p.toggles[t.key]!=null)state.toggles[t.key]=p.toggles[t.key];});
+  if(p.sa!=null)state.sa=Math.min(5,Math.max(0,p.sa));
+  buildModes(); buildTabs(); buildFields(); buildSAControls(); render();
+  ga('load_profile',{pattern:state.pat});
+}
+
+function deleteProfile(idx){
+  if(!window.confirm('この設定を削除しますか？'))return;
+  const arr=getProfiles(); arr.splice(idx,1); saveProfiles(arr); renderProfiles();
+}
+
+function renderProfiles(){
+  const list=el("profileList"); list.innerHTML="";
+  getProfiles().forEach((p,i)=>{
+    const item=document.createElement("div"); item.className="profile-item";
+    const load=document.createElement("button"); load.className="p-load";
+    load.textContent=p.name; load.title=`${PATTERNS[p.pat]?.name||p.pat} を読み込む`;
+    load.onclick=()=>applyProfile(i);
+    const del=document.createElement("button"); del.className="p-del";
+    del.textContent="×"; del.title="削除"; del.onclick=()=>deleteProfile(i);
+    item.appendChild(load); item.appendChild(del);
+    list.appendChild(item);
+  });
+}
+
+el("saveProfileBtn").onclick=()=>saveProfile();
+
 el("printBtn").onclick=()=>{
   buildPrintSheets();
   const {canvasW,canvasH}=layout();
@@ -451,5 +508,5 @@ modal.addEventListener("click",e=>{if(e.target===modal)modal.classList.remove("o
 document.addEventListener("keydown",e=>{if(e.key==="Escape")modal.classList.remove("open");});
 
 /* ---- 起動 ---- */
-initParams(); buildModes(); buildTabs(); buildFields(); buildSAControls(); render();
+initParams(); buildModes(); buildTabs(); buildFields(); buildSAControls(); render(); renderProfiles();
 window.addEventListener("resize",()=>render());

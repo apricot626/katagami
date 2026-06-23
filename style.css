@@ -109,6 +109,34 @@ main{display:grid;grid-template-columns:320px 1fr;gap:0;flex:1;overflow:hidden}
 .print-btn:hover{background:#a8362b}
 .scale-warn{font-size:11px;color:var(--muted);line-height:1.55;margin-top:9px}
 .scale-warn b{color:var(--vermilion)}
+.pdf-tip{font-size:10.5px;color:var(--muted)}
+.pdf-tip b{color:var(--ink)}
+
+/* ---- profile storage (F-20) ---- */
+.profile-section{margin:14px 0 0}
+.profile-list{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;min-height:0}
+.profile-item{
+  display:flex;align-items:center;gap:0;
+  border:1.5px solid var(--ink);border-radius:2px;background:var(--paper);
+  overflow:hidden;font-size:12px;
+}
+.p-load{
+  font-family:inherit;font-size:12px;cursor:pointer;padding:5px 9px;
+  border:none;background:none;color:var(--ink);line-height:1.25;
+}
+.p-load:hover{background:var(--tape)}
+.p-del{
+  font-family:inherit;font-size:12px;cursor:pointer;padding:5px 7px;
+  border:none;border-left:1px solid var(--rule);background:none;color:var(--muted);
+  line-height:1.25;
+}
+.p-del:hover{background:var(--vermilion);color:#fff}
+.profile-save{
+  font-family:inherit;font-size:12px;cursor:pointer;padding:6px 10px;
+  border:1.5px dashed var(--ink);background:none;border-radius:2px;
+  color:var(--ink);transition:.12s;
+}
+.profile-save:hover{background:var(--chalk);color:#fff;border-style:solid}
 
 /* ---- preview ---- */
 .preview-wrap{position:relative;overflow:auto;display:flex;

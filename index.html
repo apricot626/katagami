@@ -37,6 +37,12 @@
       <p class="pat-note" id="patNote"></p>
       <div id="fields"></div>
 
+      <div class="profile-section" id="profileSection">
+        <p class="sec-h" style="margin-bottom:8px">保存した設定</p>
+        <div id="profileList" class="profile-list"></div>
+        <button class="profile-save" id="saveProfileBtn">＋ 現在の設定を保存</button>
+      </div>
+
       <hr class="divider">
       <p class="sec-h">縫い代・出力</p>
       <div class="field">
@@ -52,7 +58,8 @@
       <button class="print-btn" id="printBtn">印刷する（A4・実寸）</button>
       <p class="scale-warn">
         印刷ダイアログで <b>倍率＝100%（実際のサイズ）</b> にし、「用紙に合わせる」は必ずオフにしてください。
-        1枚目の案内シートにある <b>50mmの校正枠</b> を定規で測り、ぴったり50mmなら成功です。
+        1枚目の案内シートにある <b>50mmの校正枠</b> を定規で測り、ぴったり50mmなら成功です。<br>
+        <span class="pdf-tip">PDFで保存したい場合は Chrome・Edge の印刷ダイアログで送信先を <b>「PDFに保存」</b> に切り替えてください。</span>
       </p>
     </section>
 
@@ -71,6 +78,7 @@
 
   <footer class="app-footer">
     <span>© カタガミ</span>
+    <a href="howto-kinchaku.html">巾着の作り方</a>
     <a id="openPrivacy">プライバシーポリシー</a>
     <a href="mailto:[contact-email]" id="contactLink">お問い合わせ</a>
   </footer>
