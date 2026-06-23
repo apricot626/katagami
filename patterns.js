@@ -365,6 +365,8 @@ const PATTERNS={
       {key:"casing",label:"ウエスト折り返し",unit:"cm",min:2,max:8,step:0.5,val:4},
     ],
     presets:[
+      {label:"子供80",  vals:{hip:50, len:21, full:1.8, casing:3}},
+      {label:"子供90",  vals:{hip:54, len:24, full:1.8, casing:3}},
       {label:"子供100", vals:{hip:58, len:28, full:1.8, casing:3}},
       {label:"子供110", vals:{hip:62, len:32, full:1.8, casing:3}},
       {label:"子供120", vals:{hip:66, len:36, full:1.8, casing:3}},
@@ -406,6 +408,7 @@ PATTERNS.kidstee={
     {key:"ease",label:"ゆとり（総量）",unit:"cm",min:0,max:24,step:1,val:10},
   ],
   presets:[
+    {label:"80cm",  vals:{bust:50, len:30, shoulder:23, sleeve:7,  cuff:10, neckw:12, ease:8}},
     {label:"90cm",  vals:{bust:54, len:34, shoulder:27, sleeve:11, cuff:12, neckw:13, ease:8}},
     {label:"100cm", vals:{bust:58, len:38, shoulder:28, sleeve:12, cuff:12, neckw:13, ease:8}},
     {label:"110cm", vals:{bust:62, len:42, shoulder:30, sleeve:13, cuff:13, neckw:14, ease:10}},
@@ -757,6 +760,7 @@ PATTERNS.pants={
     {key:"casing", label:"ウエスト折り返し",    unit:"cm",min:2, max:6, step:0.5,val:3},
   ],
   presets:[
+    {label:"80cm",  vals:{hip:48, rise:15, inseam:19, ease:8,  crotchF:2,   casing:3}},
     {label:"90cm",  vals:{hip:52, rise:18, inseam:25, ease:8,  crotchF:2,   casing:3}},
     {label:"100cm", vals:{hip:56, rise:20, inseam:28, ease:8,  crotchF:2.5, casing:3}},
     {label:"110cm", vals:{hip:60, rise:21, inseam:32, ease:8,  crotchF:2.5, casing:3}},
