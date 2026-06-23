@@ -679,12 +679,22 @@ PATTERNS.gamaguchi={
     {label:"15cm口金",   vals:{fw:15,  fh:4,   depth:12}},
     {label:"18cm口金",   vals:{fw:18,  fh:5,   depth:14}},
   ],
-  toggles:[],
+  toggles:[{key:"curve",label:"角丸タイプ（口金角の丸みに合わせる）",val:false}],
   gen(p,sa){
     const FW=cm(p.fw), FH=cm(p.fh), D=cm(p.depth);
     const W=FW*1.6;
     const H=D+FH;
-    const fin=[{x:0,y:0},{x:W,y:0},{x:W,y:H},{x:0,y:H}];
+    const R=FW*0.2; // 角丸半径（口金幅の20%が目安）
+    let fin;
+    if(p.curve){
+      fin=[{x:R,y:0}];
+      fin.push({x:W-R,y:0});
+      fin=fin.concat(quad({x:W-R,y:0},{x:W,y:0},{x:W,y:R},5));
+      fin.push({x:W,y:H},{x:0,y:H},{x:0,y:R});
+      fin=fin.concat(quad({x:0,y:R},{x:0,y:0},{x:R,y:0},5));
+    } else {
+      fin=[{x:0,y:0},{x:W,y:0},{x:W,y:H},{x:0,y:H}];
+    }
     const pc=pieceFrom(fin,()=>false,sa);
     return {pieces:[{
       title:"ポーチ本体", cutInfo:"2枚（前後）／ 上端に口金をあてて形を写す",
@@ -943,5 +953,43 @@ PATTERNS.kincgusset={
       labelAt:{x:TW/2,y:TH/2}
     }],
     memo:`底角の合印から各辺に沿って${p.gusset/2}cmの位置でマチを縫う`};
+  }
+};
+
+/* ---- 犬服（袖付き） ---- */
+PATTERNS.dogsleeved={
+  ...PATTERNS.dog,
+  name:"犬服（袖付き）",
+  note:"タンク型犬服に前足の筒袖を追加した3ピース構成。袖は前足回りに合わせて調整します。前足の形は個体差が非常に大きいため、まず袖なしタンクを仮縫いして背・腹パネルを確認してから袖を作ることをお勧めします。",
+  params:[
+    {key:"chest",   label:"胴回り",        unit:"cm",min:24,max:90,step:1,  val:48},
+    {key:"len",     label:"背丈（背側）",  unit:"cm",min:18,max:60,step:1,  val:34},
+    {key:"bellylen",label:"腹側の丈",      unit:"cm",min:10,max:45,step:1,  val:24},
+    {key:"neck",    label:"首回り",        unit:"cm",min:16,max:60,step:1,  val:28},
+    {key:"legpos",  label:"前足ぐり位置",  unit:"cm",min:6, max:20,step:0.5,val:11},
+    {key:"legw",    label:"前足ぐり大きさ",unit:"cm",min:3, max:14,step:0.5,val:7},
+    {key:"ease",    label:"ゆとり（総量）",unit:"cm",min:0, max:16,step:1,  val:6},
+    {key:"sleevecirc",label:"前足回り",    unit:"cm",min:6, max:22,step:0.5,val:10},
+    {key:"sleevelen", label:"袖丈",        unit:"cm",min:2, max:15,step:0.5,val:5},
+    {key:"sleeveease",label:"袖ゆとり",    unit:"cm",min:1, max:6, step:0.5,val:2},
+  ],
+  presets:[
+    {label:"小型犬S", vals:{chest:36, len:26, bellylen:18, neck:22, legpos:8,  legw:5,  ease:5, sleevecirc:7,  sleevelen:4, sleeveease:1.5}},
+    {label:"中型犬M", vals:{chest:56, len:40, bellylen:28, neck:34, legpos:12, legw:8,  ease:6, sleevecirc:11, sleevelen:6, sleeveease:2}},
+    {label:"大型犬L", vals:{chest:76, len:52, bellylen:36, neck:44, legpos:15, legw:10, ease:8, sleevecirc:15, sleevelen:8, sleeveease:2.5}},
+  ],
+  gen(p,sa){
+    const base=PATTERNS.dog.gen(p,sa);
+    const SC=cm(p.sleevecirc)+cm(p.sleeveease), SL=cm(p.sleevelen);
+    const slFin=[{x:0,y:0},{x:SC,y:0},{x:SC,y:SL},{x:0,y:SL}];
+    const slpc=pieceFrom(slFin,()=>false,sa);
+    const sleeve={
+      title:"前足袖", cutInfo:"2枚（左右）／ 袖口端を折ってから前足ぐり合印に合わせて縫い付ける",
+      ...slpc, foldX:null,
+      grain:{x1:SC/2,y1:6,x2:SC/2,y2:SL-6},
+      notches:[], labelAt:{x:SC/2,y:SL/2}
+    };
+    return {pieces:[...base.pieces, sleeve],
+      memo:`前足袖は背/腹パネルの前足ぐり（合印間）に縫い付ける。袖周り目安：${p.sleevecirc}cm＋ゆとり${p.sleeveease}cm`};
   }
 };
