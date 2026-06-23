@@ -87,6 +87,12 @@ const PATTERNS={
       {key:"hl",label:"持ち手の長さ",unit:"cm",min:20,max:80,step:1,val:55},
       {key:"hw",label:"持ち手の裁ち幅",unit:"cm",min:3,max:10,step:0.5,val:6},
     ],
+    presets:[
+      {label:"通園バッグS",    vals:{w:30, h:30, d:4,  hl:36, hw:6}},
+      {label:"レッスンバッグ", vals:{w:40, h:30, d:6,  hl:40, hw:6}},
+      {label:"A4縦対応",       vals:{w:32, h:38, d:8,  hl:42, hw:6}},
+      {label:"たっぷり",       vals:{w:38, h:36, d:12, hl:50, hw:6}},
+    ],
     toggles:[],
     gen(p,sa){
       const W=cm(p.w),H=cm(p.h),D=cm(p.d),c=D/2;
@@ -766,5 +772,176 @@ PATTERNS.pants={
       notches:[{x:HW+CF,y:CAS+CR}], labelAt:{x:HW/2,y:CAS+(CR+IL)/2}
     }],
     memo:`ウエストゴム長の目安：${Math.round((cm(p.hip)+cm(p.ease))*0.875/10)}cm`};
+  }
+};
+
+/* ---- ランチョンマット ---- */
+PATTERNS.placemat={
+  mode:"small",
+  name:"ランチョンマット",
+  note:"四辺を縫うシンプルなランチョンマット。縫い代を折りながら縫う一重仕立て、または表裏2枚を縫い合わせて返す二重仕立てどちらにも対応できます。",
+  params:[
+    {key:"w",label:"横幅",   unit:"cm",min:25,max:55,step:1,val:36},
+    {key:"h",label:"縦（高さ）",unit:"cm",min:15,max:40,step:1,val:26},
+  ],
+  presets:[
+    {label:"幼稚園",  vals:{w:40, h:30}},
+    {label:"小学校",  vals:{w:36, h:26}},
+    {label:"A4横",    vals:{w:30, h:21}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const W=cm(p.w), H=cm(p.h);
+    const fin=[{x:0,y:0},{x:W,y:0},{x:W,y:H},{x:0,y:H}];
+    const pc=pieceFrom(fin,()=>false,sa);
+    return {pieces:[{
+      title:"ランチョンマット", cutInfo:"1枚（一重）または2枚（表・裏・二重仕立て）",
+      ...pc, foldX:null,
+      grain:{x1:W/2,y1:10,x2:W/2,y2:H-10},
+      notches:[], labelAt:{x:W/2,y:H/2}
+    }]};
+  }
+};
+
+/* ---- ティッシュケース ---- */
+PATTERNS.tissuecase={
+  mode:"small",
+  name:"ティッシュケース",
+  note:"1枚の布を折って作るポケットティッシュカバー。上下2辺（開口部）を折りヘムし、中央で重なるように折ってから左右の脇を縫います。破線はヘムと中央折りの目安。",
+  params:[
+    {key:"pw",  label:"ティッシュの横幅",  unit:"cm",min:9,  max:14,step:0.5,val:11.5},
+    {key:"ph",  label:"ティッシュの高さ",  unit:"cm",min:6,  max:10,step:0.5,val:7.5},
+    {key:"flap",label:"差し込み代（重なり）",unit:"cm",min:2,max:5, step:0.5,val:3},
+  ],
+  presets:[
+    {label:"標準", vals:{pw:11.5, ph:7.5, flap:3}},
+    {label:"大判", vals:{pw:13,   ph:9,   flap:3.5}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const W=cm(p.pw), PH=cm(p.ph), FL=cm(p.flap);
+    const H=2*(PH+FL);
+    const fin=[{x:0,y:0},{x:W,y:0},{x:W,y:H},{x:0,y:H}];
+    const pc=pieceFrom(fin,()=>false,sa);
+    return {pieces:[{
+      title:"ケース本体", cutInfo:"1枚 ／ 上下辺をヘムしてから中央で折り、両脇を縫う",
+      ...pc, foldX:null,
+      grain:{x1:W/2,y1:10,x2:W/2,y2:H-10},
+      casingLines:[FL, H/2, H-FL], casingLabel:"折り目の目安（上下＝ヘム折り・中央＝組み立て折り）",
+      notches:[], labelAt:{x:W/2,y:H/2}
+    }]};
+  }
+};
+
+/* ---- ヘアバンド ---- */
+PATTERNS.headband={
+  mode:"small",
+  name:"ヘアバンド",
+  note:"長辺を縫って筒にし、短辺同士を縫い合わせるヘアバンド。シュシュと同じ作り方で幅広にしたもの。ニット地は伸縮を利用しゴムなしでも使えます。",
+  params:[
+    {key:"len",label:"布の長さ",unit:"cm",min:40,max:70,step:2,val:54},
+    {key:"w",  label:"裁ち幅", unit:"cm",min:8, max:20,step:0.5,val:13},
+  ],
+  presets:[
+    {label:"子供",    vals:{len:46, w:10}},
+    {label:"大人S",   vals:{len:50, w:12}},
+    {label:"大人M",   vals:{len:54, w:14}},
+    {label:"ターバン", vals:{len:60, w:20}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const W=cm(p.len), H=cm(p.w);
+    const fin=[{x:0,y:0},{x:W,y:0},{x:W,y:H},{x:0,y:H}];
+    const pc=pieceFrom(fin,()=>false,sa);
+    return {pieces:[{
+      title:"ヘアバンド本体", cutInfo:"1枚 ／ 長辺を縫って筒にし、短辺同士を縫い合わせる",
+      ...pc, foldX:null,
+      grain:{x1:W/2,y1:6,x2:W/2,y2:H-6},
+      notches:[], labelAt:{x:W/2,y:H/2}
+    }],
+    memo:`ゴムを使う場合：頭回りの65〜70%の長さが目安`};
+  }
+};
+
+/* ---- 移動ポケット ---- */
+PATTERNS.movepocket={
+  mode:"kids",
+  name:"移動ポケット",
+  note:"ランドセルのベルトに通して使う移動ポケット。本体2枚＋フラップ2枚＋ベルト通し1枚の3種。本体とフラップを中表で縫って返し、ベルト通しで束ねます。",
+  params:[
+    {key:"pw",    label:"ポケット幅",        unit:"cm",min:8,  max:20,step:0.5,val:12},
+    {key:"ph",    label:"ポケット高さ",      unit:"cm",min:10, max:25,step:0.5,val:15},
+    {key:"flapH", label:"フラップ高さ",      unit:"cm",min:3,  max:10,step:0.5,val:5},
+    {key:"strapW",label:"ランドセルベルト幅",unit:"cm",min:2.5,max:5, step:0.5,val:3.5},
+  ],
+  presets:[
+    {label:"小さめ", vals:{pw:10, ph:12, flapH:4,  strapW:3.5}},
+    {label:"標準",   vals:{pw:12, ph:15, flapH:5,  strapW:3.5}},
+    {label:"大きめ", vals:{pw:14, ph:18, flapH:6,  strapW:4}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const PW=cm(p.pw), PH=cm(p.ph), FH=cm(p.flapH), SW=cm(p.strapW);
+    // 本体
+    const bodyFin=[{x:0,y:0},{x:PW,y:0},{x:PW,y:PH},{x:0,y:PH}];
+    const bodypc=pieceFrom(bodyFin,()=>false,sa);
+    const body={title:"本体", cutInfo:"2枚（表・裏）",
+      ...bodypc, foldX:null,
+      grain:{x1:PW/2,y1:10,x2:PW/2,y2:PH-10},
+      notches:[], labelAt:{x:PW/2,y:PH/2}};
+    // フラップ
+    const flapFin=[{x:0,y:0},{x:PW,y:0},{x:PW,y:FH},{x:0,y:FH}];
+    const flappc=pieceFrom(flapFin,()=>false,sa);
+    const flap={title:"フラップ", cutInfo:"2枚（表・裏）",
+      ...flappc, foldX:null,
+      grain:{x1:PW/2,y1:8,x2:PW/2,y2:FH-8},
+      notches:[], labelAt:{x:PW/2,y:FH/2}};
+    // ベルト通し（ストラップ幅×2＋重なり代で長さを計算）
+    const BW=cm(4), BL=SW*2+cm(4);
+    const beltFin=[{x:0,y:0},{x:BW,y:0},{x:BW,y:BL},{x:0,y:BL}];
+    const beltpc=pieceFrom(beltFin,()=>false,sa);
+    const belt={title:"ベルト通し", cutInfo:"1枚（長さ方向に二つ折り→両端を折って縫う）",
+      ...beltpc, foldX:null,
+      grain:{x1:BW/2,y1:8,x2:BW/2,y2:BL-8},
+      notches:[], labelAt:{x:BW/2,y:BL/2}};
+    return {pieces:[body,flap,belt],
+      memo:`ベルト通し内径：${p.strapW}cm（ランドセルベルト幅に合わせて調整）`};
+  }
+};
+
+/* ---- コップ袋（マチ付き巾着） ---- */
+PATTERNS.kincgusset={
+  mode:"small",
+  name:"コップ袋（マチ付き）",
+  note:"底に三角マチを付けた巾着。底辺はわ（輪）に置いて裁ちます。両脇を縫った後、底角の合印（▽）まで三角につまんでマチを縫い、三角部分を折ります。",
+  params:[
+    {key:"w",     label:"仕上がり幅",    unit:"cm",min:8, max:30,step:0.5,val:16},
+    {key:"h",     label:"仕上がり高さ",  unit:"cm",min:8, max:40,step:0.5,val:20},
+    {key:"gusset",label:"マチ（底の奥行）",unit:"cm",min:2,max:12,step:1,  val:4},
+    {key:"casing",label:"ひも通し下がり",unit:"cm",min:2, max:8, step:0.5,val:4},
+  ],
+  presets:[
+    {label:"コップ袋S", vals:{w:14, h:18, gusset:4,  casing:3.5}},
+    {label:"コップ袋M", vals:{w:16, h:20, gusset:4,  casing:4}},
+    {label:"お弁当袋",  vals:{w:22, h:24, gusset:8,  casing:4}},
+    {label:"体操着袋",  vals:{w:30, h:35, gusset:8,  casing:4}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const TW=cm(p.w)+cm(p.gusset); // マチ分だけ幅を広くとる
+    const TH=2*cm(p.h);
+    const cas=cm(p.casing), gus=cm(p.gusset);
+    const fin=[{x:0,y:0},{x:TW,y:0},{x:TW,y:TH},{x:0,y:TH}];
+    const isFold=(a,b)=>a.y===TH&&b.y===TH;
+    const pc=pieceFrom(fin,isFold,sa);
+    return {pieces:[{
+      title:"袋本体", cutInfo:"底（下端）を「わ」に置いて 1枚 ／ 脇縫い後に底角の▽位置で三角につまんでマチを縫う",
+      ...pc, foldX:null, foldY:TH,
+      grain:{x1:TW/2,y1:cas+18,x2:TW/2,y2:TH-18},
+      casingLines:[cas, TH-cas], casingLabel:"ひも通し口",
+      notches:[{x:gus/2,y:TH},{x:TW-gus/2,y:TH}],
+      labelAt:{x:TW/2,y:TH/2}
+    }],
+    memo:`底角の合印から各辺に沿って${p.gusset/2}cmの位置でマチを縫う`};
   }
 };
