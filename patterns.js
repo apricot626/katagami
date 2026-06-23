@@ -619,3 +619,152 @@ PATTERNS.apron={
     return {pieces:[body,tie,neck]};
   }
 };
+
+/* ---- サコッシュ ---- */
+PATTERNS.sacoche={
+  mode:"bag",
+  name:"サコッシュ",
+  note:"前後2枚を縫い合わせるシンプルなショルダーバッグ。ファスナーまたはマグネットホックで口を閉じます。",
+  params:[
+    {key:"w",     label:"仕上がり幅",      unit:"cm",min:15,max:40,step:1,  val:22},
+    {key:"h",     label:"仕上がり高さ",    unit:"cm",min:12,max:35,step:1,  val:18},
+    {key:"strapL",label:"ショルダー紐長さ",unit:"cm",min:80,max:180,step:5, val:120},
+    {key:"strapW",label:"紐の裁ち幅",      unit:"cm",min:3, max:8,  step:0.5,val:5},
+  ],
+  presets:[
+    {label:"スリム", vals:{w:18, h:15, strapL:120, strapW:4}},
+    {label:"標準",   vals:{w:22, h:18, strapL:130, strapW:5}},
+    {label:"大きめ", vals:{w:28, h:22, strapL:140, strapW:6}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const W=cm(p.w), H=cm(p.h);
+    const bodyFin=[{x:0,y:0},{x:W,y:0},{x:W,y:H},{x:0,y:H}];
+    const bodypc=pieceFrom(bodyFin,()=>false,sa);
+    const body={title:"本体", cutInfo:"2枚（前後）",
+      ...bodypc, foldX:null,
+      grain:{x1:W/2,y1:10,x2:W/2,y2:H-10},
+      notches:[], labelAt:{x:W/2,y:H/2}};
+    const SL=cm(p.strapL), SW=cm(p.strapW);
+    const strapFin=[{x:0,y:0},{x:SW,y:0},{x:SW,y:SL},{x:0,y:SL}];
+    const strappc=pieceFrom(strapFin,()=>false,sa);
+    const strap={title:"ショルダー紐", cutInfo:"1枚（長さ方向に二つ折りで縫う）",
+      ...strappc, foldX:null,
+      grain:{x1:SW/2,y1:15,x2:SW/2,y2:SL-15},
+      notches:[], labelAt:{x:SW/2,y:SL/2}};
+    return {pieces:[body,strap],
+      memo:`ファスナー長さの目安：${p.w}cm`};
+  }
+};
+
+/* ---- がまぐちポーチ ---- */
+PATTERNS.gamaguchi={
+  mode:"bag",
+  name:"がまぐちポーチ",
+  note:"口金サイズから布サイズを自動計算します。破線より上に実際の口金をあてて形を写し、布の輪郭線を調整してください。布幅は口金幅×1.6が目安。",
+  params:[
+    {key:"fw",   label:"口金の幅（外幅）",unit:"cm",min:8,  max:22,step:0.5,val:12},
+    {key:"fh",   label:"口金の高さ",      unit:"cm",min:2,  max:8, step:0.5,val:3},
+    {key:"depth",label:"ポーチの深さ",    unit:"cm",min:5,  max:20,step:1,  val:10},
+  ],
+  presets:[
+    {label:"8cm口金",    vals:{fw:8,   fh:2.5, depth:7}},
+    {label:"10.5cm口金", vals:{fw:10.5,fh:3,   depth:9}},
+    {label:"15cm口金",   vals:{fw:15,  fh:4,   depth:12}},
+    {label:"18cm口金",   vals:{fw:18,  fh:5,   depth:14}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const FW=cm(p.fw), FH=cm(p.fh), D=cm(p.depth);
+    const W=FW*1.6;
+    const H=D+FH;
+    const fin=[{x:0,y:0},{x:W,y:0},{x:W,y:H},{x:0,y:H}];
+    const pc=pieceFrom(fin,()=>false,sa);
+    return {pieces:[{
+      title:"ポーチ本体", cutInfo:"2枚（前後）／ 上端に口金をあてて形を写す",
+      ...pc, foldX:null,
+      grain:{x1:W/2,y1:FH+10,x2:W/2,y2:H-10},
+      casingLines:[FH], casingLabel:"口金取り付け位置（ここに口金をあわせる）",
+      notches:[], labelAt:{x:W/2,y:(FH+H)/2}
+    }],
+    memo:`口金${p.fw}cm用。布幅の目安：${(FW*1.6/10).toFixed(1)}cm（口金幅×1.6）`};
+  }
+};
+
+/* ---- スタイ（よだれかけ） ---- */
+PATTERNS.stai={
+  mode:"kids",
+  name:"スタイ",
+  note:"表・裏2枚を重ねて縫い、返し口から表に返す定番スタイ。首ぐりのカーブは目安です。実際の首回りに合わせて調整し、スナップボタンで留めます。",
+  params:[
+    {key:"w",    label:"横幅",       unit:"cm",min:15,max:30,step:1,  val:20},
+    {key:"len",  label:"全長",       unit:"cm",min:15,max:35,step:1,  val:24},
+    {key:"neckw",label:"首くり幅",   unit:"cm",min:8, max:16,step:0.5,val:11},
+    {key:"neckd",label:"首くり深さ", unit:"cm",min:3, max:8, step:0.5,val:5},
+  ],
+  presets:[
+    {label:"新生児",  vals:{w:17, len:20, neckw:9,  neckd:4}},
+    {label:"3〜6M",   vals:{w:19, len:22, neckw:10, neckd:4.5}},
+    {label:"6〜12M",  vals:{w:21, len:25, neckw:11, neckd:5}},
+    {label:"1〜2歳",  vals:{w:23, len:27, neckw:12, neckd:5.5}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const W=cm(p.w), L=cm(p.len), NW=cm(p.neckw), ND=cm(p.neckd);
+    const nl=(W-NW)/2, nr=(W+NW)/2;
+    // ctrl.y=2*ND で実際の最深点がNDになる（ベジェ補正）
+    let fin=[{x:0,y:0},{x:nl,y:0}];
+    fin=fin.concat(quad({x:nl,y:0},{x:W/2,y:2*ND},{x:nr,y:0},10));
+    fin.push({x:W,y:0},{x:W,y:L},{x:0,y:L});
+    const pc=pieceFrom(fin,()=>false,sa);
+    return {pieces:[{
+      title:"スタイ本体", cutInfo:"2枚（表・裏）を重ねて縫い、返し口から表に返す",
+      ...pc, foldX:null,
+      grain:{x1:W/2,y1:ND+10,x2:W/2,y2:L-10},
+      notches:[], labelAt:{x:W/2,y:(ND+L)/2}
+    }],
+    memo:"スナップボタンは左右肩先（上端の角付近）に付ける"};
+  }
+};
+
+/* ---- ゴムウエストパンツ ---- */
+PATTERNS.pants={
+  mode:"kids",
+  name:"ゴムウエストパンツ",
+  note:"前後同じ型紙のゆったりシルエット。中心線同士を縫い合わせ、脇縫いして、ウエストを折り返してゴムを通します。右端が股ぐりカーブ（中心縫い側）。仮縫いで股ぐりを確認してください。",
+  params:[
+    {key:"hip",    label:"ヒップ",             unit:"cm",min:50,max:130,step:1,  val:68},
+    {key:"rise",   label:"股上（ウエスト〜股ぐり）",unit:"cm",min:18,max:40,step:1,  val:24},
+    {key:"inseam", label:"股下（股〜裾）",      unit:"cm",min:10,max:80,step:1,  val:30},
+    {key:"ease",   label:"ゆとり（総量）",      unit:"cm",min:4, max:30,step:1,  val:10},
+    {key:"crotchF",label:"股ぐり延長",          unit:"cm",min:1, max:6, step:0.5,val:2.5},
+    {key:"casing", label:"ウエスト折り返し",    unit:"cm",min:2, max:6, step:0.5,val:3},
+  ],
+  presets:[
+    {label:"90cm",  vals:{hip:52, rise:18, inseam:25, ease:8,  crotchF:2,   casing:3}},
+    {label:"100cm", vals:{hip:56, rise:20, inseam:28, ease:8,  crotchF:2.5, casing:3}},
+    {label:"110cm", vals:{hip:60, rise:21, inseam:32, ease:8,  crotchF:2.5, casing:3}},
+    {label:"120cm", vals:{hip:64, rise:23, inseam:36, ease:8,  crotchF:3,   casing:3}},
+    {label:"130cm", vals:{hip:68, rise:24, inseam:40, ease:8,  crotchF:3,   casing:3}},
+    {label:"大人M",  vals:{hip:90, rise:30, inseam:65, ease:12, crotchF:3.5, casing:4}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const HW=(cm(p.hip)+cm(p.ease))/4; // 左=脇縫い、右=中心縫い
+    const CR=cm(p.rise), IL=cm(p.inseam), CAS=cm(p.casing), CF=cm(p.crotchF);
+    const H=CAS+CR+IL;
+    // 股ぐりカーブ：(HW,CAS)から右に張り出して(HW+CF, CAS+CR)へ
+    let fin=[{x:0,y:0},{x:HW,y:0},{x:HW,y:CAS}];
+    fin=fin.concat(quad({x:HW,y:CAS},{x:HW+CF,y:CAS},{x:HW+CF,y:CAS+CR},8));
+    fin.push({x:HW+CF,y:H},{x:0,y:H});
+    const pc=pieceFrom(fin,()=>false,sa);
+    return {pieces:[{
+      title:"前/後パンツ", cutInfo:"前後それぞれ2枚（左右）計4枚／中心線・股ぐり同士を縫う",
+      ...pc, foldX:null,
+      grain:{x1:HW/2,y1:CAS+CR/2,x2:HW/2,y2:H-20},
+      casingLines:[CAS], casingLabel:"ウエスト折り返し",
+      notches:[{x:HW+CF,y:CAS+CR}], labelAt:{x:HW/2,y:CAS+(CR+IL)/2}
+    }],
+    memo:`ウエストゴム長の目安：${Math.round((cm(p.hip)+cm(p.ease))*0.875/10)}cm`};
+  }
+};
