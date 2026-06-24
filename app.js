@@ -378,15 +378,13 @@ function buildPrintSheets(){
     sheet.appendChild(svg); root.appendChild(sheet);
     const defs=S("defs",{}); svg.appendChild(defs);
     defs.appendChild(arrowMarker("arr_"+r+"_"+c,1));
-    // クリップ（内容領域）
-    const clipId=`clip_${r}_${c}`;
-    const clip=S("clipPath",{id:clipId});
-    clip.appendChild(S("rect",{x:MARGIN,y:MARGIN,width:CONTENT_W,height:CONTENT_H}));
-    defs.appendChild(clip);
 
     const originX=c*STEP_X, originY=r*STEP_Y;
-    const world=S("g",{transform:`translate(${MARGIN-originX},${MARGIN-originY})`,
-      "clip-path":`url(#${clipId})`});
+    // 内容領域: ネストSVGのviewBoxでカナバス座標をクリップ（clipPathの負変換バグを回避）
+    const world=S("svg",{x:MARGIN,y:MARGIN,
+      width:CONTENT_W,height:CONTENT_H,
+      viewBox:`${originX} ${originY} ${CONTENT_W} ${CONTENT_H}`,
+      overflow:"hidden"});
     svg.appendChild(world);
 
     // 50mm グリッド（貼り合わせ補助）
