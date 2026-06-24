@@ -42,7 +42,7 @@ function addWatermark(svg){
     patternTransform:'rotate(32)',patternUnits:'userSpaceOnUse'});
   const t=S('text',{x:2,y:34,'font-size':8,'font-family':'sans-serif',
     fill:'#1B1D1A','fill-opacity':'0.07','font-weight':'700','letter-spacing':'3'});
-  t.textContent='カタガミ';
+  t.textContent='カタガミ.jp';
   pat.appendChild(t);
   defs.appendChild(pat);
   // watermark rect: insert right after defs so it renders behind all content
