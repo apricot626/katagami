@@ -1199,6 +1199,237 @@ PATTERNS.sleevedress={
   }
 };
 
+/* ---- かぼちゃパンツ（ブルマ） ---- */
+PATTERNS.bloomers={
+  mode:"kids",
+  name:"かぼちゃパンツ（ブルマ）",
+  note:"ウエストと裾の両方にゴムを通したふんわりブルマ。前後同じ型紙で、中心（股ぐり）同士を縫い合わせ、脇を縫います。丈を短く・ゆとりを多くするほどかぼちゃらしい丸みが出ます。ベビー〜キッズ向け。",
+  params:[
+    {key:"hip",    label:"ヒップ",             unit:"cm",min:40,max:80,step:1,  val:50},
+    {key:"rise",   label:"股上（ウエスト〜股）",unit:"cm",min:14,max:30,step:1,  val:18},
+    {key:"leglen", label:"裾丈（股〜裾）",      unit:"cm",min:5, max:25,step:1,  val:10},
+    {key:"ease",   label:"ゆとり（総量）",      unit:"cm",min:4, max:24,step:1,  val:8},
+    {key:"crotchF",label:"股ぐり延長",          unit:"cm",min:1, max:6, step:0.5,val:2.5},
+    {key:"casing", label:"ゴム通し折り返し",    unit:"cm",min:2, max:5, step:0.5,val:2.5},
+  ],
+  presets:[
+    {label:"70(6-12M)", vals:{hip:46, rise:16, leglen:8,  ease:6, crotchF:2,   casing:2.5}},
+    {label:"80(1-2歳)", vals:{hip:48, rise:17, leglen:9,  ease:8, crotchF:2,   casing:3}},
+    {label:"90(2-3歳)", vals:{hip:52, rise:18, leglen:10, ease:8, crotchF:2.5, casing:3}},
+    {label:"95(3-4歳)", vals:{hip:54, rise:19, leglen:11, ease:8, crotchF:2.5, casing:3}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const HW=(cm(p.hip)+cm(p.ease))/4;        // 左=脇、右=中心(股ぐり)
+    const CR=cm(p.rise), LL=cm(p.leglen), CAS=cm(p.casing), CF=cm(p.crotchF);
+    const H=CAS+CR+LL;
+    let fin=[{x:0,y:0},{x:HW,y:0},{x:HW,y:CAS}];
+    fin=fin.concat(quad({x:HW,y:CAS},{x:HW+CF,y:CAS+CR*0.45},{x:HW+CF,y:CAS+CR},10));
+    fin.push({x:HW+CF,y:H},{x:0,y:H});
+    const pc=pieceFrom(fin,()=>false,sa);
+    return {pieces:[{
+      title:"前/後 ブルマ（共通）", cutInfo:"前後それぞれ2枚（左右）計4枚 ／ 中心(股ぐり)同士を縫い、脇を縫う",
+      ...pc, foldX:null,
+      grain:{x1:HW/2,y1:CAS+CR/2,x2:HW/2,y2:H-16},
+      casingLines:[CAS, H-CAS], casingLabel:"ウエスト/裾ゴム通し",
+      notches:[{x:HW+CF,y:CAS+CR}], labelAt:{x:HW/2,y:CAS+(CR+LL)/2}
+    }],
+    memo:`ウエスト・裾ともゴム通し。ウエストゴム長の目安：${Math.round((cm(p.hip)+cm(p.ease))*0.85/10)}cm／裾ゴムは太もも回り−2cm程度。`};
+  }
+};
+
+/* ---- キッズワンピース（身頃＋ギャザースカート） ---- */
+PATTERNS.kidsdress={
+  mode:"kids",
+  name:"キッズワンピース",
+  note:"ノースリーブ身頃にたっぷりギャザーのスカートを接いだ2段ワンピース。前後身頃＋スカートの3パーツ。衿ぐり・袖ぐりはバイアステープ仕上げ。後ろ開きはボタンやスナップで留めます。",
+  params:[
+    {key:"bust",    label:"バスト",              unit:"cm",min:48,max:80,step:1,  val:58},
+    {key:"shoulder",label:"肩幅",                unit:"cm",min:20,max:36,step:1,  val:26},
+    {key:"bodice",  label:"身頃丈（肩〜ウエスト）",unit:"cm",min:18,max:34,step:1,  val:24},
+    {key:"skirtlen",label:"スカート丈",          unit:"cm",min:18,max:55,step:1,  val:32},
+    {key:"full",    label:"ギャザー倍率",        unit:"倍",min:1.4,max:2.6,step:0.1,val:1.8},
+    {key:"neckw",   label:"衿ぐり幅",            unit:"cm",min:9, max:16,step:0.5,val:12},
+    {key:"ease",    label:"ゆとり（総量）",      unit:"cm",min:4, max:16,step:1,  val:8},
+  ],
+  presets:[
+    {label:"90cm",  vals:{bust:54,shoulder:23,bodice:21,skirtlen:26,full:1.8,neckw:11,ease:8}},
+    {label:"100cm", vals:{bust:58,shoulder:25,bodice:23,skirtlen:30,full:1.8,neckw:12,ease:8}},
+    {label:"110cm", vals:{bust:62,shoulder:26,bodice:25,skirtlen:34,full:1.8,neckw:12,ease:8}},
+    {label:"120cm", vals:{bust:66,shoulder:28,bodice:27,skirtlen:38,full:1.8,neckw:13,ease:8}},
+    {label:"130cm", vals:{bust:70,shoulder:30,bodice:29,skirtlen:42,full:1.8,neckw:14,ease:8}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const BW=cm(p.bust)/4+cm(p.ease)/4;
+    const BL=cm(p.bodice);
+    const SHx=cm(p.shoulder)/2;
+    const NWh=cm(p.neckw)/2;
+    const AHy=cm(11); // 子供向け袖ぐり深さ
+    const bodice=(isBack)=>{
+      const FD=cm(isBack?2:5.5);
+      const neckCurve=quad({x:0,y:FD},{x:NWh*0.5,y:FD},{x:NWh,y:0},10);
+      const shoulderPt={x:SHx,y:0};
+      const underarm={x:BW,y:AHy};
+      const armCurve=quad(shoulderPt,{x:SHx+(BW-SHx)*0.45,y:AHy*0.55},underarm,10);
+      const waistSide={x:BW*0.92,y:BL};
+      let fin=[{x:0,y:FD}];
+      fin=fin.concat(neckCurve);
+      fin.push(shoulderPt);
+      fin=fin.concat(armCurve);
+      fin=fin.concat(quad(underarm,{x:BW,y:(AHy+BL)*0.55},waistSide,8));
+      fin.push({x:0,y:BL});
+      const isFold=(a,b)=>a.x===0&&b.x===0;
+      const pc=pieceFrom(fin,isFold,sa);
+      return {
+        title:isBack?"後身頃":"前身頃",
+        cutInfo:"中心を「わ」に置いて1枚（前1枚・後1枚）",
+        ...pc,foldX:0,
+        grain:{x1:BW*0.4,y1:FD+10,x2:BW*0.4,y2:BL-8},
+        notches:[{x:BW,y:AHy}],
+        labelAt:{x:BW*0.4,y:(FD+BL)*0.5}
+      };
+    };
+    // スカート：ギャザーを寄せる長方形（左端＝わ）
+    const skW=(cm(p.bust)+cm(p.ease))*p.full/2;
+    const skH=cm(p.skirtlen);
+    const finS=[{x:0,y:0},{x:skW,y:0},{x:skW,y:skH},{x:0,y:skH}];
+    const pcS=pieceFrom(finS,(a,b)=>a.x===0&&b.x===0,sa);
+    const skirt={
+      title:"スカート（前・後共通）",cutInfo:"中心を「わ」に置いて 前1枚・後1枚（計2枚）",
+      ...pcS,foldX:0,
+      grain:{x1:skW/2,y1:14,x2:skW/2,y2:skH-14},
+      notches:[],labelAt:{x:skW/2,y:skH/2}
+    };
+    return {pieces:[bodice(false),bodice(true),skirt],
+      memo:"スカート上端にギャザーを寄せ、身頃ウエストに合わせて接ぐ。衿ぐり・袖ぐりはバイアステープ仕上げ。後ろ中心は開きを作ってボタン/スナップ留めに。"};
+  }
+};
+
+/* ---- キッズスモック ---- */
+PATTERNS.smock={
+  mode:"kids",
+  name:"キッズスモック",
+  note:"保育園・幼稚園の定番かぶりスモック。ゆったりドロップショルダーの前後共通身頃＋筒袖の2型。衿ぐり・袖口はゴムを通してギャザーに。かぶって着る仕様なので衿ぐりは頭が通る寸法を確認してください。",
+  params:[
+    {key:"bust",  label:"バスト",     unit:"cm",min:52,max:84,step:1,  val:64},
+    {key:"len",   label:"着丈",       unit:"cm",min:30,max:55,step:1,  val:40},
+    {key:"sleeve",label:"袖丈",       unit:"cm",min:18,max:42,step:1,  val:28},
+    {key:"neckw", label:"衿ぐり幅",   unit:"cm",min:14,max:22,step:0.5,val:17},
+    {key:"ease",  label:"ゆとり（総量）",unit:"cm",min:10,max:30,step:1,  val:18},
+  ],
+  presets:[
+    {label:"90cm",  vals:{bust:56,len:34,sleeve:22,neckw:16,ease:16}},
+    {label:"100cm", vals:{bust:60,len:38,sleeve:25,neckw:16,ease:18}},
+    {label:"110cm", vals:{bust:64,len:42,sleeve:28,neckw:17,ease:18}},
+    {label:"120cm", vals:{bust:68,len:46,sleeve:31,neckw:18,ease:20}},
+    {label:"130cm", vals:{bust:72,len:50,sleeve:34,neckw:18,ease:20}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const HW=(cm(p.bust)+cm(p.ease))/4;  // 中心わ(左)からの半身幅
+    const L=cm(p.len);
+    const NWh=cm(p.neckw)/2;
+    const ND=cm(2.5);              // 前後共通の浅い衿ぐり（ゴムギャザー前提）
+    const drop=cm(3);              // ドロップショルダーの肩下がり
+    const AHy=cm(15);              // 袖ぐり位置
+    const neckCurve=quad({x:0,y:ND},{x:NWh*0.5,y:ND},{x:NWh,y:0},10);
+    const shoulderPt={x:HW*0.78,y:drop};
+    const underarm={x:HW,y:AHy};
+    let fin=[{x:0,y:ND}];
+    fin=fin.concat(neckCurve);
+    fin.push(shoulderPt);
+    fin=fin.concat(quad(shoulderPt,{x:HW,y:(drop+AHy)*0.5},underarm,8));
+    fin.push({x:HW,y:L},{x:0,y:L});
+    const isFold=(a,b)=>a.x===0&&b.x===0;
+    const pc=pieceFrom(fin,isFold,sa);
+    const body={
+      title:"前/後身頃（共通）",cutInfo:"中心を「わ」に置いて 前1枚・後1枚（計2枚）",
+      ...pc,foldX:0,
+      grain:{x1:HW*0.4,y1:AHy,x2:HW*0.4,y2:L-10},
+      notches:[{x:HW,y:AHy}],
+      labelAt:{x:HW*0.4,y:(AHy+L)*0.5}
+    };
+    // 袖：袖山を袖ぐりに合わせた筒袖（袖口ゴム）
+    const SW=Math.max(cm(p.bust)*0.5, 2*(AHy-drop)*1.1);
+    const SL=cm(p.sleeve);
+    const slFin=[{x:0,y:0},{x:SW,y:0},{x:SW,y:SL},{x:0,y:SL}];
+    const slpc=pieceFrom(slFin,()=>false,sa);
+    const sleeve={
+      title:"袖",cutInfo:"2枚（左右）／ 袖口をゴム通しにし、袖下を縫って身頃の袖ぐりに付ける",
+      ...slpc,foldX:null,
+      grain:{x1:SW/2,y1:10,x2:SW/2,y2:SL-10},
+      casingLines:[SL-cm(2.5)],casingLabel:"袖口ゴム通し",
+      notches:[],labelAt:{x:SW/2,y:SL/2}
+    };
+    return {pieces:[body,sleeve],
+      memo:"衿ぐり・袖口はゴム通し（三つ折り）にしてギャザーを寄せる。袖は袖山にも軽くギャザーを寄せて袖ぐりに付ける。裾は三つ折りでまつる。"};
+  }
+};
+
+/* ---- ベビー帽子（チューリップハット） ---- */
+PATTERNS.babyhat={
+  mode:"kids",
+  name:"ベビー帽子（チューリップハット）",
+  note:"花びら（ゴア）6枚を縫い合わせたクラウンに、下向きのブリムを付けたチューリップハット。花びらは6枚、ブリムは「わ」二重に置いて表・裏各1枚を裁ちます。表布と裏布で作ればリバーシブルにできます。",
+  params:[
+    {key:"head", label:"頭囲",          unit:"cm",min:38,max:54,step:1,  val:46},
+    {key:"crown",label:"クラウン深さ",  unit:"cm",min:8, max:16,step:0.5,val:11},
+    {key:"brim", label:"ブリム幅",      unit:"cm",min:4, max:9, step:0.5,val:6},
+    {key:"ease", label:"ゆとり",        unit:"cm",min:0, max:4, step:0.5,val:1},
+  ],
+  presets:[
+    {label:"新生児",  vals:{head:42,crown:9, brim:5,  ease:1}},
+    {label:"3〜6M",   vals:{head:44,crown:10,brim:5.5,ease:1}},
+    {label:"6〜12M",  vals:{head:46,crown:11,brim:6,  ease:1}},
+    {label:"1〜2歳",  vals:{head:48,crown:11,brim:6.5,ease:1}},
+    {label:"2〜3歳",  vals:{head:50,crown:12,brim:7,  ease:1.5}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const HC=cm(p.head)+cm(p.ease);
+    const W=HC/6;            // 花びら1枚の底辺幅
+    const H=cm(p.crown);     // クラウン深さ＝花びら丈
+    const cx=W/2;
+    const Wm=W*0.62;         // 中央のふくらみ（中心からの張り出し）
+    // 花びら：底辺(0,H)→(W,H)、左右の曲線が頂点(cx,0)で合わさる
+    let petal=[{x:0,y:H}];
+    petal=petal.concat(quad({x:0,y:H},{x:cx-Wm,y:H*0.45},{x:cx,y:0},12));
+    petal=petal.concat(quad({x:cx,y:0},{x:cx+Wm,y:H*0.45},{x:W,y:H},12));
+    const petalpc=pieceFrom(petal,()=>false,sa);
+    const petalPiece={
+      title:"クラウン（花びら）",cutInfo:"6枚 ／ 曲線の辺同士を順に縫い合わせてドーム状にする",
+      ...petalpc,foldX:null,
+      grain:{x1:cx,y1:H*0.25,x2:cx,y2:H*0.85},
+      notches:[],labelAt:{x:cx,y:H*0.6}
+    };
+    // ブリム：四半円のドーナツ（内径＝頭囲、外径＝＋ブリム幅）。CF・CBわで全周。
+    const ri=HC/(2*Math.PI);
+    const ro=ri+cm(p.brim);
+    const STEPS=24, inv=1/Math.SQRT2;
+    const innerArc=[],outerArc=[];
+    for(let i=0;i<=STEPS;i++){const θ=(Math.PI/2)*(1-i/STEPS);innerArc.push({x:ri*Math.cos(θ),y:ri*Math.sin(θ)});}
+    for(let i=0;i<=STEPS;i++){const θ=(Math.PI/2)*(i/STEPS);outerArc.push({x:ro*Math.cos(θ),y:ro*Math.sin(θ)});}
+    const brimFin=[...innerArc,{x:ro,y:0},...outerArc.slice(1)];
+    const EPS=0.5;
+    const brimFold=(a,b)=>{
+      const left=Math.abs(a.x)<EPS&&Math.abs(b.x)<EPS;
+      const top=Math.abs(a.y)<EPS&&Math.abs(b.y)<EPS;
+      return left||top;
+    };
+    const brimpc=pieceFrom(brimFin,brimFold,sa);
+    const g1=(ri+cm(p.brim)*0.3)*inv,g2=(ri+cm(p.brim)*0.8)*inv;
+    const brimPiece={
+      title:"ブリム",cutInfo:"CF・CBとも「わ」に置いて1枚裁ち ×2（表・裏）",
+      ...brimpc,foldX:0,foldY:0,
+      grain:{x1:g1,y1:g1,x2:g2,y2:g2},
+      notches:[],labelAt:{x:(ri+ro)*0.5*inv,y:(ri+ro)*0.5*inv}
+    };
+    return {pieces:[petalPiece,brimPiece],
+      memo:`クラウン内周（頭囲）約${(HC/10).toFixed(0)}cm。花びら6枚を縫ってドームにし、ブリム（表・裏を中表で外周縫い→返す）の内周に付ける。`};
+  }
+};
+
 /* ---- 人気順に表示順を整列 ---- */
 (function(){
   const ORDER=[
@@ -1206,7 +1437,7 @@ PATTERNS.sleevedress={
     /* 大人服 */  'tee','apron','skirt','flareskirt','mermaid','sleevedress',
     /* 小物 */    'kinchaku','kincgusset','placemat','shuushu','headband','tissuecase','bookcover','bowtie',
     /* ペット */  'dog','dogsleeved','mannerbelt',
-    /* 子供服 */  'kidstee','stai','movepocket','pants','gather',
+    /* 子供服 */  'kidstee','kidsdress','smock','pants','bloomers','gather','babyhat','stai','movepocket',
   ];
   const extras=Object.keys(PATTERNS).filter(k=>!ORDER.includes(k));
   [...ORDER,...extras].forEach(k=>{
