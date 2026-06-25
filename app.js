@@ -259,7 +259,31 @@ function arrowMarker(id,scale){
    ============================================================ */
 // 型紙ごとの作り方記事（ある型紙だけ文脈リンクを表示）
 const HOWTO={
-  kinchaku:{url:"howto-kinchaku.html", label:"📄 巾着の作り方を見る"}
+  kinchaku:{url:"howto-kinchaku.html", label:"📄 巾着の作り方を見る"},
+  tote:{url:"howto-tote.html", label:"📄 トートバッグの作り方を見る"},
+  panel:{url:"howto-panel.html", label:"📄 汎用パネルの作り方を見る"},
+  pouch:{url:"howto-pouch.html", label:"📄 ファスナーポーチの作り方を見る"},
+  pouchgusset:{url:"howto-pouchgusset.html", label:"📄 マチ付きポーチの作り方を見る"},
+  sacoche:{url:"howto-sacoche.html", label:"📄 サコッシュの作り方を見る"},
+  gamaguchi:{url:"howto-gamaguchi.html", label:"📄 がまぐちポーチの作り方を見る"},
+  tee:{url:"howto-tee.html", label:"📄 Tシャツの作り方を見る"},
+  skirt:{url:"howto-skirt.html", label:"📄 Aラインスカートの作り方を見る"},
+  apron:{url:"howto-apron.html", label:"📄 エプロンの作り方を見る"},
+  bowtie:{url:"howto-bowtie.html", label:"📄 蝶ネクタイの作り方を見る"},
+  shuushu:{url:"howto-shuushu.html", label:"📄 シュシュの作り方を見る"},
+  bookcover:{url:"howto-bookcover.html", label:"📄 ブックカバーの作り方を見る"},
+  placemat:{url:"howto-placemat.html", label:"📄 ランチョンマットの作り方を見る"},
+  tissuecase:{url:"howto-tissuecase.html", label:"📄 ティッシュケースの作り方を見る"},
+  headband:{url:"howto-headband.html", label:"📄 ヘアバンドの作り方を見る"},
+  kincgusset:{url:"howto-kincgusset.html", label:"📄 コップ袋の作り方を見る"},
+  dog:{url:"howto-dog.html", label:"📄 犬服（タンク）の作り方を見る"},
+  mannerbelt:{url:"howto-mannerbelt.html", label:"📄 マナーベルトの作り方を見る"},
+  dogsleeved:{url:"howto-dogsleeved.html", label:"📄 犬服（袖付き）の作り方を見る"},
+  kidstee:{url:"howto-kidstee.html", label:"📄 子供Tシャツの作り方を見る"},
+  gather:{url:"howto-gather.html", label:"📄 ギャザースカートの作り方を見る"},
+  stai:{url:"howto-stai.html", label:"📄 スタイの作り方を見る"},
+  pants:{url:"howto-pants.html", label:"📄 ゴムウエストパンツの作り方を見る"},
+  movepocket:{url:"howto-movepocket.html", label:"📄 移動ポケットの作り方を見る"}
 };
 
 function render(){
