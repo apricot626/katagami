@@ -999,11 +999,211 @@ PATTERNS.dogsleeved={
   }
 };
 
+/* ---- フレアスカート（サーキュラー） ---- */
+PATTERNS.flareskirt={
+  mode:"human",
+  name:"フレアスカート",
+  note:"サーキュラースカート。フルサークルは最大限のフレア、ハーフサークルは布使いを抑えながらたっぷりのボリュームを出すデザイン。ウエストはゴム仕様を想定。型紙は四半円（扇形）で、折りたたんだ布に置いて裁断します。",
+  params:[
+    {key:"waist",label:"ウエスト",unit:"cm",min:50,max:110,step:1,val:70},
+    {key:"len",label:"スカート丈",unit:"cm",min:30,max:90,step:1,val:55},
+    {key:"ease",label:"ウエストゆとり",unit:"cm",min:0,max:10,step:1,val:2},
+  ],
+  presets:[
+    {label:"S",  vals:{waist:62,len:52,ease:2}},
+    {label:"M",  vals:{waist:70,len:55,ease:2}},
+    {label:"L",  vals:{waist:78,len:58,ease:2}},
+    {label:"LL", vals:{waist:86,len:60,ease:2}},
+  ],
+  toggles:[{key:"half",label:"ハーフサークルにする（布使い少なめ・フレアやや控えめ）",val:false}],
+  gen(p,sa){
+    const W=cm(p.waist)+cm(p.ease);
+    const L=cm(p.len);
+    const half=p.half;
+    const ri=half?W/Math.PI:W/(2*Math.PI);
+    const ro=ri+L;
+    const STEPS=24;
+    const inv=1/Math.SQRT2;
+    // 内弧（ウエスト）: θ=π/2→0 → (0,ri)から(ri,0)
+    const innerArc=[];
+    for(let i=0;i<=STEPS;i++){const θ=(Math.PI/2)*(1-i/STEPS);innerArc.push({x:ri*Math.cos(θ),y:ri*Math.sin(θ)});}
+    // 外弧（裾）: θ=0→π/2 → (ro,0)から(0,ro)
+    const outerArc=[];
+    for(let i=0;i<=STEPS;i++){const θ=(Math.PI/2)*(i/STEPS);outerArc.push({x:ro*Math.cos(θ),y:ro*Math.sin(θ)});}
+    // 多角形: innerArc(0,ri)→(ri,0) → コーナー(ro,0) → outerArc→(0,ro) → 閉じて(0,ri)
+    const fin=[...innerArc,{x:ro,y:0},...outerArc.slice(1)];
+    const EPS=0.5;
+    const isFold=(a,b)=>{
+      const left=Math.abs(a.x)<EPS&&Math.abs(b.x)<EPS;
+      const top=Math.abs(a.y)<EPS&&Math.abs(b.y)<EPS;
+      return left||(!half&&top);
+    };
+    const pc=pieceFrom(fin,isFold,sa);
+    const g1=(ri+L*0.2)*inv,g2=(ri+L*0.65)*inv;
+    return {pieces:[{
+      title:"スカート",
+      cutInfo:half?"CBを「わ」に置いて1枚裁ち（計1枚）":"CF・CBとも「わ」に置いて1枚裁ち（計1枚）",
+      ...pc,foldX:0,foldY:half?null:0,
+      grain:{x1:g1,y1:g1,x2:g2,y2:g2},
+      notches:[],
+      labelAt:{x:(ri+ro)*0.5*inv,y:(ri+ro)*0.5*inv}
+    }],
+    memo:`内径(ウエスト) 約${(ri/10).toFixed(1)}cm / 外径(裾) 約${(ro/10).toFixed(1)}cm`};
+  }
+};
+
+/* ---- マーメイドスカート ---- */
+PATTERNS.mermaid={
+  mode:"human",
+  name:"マーメイドスカート",
+  note:"腰からひざ下まではタイトに、裾だけ大きくフレアするマーメイドライン。上パネル（ウエスト〜切替）と下パネル（切替〜裾）の2枚構成。前後それぞれ各2枚、計4枚裁ちます。",
+  params:[
+    {key:"waist",label:"ウエスト",unit:"cm",min:50,max:110,step:1,val:70},
+    {key:"hip",label:"ヒップ",unit:"cm",min:70,max:130,step:1,val:94},
+    {key:"total",label:"スカート丈（合計）",unit:"cm",min:60,max:120,step:1,val:80},
+    {key:"split",label:"切替位置（ウエストから）",unit:"cm",min:40,max:90,step:1,val:60},
+    {key:"drop",label:"ヒップ下がり",unit:"cm",min:14,max:24,step:0.5,val:19},
+    {key:"flare",label:"裾フレア（片側に＋）",unit:"cm",min:10,max:50,step:1,val:22},
+    {key:"ease",label:"ゆとり（総量）",unit:"cm",min:2,max:14,step:1,val:4},
+  ],
+  presets:[
+    {label:"S",  vals:{waist:62,hip:86, total:78,split:58,drop:18,flare:20,ease:4}},
+    {label:"M",  vals:{waist:70,hip:94, total:80,split:60,drop:19,flare:22,ease:4}},
+    {label:"L",  vals:{waist:78,hip:102,total:82,split:62,drop:20,flare:24,ease:4}},
+    {label:"LL", vals:{waist:86,hip:110,total:84,split:64,drop:21,flare:26,ease:4}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const qW=cm(p.waist)/4+cm(p.ease)/4;
+    const qH=cm(p.hip)/4+cm(p.ease)/4;
+    const SL=cm(p.split);
+    const TL=cm(p.total);
+    const drop=cm(p.drop);
+    const fl=cm(p.flare);
+    const sideDip=10;
+    const splitX=qH*0.97; // 切替幅（ヒップより僅かに絞る）
+    // ---- 上パネル ----
+    const wTop={x:0,y:0},wSide={x:qW,y:sideDip},hipPt={x:qH,y:drop};
+    const splitSide={x:splitX,y:SL},splitCF={x:0,y:SL};
+    let fin1=[wTop];
+    fin1=fin1.concat(quad(wTop,{x:qW*0.55,y:0},wSide,10));
+    fin1=fin1.concat(quad(wSide,{x:qH*1.02,y:drop*0.62},hipPt,12));
+    fin1=fin1.concat(quad(hipPt,{x:(qH+splitX)*0.5,y:(drop+SL)*0.5},splitSide,10));
+    fin1=fin1.concat(quad(splitSide,{x:splitX*0.5,y:SL},splitCF,8));
+    const isFold1=(a,b)=>a.x===0&&b.x===0;
+    const pc1=pieceFrom(fin1,isFold1,sa);
+    const upper={
+      title:"上（ウエスト〜切替）",cutInfo:"中心を「わ」に置いて 前1枚・後1枚（計2枚）",
+      ...pc1,foldX:0,
+      grain:{x1:qH*0.42,y1:sideDip+8,x2:qH*0.42,y2:SL*0.86},
+      notches:[{x:qH,y:drop}],
+      labelAt:{x:qH*0.42,y:SL*0.5}
+    };
+    // ---- 下パネル ----
+    const flLen=TL-SL;
+    const topW=splitX;
+    const hemW=topW+fl;
+    const fl_fin=[{x:0,y:0},{x:topW,y:0},{x:hemW,y:flLen},{x:0,y:flLen}];
+    const isFold2=(a,b)=>a.x===0&&b.x===0;
+    const pc2=pieceFrom(fl_fin,isFold2,sa);
+    const lower={
+      title:"下（切替〜裾）",cutInfo:"中心を「わ」に置いて 前1枚・後1枚（計2枚）",
+      ...pc2,foldX:0,
+      grain:{x1:topW*0.3,y1:flLen*0.2,x2:topW*0.3,y2:flLen*0.8},
+      notches:[],
+      labelAt:{x:topW*0.3,y:flLen*0.5}
+    };
+    return {pieces:[upper,lower],
+      memo:`切替位置 ${p.split}cm / 裾の出来上がり幅（わ開き時）約${((topW+fl)*2/10).toFixed(0)}cm`};
+  }
+};
+
+/* ---- ノースリーブワンピース ---- */
+PATTERNS.sleevedress={
+  mode:"human",
+  name:"ノースリーブワンピース",
+  note:"前後身頃とスカートの3パーツ構成。シンプルなAラインシルエット。衿ぐりとアームホールはバイアステープで仕上げます。",
+  params:[
+    {key:"bust",label:"バスト",unit:"cm",min:74,max:130,step:1,val:90},
+    {key:"waist",label:"ウエスト",unit:"cm",min:55,max:110,step:1,val:70},
+    {key:"hip",label:"ヒップ",unit:"cm",min:80,max:135,step:1,val:94},
+    {key:"shoulder",label:"肩幅",unit:"cm",min:30,max:50,step:1,val:38},
+    {key:"bodice",label:"ボディス丈（肩〜ウエスト）",unit:"cm",min:30,max:52,step:1,val:38},
+    {key:"skirtlen",label:"スカート丈",unit:"cm",min:40,max:100,step:1,val:60},
+    {key:"drop",label:"ヒップ下がり",unit:"cm",min:14,max:24,step:0.5,val:19},
+    {key:"flare",label:"裾フレア（脇に＋）",unit:"cm",min:0,max:25,step:0.5,val:10},
+    {key:"ease",label:"バストゆとり",unit:"cm",min:4,max:20,step:1,val:8},
+    {key:"neckw",label:"衿ぐり幅",unit:"cm",min:10,max:22,step:0.5,val:15},
+  ],
+  presets:[
+    {label:"S",  vals:{bust:82, waist:62,hip:88, shoulder:35,bodice:36,skirtlen:58,drop:18,flare:9, ease:8,neckw:14}},
+    {label:"M",  vals:{bust:90, waist:70,hip:94, shoulder:38,bodice:38,skirtlen:60,drop:19,flare:10,ease:8,neckw:15}},
+    {label:"L",  vals:{bust:98, waist:78,hip:102,shoulder:40,bodice:40,skirtlen:62,drop:20,flare:11,ease:8,neckw:16}},
+    {label:"LL", vals:{bust:106,waist:86,hip:110,shoulder:42,bodice:42,skirtlen:64,drop:21,flare:12,ease:8,neckw:17}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const BW=cm(p.bust)/4+cm(p.ease)/4;
+    const WW=cm(p.waist)/4;
+    const BL=cm(p.bodice);
+    const SHx=cm(p.shoulder)/2;
+    const NWh=cm(p.neckw)/2;
+    const AHy=cm(18); // 袖ぐり深さ（固定）
+    // ---- 身頃（前・後共通ジェネレータ）----
+    const bodice=(isBack)=>{
+      const FD=cm(isBack?2.5:8);
+      const neckCurve=quad({x:0,y:FD},{x:NWh*0.5,y:FD},{x:NWh,y:0},10);
+      const shoulderPt={x:SHx,y:0};
+      const underarm={x:BW,y:AHy};
+      const armCurve=quad(shoulderPt,{x:SHx+(BW-SHx)*0.45,y:AHy*0.55},underarm,10);
+      const waistSide={x:WW,y:BL};
+      let fin=[{x:0,y:FD}];
+      fin=fin.concat(neckCurve);
+      fin.push(shoulderPt);
+      fin=fin.concat(armCurve);
+      fin=fin.concat(quad(underarm,{x:(BW+WW)*0.5,y:(AHy+BL)*0.55},waistSide,8));
+      fin.push({x:0,y:BL});
+      const isFold=(a,b)=>a.x===0&&b.x===0;
+      const pc=pieceFrom(fin,isFold,sa);
+      return {
+        title:isBack?"後身頃":"前身頃",
+        cutInfo:"中心を「わ」に置いて1枚（前1枚・後1枚）",
+        ...pc,foldX:0,
+        grain:{x1:BW*0.4,y1:FD+12,x2:BW*0.4,y2:BL-10},
+        notches:[{x:BW,y:AHy}],
+        labelAt:{x:BW*0.4,y:(FD+BL)*0.5}
+      };
+    };
+    // ---- スカート（Aライン）----
+    const qW=cm(p.waist)/4,qH=cm(p.hip)/4;
+    const L=cm(p.skirtlen),drop=cm(p.drop),fl=cm(p.flare);
+    const sideDip=8;
+    const wTop={x:0,y:0},wSide={x:qW,y:sideDip},hipPt={x:qH,y:drop};
+    const hemSide={x:qH+fl,y:L},hemCF={x:0,y:L};
+    let finS=[wTop];
+    finS=finS.concat(quad(wTop,{x:qW*0.55,y:0},wSide,10));
+    finS=finS.concat(quad(wSide,{x:qH*1.02,y:drop*0.62},hipPt,12));
+    finS.push(hemSide);
+    finS=finS.concat(quad(hemSide,{x:qH*0.5,y:L+Math.min(8,fl*0.4)},hemCF,10));
+    const isFoldS=(a,b)=>a.x===0&&b.x===0;
+    const pcS=pieceFrom(finS,isFoldS,sa);
+    const skirtPiece={
+      title:"スカート（前・後共通）",cutInfo:"中心を「わ」に置いて 前1枚・後1枚（計2枚）",
+      ...pcS,foldX:0,
+      grain:{x1:qH*0.42,y1:drop*0.5,x2:qH*0.42,y2:L*0.86},
+      notches:[{x:qH,y:drop}],
+      labelAt:{x:qH*0.42,y:L*0.5}
+    };
+    return {pieces:[bodice(false),bodice(true),skirtPiece],
+      memo:"身頃ウエストとスカートウエストを合わせて接ぎ合わせる。衿ぐり・袖ぐりはバイアステープで仕上げる。"};
+  }
+};
+
 /* ---- 人気順に表示順を整列 ---- */
 (function(){
   const ORDER=[
     /* バッグ */  'tote','pouch','pouchgusset','gamaguchi','sacoche','panel',
-    /* 大人服 */  'tee','apron','skirt',
+    /* 大人服 */  'tee','apron','skirt','flareskirt','mermaid','sleevedress',
     /* 小物 */    'kinchaku','kincgusset','placemat','shuushu','headband','tissuecase','bookcover','bowtie',
     /* ペット */  'dog','dogsleeved','mannerbelt',
     /* 子供服 */  'kidstee','stai','movepocket','pants','gather',
