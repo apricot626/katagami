@@ -998,3 +998,19 @@ PATTERNS.dogsleeved={
       memo:`前足袖は背/腹パネルの前足ぐり（合印間）に縫い付ける。袖周り目安：${p.sleevecirc}cm＋ゆとり${p.sleeveease}cm`};
   }
 };
+
+/* ---- 人気順に表示順を整列 ---- */
+(function(){
+  const ORDER=[
+    /* バッグ */  'tote','pouch','pouchgusset','gamaguchi','sacoche','panel',
+    /* 大人服 */  'tee','apron','skirt',
+    /* 小物 */    'kinchaku','kincgusset','placemat','shuushu','headband','tissuecase','bookcover','bowtie',
+    /* ペット */  'dog','dogsleeved','mannerbelt',
+    /* 子供服 */  'kidstee','stai','movepocket','pants','gather',
+  ];
+  const extras=Object.keys(PATTERNS).filter(k=>!ORDER.includes(k));
+  [...ORDER,...extras].forEach(k=>{
+    if(!PATTERNS[k])return;
+    const v=PATTERNS[k]; delete PATTERNS[k]; PATTERNS[k]=v;
+  });
+})();

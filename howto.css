@@ -140,6 +140,13 @@ a:hover{text-decoration:underline}
 }
 @media print{.material-box{display:none}}
 
+/* ---- term link (auto-linked glossary words) ---- */
+.term-link{
+  color:var(--chalk);text-decoration:underline;
+  text-decoration-style:dotted;text-underline-offset:2px;
+}
+.term-link:hover{text-decoration-style:solid}
+
 @media (max-width:600px){
   .article{padding:24px 16px 60px}
   h1{font-size:21px}
