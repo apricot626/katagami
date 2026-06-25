@@ -187,6 +187,7 @@ svg.preview{display:block;background:var(--paper2);
 .modal-body h3{font-size:12.5px;margin:16px 0 4px;font-weight:700}
 .modal-body p{margin:0 0 8px}
 .modal-body a{color:var(--chalk)}
+.modal-body .policy-date{margin-top:16px;font-size:11px;color:var(--muted)}
 
 /* ---- print ---- */
 #print-root{display:none}
