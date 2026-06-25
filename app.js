@@ -18,6 +18,7 @@ const state={mode:"human", pat:"tee", params:{}, toggles:{}, sa:1.0, showSew:tru
 const MODES=[
   {key:"human",label:"大人服"},
   {key:"kids", label:"子供服"},
+  {key:"baby", label:"ベビー"},
   {key:"small",label:"小物"},
   {key:"bag",  label:"バッグ"},
   {key:"pet",  label:"ペット"},
@@ -290,7 +291,21 @@ const HOWTO={
   kidsdress:{url:"howto-kidsdress.html", label:"📄 キッズワンピースの作り方を見る"},
   smock:{url:"howto-smock.html", label:"📄 キッズスモックの作り方を見る"},
   bloomers:{url:"howto-bloomers.html", label:"📄 かぼちゃパンツ（ブルマ）の作り方を見る"},
-  babyhat:{url:"howto-babyhat.html", label:"📄 ベビー帽子（チューリップハット）の作り方を見る"}
+  babyhat:{url:"howto-babyhat.html", label:"📄 ベビー帽子（チューリップハット）の作り方を見る"},
+  adultgather:{url:"howto-adultgather.html", label:"📄 ギャザースカート（大人）の作り方を見る"},
+  widepants:{url:"howto-widepants.html", label:"📄 ワイドパンツの作り方を見る"},
+  kidsvest:{url:"howto-kidsvest.html", label:"📄 キッズベストの作り方を見る"},
+  kidshalf:{url:"howto-kidshalf.html", label:"📄 キッズハーフパンツの作り方を見る"},
+  swaddle:{url:"howto-swaddle.html", label:"📄 おくるみ（フード付き）の作り方を見る"},
+  bandanastai:{url:"howto-bandanastai.html", label:"📄 バンダナスタイの作り方を見る"},
+  legwarmer:{url:"howto-legwarmer.html", label:"📄 ベビーレッグウォーマーの作り方を見る"},
+  gymbag:{url:"howto-gymbag.html", label:"📄 体操着袋（巾着リュック）の作り方を見る"},
+  shoesbag:{url:"howto-shoesbag.html", label:"📄 上履き入れの作り方を見る"},
+  mask:{url:"howto-mask.html", label:"📄 プリーツマスクの作り方を見る"},
+  bandana:{url:"howto-bandana.html", label:"📄 三角巾の作り方を見る"},
+  azuma:{url:"howto-azuma.html", label:"📄 あずま袋の作り方を見る"},
+  petbandana:{url:"howto-petbandana.html", label:"📄 ペットバンダナの作り方を見る"},
+  petsnood:{url:"howto-petsnood.html", label:"📄 犬用スヌードの作り方を見る"}
 };
 
 function render(){
