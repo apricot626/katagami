@@ -305,7 +305,15 @@ const HOWTO={
   bandana:{url:"howto-bandana.html", label:"📄 三角巾の作り方を見る"},
   azuma:{url:"howto-azuma.html", label:"📄 あずま袋の作り方を見る"},
   petbandana:{url:"howto-petbandana.html", label:"📄 ペットバンダナの作り方を見る"},
-  petsnood:{url:"howto-petsnood.html", label:"📄 犬用スヌードの作り方を見る"}
+  petsnood:{url:"howto-petsnood.html", label:"📄 犬用スヌードの作り方を見る"},
+  halfpants:{url:"howto-halfpants.html", label:"📄 ハーフパンツ（大人）の作り方を見る"},
+  tunic:{url:"howto-tunic.html", label:"📄 チュニックの作り方を見る"},
+  camisole:{url:"howto-camisole.html", label:"📄 キャミソールの作り方を見る"},
+  clutchbag:{url:"howto-clutchbag.html", label:"📄 クラッチバッグの作り方を見る"},
+  shoulderbag:{url:"howto-shoulderbag.html", label:"📄 ショルダーバッグの作り方を見る"},
+  catfuku:{url:"howto-catfuku.html", label:"📄 猫服の作り方を見る"},
+  petvest:{url:"howto-petvest.html", label:"📄 ペット用ベストの作り方を見る"},
+  fittedmask:{url:"howto-fittedmask.html", label:"📄 立体マスクの作り方を見る"}
 };
 
 function render(){
