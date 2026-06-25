@@ -256,10 +256,19 @@ function arrowMarker(id,scale){
 /* ============================================================
    プレビュー描画
    ============================================================ */
+// 型紙ごとの作り方記事（ある型紙だけ文脈リンクを表示）
+const HOWTO={
+  kinchaku:{url:"howto-kinchaku.html", label:"📄 巾着の作り方を見る"}
+};
+
 function render(){
   const {placed,canvasW,canvasH,memo}=layout();
   const def=PATTERNS[state.pat];
   el("patNote").textContent = memo ? `${def.note} ／ ${memo}` : def.note;
+  // 作り方リンク（対応する記事がある型紙のときだけ表示）
+  const howto=HOWTO[state.pat], hl=el("howtoLink");
+  if(howto){hl.href=howto.url; hl.textContent=howto.label; hl.style.display="inline-block";}
+  else{hl.style.display="none";}
   const {cols,rows}=tileGrid(canvasW,canvasH);
   el("sheetCount").textContent=cols*rows;
   buildSAControls();
