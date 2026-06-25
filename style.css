@@ -111,6 +111,9 @@ main{display:grid;grid-template-columns:320px 1fr;gap:0;flex:1;overflow:hidden}
   border-radius:2px;cursor:pointer;margin-top:4px;
 }
 .print-btn:hover{background:#a8362b}
+.feedback-line{font-size:12px;color:var(--muted);margin-top:8px}
+.feedback-link{color:var(--chalk);text-decoration:none;font-weight:700}
+.feedback-link:hover{text-decoration:underline}
 .scale-warn{font-size:11px;color:var(--muted);line-height:1.55;margin-top:9px}
 .scale-warn b{color:var(--vermilion)}
 .pdf-tip{font-size:10.5px;color:var(--muted)}
