@@ -713,7 +713,7 @@ PATTERNS.gamaguchi={
 
 /* ---- スタイ（よだれかけ） ---- */
 PATTERNS.stai={
-  mode:"kids",
+  mode:"baby",
   name:"スタイ",
   note:"表・裏2枚を重ねて縫い、返し口から表に返す定番スタイ。首ぐりのカーブは目安です。実際の首回りに合わせて調整し、スナップボタンで留めます。",
   params:[
@@ -880,7 +880,7 @@ PATTERNS.headband={
 
 /* ---- 移動ポケット ---- */
 PATTERNS.movepocket={
-  mode:"kids",
+  mode:"small",
   name:"移動ポケット",
   note:"ランドセルのベルトに通して使う移動ポケット。本体2枚＋フラップ2枚＋ベルト通し1枚の3種。本体とフラップを中表で縫って返し、ベルト通しで束ねます。",
   params:[
@@ -1201,7 +1201,7 @@ PATTERNS.sleevedress={
 
 /* ---- かぼちゃパンツ（ブルマ） ---- */
 PATTERNS.bloomers={
-  mode:"kids",
+  mode:"baby",
   name:"かぼちゃパンツ（ブルマ）",
   note:"ウエストと裾の両方にゴムを通したふんわりブルマ。前後同じ型紙で、中心（股ぐり）同士を縫い合わせ、脇を縫います。丈を短く・ゆとりを多くするほどかぼちゃらしい丸みが出ます。ベビー〜キッズ向け。",
   params:[
@@ -1369,7 +1369,7 @@ PATTERNS.smock={
 
 /* ---- ベビー帽子（チューリップハット） ---- */
 PATTERNS.babyhat={
-  mode:"kids",
+  mode:"baby",
   name:"ベビー帽子（チューリップハット）",
   note:"花びら（ゴア）6枚を縫い合わせたクラウンに、下向きのブリムを付けたチューリップハット。花びらは6枚、ブリムは「わ」二重に置いて表・裏各1枚を裁ちます。表布と裏布で作ればリバーシブルにできます。",
   params:[
@@ -1430,14 +1430,411 @@ PATTERNS.babyhat={
   }
 };
 
+/* ============================================================
+   追加パターン（カテゴリ統一に伴う新規）
+   ============================================================ */
+
+/* ---- ベビー：バンダナスタイ ---- */
+PATTERNS.bandanastai={
+  mode:"baby",
+  name:"バンダナスタイ",
+  note:"三角の形がかわいいバンダナ風スタイ。表・裏2枚を中表に縫って返し口から返し、首回りの2点（上辺の左右の角）をスナップで留めます。",
+  params:[
+    {key:"w",  label:"上辺（首回り側）",unit:"cm",min:22,max:36,step:1,val:30},
+    {key:"len",label:"たれ丈（深さ）",  unit:"cm",min:12,max:26,step:1,val:18},
+  ],
+  presets:[
+    {label:"新生児",vals:{w:28,len:16}},
+    {label:"3〜6M", vals:{w:30,len:18}},
+    {label:"6〜12M",vals:{w:32,len:20}},
+    {label:"1〜2歳",vals:{w:34,len:22}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const W=cm(p.w),L=cm(p.len);
+    const fin=[{x:0,y:0},{x:W,y:0},{x:W/2,y:L}];
+    const pc=pieceFrom(fin,()=>false,sa);
+    return {pieces:[{title:"バンダナスタイ",cutInfo:"2枚（表・裏）を中表に縫い、返し口から返す",
+      ...pc,foldX:null,grain:{x1:W/2,y1:8,x2:W/2,y2:L-8},notches:[],labelAt:{x:W/2,y:L*0.42}}],
+      memo:"上辺の左右の角にスナップを付ける。首回りに合わせて上辺幅を調整。"};
+  }
+};
+
+/* ---- ベビー：レッグウォーマー ---- */
+PATTERNS.legwarmer={
+  mode:"baby",
+  name:"ベビーレッグウォーマー",
+  note:"筒状に縫うだけのレッグウォーマー。長辺を中表に縫って筒にし、上下を折り返してヘムします。ニット地なら締め付けず快適。左右2本分を裁ちます。",
+  params:[
+    {key:"circ",label:"足回り（ふくらはぎ）",unit:"cm",min:12,max:24,step:1,val:16},
+    {key:"len", label:"丈",unit:"cm",min:12,max:30,step:1,val:20},
+    {key:"hem", label:"折り返し",unit:"cm",min:1.5,max:4,step:0.5,val:2.5},
+  ],
+  presets:[
+    {label:"0〜1歳",vals:{circ:14,len:16,hem:2.5}},
+    {label:"1〜2歳",vals:{circ:16,len:20,hem:2.5}},
+    {label:"2〜3歳",vals:{circ:18,len:24,hem:3}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const W=cm(p.circ),H=cm(p.len)+2*cm(p.hem);
+    const fin=[{x:0,y:0},{x:W,y:0},{x:W,y:H},{x:0,y:H}];
+    const pc=pieceFrom(fin,()=>false,sa);
+    return {pieces:[{title:"レッグウォーマー",cutInfo:"2枚（左右）／ 長辺を縫って筒にし上下をヘム",
+      ...pc,foldX:null,grain:{x1:W/2,y1:10,x2:W/2,y2:H-10},
+      casingLines:[cm(p.hem),H-cm(p.hem)],casingLabel:"折り返しヘム",
+      notches:[],labelAt:{x:W/2,y:H/2}}],
+      memo:"ニット地推奨。筒径は足回りと同寸（ニットの伸びでフィット）。"};
+  }
+};
+
+/* ---- ベビー：おくるみ（フード付き） ---- */
+PATTERNS.swaddle={
+  mode:"baby",
+  name:"おくるみ（フード付き）",
+  note:"正方形の本体に、角へ三角のフードを付けたおくるみ。表布と裏布を中表に合わせて周囲を縫い、返し口から返します。フードは本体の一角に挟みます。",
+  params:[
+    {key:"size",label:"本体一辺",unit:"cm",min:60,max:90,step:1,val:75},
+    {key:"hood",label:"フードの辺",unit:"cm",min:20,max:32,step:1,val:26},
+  ],
+  presets:[
+    {label:"標準",  vals:{size:75,hood:26}},
+    {label:"大きめ",vals:{size:85,hood:28}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const S=cm(p.size),Hd=cm(p.hood);
+    const sq=[{x:0,y:0},{x:S,y:0},{x:S,y:S},{x:0,y:S}];
+    const sqpc=pieceFrom(sq,()=>false,sa);
+    const square={title:"本体",cutInfo:"表布・裏布 各1枚（計2枚）",
+      ...sqpc,foldX:null,grain:{x1:S/2,y1:14,x2:S/2,y2:S-14},notches:[],labelAt:{x:S/2,y:S/2}};
+    const tri=[{x:0,y:0},{x:Hd,y:0},{x:0,y:Hd}];
+    const tripc=pieceFrom(tri,()=>false,sa);
+    const hood={title:"フード（角）",cutInfo:"表布・裏布 各1枚（計2枚）／ 本体の角に重ねて挟む",
+      ...tripc,foldX:null,grain:{x1:Hd*0.3,y1:Hd*0.28,x2:Hd*0.14,y2:Hd*0.6},notches:[],labelAt:{x:Hd*0.26,y:Hd*0.26}};
+    return {pieces:[square,hood],memo:"フードは本体の一角に、斜辺を内向きにして挟んで縫う。"};
+  }
+};
+
+/* ---- 子供服：キッズハーフパンツ（ゴムウエストパンツ流用） ---- */
+PATTERNS.kidshalf={
+  ...PATTERNS.pants,
+  mode:"kids",
+  name:"キッズハーフパンツ",
+  note:"ゴムウエストパンツの股下を短くしたハーフパンツ。前後同じ型紙で中心（股ぐり）同士を縫い、脇を縫い、ウエストを折り返してゴムを通します。裾は折り返してヘム。",
+  params:[
+    {key:"hip",    label:"ヒップ",unit:"cm",min:50,max:90,step:1,val:60},
+    {key:"rise",   label:"股上",unit:"cm",min:16,max:30,step:1,val:21},
+    {key:"inseam", label:"股下",unit:"cm",min:6,max:30,step:1,val:14},
+    {key:"ease",   label:"ゆとり（総量）",unit:"cm",min:4,max:24,step:1,val:10},
+    {key:"crotchF",label:"股ぐり延長",unit:"cm",min:1,max:6,step:0.5,val:2.5},
+    {key:"casing", label:"ウエスト折り返し",unit:"cm",min:2,max:6,step:0.5,val:3},
+  ],
+  presets:[
+    {label:"90cm", vals:{hip:52,rise:18,inseam:10,ease:8,crotchF:2,  casing:3}},
+    {label:"100cm",vals:{hip:56,rise:20,inseam:12,ease:8,crotchF:2.5,casing:3}},
+    {label:"110cm",vals:{hip:60,rise:21,inseam:14,ease:8,crotchF:2.5,casing:3}},
+    {label:"120cm",vals:{hip:64,rise:23,inseam:16,ease:8,crotchF:3,  casing:3}},
+    {label:"130cm",vals:{hip:68,rise:24,inseam:18,ease:8,crotchF:3,  casing:3}},
+  ],
+};
+
+/* ---- 子供服：キッズベスト ---- */
+PATTERNS.kidsvest={
+  mode:"kids",
+  name:"キッズベスト",
+  note:"前開きのシンプルなベスト。後ろ身頃（わ）1枚と前身頃2枚の構成。衿ぐり・前端・袖ぐり・裾はバイアステープまたは見返しで始末します。前はボタンやスナップで留めます。",
+  params:[
+    {key:"bust",label:"バスト",unit:"cm",min:50,max:84,step:1,val:62},
+    {key:"len",label:"着丈",unit:"cm",min:24,max:46,step:1,val:34},
+    {key:"shoulder",label:"肩幅",unit:"cm",min:20,max:36,step:1,val:26},
+    {key:"neckw",label:"衿ぐり幅",unit:"cm",min:9,max:16,step:0.5,val:12},
+    {key:"ease",label:"ゆとり（総量）",unit:"cm",min:4,max:18,step:1,val:10},
+  ],
+  presets:[
+    {label:"90cm", vals:{bust:54,len:28,shoulder:23,neckw:11,ease:8}},
+    {label:"100cm",vals:{bust:58,len:31,shoulder:25,neckw:12,ease:10}},
+    {label:"110cm",vals:{bust:62,len:34,shoulder:26,neckw:12,ease:10}},
+    {label:"120cm",vals:{bust:66,len:37,shoulder:28,neckw:13,ease:10}},
+    {label:"130cm",vals:{bust:70,len:40,shoulder:30,neckw:14,ease:12}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const BW=cm(p.bust)/4+cm(p.ease)/4;
+    const L=cm(p.len);
+    const SHx=cm(p.shoulder)/2;
+    const NWh=cm(p.neckw)/2;
+    const AHy=cm(12);
+    const mk=(isBack)=>{
+      const FD=cm(isBack?2:6.5);
+      const neck=quad({x:0,y:FD},{x:NWh*0.5,y:FD},{x:NWh,y:0},10);
+      const arm=quad({x:SHx,y:0},{x:SHx+(BW-SHx)*0.45,y:AHy*0.55},{x:BW,y:AHy},10);
+      let fin=[{x:0,y:FD}];
+      fin=fin.concat(neck);
+      fin.push({x:SHx,y:0});
+      fin=fin.concat(arm);
+      fin.push({x:BW,y:L},{x:0,y:L});
+      const isFold=isBack?((a,b)=>a.x===0&&b.x===0):(()=>false);
+      const pc=pieceFrom(fin,isFold,sa);
+      return {title:isBack?"後ろ身頃":"前身頃",
+        cutInfo:isBack?"後ろ中心を「わ」に置いて1枚":"2枚（左右）",
+        ...pc,foldX:isBack?0:null,
+        grain:{x1:BW*0.45,y1:FD+10,x2:BW*0.45,y2:L-8},
+        notches:[{x:BW,y:AHy}],labelAt:{x:BW*0.45,y:(FD+L)*0.5}};
+    };
+    return {pieces:[mk(true),mk(false)],
+      memo:"肩と脇を縫い、衿ぐり・前端・袖ぐり・裾をバイアスまたは見返しで始末。前はボタン留め。"};
+  }
+};
+
+/* ---- 小物：体操着袋（巾着リュック） ---- */
+PATTERNS.gymbag={
+  mode:"small",
+  name:"体操着袋（巾着リュック）",
+  note:"上をひもで絞る巾着型。底を「わ」に置いて1枚で裁ち、両脇を縫います。底の両角にひもを通すループを付ければリュックのように背負えます。",
+  params:[
+    {key:"w",label:"仕上がり幅",unit:"cm",min:24,max:40,step:1,val:32},
+    {key:"h",label:"仕上がり高さ",unit:"cm",min:28,max:46,step:1,val:36},
+    {key:"casing",label:"ひも通し下がり",unit:"cm",min:3,max:8,step:0.5,val:5},
+  ],
+  presets:[
+    {label:"標準",  vals:{w:32,h:36,casing:5}},
+    {label:"大きめ",vals:{w:36,h:42,casing:5}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const W=cm(p.w),TH=2*cm(p.h),cas=cm(p.casing);
+    const fin=[{x:0,y:0},{x:W,y:0},{x:W,y:TH},{x:0,y:TH}];
+    const isFold=(a,b)=>a.y===TH&&b.y===TH;
+    const pc=pieceFrom(fin,isFold,sa);
+    return {pieces:[{title:"袋本体",cutInfo:"底（下端）を「わ」に置いて1枚／脇を縫う",
+      ...pc,foldX:null,foldY:TH,grain:{x1:W/2,y1:cas+18,x2:W/2,y2:TH-18},
+      casingLines:[cas,TH-cas],casingLabel:"ひも通し口",
+      notches:[{x:0,y:TH},{x:W,y:TH}],labelAt:{x:W/2,y:TH/2}}],
+      memo:"底の両角（合印）にひもループを挟むとリュックになる。ひも長さの目安：（縦＋横＋40cm）×2本。"};
+  }
+};
+
+/* ---- 小物：上履き入れ ---- */
+PATTERNS.shoesbag={
+  mode:"small",
+  name:"上履き入れ",
+  note:"Dカン付きの持ち手で吊るせる上履き入れ。本体は底を「わ」に置いて1枚、持ち手とDカンタブを各1本。本体の口を折り、持ち手とタブを挟んで脇を縫います。",
+  params:[
+    {key:"w",label:"仕上がり幅",unit:"cm",min:18,max:30,step:1,val:23},
+    {key:"h",label:"仕上がり高さ",unit:"cm",min:24,max:38,step:1,val:29},
+    {key:"handle",label:"持ち手の長さ",unit:"cm",min:18,max:36,step:1,val:26},
+  ],
+  presets:[
+    {label:"標準",  vals:{w:23,h:29,handle:26}},
+    {label:"大きめ",vals:{w:26,h:32,handle:28}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const W=cm(p.w),TH=2*cm(p.h);
+    const fin=[{x:0,y:0},{x:W,y:0},{x:W,y:TH},{x:0,y:TH}];
+    const isFold=(a,b)=>a.y===TH&&b.y===TH;
+    const pc=pieceFrom(fin,isFold,sa);
+    const body={title:"本体",cutInfo:"底（下端）を「わ」に置いて1枚／脇を縫う",
+      ...pc,foldX:null,foldY:TH,grain:{x1:W/2,y1:18,x2:W/2,y2:TH-18},notches:[],labelAt:{x:W/2,y:TH/2}};
+    const HW=cm(3.5),HL=cm(p.handle);
+    const hFin=[{x:0,y:0},{x:HW,y:0},{x:HW,y:HL},{x:0,y:HL}];
+    const hpc=pieceFrom(hFin,()=>false,sa);
+    const handle={title:"持ち手",cutInfo:"1本（4つ折りにして縫う）",...hpc,foldX:null,
+      grain:{x1:HW/2,y1:8,x2:HW/2,y2:HL-8},notches:[],labelAt:{x:HW/2,y:HL/2}};
+    const TW=cm(3.5),TL=cm(7);
+    const tFin=[{x:0,y:0},{x:TW,y:0},{x:TW,y:TL},{x:0,y:TL}];
+    const tpc=pieceFrom(tFin,()=>false,sa);
+    const tab={title:"Dカンタブ",cutInfo:"1本（4つ折り→Dカンに通して二つ折り）",...tpc,foldX:null,
+      grain:{x1:TW/2,y1:6,x2:TW/2,y2:TL-6},notches:[],labelAt:{x:TW/2,y:TL/2}};
+    return {pieces:[body,handle,tab],memo:"口を三つ折りし、持ち手とDカンタブを挟んでから両脇を縫う。"};
+  }
+};
+
+/* ---- 小物：プリーツマスク ---- */
+PATTERNS.mask={
+  mode:"small",
+  name:"プリーツマスク",
+  note:"中央に3本のプリーツをとった平面マスク。表・裏2枚を中表に縫い、左右を折ってゴム通しにします。破線はプリーツの折り山の目安です。",
+  params:[
+    {key:"w",label:"幅（広げた状態）",unit:"cm",min:14,max:20,step:0.5,val:17},
+    {key:"h",label:"高さ（プリーツ前）",unit:"cm",min:12,max:18,step:0.5,val:15},
+  ],
+  presets:[
+    {label:"子供",      vals:{w:15,h:13}},
+    {label:"大人小さめ",vals:{w:16,h:14}},
+    {label:"大人",      vals:{w:17,h:15}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const W=cm(p.w),H=cm(p.h);
+    const fin=[{x:0,y:0},{x:W,y:0},{x:W,y:H},{x:0,y:H}];
+    const pc=pieceFrom(fin,()=>false,sa);
+    return {pieces:[{title:"マスク本体",cutInfo:"表・裏 各1枚（計2枚）",
+      ...pc,foldX:null,grain:{x1:W/2,y1:8,x2:W/2,y2:H-8},
+      casingLines:[H*0.32,H*0.5,H*0.68],casingLabel:"プリーツ折り山の目安",
+      notches:[],labelAt:{x:W/2,y:H*0.15}}],
+      memo:"プリーツは3本とも下向きに折る。左右を三つ折りしてゴムを通す。"};
+  }
+};
+
+/* ---- 小物：三角巾 ---- */
+PATTERNS.bandana={
+  mode:"small",
+  name:"三角巾（給食・お手伝い用）",
+  note:"頭にかぶる三角巾。長辺を額に当て、後ろで結びます。三辺を三つ折りでヘムするだけ。底辺にゴムを通せばかぶるだけにもできます。",
+  params:[
+    {key:"w",label:"底辺（額まわり側）",unit:"cm",min:40,max:60,step:1,val:50},
+    {key:"len",label:"高さ（深さ）",unit:"cm",min:22,max:36,step:1,val:28},
+  ],
+  presets:[
+    {label:"幼児",  vals:{w:44,len:24}},
+    {label:"小学生",vals:{w:50,len:28}},
+    {label:"大人",  vals:{w:56,len:32}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const W=cm(p.w),L=cm(p.len);
+    const fin=[{x:0,y:0},{x:W,y:0},{x:W/2,y:L}];
+    const pc=pieceFrom(fin,()=>false,sa);
+    return {pieces:[{title:"三角巾",cutInfo:"1枚／三辺を三つ折りでヘム",
+      ...pc,foldX:null,grain:{x1:W/2,y1:8,x2:W/2,y2:L-8},notches:[],labelAt:{x:W/2,y:L*0.4}}],
+      memo:"底辺の左右に結びひもを足すか、底辺にゴムを通すとかぶるだけで使える。"};
+  }
+};
+
+/* ---- バッグ：あずま袋 ---- */
+PATTERNS.azuma={
+  mode:"bag",
+  name:"あずま袋",
+  note:"1枚の長方形（1：3）を三つに折って縫うだけのあずま袋。風呂敷のように包め、お弁当やマイバッグに。破線が折り位置です。",
+  params:[
+    {key:"unit",label:"基準の正方形（一辺）",unit:"cm",min:20,max:40,step:1,val:30},
+  ],
+  presets:[
+    {label:"お弁当",vals:{unit:24}},
+    {label:"標準",  vals:{unit:30}},
+    {label:"大きめ",vals:{unit:36}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const u=cm(p.unit),W=3*u,H=u;
+    const fin=[{x:0,y:0},{x:W,y:0},{x:W,y:H},{x:0,y:H}];
+    const pc=pieceFrom(fin,()=>false,sa);
+    return {pieces:[{title:"本体",cutInfo:"1枚（長辺＝基準正方形×3）",
+      ...pc,foldX:null,grain:{x1:W/2,y1:10,x2:W/2,y2:H-10},
+      vFoldLines:[u,2*u],labelAt:{x:W/2,y:H/2}}],
+      memo:"左1/3を中央に折って右辺を縫い、右1/3を中央に折って左辺を縫う。上辺が持ち手の口になる。"};
+  }
+};
+
+/* ---- ペット：ペットバンダナ ---- */
+PATTERNS.petbandana={
+  mode:"pet",
+  name:"ペットバンダナ",
+  note:"首輪に通して使う三角バンダナ。上辺を筒状に折って首輪を通すタイプ。1枚を三つ折りでヘムするか、表・裏2枚で作ります。",
+  params:[
+    {key:"w",label:"上辺（首側）",unit:"cm",min:16,max:40,step:1,val:26},
+    {key:"len",label:"たれ丈",unit:"cm",min:12,max:30,step:1,val:20},
+    {key:"casing",label:"首輪通し折り返し",unit:"cm",min:2.5,max:6,step:0.5,val:4},
+  ],
+  presets:[
+    {label:"小型犬",vals:{w:20,len:15,casing:3.5}},
+    {label:"中型犬",vals:{w:28,len:21,casing:4}},
+    {label:"大型犬",vals:{w:36,len:27,casing:5}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const W=cm(p.w),L=cm(p.len),cas=cm(p.casing);
+    const fin=[{x:0,y:0},{x:W,y:0},{x:W/2,y:L}];
+    const pc=pieceFrom(fin,()=>false,sa);
+    return {pieces:[{title:"バンダナ",cutInfo:"1枚（上辺を折り返して首輪通しにする）／または表・裏2枚",
+      ...pc,foldX:null,grain:{x1:W/2,y1:cas+6,x2:W/2,y2:L-8},
+      casingLines:[cas],casingLabel:"首輪通し折り返し",
+      notches:[],labelAt:{x:W/2,y:L*0.45}}],
+      memo:"上辺を首輪通し分だけ折り返して縫い、首輪を通す。"};
+  }
+};
+
+/* ---- ペット：犬用スヌード（ネックウォーマー） ---- */
+PATTERNS.petsnood={
+  mode:"pet",
+  name:"犬用スヌード（ネックウォーマー）",
+  note:"耳の長い犬の食事時の汚れ防止や防寒に。筒状に縫うネックウォーマー。両端を折り返すか、片側にゴムを通して顔・首にフィットさせます。",
+  params:[
+    {key:"neck",label:"首回り",unit:"cm",min:16,max:50,step:1,val:30},
+    {key:"len",label:"丈",unit:"cm",min:10,max:30,step:1,val:18},
+    {key:"ease",label:"ゆとり",unit:"cm",min:0,max:10,step:1,val:4},
+  ],
+  presets:[
+    {label:"小型犬",vals:{neck:22,len:14,ease:3}},
+    {label:"中型犬",vals:{neck:30,len:18,ease:4}},
+    {label:"大型犬",vals:{neck:42,len:24,ease:6}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const W=cm(p.neck)+cm(p.ease),H=cm(p.len);
+    const fin=[{x:0,y:0},{x:W,y:0},{x:W,y:H},{x:0,y:H}];
+    const pc=pieceFrom(fin,()=>false,sa);
+    return {pieces:[{title:"スヌード本体",cutInfo:"1枚／長辺を縫って筒にし、上下をヘムまたはゴム通し",
+      ...pc,foldX:null,grain:{x1:W/2,y1:10,x2:W/2,y2:H-10},
+      casingLines:[cm(2.5),H-cm(2.5)],casingLabel:"折り返し／ゴム通し",
+      notches:[],labelAt:{x:W/2,y:H/2}}],
+      memo:"筒径＝首回り＋ゆとり。片側にゴムを通すと顔側がしぼれる。"};
+  }
+};
+
+/* ---- 大人服：ワイドパンツ（ゴムウエストパンツ流用） ---- */
+PATTERNS.widepants={
+  ...PATTERNS.pants,
+  mode:"human",
+  name:"ワイドパンツ（ゴムウエスト）",
+  note:"ゆったりストレートのゴムウエストパンツ。前後同じ型紙で中心（股ぐり）同士を縫い、脇を縫い、ウエストを折り返してゴムを通します。股ぐりは仮縫いで確認を。",
+  params:[
+    {key:"hip",    label:"ヒップ",unit:"cm",min:80,max:130,step:1,val:96},
+    {key:"rise",   label:"股上",unit:"cm",min:24,max:40,step:1,val:30},
+    {key:"inseam", label:"股下",unit:"cm",min:50,max:80,step:1,val:66},
+    {key:"ease",   label:"ゆとり（総量）",unit:"cm",min:8,max:36,step:1,val:20},
+    {key:"crotchF",label:"股ぐり延長",unit:"cm",min:2,max:7,step:0.5,val:4},
+    {key:"casing", label:"ウエスト折り返し",unit:"cm",min:3,max:7,step:0.5,val:4},
+  ],
+  presets:[
+    {label:"S", vals:{hip:88, rise:28,inseam:62,ease:18,crotchF:3.5,casing:4}},
+    {label:"M", vals:{hip:96, rise:30,inseam:66,ease:20,crotchF:4,  casing:4}},
+    {label:"L", vals:{hip:104,rise:32,inseam:68,ease:22,crotchF:4.5,casing:4}},
+    {label:"LL",vals:{hip:112,rise:33,inseam:70,ease:24,crotchF:5,  casing:4}},
+  ],
+};
+
+/* ---- 大人服：ギャザースカート（ギャザースカート流用） ---- */
+PATTERNS.adultgather={
+  ...PATTERNS.gather,
+  mode:"human",
+  name:"ギャザースカート（大人）",
+  note:"長方形を上端で折り返してゴムを通す、いちばん簡単なギャザースカート（大人サイズ）。前後2枚を脇で縫います。左端は「わ」（中心）。ギャザー倍率で布幅＝ふんわり具合が決まります。",
+  params:[
+    {key:"hip",label:"ヒップ（目安）",unit:"cm",min:80,max:130,step:1,val:94},
+    {key:"len",label:"スカート丈",unit:"cm",min:40,max:95,step:1,val:62},
+    {key:"full",label:"ギャザー倍率",unit:"倍",min:1.3,max:3,step:0.1,val:1.8},
+    {key:"casing",label:"ウエスト折り返し",unit:"cm",min:2,max:8,step:0.5,val:4},
+  ],
+  presets:[
+    {label:"S", vals:{hip:88, len:58,full:1.8,casing:4}},
+    {label:"M", vals:{hip:94, len:62,full:1.8,casing:4}},
+    {label:"L", vals:{hip:102,len:64,full:1.9,casing:4}},
+    {label:"LL",vals:{hip:110,len:66,full:1.9,casing:4}},
+  ],
+};
+
 /* ---- 人気順に表示順を整列 ---- */
 (function(){
   const ORDER=[
-    /* バッグ */  'tote','pouch','pouchgusset','gamaguchi','sacoche','panel',
-    /* 大人服 */  'tee','apron','skirt','flareskirt','mermaid','sleevedress',
-    /* 小物 */    'kinchaku','kincgusset','placemat','shuushu','headband','tissuecase','bookcover','bowtie',
-    /* ペット */  'dog','dogsleeved','mannerbelt',
-    /* 子供服 */  'kidstee','kidsdress','smock','pants','bloomers','gather','babyhat','stai','movepocket',
+    /* 大人服 */  'tee','apron','skirt','flareskirt','mermaid','sleevedress','adultgather','widepants',
+    /* 子供服 */  'kidstee','kidsdress','smock','kidsvest','pants','kidshalf','gather',
+    /* ベビー */  'bloomers','swaddle','bandanastai','stai','babyhat','legwarmer',
+    /* 小物 */    'kinchaku','kincgusset','gymbag','shoesbag','movepocket','mask','bandana','placemat','shuushu','headband','tissuecase','bookcover','bowtie',
+    /* バッグ */  'tote','pouch','pouchgusset','gamaguchi','sacoche','azuma','panel',
+    /* ペット */  'dog','dogsleeved','mannerbelt','petbandana','petsnood',
   ];
   const extras=Object.keys(PATTERNS).filter(k=>!ORDER.includes(k));
   [...ORDER,...extras].forEach(k=>{
