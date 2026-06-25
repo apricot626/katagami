@@ -57,6 +57,24 @@
     </div>
   </header>
 
+  <div class="news-bar" id="newsBar">
+    <div class="news-inner">
+      <span class="news-label">NEW</span>
+      <button class="news-head" id="newsToggle" aria-expanded="false">
+        型紙を追加しました
+        <span class="news-arrow" aria-hidden="true">▼</span>
+      </button>
+      <button class="news-x" id="newsClose" aria-label="閉じる">×</button>
+    </div>
+    <div class="news-body" id="newsBody" hidden>
+      <ul class="news-list">
+        <li><time>2026.06.20</time>犬服（袖付き）</li>
+        <li><time>2026.06.15</time>移動ポケット</li>
+        <li><time>2026.06.15</time>コップ袋（マチ付き）</li>
+      </ul>
+    </div>
+  </div>
+
   <main>
     <section class="panel" id="panel">
       <div class="mode-tabs" id="modeTabs"></div>
@@ -155,5 +173,26 @@
 
 <script src="patterns.js"></script>
 <script src="app.js"></script>
+<script>
+(function(){
+  var KEY='katagami_news_v1';
+  var bar=document.getElementById('newsBar');
+  var toggle=document.getElementById('newsToggle');
+  var body=document.getElementById('newsBody');
+  var close=document.getElementById('newsClose');
+  var arrow=toggle.querySelector('.news-arrow');
+  if(localStorage.getItem(KEY)==='closed'){bar.style.display='none';return;}
+  toggle.onclick=function(){
+    var open=toggle.getAttribute('aria-expanded')==='true';
+    toggle.setAttribute('aria-expanded',!open);
+    body.hidden=open;
+    arrow.textContent=open?'▼':'▲';
+  };
+  close.onclick=function(){
+    bar.style.display='none';
+    localStorage.setItem(KEY,'closed');
+  };
+})();
+</script>
 </body>
 </html>
