@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>カタガミ｜サイズ自由自在の洋裁型紙ツール</title>
-<meta name="description" content="オリジナルサイズで洋裁の型紙を自動製図。Tシャツ・巾着・トートバッグから犬服まで対応。A4に実寸印刷できる無料ツール。">
-<meta name="keywords" content="型紙,洋裁,自動製図,A4,実寸,印刷,Tシャツ,巾着,トートバッグ,蝶ネクタイ,犬服,ハンドメイド">
+<title>カタガミ｜無料の洋裁型紙ツール — A4実寸印刷</title>
+<meta name="description" content="好きなサイズを入力するだけで洋裁の型紙を自動製図。Tシャツ・巾着・トートバッグ・犬服など25種類以上に対応。A4に実寸印刷できる無料Webツール。">
+<meta name="keywords" content="型紙,洋裁,無料,自動製図,A4,実寸,印刷,Tシャツ,巾着,トートバッグ,犬服,ハンドメイド,子供服">
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3HFK3VE3Q8"></script>
 <script>
@@ -15,18 +15,17 @@
   gtag('config','G-3HFK3VE3Q8');
 </script>
 <meta property="og:type" content="website">
-<meta property="og:title" content="カタガミ｜数値入力でつくる洋裁の型紙">
+<meta property="og:title" content="カタガミ｜無料の洋裁型紙ツール">
 <meta property="og:description" content="好きなサイズで洋裁の型紙を自動製図。A4分割で実寸印刷できます。">
 <meta property="og:locale" content="ja_JP">
-<link rel="stylesheet" href="style.css">
 <link rel="canonical" href="https://katagami.org/">
 <meta property="og:url" content="https://katagami.org/">
 <meta property="og:image" content="https://katagami.org/ogp.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="カタガミ｜数値入力でつくる洋裁の型紙">
-<meta name="twitter:description" content="オリジナルサイズで洋裁の型紙を自動製図。Tシャツ・巾着・トートバッグから犬服まで対応。A4に実寸印刷できる無料ツール。">
+<meta name="twitter:title" content="カタガミ｜無料の洋裁型紙ツール">
+<meta name="twitter:description" content="好きなサイズを入力するだけで洋裁の型紙を自動製図。A4に実寸印刷できる無料Webツール。">
 <meta name="twitter:image" content="https://katagami.org/ogp.png">
 <script type="application/ld+json">
 {
@@ -34,7 +33,7 @@
   "@type": "WebApplication",
   "name": "カタガミ",
   "url": "https://katagami.org/",
-  "description": "オリジナルサイズで洋裁の型紙を自動製図。Tシャツ・巾着・トートバッグから犬服まで対応。A4に実寸印刷できる無料ツール。",
+  "description": "好きなサイズを入力するだけで洋裁の型紙を自動製図。Tシャツ・巾着・トートバッグ・犬服など25種類以上に対応。A4に実寸印刷できる無料Webツール。",
   "applicationCategory": "DesignApplication",
   "operatingSystem": "Web",
   "inLanguage": "ja",
@@ -46,127 +45,207 @@
   }
 }
 </script>
+<link rel="stylesheet" href="home.css">
 </head>
 <body>
-<div class="app">
-  <header>
-    <div class="brand">カタ<b>ガミ</b></div>
-    <div class="tag">サイズ自由自在の洋裁型紙 — A4に実寸印刷</div>
-    <div class="sheets">
-      <span class="sheet-chip">必要シート <b id="sheetCount" class="mono">–</b> 枚 <span style="color:var(--muted)">＋案内1</span></span>
-    </div>
-  </header>
 
-  <div class="news-bar" id="newsBar">
-    <div class="news-inner">
-      <span class="news-label">NEW</span>
-      <button class="news-head" id="newsToggle" aria-expanded="false">
-        型紙を追加しました
-        <span class="news-arrow" aria-hidden="true">▼</span>
-      </button>
-      <button class="news-x" id="newsClose" aria-label="閉じる">×</button>
-    </div>
-    <div class="news-body" id="newsBody" hidden>
-      <ul class="news-list">
-        <li><time>2026.06.20</time>犬服（袖付き）</li>
-        <li><time>2026.06.15</time>移動ポケット</li>
-        <li><time>2026.06.15</time>コップ袋（マチ付き）</li>
-      </ul>
-    </div>
+<header class="site-header">
+  <a class="brand" href="index.html">カタ<b>ガミ</b></a>
+  <span class="tag">サイズ自由自在の洋裁型紙 — A4に実寸印刷</span>
+  <a class="hdr-btn" href="tool.html">型紙ツールを開く →</a>
+</header>
+
+<div class="news-bar" id="newsBar">
+  <div class="news-inner">
+    <span class="news-label">NEW</span>
+    <button class="news-head" id="newsToggle" aria-expanded="false">
+      型紙を追加しました
+      <span class="news-arrow" aria-hidden="true">▼</span>
+    </button>
+    <button class="news-x" id="newsClose" aria-label="閉じる">×</button>
   </div>
+  <div class="news-body" id="newsBody" hidden>
+    <ul class="news-list">
+      <li><time>2026.06.20</time>犬服（袖付き）</li>
+      <li><time>2026.06.15</time>移動ポケット</li>
+      <li><time>2026.06.15</time>コップ袋（マチ付き）</li>
+    </ul>
+  </div>
+</div>
 
-  <main>
-    <section class="panel" id="panel">
-      <div class="mode-tabs" id="modeTabs"></div>
-      <div class="pat-tabs" id="patTabs"></div>
-      <p class="pat-note" id="patNote"></p>
-      <a class="howto-link" id="howtoLink" target="_blank" rel="noopener" style="display:none"></a>
-      <div id="fields"></div>
+<main>
 
-      <div class="profile-section" id="profileSection">
-        <p class="sec-h" style="margin-bottom:8px">保存した設定</p>
-        <div id="profileList" class="profile-list"></div>
-        <button class="profile-save" id="saveProfileBtn">＋ 現在の設定を保存</button>
-      </div>
-
-      <hr class="divider">
-      <p class="sec-h">縫い代・出力</p>
-      <div class="field">
-        <label>縫い代 <span><span class="v mono" id="saV"></span><span class="unit">cm</span></span></label>
-        <div class="row">
-          <input type="range" id="saRange" min="0" max="3" step="0.5">
-          <input type="number" id="saNum" min="0" max="5" step="0.1">
-        </div>
-      </div>
-      <label class="toggle"><input type="checkbox" id="showSew" checked> 出来上がり線（縫い線）を表示</label>
-
-      <hr class="divider">
-      <button class="print-btn" id="printBtn">印刷する（A4・実寸）</button>
-      <p class="feedback-line">型紙はいかがでしたか？ <a href="https://forms.gle/Y6TLqYwixad78qyaA" target="_blank" rel="noopener" class="feedback-link">ご意見・ご要望はこちら →</a></p>
-      <p class="scale-warn">
-        印刷ダイアログで <b>倍率＝100%（実際のサイズ）</b> にし、「用紙に合わせる」は必ずオフにしてください。
-        1枚目の案内シートにある <b>50mmの校正枠</b> を定規で測り、ぴったり50mmなら成功です。<br>
-        <span class="pdf-tip">PDFで保存したい場合は Chrome・Edge の印刷ダイアログで送信先を <b>「PDFに保存」</b> に切り替えてください。</span>
-      </p>
-    </section>
-
-    <section class="preview-wrap">
-      <div class="preview-inner">
-        <svg class="preview" id="preview"></svg>
-      </div>
-      <div class="legend">
-        <span class="lg-cut"><i></i>裁ち切り線</span>
-        <span class="lg-sew"><i></i>出来上がり線</span>
-        <span class="lg-fold"><i></i>わ（輪）</span>
-        <span class="lg-grid"><i></i>A4境界</span>
-      </div>
-    </section>
-  </main>
-
-  <!-- Googlebot向け静的コンテンツ（JSが読めない場合でも認識される） -->
-  <section class="seo-section" id="seoSection">
-    <div class="seo-inner">
-      <h2 class="seo-h">カタガミとは</h2>
-      <p class="seo-p">バスト・着丈・ウエストなどの寸法を入力するだけで洋裁の型紙を自動製図できる無料ツールです。縫い代付きの型紙をA4用紙に分割して実寸印刷できます。Tシャツ・巾着・トートバッグから犬服まで25種類以上の型紙に対応しています。</p>
-      <h3 class="seo-h3">型紙の種類と作り方ガイド</h3>
-      <ul class="seo-links">
-        <li><a href="howto-tote.html">トートバッグの作り方・型紙</a></li>
-        <li><a href="howto-pouch.html">ファスナーポーチの作り方・型紙</a></li>
-        <li><a href="howto-pouchgusset.html">マチ付きポーチの作り方・型紙</a></li>
-        <li><a href="howto-gamaguchi.html">がまぐちポーチの作り方・型紙</a></li>
-        <li><a href="howto-sacoche.html">サコッシュの作り方・型紙</a></li>
-        <li><a href="howto-panel.html">クッションカバー・パネルの作り方・型紙</a></li>
-        <li><a href="howto-tee.html">Tシャツの作り方・型紙</a></li>
-        <li><a href="howto-apron.html">エプロンの作り方・型紙</a></li>
-        <li><a href="howto-skirt.html">Aラインスカートの作り方・型紙</a></li>
-        <li><a href="howto-kinchaku.html">巾着袋の作り方・型紙</a></li>
-        <li><a href="howto-kincgusset.html">コップ袋（マチ付き巾着）の作り方・型紙</a></li>
-        <li><a href="howto-placemat.html">ランチョンマットの作り方・型紙</a></li>
-        <li><a href="howto-shuushu.html">シュシュの作り方・型紙</a></li>
-        <li><a href="howto-headband.html">ヘアバンドの作り方・型紙</a></li>
-        <li><a href="howto-tissuecase.html">ティッシュケースの作り方・型紙</a></li>
-        <li><a href="howto-bookcover.html">ブックカバーの作り方・型紙</a></li>
-        <li><a href="howto-bowtie.html">蝶ネクタイの作り方・型紙</a></li>
-        <li><a href="howto-dog.html">犬服（タンクトップ）の作り方・型紙</a></li>
-        <li><a href="howto-dogsleeved.html">犬服（袖付き）の作り方・型紙</a></li>
-        <li><a href="howto-mannerbelt.html">マナーベルトの作り方・型紙</a></li>
-        <li><a href="howto-kidstee.html">子供Tシャツの作り方・型紙</a></li>
-        <li><a href="howto-stai.html">スタイの作り方・型紙</a></li>
-        <li><a href="howto-movepocket.html">移動ポケットの作り方・型紙</a></li>
-        <li><a href="howto-pants.html">子供パンツの作り方・型紙</a></li>
-        <li><a href="howto-gather.html">ギャザースカートの作り方・型紙</a></li>
-      </ul>
-      <p class="seo-p"><a href="yougoshu.html">洋裁用語集（中表・縫い代・返し口など）</a></p>
+  <!-- hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1 class="hero-h">サイズを入力するだけで<br>型紙が自動でできる</h1>
+      <p class="hero-sub">カタガミは、好きな寸法を入力するだけで洋裁の型紙を自動製図できる無料Webツールです。縫い代込みのA4分割データをそのまま印刷できます。</p>
+      <a class="cta-btn" href="tool.html">無料で型紙をつくる →</a>
+    </div>
+    <div class="hero-deco" aria-hidden="true">
+      <svg width="260" height="200" viewBox="0 0 260 200">
+        <rect x="10" y="10" width="240" height="180" fill="none" stroke="#1B1D1A" stroke-width="2"/>
+        <rect x="28" y="28" width="204" height="144" fill="none" stroke="#1B1D1A" stroke-width="1.5" stroke-dasharray="8,5"/>
+        <line x1="10" y1="100" x2="28" y2="100" stroke="#2E63B4" stroke-width="3"/>
+        <line x1="130" y1="34" x2="130" y2="166" stroke="#1B1D1A" stroke-width="1.5" marker-start="url(#arr2)" marker-end="url(#arr2)"/>
+        <polygon points="10,58 20,54 20,62" fill="#1B1D1A"/>
+        <polygon points="10,142 20,138 20,146" fill="#1B1D1A"/>
+        <defs>
+          <marker id="arr2" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="#1B1D1A"/>
+          </marker>
+        </defs>
+      </svg>
     </div>
   </section>
 
-  <footer class="app-footer">
-    <span>© 2026 カタガミ</span>
-    <a id="openPrivacy">プライバシーポリシー</a>
-    <a href="mailto:shinworks.info@gmail.com" id="contactLink">お問い合わせ</a>
-    <a href="https://forms.gle/Y6TLqYwixad78qyaA" target="_blank" rel="noopener">ご意見フォーム</a>
-  </footer>
-</div>
+  <!-- how it works -->
+  <section class="how-section">
+    <div class="section-inner">
+      <h2 class="sec-title">3ステップで印刷まで</h2>
+      <ol class="how-steps">
+        <li><b>型紙を選ぶ</b><br>バッグ・服・小物・ペット服など25種類以上から選択</li>
+        <li><b>サイズを入力</b><br>仕上がり寸法を数値で入力。プリセットも使えます</li>
+        <li><b>印刷する</b><br>A4サイズに自動分割。倍率100%で印刷すれば実寸の型紙に</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- patterns -->
+  <section class="pat-section">
+    <div class="section-inner">
+      <h2 class="sec-title">型紙一覧</h2>
+
+      <div class="cat-block">
+        <h3 class="cat-h">バッグ</h3>
+        <ul class="pat-list">
+          <li><a href="tool.html">トートバッグ</a><span class="howto-a"><a href="howto-tote.html">使い方</a></span></li>
+          <li><a href="tool.html">ファスナーポーチ</a><span class="howto-a"><a href="howto-pouch.html">使い方</a></span></li>
+          <li><a href="tool.html">ポーチ（マチあり）</a><span class="howto-a"><a href="howto-pouchgusset.html">使い方</a></span></li>
+          <li><a href="tool.html">がまぐちポーチ</a><span class="howto-a"><a href="howto-gamaguchi.html">使い方</a></span></li>
+          <li><a href="tool.html">サコッシュ</a><span class="howto-a"><a href="howto-sacoche.html">使い方</a></span></li>
+          <li><a href="tool.html">汎用パネル</a><span class="howto-a"><a href="howto-panel.html">使い方</a></span></li>
+        </ul>
+      </div>
+
+      <div class="cat-block">
+        <h3 class="cat-h">大人服</h3>
+        <ul class="pat-list">
+          <li><a href="tool.html">Tシャツ</a><span class="howto-a"><a href="howto-tee.html">使い方</a></span></li>
+          <li><a href="tool.html">エプロン</a><span class="howto-a"><a href="howto-apron.html">使い方</a></span></li>
+          <li><a href="tool.html">Aラインスカート</a><span class="howto-a"><a href="howto-skirt.html">使い方</a></span></li>
+        </ul>
+      </div>
+
+      <div class="cat-block">
+        <h3 class="cat-h">小物</h3>
+        <ul class="pat-list">
+          <li><a href="tool.html">巾着・小袋</a><span class="howto-a"><a href="howto-kinchaku.html">使い方</a></span></li>
+          <li><a href="tool.html">コップ袋（マチ付き）</a><span class="howto-a"><a href="howto-kincgusset.html">使い方</a></span></li>
+          <li><a href="tool.html">ランチョンマット</a><span class="howto-a"><a href="howto-placemat.html">使い方</a></span></li>
+          <li><a href="tool.html">シュシュ</a><span class="howto-a"><a href="howto-shuushu.html">使い方</a></span></li>
+          <li><a href="tool.html">ヘアバンド</a><span class="howto-a"><a href="howto-headband.html">使い方</a></span></li>
+          <li><a href="tool.html">ティッシュケース</a><span class="howto-a"><a href="howto-tissuecase.html">使い方</a></span></li>
+          <li><a href="tool.html">ブックカバー</a><span class="howto-a"><a href="howto-bookcover.html">使い方</a></span></li>
+          <li><a href="tool.html">蝶ネクタイ</a><span class="howto-a"><a href="howto-bowtie.html">使い方</a></span></li>
+          <li><a href="tool.html">移動ポケット</a><span class="howto-a"><a href="howto-movepocket.html">使い方</a></span></li>
+        </ul>
+      </div>
+
+      <div class="cat-block">
+        <h3 class="cat-h">ペット服</h3>
+        <ul class="pat-list">
+          <li><a href="tool.html">犬服（タンクトップ）</a><span class="howto-a"><a href="howto-dog.html">使い方</a></span></li>
+          <li><a href="tool.html">犬服（袖付き）</a><span class="howto-a"><a href="howto-dogsleeved.html">使い方</a></span></li>
+          <li><a href="tool.html">マナーベルト</a><span class="howto-a"><a href="howto-mannerbelt.html">使い方</a></span></li>
+        </ul>
+      </div>
+
+      <div class="cat-block">
+        <h3 class="cat-h">子供服・ベビー</h3>
+        <ul class="pat-list">
+          <li><a href="tool.html">子供Tシャツ</a><span class="howto-a"><a href="howto-kidstee.html">使い方</a></span></li>
+          <li><a href="tool.html">スタイ</a><span class="howto-a"><a href="howto-stai.html">使い方</a></span></li>
+          <li><a href="tool.html">ゴムウエストパンツ</a><span class="howto-a"><a href="howto-pants.html">使い方</a></span></li>
+          <li><a href="tool.html">ギャザースカート</a><span class="howto-a"><a href="howto-gather.html">使い方</a></span></li>
+        </ul>
+      </div>
+
+      <div class="pat-cta">
+        <a class="cta-btn" href="tool.html">型紙ツールを開く →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- features -->
+  <section class="feat-section">
+    <div class="section-inner">
+      <h2 class="sec-title">カタガミの特長</h2>
+      <ul class="feat-list">
+        <li>
+          <b>サイズ自由自在</b>
+          <p>cm単位で数値を入力するだけ。既製品にない自分だけのサイズで型紙を作れます。</p>
+        </li>
+        <li>
+          <b>A4実寸印刷</b>
+          <p>型紙を自動でA4サイズに分割。倍率100%で印刷するだけで実寸の型紙が手に入ります。</p>
+        </li>
+        <li>
+          <b>縫い代込み</b>
+          <p>縫い代の幅を0〜3cmで調整できます。出来上がり線（縫い線）の表示・非表示も切り替え可能。</p>
+        </li>
+        <li>
+          <b>完全無料・登録不要</b>
+          <p>アカウント登録なしで今すぐ使えます。設定はブラウザに保存できます。</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- howto -->
+  <section class="howto-section">
+    <div class="section-inner">
+      <h2 class="sec-title">使い方ガイド</h2>
+      <p class="sec-sub">各型紙の寸法の測り方・印刷の仕方を詳しく解説しています。</p>
+      <ul class="howto-links">
+        <li><a href="howto-tote.html">トートバッグの型紙の作り方</a></li>
+        <li><a href="howto-tee.html">Tシャツの型紙の作り方</a></li>
+        <li><a href="howto-kinchaku.html">巾着の型紙の作り方</a></li>
+        <li><a href="howto-pouch.html">ファスナーポーチの型紙の作り方</a></li>
+        <li><a href="howto-dog.html">犬服（タンクトップ）の型紙の作り方</a></li>
+        <li><a href="howto-dogsleeved.html">犬服（袖付き）の型紙の作り方</a></li>
+        <li><a href="howto-apron.html">エプロンの型紙の作り方</a></li>
+        <li><a href="howto-skirt.html">Aラインスカートの型紙の作り方</a></li>
+        <li><a href="howto-kidstee.html">子供Tシャツの型紙の作り方</a></li>
+        <li><a href="howto-pouchgusset.html">マチありポーチの型紙の作り方</a></li>
+        <li><a href="howto-kincgusset.html">コップ袋（マチ付き）の型紙の作り方</a></li>
+        <li><a href="howto-movepocket.html">移動ポケットの型紙の作り方</a></li>
+        <li><a href="howto-pants.html">ゴムウエストパンツの型紙の作り方</a></li>
+        <li><a href="howto-gather.html">ギャザースカートの型紙の作り方</a></li>
+        <li><a href="howto-sacoche.html">サコッシュの型紙の作り方</a></li>
+        <li><a href="howto-gamaguchi.html">がまぐちポーチの型紙の作り方</a></li>
+        <li><a href="howto-bowtie.html">蝶ネクタイの型紙の作り方</a></li>
+        <li><a href="howto-stai.html">スタイの型紙の作り方</a></li>
+        <li><a href="howto-placemat.html">ランチョンマットの型紙の作り方</a></li>
+        <li><a href="howto-shuushu.html">シュシュの型紙の作り方</a></li>
+        <li><a href="howto-headband.html">ヘアバンドの型紙の作り方</a></li>
+        <li><a href="howto-tissuecase.html">ティッシュケースの型紙の作り方</a></li>
+        <li><a href="howto-bookcover.html">ブックカバーの型紙の作り方</a></li>
+        <li><a href="howto-mannerbelt.html">マナーベルトの型紙の作り方</a></li>
+        <li><a href="howto-panel.html">汎用パネルの型紙の作り方</a></li>
+        <li><a href="yougoshu.html">洋裁用語集</a></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <span>© 2026 カタガミ</span>
+  <a id="openPrivacy">プライバシーポリシー</a>
+  <a href="mailto:shinworks.info@gmail.com">お問い合わせ</a>
+  <a href="https://forms.gle/Y6TLqYwixad78qyaA" target="_blank" rel="noopener">ご意見フォーム</a>
+</footer>
 
 <!-- プライバシーポリシー モーダル -->
 <div class="modal-overlay" id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="privacyTitle">
@@ -199,36 +278,40 @@
       <p>本ポリシーは予告なく変更することがあります。変更後は本ページに掲載します。</p>
 
       <h3>お問い合わせ</h3>
-      <p>ご意見・不具合報告は <a href="mailto:shinworks.info@gmail.com" id="privacyContactLink">shinworks.info@gmail.com</a> までお送りください。</p>
+      <p>ご意見・不具合報告は <a href="mailto:shinworks.info@gmail.com">shinworks.info@gmail.com</a> までお送りください。</p>
 
       <p class="policy-date">最終更新日：2026年6月25日</p>
     </div>
   </div>
 </div>
 
-<div id="print-root"></div>
-
-<script src="patterns.js"></script>
-<script src="app.js"></script>
 <script>
 (function(){
+  /* news banner */
   var KEY='katagami_news_v1';
   var bar=document.getElementById('newsBar');
   var toggle=document.getElementById('newsToggle');
   var body=document.getElementById('newsBody');
   var close=document.getElementById('newsClose');
   var arrow=toggle.querySelector('.news-arrow');
-  if(localStorage.getItem(KEY)==='closed'){bar.style.display='none';return;}
-  toggle.onclick=function(){
-    var open=toggle.getAttribute('aria-expanded')==='true';
-    toggle.setAttribute('aria-expanded',!open);
-    body.hidden=open;
-    arrow.textContent=open?'▼':'▲';
-  };
-  close.onclick=function(){
-    bar.style.display='none';
-    localStorage.setItem(KEY,'closed');
-  };
+  if(localStorage.getItem(KEY)==='closed'){bar.style.display='none';}
+  else{
+    toggle.onclick=function(){
+      var open=toggle.getAttribute('aria-expanded')==='true';
+      toggle.setAttribute('aria-expanded',!open);
+      body.hidden=open;
+      arrow.textContent=open?'▼':'▲';
+    };
+    close.onclick=function(){
+      bar.style.display='none';
+      localStorage.setItem(KEY,'closed');
+    };
+  }
+  /* privacy modal */
+  var modal=document.getElementById('privacyModal');
+  document.getElementById('openPrivacy').onclick=function(){modal.classList.add('open');};
+  document.getElementById('closePrivacy').onclick=function(){modal.classList.remove('open');};
+  modal.addEventListener('click',function(e){if(e.target===modal)modal.classList.remove('open');});
 })();
 </script>
 </body>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>カタガミ｜サイズ自由自在の洋裁型紙ツール</title>
+<meta name="description" content="オリジナルサイズで洋裁の型紙を自動製図。Tシャツ・巾着・トートバッグから犬服まで対応。A4に実寸印刷できる無料ツール。">
+<meta name="keywords" content="型紙,洋裁,自動製図,A4,実寸,印刷,Tシャツ,巾着,トートバッグ,蝶ネクタイ,犬服,ハンドメイド">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3HFK3VE3Q8"></script>
+<script>
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js',new Date());
+  gtag('config','G-3HFK3VE3Q8');
+</script>
+<meta property="og:type" content="website">
+<meta property="og:title" content="カタガミ｜数値入力でつくる洋裁の型紙">
+<meta property="og:description" content="好きなサイズで洋裁の型紙を自動製図。A4分割で実寸印刷できます。">
+<meta property="og:locale" content="ja_JP">
+<link rel="stylesheet" href="style.css">
+<link rel="canonical" href="https://katagami.org/tool.html">
+<meta property="og:url" content="https://katagami.org/tool.html">
+<meta property="og:image" content="https://katagami.org/ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="カタガミ｜数値入力でつくる洋裁の型紙">
+<meta name="twitter:description" content="オリジナルサイズで洋裁の型紙を自動製図。Tシャツ・巾着・トートバッグから犬服まで対応。A4に実寸印刷できる無料ツール。">
+<meta name="twitter:image" content="https://katagami.org/ogp.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "カタガミ",
+  "url": "https://katagami.org/tool.html",
+  "description": "オリジナルサイズで洋裁の型紙を自動製図。Tシャツ・巾着・トートバッグから犬服まで対応。A4に実寸印刷できる無料ツール。",
+  "applicationCategory": "DesignApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ja",
+  "image": "https://katagami.org/ogp.png",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "JPY"
+  }
+}
+</script>
+</head>
+<body>
+<div class="app">
+  <header>
+    <a class="brand" href="index.html" style="text-decoration:none;color:inherit">カタ<b>ガミ</b></a>
+    <div class="tag">サイズ自由自在の洋裁型紙 — A4に実寸印刷</div>
+    <div class="sheets">
+      <span class="sheet-chip">必要シート <b id="sheetCount" class="mono">–</b> 枚 <span style="color:var(--muted)">＋案内1</span></span>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel" id="panel">
+      <div class="mode-tabs" id="modeTabs"></div>
+      <div class="pat-tabs" id="patTabs"></div>
+      <p class="pat-note" id="patNote"></p>
+      <a class="howto-link" id="howtoLink" target="_blank" rel="noopener" style="display:none"></a>
+      <div id="fields"></div>
+
+      <div class="profile-section" id="profileSection">
+        <p class="sec-h" style="margin-bottom:8px">保存した設定</p>
+        <div id="profileList" class="profile-list"></div>
+        <button class="profile-save" id="saveProfileBtn">＋ 現在の設定を保存</button>
+      </div>
+
+      <hr class="divider">
+      <p class="sec-h">縫い代・出力</p>
+      <div class="field">
+        <label>縫い代 <span><span class="v mono" id="saV"></span><span class="unit">cm</span></span></label>
+        <div class="row">
+          <input type="range" id="saRange" min="0" max="3" step="0.5">
+          <input type="number" id="saNum" min="0" max="5" step="0.1">
+        </div>
+      </div>
+      <label class="toggle"><input type="checkbox" id="showSew" checked> 出来上がり線（縫い線）を表示</label>
+
+      <hr class="divider">
+      <button class="print-btn" id="printBtn">印刷する（A4・実寸）</button>
+      <p class="feedback-line">型紙はいかがでしたか？ <a href="https://forms.gle/Y6TLqYwixad78qyaA" target="_blank" rel="noopener" class="feedback-link">ご意見・ご要望はこちら →</a></p>
+      <p class="scale-warn">
+        印刷ダイアログで <b>倍率＝100%（実際のサイズ）</b> にし、「用紙に合わせる」は必ずオフにしてください。
+        1枚目の案内シートにある <b>50mmの校正枠</b> を定規で測り、ぴったり50mmなら成功です。<br>
+        <span class="pdf-tip">PDFで保存したい場合は Chrome・Edge の印刷ダイアログで送信先を <b>「PDFに保存」</b> に切り替えてください。</span>
+      </p>
+    </section>
+
+    <section class="preview-wrap">
+      <div class="preview-inner">
+        <svg class="preview" id="preview"></svg>
+      </div>
+      <div class="legend">
+        <span class="lg-cut"><i></i>裁ち切り線</span>
+        <span class="lg-sew"><i></i>出来上がり線</span>
+        <span class="lg-fold"><i></i>わ（輪）</span>
+        <span class="lg-grid"><i></i>A4境界</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <a href="index.html">ホーム</a>
+    <span>© 2026 カタガミ</span>
+    <a id="openPrivacy">プライバシーポリシー</a>
+    <a href="mailto:shinworks.info@gmail.com" id="contactLink">お問い合わせ</a>
+    <a href="https://forms.gle/Y6TLqYwixad78qyaA" target="_blank" rel="noopener">ご意見フォーム</a>
+  </footer>
+</div>
+
+<!-- プライバシーポリシー モーダル -->
+<div class="modal-overlay" id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="privacyTitle">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h2 id="privacyTitle">プライバシーポリシー</h2>
+      <button class="modal-close" id="closePrivacy" aria-label="閉じる">×</button>
+    </div>
+    <div class="modal-body">
+      <p>カタガミ（以下「本サービス」）は、個人が運営する無料の洋裁型紙ツールです。</p>
+
+      <h3>採寸データの取り扱い</h3>
+      <p>入力した採寸値はお使いのブラウザ内でのみ処理します。サーバーへの送信や外部への提供は一切行いません。</p>
+      <p>「現在の設定を保存」した内容は、お使いのブラウザの localStorage に保存されます。この情報は外部に送信されず、保存した設定はいつでも画面上から削除できます。ブラウザのデータを消去すると保存内容も削除されます。</p>
+
+      <h3>アクセス解析（Google Analytics 4）</h3>
+      <p>本サービスはアクセス状況を把握するため Google Analytics 4 を使用しています。Google Analytics はアクセス情報を収集するため Cookie を使用します。収集されるデータは匿名であり、個人を特定するものではありません。データの収集を希望されない場合は、<a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics オプトアウトアドオン</a>をご利用ください。</p>
+      <p>Google のプライバシーポリシーについては <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google プライバシーポリシー</a> をご参照ください。</p>
+
+      <h3>広告・アフィリエイトについて</h3>
+      <p>本サービスはアフィリエイト広告を掲載しています。</p>
+      <p>Amazonのアソシエイトとして、当サービスは適格販売により収入を得ています。</p>
+      <p>楽天アフィリエイトおよびもしもアフィリエイトを通じた広告リンクを掲載しています。これらのリンクを経由して商品を購入いただいた場合、当サービスに報酬が発生することがあります。購入者様にご負担が生じるものではありません。</p>
+      <p>広告配信にともなう Cookie の利用については、各広告プロバイダのポリシーに従います。</p>
+
+      <h3>免責事項</h3>
+      <p>型紙の寸法は目安です。素材・縫い代・個人差により仕上がりが異なります。本サービスの利用により生じた損害について、運営者は責任を負いません。</p>
+
+      <h3>ポリシーの変更</h3>
+      <p>本ポリシーは予告なく変更することがあります。変更後は本ページに掲載します。</p>
+
+      <h3>お問い合わせ</h3>
+      <p>ご意見・不具合報告は <a href="mailto:shinworks.info@gmail.com" id="privacyContactLink">shinworks.info@gmail.com</a> までお送りください。</p>
+
+      <p class="policy-date">最終更新日：2026年6月25日</p>
+    </div>
+  </div>
+</div>
+
+<div id="print-root"></div>
+
+<script src="patterns.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
