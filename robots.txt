@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://katagami.org/sitemap.xml
