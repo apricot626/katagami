@@ -14,7 +14,7 @@ const CANVAS_PAD=8;
 const WRAP_W=640;                       // この幅でレイアウト改行
 
 /* ---- 状態 & UI ---- */
-const state={mode:"human", pat:"skirt", params:{}, toggles:{}, sa:1.0, showSew:true};
+const state={mode:"human", pat:"tee", params:{}, toggles:{}, sa:1.0, showSew:true};
 const MODES=[
   {key:"human",label:"大人服"},
   {key:"kids", label:"子供服"},
@@ -22,7 +22,8 @@ const MODES=[
   {key:"bag",  label:"バッグ"},
   {key:"pet",  label:"ペット"},
 ];
-const patsInMode=m=>Object.keys(PATTERNS).filter(k=>PATTERNS[k].mode===m);
+const patsInMode=m=>Object.keys(PATTERNS).filter(k=>PATTERNS[k].mode===m)
+  .sort((a,b)=>(PATTERNS[a].order??999)-(PATTERNS[b].order??999));
 const el=id=>document.getElementById(id);
 const SVGNS="http://www.w3.org/2000/svg";
 function S(tag,attrs){const e=document.createElementNS(SVGNS,tag);
