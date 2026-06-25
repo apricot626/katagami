@@ -185,24 +185,6 @@ svg.preview{display:block;background:var(--paper2);
 .lg-fold i{border-top:2px dashed var(--ink)}
 .lg-grid i{border-top:1.5px dashed var(--tape)}
 
-/* ---- SEO static section ---- */
-.seo-section{
-  border-top:1px solid var(--rule);padding:32px 20px 40px;
-  background:var(--paper2);
-}
-.seo-inner{max-width:860px;margin:0 auto}
-.seo-h{font-size:14px;font-weight:700;margin:0 0 8px;color:var(--ink)}
-.seo-h3{font-size:12px;font-weight:700;margin:18px 0 8px;color:var(--muted);letter-spacing:.04em}
-.seo-p{font-size:12px;color:var(--muted);line-height:1.75;margin:0 0 6px}
-.seo-links{
-  display:flex;flex-wrap:wrap;gap:4px 0;padding:0;margin:0;list-style:none;
-  columns:2;column-gap:16px;
-}
-.seo-links li{font-size:12px;break-inside:avoid}
-.seo-links a{color:var(--chalk);text-decoration:none}
-.seo-links a:hover{text-decoration:underline}
-@media(max-width:600px){.seo-links{columns:1}}
-
 /* ---- footer ---- */
 .app-footer{
   border-top:1px solid var(--rule);padding:10px 20px;
