@@ -286,7 +286,11 @@ const HOWTO={
   gather:{url:"howto-gather.html", label:"📄 ギャザースカートの作り方を見る"},
   stai:{url:"howto-stai.html", label:"📄 スタイの作り方を見る"},
   pants:{url:"howto-pants.html", label:"📄 ゴムウエストパンツの作り方を見る"},
-  movepocket:{url:"howto-movepocket.html", label:"📄 移動ポケットの作り方を見る"}
+  movepocket:{url:"howto-movepocket.html", label:"📄 移動ポケットの作り方を見る"},
+  kidsdress:{url:"howto-kidsdress.html", label:"📄 キッズワンピースの作り方を見る"},
+  smock:{url:"howto-smock.html", label:"📄 キッズスモックの作り方を見る"},
+  bloomers:{url:"howto-bloomers.html", label:"📄 かぼちゃパンツ（ブルマ）の作り方を見る"},
+  babyhat:{url:"howto-babyhat.html", label:"📄 ベビー帽子（チューリップハット）の作り方を見る"}
 };
 
 function render(){
