@@ -570,5 +570,9 @@ modal.addEventListener("click",e=>{if(e.target===modal)modal.classList.remove("o
 document.addEventListener("keydown",e=>{if(e.key==="Escape")modal.classList.remove("open");});
 
 /* ---- 起動 ---- */
+(()=>{
+  const key=new URLSearchParams(location.search).get('p');
+  if(key && PATTERNS[key]){ state.pat=key; state.mode=PATTERNS[key].mode; }
+})();
 initParams(); buildModes(); buildTabs(); buildFields(); buildSAControls(); render(); renderProfiles();
 window.addEventListener("resize",()=>render());
