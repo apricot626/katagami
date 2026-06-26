@@ -22,6 +22,7 @@ const MODES=[
   {key:"small",label:"小物"},
   {key:"bag",  label:"バッグ"},
   {key:"pet",  label:"ペット"},
+  {key:"home", label:"ホーム"},
 ];
 const patsInMode=m=>Object.keys(PATTERNS).filter(k=>PATTERNS[k].mode===m)
   .sort((a,b)=>(PATTERNS[a].order??999)-(PATTERNS[b].order??999));
@@ -313,7 +314,14 @@ const HOWTO={
   shoulderbag:{url:"howto-shoulderbag.html", label:"📄 ショルダーバッグの作り方を見る"},
   catfuku:{url:"howto-catfuku.html", label:"📄 猫服の作り方を見る"},
   petvest:{url:"howto-petvest.html", label:"📄 ペット用ベストの作り方を見る"},
-  fittedmask:{url:"howto-fittedmask.html", label:"📄 立体マスクの作り方を見る"}
+  fittedmask:{url:"howto-fittedmask.html", label:"📄 立体マスクの作り方を見る"},
+  blouse:{url:"howto-blouse.html", label:"📄 ブラウスの作り方を見る"},
+  onepiece:{url:"howto-onepiece.html", label:"📄 ワンピース（袖あり）の作り方を見る"},
+  coat:{url:"howto-coat.html", label:"📄 コートの作り方を見る"},
+  jacket:{url:"howto-jacket.html", label:"📄 ジャケットの作り方を見る"},
+  cushioncover:{url:"howto-cushioncover.html", label:"📄 クッションカバーの作り方を見る"},
+  tablecloth:{url:"howto-tablecloth.html", label:"📄 テーブルクロスの作り方を見る"},
+  pillowcase:{url:"howto-pillowcase.html", label:"📄 枕カバーの作り方を見る"}
 };
 
 function render(){
