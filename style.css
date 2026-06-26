@@ -78,14 +78,17 @@ main{display:grid;grid-template-columns:320px 1fr;gap:0;flex:1;overflow:hidden}
   border-right:1.5px solid var(--ink);
   padding:16px;overflow-y:auto;background:var(--paper2);
 }
-.mode-tabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:12px}
+.mode-tabs{
+  display:flex;gap:4px;flex-wrap:wrap;margin-bottom:14px;
+  background:var(--ink);padding:6px;border-radius:3px;
+}
 .mode-tabs button{
   flex:1;min-width:52px;font-family:inherit;font-size:12px;cursor:pointer;
-  padding:7px 6px;border:1.5px solid var(--ink);border-radius:2px;
-  background:var(--paper);color:var(--ink);transition:.12s;line-height:1.25;
+  padding:6px 6px;border:1.5px solid rgba(255,255,255,0.15);border-radius:2px;
+  background:transparent;color:var(--paper2);transition:.12s;line-height:1.25;
 }
 .mode-tabs button[aria-pressed="true"]{background:var(--chalk);color:#fff;border-color:var(--chalk)}
-.mode-tabs button:hover:not([aria-pressed="true"]){background:var(--rule-soft)}
+.mode-tabs button:hover:not([aria-pressed="true"]){background:rgba(255,255,255,0.1)}
 .pat-tabs{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap}
 .pat-tabs button{
   flex:1;min-width:88px;font-family:inherit;font-size:12.5px;cursor:pointer;
