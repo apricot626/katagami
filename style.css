@@ -33,7 +33,9 @@ header{
 header .brand{font-size:22px;font-weight:800;letter-spacing:.22em}
 header .brand b{color:var(--vermilion)}
 header .tag{font-size:12px;color:var(--muted);letter-spacing:.04em}
-header .sheets{margin-left:auto;display:flex;align-items:center;gap:10px}
+header .header-howto-link{margin-left:auto;font-size:13px;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink);line-height:1.2}
+header .header-howto-link:hover{color:var(--vermilion);border-color:var(--vermilion)}
+header .sheets{margin-left:12px;display:flex;align-items:center;gap:10px}
 
 /* ---- news banner ---- */
 .news-bar{background:var(--paper2);border-bottom:1px solid var(--rule);padding:7px 20px}

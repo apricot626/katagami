@@ -160,19 +160,24 @@ a:hover{text-decoration:underline}
 .feat-list li b{display:block;font-size:14px;font-weight:700;margin-bottom:6px}
 .feat-list li p{font-size:13px;color:var(--muted);line-height:1.7;margin:0}
 
-/* ---- howto links ---- */
+/* ---- howto section ---- */
 .howto-section{padding:40px 0}
-.howto-links{
+.howto-chips{
   list-style:none;
-  display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:4px;
+  display:flex;flex-wrap:wrap;gap:6px;
 }
-.howto-links li a{
-  display:block;padding:8px 12px;
-  font-size:13px;background:var(--paper2);
-  border:1px solid var(--rule);border-radius:2px;
-  color:var(--chalk);text-decoration:none;
+.howto-chips li{
+  background:var(--paper2);border:1.5px solid var(--rule);border-radius:2px;
 }
-.howto-links li a:hover{background:var(--rule-soft);text-decoration:none}
+.howto-chips li a{
+  display:block;padding:6px 14px;
+  font-size:13px;color:var(--chalk);font-weight:500;
+  text-decoration:none;
+}
+.howto-chips li a:hover{background:var(--rule-soft);color:var(--ink)}
+.howto-more-wrap{margin-top:24px}
+.howto-more-link{font-size:13px;color:var(--chalk);text-decoration:underline}
+.howto-more-link:hover{color:var(--ink)}
 
 /* ---- footer ---- */
 .site-footer{
