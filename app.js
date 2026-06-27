@@ -3,10 +3,19 @@
    全長さ単位: mm（内部）。入力はcm。
    ============================================================ */
 
-/* ---- A4 タイル設定 (mm) ---- */
-const PAGE_W=210, PAGE_H=297, MARGIN=10, OVERLAP=10;
-const CONTENT_W=PAGE_W-2*MARGIN;        // 190
-const CONTENT_H=PAGE_H-2*MARGIN;        // 277
+/* ---- 用紙タイル設定 (mm) ---- */
+/* 既定はA4。英語版(lang=en)は北米向けにLetterを既定にする。
+   ?paper=letter / ?paper=a4 で明示指定も可能。日本語版は従来どおりA4。 */
+const MARGIN=10, OVERLAP=10;
+let PAGE_W=210, PAGE_H=297;             // A4 既定
+(()=>{
+  let paper; try{ paper=new URLSearchParams(location.search).get('paper'); }catch(e){ paper=null; }
+  if(!paper) paper = (window.KG && KG.lang==='en') ? 'letter' : 'a4';
+  if(paper==='letter'){ PAGE_W=216; PAGE_H=279; }   // US Letter 8.5×11in
+})();
+const PAGE_W_MM=PAGE_W+"mm", PAGE_H_MM=PAGE_H+"mm";
+const CONTENT_W=PAGE_W-2*MARGIN;
+const CONTENT_H=PAGE_H-2*MARGIN;
 const STEP_X=CONTENT_W-OVERLAP;         // 180
 const STEP_Y=CONTENT_H-OVERLAP;         // 267
 const LAYOUT_GAP=22;                    // ピース間の隙間
@@ -63,7 +72,7 @@ function buildModes(){
   const wrap=el("modeTabs"); wrap.innerHTML="";
   MODES.forEach(m=>{
     const b=document.createElement("button");
-    b.textContent=m.label; b.setAttribute("aria-pressed", m.key===state.mode);
+    b.textContent=KG.mode(m.key,m.label); b.setAttribute("aria-pressed", m.key===state.mode);
     b.onclick=()=>{
       state.mode=m.key;
       const list=patsInMode(m.key);
@@ -79,7 +88,7 @@ function buildTabs(){
   patsInMode(state.mode).forEach(k=>{
     const v=PATTERNS[k];
     const b=document.createElement("button");
-    b.textContent=v.name; b.setAttribute("aria-pressed", k===state.pat);
+    b.textContent=KG.name(k,v.name); b.setAttribute("aria-pressed", k===state.pat);
     b.onclick=()=>{state.pat=k; initParams(); render(); buildFields(); buildTabs();
       ga('select_pattern',{pattern:k,pattern_name:v.name,mode:state.mode});
     };
@@ -88,12 +97,13 @@ function buildTabs(){
 }
 function buildFields(){
   const def=PATTERNS[state.pat];
-  el("patNote").textContent=def.note;
+  el("patNote").textContent=KG.note(state.pat,def.note);
   const box=el("fields"); box.innerHTML="";
   if(def.presets && def.presets.length){
     const ps=document.createElement("div"); ps.className="presets";
-    const row=def.presets.map(pr=>`<button type="button">${pr.label}</button>`).join("");
-    ps.innerHTML=`<div class="ptitle">目安サイズ（クリックで数値を入れる）</div><div class="prow">${row}</div>`;
+    const row=def.presets.map(pr=>`<button type="button">${KG.preset(pr.label)}</button>`).join("");
+    const ptitle=KG.lang==='en'?KG.ui.presetTitle:'目安サイズ（クリックで数値を入れる）';
+    ps.innerHTML=`<div class="ptitle">${ptitle}</div><div class="prow">${row}</div>`;
     ps.querySelectorAll(".prow button").forEach((btn,i)=>{
       btn.onclick=()=>{
         const vals=def.presets[i].vals;
@@ -106,7 +116,7 @@ function buildFields(){
   }
   def.params.forEach(f=>{
     const fd=document.createElement("div"); fd.className="field";
-    fd.innerHTML=`<label>${f.label}<span><span class="v mono">${state.params[f.key]}</span><span class="unit">${f.unit}</span></span></label>
+    fd.innerHTML=`<label>${KG.label(f.label)}<span><span class="v mono">${state.params[f.key]}</span><span class="unit">${KG.unit(f.unit)}</span></span></label>
       <div class="row"><input type="range" min="${f.min}" max="${f.max}" step="${f.step}" value="${state.params[f.key]}">
       <input type="number" min="${f.min}" max="${f.max}" step="${f.step}" value="${state.params[f.key]}"></div>`;
     const [rng,num]=fd.querySelectorAll("input");
@@ -118,7 +128,7 @@ function buildFields(){
   });
   (def.toggles||[]).forEach(t=>{
     const lab=document.createElement("label"); lab.className="toggle";
-    lab.innerHTML=`<input type="checkbox" ${state.toggles[t.key]?"checked":""}> ${t.label}`;
+    lab.innerHTML=`<input type="checkbox" ${state.toggles[t.key]?"checked":""}> ${KG.toggle(t.label)}`;
     lab.querySelector("input").onchange=e=>{state.toggles[t.key]=e.target.checked; render();};
     box.appendChild(lab);
   });
@@ -183,7 +193,7 @@ function drawPiece(parent, p, ox, oy, opt){
       stroke:"var(--ink)","stroke-width":lw(1),"stroke-dasharray":`${lw(7)} ${lw(2)} ${lw(1)} ${lw(2)}`}));
     const t=S("text",{x:p.foldX+lw(2),y:(bb.y0+bb.y1)/2,fill:"var(--ink)",
       "font-size":lw(5),"transform":`rotate(-90 ${p.foldX+lw(2)} ${(bb.y0+bb.y1)/2})`,
-      "text-anchor":"middle"}); t.textContent="わ"; g.appendChild(t);
+      "text-anchor":"middle"}); t.textContent=KG.lang==='en'?KG.ui.fold:"わ"; g.appendChild(t);
   }
   // わ（横＝底）
   if(p.foldY!=null){
@@ -191,7 +201,7 @@ function drawPiece(parent, p, ox, oy, opt){
     g.appendChild(S("line",{x1:bb.x0,y1:p.foldY,x2:bb.x1,y2:p.foldY,
       stroke:"var(--ink)","stroke-width":lw(1),"stroke-dasharray":`${lw(7)} ${lw(2)} ${lw(1)} ${lw(2)}`}));
     const t=S("text",{x:(bb.x0+bb.x1)/2,y:p.foldY-lw(2),fill:"var(--ink)",
-      "font-size":lw(5),"text-anchor":"middle"}); t.textContent="わ（底）"; g.appendChild(t);
+      "font-size":lw(5),"text-anchor":"middle"}); t.textContent=KG.lang==='en'?KG.ui.foldBase:"わ（底）"; g.appendChild(t);
   }
   // ひも通し口（巾着）
   if(p.casingLines){
@@ -201,7 +211,7 @@ function drawPiece(parent, p, ox, oy, opt){
         stroke:"var(--chalk)","stroke-width":lw(0.7),"stroke-dasharray":`${lw(3)} ${lw(2)}`}));
     });
     const t=S("text",{x:bbox(p.cut).x1-lw(2),y:p.casingLines[0]-lw(1.5),"text-anchor":"end",
-      fill:"var(--chalk)","font-size":lw(3.6)}); t.textContent=p.casingLabel||"ひも通し口"; g.appendChild(t);
+      fill:"var(--chalk)","font-size":lw(3.6)}); t.textContent=KG.piece(p.casingLabel||"ひも通し口"); g.appendChild(t);
   }
   // 縦折り線（ブックカバー等）
   if(p.vFoldLines){
@@ -233,16 +243,16 @@ function drawPiece(parent, p, ox, oy, opt){
     const mx=(p.grain.x1+p.grain.x2)/2, my=(p.grain.y1+p.grain.y2)/2;
     const t=S("text",{x:mx+lw(3),y:my,fill:"var(--ink)","font-size":lw(4.2),
       "transform":`rotate(-90 ${mx+lw(3)} ${my})`,"text-anchor":"middle"});
-    t.textContent="布目線"; g.appendChild(t);
+    t.textContent=KG.lang==='en'?KG.ui.grain:"布目線"; g.appendChild(t);
   }
   // ラベル
   if(p.labelAt){
     const t=S("text",{x:p.labelAt.x,y:p.labelAt.y,"text-anchor":"middle",
       fill:"var(--ink)","font-size":lw(6),"font-weight":"700"});
-    t.textContent=p.title; g.appendChild(t);
+    t.textContent=KG.piece(p.title); g.appendChild(t);
     const t2=S("text",{x:p.labelAt.x,y:p.labelAt.y+lw(7),"text-anchor":"middle",
       fill:"var(--muted)","font-size":lw(3.6)});
-    t2.textContent=p.cutInfo; g.appendChild(t2);
+    t2.textContent=KG.piece(p.cutInfo); g.appendChild(t2);
   }
 }
 
@@ -327,10 +337,12 @@ const HOWTO={
 function render(){
   const {placed,canvasW,canvasH,memo}=layout();
   const def=PATTERNS[state.pat];
-  el("patNote").textContent = memo ? `${def.note} ／ ${memo}` : def.note;
-  // 作り方リンク（対応する記事がある型紙のときだけ表示）
+  const noteTxt=KG.note(state.pat,def.note);
+  // memo は数値が埋め込まれるためフェーズ1では英語化せず、日本語版でのみ併記する
+  el("patNote").textContent = (memo && KG.lang!=='en') ? `${noteTxt} ／ ${memo}` : noteTxt;
+  // 作り方リンク（対応する記事がある型紙のときだけ表示）。howtoページは日本語のみ。
   const howto=HOWTO[state.pat], hl=el("howtoLink");
-  if(howto){hl.href=howto.url; hl.textContent=howto.label; hl.style.display="inline-block";}
+  if(howto){hl.href=howto.url; hl.textContent=KG.lang==='en'?KG.ui.howtoJa:howto.label; hl.style.display="inline-block";}
   else{hl.style.display="none";}
   const {cols,rows}=tileGrid(canvasW,canvasH);
   el("sheetCount").textContent=cols*rows;
@@ -382,36 +394,38 @@ function buildPrintSheets(){
 
   /* --- 案内シート --- */
   const guide=document.createElement("div"); guide.className="sheet";
-  const gs=S("svg",{width:"210mm",height:"297mm",viewBox:`0 0 ${PAGE_W} ${PAGE_H}`});
+  const gs=S("svg",{width:PAGE_W_MM,height:PAGE_H_MM,viewBox:`0 0 ${PAGE_W} ${PAGE_H}`});
   guide.appendChild(gs); root.appendChild(guide);
   const G=(tag,a)=>{const e=S(tag,a);gs.appendChild(e);return e;};
   // 見出し
   let ty=24;
   const title=S("text",{x:MARGIN,y:ty,"font-size":7,"font-weight":"800",fill:"#1B1D1A","font-family":"sans-serif"});
-  title.textContent=`カタガミ — ${def.name}`; gs.appendChild(title);
+  const EN=KG.lang==='en';
+  const sep=EN?": ":"：";
+  title.textContent=(EN?KG.ui.titlePrefix:"カタガミ — ")+KG.name(state.pat,def.name); gs.appendChild(title);
   G("line",{x1:MARGIN,y1:ty+3,x2:PAGE_W-MARGIN,y2:ty+3,stroke:"#1B1D1A","stroke-width":0.5});
   ty+=14;
   const sub=S("text",{x:MARGIN,y:ty,"font-size":4,fill:"#444","font-family":"sans-serif"});
-  sub.textContent="案内シート ／ まず校正枠を測ってから型紙を切り出してください"; gs.appendChild(sub);
+  sub.textContent=EN?KG.ui.guideSub:"案内シート ／ まず校正枠を測ってから型紙を切り出してください"; gs.appendChild(sub);
   ty+=12;
   // パラメータ一覧
   const lh=6.4;
   const addLine=(s)=>{const t=S("text",{x:MARGIN,y:ty,"font-size":4,fill:"#1B1D1A","font-family":"monospace"});
     t.textContent=s;gs.appendChild(t);ty+=lh;};
-  def.params.forEach(f=>addLine(`${f.label}：${state.params[f.key]} ${f.unit}`));
-  (def.toggles||[]).forEach(t=>addLine(`${t.label}：${state.toggles[t.key]?"あり":"なし"}`));
-  addLine(`縫い代：${state.sa.toFixed(1)} cm`);
-  addLine(`型紙シート：${cols}列 × ${rows}行 ＝ ${cols*rows} 枚`);
-  if(memo) addLine(memo);
+  def.params.forEach(f=>addLine(`${KG.label(f.label)}${sep}${state.params[f.key]} ${KG.unit(f.unit)}`));
+  (def.toggles||[]).forEach(t=>addLine(`${KG.toggle(t.label)}${sep}${state.toggles[t.key]?(EN?KG.ui.yes:"あり"):(EN?KG.ui.no:"なし")}`));
+  addLine(`${EN?KG.ui.seamAllowance:"縫い代"}${sep}${state.sa.toFixed(1)} cm`);
+  addLine(EN?KG.ui.sheetsLine(cols,rows,cols*rows):`型紙シート：${cols}列 × ${rows}行 ＝ ${cols*rows} 枚`);
+  if(memo && !EN) addLine(memo);
   ty+=4;
 
   // 校正枠 50mm + 100mm定規
   const calX=MARGIN, calY=ty;
   G("rect",{x:calX,y:calY,width:50,height:50,fill:"none",stroke:"#C24033","stroke-width":0.5});
   const ct=S("text",{x:calX+25,y:calY+27,"text-anchor":"middle","font-size":3.4,fill:"#C24033","font-family":"sans-serif"});
-  ct.textContent="この枠＝50mm"; gs.appendChild(ct);
+  ct.textContent=EN?KG.ui.box50:"この枠＝50mm"; gs.appendChild(ct);
   const ct2=S("text",{x:calX+25,y:calY+32,"text-anchor":"middle","font-size":2.6,fill:"#777","font-family":"sans-serif"});
-  ct2.textContent="定規で確認"; gs.appendChild(ct2);
+  ct2.textContent=EN?KG.ui.checkRuler:"定規で確認"; gs.appendChild(ct2);
   // 100mm 定規
   const rulY=calY+62, rulX=calX;
   G("line",{x1:rulX,y1:rulY,x2:rulX+100,y2:rulY,stroke:"#1B1D1A","stroke-width":0.5});
@@ -422,13 +436,13 @@ function buildPrintSheets(){
     lt.textContent=i; gs.appendChild(lt);
   }
   const rt=S("text",{x:rulX,y:rulY+6,"font-size":3,fill:"#777","font-family":"sans-serif"});
-  rt.textContent="0–100mm 校正定規"; gs.appendChild(rt);
+  rt.textContent=EN?KG.ui.calRuler:"0–100mm 校正定規"; gs.appendChild(rt);
 
   // 組み立て図（タイル配置のミニマップ）右側
   const mapX=120, mapY=calY, mw=78, mh=78;
   const cell=Math.min(mw/cols, mh/rows, 16);
   const mt=S("text",{x:mapX,y:mapY-4,"font-size":4,"font-weight":"700",fill:"#1B1D1A","font-family":"sans-serif"});
-  mt.textContent="貼り合わせ図"; gs.appendChild(mt);
+  mt.textContent=EN?KG.ui.assemblyMap:"貼り合わせ図"; gs.appendChild(mt);
   for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){
     const x=mapX+c*cell, y=mapY+r*cell;
     G("rect",{x,y,width:cell,height:cell,fill:"#F5F4EE",stroke:"#1B1D1A","stroke-width":0.3});
@@ -436,17 +450,17 @@ function buildPrintSheets(){
     tc.textContent=tileCode(c,r); gs.appendChild(tc);
   }
   const mn=S("text",{x:mapX,y:mapY+rows*cell+6,"font-size":2.8,fill:"#777","font-family":"sans-serif"});
-  mn.textContent=`左上(1A)から右へ→下へ並べ、約${OVERLAP}mmの重ね代を合わせて貼ります`; gs.appendChild(mn);
+  mn.textContent=EN?KG.ui.assemblyNote(OVERLAP):`左上(1A)から右へ→下へ並べ、約${OVERLAP}mmの重ね代を合わせて貼ります`; gs.appendChild(mn);
 
   // 注意書き
   const warn=S("text",{x:MARGIN,y:PAGE_H-MARGIN-4,"font-size":3.4,fill:"#C24033","font-family":"sans-serif","font-weight":"700"});
-  warn.textContent="印刷倍率＝100%（実際のサイズ）／「用紙に合わせる」はオフ"; gs.appendChild(warn);
+  warn.textContent=EN?KG.ui.printWarn:"印刷倍率＝100%（実際のサイズ）／「用紙に合わせる」はオフ"; gs.appendChild(warn);
   addWatermark(gs);
 
   /* --- タイル群 --- */
   for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){
     const sheet=document.createElement("div"); sheet.className="sheet";
-    const svg=S("svg",{width:"210mm",height:"297mm",viewBox:`0 0 ${PAGE_W} ${PAGE_H}`});
+    const svg=S("svg",{width:PAGE_W_MM,height:PAGE_H_MM,viewBox:`0 0 ${PAGE_W} ${PAGE_H}`});
     sheet.appendChild(svg); root.appendChild(sheet);
     const defs=S("defs",{}); svg.appendChild(defs);
     defs.appendChild(arrowMarker("arr_"+r+"_"+c,1));
@@ -485,21 +499,21 @@ function buildPrintSheets(){
     const code=S("text",{x:x0+2,y:y0-2.5,"font-size":5,"font-weight":"800",fill:"#2E63B4","font-family":"monospace"});
     code.textContent=tileCode(c,r); svg.appendChild(code);
     const tot=S("text",{x:x1,y:y0-2.5,"font-size":3,fill:"#777","text-anchor":"end","font-family":"sans-serif"});
-    tot.textContent=`${def.name}  ／  ${c+1}列 ${rowLabel(r)}行  （全${cols*rows}枚）`; svg.appendChild(tot);
+    tot.textContent=EN?KG.ui.tileInfo(KG.name(state.pat,def.name),c+1,rowLabel(r),cols*rows):`${def.name}  ／  ${c+1}列 ${rowLabel(r)}行  （全${cols*rows}枚）`; svg.appendChild(tot);
     // 隣接案内
     const mid=(a,b)=>(a+b)/2;
     if(c<cols-1){const t=S("text",{x:x1-1,y:mid(y0,y1),"text-anchor":"end","font-size":3.4,
       fill:"#C24033","font-family":"sans-serif","font-weight":"700"});
-      t.textContent=`→ ${tileCode(c+1,r)} へ`; svg.appendChild(t);}
+      t.textContent=EN?KG.ui.toCode(tileCode(c+1,r)):`→ ${tileCode(c+1,r)} へ`; svg.appendChild(t);}
     if(r<rows-1){const t=S("text",{x:mid(x0,x1),y:y1-1.5,"text-anchor":"middle","font-size":3.4,
       fill:"#C24033","font-family":"sans-serif","font-weight":"700"});
-      t.textContent=`↓ ${tileCode(c,r+1)} へ`; svg.appendChild(t);}
+      t.textContent=EN?KG.ui.downCode(tileCode(c,r+1)):`↓ ${tileCode(c,r+1)} へ`; svg.appendChild(t);}
     if(c>0){const t=S("text",{x:x0+1,y:mid(y0,y1),"text-anchor":"start","font-size":2.8,
       fill:"#999","font-family":"sans-serif"});
-      t.textContent=`${tileCode(c-1,r)} と重ねる`; svg.appendChild(t);}
+      t.textContent=EN?KG.ui.overlapWith(tileCode(c-1,r)):`${tileCode(c-1,r)} と重ねる`; svg.appendChild(t);}
     if(r>0){const t=S("text",{x:mid(x0,x1),y:y0+4,"text-anchor":"middle","font-size":2.8,
       fill:"#999","font-family":"sans-serif"});
-      t.textContent=`${tileCode(c,r-1)} と重ねる`; svg.appendChild(t);}
+      t.textContent=EN?KG.ui.overlapWith(tileCode(c,r-1)):`${tileCode(c,r-1)} と重ねる`; svg.appendChild(t);}
     addWatermark(svg);
   }
 }
@@ -512,7 +526,7 @@ function getProfiles(){try{return JSON.parse(localStorage.getItem(PROFILES_KEY)|
 function saveProfiles(arr){localStorage.setItem(PROFILES_KEY,JSON.stringify(arr));}
 
 function saveProfile(){
-  const name=window.prompt('この設定の名前を入力してください（例：娘90cm夏）');
+  const name=window.prompt(KG.lang==='en'?KG.ui.profilePrompt:'この設定の名前を入力してください（例：娘90cm夏）');
   if(!name||!name.trim())return;
   const arr=getProfiles();
   arr.push({name:name.trim(), pat:state.pat, params:{...state.params}, toggles:{...state.toggles}, sa:state.sa});
@@ -541,7 +555,7 @@ function applyProfile(idx){
 }
 
 function deleteProfile(idx){
-  if(!window.confirm('この設定を削除しますか？'))return;
+  if(!window.confirm(KG.lang==='en'?KG.ui.profileDelete:'この設定を削除しますか？'))return;
   const arr=getProfiles(); arr.splice(idx,1); saveProfiles(arr); renderProfiles();
 }
 
@@ -550,10 +564,11 @@ function renderProfiles(){
   getProfiles().forEach((p,i)=>{
     const item=document.createElement("div"); item.className="profile-item";
     const load=document.createElement("button"); load.className="p-load";
-    load.textContent=p.name; load.title=`${PATTERNS[p.pat]?.name||p.pat} を読み込む`;
+    const pn=KG.name(p.pat,PATTERNS[p.pat]?.name||p.pat);
+    load.textContent=p.name; load.title=KG.lang==='en'?KG.ui.profileLoad(pn):`${pn} を読み込む`;
     load.onclick=()=>applyProfile(i);
     const del=document.createElement("button"); del.className="p-del";
-    del.textContent="×"; del.title="削除"; del.onclick=()=>deleteProfile(i);
+    del.textContent="×"; del.title=KG.lang==='en'?KG.ui.profileDel:"削除"; del.onclick=()=>deleteProfile(i);
     item.appendChild(load); item.appendChild(del);
     list.appendChild(item);
   });

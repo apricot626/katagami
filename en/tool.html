@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Katagami | Free sewing-pattern tool — print at actual size</title>
+<meta name="description" content="Draft sewing patterns at any size and print them at 100% on Letter or A4. T-shirts, drawstring pouches, tote bags, dog clothes and more — 61+ free patterns.">
+<meta name="keywords" content="sewing pattern,pattern maker,print at home,actual size,letter,A4,tote bag,t-shirt,dog clothes,handmade,free">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3HFK3VE3Q8"></script>
+<script>
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js',new Date());
+  gtag('config','G-3HFK3VE3Q8');
+</script>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Katagami | Free sewing-pattern tool">
+<meta property="og:description" content="Draft sewing patterns at any size and print them at 100% on Letter or A4.">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ja_JP">
+<link rel="stylesheet" href="../style.css">
+<link rel="canonical" href="https://katagami.org/en/tool.html">
+<link rel="alternate" hreflang="ja" href="https://katagami.org/tool.html">
+<link rel="alternate" hreflang="en" href="https://katagami.org/en/tool.html">
+<link rel="alternate" hreflang="x-default" href="https://katagami.org/tool.html">
+<meta property="og:url" content="https://katagami.org/en/tool.html">
+<meta property="og:image" content="https://katagami.org/ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Katagami | Free sewing-pattern tool">
+<meta name="twitter:description" content="Draft sewing patterns at any size and print them at 100% on Letter or A4.">
+<meta name="twitter:image" content="https://katagami.org/ogp.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Katagami",
+  "url": "https://katagami.org/en/tool.html",
+  "description": "Draft sewing patterns at any size and print them at 100% on Letter or A4. 61+ free patterns.",
+  "applicationCategory": "DesignApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "en",
+  "image": "https://katagami.org/ogp.png",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+<script>window.KATAGAMI_LANG='en';</script>
+</head>
+<body>
+<div class="app">
+  <header>
+    <a class="brand" href="../index.html" style="text-decoration:none;color:inherit">Kata<b>gami</b></a>
+    <div class="tag">Free sewing-pattern tool — print at actual size (Letter / A4)</div>
+    <a href="../tool.html" class="header-howto-link">日本語</a>
+    <div class="sheets">
+      <span class="sheet-chip">Sheets needed <b id="sheetCount" class="mono">–</b> <span style="color:var(--muted)">+ 1 guide</span></span>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel" id="panel">
+      <div class="mode-tabs" id="modeTabs"></div>
+      <div class="pat-tabs" id="patTabs"></div>
+      <p class="pat-note" id="patNote"></p>
+      <a class="howto-link" id="howtoLink" target="_blank" rel="noopener" style="display:none"></a>
+      <div id="fields"></div>
+
+      <div class="profile-section" id="profileSection">
+        <p class="sec-h" style="margin-bottom:8px">Saved setups</p>
+        <div id="profileList" class="profile-list"></div>
+        <button class="profile-save" id="saveProfileBtn">+ Save current setup</button>
+      </div>
+
+      <hr class="divider">
+      <p class="sec-h">Seam allowance &amp; output</p>
+      <div class="field">
+        <label>Seam allowance <span><span class="v mono" id="saV"></span><span class="unit">cm</span></span></label>
+        <div class="row">
+          <input type="range" id="saRange" min="0" max="3" step="0.5">
+          <input type="number" id="saNum" min="0" max="5" step="0.1">
+        </div>
+      </div>
+      <label class="toggle"><input type="checkbox" id="showSew" checked> Show seam (sewing) line</label>
+
+      <hr class="divider">
+      <button class="print-btn" id="printBtn">Print (actual size)</button>
+      <p class="feedback-line">How was the pattern? <a href="https://forms.gle/Y6TLqYwixad78qyaA" target="_blank" rel="noopener" class="feedback-link">Send feedback</a></p>
+      <p class="scale-warn">
+        In the print dialog set <b>Scale = 100% (actual size)</b> and make sure <b>“Fit to page” is OFF</b>.
+        Measure the <b>50&nbsp;mm calibration box</b> on the first guide sheet with a ruler — if it is exactly 50&nbsp;mm, you are good to go.<br>
+        <span class="pdf-tip">To save as PDF, switch the destination to <b>“Save as PDF”</b> in the Chrome / Edge print dialog.</span>
+      </p>
+    </section>
+
+    <section class="preview-wrap">
+      <div class="preview-inner">
+        <svg class="preview" id="preview"></svg>
+      </div>
+      <div class="legend">
+        <span class="lg-cut"><i></i>Cut line</span>
+        <span class="lg-sew"><i></i>Seam line</span>
+        <span class="lg-fold"><i></i>Fold</span>
+        <span class="lg-grid"><i></i>Page boundary</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <a href="../index.html">Home</a>
+    <span>© 2026 Katagami</span>
+    <a id="openPrivacy">Privacy Policy</a>
+    <a href="mailto:shinworks.info@gmail.com" id="contactLink">Contact</a>
+    <a href="https://forms.gle/Y6TLqYwixad78qyaA" target="_blank" rel="noopener">Feedback form</a>
+  </footer>
+</div>
+
+<!-- Privacy policy modal -->
+<div class="modal-overlay" id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="privacyTitle">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h2 id="privacyTitle">Privacy Policy</h2>
+      <button class="modal-close" id="closePrivacy" aria-label="Close">×</button>
+    </div>
+    <div class="modal-body">
+      <p>Katagami (“the Service”) is a free, individually run sewing-pattern tool.</p>
+
+      <h3>Handling of measurement data</h3>
+      <p>The measurements you enter are processed only within your browser. They are never sent to a server or shared externally.</p>
+      <p>Setups you “Save” are stored in your browser's localStorage. This information is not transmitted externally, and saved setups can be deleted from the screen at any time. Clearing your browser data also removes them.</p>
+
+      <h3>Analytics (Google Analytics 4)</h3>
+      <p>The Service uses Google Analytics 4 to understand access trends. Google Analytics uses cookies to collect access information. The data collected is anonymous and does not identify individuals. If you prefer not to be tracked, please use the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics opt-out add-on</a>.</p>
+      <p>For Google's privacy practices, see the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.</p>
+
+      <h3>Advertising / affiliates</h3>
+      <p>The Service displays affiliate advertising.</p>
+      <p>As an Amazon Associate, the Service earns from qualifying purchases.</p>
+      <p>It also carries advertising links through Rakuten Affiliate and Moshimo Affiliate. If you buy a product via these links, the Service may receive a commission. This does not add any cost for you.</p>
+      <p>Cookie use associated with ad delivery follows each ad provider's policy.</p>
+
+      <h3>Disclaimer</h3>
+      <p>Pattern dimensions are approximate. Results vary with material, seam allowance and individual differences. The operator is not liable for any damages arising from use of the Service.</p>
+
+      <h3>Changes to this policy</h3>
+      <p>This policy may change without notice. Updates will be posted on this page.</p>
+
+      <h3>Contact</h3>
+      <p>Please send feedback or bug reports to <a href="mailto:shinworks.info@gmail.com" id="privacyContactLink">shinworks.info@gmail.com</a>.</p>
+
+      <p class="policy-date">Last updated: June 25, 2026</p>
+    </div>
+  </div>
+</div>
+
+<div id="print-root"></div>
+
+<script src="../i18n.js"></script>
+<script src="../patterns.js"></script>
+<script src="../app.js"></script>
+</body>
+</html>
