@@ -18,11 +18,19 @@ const TAB = {
 };
 
 function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function stripTags(s){ return String(s).replace(/<[^>]+>/g," ").replace(/&nbsp;/g," ").replace(/\s+/g," ").trim(); }
+function strongName(s){ const m=String(s).match(/<strong>(.*?)<\/strong>/i); return m?stripTags(m[1]):""; }
+function ld(obj){ return '<script type="application/ld+json">\n'+JSON.stringify(obj,null,2).replace(/</g,"\\u003c")+'\n</script>'; }
 
 function li(items){ return items.map(t=>`      <li>${t}</li>`).join("\n"); }
 function steps(items){
   return `    <ol class="steps">\n` + items.map(t=>`      <li>${t}</li>`).join("\n") + `\n    </ol>`;
 }
+
+const TOOLS_EN = ["Sewing machine (or needle and thread)","Fabric marker or pencil","Ruler and scissors","Iron","Pins or clips"];
+/* keys that have an English guide — used for the related-guides block */
+const EN_KEYS = ["tee","tote","kinchaku","pouch","shuushu","bowtie"];
+const EN_TITLE = { tee:"T-shirt", tote:"Tote bag", kinchaku:"Drawstring pouch", pouch:"Zipper pouch", shuushu:"Scrunchie", bowtie:"Bow tie" };
 
 function render(key, g){
   const url = `https://katagami.org/en/howto-${key}.html`;
@@ -37,6 +45,34 @@ function render(key, g){
   const sew = g.sew.map(block=>{
     return `    <h3>${block.h}</h3>\n` + steps(block.items);
   }).join("\n\n");
+
+  // ---- structured data: HowTo + BreadcrumbList ----
+  const stepObjs = [];
+  g.cut.forEach(s=>stepObjs.push({ "@type":"HowToStep", name:strongName(s)||("Step "+(stepObjs.length+1)), text:stripTags(s), url:url+"#cut" }));
+  g.sew.forEach(block=>block.items.forEach(s=>stepObjs.push({ "@type":"HowToStep", name:strongName(s)||stripTags(block.h), text:stripTags(s), url:url+"#sew" })));
+  stepObjs.forEach((s,i)=>s.position=i+1);
+  const howToLd = ld({
+    "@context":"https://schema.org","@type":"HowTo",
+    name:`How to make a ${g.title.toLowerCase()}`, description:g.desc, inLanguage:"en",
+    image:"https://katagami.org/ogp.png",
+    supply:g.materials.map(m=>({ "@type":"HowToSupply", name:stripTags(m) })),
+    tool:TOOLS_EN.map(t=>({ "@type":"HowToTool", name:t })),
+    step:stepObjs
+  });
+  const crumbLd = ld({
+    "@context":"https://schema.org","@type":"BreadcrumbList",
+    itemListElement:[
+      { "@type":"ListItem", position:1, name:"Katagami", item:"https://katagami.org/en/" },
+      { "@type":"ListItem", position:2, name:"Sewing guides", item:"https://katagami.org/en/howto.html" },
+      { "@type":"ListItem", position:3, name:`How to make a ${g.title.toLowerCase()}`, item:url }
+    ]
+  });
+  // visible breadcrumb (replaces the plain category label)
+  const crumbHtml = `<nav class="crumb" aria-label="Breadcrumb"><a href="index.html">Katagami</a><span class="sep">›</span><a href="howto.html">Sewing guides</a><span class="sep">›</span><span class="cur">${esc(g.title)}</span></nav>`;
+  // related guides: other English guides
+  const relItems = EN_KEYS.filter(k=>k!==key).slice(0,4)
+    .map(k=>`        <li><a href="howto-${k}.html">${esc(EN_TITLE[k])}</a></li>`).join("\n");
+  const relatedHtml = `  <nav class="related" aria-label="Related guides">\n    <h2>Related guides</h2>\n    <ul>\n${relItems}\n    </ul>\n  </nav>\n`;
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -90,6 +126,8 @@ function render(key, g){
   "mainEntityOfPage": { "@type": "WebPage", "@id": "${url}" }
 }
 </script>
+${howToLd}
+${crumbLd}
 </head>
 <body>
 <header class="site-header">
@@ -100,7 +138,7 @@ function render(key, g){
 
 <article class="article">
   <div class="article-head">
-    <p class="category">Sewing guide</p>
+    ${crumbHtml}
     <h1>How to make a ${esc(g.title.toLowerCase())}</h1>
     <p class="lead">
       ${g.lead}
@@ -163,7 +201,8 @@ ${li(g.tips)}
       <a href="tool.html?p=${key}" class="cta-btn">Open the pattern tool →</a>
     </div>
   </section>
-</article>
+
+${relatedHtml}</article>
 
 <footer class="site-footer">
   <span>© 2026 Katagami</span>
