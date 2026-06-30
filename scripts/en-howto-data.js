@@ -567,6 +567,257 @@ module.exports = {
       "<strong>Filter pocket</strong>: leave a gap in the lining seam to insert a filter.",
       "<strong>Adjustable</strong>: use adjustable cord stoppers on the elastic."
     ]
+  },
+
+  pants: {
+    title: "Elastic-waist pants",
+    tab: "kids",
+    toolName: "Elastic-waist pants",
+    sizeStep: "Enter the rise, inseam, waist and hip. Presets cover heights 80–130 cm and adult M.",
+    desc: "How to sew simple elastic-waist pants. Front and back use the same pattern: sew the center seams, then the sides and inseam, add an elastic waist and hem. The only curve is the crotch.",
+    keywords: "elastic waist pants,how to sew,sewing pattern,kids pants,easy pants,handmade",
+    lead: "Relaxed pull-on pants. The front and back use the same pattern: sew the center (crotch) seams, sew the sides and inseam, fold the waist for elastic, and hem. The only curve is the crotch, so it's one of the easier garments to make.",
+    matNote: "child / adult M",
+    materials: [
+      "Fabric (light–medium cotton, linen or knit) — about 110 cm wide × (rise + inseam + 15 cm) × 2",
+      "Waist elastic (2–3 cm / 3/4–1 in wide) — the waist measurement"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the cut line and seam line onto the wrong side of the fabric. Align the grain with the grainline.",
+      "<strong>Cut</strong><br>Using the same pattern for front and back, cut 2 of each (4 pieces). The right edge is the crotch curve (center-seam side).",
+      "<strong>Finish the edges</strong><br>Zigzag or serge the edges so they don't fray."
+    ],
+    sew: [
+      { h: "4-1. Sew the center seams", items: [
+        "Place the two front pieces right sides together and sew the crotch (center) curve.",
+        "Do the same with the two back pieces."
+      ]},
+      { h: "4-2. Sew the sides and inseam", items: [
+        "Open the front and back out and place them right sides together.",
+        "Sew each side seam.",
+        "Sew the inseam in one pass, from one hem all the way to the other."
+      ]},
+      { h: "4-3. Make the elastic waist", items: [
+        "Fold the waist under by the seam allowance, then again by the elastic width plus ease; stitch around, leaving an elastic opening.",
+        "Thread the elastic, fit it to the waist, sew the ends and close the opening."
+      ]},
+      { h: "4-4. Hem", items: [
+        "Fold each leg hem under twice and topstitch.",
+        "Press to finish."
+      ]}
+    ],
+    tips: [
+      "<strong>Shorts</strong>: shorten the inseam for shorts.",
+      "<strong>Knit fabric</strong>: use a stretch/zigzag stitch for joggers.",
+      "<strong>Pockets</strong>: add patch or in-seam pockets before closing the sides."
+    ]
+  },
+
+  kidstee: {
+    title: "Kids' T-shirt",
+    tab: "kids",
+    toolName: "Kids' T-shirt",
+    sizeStep: "Start from a height preset (80–130 cm), then fine-tune chest, length, sleeve and neckline.",
+    desc: "How to sew a kids' drop-shoulder T-shirt from knit fabric. Front and back bodice plus sleeves, with a ribbing neckband. Quick to make each season as they grow.",
+    keywords: "kids t-shirt,knit,how to sew,sewing pattern,childrens clothes,handmade",
+    lead: "The same relaxed drop-shoulder box tee as the adult version, sized for kids. Just a front and back bodice plus sleeves, with a knit neckband — quick to remake each season as they grow.",
+    matNote: "child, by height",
+    materials: [
+      "Knit fabric (jersey, interlock) — about 100 cm wide × 50–70 cm",
+      "Ribbing or self fabric for the neckband",
+      "Ballpoint/stretch machine needle and stretch or zigzag stitch"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the cut line and seam line onto the wrong side of the fabric. Align the grain; the stretchiest direction usually goes around the body.",
+      "<strong>Cut</strong><br>Cut the front and back each on the fold, and 2 sleeves. Use plenty of pins — knits shift easily.",
+      "<strong>Use a stretch stitch</strong><br>Sew with a narrow zigzag, stretch stitch or serger."
+    ],
+    sew: [
+      { h: "4-1. Sew the shoulders", items: [
+        "Place front and back right sides together and sew both shoulder seams. Stay tape steadies the seam."
+      ]},
+      { h: "4-2. Add the neckband", items: [
+        "Cut a neckband about 0.8–0.85× the neckline length and join it into a loop.",
+        "Fold it in half, pin to the neckline and sew all around while gently stretching the band to fit.",
+        "Press the seam allowance toward the body and topstitch."
+      ]},
+      { h: "4-3. Set in the sleeves", items: [
+        "Match the sleeve notch to the shoulder seam and sew each sleeve to the armhole, right sides together (you can do this flat)."
+      ]},
+      { h: "4-4. Sew the sides and underarms", items: [
+        "Sew each side from the hem up to the sleeve cuff in one pass, matching the underarm seams."
+      ]},
+      { h: "4-5. Hem the bottom and cuffs", items: [
+        "Turn the hem and cuffs under and topstitch with a stretch stitch.",
+        "Press to finish."
+      ]}
+    ],
+    tips: [
+      "<strong>No serger?</strong> A narrow zigzag works; don't pull the fabric as you sew.",
+      "<strong>Grow with them</strong>: add length and longer sleeves for next season.",
+      "<strong>Contrast neckband</strong>: a different colour band makes a fun accent."
+    ]
+  },
+
+  pouchgusset: {
+    title: "Pouch (gusseted)",
+    tab: "bag",
+    toolName: "Pouch (gusseted)",
+    sizeStep: "Enter the finished width, height and gusset (base depth).",
+    desc: "How to sew a boxed/gusseted zipper pouch. Make a flat zipper pouch, then pinch and sew the base corners to add depth. Roomier than a flat pouch.",
+    keywords: "gusseted pouch,boxed pouch,zipper pouch,how to sew,cosmetic bag,handmade",
+    lead: "A roomy zipper pouch with a gusset, made by pinching and sewing the base corners. If you can make a flat zipper pouch, one extra step gives you a lot more capacity — great for cosmetics or pens.",
+    matNote: "cosmetic-bag size",
+    materials: [
+      "Main fabric — about 30 × 40 cm (12 × 16 in)",
+      "Lining — same as the main fabric",
+      "1 zipper, roughly the finished width",
+      "Optional: fusible interfacing"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the cut line and seam line onto the wrong side of the fabric.",
+      "<strong>Cut</strong><br>Cut 2 main and 2 lining. The pattern shows a dashed gusset line a little above the base.",
+      "<strong>Finish the edges</strong><br>Zigzag or serge edges that fray."
+    ],
+    sew: [
+      { h: "4-1. Attach the zipper", items: [
+        "As for a flat zipper pouch, sandwich the zipper between the main and lining at the top edge and sew; topstitch alongside the zipper."
+      ]},
+      { h: "4-2. Sew around", items: [
+        "<b>Open the zipper halfway.</b> With main-to-main and lining-to-lining, right sides together, sew all the way around, leaving a turning gap in the lining."
+      ]},
+      { h: "4-3. Box the corners", items: [
+        "At each base corner, open it into a triangle so the side and base seams line up.",
+        "Sew straight across at the gusset line. Do all four corners (main and lining).",
+        "Trim each triangle tip leaving 1 cm.",
+        "Turn right side out through the zipper and the gap, close the gap, and shape it."
+      ]}
+    ],
+    tips: [
+      "<strong>Hold its shape</strong>: add fusible interfacing to the main fabric.",
+      "<strong>Deeper pouch</strong>: a larger gusset value adds capacity.",
+      "<strong>Easy grab</strong>: catch a fabric tab by the zipper end."
+    ]
+  },
+
+  tissuecase: {
+    title: "Tissue case",
+    tab: "small",
+    toolName: "Tissue case",
+    sizeStep: "Enter the tissue width, tissue height and the insertion (overlap) allowance.",
+    desc: "How to sew a pocket-tissue case from a single piece of fabric. Hem the openings, fold so they overlap, and sew the two sides. Straight stitching only — about 10 minutes.",
+    keywords: "tissue case,tissue cover,how to sew,sewing pattern,scrap fabric,beginner,handmade",
+    lead: "A pocket-tissue cover from a single piece of fabric. Hem the two openings, fold so they overlap at the center, and sew the two sides. Straight stitching only — a great first project and a good use of scraps.",
+    matNote: "one case",
+    materials: [
+      "Fabric — about 15 × 25 cm (6 × 10 in)",
+      "A pack of pocket tissues"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the cut line and seam line onto the wrong side of the fabric.",
+      "<strong>Cut</strong><br>Cut one tall rectangle. The pattern shows the top/bottom hem folds and the center assembly fold as dashed lines.",
+      "<strong>Finish the edges</strong><br>Zigzag the side edges if the fabric frays."
+    ],
+    sew: [
+      { h: "4-1. Hem the openings", items: [
+        "Fold the top and bottom edges under (double-fold) and topstitch — these become the opening edges."
+      ]},
+      { h: "4-2. Fold and sew the sides", items: [
+        "With the right side up, fold the top and bottom toward the center so the hemmed edges overlap (right sides together).",
+        "Pin, then sew the two side seams.",
+        "Turn right side out through the center opening and press. Pop in a pack of tissues."
+      ]}
+    ],
+    tips: [
+      "<strong>Lined / reversible</strong>: use a second fabric so the inside shows a contrast.",
+      "<strong>Add a loop</strong>: catch a ribbon loop in a side seam to clip it to a bag.",
+      "<strong>Make a batch</strong>: they sew up fast and make nice little gifts."
+    ]
+  },
+
+  cushioncover: {
+    title: "Cushion cover (envelope)",
+    tab: "home",
+    toolName: "Cushion cover (envelope)",
+    sizeStep: "Enter the cushion width, height and the back overlap. Presets cover common sizes.",
+    desc: "How to sew an envelope cushion cover with no zipper. One front piece and two overlapping back pieces. A simple, beginner-friendly home project.",
+    keywords: "cushion cover,envelope cushion,pillow cover,no zipper,how to sew,sewing pattern,handmade",
+    lead: "An envelope cushion cover that needs no zipper. One front piece and two back pieces that overlap at the opening. A simple, satisfying home project for sturdy fabric like cotton, linen or canvas.",
+    matNote: "one cover",
+    materials: [
+      "Outer fabric (cotton, linen or canvas) — about 110 cm wide × 60 cm",
+      "Back fabric (same fabric is fine) — about 110 cm wide × 80 cm",
+      "A cushion insert"
+    ],
+    cut: [
+      "<strong>Cut the front</strong><br>Cut 1 front: the cushion width × height plus seam allowance.",
+      "<strong>Cut the back</strong><br>Cut 2 backs from the (shorter) back pattern.",
+      "<strong>Finish the opening edges</strong><br>Finish all seam-allowance edges, and especially the back opening edges (one short edge of each back piece)."
+    ],
+    sew: [
+      { h: "4-1. Hem the back opening edges", items: [
+        "Double-fold and press the inner (opening) edge of each back piece.",
+        "Topstitch about 2 mm from the fold."
+      ]},
+      { h: "4-2. Overlap the back pieces", items: [
+        "Lay the two back pieces right side up, overlapping the hemmed edges by the overlap amount.",
+        "Pin, and baste the overlap to make it easier to sew."
+      ]},
+      { h: "4-3. Sew front and back together", items: [
+        "Lay the front right side down, then the overlapped backs right side up on top (right sides together).",
+        "Sew all four sides.",
+        "Trim the corners diagonally to reduce bulk."
+      ]},
+      { h: "4-4. Turn and finish", items: [
+        "Turn right side out through the back opening.",
+        "Push the corners out, press, and topstitch the edges if you like. Insert the cushion."
+      ]}
+    ],
+    tips: [
+      "<strong>Snug fit</strong>: make the cover ~1 cm smaller than the insert for a plump look.",
+      "<strong>Bigger overlap</strong>: a larger overlap keeps the insert hidden.",
+      "<strong>Piping</strong>: add piping in the seam for a tailored finish."
+    ]
+  },
+
+  dog: {
+    title: "Dog clothes (tank)",
+    tab: "pet",
+    toolName: "Dog clothes (tank)",
+    sizeStep: "Enter the chest girth, back length, neck and front-leg opening. Baste first and adjust to your dog.",
+    desc: "How to sew a sleeveless tube tank for a dog. Sew a back panel and a belly panel at the sides, leaving the front-leg openings. Baste first — dogs vary a lot in shape.",
+    keywords: "dog clothes,dog tank,pet clothes,how to sew,sewing pattern,handmade",
+    lead: "A sleeveless tube tank made from a back panel and a belly panel sewn at the sides, with the front-leg openings left in the side seams. Dogs vary a lot in shape, so basting first and fitting to your dog is the key to success.",
+    matNote: "small–medium dog",
+    materials: [
+      "Knit fabric (jersey, interlock — something with stretch) — about 50 × 70 cm",
+      "Ballpoint/stretch machine needle and stretch or zigzag stitch",
+      "Optional: ribbing for the neckline and leg openings"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the cut line and seam line onto the wrong side of the fabric. Align the grain with the grainline.",
+      "<strong>Cut</strong><br>Cut the back panel and belly panel each on the fold (1 of each). Mark the two front-leg notches.",
+      "<strong>Finish the edges</strong><br>Zigzag or serge the edges so they don't fray."
+    ],
+    sew: [
+      { h: "4-1. Baste and check the fit", items: [
+        "First baste the side seams of the back and belly panels with a long stitch and try it on your dog.",
+        "If it's tight or loose, adjust at the side seam allowance."
+      ]},
+      { h: "4-2. Sew the sides", items: [
+        "Place the back and belly panels right sides together and sew the sides, leaving the front-leg openings (between the notches) unsewn."
+      ]},
+      { h: "4-3. Finish the neck, leg openings and hem", items: [
+        "Turn the neckline, front-leg openings and hem under and finish with a stretch stitch.",
+        "To use ribbing, join it into a loop and sew it to each opening.",
+        "Try it on again — if it fits, you're done."
+      ]}
+    ],
+    tips: [
+      "<strong>Baste first, always</strong>: dog body shapes vary a lot; check before final stitching.",
+      "<strong>Snug but comfy</strong>: knit should hug without restricting movement.",
+      "<strong>Add a sleeve later</strong>: once the tank fits, you can add front-leg sleeves."
+    ]
   }
 
 };
