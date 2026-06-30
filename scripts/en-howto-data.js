@@ -2144,6 +2144,501 @@ module.exports = {
       "<strong>Filter pocket</strong>: leave the lining seam partly open to add a filter.",
       "<strong>Adjustable</strong>: cord stoppers on the elastic dial in the fit."
     ]
+  },
+
+  gamaguchi: {
+    title: "Clasp purse (gamaguchi)",
+    tab: "bag",
+    toolName: "Clasp purse",
+    sizeStep: "Enter your clasp's outer width and height plus the purse depth; the fabric width is auto-calculated as clasp width × 1.6. Turn on the rounded-corner option to match the clasp curve.",
+    desc: "How to make a Japanese gamaguchi clasp purse. Sew an outer and a lining bag, join them around the opening, then glue the fabric into the metal clasp. Perfect for coins or small accessories.",
+    keywords: "gamaguchi,clasp purse,coin purse,metal frame purse,how to sew,sewing pattern,handmade",
+    lead: "The gamaguchi is the classic Japanese coin purse with a satisfying snap clasp. Enter your clasp size and the tool works out the matching fabric pattern. Fusible interfacing on the outer gives the purse body that plump, structured look.",
+    matNote: "a 10.5 cm clasp purse",
+    materials: [
+      "Outer fabric — about 25 × 30 cm (10 × 12 in)",
+      "Lining fabric — the same size",
+      "Fusible interfacing — the same size",
+      "Insert-type metal clasp (gamaguchi frame) — your chosen size",
+      "Paper cord (often supplied with the clasp)",
+      "Awl, plus craft glue or clasp-specific adhesive"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace onto the wrong side of the fabric. Fuse interfacing to the outer so it sits firmly in the clasp.",
+      "<strong>Cut the pieces</strong><br>Cut 2 outer and 2 lining. The dashed line at the top edge of the pattern is the clasp position.",
+      "<strong>Check against the clasp</strong><br>Before sewing, hold the actual clasp against the top edge to confirm the width and curve match — this avoids surprises later."
+    ],
+    sew: [
+      {
+        h: "4-1. Sew the bags",
+        items: [
+          "Place the 2 outer pieces right sides together and sew the sides and bottom below the clasp line (dashed). Leave the part above the line unsewn.",
+          "Sew the lining the same way, leaving a turning gap on one side.",
+          "For a flat base, pinch each bottom corner into a triangle and sew across."
+        ]
+      },
+      {
+        h: "4-2. Join outer and lining",
+        items: [
+          "Turn the outer right side out and slip it inside the lining (still wrong side out), right sides together.",
+          "Sew around the curved opening where the clasp will attach.",
+          "Turn everything right side out through the gap in the lining, close the gap, and shape the opening."
+        ]
+      },
+      {
+        h: "4-3. Fit the clasp",
+        items: [
+          "Run craft glue (or clasp adhesive) into the channel of the metal frame.",
+          "Push the fabric edge into the channel with an awl, working from the centre out to each end so it stays even.",
+          "Press paper cord into the channel alongside the fabric to lock it in place.",
+          "With a scrap of cloth protecting the metal, gently squeeze the clasp ends with pliers. Let it dry and you are done."
+        ]
+      }
+    ],
+    tips: [
+      "<strong>Plumper body</strong>: interface both outer and lining for a rounder, firmer purse.",
+      "<strong>Clasp won't fit</strong>: the fabric edge may be too thick — use lighter interfacing or thinner paper cord.",
+      "<strong>First clasp</strong>: an insert-type frame around 10.5 cm is the easiest to learn on."
+    ]
+  },
+
+  panel: {
+    title: "Fabric panel (square)",
+    tab: "bag",
+    toolName: "Fabric panel",
+    sizeStep: "Enter the finished width and height. Turn on \"left edge on the fold\" to cut symmetrically from folded fabric.",
+    desc: "How to make a simple fabric panel — the building block of cushion covers, bag panels, placemats and pouch bases. Enter a width and height for a seam-allowance-included pattern. Shown here as an envelope cushion cover.",
+    keywords: "fabric panel,square,cushion cover,envelope cushion,how to sew,sewing pattern,beginner",
+    lead: "A plain rectangle of fabric is the foundation of countless projects — cushion covers, bag panels, placemats, pouch bases. Enter a width and height and the tool adds seam allowance for you. Here we use it to make an envelope-back cushion cover.",
+    matNote: "a 40 × 40 cm cushion cover",
+    materials: [
+      "Fabric — your finished size plus seam allowance",
+      "For a cushion cover: a cushion insert"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the cut line (outer solid) and seam line (inner dashed) onto the wrong side; align the grain with the grain line.",
+      "<strong>Cut the pieces</strong><br>Cut as many as you need. For an envelope cushion, cut one front plus a back with extra overlap.",
+      "<strong>Finish the edges</strong><br>Zigzag or overlock the seam edges if the fabric frays."
+    ],
+    sew: [
+      {
+        h: "Envelope cushion cover",
+        items: [
+          "Split the back into two pieces; on each, hem the opening edge with a double fold.",
+          "Lay the front right side up, then layer the two back pieces on top right sides together so their openings overlap at the centre.",
+          "Sew all four sides at the seam allowance.",
+          "Trim the corners diagonally and turn right side out through the opening.",
+          "Shape it, insert the cushion through the centre opening, and you are done."
+        ]
+      }
+    ],
+    tips: [
+      "<strong>Snug fit</strong>: make a cushion cover 1–2 cm smaller than the insert for a plump finish.",
+      "<strong>Match the print</strong>: with checks or stripes, adjust the cutting position so front and back line up.",
+      "<strong>So versatile</strong>: the same square becomes a bag, pouch, mat or cover depending on how you sew it."
+    ]
+  },
+
+  clutchbag: {
+    title: "Clutch bag",
+    tab: "bag",
+    toolName: "Clutch bag",
+    sizeStep: "Enter the width, body height and flap depth, or pick a card-case / clutch S/M/L preset. The body is cut as one piece folded on the bottom \"wa\".",
+    desc: "How to make a long-wallet-style clutch bag from just two pieces — body and flap. Add a zip or simply fold the flap over. Canvas, faux leather or cotton takes it from casual to formal.",
+    keywords: "clutch bag,clutch,wallet bag,faux leather,how to sew,sewing pattern,flap bag",
+    lead: "This clutch folds at the bottom on the \"wa\" (fold), so the body is a single piece. With just a body and a flap, you can add a zip or simply snap the flap shut. Canvas, denim or faux leather makes it casual; a refined print makes it formal.",
+    matNote: "a size-M clutch",
+    materials: [
+      "Outer fabric (canvas, cotton, denim, faux leather) — about 30 × 80 cm (12 × 31 in)",
+      "Lining (quilting cotton, etc.) — the same amount",
+      "Zip (optional) — about 25 cm",
+      "Fusible interfacing (on the outer keeps the shape) — the same amount",
+      "1 magnetic or metal snap for the flap"
+    ],
+    cut: [
+      "<strong>Cut the body</strong><br>Place the pattern's bottom edge (the \"wa\") on the fold and cut one outer and one lining. Unfolded, the body is twice the storage height.",
+      "<strong>Cut the flap</strong><br>Cut one outer and one lining flap (2 pieces total).",
+      "<strong>Interface</strong><br>Fuse interfacing to the wrong side of the outer body and flap and press."
+    ],
+    sew: [
+      {
+        h: "4-1. Make the flap",
+        items: [
+          "Place the flap outer and lining right sides together and sew around, leaving a 5–6 cm turning gap.",
+          "Clip the curved seam allowance, turn right side out, and close the gap with a slip stitch or edge stitch.",
+          "Fit the female half of the magnetic snap centred on the flap lining."
+        ]
+      },
+      {
+        h: "4-2. Make the body",
+        items: [
+          "Fold the outer body in half at the bottom \"wa\".",
+          "With outer-to-outer and lining-to-lining right sides together, sew both side seams.",
+          "Turn the outer right side out and fit the male half of the snap centred on the front (flap side).",
+          "Slip the lining inside the outer and join them at the opening. To add a zip, sew the zip tape into the opening at this stage."
+        ]
+      },
+      {
+        h: "4-3. Attach the flap",
+        items: [
+          "Sew the flap to the top edge of the back opening to finish.",
+          "For a zip-only version without a flap, skip this step."
+        ]
+      }
+    ],
+    tips: [
+      "<strong>Add a zip</strong>: sewing a zip into the opening makes storage more secure; combine it with the flap for a double closure.",
+      "<strong>Inner pocket</strong>: a small divider pocket on the lining makes a handy card and coin slot.",
+      "<strong>Wrist strap</strong>: catch a leather cord or D-ring in the side seam to make a wristlet."
+    ]
+  },
+
+  shoulderbag: {
+    title: "Shoulder bag (flap)",
+    tab: "bag",
+    toolName: "Shoulder bag",
+    sizeStep: "Enter the width, height, flap depth, strap length and strap width, or pick a mini / standard / A4 preset. The pattern gives body, flap and strap pieces.",
+    desc: "How to make a simple flap shoulder bag from three pieces — body, flap and strap. A lined body with a flap that snaps shut. Canvas, faux leather or cotton suits both casual and smart looks.",
+    keywords: "shoulder bag,crossbody bag,flap bag,how to sew,sewing pattern,messenger bag",
+    lead: "Three pieces — body, flap and strap — make this easygoing shoulder bag. The body is lined, the flap folds over and snaps shut, and the strap clips on with swivel hooks. Choose canvas, denim or faux leather to set the mood.",
+    matNote: "a standard-size bag",
+    materials: [
+      "Outer fabric (canvas, denim, faux leather) — about 40 × 90 cm (16 × 35 in)",
+      "Lining (cotton, quilting) — the same amount",
+      "Fusible interfacing (on the outer keeps the shape) — the same amount",
+      "Strap webbing (about 2.5 cm wide cotton or nylon tape) — about 120 cm, adjustable",
+      "1 swivel hook and 1 rectangle ring",
+      "1 magnetic or metal snap for the flap"
+    ],
+    cut: [
+      "<strong>Cut the body</strong><br>Cut 2 outer and 2 lining body pieces (4 total) for front and back.",
+      "<strong>Cut the flap</strong><br>Cut one outer and one lining flap.",
+      "<strong>Cut the strap</strong><br>Cut one strap piece, or cut ready-made webbing to length.",
+      "<strong>Interface</strong><br>Fuse interfacing to the wrong side of the outer body and flap and press."
+    ],
+    sew: [
+      {
+        h: "4-1. Make the flap",
+        items: [
+          "Place the flap outer and lining right sides together and sew around, leaving a 5–6 cm turning gap on the top edge.",
+          "Clip the corners and curves, turn right side out, and close the gap with a slip or edge stitch.",
+          "Fit the female snap centred and slightly low on the flap lining."
+        ]
+      },
+      {
+        h: "4-2. Make the body",
+        items: [
+          "Place the front and back outer pieces right sides together and sew the bottom and both sides; round the corners if you like.",
+          "Sew the lining the same way, leaving about a 10 cm gap in the bottom seam.",
+          "Turn the outer right side out and fit the male snap on the front, where the flap lands."
+        ]
+      },
+      {
+        h: "4-3. Prepare the strap",
+        items: [
+          "Fold the strap fabric right sides together along the long edge, sew, and turn right side out (skip for ready-made webbing).",
+          "Thread each end through the swivel hook and rectangle ring, fold back and stitch to secure."
+        ]
+      },
+      {
+        h: "4-4. Finish",
+        items: [
+          "Catch the strap ends (or D-rings) at the top of each side seam of the outer.",
+          "Slip the lining inside the outer and sew them together around the opening.",
+          "Pull everything right side out through the gap in the lining and close the gap.",
+          "Sew the flap to the top of the back opening to finish."
+        ]
+      }
+    ],
+    tips: [
+      "<strong>Add a gusset</strong>: sew a triangle at each bottom corner for a boxed base — 4–6 cm gives a roomy, stand-up shape.",
+      "<strong>Inner pocket</strong>: a zip or slip pocket on the lining front makes it far more practical.",
+      "<strong>Adjustable strap</strong>: add a slide buckle with the rectangle ring for a two-way shoulder/crossbody length."
+    ]
+  },
+
+  dogsleeved: {
+    title: "Dog clothes (sleeved)",
+    tab: "pet",
+    toolName: "Dog clothes (sleeved)",
+    sizeStep: "Enter the same measurements as the tank, plus front-leg circumference, sleeve length and sleeve ease. Presets cover small / medium / large dogs.",
+    desc: "How to make a sleeved dog coat — a sleeveless tank with tube sleeves added for the front legs. Because front-leg shape varies so much, fit the tank body first, then add the sleeves.",
+    keywords: "dog clothes,dog coat,sleeved dog wear,pet clothes,how to sew,sewing pattern,knit",
+    lead: "This warm dog coat is a sleeveless tank with tube sleeves added for the front legs. Front-leg shape varies hugely between dogs, so the trick is to fit the back and belly panels as a tank first, then make the sleeves — that way the armholes never end up in the wrong place.",
+    matNote: "a medium dog (size M)",
+    materials: [
+      "Knit (stretch) fabric — about 60 × 80 cm (24 × 31 in)",
+      "Ballpoint (knit) machine needle and thread",
+      "Optional ribbing for the openings"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the cut line and seam line onto the wrong side; align the grain with the grain line.",
+      "<strong>Cut the pieces</strong><br>Cut one back and one belly panel (centre on the fold) and 2 sleeves. Mark the front-leg notches accurately.",
+      "<strong>Finish the edges</strong><br>Zigzag or overlock the seam edges if the fabric frays."
+    ],
+    sew: [
+      {
+        h: "4-1. Fit the tank first",
+        items: [
+          "Baste the sides of the back and belly panels, leaving the front-leg openings, and try it on your dog to check the body size.",
+          "If it fits, sew the sides for real (leave the front-leg openings open)."
+        ]
+      },
+      {
+        h: "4-2. Make the sleeves",
+        items: [
+          "Roll each front-leg sleeve right sides together and sew into a tube.",
+          "Fold and stitch a hem at the cuff."
+        ]
+      },
+      {
+        h: "4-3. Attach the sleeves",
+        items: [
+          "Pin each sleeve into a front-leg opening (between the notches), right sides together, and sew.",
+          "Repeat for the other side."
+        ]
+      },
+      {
+        h: "4-4. Finish",
+        items: [
+          "Fold and finish the neckline and hem with a knit stitch.",
+          "Try it on, check that your dog can move freely, and you are done."
+        ]
+      }
+    ],
+    tips: [
+      "<strong>Loose sleeves</strong>: add a little extra sleeve ease so the front legs move freely and it's easy to put on.",
+      "<strong>Warmer</strong>: brushed knit or fleece makes a cosy coat for cold-weather walks.",
+      "<strong>Build up to it</strong>: if sleeves feel daunting, make the sleeveless dog tank first to lock in your dog's measurements."
+    ]
+  },
+
+  mannerbelt: {
+    title: "Belly band (manner belt)",
+    tab: "pet",
+    toolName: "Belly band",
+    sizeStep: "Measure your dog's belly circumference and enter it, then set the finished band width and the hook-and-loop overlap. Presets cover small / medium / large dogs.",
+    desc: "How to make a dog belly band (manner belt) to prevent marking. Fold the fabric in half lengthwise into a tube, sew, and close with hook-and-loop. Slip a pad or pet sheet inside for use.",
+    keywords: "belly band,manner belt,dog marking,male dog,how to sew,sewing pattern,pet",
+    lead: "Wrapped around the belly, a manner belt helps prevent marking. The construction couldn't be simpler: fold the fabric lengthwise into a tube, sew, and close with hook-and-loop tape. Tuck a waterproof pad or pet sheet inside in use.",
+    matNote: "a medium dog (size M)",
+    materials: [
+      "Fabric (cotton, quilting) — belly circumference + overlap × band width × 2",
+      "Hook-and-loop tape — about 5 cm × the band width",
+      "Optional waterproof fabric for the inside"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the cut line and seam line onto the wrong side; align the grain with the grain line.",
+      "<strong>Cut one rectangle</strong><br>Cut a single rectangle (cut width is twice the finished width, since it folds lengthwise). The pattern marks the fold line and the hook-and-loop positions.",
+      "<strong>Finish the edges</strong><br>Zigzag or overlock the seam edges if the fabric frays."
+    ],
+    sew: [
+      {
+        h: "Sew the band",
+        items: [
+          "Fold the fabric right sides together lengthwise and sew the long edge and one short edge, leaving the other short edge open as a turning gap.",
+          "Trim the corners, turn right side out through the gap, and press.",
+          "Close the gap and topstitch all the way around.",
+          "Sew the hook-and-loop tape at the marked positions — one half on the front near one end, the other half on the back near the opposite end, so it fastens when wrapped.",
+          "Sew waterproof fabric inside, or just tuck in a pet sheet in use, and you are done."
+        ]
+      }
+    ],
+    tips: [
+      "<strong>Stay dry</strong>: sew in a waterproof layer or use a pet sheet; make a few so you always have a clean one.",
+      "<strong>Not too tight</strong>: keep enough ease in the overlap so the belly is never squeezed.",
+      "<strong>Gentle inside</strong>: choose soft cotton or gauze for the side against the skin so your dog tolerates it."
+    ]
+  },
+
+  petbandana: {
+    title: "Pet bandana",
+    tab: "pet",
+    toolName: "Pet bandana",
+    sizeStep: "Enter the top (neck) edge, the drop length and the collar-channel fold-back, or pick a small / medium / large preset. The single triangle pattern folds at the top into a collar channel.",
+    desc: "How to make a slip-on pet bandana. The top edge folds into a channel that threads onto the collar, so there's nothing to tie and it goes on and off in seconds. Great for walks and photo days.",
+    keywords: "pet bandana,dog bandana,cat bandana,collar bandana,how to sew,sewing pattern,no tie",
+    lead: "Thread it onto the collar and your dog or cat instantly looks the part. Because the top edge folds into a channel that the collar passes through, there's nothing to tie — it slips on and off in seconds. Lovely for walks, outings and birthday photos.",
+    matNote: "a medium dog",
+    materials: [
+      "Fabric (cotton, oxford) — about 30 cm (12 in) square",
+      "For a double-layer version, two pieces"
+    ],
+    cut: [
+      "<strong>Cut</strong><br>Cut from the triangle pattern: one piece for a single layer, two for a double layer.",
+      "<strong>Finish the edges</strong><br>For a single layer, triple-fold hem the three edges. For a double layer, sew right sides together and turn."
+    ],
+    sew: [
+      {
+        h: "4-1. Finish the two drop edges",
+        items: [
+          "Single layer: triple-fold hem the two diagonal edges.",
+          "Double layer: sew right sides together except the top edge, then turn right side out."
+        ]
+      },
+      {
+        h: "4-2. Make the collar channel",
+        items: [
+          "Fold the top edge back by the channel amount and sew, forming a tunnel the collar can pass through."
+        ]
+      },
+      {
+        h: "4-3. Thread the collar",
+        items: [
+          "Pass the collar through the channel, then put the collar on your dog or cat as usual."
+        ]
+      }
+    ],
+    tips: [
+      "<strong>Channel width</strong>: check your collar's width plus a little ease before deciding the fold-back, so it threads smoothly.",
+      "<strong>Seasonal prints</strong>: make them in holiday or seasonal fabrics for photogenic results.",
+      "<strong>Name embroidery</strong>: stitch a name on the point to double as an ID tag."
+    ]
+  },
+
+  petsnood: {
+    title: "Dog snood (neck warmer)",
+    tab: "pet",
+    toolName: "Dog snood",
+    sizeStep: "Enter the neck circumference, length and ease, or pick a small / medium / large preset. The single rectangle pattern is sewn into a tube and hemmed (or threaded with elastic).",
+    desc: "How to make a tube-style dog snood. It keeps long ears clean at mealtimes and warm on cold days. Just sew the long edge into a tube; add elastic on one side for a gentle face-side fit.",
+    keywords: "dog snood,neck warmer,ear cover,floppy ears,how to sew,sewing pattern,pet",
+    lead: "A simple tube snood keeps a floppy-eared dog's ears out of the food bowl and warm on chilly days. You just sew the long edge into a tube; thread elastic through one end and it hugs the face gently.",
+    matNote: "a medium dog",
+    materials: [
+      "Fabric (fleece, knit, cotton) — a rectangle of tube circumference + length",
+      "Optional 1 cm wide flat elastic — your dog's neck measurement"
+    ],
+    cut: [
+      "<strong>Cut one piece</strong><br>Cut a single rectangle. With stretch knit, mind the grain direction.",
+      "<strong>Finish the edges</strong><br>Finish the seam edges (skip for fleece, which doesn't fray)."
+    ],
+    sew: [
+      {
+        h: "4-1. Sew the tube",
+        items: [
+          "Fold the fabric right sides together and sew the long edge into a tube."
+        ]
+      },
+      {
+        h: "4-2. Finish the ends",
+        items: [
+          "Fold and hem the top and bottom edges.",
+          "Make one end a casing and thread elastic sized to the neck so the face side gathers in."
+        ]
+      }
+    ],
+    tips: [
+      "<strong>Meals vs warmth</strong>: make a washable cotton one for meals and a fleece one for warmth.",
+      "<strong>Adjust the ease</strong>: a narrower face side stays on better; a wider neck side is easier to slip on.",
+      "<strong>Spares</strong>: they get dirty quickly, so a few on hand is reassuring."
+    ]
+  },
+
+  catfuku: {
+    title: "Cat clothes (tank top)",
+    tab: "pet",
+    toolName: "Cat clothes (tank top)",
+    sizeStep: "Enter the chest, body length, belly length, neck, front-leg position, front-leg width and ease, or pick a kitten / standard / large preset. Recommended seam allowance 0.7 cm.",
+    desc: "How to make a cat tank top — a tube top joining a back and a belly panel, with wide front-leg openings for easy on and off. Soft knit or cotton keeps your cat comfortable.",
+    keywords: "cat clothes,cat tank top,cat shirt,pet clothes,how to sew,sewing pattern,knit",
+    lead: "This cat top is a tube made by joining a back panel and a belly panel, with the front-leg openings cut extra wide for easy dressing. Cats tolerate clothes best in soft, light, stretchy knit — start with short wearing sessions.",
+    matNote: "a standard cat",
+    materials: [
+      "Fabric (jersey knit, smooth knit, cotton) — about 30 × 40 cm (12 × 16 in)",
+      "Bias tape or rib knit for the neck and front-leg openings — enough for each circumference"
+    ],
+    cut: [
+      "<strong>Cut the back panel</strong><br>Cut one back panel — a trapezoid that's narrow at the neck and wider at the rear.",
+      "<strong>Cut the belly panel</strong><br>Cut one belly panel — shorter than the back, with large front-leg cut-outs.",
+      "<strong>Finish the edges</strong><br>Zigzag or overlock the seam edges of each piece."
+    ],
+    sew: [
+      {
+        h: "4-1. Sew the sides",
+        items: [
+          "Place the back and belly panels right sides together and sew both sides (behind the front-leg openings).",
+          "Press the seams open or to one side."
+        ]
+      },
+      {
+        h: "4-2. Finish the neckline",
+        items: [
+          "Measure the neckline and cut bias tape or rib into a loop about 85–90% of the neckline length.",
+          "Sew it on while stretching slightly, then press the seam allowance inward."
+        ]
+      },
+      {
+        h: "4-3. Finish the front-leg openings",
+        items: [
+          "Sew bias tape or rib around each front-leg opening, easing it along the curve without pulling."
+        ]
+      },
+      {
+        h: "4-4. Hem",
+        items: [
+          "Triple-fold the hem, press, and topstitch 2 mm from the edge."
+        ]
+      }
+    ],
+    tips: [
+      "<strong>Easy on and off</strong>: widen the neck a little, or add buttons/snaps at the back. Never force it — start with short sessions.",
+      "<strong>How to measure</strong>: take the chest at the widest point just behind the front legs, and the body length from the base of the neck to the base of the tail. Allow at least 5 cm of ease.",
+      "<strong>Have fun with prints</strong>: stripes or florals look great; use lightweight interfacing for comfort."
+    ]
+  },
+
+  petvest: {
+    title: "Pet vest (dog & cat)",
+    tab: "pet",
+    toolName: "Pet vest",
+    sizeStep: "Enter the chest, body length, belly length, neck, front-leg position, front-leg width and ease, or pick a cat / mame-shiba / small / medium / large preset. Recommended seam allowance 0.7 cm.",
+    desc: "How to make a pet vest for dogs and cats. A two-piece back-and-belly design with wide front-leg openings, easy to put on either pet. Breathable and unrestrictive — ideal as a summer fashion piece.",
+    keywords: "pet vest,dog vest,cat vest,pet clothes,how to sew,sewing pattern,summer",
+    lead: "This vest has wide-open front-leg holes and a two-piece back-and-belly design that suits both dogs and cats. It moves freely and stays breathable, making it a great summer wardrobe piece. Knit keeps it stretchy; cotton or linen leans more stylish.",
+    matNote: "a small-to-medium dog",
+    materials: [
+      "Fabric (jersey knit, cotton, linen) — about 30 × 50 cm (12 × 20 in), varies with size",
+      "Bias tape or rib knit for the neck and front-leg openings — enough for each circumference"
+    ],
+    cut: [
+      "<strong>Cut the back panel</strong><br>Cut one back panel — narrow at the neck, widening gently toward the hem.",
+      "<strong>Cut the belly panel</strong><br>Cut one belly panel with large front-leg cut-outs.",
+      "<strong>Finish the edges</strong><br>Zigzag or overlock the seam edges of each piece."
+    ],
+    sew: [
+      {
+        h: "4-1. Sew the sides",
+        items: [
+          "Place the back and belly panels right sides together and sew both sides behind the front-leg openings.",
+          "Press the seams open or to one side."
+        ]
+      },
+      {
+        h: "4-2. Finish the neckline",
+        items: [
+          "Measure the neckline and cut bias tape or rib into a loop about 85–90% of the neckline length.",
+          "Sew it on while stretching slightly, then press the seam allowance inward."
+        ]
+      },
+      {
+        h: "4-3. Finish the front-leg openings",
+        items: [
+          "Sew bias tape or rib around each front-leg opening, taking the large curves slowly."
+        ]
+      },
+      {
+        h: "4-4. Hem",
+        items: [
+          "Triple-fold the hem, press, and topstitch 2 mm from the edge."
+        ]
+      }
+    ],
+    tips: [
+      "<strong>How to measure</strong>: chest at the widest point behind the front legs; body length from neck base to tail base. Allow 4–6 cm ease for small dogs, 6–10 cm for large dogs.",
+      "<strong>Easier dressing</strong>: snaps or hook-and-loop at the back or belly make changing quick — hook-and-loop is especially fast.",
+      "<strong>Dog vs cat</strong>: for cats, add a little more ease (about +2 cm) and widen the front-leg openings so it feels more like a vest and they tolerate it better."
+    ]
   }
 
 };
