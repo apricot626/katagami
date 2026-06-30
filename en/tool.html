@@ -54,6 +54,14 @@
 }
 </script>
 <script>window.KATAGAMI_LANG='en';</script>
+<style>
+  /* English category labels are longer than Japanese. Size the mode tabs to
+     their text and let them wrap, instead of forcing equal widths (which
+     clips long labels like "Accessories"). Japanese tool.html is unaffected. */
+  .mode-tabs button{ flex:0 1 auto; min-width:0; white-space:nowrap; padding:6px 12px; }
+  /* Keep the paper/unit segmented controls from crowding on narrow panels. */
+  .seg-row{ gap:14px 20px; }
+</style>
 </head>
 <body>
 <div class="app">
