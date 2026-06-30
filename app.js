@@ -4,26 +4,53 @@
    ============================================================ */
 
 /* ---- 用紙タイル設定 (mm) ---- */
-/* 既定はA4。英語版(lang=en)は北米向けにLetterを既定にする。
-   ?paper=letter / ?paper=a4 で明示指定も可能。日本語版は従来どおりA4。 */
+/* A4を「触らない基準経路」とし、Letterは純粋な追加分岐。
+   幾何量は applyPaper() で state.paper から再計算する（A4の数値は従来と完全一致）。 */
 const MARGIN=10, OVERLAP=10;
-let PAGE_W=210, PAGE_H=297;             // A4 既定
-(()=>{
-  let paper; try{ paper=new URLSearchParams(location.search).get('paper'); }catch(e){ paper=null; }
-  if(!paper) paper = (window.KG && KG.lang==='en') ? 'letter' : 'a4';
-  if(paper==='letter'){ PAGE_W=216; PAGE_H=279; }   // US Letter 8.5×11in
-})();
-const PAGE_W_MM=PAGE_W+"mm", PAGE_H_MM=PAGE_H+"mm";
-const CONTENT_W=PAGE_W-2*MARGIN;
-const CONTENT_H=PAGE_H-2*MARGIN;
-const STEP_X=CONTENT_W-OVERLAP;         // 180
-const STEP_Y=CONTENT_H-OVERLAP;         // 267
+const PAPER={ a4:{w:210,h:297}, letter:{w:216,h:279} };  // letter = US Letter 8.5×11in
+let PAGE_W, PAGE_H, PAGE_W_MM, PAGE_H_MM, CONTENT_W, CONTENT_H, STEP_X, STEP_Y;
+function applyPaper(key){
+  const p=PAPER[key]||PAPER.a4;
+  PAGE_W=p.w; PAGE_H=p.h;
+  PAGE_W_MM=PAGE_W+"mm"; PAGE_H_MM=PAGE_H+"mm";
+  CONTENT_W=PAGE_W-2*MARGIN;     // A4: 190
+  CONTENT_H=PAGE_H-2*MARGIN;     // A4: 277
+  STEP_X=CONTENT_W-OVERLAP;      // A4: 180
+  STEP_Y=CONTENT_H-OVERLAP;      // A4: 267
+}
 const LAYOUT_GAP=22;                    // ピース間の隙間
 const CANVAS_PAD=8;
 const WRAP_W=640;                       // この幅でレイアウト改行
 
+/* ---- 用紙・単位の初期値（lang=ja は常にA4・cm。コントロールは en だけに描画） ---- */
+const PREF_KEY='katagami_prefs';
+function loadPrefs(){ try{return JSON.parse(localStorage.getItem(PREF_KEY)||'{}');}catch(e){return {};} }
+function savePrefs(o){ try{localStorage.setItem(PREF_KEY,JSON.stringify(o));}catch(e){} }
+const _isEN = (window.KG && KG.lang==='en');
+let _qPaper; try{ _qPaper=new URLSearchParams(location.search).get('paper'); }catch(e){ _qPaper=null; }
+const _prefs = loadPrefs();
+function initPaperUnit(){
+  if(!_isEN) return { paper:'a4', unit:'cm' };          // 日本語版は固定（永続値も無視）
+  const paper = (_qPaper==='a4'||_qPaper==='letter') ? _qPaper
+              : (_prefs.paper==='a4'||_prefs.paper==='letter') ? _prefs.paper
+              : 'letter';                                // EN 既定: Letter
+  const unit  = (_prefs.unit==='cm'||_prefs.unit==='inch') ? _prefs.unit
+              : 'inch';                                  // EN 既定: inch
+  return { paper, unit };
+}
+const _pu = initPaperUnit();
+
 /* ---- 状態 & UI ---- */
-const state={mode:"human", pat:"tee", params:{}, toggles:{}, sa:1.0, showSew:true};
+const state={mode:"human", pat:"tee", params:{}, toggles:{}, sa:1.0, showSew:true,
+  paper:_pu.paper, unit:_pu.unit};
+applyPaper(state.paper);
+
+/* ---- 単位換算（内部は常に cm。inch は「表示のみ」） ---- */
+const IN=2.54;
+const isInch=()=>state.unit==='inch';
+function uDisp(cm){ return isInch()? Math.round(cm/IN*10)/10 : cm; }   // cm→表示値
+function uToCm(d){ return isInch()? d*IN : d; }                        // 表示値→cm
+function uLabel(jaUnit){ return (jaUnit==='cm' && isInch()) ? 'in' : KG.unit(jaUnit); }
 const MODES=[
   {key:"human",label:"大人服"},
   {key:"kids", label:"子供服"},
@@ -115,15 +142,24 @@ function buildFields(){
     box.appendChild(ps);
   }
   def.params.forEach(f=>{
+    // 長さ項目(cm)のみ inch 表示の対象。「倍」等の非長さ単位は換算しない。
+    const conv = (f.unit==='cm') && isInch();
+    const dv = ()=> conv ? uDisp(state.params[f.key]) : state.params[f.key];
+    const nMin = conv ? Math.round(f.min/IN*10)/10 : f.min;
+    const nMax = conv ? Math.round(f.max/IN*10)/10 : f.max;
+    const nStep = conv ? 0.1 : f.step;
     const fd=document.createElement("div"); fd.className="field";
-    fd.innerHTML=`<label>${KG.label(f.label)}<span><span class="v mono">${state.params[f.key]}</span><span class="unit">${KG.unit(f.unit)}</span></span></label>
+    fd.innerHTML=`<label>${KG.label(f.label)}<span><span class="v mono">${dv()}</span><span class="unit">${uLabel(f.unit)}</span></span></label>
       <div class="row"><input type="range" min="${f.min}" max="${f.max}" step="${f.step}" value="${state.params[f.key]}">
-      <input type="number" min="${f.min}" max="${f.max}" step="${f.step}" value="${state.params[f.key]}"></div>`;
+      <input type="number" min="${nMin}" max="${nMax}" step="${nStep}" value="${dv()}"></div>`;
     const [rng,num]=fd.querySelectorAll("input");
     const vlab=fd.querySelector(".v");
-    const upd=v=>{v=Math.min(f.max,Math.max(f.min,parseFloat(v)||f.min));
-      state.params[f.key]=v; rng.value=v; num.value=v; vlab.textContent=v; render();};
-    rng.oninput=e=>upd(e.target.value); num.oninput=e=>upd(e.target.value);
+    // 内部値は常に cm。スライダは cm、数値欄は表示単位で受ける。
+    const setCm=cm=>{ cm=Math.min(f.max,Math.max(f.min,cm));
+      state.params[f.key]=cm; rng.value=cm;
+      const d=conv?uDisp(cm):cm; num.value=d; vlab.textContent=d; render(); };
+    rng.oninput=e=>{ const v=parseFloat(e.target.value); setCm(isNaN(v)?f.min:v); };
+    num.oninput=e=>{ const d=parseFloat(e.target.value); setCm(isNaN(d)?f.min:(conv?d*IN:d)); };
     box.appendChild(fd);
   });
   (def.toggles||[]).forEach(t=>{
@@ -134,11 +170,18 @@ function buildFields(){
   });
 }
 function buildSAControls(){
-  const r=el("saRange"),n=el("saNum"),v=el("saV");
-  r.value=state.sa;n.value=state.sa;v.textContent=state.sa.toFixed(1);
-  const upd=val=>{val=Math.min(5,Math.max(0,parseFloat(val)||0));
-    state.sa=val;r.value=val;n.value=val;v.textContent=val.toFixed(1);render();};
-  r.oninput=e=>upd(e.target.value); n.oninput=e=>upd(e.target.value);
+  const r=el("saRange"),n=el("saNum"),v=el("saV"),u=el("saUnit");
+  const conv=isInch();                       // 縫い代も長さ → inch換算対象
+  const fmt=cm=>(conv?uDisp(cm):cm).toFixed(1);
+  r.value=state.sa;                           // スライダは常に cm（0〜3cm）
+  n.min=0; n.max=conv?Math.round(5/IN*10)/10:5; n.step=0.1;
+  n.value=conv?uDisp(state.sa):state.sa;
+  v.textContent=fmt(state.sa);
+  if(u) u.textContent=conv?'in':'cm';
+  const setCm=cm=>{ cm=Math.min(5,Math.max(0,cm));
+    state.sa=cm; r.value=cm; n.value=conv?uDisp(cm):cm; v.textContent=fmt(cm); render(); };
+  r.oninput=e=>{const x=parseFloat(e.target.value); setCm(isNaN(x)?0:x);};
+  n.oninput=e=>{const d=parseFloat(e.target.value); setCm(isNaN(d)?0:(conv?d*IN:d));};
   el("showSew").onchange=e=>{state.showSew=e.target.checked;render();};
 }
 
@@ -412,9 +455,11 @@ function buildPrintSheets(){
   const lh=6.4;
   const addLine=(s)=>{const t=S("text",{x:MARGIN,y:ty,"font-size":4,fill:"#1B1D1A","font-family":"monospace"});
     t.textContent=s;gs.appendChild(t);ty+=lh;};
-  def.params.forEach(f=>addLine(`${KG.label(f.label)}${sep}${state.params[f.key]} ${KG.unit(f.unit)}`));
+  def.params.forEach(f=>{ const conv=(f.unit==='cm')&&isInch();
+    const val=conv?uDisp(state.params[f.key]):state.params[f.key];
+    addLine(`${KG.label(f.label)}${sep}${val} ${uLabel(f.unit)}`); });
   (def.toggles||[]).forEach(t=>addLine(`${KG.toggle(t.label)}${sep}${state.toggles[t.key]?(EN?KG.ui.yes:"あり"):(EN?KG.ui.no:"なし")}`));
-  addLine(`${EN?KG.ui.seamAllowance:"縫い代"}${sep}${state.sa.toFixed(1)} cm`);
+  addLine(`${EN?KG.ui.seamAllowance:"縫い代"}${sep}${isInch()?uDisp(state.sa).toFixed(1)+' in':state.sa.toFixed(1)+' cm'}`);
   addLine(EN?KG.ui.sheetsLine(cols,rows,cols*rows):`型紙シート：${cols}列 × ${rows}行 ＝ ${cols*rows} 枚`);
   if(memo && !EN) addLine(memo);
   ty+=4;
@@ -592,10 +637,31 @@ el("closePrivacy").onclick=()=>modal.classList.remove("open");
 modal.addEventListener("click",e=>{if(e.target===modal)modal.classList.remove("open");});
 document.addEventListener("keydown",e=>{if(e.key==="Escape")modal.classList.remove("open");});
 
+/* ---- 用紙・単位トグル（en/tool.html にのみ存在。JPでは要素が無いため一切作動しない） ---- */
+function buildPaperUnitControls(){
+  const ps=el("paperSeg"), us=el("unitSeg");
+  if(ps) ps.querySelectorAll("button[data-paper]").forEach(b=>{
+    b.setAttribute("aria-pressed", b.dataset.paper===state.paper);
+    b.onclick=()=>{ if(state.paper===b.dataset.paper) return;
+      state.paper=b.dataset.paper; applyPaper(state.paper);
+      const pr=loadPrefs(); pr.paper=state.paper; savePrefs(pr);
+      buildPaperUnitControls(); render();
+      ga('set_paper',{paper:state.paper}); };
+  });
+  if(us) us.querySelectorAll("button[data-unit]").forEach(b=>{
+    b.setAttribute("aria-pressed", b.dataset.unit===state.unit);
+    b.onclick=()=>{ if(state.unit===b.dataset.unit) return;
+      state.unit=b.dataset.unit;
+      const pr=loadPrefs(); pr.unit=state.unit; savePrefs(pr);
+      buildPaperUnitControls(); buildFields(); buildSAControls(); render();
+      ga('set_unit',{unit:state.unit}); };
+  });
+}
+
 /* ---- 起動 ---- */
 (()=>{
   const key=new URLSearchParams(location.search).get('p');
   if(key && PATTERNS[key]){ state.pat=key; state.mode=PATTERNS[key].mode; }
 })();
-initParams(); buildModes(); buildTabs(); buildFields(); buildSAControls(); render(); renderProfiles();
+initParams(); buildModes(); buildTabs(); buildFields(); buildSAControls(); buildPaperUnitControls(); render(); renderProfiles();
 window.addEventListener("resize",()=>render());

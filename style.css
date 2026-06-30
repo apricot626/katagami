@@ -133,6 +133,20 @@ main{display:grid;grid-template-columns:320px 1fr;gap:0;flex:1;overflow:hidden}
 .divider{border:none;border-top:1px dashed var(--rule);margin:16px 0}
 .sec-h{font-size:11px;letter-spacing:.14em;color:var(--muted);margin:0 0 10px;font-weight:700}
 
+/* 用紙・単位セグメントトグル（英語版のみ描画される） */
+.seg-row{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:6px}
+.seg-control{display:flex;align-items:center;gap:6px}
+.seg-control .seg-label{font-size:12px;color:var(--muted)}
+.seg-control button{
+  font-family:inherit;font-size:12.5px;cursor:pointer;
+  padding:5px 12px;border:1.5px solid var(--ink);background:var(--paper);
+  color:var(--ink);line-height:1.2;
+}
+.seg-control button:first-of-type{border-radius:2px 0 0 2px}
+.seg-control button:last-of-type{border-radius:0 2px 2px 0;border-left:none}
+.seg-control button[aria-pressed="true"]{background:var(--ink);color:var(--paper2)}
+.seg-control button:hover:not([aria-pressed="true"]){background:var(--rule-soft)}
+
 .print-btn{
   width:100%;font-family:inherit;font-size:15px;font-weight:800;letter-spacing:.08em;
   padding:13px;border:1.5px solid var(--ink);background:var(--vermilion);color:#fff;
