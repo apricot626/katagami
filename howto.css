@@ -29,6 +29,11 @@ body{
 }
 .site-header .brand b{color:var(--vermilion)}
 .site-header .tag{font-size:12px;color:var(--muted);letter-spacing:.04em}
+.site-header .lang-link{
+  margin-left:auto;font-size:13px;color:var(--ink);text-decoration:none;
+  border-bottom:1px solid var(--ink);line-height:1.2;white-space:nowrap;align-self:center;
+}
+.site-header .lang-link:hover{color:var(--vermilion);border-color:var(--vermilion)}
 
 /* ---- article ---- */
 .article{

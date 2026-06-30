@@ -95,7 +95,7 @@ function render(key, g){
 <header class="site-header">
   <a class="brand" href="index.html">Kata<b>gami</b></a>
   <span class="tag">Free sewing-pattern tool — print at actual size</span>
-  <a class="header-howto-link" href="../howto-${key}.html">日本語</a>
+  <a class="lang-link" href="../howto-${key}.html">日本語</a>
 </header>
 
 <article class="article">
