@@ -285,6 +285,9 @@
     <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-bloomers.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-bloomers.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-bloomers.html"/>
   </url>
   <url>
     <loc>https://katagami.org/howto-kidsdress.html</loc>
@@ -366,6 +369,9 @@
     <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-swaddle.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-swaddle.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-swaddle.html"/>
   </url>
   <url>
     <loc>https://katagami.org/howto-bandanastai.html</loc>
@@ -384,12 +390,18 @@
     <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-gymbag.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-gymbag.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-gymbag.html"/>
   </url>
   <url>
     <loc>https://katagami.org/howto-shoesbag.html</loc>
     <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-shoesbag.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-shoesbag.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-shoesbag.html"/>
   </url>
   <url>
     <loc>https://katagami.org/howto-mask.html</loc>
@@ -405,12 +417,18 @@
     <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-bandana.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-bandana.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-bandana.html"/>
   </url>
   <url>
     <loc>https://katagami.org/howto-azuma.html</loc>
     <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-azuma.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-azuma.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-azuma.html"/>
   </url>
   <url>
     <loc>https://katagami.org/howto-petbandana.html</loc>
@@ -435,12 +453,18 @@
     <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-tunic.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-tunic.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-tunic.html"/>
   </url>
   <url>
     <loc>https://katagami.org/howto-camisole.html</loc>
     <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-camisole.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-camisole.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-camisole.html"/>
   </url>
   <url>
     <loc>https://katagami.org/howto-clutchbag.html</loc>
@@ -519,12 +543,18 @@
     <lastmod>2026-06-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-tablecloth.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-tablecloth.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-tablecloth.html"/>
   </url>
   <url>
     <loc>https://katagami.org/howto-pillowcase.html</loc>
     <lastmod>2026-06-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-pillowcase.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-pillowcase.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-pillowcase.html"/>
   </url>
   <url>
     <loc>https://katagami.org/en/howto-tee.html</loc>
@@ -750,5 +780,95 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-dog.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-dog.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-dog.html"/>
+  </url>
+  <url>
+    <loc>https://katagami.org/en/howto-tablecloth.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-tablecloth.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-tablecloth.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-tablecloth.html"/>
+  </url>
+  <url>
+    <loc>https://katagami.org/en/howto-pillowcase.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-pillowcase.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-pillowcase.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-pillowcase.html"/>
+  </url>
+  <url>
+    <loc>https://katagami.org/en/howto-tunic.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-tunic.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-tunic.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-tunic.html"/>
+  </url>
+  <url>
+    <loc>https://katagami.org/en/howto-camisole.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-camisole.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-camisole.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-camisole.html"/>
+  </url>
+  <url>
+    <loc>https://katagami.org/en/howto-shoesbag.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-shoesbag.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-shoesbag.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-shoesbag.html"/>
+  </url>
+  <url>
+    <loc>https://katagami.org/en/howto-gymbag.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-gymbag.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-gymbag.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-gymbag.html"/>
+  </url>
+  <url>
+    <loc>https://katagami.org/en/howto-bloomers.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-bloomers.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-bloomers.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-bloomers.html"/>
+  </url>
+  <url>
+    <loc>https://katagami.org/en/howto-bandana.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-bandana.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-bandana.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-bandana.html"/>
+  </url>
+  <url>
+    <loc>https://katagami.org/en/howto-swaddle.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-swaddle.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-swaddle.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-swaddle.html"/>
+  </url>
+  <url>
+    <loc>https://katagami.org/en/howto-azuma.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-azuma.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-azuma.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-azuma.html"/>
   </url>
 </urlset>

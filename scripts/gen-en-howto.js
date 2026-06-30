@@ -29,8 +29,8 @@ function steps(items){
 
 const TOOLS_EN = ["Sewing machine (or needle and thread)","Fabric marker or pencil","Ruler and scissors","Iron","Pins or clips"];
 /* keys that have an English guide — used for the related-guides block */
-const EN_KEYS = ["tee","tote","kinchaku","pouch","shuushu","bowtie","placemat","bookcover","headband","sacoche","skirt","gather","apron","mask","pants","kidstee","pouchgusset","tissuecase","cushioncover","dog"];
-const EN_TITLE = { tee:"T-shirt", tote:"Tote bag", kinchaku:"Drawstring pouch", pouch:"Zipper pouch", shuushu:"Scrunchie", bowtie:"Bow tie", placemat:"Placemat", bookcover:"Book cover", headband:"Headband", sacoche:"Sacoche", skirt:"A-line skirt", gather:"Gathered skirt", apron:"Apron", mask:"Pleated mask", pants:"Elastic-waist pants", kidstee:"Kids\u0027 T-shirt", pouchgusset:"Pouch (gusseted)", tissuecase:"Tissue case", cushioncover:"Cushion cover (envelope)", dog:"Dog clothes (tank)" };
+const EN_KEYS = ["tee","tote","kinchaku","pouch","shuushu","bowtie","placemat","bookcover","headband","sacoche","skirt","gather","apron","mask","pants","kidstee","pouchgusset","tissuecase","cushioncover","dog","tablecloth","pillowcase","tunic","camisole","shoesbag","gymbag","bloomers","bandana","swaddle","azuma"];
+const EN_TITLE = { tee:"T-shirt", tote:"Tote bag", kinchaku:"Drawstring pouch", pouch:"Zipper pouch", shuushu:"Scrunchie", bowtie:"Bow tie", placemat:"Placemat", bookcover:"Book cover", headband:"Headband", sacoche:"Sacoche", skirt:"A-line skirt", gather:"Gathered skirt", apron:"Apron", mask:"Pleated mask", pants:"Elastic-waist pants", kidstee:"Kids\u0027 T-shirt", pouchgusset:"Pouch (gusseted)", tissuecase:"Tissue case", cushioncover:"Cushion cover (envelope)", dog:"Dog clothes (tank)", tablecloth:"Tablecloth", pillowcase:"Pillowcase (envelope)", tunic:"Tunic", camisole:"Camisole", shoesbag:"Shoe bag", gymbag:"Gym bag (drawstring backpack)", bloomers:"Bloomers", bandana:"Triangle headscarf", swaddle:"Swaddle (hooded)", azuma:"Azuma bag" };
 
 function render(key, g){
   const url = `https://katagami.org/en/howto-${key}.html`;
@@ -39,7 +39,7 @@ function render(key, g){
   const ogImg = `https://katagami.org/ogp/${key}.png`;
   const lc = g.title.toLowerCase();
   // plural/mass nouns take no article ("...make dog clothes", "...make pants")
-  const makeTitle = /\b(pants|clothes|shorts)\b/.test(lc)
+  const makeTitle = /\b(pants|clothes|shorts|bloomers)\b/.test(lc)
     ? `How to make ${lc}`
     : `How to make ${/^[aeiou]/.test(lc) ? "an" : "a"} ${lc}`;  // "an apron", "a tote bag"
   const patternSteps = [

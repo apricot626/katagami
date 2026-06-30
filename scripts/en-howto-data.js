@@ -818,6 +818,417 @@ module.exports = {
       "<strong>Snug but comfy</strong>: knit should hug without restricting movement.",
       "<strong>Add a sleeve later</strong>: once the tank fits, you can add front-leg sleeves."
     ]
+  },
+
+  tablecloth: {
+    title: "Tablecloth",
+    tab: "home",
+    toolName: "Tablecloth",
+    sizeStep: "Enter your table width, table length and the overhang (drop). The tool adds the rest.",
+    desc: "How to sew a simple single-layer tablecloth. Enter your table size and drop, then triple-fold hem all four sides. Easy, straight stitching only.",
+    keywords: "tablecloth,how to sew,sewing pattern,table linen,hem,beginner,handmade",
+    lead: "Just enter your table size and how far you want it to drop, and the tool gives you the fabric size. Then it's a single-layer cloth — triple-fold hem the four sides. Straight stitching only.",
+    matNote: "any table",
+    materials: [
+      "Fabric (cotton, linen or polyester) — table size + overhang × 2 + seam allowance"
+    ],
+    cut: [
+      "<strong>Prewash / straighten the grain</strong><br>If the fabric may shrink, prewash and press before cutting.",
+      "<strong>Cut to size</strong><br>Cut the fabric to the calculated size, keeping the corners square. A long or L-square ruler helps.",
+      "<strong>Edges</strong><br>A triple-fold hem needs no special finishing, but zigzag the edges if you won't sew right away."
+    ],
+    sew: [
+      { h: "4-1. Deal with the corners", items: [
+        "Mitre the corners (a diagonal fold) or simply fold them in. Mitred corners give the cleanest finish."
+      ]},
+      { h: "4-2. Hem the short sides", items: [
+        "Triple-fold the two short edges and press (a 1 cm → 1 cm double fold is standard).",
+        "Topstitch about 2 mm from the fold."
+      ]},
+      { h: "4-3. Hem the long sides", items: [
+        "Triple-fold and press the two long edges the same way.",
+        "Topstitch about 2 mm from the fold."
+      ]}
+    ],
+    tips: [
+      "<strong>Round corners</strong>: round the corners for a softer look that's easy to hem.",
+      "<strong>Bigger drop</strong>: increase the overhang for a more formal look.",
+      "<strong>Wipe-clean</strong>: laminated cotton makes a practical everyday cloth."
+    ]
+  },
+
+  pillowcase: {
+    title: "Pillowcase (envelope)",
+    tab: "home",
+    toolName: "Pillowcase (envelope)",
+    sizeStep: "Enter the pillow width, height and the back overlap. Presets cover common sizes.",
+    desc: "How to sew an envelope pillowcase with no zipper. One front piece and two overlapping back pieces. A simple, beginner-friendly project for soft fabric.",
+    keywords: "pillowcase,envelope pillowcase,no zipper,how to sew,sewing pattern,handmade",
+    lead: "An envelope pillowcase that needs no zipper. One front piece and two back pieces that overlap at the opening. Best in soft, skin-friendly fabric like cotton, double gauze or linen.",
+    matNote: "one pillowcase",
+    materials: [
+      "Front fabric (cotton, double gauze or linen) — about 110 cm wide × 70 cm",
+      "Back fabric (same fabric is fine) — about 110 cm wide × 100 cm"
+    ],
+    cut: [
+      "<strong>Cut the front</strong><br>Cut 1 front: the pillow width × height plus seam allowance.",
+      "<strong>Cut the back</strong><br>Cut 2 backs from the (shorter) back pattern.",
+      "<strong>Finish the opening edges</strong><br>Finish all edges, and especially the back opening edge (one short edge of each back piece)."
+    ],
+    sew: [
+      { h: "4-1. Hem the back opening edges", items: [
+        "Double-fold and press the inner (opening) edge of each back piece.",
+        "Topstitch about 2 mm from the fold."
+      ]},
+      { h: "4-2. Overlap the back pieces", items: [
+        "Lay the two backs right side up, overlapping the hemmed edges by the overlap amount, and baste."
+      ]},
+      { h: "4-3. Sew front and back together", items: [
+        "Lay the front right side down, then the overlapped backs right side up on top (right sides together).",
+        "Sew all four sides and trim the corners diagonally."
+      ]},
+      { h: "4-4. Turn and finish", items: [
+        "Turn right side out through the back opening, push out the corners and press.",
+        "Topstitch the edges if you like, then insert the pillow."
+      ]}
+    ],
+    tips: [
+      "<strong>Soft on skin</strong>: double gauze and washed linen feel lovely for sleeping.",
+      "<strong>Bigger overlap</strong>: a larger overlap keeps the pillow hidden.",
+      "<strong>Matching set</strong>: make a cushion cover from the same fabric."
+    ]
+  },
+
+  tunic: {
+    title: "Tunic",
+    tab: "human",
+    toolName: "Tunic",
+    sizeStep: "Enter bust, shoulder, length and sleeve length. Make the length and sleeves longer than a tee.",
+    desc: "How to sew a relaxed drop-shoulder tunic. The same pattern as the T-shirt with a longer body and sleeves. Front and back bodice plus sleeves.",
+    keywords: "tunic,drop shoulder,how to sew,sewing pattern,double gauze,linen,handmade",
+    lead: "A relaxed long top that covers to above the knee. It's the same drop-shoulder draft as the T-shirt — just longer in the body and sleeves. If you can sew a tee, you can sew this.",
+    matNote: "adult M",
+    materials: [
+      "Fabric (double gauze, linen, or jersey/interlock knit) — about 150 cm wide × 180 cm",
+      "Bias binding or ribbing for the neckline — the neckline length"
+    ],
+    cut: [
+      "<strong>Front and back</strong><br>Place the center edge on the fold and cut one of each, for symmetrical pieces.",
+      "<strong>Sleeves</strong><br>Cut 2 sleeves and mark the sleeve-cap notch.",
+      "<strong>Finish the edges</strong><br>Zigzag or serge the seam-allowance edges."
+    ],
+    sew: [
+      { h: "4-1. Sew the shoulders", items: [
+        "Place front and back right sides together and sew the straight shoulder seams; press toward the back."
+      ]},
+      { h: "4-2. Finish the neckline", items: [
+        "Cut bias binding or ribbing to about 90% of the neckline length and join into a loop.",
+        "Sew it on, gently stretching to fit, then press the seam toward the body."
+      ]},
+      { h: "4-3. Set in the sleeves", items: [
+        "Match the sleeve-cap notch to the shoulder seam, pin and sew, clipping the curve before pressing toward the body."
+      ]},
+      { h: "4-4. Sew underarms and sides", items: [
+        "Sew each sleeve underarm and side in one continuous line from cuff to hem.",
+        "Press the seams."
+      ]},
+      { h: "4-5. Hem the bottom and cuffs", items: [
+        "Double-fold and press the hem and cuffs, then topstitch 2–3 mm from the edge."
+      ]}
+    ],
+    tips: [
+      "<strong>Woven or knit</strong>: double gauze and linen give a soft drape; knit makes a cozy version.",
+      "<strong>Sleeve length</strong>: anywhere from three-quarter to full.",
+      "<strong>Side slits</strong>: leave the lower side seams open for slits."
+    ]
+  },
+
+  camisole: {
+    title: "Camisole",
+    tab: "human",
+    toolName: "Camisole",
+    sizeStep: "Enter bust, length, neckline and the strap width/length. Adjust the straps when worn.",
+    desc: "How to sew a simple camisole. Sew the front and back at the sides, bind the neckline and armholes, and add straps. Works in knit, satin or linen.",
+    keywords: "camisole,cami,how to sew,sewing pattern,straps,beginner,handmade",
+    lead: "A simple camisole: sew the front and back at the sides, finish the neckline and armholes, and add straps. The front has a U neckline and the back a shallow neck. Works in almost any fabric.",
+    matNote: "adult cami",
+    materials: [
+      "Fabric (jersey/interlock knit, satin or linen) — about 110 cm wide × 140 cm",
+      "Bias binding or ribbing for the neckline and armholes"
+    ],
+    cut: [
+      "<strong>Front and back</strong><br>Place the center edge on the fold and cut one of each.",
+      "<strong>Straps</strong><br>Cut 4 strap pieces (two layers per strap).",
+      "<strong>Finish the edges</strong><br>Zigzag or serge the seam-allowance edges."
+    ],
+    sew: [
+      { h: "4-1. Sew the sides", items: [
+        "Place front and back right sides together and sew both side seams; press."
+      ]},
+      { h: "4-2. Finish neckline and armholes", items: [
+        "Bind the neckline and armhole (side) edges with bias binding, or roll a narrow hem and topstitch."
+      ]},
+      { h: "4-3. Make the straps", items: [
+        "Sew each pair of strap pieces right sides together along the long edge, turn and press. Make two straps."
+      ]},
+      { h: "4-4. Attach the straps", items: [
+        "Try the top on to set the strap length, then sew the straps to the front neckline and back top.",
+        "Baste and check the position before final stitching."
+      ]},
+      { h: "4-5. Hem the bottom", items: [
+        "Double-fold and press the hem and topstitch 2–3 mm from the edge."
+      ]}
+    ],
+    tips: [
+      "<strong>Layering piece</strong>: make it in jersey to wear under sheer tops.",
+      "<strong>Adjustable straps</strong>: add sliders for adjustable length.",
+      "<strong>Dressy version</strong>: satin or cupro makes an elegant cami."
+    ]
+  },
+
+  shoesbag: {
+    title: "Shoe bag",
+    tab: "small",
+    toolName: "Shoe bag",
+    sizeStep: "Enter the finished width, height and the handle length. Presets fit indoor shoes.",
+    desc: "How to sew a hanging shoe bag with a D-ring handle. The body is cut as one piece on the fold; sandwich the handle and tab, then sew the sides. A school-bag classic.",
+    keywords: "shoe bag,indoor shoes bag,D-ring,how to sew,sewing pattern,school,handmade",
+    lead: "A shoe bag you can hang by its D-ring handle. The body is cut as one piece with the base on the fold; you fold the opening, sandwich the handle and tab, and sew the sides. A back-to-school staple.",
+    matNote: "indoor-shoes size",
+    materials: [
+      "Fabric (quilted or oxford, medium/heavy weight) — about 110 cm wide × 40 cm",
+      "1 D-ring (25 mm inner width)",
+      "Handle: self fabric or webbing"
+    ],
+    cut: [
+      "<strong>Cut the body</strong><br>Fold the fabric right sides together and cut the body as one piece with the base fold on the fold.",
+      "<strong>Cut the handle and tab</strong><br>Cut 1 handle and 1 D-ring tab.",
+      "<strong>Finish the edges</strong><br>Zigzag or serge the side edges."
+    ],
+    sew: [
+      { h: "4-1. Make the handle and tab", items: [
+        "Fold the handle and tab in quarters and edgestitch both sides.",
+        "Thread the tab through the D-ring and fold it in half."
+      ]},
+      { h: "4-2. Fold the opening and add the handle", items: [
+        "Double-fold the bag opening (top edge).",
+        "Tuck the handle ends and the D-ring tab into the opening and topstitch all around."
+      ]},
+      { h: "4-3. Sew the sides", items: [
+        "Fold the body right sides together and sew both sides.",
+        "Finish the seam allowances with zigzag or bias."
+      ]},
+      { h: "4-4. Finish", items: [
+        "Turn right side out, push the corners out and press."
+      ]}
+    ],
+    tips: [
+      "<strong>Sturdier bag</strong>: quilted fabric protects shoes and holds its shape.",
+      "<strong>Boxed base</strong>: box the corners for a wider bag.",
+      "<strong>Name tag</strong>: add a label or initials for school."
+    ]
+  },
+
+  gymbag: {
+    title: "Gym bag (drawstring backpack)",
+    tab: "small",
+    toolName: "Gym bag (drawstring backpack)",
+    sizeStep: "Enter the finished width, height and the casing drop. Presets fit gym clothes.",
+    desc: "How to sew a drawstring bag that doubles as a backpack. Thread the cords through loops at the base corners to carry it on your back. A school classic.",
+    keywords: "gym bag,drawstring backpack,cinch bag,how to sew,sewing pattern,school,handmade",
+    lead: "The classic top-cinching drawstring bag. Thread the cords through loops at the bottom corners and it becomes a drawstring backpack. Great for gym clothes or a change of clothes.",
+    matNote: "gym-clothes size",
+    materials: [
+      "Fabric (nylon, cotton oxford or sheeting) — about 110 cm wide × 50 cm",
+      "Acrylic cord (5–6 mm) — about 2 m (use two cords)"
+    ],
+    cut: [
+      "<strong>Fold and cut</strong><br>Fold the fabric right sides together and cut the body as one piece with the base on the fold.",
+      "<strong>Mark the notches</strong><br>Mark the bottom-corner notches (where the cord loops go).",
+      "<strong>Finish the edges</strong><br>Zigzag or serge the side edges."
+    ],
+    sew: [
+      { h: "4-1. Make the cord loops (for backpack use)", items: [
+        "Make two small loops from fabric or cord and baste them at the two bottom corners."
+      ]},
+      { h: "4-2. Sew the sides", items: [
+        "Sew both sides from below the drawstring opening (dashed line) down to the base.",
+        "Leave the casing opening unsewn and finish those seam allowances neatly."
+      ]},
+      { h: "4-3. Make the drawstring casing", items: [
+        "Fold the top under by the seam allowance, then by the casing drop, and topstitch all around."
+      ]},
+      { h: "4-4. Thread the cords", items: [
+        "Thread one cord from each side and tie each into a loop.",
+        "For backpack use, pass the cord ends through the bottom loops and knot."
+      ]}
+    ],
+    tips: [
+      "<strong>Water-resistant</strong>: nylon makes a light, wipeable bag.",
+      "<strong>Reinforce corners</strong>: backstitch where the cords pull at the base.",
+      "<strong>Lined version</strong>: add a lining for a tidier inside."
+    ]
+  },
+
+  bloomers: {
+    title: "Bloomers",
+    tab: "baby",
+    toolName: "Bloomers",
+    sizeStep: "Enter the rise, inseam, waist and leg opening. Shorter and roomier = a rounder shape.",
+    desc: "How to sew puffy baby bloomers with elastic at the waist and legs. Four pieces from one pattern; mostly straight stitching. A great first baby garment.",
+    keywords: "bloomers,baby bloomers,pumpkin pants,how to sew,sewing pattern,elastic,handmade",
+    lead: "Round, puffy bloomers that fit right over a diaper. Four pieces from the same pattern, with elastic at both the waist and the legs. Mostly straight stitching — a lovely first baby garment.",
+    matNote: "baby–toddler",
+    materials: [
+      "Fabric (soft double gauze, light cotton or jersey) — about 110 cm wide × 40 cm",
+      "Waist elastic (1–1.5 cm) — the waist measurement",
+      "Leg elastic (0.6–1 cm) — thigh circumference × 2"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>The right curve is the crotch, the left straight edge is the side.",
+      "<strong>Cut 4</strong><br>Cut 2 mirror pairs (4 pieces) from the same pattern. Mark the crotch notches.",
+      "<strong>Finish the edges</strong><br>Zigzag or serge the edges so they don't fray."
+    ],
+    sew: [
+      { h: "4-1. Sew the center (crotch) seams", items: [
+        "Place a left and right piece right sides together and sew the crotch curve; do this for the front pair and the back pair.",
+        "Clip the curve so it opens smoothly when turned."
+      ]},
+      { h: "4-2. Sew the inseam", items: [
+        "Open the front and back out, place right sides together, and sew the inseam in one pass."
+      ]},
+      { h: "4-3. Sew the sides", items: [
+        "Sew the side seams right sides together and press."
+      ]},
+      { h: "4-4. Elastic at waist and legs", items: [
+        "Make a waist casing (fold by the seam allowance, then the elastic width plus ease) and stitch, leaving an opening.",
+        "Make leg casings the same way, one opening per leg.",
+        "Thread the waist and leg elastics, fit, sew the ends and close the openings."
+      ]}
+    ],
+    tips: [
+      "<strong>Rounder shape</strong>: shorter length and more ease give the pumpkin look.",
+      "<strong>Soft elastic</strong>: use gentle elastic on baby legs so it doesn't dig in.",
+      "<strong>Grows a little</strong>: a touch of ease lets them wear it longer."
+    ]
+  },
+
+  bandana: {
+    title: "Triangle headscarf",
+    tab: "small",
+    toolName: "Triangle headscarf",
+    sizeStep: "Enter the base and the height. Add elastic to make it pull-on.",
+    desc: "How to sew a simple triangle headscarf. Just triple-fold hem the three edges. Run elastic through the base to make a no-tie, pull-on version.",
+    keywords: "triangle headscarf,bandana,kerchief,how to sew,sewing pattern,kids,handmade",
+    lead: "A triangle headscarf for cooking, chores or play. Just triple-fold hem the three edges. Run elastic through the base edge and it becomes a no-tie, pull-on version.",
+    matNote: "child size",
+    materials: [
+      "Fabric (cotton, oxford or sheeting) — about 60 cm square",
+      "Optional: flat elastic (1 cm) — about 20 cm, or fabric for ties"
+    ],
+    cut: [
+      "<strong>Cut 1</strong><br>Cut one triangle from the pattern.",
+      "<strong>Edges</strong><br>A triple-fold hem needs no overlocking."
+    ],
+    sew: [
+      { h: "4-1. Hem the two angled sides", items: [
+        "Triple-fold and stitch the two angled (short) sides."
+      ]},
+      { h: "4-2. Hem the base", items: [
+        "Triple-fold and stitch the base (long) edge.",
+        "For elastic, leave both ends open to make a channel."
+      ]},
+      { h: "4-3. Add elastic or ties", items: [
+        "Thread elastic through the base channel, fit to the head and secure.",
+        "For a tie version, sew ties to the two base corners instead."
+      ]}
+    ],
+    tips: [
+      "<strong>No-tie</strong>: the elastic version is easy for little ones to put on themselves.",
+      "<strong>Reversible</strong>: line it with a second fabric for two looks.",
+      "<strong>Matching set</strong>: make one with a matching apron."
+    ]
+  },
+
+  swaddle: {
+    title: "Swaddle (hooded)",
+    tab: "baby",
+    toolName: "Swaddle (hooded)",
+    sizeStep: "Enter the body side length and the hood side. Larger = more wrapping room.",
+    desc: "How to sew a hooded baby swaddle. A square body with a triangular hood at one corner. Sew the outer and lining together and turn. Simple and useful.",
+    keywords: "swaddle,hooded blanket,baby blanket,how to sew,sewing pattern,handmade,baby gift",
+    lead: "Wrap the baby or use it as a stroller blanket. The triangular hood at one corner covers the head. Simple construction: sew the outer and lining together and turn.",
+    matNote: "baby swaddle",
+    materials: [
+      "Outer fabric (double gauze, terry or cotton) — a square of the body side + seam allowance",
+      "Lining (same; a contrast is nice) — the same size",
+      "Optional: lace, ribbon or a decorative button"
+    ],
+    cut: [
+      "<strong>Cut the body</strong><br>Cut one square each in outer and lining.",
+      "<strong>Cut the hood</strong><br>Cut one triangle each in outer and lining.",
+      "<strong>Corners</strong><br>Clip the corner seam allowances so they turn out crisply."
+    ],
+    sew: [
+      { h: "4-1. Make the hood", items: [
+        "Sew the hood outer and lining right sides together along the long (diagonal) edge, turn and press."
+      ]},
+      { h: "4-2. Baste the hood to the body", items: [
+        "Pin/baste the hood to one corner of the body outer, right sides together, matching the corner."
+      ]},
+      { h: "4-3. Sew the body and turn", items: [
+        "Place the body outer and lining right sides together (hood sandwiched) and sew around, leaving a ~10 cm turning gap.",
+        "Trim the corner allowances, turn right side out and shape the corners."
+      ]},
+      { h: "4-4. Finish", items: [
+        "Slip-stitch the gap closed, or topstitch all around to close it.",
+        "Press to finish."
+      ]}
+    ],
+    tips: [
+      "<strong>Soft and absorbent</strong>: terry on one side makes a cozy blanket.",
+      "<strong>Lovely gift</strong>: a contrasting lining and a name make a great baby gift.",
+      "<strong>Add a hood point</strong>: a small tassel or ear detail is cute."
+    ]
+  },
+
+  azuma: {
+    title: "Azuma bag",
+    tab: "bag",
+    toolName: "Azuma bag",
+    sizeStep: "Enter the base square (the bag scales from it). The fabric is a 1:3 rectangle.",
+    desc: "How to sew an azuma bag from one 1:3 rectangle folded in thirds and sewn. It wraps like a furoshiki and ties to adjust. Great as a reusable shopping or bento bag.",
+    keywords: "azuma bag,furoshiki bag,reusable bag,how to sew,sewing pattern,eco bag,handmade",
+    lead: "Fold a single 1:3 rectangle into thirds and sew two seams — that's the whole bag. It wraps like a furoshiki and the knot adjusts the size. Handy as a bento wrap, reusable shopping bag or spare bag.",
+    matNote: "reusable bag",
+    materials: [
+      "Fabric (cotton, linen or tenugui) — a rectangle 3× the base square by 1×",
+      "Tip: a light, soft fabric folds and knots best"
+    ],
+    cut: [
+      "<strong>Cut 1</strong><br>Cut one rectangle from the pattern; mind the print direction.",
+      "<strong>Mark the folds</strong><br>Mark the 1/3 and 2/3 fold positions at the edges.",
+      "<strong>Finish the edges</strong><br>Zigzag or serge the edges."
+    ],
+    sew: [
+      { h: "4-1. Fold the left third and sew", items: [
+        "With the fabric right sides together, fold the left third over the center block.",
+        "Sew the overlapped right edge."
+      ]},
+      { h: "4-2. Fold the right third and sew", items: [
+        "Now fold the right third over the center.",
+        "Sew the overlapped left edge."
+      ]},
+      { h: "4-3. Turn and shape", items: [
+        "Finish the seam allowances, turn right side out and shape.",
+        "The open triangles at the top become the handles you tie."
+      ]}
+    ],
+    tips: [
+      "<strong>Reversible</strong>: french seams or a lining make it neat on both sides.",
+      "<strong>Bento wrap</strong>: a small one wraps a lunch box; a big one is a shopping bag.",
+      "<strong>Packs flat</strong>: it folds tiny to keep in a pocket or bag."
+    ]
   }
 
 };
