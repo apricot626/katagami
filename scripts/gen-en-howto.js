@@ -36,6 +36,7 @@ function render(key, g){
   const url = `https://katagami.org/en/howto-${key}.html`;
   const jaUrl = `https://katagami.org/howto-${key}.html`;
   const tab = TAB[g.tab];
+  const ogImg = `https://katagami.org/ogp/${key}.png`;
   const patternSteps = [
     `<strong>Open the tool</strong><br>Open the <a href="tool.html">pattern tool</a> and choose “<b>${tab}</b>” → “<b>${g.toolName}</b>” from the tabs at the top.`,
     `<strong>Enter the size</strong><br>${g.sizeStep}`,
@@ -54,7 +55,7 @@ function render(key, g){
   const howToLd = ld({
     "@context":"https://schema.org","@type":"HowTo",
     name:`How to make a ${g.title.toLowerCase()}`, description:g.desc, inLanguage:"en",
-    image:"https://katagami.org/ogp.png",
+    image:ogImg,
     supply:g.materials.map(m=>({ "@type":"HowToSupply", name:stripTags(m) })),
     tool:TOOLS_EN.map(t=>({ "@type":"HowToTool", name:t })),
     step:stepObjs
@@ -104,13 +105,13 @@ function render(key, g){
 <link rel="alternate" hreflang="en" href="${url}">
 <link rel="alternate" hreflang="x-default" href="${jaUrl}">
 <meta property="og:url" content="${url}">
-<meta property="og:image" content="https://katagami.org/ogp.png">
+<meta property="og:image" content="${ogImg}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${esc(g.title)} — sewing guide | Katagami">
 <meta name="twitter:description" content="${esc(g.desc)}">
-<meta name="twitter:image" content="https://katagami.org/ogp.png">
+<meta name="twitter:image" content="${ogImg}">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -118,7 +119,7 @@ function render(key, g){
   "headline": "How to make a ${esc(g.title.toLowerCase())}",
   "description": "${esc(g.desc)}",
   "inLanguage": "en",
-  "image": "https://katagami.org/ogp.png",
+  "image": "${ogImg}",
   "author": { "@type": "Organization", "name": "Katagami", "url": "https://katagami.org/" },
   "publisher": { "@type": "Organization", "name": "Katagami", "url": "https://katagami.org/" },
   "datePublished": "${DATE}",
