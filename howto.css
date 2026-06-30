@@ -66,6 +66,17 @@ body{
   text-decoration:none;color:var(--ink);font-size:13.5px;font-weight:600;
 }
 .related li a:hover{border-color:var(--chalk)}
+/* ---- FAQ ---- */
+.faq{margin:0}
+.faq dt{font-weight:700;font-size:14.5px;margin:18px 0 6px;line-height:1.6}
+.faq dt::before{content:"Q. ";color:var(--vermilion);font-weight:800}
+.faq dd{margin:0 0 4px;font-size:14px;line-height:1.85;color:var(--muted)}
+.faq dd::before{content:"A. ";color:var(--chalk);font-weight:800}
+/* ---- table ---- */
+.g-table{border-collapse:collapse;width:100%;margin:8px 0 4px;font-size:13.5px}
+.g-table th,.g-table td{border:1px solid var(--rule);padding:8px 10px;text-align:left;line-height:1.6}
+.g-table th{background:var(--paper2);font-weight:700}
+.g-table td:nth-child(2){white-space:nowrap;color:var(--ink);font-weight:600}
 h1{font-size:26px;font-weight:800;margin:0 0 16px;line-height:1.3;letter-spacing:.02em}
 .lead{font-size:14px;line-height:1.9;color:var(--muted);margin:0 0 24px}
 
