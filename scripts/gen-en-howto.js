@@ -29,8 +29,8 @@ function steps(items){
 
 const TOOLS_EN = ["Sewing machine (or needle and thread)","Fabric marker or pencil","Ruler and scissors","Iron","Pins or clips"];
 /* keys that have an English guide — used for the related-guides block */
-const EN_KEYS = ["tee","tote","kinchaku","pouch","shuushu","bowtie"];
-const EN_TITLE = { tee:"T-shirt", tote:"Tote bag", kinchaku:"Drawstring pouch", pouch:"Zipper pouch", shuushu:"Scrunchie", bowtie:"Bow tie" };
+const EN_KEYS = ["tee","tote","kinchaku","pouch","shuushu","bowtie","placemat","bookcover","headband","sacoche"];
+const EN_TITLE = { tee:"T-shirt", tote:"Tote bag", kinchaku:"Drawstring pouch", pouch:"Zipper pouch", shuushu:"Scrunchie", bowtie:"Bow tie", placemat:"Placemat", bookcover:"Book cover", headband:"Headband", sacoche:"Sacoche" };
 
 function render(key, g){
   const url = `https://katagami.org/en/howto-${key}.html`;

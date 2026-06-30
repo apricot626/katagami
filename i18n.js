@@ -39,7 +39,7 @@
   };
 
   /* パターンキー → 英語版howtoが存在するもの（en/howto-<key>.html） */
-  var HOWTO_EN={ tee:1, tote:1, kinchaku:1, pouch:1, shuushu:1, bowtie:1 };
+  var HOWTO_EN={ tee:1, tote:1, kinchaku:1, pouch:1, shuushu:1, bowtie:1, placemat:1, bookcover:1, headband:1, sacoche:1 };
 
   var MODE={ human:"Adult clothes", kids:"Kids' clothes", baby:"Baby",
     small:"Accessories", bag:"Bags", pet:"Pets", home:"Home" };

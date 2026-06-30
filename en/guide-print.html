@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3HFK3VE3Q8"></script>
+<script>
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js",new Date());
+  gtag("config","G-3HFK3VE3Q8");
+</script>
+<title>How to print sewing patterns at actual size (100%, no scaling) | Katagami</title>
+<meta name="description" content="How to print PDF/home sewing patterns at true 100% size on Letter or A4. Turn off “Fit to page”, set scale to 100%, and check the calibration box. Fixes patterns that print too small.">
+<meta name="keywords" content="print sewing pattern,actual size,100%,no scaling,fit to page,letter,A4,pattern prints too small">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to print sewing patterns at actual size (100%, no scaling) | Katagami">
+<meta property="og:description" content="How to print PDF/home sewing patterns at true 100% size on Letter or A4. Turn off “Fit to page”, set scale to 100%, and check the calibration box. Fixes patterns that print too small.">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ja_JP">
+<link rel="stylesheet" href="../howto.css">
+<link rel="canonical" href="https://katagami.org/en/guide-print.html">
+<link rel="alternate" hreflang="ja" href="https://katagami.org/guide-print.html">
+<link rel="alternate" hreflang="en" href="https://katagami.org/en/guide-print.html">
+<link rel="alternate" hreflang="x-default" href="https://katagami.org/guide-print.html">
+<meta property="og:url" content="https://katagami.org/en/guide-print.html">
+<meta property="og:image" content="https://katagami.org/ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to print sewing patterns at actual size (100%, no scaling) | Katagami">
+<meta name="twitter:description" content="How to print PDF/home sewing patterns at true 100% size on Letter or A4. Turn off “Fit to page”, set scale to 100%, and check the calibration box. Fixes patterns that print too small.">
+<meta name="twitter:image" content="https://katagami.org/ogp.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Printing patterns at actual size",
+  "description": "How to print PDF/home sewing patterns at true 100% size on Letter or A4. Turn off “Fit to page”, set scale to 100%, and check the calibration box. Fixes patterns that print too small.",
+  "inLanguage": "en",
+  "image": "https://katagami.org/ogp.png",
+  "author": {
+    "@type": "Organization",
+    "name": "Katagami",
+    "url": "https://katagami.org/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Katagami",
+    "url": "https://katagami.org/"
+  },
+  "datePublished": "2026-06-30",
+  "dateModified": "2026-06-30",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://katagami.org/en/guide-print.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Katagami",
+      "item": "https://katagami.org/en/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Printing patterns at actual size",
+      "item": "https://katagami.org/en/guide-print.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "It still prints the wrong size at 100%.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your printer driver may also have a “fit to page” option. Turn off scaling in both the browser/app and the driver, then measure the calibration box to confirm."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "The calibration box measures about 48 mm.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "That's roughly 4% shrink, usually from fit-to-page. Always set the scale to exactly 100% (Custom), not the default option."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I print at a copy shop?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Save as PDF at 100%, then print “actual size / 100%” on the shop's machine. Check the calibration box the same way."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="index.html">Kata<b>gami</b></a>
+  <span class="tag">Free sewing-pattern tool — print at actual size</span>
+  <a class="lang-link" href="../guide-print.html">日本語</a>
+</header>
+
+<article class="article">
+  <div class="article-head">
+    <nav class="crumb" aria-label="Breadcrumb"><a href="index.html">Katagami</a><span class="sep">›</span><span class="cur">Printing patterns at actual size</span></nav>
+    <h1>Printing patterns at actual size</h1>
+    <p class="lead">
+      The most common problem with home-printed patterns is “it printed the wrong size.” Almost always the cause is the printer's <strong>automatic shrink-to-fit</strong>. Here's how to print at true actual size and confirm it worked.
+    </p>
+    <div class="toc">
+      <p class="toc-h">Contents</p>
+      <ol>
+        <li><a href="#why">Why patterns print the wrong size</a></li>
+        <li><a href="#settings">The correct print settings</a></li>
+        <li><a href="#calibration">Always check the calibration box</a></li>
+        <li><a href="#trouble">Still not right? Checklist</a></li>
+        <li><a href="#faq">Frequently asked questions</a></li>
+      </ol>
+    </div>
+  </div>
+
+  <section id="why">
+    <h2>1. Why patterns print the wrong size</h2>
+    <p>PDF and browser print dialogs often default to <strong>“Fit to page” / “Shrink oversized pages”</strong>, which scales the artwork down a few percent to fit the margins. Even a few millimetres of shrink changes the fit of a garment or bag.</p>
+        <p>The fix is simple: set the <strong>scale to 100% (actual size)</strong> and turn <strong>off</strong> any fit options.</p>
+  </section>
+
+  <section id="settings">
+    <h2>2. The correct print settings</h2>
+    <h3>Chrome / Edge</h3>
+        <ol class="steps">
+          <li>Set the destination to your printer (or “Save as PDF”).</li>
+          <li>Open <strong>More settings</strong> and set <strong>Scale → Custom → 100</strong> (the “Default” option can silently shrink).</li>
+          <li><strong>Uncheck “Fit to page / Fit to printable area”.</strong></li>
+          <li>Confirm the paper size is correct (<strong>Letter</strong> in the US, <strong>A4</strong> elsewhere) and print.</li>
+        </ol>
+        <h3>Firefox / Preview (Mac)</h3>
+        <ol class="steps">
+          <li>Set <strong>Scale to 100%</strong>.</li>
+          <li>Turn off “Shrink to fit” / “Scale to fit”.</li>
+        </ol>
+        <p class="note">✏️ To save as PDF, choose “Save as PDF” and still set 100% — you can then print at actual size later, even at a copy shop.</p>
+  </section>
+
+  <section id="calibration">
+    <h2>3. Always check the calibration box</h2>
+    <p>Even with the right settings, a printer's margin handling can shrink things slightly, so <strong>measure after printing</strong>.</p>
+        <p>Every Katagami pattern includes a <strong>50&nbsp;mm calibration box</strong> and a <strong>0–100&nbsp;mm ruler</strong> on the first guide sheet. Measure the box with a ruler: if it is exactly <strong>50&nbsp;mm (about 2&nbsp;in)</strong>, you're good to go.</p>
+        <ul>
+          <li>50 mm → print is correct</li>
+          <li>48–49 mm → fit-to-page is still on; recheck 100% scale</li>
+          <li>Too big → remove any enlargement setting</li>
+        </ul>
+  </section>
+
+  <section id="trouble">
+    <h2>4. Still not right? Checklist</h2>
+    <ul>
+          <li><strong>Printer driver scaling</strong>: the OS/driver dialog may have its own “fit to page”. Turn it off too.</li>
+          <li><strong>Borderless mode</strong>: borderless printing can enlarge the image — use normal printing.</li>
+          <li><strong>Wrong paper size</strong>: printing A4 data on Letter (or vice-versa) shrinks it. Match the data to the paper — in Katagami, choose your paper in the tool.</li>
+          <li><strong>Printing from a phone</strong>: many apps can't set scale. Save to PDF first, then print.</li>
+        </ul>
+  </section>
+
+  <section id="faq">
+    <h2>Frequently asked questions</h2>
+    <dl class="faq">
+      <dt>It still prints the wrong size at 100%.</dt>
+      <dd>Your printer driver may also have a “fit to page” option. Turn off scaling in both the browser/app and the driver, then measure the calibration box to confirm.</dd>
+      <dt>The calibration box measures about 48 mm.</dt>
+      <dd>That's roughly 4% shrink, usually from fit-to-page. Always set the scale to exactly 100% (Custom), not the default option.</dd>
+      <dt>Can I print at a copy shop?</dt>
+      <dd>Yes. Save as PDF at 100%, then print “actual size / 100%” on the shop's machine. Check the calibration box the same way.</dd>
+    </dl>
+  </section>
+
+  <div class="cta-box">
+    <p>Draft a pattern in your own size and print it at actual size on Letter or A4.</p>
+    <a href="tool.html" class="cta-btn">Open the pattern tool →</a>
+  </div>
+
+  <nav class="related" aria-label="Related guides">
+    <h2>Related guides</h2>
+    <ul>
+      <li><a href="guide-assembly.html">Assembling tiled sheets</a></li>
+      <li><a href="guide-seam-allowance.html">How much seam allowance?</a></li>
+      <li><a href="tool.html">Open the pattern tool</a></li>
+    </ul>
+  </nav>
+</article>
+
+<footer class="site-footer">
+  <span>© 2026 Katagami</span>
+  <a href="howto.html">Sewing guides</a>
+  <a href="tool.html">Pattern tool</a>
+</footer>
+</body>
+</html>
