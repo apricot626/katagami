@@ -34,8 +34,12 @@
     profileDelete:"Delete this saved setup?",
     profileLoad:function(name){return "Load "+name;},
     profileDel:"Delete",
-    howtoJa:"📖 Sewing guide (Japanese only)"
+    howtoJa:"📖 Sewing guide (Japanese only)",
+    howtoView:"📄 Read the sewing guide"
   };
+
+  /* パターンキー → 英語版howtoが存在するもの（en/howto-<key>.html） */
+  var HOWTO_EN={ tee:1, tote:1, kinchaku:1, pouch:1, shuushu:1, bowtie:1 };
 
   var MODE={ human:"Adult clothes", kids:"Kids' clothes", baby:"Baby",
     small:"Accessories", bag:"Bags", pet:"Pets", home:"Home" };
@@ -276,6 +280,7 @@
     preset:function(s){ return tr(PRESET,s); },
     toggle:function(s){ return tr(TOGGLE,s); },
     unit:function(s){ return tr(UNIT,s); },
-    piece:function(s){ return tr(PIECE,s); }
+    piece:function(s){ return tr(PIECE,s); },
+    howtoEN:function(k){ return !!HOWTO_EN[k]; }
   };
 })();

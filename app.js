@@ -383,10 +383,18 @@ function render(){
   const noteTxt=KG.note(state.pat,def.note);
   // memo は数値が埋め込まれるためフェーズ1では英語化せず、日本語版でのみ併記する
   el("patNote").textContent = (memo && KG.lang!=='en') ? `${noteTxt} ／ ${memo}` : noteTxt;
-  // 作り方リンク（対応する記事がある型紙のときだけ表示）。howtoページは日本語のみ。
+  // 作り方リンク（対応する記事がある型紙のときだけ表示）
   const howto=HOWTO[state.pat], hl=el("howtoLink");
-  if(howto){hl.href=howto.url; hl.textContent=KG.lang==='en'?KG.ui.howtoJa:howto.label; hl.style.display="inline-block";}
-  else{hl.style.display="none";}
+  if(howto){
+    if(KG.lang==='en'){
+      if(KG.howtoEN(state.pat)){            // 英語版ガイドあり → en/howto-*.html（同階層）
+        hl.href=`howto-${state.pat}.html`; hl.textContent=KG.ui.howtoView;
+      }else{                                // 未翻訳 → ルートの日本語ガイドへ
+        hl.href=`../${howto.url}`; hl.textContent=KG.ui.howtoJa;
+      }
+    }else{ hl.href=howto.url; hl.textContent=howto.label; }
+    hl.style.display="inline-block";
+  }else{hl.style.display="none";}
   const {cols,rows}=tileGrid(canvasW,canvasH);
   el("sheetCount").textContent=cols*rows;
   buildSAControls();
