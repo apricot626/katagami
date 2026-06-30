@@ -123,6 +123,9 @@
     <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-dog.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-dog.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-dog.html"/>
   </url>
   <url>
     <loc>https://katagami.org/howto-dogsleeved.html</loc>
@@ -159,6 +162,9 @@
     <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-kidstee.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-kidstee.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-kidstee.html"/>
   </url>
   <url>
     <loc>https://katagami.org/howto-kincgusset.html</loc>
@@ -198,6 +204,9 @@
     <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-pants.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-pants.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-pants.html"/>
   </url>
   <url>
     <loc>https://katagami.org/howto-placemat.html</loc>
@@ -222,6 +231,9 @@
     <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-pouchgusset.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-pouchgusset.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-pouchgusset.html"/>
   </url>
   <url>
     <loc>https://katagami.org/howto-sacoche.html</loc>
@@ -312,6 +324,9 @@
     <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-tissuecase.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-tissuecase.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-tissuecase.html"/>
   </url>
   <url>
     <loc>https://katagami.org/howto-tote.html</loc>
@@ -495,6 +510,9 @@
     <lastmod>2026-06-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-cushioncover.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-cushioncover.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-cushioncover.html"/>
   </url>
   <url>
     <loc>https://katagami.org/howto-tablecloth.html</loc>
@@ -678,5 +696,59 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-mask.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-mask.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-mask.html"/>
+  </url>
+  <url>
+    <loc>https://katagami.org/en/howto-pants.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-pants.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-pants.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-pants.html"/>
+  </url>
+  <url>
+    <loc>https://katagami.org/en/howto-kidstee.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-kidstee.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-kidstee.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-kidstee.html"/>
+  </url>
+  <url>
+    <loc>https://katagami.org/en/howto-pouchgusset.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-pouchgusset.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-pouchgusset.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-pouchgusset.html"/>
+  </url>
+  <url>
+    <loc>https://katagami.org/en/howto-tissuecase.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-tissuecase.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-tissuecase.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-tissuecase.html"/>
+  </url>
+  <url>
+    <loc>https://katagami.org/en/howto-cushioncover.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-cushioncover.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-cushioncover.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-cushioncover.html"/>
+  </url>
+  <url>
+    <loc>https://katagami.org/en/howto-dog.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-dog.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-dog.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-dog.html"/>
   </url>
 </urlset>
