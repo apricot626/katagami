@@ -143,8 +143,11 @@ main{display:grid;grid-template-columns:320px 1fr;gap:0;flex:1;overflow:hidden}
   color:var(--ink);line-height:1.2;
 }
 .seg-control button:first-of-type{border-radius:2px 0 0 2px}
-.seg-control button:last-of-type{border-radius:0 2px 2px 0;border-left:none}
-.seg-control button[aria-pressed="true"]{background:var(--ink);color:var(--paper2)}
+.seg-control button:last-of-type{border-radius:0 2px 2px 0}
+/* 隣接ボタンの枠は負マージンで重ね、二重線にせず仕切り線を1本に。
+   どちらがアクティブ（濃色塗り）でも境界線が消えないようにする。 */
+.seg-control button:not(:first-of-type){margin-left:-1.5px}
+.seg-control button[aria-pressed="true"]{background:var(--ink);color:var(--paper2);position:relative;z-index:1}
 .seg-control button:hover:not([aria-pressed="true"]){background:var(--rule-soft)}
 
 .print-btn{
