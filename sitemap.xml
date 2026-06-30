@@ -3,9 +3,21 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://katagami.org/</loc>
-    <lastmod>2026-06-25</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/"/>
+  </url>
+  <url>
+    <loc>https://katagami.org/en/</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/"/>
   </url>
   <url>
     <loc>https://katagami.org/tool.html</loc>
