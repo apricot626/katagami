@@ -29,14 +29,16 @@ function steps(items){
 
 const TOOLS_EN = ["Sewing machine (or needle and thread)","Fabric marker or pencil","Ruler and scissors","Iron","Pins or clips"];
 /* keys that have an English guide — used for the related-guides block */
-const EN_KEYS = ["tee","tote","kinchaku","pouch","shuushu","bowtie","placemat","bookcover","headband","sacoche"];
-const EN_TITLE = { tee:"T-shirt", tote:"Tote bag", kinchaku:"Drawstring pouch", pouch:"Zipper pouch", shuushu:"Scrunchie", bowtie:"Bow tie", placemat:"Placemat", bookcover:"Book cover", headband:"Headband", sacoche:"Sacoche" };
+const EN_KEYS = ["tee","tote","kinchaku","pouch","shuushu","bowtie","placemat","bookcover","headband","sacoche","skirt","gather","apron","mask"];
+const EN_TITLE = { tee:"T-shirt", tote:"Tote bag", kinchaku:"Drawstring pouch", pouch:"Zipper pouch", shuushu:"Scrunchie", bowtie:"Bow tie", placemat:"Placemat", bookcover:"Book cover", headband:"Headband", sacoche:"Sacoche", skirt:"A-line skirt", gather:"Gathered skirt", apron:"Apron", mask:"Pleated mask" };
 
 function render(key, g){
   const url = `https://katagami.org/en/howto-${key}.html`;
   const jaUrl = `https://katagami.org/howto-${key}.html`;
   const tab = TAB[g.tab];
   const ogImg = `https://katagami.org/ogp/${key}.png`;
+  const lc = g.title.toLowerCase();
+  const makeTitle = `How to make ${/^[aeiou]/.test(lc) ? "an" : "a"} ${lc}`;  // "an apron", "a tote bag"
   const patternSteps = [
     `<strong>Open the tool</strong><br>Open the <a href="tool.html">pattern tool</a> and choose “<b>${tab}</b>” → “<b>${g.toolName}</b>” from the tabs at the top.`,
     `<strong>Enter the size</strong><br>${g.sizeStep}`,
@@ -54,7 +56,7 @@ function render(key, g){
   stepObjs.forEach((s,i)=>s.position=i+1);
   const howToLd = ld({
     "@context":"https://schema.org","@type":"HowTo",
-    name:`How to make a ${g.title.toLowerCase()}`, description:g.desc, inLanguage:"en",
+    name:makeTitle, description:g.desc, inLanguage:"en",
     image:ogImg,
     supply:g.materials.map(m=>({ "@type":"HowToSupply", name:stripTags(m) })),
     tool:TOOLS_EN.map(t=>({ "@type":"HowToTool", name:t })),
@@ -65,7 +67,7 @@ function render(key, g){
     itemListElement:[
       { "@type":"ListItem", position:1, name:"Katagami", item:"https://katagami.org/en/" },
       { "@type":"ListItem", position:2, name:"Sewing guides", item:"https://katagami.org/en/howto.html" },
-      { "@type":"ListItem", position:3, name:`How to make a ${g.title.toLowerCase()}`, item:url }
+      { "@type":"ListItem", position:3, name:makeTitle, item:url }
     ]
   });
   // visible breadcrumb (replaces the plain category label)
@@ -116,7 +118,7 @@ function render(key, g){
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "How to make a ${esc(g.title.toLowerCase())}",
+  "headline": "${esc(makeTitle)}",
   "description": "${esc(g.desc)}",
   "inLanguage": "en",
   "image": "${ogImg}",
@@ -140,7 +142,7 @@ ${crumbLd}
 <article class="article">
   <div class="article-head">
     ${crumbHtml}
-    <h1>How to make a ${esc(g.title.toLowerCase())}</h1>
+    <h1>${esc(makeTitle)}</h1>
     <p class="lead">
       ${g.lead}
     </p>
