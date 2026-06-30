@@ -20,6 +20,24 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://katagami.org/guide-knit.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://katagami.org/guide-elastic.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://katagami.org/guide-bias.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://katagami.org/</loc>
     <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
