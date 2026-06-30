@@ -1229,6 +1229,458 @@ module.exports = {
       "<strong>Bento wrap</strong>: a small one wraps a lunch box; a big one is a shopping bag.",
       "<strong>Packs flat</strong>: it folds tiny to keep in a pocket or bag."
     ]
+  },
+
+  sleevedress: {
+    title: "Sleeveless dress",
+    tab: "human",
+    toolName: "Sleeveless dress",
+    sizeStep: "Enter bust, waist, hip, bodice length, skirt length and flare. Presets cover S–XL.",
+    desc: "How to sew a simple sleeveless A-line dress. A bodice joined to an A-line skirt, with the neckline and armholes bound with bias tape. A great next step after tees and skirts.",
+    keywords: "sleeveless dress,a-line dress,how to sew,sewing pattern,summer dress,bias binding,handmade",
+    lead: "A simple sleeveless dress: a bodice joined to an A-line skirt, with the neckline and armholes simply bound in bias tape. With no sleeves it's an easy build — a great next step once you're comfortable with tees and skirts.",
+    matNote: "adult dress",
+    materials: [
+      "Fabric (medium cotton, linen or lawn) — about 110 cm wide × (dress length + 30 cm)",
+      "Double-fold bias tape (1.1–1.3 cm) — the neckline + armhole length, plus extra (self fabric is fine)"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the cut line and seam line onto the wrong side; align the grain.",
+      "<strong>Cut</strong><br>Cut the front and back bodice each on the fold (1 each), and the front and back skirt each on the fold (2 total).",
+      "<strong>Mark notches</strong><br>Mark the waist and armhole notches.",
+      "<strong>Finish the edges</strong><br>Zigzag or serge the seam-allowance edges."
+    ],
+    sew: [
+      { h: "4-1. Sew the shoulders", items: [
+        "Place front and back bodice right sides together and sew the shoulder seams; press open."
+      ]},
+      { h: "4-2. Bind the neckline and armholes", items: [
+        "Sew bias tape to the neckline right sides together, wrap it to the inside and topstitch.",
+        "Do the same on both armholes. Binding while flat (before the side seams) is easiest for beginners."
+      ]},
+      { h: "4-3. Sew the sides", items: [
+        "Sew the bodice side seams, continuing neatly from the bound armhole edge; press open."
+      ]},
+      { h: "4-4. Make the skirt and join it", items: [
+        "Sew the skirt side seams and press open.",
+        "Match the bodice waist to the skirt waist (aligning side seams and notches) and sew all around.",
+        "Press the waist seam toward the bodice."
+      ]},
+      { h: "4-5. Hem", items: [
+        "Double-fold and press the hem, topstitch all around, and give it a final press."
+      ]}
+    ],
+    tips: [
+      "<strong>Self-fabric binding</strong>: cut bias strips from the dress fabric for a coordinated finish.",
+      "<strong>Pockets</strong>: add in-seam pockets in the skirt side seams.",
+      "<strong>Length</strong>: adjust bodice and skirt lengths for your height."
+    ]
+  },
+
+  flareskirt: {
+    title: "Circle skirt",
+    tab: "human",
+    toolName: "Circle skirt",
+    sizeStep: "Enter waist, skirt length and choose full or half circle. Elastic waist.",
+    desc: "How to sew a flowing circle (flare) skirt. Cut from a fan-shaped pattern on folded fabric — the circle shape creates the drape, no gathers needed. Elastic waist.",
+    keywords: "circle skirt,flare skirt,full circle,half circle,how to sew,sewing pattern,handmade",
+    lead: "A flowing circle skirt cut from a fan-shaped pattern. The circular shape itself creates beautiful drape — no darts or gathers. Choose a full circle for maximum flare, or a half circle to use less fabric. Elastic waist for comfort.",
+    matNote: "adult skirt",
+    materials: [
+      "Soft, drapey fabric (cotton, linen, double gauze) — a full circle needs a lot; roughly 110 cm wide × (skirt length + waist radius + 15 cm), about doubled",
+      "Waist elastic (2–3 cm wide) — the waist measurement"
+    ],
+    cut: [
+      "<strong>Fold the fabric</strong><br>Fold into quarters for a full circle, or in half for a half circle. Place the two fold edges of the pattern on the fabric folds.",
+      "<strong>Trace</strong><br>Trace the inner arc (waist) and outer arc (hem).",
+      "<strong>Cut</strong><br>Cut along the fan shape through the folds; it opens into a circle (or half circle).",
+      "<strong>Finish the edges</strong><br>Zigzag or serge the cut edges."
+    ],
+    sew: [
+      { h: "4-1. Sew the back seam (half circle only)", items: [
+        "For a half circle, sew the straight center-back seam and press open. A full circle has no seam here."
+      ]},
+      { h: "4-2. Make the waist casing", items: [
+        "Fold the waist under by the seam allowance, then by the elastic width plus ease, easing the curve as you fold; press.",
+        "Stitch around, leaving a 2–3 cm elastic opening."
+      ]},
+      { h: "4-3. Thread the elastic", items: [
+        "Thread the elastic, fit to the waist, sew the ends and close the opening."
+      ]},
+      { h: "4-4. Hem", items: [
+        "Hang the skirt for a day or two first so the bias settles and the length evens out.",
+        "Hem with a narrow fold (0.7–1 cm), easing around the strong curve, then press."
+      ]}
+    ],
+    tips: [
+      "<strong>Let it hang</strong>: the bias drops over time — hang before hemming for an even hem.",
+      "<strong>Narrow hem</strong>: a rolled or narrow hem handles the curve best.",
+      "<strong>Half circle</strong>: choose it to save fabric while keeping plenty of swish."
+    ]
+  },
+
+  adultgather: {
+    title: "Gathered skirt (adult)",
+    tab: "human",
+    toolName: "Gathered skirt (adult)",
+    sizeStep: "Enter waist, skirt length and gather ratio. A higher ratio = fuller gathers.",
+    desc: "How to sew the easiest gathered skirt for adults. Just two rectangles, side seams, an elastic waist and a hem. The gather ratio sets the fullness.",
+    keywords: "gathered skirt,elastic waist,easy skirt,how to sew,sewing pattern,beginner,handmade",
+    lead: "Sew two rectangles and run elastic through the waist — the easiest skirt there is, and a perfect first sewing project. The gather ratio sets the fabric width and how full it looks.",
+    matNote: "adult skirt",
+    materials: [
+      "Fabric (cotton, linen or lawn) — 110 cm wide × (skirt length + fold-over + 10 cm), two pieces",
+      "Waist elastic (2–3 cm wide) — the waist measurement"
+    ],
+    cut: [
+      "<strong>Fold and cut</strong><br>Fold the fabric right sides together and place the pattern's fold edge on the fold.",
+      "<strong>Cut 2</strong><br>Cut a front and a back (2 pieces).",
+      "<strong>Finish the edges</strong><br>Zigzag or serge the side and hem edges."
+    ],
+    sew: [
+      { h: "4-1. Sew the sides", items: [
+        "Sew the front and back right sides together at both sides; press open."
+      ]},
+      { h: "4-2. Make the waist casing", items: [
+        "Fold the waist under by the seam allowance, then by the elastic width plus ease; press.",
+        "Stitch around, leaving a 2–3 cm elastic opening."
+      ]},
+      { h: "4-3. Thread the elastic", items: [
+        "Thread the elastic, fit to the waist, sew the ends and close the opening."
+      ]},
+      { h: "4-4. Hem", items: [
+        "Double-fold and topstitch the hem; press to finish."
+      ]}
+    ],
+    tips: [
+      "<strong>Fuller skirt</strong>: increase the gather ratio for more volume.",
+      "<strong>Soft fabric</strong>: lawn and double gauze gather beautifully.",
+      "<strong>Pockets</strong>: add in-seam pockets before sewing the sides."
+    ]
+  },
+
+  widepants: {
+    title: "Wide pants (elastic waist)",
+    tab: "human",
+    toolName: "Wide pants (elastic waist)",
+    sizeStep: "Enter the rise, inseam, waist and hip. Baste the crotch curve to check the fit.",
+    desc: "How to sew relaxed wide-leg elastic-waist pants. Front and back use the same pattern: sew the crotch seams, inseam and sides, then an elastic waist and hem.",
+    keywords: "wide pants,palazzo pants,elastic waist,how to sew,sewing pattern,linen pants,handmade",
+    lead: "Easy, relaxed wide-leg pants with an elastic waist. The front and back use the same pattern, so they're quick to make and great year-round in linen or cotton. Just baste the crotch curve to check the fit.",
+    matNote: "adult pants",
+    materials: [
+      "Fabric (linen, cotton twill, chambray) — 110 cm wide × (rise + inseam + 15 cm), two pieces",
+      "Waist elastic (3 cm wide) — the waist measurement"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>The right curve is the crotch, the left straight edge is the side.",
+      "<strong>Cut 4</strong><br>Cut 2 mirror pairs (4 pieces) from the same pattern. Mark the crotch notches.",
+      "<strong>Finish the edges</strong><br>Zigzag or serge the edges."
+    ],
+    sew: [
+      { h: "4-1. Sew the center (crotch) seams", items: [
+        "Sew the crotch curve on the front pair and the back pair, right sides together.",
+        "Clip the curve so it turns smoothly."
+      ]},
+      { h: "4-2. Sew the inseam", items: [
+        "Open the front and back out, place right sides together, and sew the inseam in one pass."
+      ]},
+      { h: "4-3. Sew the sides", items: [
+        "Sew the side seams right sides together and press open."
+      ]},
+      { h: "4-4. Waist and hem", items: [
+        "Make an elastic waist casing and stitch, leaving an opening; thread the elastic, fit and close.",
+        "Double-fold and topstitch the leg hems; press."
+      ]}
+    ],
+    tips: [
+      "<strong>Crisp drape</strong>: linen and twill give the best wide-leg shape.",
+      "<strong>Cropped</strong>: shorten the inseam for cropped wide pants.",
+      "<strong>Pockets</strong>: add in-seam side pockets before closing the sides."
+    ]
+  },
+
+  halfpants: {
+    title: "Shorts (adult)",
+    tab: "human",
+    toolName: "Shorts (adult)",
+    sizeStep: "Enter the rise, inseam, waist and hip. Adjust the inseam for the length you want.",
+    desc: "How to sew relaxed elastic-waist shorts. Same construction as the wide pants with a shorter inseam: sew the crotch seams, inseam and sides, then hem and add elastic.",
+    keywords: "shorts,elastic waist shorts,how to sew,sewing pattern,easy shorts,handmade",
+    lead: "Relaxed elastic-waist shorts. Four pieces from one pattern: sew the crotch, sew the sides, hem and run elastic through the waist. Change the inseam for knee-length or shorter — a summer staple.",
+    matNote: "adult shorts",
+    materials: [
+      "Fabric (cotton, linen, sheeting or denim) — 110 cm wide × 90 cm",
+      "Waist elastic (2–3 cm wide) — the waist measurement"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>The right curve is the crotch (center-seam side), the left straight edge is the side.",
+      "<strong>Cut 4</strong><br>Cut 2 mirror pairs (4 pieces). Keep directional prints the right way up.",
+      "<strong>Finish the edges</strong><br>Zigzag or serge the edges."
+    ],
+    sew: [
+      { h: "4-1. Sew the center (crotch) seams", items: [
+        "Sew the crotch curve on the front pair and the back pair, right sides together.",
+        "Clip the curve; press open or to one side."
+      ]},
+      { h: "4-2. Sew the inseam", items: [
+        "Open out, place right sides together and sew the inseam in one pass, matching notches."
+      ]},
+      { h: "4-3. Sew the sides", items: [
+        "Sew the side seams right sides together; press."
+      ]},
+      { h: "4-4. Hem the legs", items: [
+        "Double-fold and press each leg hem, then topstitch 2–3 mm from the edge."
+      ]},
+      { h: "4-5. Elastic waist", items: [
+        "Fold the waist for the elastic and stitch, leaving an opening.",
+        "Cut the elastic 2–3 cm shorter than the waist, thread it, sew the ends and close the opening."
+      ]}
+    ],
+    tips: [
+      "<strong>Length</strong>: adjust the inseam for above-the-knee or longer.",
+      "<strong>Cuffed</strong>: add a folded cuff for a tailored look.",
+      "<strong>Pockets</strong>: add patch or in-seam pockets."
+    ]
+  },
+
+  blouse: {
+    title: "Blouse",
+    tab: "human",
+    toolName: "Blouse",
+    sizeStep: "Enter bust, shoulder, length, sleeve and the button-stand width. Presets cover S–XL.",
+    desc: "How to sew a button-down blouse with set-in sleeves. Back cut on the fold, front cut as two pieces with a button stand. Best in woven fabric like shirting, double gauze or linen.",
+    keywords: "blouse,button-down,shirt,set-in sleeve,how to sew,sewing pattern,woven,handmade",
+    lead: "A button-down blouse with set-in sleeves: the back is cut on the fold and the front as two pieces with a button stand. Best in woven fabric. Casual or smart depending on your fabric.",
+    matNote: "adult blouse",
+    materials: [
+      "Woven fabric (shirting, double gauze, linen) — 110 cm wide × about 200 cm",
+      "Buttons (1–1.2 cm) — 7–9",
+      "Interfacing for the button stand and neckline — a little",
+      "Bias tape for the neckline — the neckline length"
+    ],
+    cut: [
+      "<strong>Cut the back</strong><br>Place the center-back on the fold and cut 1.",
+      "<strong>Cut the fronts</strong><br>Cut 1 with the front pattern, then flip it and cut a mirror image (2 total).",
+      "<strong>Cut the sleeves</strong><br>Cut 2 sleeves.",
+      "<strong>Finish the edges</strong><br>Finish the seam-allowance edges; the front button-stand edge depends on your finish."
+    ],
+    sew: [
+      { h: "4-1. Sew the shoulders and sides", items: [
+        "Sew the front and back at the shoulders and sides, right sides together; press open."
+      ]},
+      { h: "4-2. Finish the neckline", items: [
+        "Measure the neckline and cut bias tape to fit.",
+        "Sew the bias tape around the neckline, turn it in and press."
+      ]},
+      { h: "4-3. Set in the sleeves", items: [
+        "Match the sleeve-cap notch to the shoulder seam and sew each sleeve into the armhole; press toward the sleeve."
+      ]},
+      { h: "4-4. Sew the underarm/side in one line", items: [
+        "Sew from the sleeve cuff down to the hem in one continuous seam; press."
+      ]},
+      { h: "4-5. Finish the front opening", items: [
+        "Fold back the button stand on each front, press and topstitch.",
+        "Mark and make the buttonholes, then sew the buttons on the opposite side."
+      ]},
+      { h: "4-6. Hem", items: [
+        "Double-fold and press the hem, then topstitch 2 mm from the edge."
+      ]}
+    ],
+    tips: [
+      "<strong>Crisp collar area</strong>: interface the button stand and neckline.",
+      "<strong>Sleeve length</strong>: shorten for short sleeves or add a cuff.",
+      "<strong>Fabric</strong>: double gauze is soft; shirting is crisp and smart."
+    ]
+  },
+
+  onepiece: {
+    title: "Dress (with sleeves)",
+    tab: "human",
+    toolName: "Dress (with sleeves)",
+    sizeStep: "Enter bust, waist, hip, bodice length, skirt length and sleeve length.",
+    desc: "How to sew a waist-seam dress with set-in sleeves. A fitted bodice joined to an A-line skirt, neckline bound with bias tape. Best in woven fabric.",
+    keywords: "dress with sleeves,waist seam dress,set-in sleeve,how to sew,sewing pattern,woven,handmade",
+    lead: "A waist-seam dress: a fitted bodice joined to an A-line skirt, with set-in sleeves and a bias-bound neckline. Comfortable and pretty in woven fabric like cotton, linen or double gauze.",
+    matNote: "adult dress",
+    materials: [
+      "Woven fabric (cotton, linen, double gauze) — 110 cm wide × about 300 cm",
+      "Bias tape for the neckline (and armholes) — the relevant lengths",
+      "An invisible zipper or waist elastic — 1"
+    ],
+    cut: [
+      "<strong>Cut the bodice</strong><br>Cut the front and back bodice each on the fold (1 each).",
+      "<strong>Cut the skirt</strong><br>Cut the front and back skirt each on the fold (1 each).",
+      "<strong>Cut the sleeves</strong><br>Cut 2 sleeves.",
+      "<strong>Finish the edges</strong><br>Zigzag or serge the seam-allowance edges."
+    ],
+    sew: [
+      { h: "4-1. Sew the bodice", items: [
+        "Sew the front and back bodice at the sides, right sides together; press open."
+      ]},
+      { h: "4-2. Sew the skirt", items: [
+        "Sew the skirt front and back at the sides (leave room for a zipper at the back if using one); press open."
+      ]},
+      { h: "4-3. Join the bodice and skirt", items: [
+        "Match the bodice waist to the skirt waist, aligning centers and side notches, and sew.",
+        "Press the seam up toward the bodice."
+      ]},
+      { h: "4-4. Finish the neckline", items: [
+        "Bind the neckline with bias tape and press the seam to the inside."
+      ]},
+      { h: "4-5. Set in the sleeves", items: [
+        "Match the sleeve-cap notch to the shoulder and sew each sleeve in.",
+        "Sew the sleeve underarm seams and press."
+      ]},
+      { h: "4-6. Hem the skirt and cuffs", items: [
+        "Double-fold and topstitch the skirt hem and the sleeve cuffs; press."
+      ]}
+    ],
+    tips: [
+      "<strong>Closure</strong>: an invisible back zipper gives a fitted look; elastic at the waist is easier.",
+      "<strong>Length</strong>: adjust bodice and skirt lengths to your height.",
+      "<strong>Pockets</strong>: in-seam skirt pockets are handy."
+    ]
+  },
+
+  jacket: {
+    title: "Jacket",
+    tab: "human",
+    toolName: "Jacket",
+    sizeStep: "Enter bust, shoulder, length, sleeve and the button-stand width. Allow extra ease.",
+    desc: "How to sew a front-button jacket with set-in sleeves. Back cut on the fold, front cut as two pieces with a button stand. Best in thicker woven fabric like twill or wool.",
+    keywords: "jacket,set-in sleeve,button front,how to sew,sewing pattern,wool,twill,handmade",
+    lead: "A front-button jacket with set-in sleeves: the back is cut on the fold, the front as two pieces with a button stand. Best in thicker woven fabric. Add a lining for a dressier finish, or leave it single-layer for casual wear.",
+    matNote: "adult jacket",
+    materials: [
+      "Outer fabric (cotton twill, wool, denim) — 110 cm wide × about 250 cm",
+      "Lining (cotton or polyester) — 110 cm wide × about 230 cm (optional)",
+      "Interfacing for the button stand — a little",
+      "Buttons (1.5–2 cm) — 5–6"
+    ],
+    cut: [
+      "<strong>Cut the back</strong><br>Place the center-back on the fold and cut 1.",
+      "<strong>Cut the fronts</strong><br>Cut 1, then flip the pattern and cut a mirror image (2 total).",
+      "<strong>Cut the sleeves</strong><br>Cut 2 sleeves.",
+      "<strong>Interface</strong><br>Fuse interfacing to the front button-stand area.",
+      "<strong>Finish the edges</strong><br>Zigzag or serge the seam-allowance edges."
+    ],
+    sew: [
+      { h: "4-1. Sew the shoulders and sides", items: [
+        "Sew the front and back at the shoulders and sides, right sides together; press open."
+      ]},
+      { h: "4-2. Finish the neckline", items: [
+        "Finish the neckline by binding the seam allowance with bias tape or self fabric."
+      ]},
+      { h: "4-3. Set in the sleeves", items: [
+        "Match the sleeve-cap notch to the shoulder seam and sew each sleeve in; press toward the sleeve."
+      ]},
+      { h: "4-4. Sew the underarm/side in one line", items: [
+        "Sew from cuff to hem in one continuous seam; press open."
+      ]},
+      { h: "4-5. Finish the front opening", items: [
+        "Fold back and topstitch the button stand.",
+        "Mark and make the buttonholes, then sew on the buttons."
+      ]},
+      { h: "4-6. Hem and cuffs", items: [
+        "Fold and press the hem, then topstitch or slip-stitch. Finish the cuffs the same way."
+      ]}
+    ],
+    tips: [
+      "<strong>Add a lining</strong>: a lining hides the seams and feels dressier.",
+      "<strong>Topstitch</strong>: edge topstitching gives a crisp, tailored look.",
+      "<strong>Press well</strong>: pressing each seam makes a big difference on a jacket."
+    ]
+  },
+
+  coat: {
+    title: "Coat",
+    tab: "human",
+    toolName: "Coat",
+    sizeStep: "Enter bust, shoulder, length, sleeve and the button-stand width. Allow plenty of ease.",
+    desc: "How to sew a front-button A-line coat with set-in sleeves. Back cut on the fold, front cut as two pieces with a button stand. Best in heavy fabric like wool, tweed or quilted fabric.",
+    keywords: "coat,a-line coat,set-in sleeve,button front,how to sew,sewing pattern,wool,handmade",
+    lead: "A front-button A-line coat with set-in sleeves: the back is cut on the fold, the front as two pieces with a button stand. Best in heavy fabric like wool, tweed or quilted fabric. A lining makes the finish even nicer.",
+    matNote: "adult coat",
+    materials: [
+      "Outer fabric (wool, tweed, quilted) — 150 cm wide × about 300 cm",
+      "Lining (cotton or polyester) — 110 cm wide × about 280 cm (optional)",
+      "Interfacing for the button stand — a little",
+      "Buttons (2–2.5 cm) — 5–7"
+    ],
+    cut: [
+      "<strong>Cut the back</strong><br>Place the center-back on the fold and cut 1.",
+      "<strong>Cut the fronts</strong><br>Cut 1, then flip the pattern and cut a mirror image (2 total).",
+      "<strong>Cut the sleeves</strong><br>Cut 2 sleeves.",
+      "<strong>Interface</strong><br>Fuse interfacing to the front button-stand area.",
+      "<strong>Finish the edges</strong><br>Zigzag or serge the seam-allowance edges."
+    ],
+    sew: [
+      { h: "4-1. Sew the shoulders and sides", items: [
+        "Sew the front and back at the shoulders and sides, right sides together; press open."
+      ]},
+      { h: "4-2. Finish the neckline", items: [
+        "Bind the neckline seam allowance with bias tape or self fabric (or attach a collar/facing if you prefer)."
+      ]},
+      { h: "4-3. Set in the sleeves", items: [
+        "Match the sleeve-cap notch to the shoulder seam and sew each sleeve in; press toward the sleeve."
+      ]},
+      { h: "4-4. Sew the underarm/side in one line", items: [
+        "Sew from cuff to hem in one continuous seam; press open."
+      ]},
+      { h: "4-5. Finish the front opening", items: [
+        "Fold back and topstitch the button stand.",
+        "Mark and make the buttonholes, then sew on the buttons."
+      ]},
+      { h: "4-6. Hem and cuffs", items: [
+        "Fold and press the hem, then topstitch or slip-stitch. Finish the cuffs the same way."
+      ]}
+    ],
+    tips: [
+      "<strong>Add a lining</strong>: a lining makes a coat warmer and much cleaner inside.",
+      "<strong>Heavy fabric</strong>: lengthen your stitch and press firmly.",
+      "<strong>Bigger buttons</strong>: large buttons suit a coat and are easy to fasten."
+    ]
+  },
+
+  stai: {
+    title: "Baby bib",
+    tab: "baby",
+    toolName: "Baby bib",
+    sizeStep: "Enter the neckline width and depth, and the bib size by age. Add a snap to close.",
+    desc: "How to sew the classic baby bib. Layer an outer and an absorbent backing, sew around, turn through a gap and close with a snap. A lovely, quick baby gift.",
+    keywords: "baby bib,bib,how to sew,sewing pattern,baby gift,snap,handmade",
+    lead: "The classic baby bib: layer an outer fabric and an absorbent backing, sew around, turn right side out through a gap, and finish with a snap. Gauze or towelling is gentle on skin and makes a welcome baby gift.",
+    matNote: "one bib",
+    materials: [
+      "Outer fabric (cotton, double gauze) — about 25 × 30 cm (10 × 12 in)",
+      "Backing (towelling or gauze, absorbent) — the same size",
+      "1 set of snaps (e.g. plastic snaps)"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the cut line and seam line onto the wrong side; align the grain.",
+      "<strong>Cut 2</strong><br>Cut one outer and one backing. Trace the neck curve accurately.",
+      "<strong>Finish the edges</strong><br>Zigzag the edges if the fabric frays."
+    ],
+    sew: [
+      { h: "4-1. Sew around", items: [
+        "Place the outer and backing right sides together.",
+        "Sew all the way around, leaving a ~5 cm turning gap."
+      ]},
+      { h: "4-2. Clip and turn", items: [
+        "Clip the neck curve and corners (without cutting the stitches) so they turn smoothly.",
+        "Turn right side out through the gap and shape the curves with a point turner."
+      ]},
+      { h: "4-3. Topstitch and add the snap", items: [
+        "Topstitch all around, closing the turning gap as you go.",
+        "Attach the two halves of the snap at the neck points (near the top corners)."
+      ]}
+    ],
+    tips: [
+      "<strong>Extra absorbent</strong>: use towelling or a layer of batting for the backing.",
+      "<strong>Bandana style</strong>: a triangular version catches more drool.",
+      "<strong>Great gift</strong>: make a few in coordinating prints."
+    ]
   }
 
 };
