@@ -96,6 +96,9 @@
     <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-apron.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-apron.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-apron.html"/>
   </url>
   <url>
     <loc>https://katagami.org/howto-bookcover.html</loc>
@@ -138,6 +141,9 @@
     <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-gather.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-gather.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-gather.html"/>
   </url>
   <url>
     <loc>https://katagami.org/howto-headband.html</loc>
@@ -240,6 +246,9 @@
     <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-skirt.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-skirt.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-skirt.html"/>
   </url>
   <url>
     <loc>https://katagami.org/howto-flareskirt.html</loc>
@@ -372,6 +381,9 @@
     <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-mask.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-mask.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-mask.html"/>
   </url>
   <url>
     <loc>https://katagami.org/howto-bandana.html</loc>
@@ -630,5 +642,41 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/guide-seam-allowance.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/guide-seam-allowance.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/guide-seam-allowance.html"/>
+  </url>
+  <url>
+    <loc>https://katagami.org/en/howto-skirt.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-skirt.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-skirt.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-skirt.html"/>
+  </url>
+  <url>
+    <loc>https://katagami.org/en/howto-gather.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-gather.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-gather.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-gather.html"/>
+  </url>
+  <url>
+    <loc>https://katagami.org/en/howto-apron.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-apron.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-apron.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-apron.html"/>
+  </url>
+  <url>
+    <loc>https://katagami.org/en/howto-mask.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-mask.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-mask.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-mask.html"/>
   </url>
 </urlset>

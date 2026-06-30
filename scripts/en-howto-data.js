@@ -398,6 +398,175 @@ module.exports = {
       "<strong>Inside pocket</strong>: sew a patch pocket to the lining or back before assembling.",
       "<strong>Water-resistant</strong>: use nylon or laminated fabric for an outdoor-friendly bag."
     ]
+  },
+
+  skirt: {
+    title: "A-line skirt",
+    tab: "human",
+    toolName: "A-line skirt",
+    sizeStep: "Enter your waist, hip, skirt length and hem flare. Presets cover S–XL.",
+    desc: "How to sew a simple elastic-waist A-line skirt. Two pieces, sew the sides, make an elastic casing and hem. A great first garment in your own size.",
+    keywords: "A-line skirt,elastic waist,how to sew,sewing pattern,beginner skirt,handmade",
+    lead: "A simple A-line skirt with an elastic waist: two pieces cut on the fold, sewn at the sides, with an elastic casing at the top. A great first garment — and you can make it in your exact size.",
+    matNote: "adult skirt",
+    materials: [
+      "Fabric (medium cotton or linen) — about 110 cm wide × (skirt length + 15 cm)",
+      "Waist elastic (2–3 cm / 3/4–1 in wide) — your waist measurement"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the cut line and seam line onto the wrong side of the fabric. Align the grain with the grainline.",
+      "<strong>Cut</strong><br>Cut the front and back each on the fold (2 pieces total).",
+      "<strong>Finish the edges</strong><br>Zigzag or serge the side and hem edges so they don't fray."
+    ],
+    sew: [
+      { h: "4-1. Sew the sides", items: [
+        "Place the front and back right sides together and sew both side seams.",
+        "Press the seam allowances open and finish the edges."
+      ]},
+      { h: "4-2. Make the waist casing", items: [
+        "Fold the waist under by the seam allowance, then fold again by the elastic width plus a little ease (e.g. about 3.5 cm for 3 cm elastic); press.",
+        "Stitch close to the lower fold all the way around, leaving a 2–3 cm gap as the elastic opening."
+      ]},
+      { h: "4-3. Thread the elastic", items: [
+        "Thread the elastic through the casing with a bodkin or safety pin.",
+        "Fit it to your waist, overlap the ends and sew them together, then close the opening."
+      ]},
+      { h: "4-4. Hem", items: [
+        "Fold the hem under twice, press and topstitch all the way around.",
+        "Give it a final press and you're done."
+      ]}
+    ],
+    tips: [
+      "<strong>More or less flare</strong>: increase the hem flare value for a fuller A-line.",
+      "<strong>Length</strong>: adjust the skirt length for mini, knee or midi.",
+      "<strong>Pockets</strong>: add in-seam pockets at the side seams before sewing them."
+    ]
+  },
+
+  gather: {
+    title: "Gathered skirt",
+    tab: "kids",
+    toolName: "Gathered skirt",
+    sizeStep: "Enter the waist, skirt length and gather ratio. A higher ratio = fuller gathers.",
+    desc: "How to sew the easiest gathered elastic-waist skirt. Straight rectangles, side seams, an elastic casing and a hem. The gather ratio sets the fullness.",
+    keywords: "gathered skirt,elastic waist,how to sew,sewing pattern,easy skirt,kids,handmade",
+    lead: "The easiest gathered skirt: two near-rectangular pieces, sewn at the sides, with an elastic waist that gathers the fullness. The gather ratio sets how full it looks. Perfect for kids or a simple adult skirt.",
+    matNote: "child skirt",
+    materials: [
+      "Fabric (light–medium cotton, linen or double gauze) — about 110 cm wide × (skirt length + 10 cm)",
+      "Waist elastic (2–3 cm / 3/4–1 in wide) — the waist measurement"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the cut line and seam line onto the wrong side of the fabric. Align the grain with the grainline.",
+      "<strong>Cut</strong><br>Cut the front and back each on the fold (2 pieces). You can also cut a single loop piece.",
+      "<strong>Finish the edges</strong><br>Zigzag or serge the side and hem edges so they don't fray."
+    ],
+    sew: [
+      { h: "4-1. Sew the sides", items: [
+        "Place the front and back right sides together and sew both side seams.",
+        "Press the seam allowances open and finish the edges."
+      ]},
+      { h: "4-2. Make the waist casing", items: [
+        "Fold the waist under by the seam allowance, then again by the elastic width plus ease; press.",
+        "Stitch close to the lower fold all the way around, leaving a 2–3 cm elastic opening."
+      ]},
+      { h: "4-3. Thread the elastic", items: [
+        "Thread the elastic, fit it to the waist, overlap and sew the ends, then close the opening.",
+        "Distribute the gathers evenly around the waist."
+      ]},
+      { h: "4-4. Hem", items: [
+        "Fold the hem under twice and topstitch — it's a straight edge, so it's easy.",
+        "Press to finish."
+      ]}
+    ],
+    tips: [
+      "<strong>Fuller skirt</strong>: increase the gather ratio for more volume.",
+      "<strong>Tiered look</strong>: add a second gathered tier at the hem.",
+      "<strong>Soft fabric</strong>: double gauze and lawn gather beautifully."
+    ]
+  },
+
+  apron: {
+    title: "Apron",
+    tab: "human",
+    toolName: "Apron",
+    sizeStep: "Enter the chest width, apron length, hem width and the tie lengths. Presets cover common sizes.",
+    desc: "How to sew a simple trapezoid apron with waist and neck ties. Hem the edges, make the ties, attach them, and add a pocket if you like.",
+    keywords: "apron,how to sew,sewing pattern,half apron,kitchen,handmade,ties",
+    lead: "A simple apron: a trapezoid body with two waist ties and one neck tie. Hem the edges, make and attach the ties, and add a pocket if you like. Sturdy fabric works best.",
+    matNote: "adult apron",
+    materials: [
+      "Main fabric (heavy cotton, linen or canvas) — about 90 × 100 cm (35 × 40 in)",
+      "Fabric for the ties (self fabric is fine) — from the leftovers",
+      "Optional: fabric for a pocket"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the cut line and seam line onto the wrong side of the fabric.",
+      "<strong>Cut</strong><br>Cut 1 body (trapezoid), 2 waist ties and 1 neck tie. The waist-tie positions are shown as dashed lines.",
+      "<strong>Finish the edges</strong><br>Zigzag or serge edges that fray before hemming."
+    ],
+    sew: [
+      { h: "4-1. Hem the body edges", items: [
+        "Double-fold and press the top edge, the two angled sides and the hem, then topstitch all the way around.",
+        "On the angled sides and corners, a narrower fold turns more neatly."
+      ]},
+      { h: "4-2. Make the ties", items: [
+        "Fold each tie in half lengthwise, right sides together, sew the long edge and turn right side out (or fold in quarters and edgestitch).",
+        "Press flat and edgestitch."
+      ]},
+      { h: "4-3. Attach the ties", items: [
+        "Stitch the waist ties firmly at the marked positions (a box with an X inside is strong).",
+        "Attach the ends of the neck tie to the top corners the same way."
+      ]},
+      { h: "4-4. Add a pocket (optional)", items: [
+        "Fold the pocket edges under, topstitch the opening, then stitch it to the body where you like.",
+        "Give it a final press."
+      ]}
+    ],
+    tips: [
+      "<strong>Adjustable neck</strong>: add a slider or a button loop to the neck tie.",
+      "<strong>Cafe apron</strong>: skip the bib and neck tie for a waist-only apron.",
+      "<strong>Sturdy ties</strong>: webbing makes quick, strong ties."
+    ]
+  },
+
+  mask: {
+    title: "Pleated mask",
+    tab: "small",
+    toolName: "Pleated mask",
+    sizeStep: "Enter the width (unfolded) and height. Presets cover adult and child sizes.",
+    desc: "How to sew a simple pleated face mask. Sew the outer and lining, fold three pleats, and make elastic casings at the sides. A quick beginner project.",
+    keywords: "pleated mask,face mask,how to sew,sewing pattern,double gauze,handmade",
+    lead: "A flat mask with three pleats. Sew the outer and lining together, fold the pleats, and make casings at the sides for the ear elastic. A quick, beginner-friendly project.",
+    matNote: "one mask",
+    materials: [
+      "Outer fabric (double gauze or sheeting) — about 20 cm (8 in) square",
+      "Lining (soft double gauze) — about the same",
+      "Mask elastic — about 30 cm (12 in), two pieces"
+    ],
+    cut: [
+      "<strong>Cut 2</strong><br>Cut one outer and one lining from the pattern.",
+      "<strong>Mark the pleats</strong><br>Mark the dashed pleat folds at the edges so they're easy to fold later."
+    ],
+    sew: [
+      { h: "4-1. Sew outer and lining", items: [
+        "Place the outer and lining right sides together and sew the top and bottom (long) edges.",
+        "Turn right side out and topstitch along the top and bottom."
+      ]},
+      { h: "4-2. Fold the pleats", items: [
+        "Fold the three pleats in the same direction (downward) using the marks, and pin.",
+        "Baste the left and right edges to hold the pleats."
+      ]},
+      { h: "4-3. Make the elastic casings", items: [
+        "Fold each side edge under twice and stitch to form a channel.",
+        "Thread the elastic through, tie the ends, and hide the knot inside the casing."
+      ]}
+    ],
+    tips: [
+      "<strong>Nose fit</strong>: insert a nose wire in the top edge before topstitching.",
+      "<strong>Filter pocket</strong>: leave a gap in the lining seam to insert a filter.",
+      "<strong>Adjustable</strong>: use adjustable cord stoppers on the elastic."
+    ]
   }
 
 };
