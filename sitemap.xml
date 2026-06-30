@@ -78,6 +78,9 @@
     <lastmod>2026-06-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/yougoshu.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/yougoshu.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/yougoshu.html"/>
   </url>
   <url>
     <loc>https://katagami.org/howto-apron.html</loc>
@@ -582,5 +585,14 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/howto-sacoche.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-sacoche.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/howto-sacoche.html"/>
+  </url>
+  <url>
+    <loc>https://katagami.org/en/yougoshu.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://katagami.org/yougoshu.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://katagami.org/en/yougoshu.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://katagami.org/yougoshu.html"/>
   </url>
 </urlset>
