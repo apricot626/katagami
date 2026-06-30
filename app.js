@@ -77,7 +77,8 @@ function addWatermark(svg){
   const id='wm'+(++_wmSeq);
   let defs=svg.querySelector('defs');
   if(!defs){defs=S('defs',{});svg.insertBefore(defs,svg.firstChild);}
-  const pat=S('pattern',{id,x:0,y:0,width:84,height:48,
+  // タイル幅は「katagami.org」(実描画 約86px・x開始2px)が切れないよう余白込みで確保
+  const pat=S('pattern',{id,x:0,y:0,width:106,height:48,
     patternTransform:'rotate(32)',patternUnits:'userSpaceOnUse'});
   const t=S('text',{x:2,y:34,'font-size':8,'font-family':'sans-serif',
     fill:'#1B1D1A','fill-opacity':'0.07','font-weight':'700','letter-spacing':'3'});
