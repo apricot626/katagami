@@ -1681,6 +1681,469 @@ module.exports = {
       "<strong>Bandana style</strong>: a triangular version catches more drool.",
       "<strong>Great gift</strong>: make a few in coordinating prints."
     ]
+  },
+
+  mermaid: {
+    title: "Mermaid skirt",
+    tab: "human",
+    toolName: "Mermaid skirt",
+    sizeStep: "Enter waist, hip, skirt length, the seam position and hem flare. Elastic waist.",
+    desc: "How to sew a mermaid skirt: fitted from waist to knee, then flaring at the hem. An upper and lower panel joined at a seam, four pieces total. Adjustable seam position and flare.",
+    keywords: "mermaid skirt,fishtail skirt,how to sew,sewing pattern,fitted skirt,handmade",
+    lead: "Fitted from the waist to below the knee, then flaring out like a fishtail. An upper panel (waist to seam) and a lower panel (seam to hem) are joined, four pieces in all. You can move the seam position and change the flare.",
+    matNote: "adult skirt",
+    materials: [
+      "Fabric (medium cotton, linen or twill with some body) — about 110 cm wide × (skirt length + 20 cm); allow extra for a big flare",
+      "Waist elastic (2–3 cm wide) — the waist measurement"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the cut and seam lines; align the grain.",
+      "<strong>Cut 4</strong><br>Cut the upper panel front and back on the fold (2), and the lower panel front and back on the fold (2).",
+      "<strong>Mark the seam notches</strong><br>Mark the notches on the upper/lower seam line.",
+      "<strong>Finish the edges</strong><br>Zigzag or serge the edges."
+    ],
+    sew: [
+      { h: "4-1. Join the upper and lower panels", items: [
+        "Match the front upper and lower panels at the seam, easing the slightly wider lower panel to the notches, and sew.",
+        "Press the seam up. Join the back the same way."
+      ]},
+      { h: "4-2. Sew the sides", items: [
+        "Place the joined front and back right sides together and sew the sides from waist to hem in one pass, matching the seam lines; press open."
+      ]},
+      { h: "4-3. Make the waist casing", items: [
+        "Fold the waist for the elastic and stitch, leaving an opening."
+      ]},
+      { h: "4-4. Thread the elastic", items: [
+        "Thread the elastic, fit to the waist, sew the ends and close the opening."
+      ]},
+      { h: "4-5. Hem", items: [
+        "Hem with a narrow fold (1–1.5 cm) since the hem flares; press to finish."
+      ]}
+    ],
+    tips: [
+      "<strong>Move the seam</strong>: a lower seam gives a more dramatic fishtail.",
+      "<strong>Fabric with body</strong>: a little stiffness makes the flare stand out.",
+      "<strong>More flare</strong>: increase the hem flare value for extra swish."
+    ]
+  },
+
+  kidsdress: {
+    title: "Kids' dress",
+    tab: "kids",
+    toolName: "Kids' dress",
+    sizeStep: "Start from a height preset, then adjust the bodice and skirt lengths.",
+    desc: "How to sew a two-tier kids' dress: a sleeveless bodice joined to a fully gathered skirt. Three pieces, bias-bound neckline and armholes, a button or snap at the back.",
+    keywords: "kids dress,girls dress,gathered dress,how to sew,sewing pattern,childrens,handmade",
+    lead: "A sleeveless bodice joined to a fully gathered skirt — a sweet two-tier dress. Just three pieces, with the neckline and armholes bound in bias tape. Wear it as a summer dress or a layering pinafore.",
+    matNote: "child dress",
+    materials: [
+      "Fabric (cotton, linen, lawn or double gauze) — 110 cm wide × 80–100 cm",
+      "Double-fold bias tape (about 1.1 cm) — for the neckline and armholes (~120 cm)",
+      "1–2 snaps or small buttons for the back opening"
+    ],
+    cut: [
+      "<strong>Fold and cut</strong><br>Place the pattern fold edge on the fabric fold.",
+      "<strong>Cut the bodice</strong><br>Cut the front and back bodice each on the fold (the front neckline is lower).",
+      "<strong>Cut the skirt</strong><br>Cut the front and back skirt each on the fold (2 pieces).",
+      "<strong>Finish the edges</strong><br>Zigzag or serge the edges."
+    ],
+    sew: [
+      { h: "4-1. Sew the shoulders", items: [
+        "Sew the front and back bodice at the shoulders; press open.",
+        "For a back-button opening, sew up to the opening stop and leave the top open."
+      ]},
+      { h: "4-2. Bind the neckline and armholes", items: [
+        "Sew bias tape to the neckline, turn and topstitch.",
+        "Bind both armholes the same way."
+      ]},
+      { h: "4-3. Gather the skirt", items: [
+        "Sew the skirt sides into a tube (leave one side or the center back open if using a back opening).",
+        "Sew two rows of long stitches at the top and pull the threads to gather to the bodice waist width."
+      ]},
+      { h: "4-4. Join bodice and skirt", items: [
+        "Match bodice and skirt waists, distribute the gathers evenly and sew all around.",
+        "Press the seam up and topstitch from the front."
+      ]},
+      { h: "4-5. Finish", items: [
+        "Sew the bodice sides, add the snap/button at the back, double-fold and topstitch the hem, and press."
+      ]}
+    ],
+    tips: [
+      "<strong>Pinafore</strong>: make it in corduroy or denim to layer over a tee.",
+      "<strong>Fuller skirt</strong>: cut the skirt wider for more gathers.",
+      "<strong>Grow with them</strong>: deep hems let you lengthen it later."
+    ]
+  },
+
+  smock: {
+    title: "Kids' smock",
+    tab: "kids",
+    toolName: "Kids' smock",
+    sizeStep: "Start from a height preset. Check the neckline fits over the head.",
+    desc: "How to sew a pull-on kids' smock for nursery and preschool. A relaxed drop-shoulder body plus tube sleeves, with elastic at the neckline and cuffs.",
+    keywords: "kids smock,art smock,preschool,how to sew,sewing pattern,pullover,handmade",
+    lead: "The classic pull-on smock for nursery and preschool art and meals. A relaxed drop-shoulder body (same front and back) plus tube sleeves, with elastic at the neckline and cuffs for easy on and off.",
+    matNote: "child smock",
+    materials: [
+      "Fabric (easy-care sheeting, broadcloth or light oxford) — 110 cm wide × 80–100 cm",
+      "Thin elastic (0.5–0.6 cm) for the neckline and cuffs — the neckline plus two cuffs"
+    ],
+    cut: [
+      "<strong>Cut the body</strong><br>Fold the fabric and cut the front and back (same shape) on the fold; keep the neckline the right way up.",
+      "<strong>Cut the sleeves</strong><br>Cut 2 sleeves, minding the cuff direction.",
+      "<strong>Mark notches</strong><br>Mark the armhole notches.",
+      "<strong>Finish the edges</strong><br>Zigzag or serge the edges."
+    ],
+    sew: [
+      { h: "4-1. Sew the shoulders", items: [
+        "Sew the front and back at the shoulders; press open."
+      ]},
+      { h: "4-2. Make the elastic neckline", items: [
+        "Fold the neckline into a casing, leaving an opening, and stitch.",
+        "Thread elastic cut to fit over the head, join the ends and close the opening."
+      ]},
+      { h: "4-3. Set in the sleeves", items: [
+        "Gather the sleeve cap lightly and sew each sleeve to the armhole (flat, drop-shoulder)."
+      ]},
+      { h: "4-4. Sew underarms and sides", items: [
+        "Sew from the cuff to the hem in one continuous seam, matching the underarm seams."
+      ]},
+      { h: "4-5. Elastic cuffs and hem", items: [
+        "Make each cuff into a casing, leave an opening, thread elastic and close.",
+        "Double-fold and topstitch the hem; press."
+      ]}
+    ],
+    tips: [
+      "<strong>Wipe-clean</strong>: laminated cotton makes a great painting smock.",
+      "<strong>Name it</strong>: add a label or initials for nursery.",
+      "<strong>Roomy</strong>: a relaxed fit goes on easily over clothes."
+    ]
+  },
+
+  kidsvest: {
+    title: "Kids' vest",
+    tab: "kids",
+    toolName: "Kids' vest",
+    sizeStep: "Start from a height preset. Bind the edges or add buttons to close.",
+    desc: "How to sew a simple front-opening kids' vest. A back and two fronts, no sleeves, edges bound with bias tape. Warm in quilted or fleece fabric.",
+    keywords: "kids vest,gilet,how to sew,sewing pattern,layering,fleece,handmade",
+    lead: "A simple front-opening vest, great for layering. Just a back and two fronts — no sleeves, so it's quick. Make it in quilting cotton or fleece for a warm outer layer.",
+    matNote: "child vest",
+    materials: [
+      "Fabric (quilted, fleece or cotton) — 110 cm wide × 50–70 cm",
+      "Bias tape for the neckline, front edges and armholes (~150 cm), or 2–3 buttons"
+    ],
+    cut: [
+      "<strong>Cut the back</strong><br>Place the center-back on the fold and cut 1.",
+      "<strong>Cut the fronts</strong><br>Cut 2 mirror-image fronts (the center fronts are the opening).",
+      "<strong>Finish the edges</strong><br>Zigzag or serge the edges."
+    ],
+    sew: [
+      { h: "4-1. Sew the shoulders", items: [
+        "Sew the fronts and back at the shoulders; press open."
+      ]},
+      { h: "4-2. Bind the neckline and front edges", items: [
+        "Bind from the neckline down the front edges with bias tape, or use a facing.",
+        "For buttons, add buttonholes and buttons at the front edges."
+      ]},
+      { h: "4-3. Bind the armholes", items: [
+        "Bind both armholes with bias tape."
+      ]},
+      { h: "4-4. Sew the sides and hem", items: [
+        "Sew the side seams right sides together.",
+        "Double-fold and topstitch the hem; press."
+      ]}
+    ],
+    tips: [
+      "<strong>Reversible</strong>: line it to make it wearable both ways.",
+      "<strong>Warm version</strong>: fleece or quilted fabric adds warmth.",
+      "<strong>Snaps</strong>: snaps are easy for little ones to fasten."
+    ]
+  },
+
+  kidshalf: {
+    title: "Kids' shorts",
+    tab: "kids",
+    toolName: "Kids' shorts",
+    sizeStep: "Enter the rise, inseam, waist and hip. Presets cover heights 80–130 cm.",
+    desc: "How to sew easy elastic-waist kids' shorts. Four pieces from one pattern: sew the crotch seams, sides and inseam, hem and add elastic. Great for summer.",
+    keywords: "kids shorts,elastic waist,how to sew,sewing pattern,summer,childrens,handmade",
+    lead: "Easy, comfy elastic-waist shorts for active kids. Four pieces from the same pattern: sew the crotch, sides and inseam, hem the legs and run elastic through the waist. For boys or girls.",
+    matNote: "child shorts",
+    materials: [
+      "Fabric (cotton, double gauze or jersey) — 110 cm wide × about 40 cm",
+      "Waist elastic (2 cm wide) — the waist measurement"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>The right curve is the crotch, the left straight edge is the side.",
+      "<strong>Cut 4</strong><br>Cut 2 mirror pairs (4 pieces). Mark the crotch notches.",
+      "<strong>Finish the edges</strong><br>Zigzag or serge the edges."
+    ],
+    sew: [
+      { h: "4-1. Sew the crotch seams", items: [
+        "Sew the crotch curve on the front pair and back pair; clip the curve."
+      ]},
+      { h: "4-2. Sew the inseam", items: [
+        "Open out, place right sides together and sew the inseam in one pass."
+      ]},
+      { h: "4-3. Sew the sides", items: [
+        "Sew the side seams right sides together; press open."
+      ]},
+      { h: "4-4. Waist and hem", items: [
+        "Make an elastic waist casing and stitch, leaving an opening; thread the elastic, fit and close.",
+        "Double-fold and topstitch the leg hems; press."
+      ]}
+    ],
+    tips: [
+      "<strong>Knit version</strong>: jersey makes soft play shorts (use a stretch stitch).",
+      "<strong>Pockets</strong>: add patch pockets for treasures.",
+      "<strong>Length</strong>: adjust the inseam to taste."
+    ]
+  },
+
+  bandanastai: {
+    title: "Bandana bib",
+    tab: "baby",
+    toolName: "Bandana bib",
+    sizeStep: "Enter the neckline width and depth, and the bib size. Snaps at the neck points.",
+    desc: "How to sew a triangular bandana-style baby bib. Smaller than a regular bib and a cute accent. Sew an outer and an absorbent backing, turn, and add snaps.",
+    keywords: "bandana bib,baby bib,triangle bib,how to sew,sewing pattern,baby gift,handmade",
+    lead: "A stylish triangular bandana bib. It uses less fabric than a regular bib and adds a cute accent to any outfit. Sew an outer and an absorbent backing, turn right side out, and finish with snaps.",
+    matNote: "one bib",
+    materials: [
+      "Outer fabric (double gauze, cotton) — about 25 cm square",
+      "Backing (towelling or terry, absorbent) — the same size",
+      "1 set of snaps"
+    ],
+    cut: [
+      "<strong>Cut 2</strong><br>Cut one outer and one backing from the triangle pattern.",
+      "<strong>Corners</strong><br>Clip the corner seam allowances so they turn out crisply."
+    ],
+    sew: [
+      { h: "4-1. Sew right sides together", items: [
+        "Place the outer and backing right sides together and sew around, leaving a ~5 cm turning gap.",
+        "Trim the corner allowances."
+      ]},
+      { h: "4-2. Turn right side out", items: [
+        "Turn through the gap and shape the corners.",
+        "Slip-stitch the gap, or topstitch all around to close it."
+      ]},
+      { h: "4-3. Add the snaps", items: [
+        "Attach a snap at each of the two top corners to fit the neck."
+      ]}
+    ],
+    tips: [
+      "<strong>Absorbent backing</strong>: terry on the back soaks up drool.",
+      "<strong>Mix and match</strong>: make several in coordinating prints.",
+      "<strong>Great gift</strong>: a set of bandana bibs makes a lovely baby gift."
+    ]
+  },
+
+  babyhat: {
+    title: "Baby hat (tulip hat)",
+    tab: "baby",
+    toolName: "Baby hat (tulip hat)",
+    sizeStep: "Enter the head circumference, crown depth and brim width. Presets cover ages.",
+    desc: "How to sew a tulip hat for babies: a six-petal crown with a downward brim. Make it with an outer and lining for a reversible hat. Cute sun protection.",
+    keywords: "baby hat,tulip hat,sun hat,how to sew,sewing pattern,reversible,handmade",
+    lead: "A round crown of six petals (gores) with a downward brim. Make it with an outer and a lining and it's fully reversible. Cute sun protection for baby outings.",
+    matNote: "baby hat",
+    materials: [
+      "Outer fabric (double gauze, light cotton) — about 50 cm square",
+      "Lining (same; a contrast for reversible) — about 50 cm square",
+      "Optional: twill tape or elastic for a chin strap, a decorative button"
+    ],
+    cut: [
+      "<strong>Cut the petals</strong><br>Cut 6 petals. For reversible, cut 6 outer + 6 lining (12 total).",
+      "<strong>Cut the brim</strong><br>Fold the fabric in quarters and place the brim's fold edges on the folds so it opens into a ring; cut one outer and one lining.",
+      "<strong>Prepare curves</strong><br>Plan to clip the curved seam allowances so they turn smoothly."
+    ],
+    sew: [
+      { h: "4-1. Make the crown", items: [
+        "Sew the petals right sides together along their curved edges, one after another, then close into a ring to form a dome.",
+        "Clip the curves and press the allowances open at the top.",
+        "Make an outer crown and a lining crown."
+      ]},
+      { h: "4-2. Make the brim", items: [
+        "Sew the outer and lining brims right sides together around the outer (large) circle.",
+        "Clip the seam, turn right side out and topstitch around the outer edge."
+      ]},
+      { h: "4-3. Join the crown and brim", items: [
+        "Sew the outer crown's opening to the inner edge of the brim, right sides together.",
+        "Tuck the lining crown's allowance in and slip-stitch or topstitch it to finish (reversible). Press."
+      ]}
+    ],
+    tips: [
+      "<strong>Reversible</strong>: two fabrics give two hats in one.",
+      "<strong>Chin strap</strong>: add a tie or elastic so it stays on in the wind.",
+      "<strong>Sun protection</strong>: a deeper brim shades little faces."
+    ]
+  },
+
+  legwarmer: {
+    title: "Baby leg warmers",
+    tab: "baby",
+    toolName: "Baby leg warmers",
+    sizeStep: "Enter the leg circumference and length. Knit fabric hugs without binding.",
+    desc: "How to sew the easiest baby item: tube leg warmers. Sew into a tube and hem the ends. Makes diaper changes easy and keeps little legs warm.",
+    keywords: "baby leg warmers,leg warmers,how to sew,sewing pattern,knit,easy,handmade",
+    lead: "The simplest baby make: sew a tube and hem the ends. Leg warmers keep little legs cozy, protect knees during crawling, and make diaper changes easy. Stretch knit is comfiest.",
+    matNote: "one pair",
+    materials: [
+      "Knit fabric (ribbing, jersey, interlock) — two 25 cm squares",
+      "Tip: stretch fabric is best; add a little ease if using a woven"
+    ],
+    cut: [
+      "<strong>Cut 2</strong><br>Cut 2 (left and right) from the rectangle pattern. For knit, run the stretch around the leg.",
+      "<strong>Use a stretch stitch</strong><br>A ballpoint needle and stretch stitch help."
+    ],
+    sew: [
+      { h: "4-1. Sew into a tube", items: [
+        "Fold each piece in half lengthwise, right sides together, and sew the long edge into a tube.",
+        "Press the seam open or to one side."
+      ]},
+      { h: "4-2. Hem the ends", items: [
+        "Turn each end under and topstitch to hem, using the dashed fold guide."
+      ]}
+    ],
+    tips: [
+      "<strong>Use ribbing</strong>: ribbing grips gently and looks neat.",
+      "<strong>Repurpose</strong>: an old jersey sleeve makes instant leg warmers.",
+      "<strong>Toddler arm warmers</strong>: the same idea works for little arms."
+    ]
+  },
+
+  kincgusset: {
+    title: "Cup bag (gusseted)",
+    tab: "small",
+    toolName: "Cup bag (gusseted)",
+    sizeStep: "Enter the width, height and gusset (base depth). Presets fit a cup or bento.",
+    desc: "How to sew a drawstring cup bag with a triangular base gusset, so it stands up and fits a cup or bento box. Cut on the fold, sew the sides, box the corners.",
+    keywords: "cup bag,gusseted drawstring,bento bag,how to sew,sewing pattern,school,handmade",
+    lead: "A drawstring bag with a triangular base gusset so it holds a cup or bento box. Cut with the base on the fold, sew the sides, then pinch and sew the base corners. A back-to-school staple.",
+    matNote: "cup / bento size",
+    materials: [
+      "Fabric (cotton oxford or canvas) — about 35 × 50 cm",
+      "Round cord (3–5 mm) — about 50 cm × 2 (both-side draw)",
+      "Bodkin (or a safety pin)"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the cut and seam lines; align the grain.",
+      "<strong>Cut</strong><br>Cut as one piece with the base on the fold. The base corners show gusset notches (▽).",
+      "<strong>Finish the edges</strong><br>Zigzag or serge the side edges."
+    ],
+    sew: [
+      { h: "4-1. Prepare the cord openings", items: [
+        "From the top down to the casing line (dashed), fold the side seam allowances under to make the cord openings (opening stops)."
+      ]},
+      { h: "4-2. Sew the sides", items: [
+        "Fold at the base, right sides together, and sew each side up to the casing opening stop.",
+        "Leave above the openings unsewn; press the allowances open."
+      ]},
+      { h: "4-3. Box the base corners", items: [
+        "Pinch each base corner into a triangle so the side seam meets the base fold.",
+        "Sew straight across the gusset line (▽ to ▽) at both corners; fold or trim the triangle tips."
+      ]},
+      { h: "4-4. Make the casing", items: [
+        "Tidy the allowances above the opening stops and topstitch the openings.",
+        "Double-fold the top and stitch around to make the cord channel."
+      ]},
+      { h: "4-5. Thread the cords", items: [
+        "Thread one cord from each side (both-side draw) and knot the ends; shape the bag."
+      ]}
+    ],
+    tips: [
+      "<strong>Stands up</strong>: a deeper gusset holds a wider cup or box.",
+      "<strong>Wipe-clean lining</strong>: line with laminate for food bags.",
+      "<strong>Name tag</strong>: add a label for school."
+    ]
+  },
+
+  movepocket: {
+    title: "Clip-on pocket",
+    tab: "small",
+    toolName: "Clip-on pocket",
+    sizeStep: "Enter the pocket width and height, the flap height and the belt-loop width.",
+    desc: "How to sew a clip-on pocket for clothes without pockets. A body, a flap and a belt loop; close with a snap and attach with clips or a belt loop.",
+    keywords: "clip-on pocket,detachable pocket,how to sew,sewing pattern,school,tissue pocket,handmade",
+    lead: "A handy pocket you attach to a waistband when clothes have no pockets. Hold a tissue or handkerchief, close with a snap, and clip it on or thread a belt through the loop. Three parts: body, flap and belt loop.",
+    matNote: "one pocket",
+    materials: [
+      "Outer and lining fabric — about 15 × 35 cm each",
+      "Flap fabric (self or contrast) — a little",
+      "Belt-loop fabric — a little",
+      "1 set of snaps",
+      "Clip-on pocket clips (×2), or use the belt loop"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the cut and seam lines; align the grain.",
+      "<strong>Cut</strong><br>Cut 2 body (outer/lining), 2 flap (outer/lining) and 1 belt loop.",
+      "<strong>Finish the edges</strong><br>Zigzag or serge edges that fray."
+    ],
+    sew: [
+      { h: "4-1. Make the flap", items: [
+        "Sew the flap outer and lining right sides together (leave the top edge open) and turn.",
+        "Topstitch around and add one half of the snap."
+      ]},
+      { h: "4-2. Make the body", items: [
+        "Fold the body up to make the pocket (or layer outer and lining), and sew the sides; turn.",
+        "Add the other half of the snap at the pocket opening."
+      ]},
+      { h: "4-3. Assemble with the belt loop", items: [
+        "Fold and sew the belt loop and stitch its ends to the back of the body to form a loop.",
+        "Catch the flap at the top edge of the body and sew.",
+        "Check the snap, then clip it on or thread a belt through the loop."
+      ]}
+    ],
+    tips: [
+      "<strong>Two ways to attach</strong>: clips for skirts, the belt loop for trousers.",
+      "<strong>Laminate</strong>: a wipe-clean version is handy for younger kids.",
+      "<strong>Coordinate</strong>: match it to a bag or smock."
+    ]
+  },
+
+  fittedmask: {
+    title: "Fitted mask (2-piece)",
+    tab: "small",
+    toolName: "Fitted mask (2-piece)",
+    sizeStep: "Enter the face width, nose-to-chin length and nose depth. Three sizes.",
+    desc: "How to sew a 3D fitted face mask from an upper and lower piece joined on a curved center seam. It sits off the lips for easier breathing. A nose-wire pocket included.",
+    keywords: "fitted mask,3D mask,face mask,how to sew,sewing pattern,nose wire,handmade",
+    lead: "A shaped 3D mask made by joining an upper and a lower piece along a curved center seam. Unlike a flat mask, it follows the face so it sits off the lips and breathes easier. Three sizes (child, women's, men's).",
+    matNote: "one mask",
+    materials: [
+      "Outer fabric (double gauze, cotton) — about 25 cm square",
+      "Lining (gauze or cotton) — the same",
+      "Nose wire (aluminium or craft wire) — about 10 cm",
+      "Flat mask elastic (3–4 mm) — about 30–35 cm × 2"
+    ],
+    cut: [
+      "<strong>Cut the upper piece</strong><br>Place the center edge on the fold and cut one outer and one lining (2 total).",
+      "<strong>Cut the lower piece</strong><br>The same way: one outer and one lining (2 total).",
+      "<strong>Finish the edges</strong><br>Zigzag the edges so thin fabric doesn't fray."
+    ],
+    sew: [
+      { h: "4-1. Join the upper and lower on the center curve", items: [
+        "Sew the outer upper and lower pieces right sides together along the curved center (nose-to-mouth) line.",
+        "Clip the curve (about every 5 mm) and press open. Do the same for the lining."
+      ]},
+      { h: "4-2. Sew outer and lining together", items: [
+        "Place outer and lining right sides together and sew the two sides and the top (nose) edge, leaving a 5–6 cm gap at the bottom (chin).",
+        "Clip the corners, turn right side out and slip-stitch the gap; press."
+      ]},
+      { h: "4-3. Add the nose wire", items: [
+        "Make a small pocket near the top seam and insert the nose wire (or slip it into a small opening in the top seam), then close it."
+      ]},
+      { h: "4-4. Add the elastic", items: [
+        "Make small loops at the sides (folded fabric or bias tape), or fold the side allowances to take the elastic.",
+        "Thread the elastic, fit it over your ears and tie or stitch the ends."
+      ]}
+    ],
+    tips: [
+      "<strong>Better fit</strong>: the nose wire seals the top for glasses-wearers.",
+      "<strong>Filter pocket</strong>: leave the lining seam partly open to add a filter.",
+      "<strong>Adjustable</strong>: cord stoppers on the elastic dial in the fit."
+    ]
   }
 
 };

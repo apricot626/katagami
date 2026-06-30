@@ -39,7 +39,7 @@
   };
 
   /* パターンキー → 英語版howtoが存在するもの（en/howto-<key>.html） */
-  var HOWTO_EN={ tee:1, tote:1, kinchaku:1, pouch:1, shuushu:1, bowtie:1, placemat:1, bookcover:1, headband:1, sacoche:1, skirt:1, gather:1, apron:1, mask:1, pants:1, kidstee:1, pouchgusset:1, tissuecase:1, cushioncover:1, dog:1, tablecloth:1, pillowcase:1, tunic:1, camisole:1, shoesbag:1, gymbag:1, bloomers:1, bandana:1, swaddle:1, azuma:1, sleevedress:1, flareskirt:1, adultgather:1, widepants:1, halfpants:1, blouse:1, onepiece:1, jacket:1, coat:1, stai:1 };
+  var HOWTO_EN={ tee:1, tote:1, kinchaku:1, pouch:1, shuushu:1, bowtie:1, placemat:1, bookcover:1, headband:1, sacoche:1, skirt:1, gather:1, apron:1, mask:1, pants:1, kidstee:1, pouchgusset:1, tissuecase:1, cushioncover:1, dog:1, tablecloth:1, pillowcase:1, tunic:1, camisole:1, shoesbag:1, gymbag:1, bloomers:1, bandana:1, swaddle:1, azuma:1, sleevedress:1, flareskirt:1, adultgather:1, widepants:1, halfpants:1, blouse:1, onepiece:1, jacket:1, coat:1, stai:1, mermaid:1, kidsdress:1, smock:1, kidsvest:1, kidshalf:1, bandanastai:1, babyhat:1, legwarmer:1, kincgusset:1, movepocket:1, fittedmask:1 };
 
   var MODE={ human:"Adult clothes", kids:"Kids' clothes", baby:"Baby",
     small:"Accessories", bag:"Bags", pet:"Pets", home:"Home" };
