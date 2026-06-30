@@ -25,7 +25,7 @@ module.exports = [
           <li>Turn off “Shrink to fit” / “Scale to fit”.</li>
         </ol>
         <p class="note">✏️ To save as PDF, choose “Save as PDF” and still set 100% — you can then print at actual size later, even at a copy shop.</p>` },
-      { id: "calibration", h2: "3. Always check the calibration box",
+      { id: "calibration", h2: "3. Always check the calibration box", fig: "calibration",
         html: `<p>Even with the right settings, a printer's margin handling can shrink things slightly, so <strong>measure after printing</strong>.</p>
         <p>Every Katagami pattern includes a <strong>50&nbsp;mm calibration box</strong> and a <strong>0–100&nbsp;mm ruler</strong> on the first guide sheet. Measure the box with a ruler: if it is exactly <strong>50&nbsp;mm (about 2&nbsp;in)</strong>, you're good to go.</p>
         <ul>
@@ -64,7 +64,7 @@ module.exports = [
       { id: "order", h2: "1. Lay the sheets out (top-left, across, then down)",
         html: `<p>Each sheet has a <strong>row/column code</strong> in the corner (1A, 2A… / 1B, 2B…). Starting from <strong>1A at the top-left, go right, then to the next row</strong> to see the whole layout.</p>
         <p>Katagami prints an <strong>assembly map</strong> (a mini diagram) on the first guide sheet, and each tile also shows its neighbours (“→ to 2A”, “↓ to 1B”). Lay everything out on a floor or table first.</p>` },
-      { id: "overlap", h2: "2. Overlap the join",
+      { id: "overlap", h2: "2. Overlap the join", fig: "tileoverlap",
         html: `<p>Adjacent sheets are made to <strong>overlap by about 10&nbsp;mm</strong>. When overlapping, line up the <strong>dashed content border and the grid lines</strong> exactly.</p>
         <ol class="steps">
           <li>Lay the right-hand sheet <strong>on top of</strong> the left one, over its border.</li>
@@ -105,7 +105,7 @@ module.exports = [
     keywords: "seam allowance,how much,by area,seam line,cutting line,sewing basics,beginner",
     lead: "Seam allowance is the <strong>extra you add outside the finished (seam) line</strong> for sewing. The right amount varies by area. Here's a quick reference and tips for adding it cleanly.",
     sections: [
-      { id: "what", h2: "1. What seam allowance is (two lines)",
+      { id: "what", h2: "1. What seam allowance is (two lines)", fig: "seamlines",
         html: `<p>A pattern has two outlines: the <strong>seam line</strong> (the finished shape) and, outside it, the <strong>cutting line</strong> (where you cut). The <strong>gap between them is the seam allowance</strong>.</p>
         <p>In Katagami you can set the seam allowance with a <strong>slider (0–3&nbsp;cm)</strong>, show or hide the seam line, and the pattern is output <strong>with the allowance included</strong> — no need to add it by hand.</p>` },
       { id: "table", h2: "2. Recommended amounts by area",
