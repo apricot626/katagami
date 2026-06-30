@@ -37,6 +37,11 @@ a:hover{text-decoration:underline}
   text-decoration:none;white-space:nowrap;
 }
 .hdr-btn:hover{background:#333;text-decoration:none}
+.site-header .lang-link{
+  font-size:13px;color:var(--ink);text-decoration:none;
+  border-bottom:1px solid var(--ink);line-height:1.2;white-space:nowrap;
+}
+.site-header .lang-link:hover{color:var(--vermilion);border-color:var(--vermilion)}
 
 /* ---- news banner ---- */
 .news-bar{
