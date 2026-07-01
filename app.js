@@ -473,24 +473,45 @@ function buildPrintSheets(){
   if(memo && !EN) addLine(memo);
   ty+=4;
 
-  // 校正枠 50mm + 100mm定規
+  // 校正エリア：タテヨコ50mmボックス＋ 水平/垂直ルーラー（プリンタの縦横スケール誤差を検出）
   const calX=MARGIN, calY=ty;
+  // 50mm ボックス
   G("rect",{x:calX,y:calY,width:50,height:50,fill:"none",stroke:"#C24033","stroke-width":0.5});
-  const ct=S("text",{x:calX+25,y:calY+27,"text-anchor":"middle","font-size":3.4,fill:"#C24033","font-family":"sans-serif"});
-  ct.textContent=EN?KG.ui.box50:"この枠＝50mm"; gs.appendChild(ct);
-  const ct2=S("text",{x:calX+25,y:calY+32,"text-anchor":"middle","font-size":2.6,fill:"#777","font-family":"sans-serif"});
-  ct2.textContent=EN?KG.ui.checkRuler:"定規で確認"; gs.appendChild(ct2);
-  // 100mm 定規
-  const rulY=calY+62, rulX=calX;
-  G("line",{x1:rulX,y1:rulY,x2:rulX+100,y2:rulY,stroke:"#1B1D1A","stroke-width":0.5});
-  for(let i=0;i<=100;i+=10){
-    const big=i%50===0;
-    G("line",{x1:rulX+i,y1:rulY,x2:rulX+i,y2:rulY-(big?4:2.5),stroke:"#1B1D1A","stroke-width":0.4});
-    const lt=S("text",{x:rulX+i,y:rulY-(big?6:4.5),"text-anchor":"middle","font-size":2.6,fill:"#1B1D1A","font-family":"monospace"});
-    lt.textContent=i; gs.appendChild(lt);
+  // 10mm目盛り（上辺＝ヨコ／左辺＝タテ）＋中央十字
+  for(let i=10;i<50;i+=10){
+    G("line",{x1:calX+i,y1:calY,x2:calX+i,y2:calY+2.5,stroke:"#C24033","stroke-width":0.3});
+    G("line",{x1:calX,y1:calY+i,x2:calX+2.5,y2:calY+i,stroke:"#C24033","stroke-width":0.3});
   }
-  const rt=S("text",{x:rulX,y:rulY+6,"font-size":3,fill:"#777","font-family":"sans-serif"});
-  rt.textContent=EN?KG.ui.calRuler:"0–100mm 校正定規"; gs.appendChild(rt);
+  G("line",{x1:calX+25,y1:calY+22,x2:calX+25,y2:calY+28,stroke:"#C24033","stroke-width":0.3});
+  G("line",{x1:calX+22,y1:calY+25,x2:calX+28,y2:calY+25,stroke:"#C24033","stroke-width":0.3});
+  const ct=S("text",{x:calX+25,y:calY+18,"text-anchor":"middle","font-size":3.2,"font-weight":"700",fill:"#C24033","font-family":"sans-serif"});
+  ct.textContent=EN?KG.ui.box50:"この枠＝タテヨコ 50 mm"; gs.appendChild(ct);
+  const ct2=S("text",{x:calX+25,y:calY+34,"text-anchor":"middle","font-size":2.6,fill:"#777","font-family":"sans-serif"});
+  ct2.textContent=EN?KG.ui.checkRuler:"タテ・ヨコ両方を測る"; gs.appendChild(ct2);
+  if(isInch()){
+    const ci=S("text",{x:calX+25,y:calY+40,"text-anchor":"middle","font-size":2.4,fill:"#777","font-family":"sans-serif"});
+    ci.textContent=EN?KG.ui.inchRef:"50 mm ≒ 1.97 in"; gs.appendChild(ci);
+  }
+  // L字ルーラー：左下コーナーを共有し 水平（右）＋ 垂直（下）。5mm細目・10mm数字
+  const rulY=calY+62, rulX=calX;
+  const vLen=Math.min(100, PAGE_H-MARGIN-16-rulY);   // ラベルが警告行にかからない範囲
+  G("line",{x1:rulX,y1:rulY,x2:rulX+100,y2:rulY,stroke:"#1B1D1A","stroke-width":0.5});
+  G("line",{x1:rulX,y1:rulY,x2:rulX,y2:rulY+vLen,stroke:"#1B1D1A","stroke-width":0.5});
+  for(let i=0;i<=100;i+=5){
+    const big=i%50===0, mid=i%10===0;
+    // 水平（上向き目盛り）
+    G("line",{x1:rulX+i,y1:rulY,x2:rulX+i,y2:rulY-(big?4:mid?2.8:1.6),stroke:"#1B1D1A","stroke-width":0.4});
+    if(mid){const lt=S("text",{x:rulX+i,y:rulY-(big?6:4.6),"text-anchor":"middle","font-size":2.6,fill:"#1B1D1A","font-family":"monospace"});
+      lt.textContent=i; gs.appendChild(lt);}
+    // 垂直（右向き目盛り）
+    if(i<=vLen){
+      G("line",{x1:rulX,y1:rulY+i,x2:rulX+(big?4:mid?2.8:1.6),y2:rulY+i,stroke:"#1B1D1A","stroke-width":0.4});
+      if(mid && i>0){const vt=S("text",{x:rulX+(big?5.5:4.5),y:rulY+i+1,"font-size":2.6,fill:"#1B1D1A","font-family":"monospace"});
+        vt.textContent=i; gs.appendChild(vt);}
+    }
+  }
+  const rt=S("text",{x:rulX,y:rulY+vLen+6,"font-size":3,fill:"#777","font-family":"sans-serif"});
+  rt.textContent=EN?KG.ui.calRuler:"0–100 mm 校正定規（水平・垂直）"; gs.appendChild(rt);
 
   // 組み立て図（タイル配置のミニマップ）右側
   const mapX=120, mapY=calY, mw=78, mh=78;
