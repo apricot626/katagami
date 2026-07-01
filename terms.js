@@ -7,6 +7,9 @@
     {m:'三つ折り',    id:'mitsuori'},
     {m:'ジグザグミシン', id:'zigzag'},
     {m:'合印',        id:'aijirushi'},
+    {m:'ゴム通し',    id:'casing'},
+    {m:'当て布',      id:'presscloth'},
+    {m:'水通し',      id:'mizutoshi'},
   ];
   const BASE='yougoshu.html#';
   const seen=new Set();
