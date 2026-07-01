@@ -6,10 +6,11 @@
    ============================================================ */
 const fs = require("fs");
 const path = require("path");
+const { figFor } = require("./howto-figs.js");
 
 const ROOT = path.join(__dirname, "..");
 const OUT = path.join(ROOT, "en");
-const DATE = "2026-06-30";
+const DATE = "2026-07-01";
 
 /* tabs shown in the tool, used in the "generate the pattern" step */
 const TAB = {
@@ -48,6 +49,8 @@ function render(key, g){
     `<strong>Set the seam allowance</strong><br>Use the slider at the bottom (beginners: <b>1.0–1.5&nbsp;cm / about 3/8–5/8&nbsp;in</b>).`,
     `<strong>Print</strong><br>Press “<b>Print (actual size)</b>”, then in the print dialog set <b>Scale = 100%</b> and turn <b>“Fit to page” OFF</b>. Check the 50&nbsp;mm calibration box on the first guide sheet with a ruler.`
   ];
+  const figJson = figFor(key, "en");
+  const figHtml = figJson ? `    ${figJson}\n` : "";
   const sew = g.sew.map(block=>{
     return `    <h3>${block.h}</h3>\n` + steps(block.items);
   }).join("\n\n");
@@ -194,7 +197,7 @@ ${steps(g.cut)}
     <h2>4. Sewing</h2>
 
 ${sew}
-  </section>
+${figHtml}  </section>
 
   <section id="tips">
     <h2>5. Tips &amp; variations</h2>
