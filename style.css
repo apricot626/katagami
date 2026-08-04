@@ -79,11 +79,12 @@ main{display:grid;grid-template-columns:320px 1fr;gap:0;flex:1;overflow:hidden}
   padding:16px;overflow-y:auto;background:var(--paper2);
 }
 .mode-tabs{
-  display:flex;gap:4px;flex-wrap:wrap;margin-bottom:14px;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(78px,1fr));
+  gap:4px;margin-bottom:14px;
   background:var(--ink);padding:6px;border-radius:3px;
 }
 .mode-tabs button{
-  flex:1;min-width:52px;font-family:inherit;font-size:12px;cursor:pointer;
+  font-family:inherit;font-size:12px;cursor:pointer;
   padding:6px 6px;border:1.5px solid rgba(255,255,255,0.15);border-radius:2px;
   background:transparent;color:var(--paper2);transition:.12s;line-height:1.25;
 }
