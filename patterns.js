@@ -41,8 +41,24 @@ const cm=v=>v*10; // cm→mm
    座標は piece ローカル(時計回り, y-down)。配置はレイアウト時に平行移動。
    ============================================================ */
 
+// 連続する重複頂点を除去する（始点=終点も含む）。
+// 長さ0の辺が残ると offsetPolygon の法線が定まらず、縫い代線にトゲが出る。
+function dedupe(pts){
+  const out=[];
+  for(const p of pts){
+    const q=out[out.length-1];
+    if(!q || Math.hypot(p.x-q.x,p.y-q.y)>1e-6) out.push(p);
+  }
+  while(out.length>2){
+    const a=out[0], b=out[out.length-1];
+    if(Math.hypot(a.x-b.x,a.y-b.y)<=1e-6) out.pop(); else break;
+  }
+  return out;
+}
+
 function pieceFrom(finished, foldEdgeTest, sa){
   // foldEdgeTest(a,b) → true なら その辺は縫い代0(=わ)
+  finished = dedupe(finished);
   const dist=finished.map((p,i)=>{
     const b=finished[(i+1)%finished.length];
     return foldEdgeTest(p,b)?0:sa;

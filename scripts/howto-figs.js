@@ -131,6 +131,15 @@ const FIG_MAP = {
   // pets
   dog:"bias", dogsleeved:"tube", mannerbelt:"turnout", petbandana:"casing",
   petsnood:"tube", catfuku:"bias", petvest:"bias",
+  // 2026-07 追加パターン（作り方ガイドのあるもの）
+  hoodie:"knit", shirt:"mitsuori", cardigan:"mitsuori", shirtdress:"mitsuori", yukata:"mitsuori",
+  tightskirt:"casing", pleatskirt:"casing", sweatpants:"casing", taperedpants:"casing", kappogi:"casing",
+  jinbei:"mitsuori", kidshoodie:"knit", kidsrompers:"bias", jumperskirt:"turnout",
+  sleeper:"bias", babyshoes:"turnout", diaperpouch:"gusset",
+  sunhat:"turnout", cap:"turnout", potholder:"turnout", eyemask:"turnout",
+  neckwarmer:"tube", bousaizukin:"mitsuori",
+  backpack:"gusset", ecobag:"gusset", wallet:"turnout", bodybag:"gusset",
+  petbed:"tube", slipper:"turnout", coaster:"turnout",
   // home
   tablecloth:"mitsuori", pillowcase:"turnout", cushioncover:"turnout"
 };
