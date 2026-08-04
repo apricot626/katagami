@@ -141,7 +141,26 @@ const FIG_MAP = {
   backpack:"gusset", ecobag:"gusset", wallet:"turnout", bodybag:"gusset",
   petbed:"tube", slipper:"turnout", coaster:"turnout",
   // home
-  tablecloth:"mitsuori", pillowcase:"turnout", cushioncover:"turnout"
+  tablecloth:"mitsuori", pillowcase:"turnout", cushioncover:"turnout",
+  // 2026-08 追加パターン（作り方ガイドのあるもの）
+  wrapskirt:"casing", tieredskirt:"casing", adultvest:"bias", culotte:"casing",
+  poncho:"bias", overall:"turnout", dolman:"knit", raglantee:"knit",
+  samue:"mitsuori", pajamas:"casing", blouson:"casing",
+  kidsraglan:"knit", kidstank:"bias", kidscoat:"mitsuori", kidsbibapron:"bias",
+  jinbeipants:"casing", kidsculotte:"casing",
+  babymitten:"casing", babycape:"bias", babypants:"casing", babyblanket:"turnout",
+  babytoy:"turnout", wipescase:"turnout", carriercover:"turnout",
+  maskcase:"turnout", armcover:"tube", keycase:"turnout", glassescase:"turnout",
+  beret:"turnout", hairturban:"tube", tissuepouch:"mitsuori", bottleholder:"tube",
+  boshitecho:"mitsuori", cardcase:"mitsuori", dollclothes:"bias", teddy:"turnout",
+  scarf:"tube", nametag:"turnout",
+  bucketbag:"tube", roundkinchaku:"casing", baginbag:"gusset", phonepouch:"gusset",
+  lunchbag:"gusset",
+  petcape:"mitsuori", petcollar:"tube", pettoy:"turnout", petmat:"turnout",
+  petpouch:"gusset",
+  curtain:"mitsuori", chairpad:"turnout", wallpocket:"mitsuori", laundrybag:"casing",
+  chaircover:"mitsuori", boxcover:"mitsuori", zabuton:"mitsuori",
+  cafecurtain:"mitsuori", ovenmitt:"bias"
 };
 
 /* returns the figure HTML for a pattern key, or "" if unmapped */
