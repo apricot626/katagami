@@ -43,6 +43,10 @@ function render(key, g){
   const makeTitle = /\b(pants|clothes|shorts|bloomers|warmers)\b/.test(lc)
     ? `How to make ${lc}`
     : `How to make ${/^[aeiou]/.test(lc) ? "an" : "a"} ${lc}`;  // "an apron", "a tote bag"
+  // same rule reused for meta descriptions: "for pants" vs "for a tote bag"
+  const forPhrase = /\b(pants|clothes|shorts|bloomers|warmers)\b/.test(lc)
+    ? `for ${lc}`
+    : `for ${/^[aeiou]/.test(lc) ? "an" : "a"} ${lc}`;
   const patternSteps = [
     `<strong>Open the tool</strong><br>Open the <a href="tool.html">pattern tool</a> and choose “<b>${tab}</b>” → “<b>${g.toolName}</b>” from the tabs at the top.`,
     `<strong>Enter the size</strong><br>${g.sizeStep}`,
@@ -99,12 +103,12 @@ function render(key, g){
   gtag("js",new Date());
   gtag("config","G-3HFK3VE3Q8");
 </script>
-<title>${esc(g.title)} — sewing guide | Katagami</title>
-<meta name="description" content="${esc(g.desc)}">
-<meta name="keywords" content="${esc(g.keywords)}">
+<title>${esc(g.title)} — Free Sewing Pattern &amp; How to Sew | Katagami</title>
+<meta name="description" content="Free printable sewing pattern ${esc(forPhrase)}, in your size. ${esc(g.desc)}">
+<meta name="keywords" content="${esc(g.keywords)},free sewing pattern,PDF sewing pattern,printable pattern,print at home">
 <meta property="og:type" content="article">
-<meta property="og:title" content="${esc(g.title)} — sewing guide | Katagami">
-<meta property="og:description" content="${esc(g.desc)}">
+<meta property="og:title" content="${esc(g.title)} — Free Sewing Pattern & How to Sew | Katagami">
+<meta property="og:description" content="Free printable sewing pattern in your size. ${esc(g.desc)}">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="ja_JP">
 <link rel="stylesheet" href="../howto.css">
@@ -117,8 +121,8 @@ function render(key, g){
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="${esc(g.title)} — sewing guide | Katagami">
-<meta name="twitter:description" content="${esc(g.desc)}">
+<meta name="twitter:title" content="${esc(g.title)} — Free Sewing Pattern & How to Sew | Katagami">
+<meta name="twitter:description" content="Free printable sewing pattern in your size. ${esc(g.desc)}">
 <meta name="twitter:image" content="${ogImg}">
 <script type="application/ld+json">
 {
