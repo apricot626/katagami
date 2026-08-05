@@ -353,6 +353,76 @@ for (const k of Object.keys(PATTERNS)) {
 }
 
 /* =========================================================
+   8.5 縫い合わせる辺の長さが釣り合うか（袖山と袖ぐり）
+   どの辺とどの辺を縫うかは形状からは分からないので、生成側が
+   袖パーツに seamLen（＝相手になる袖ぐりの実長）を持たせる約束にしている。
+   袖山はパーツの上側を測れば求まるので、その2つを突き合わせる。
+   セットイン袖は袖山が袖ぐりより少し長い（いせ込み分）のが正しく、
+   短いと物理的に袖が付かない。
+   ========================================================= */
+function capSeamLen(f) {
+  const ys = f.map(q => q.y);
+  const lim = Math.min(...ys) + (Math.max(...ys) - Math.min(...ys)) * 0.35;
+  let best = [], cur = [];
+  for (let i = 0; i < f.length * 2; i++) {
+    const q = f[i % f.length];
+    if (q.y <= lim) cur.push(q);
+    else { if (cur.length > best.length) best = cur; cur = []; }
+  }
+  if (cur.length > best.length) best = cur;
+  let t = 0;
+  for (let i = 1; i < best.length; i++) t += Math.hypot(best[i].x - best[i - 1].x, best[i].y - best[i - 1].y);
+  return t;
+}
+const EASE_MIN = 1, EASE_MAX = 45;   // mm。いせは 0.1〜4.5cm を許容範囲とする
+for (const k of Object.keys(PATTERNS)) {
+  const p = PATTERNS[k];
+  const cases = [{ label: "既定", vals: {} },
+                 ...(p.presets || []).map(x => ({ label: x.label, vals: x.vals }))];
+  for (const c of cases) {
+    const d = {};
+    (p.params || []).forEach(x => d[x.key] = x.val);
+    (p.toggles || []).forEach(x => d[x.key] = x.def);
+    Object.assign(d, c.vals);
+    let pieces;
+    try { pieces = p.gen(d, 0).pieces; } catch (e) { continue; }
+    const sleeve = pieces.find(x => x.title === "袖");
+    if (!sleeve || !sleeve.seamLen) continue;
+    const cap = capSeamLen(sleeve.finished), arm = sleeve.seamLen;
+    const ease = cap - arm;
+    if (ease < EASE_MIN || ease > EASE_MAX)
+      add("pattern", k,
+        `${c.label} / 袖山 ${(cap / 10).toFixed(1)}cm と袖ぐり ${(arm / 10).toFixed(1)}cm が釣り合いません` +
+        `（いせ ${(ease / 10).toFixed(1)}cm・目安 0.1〜4.5cm）`);
+  }
+}
+
+/* =========================================================
+   8.6 quad() の戻り値を plen() で測っていないか（ソースの静的チェック）
+   quad() は始点を含まない点列を返すので、plen(quad(...)) だと曲線の実長より
+   1区間ぶん（1割ほど）短く出る。袖ぐりの長さを測る場面でこれをやると、
+   袖山が足りなくなって袖が付かなくなる。始点を足す arcLen() を使うこと。
+   ========================================================= */
+{
+  const src = fs.readFileSync(path.join(ROOT, "patterns.js"), "utf8");
+  // quad() を返す関数名（mkArm のようなラッパー）を拾う
+  const wrappers = new Set(["quad"]);
+  for (const m of src.matchAll(/const\s+(\w+)\s*=\s*\([^)]*\)\s*=>\s*quad\(/g)) wrappers.add(m[1]);
+  // それらの戻り値を受けている変数名を拾う
+  const curveVars = new Set();
+  for (const w of wrappers)
+    for (const m of src.matchAll(new RegExp("(?:const|let)\\s+(\\w+)\\s*=\\s*" + w + "\\(", "g")))
+      curveVars.add(m[1]);
+  // plen(その変数) を探す
+  const lines = src.split("\n");
+  for (let i = 0; i < lines.length; i++)
+    for (const m of lines[i].matchAll(/\bplen\(\s*(\w+)\s*\)/g))
+      if (curveVars.has(m[1]))
+        add("pattern", "patterns.js",
+          `${i + 1}行目: plen(${m[1]}) — ${m[1]} は quad() の戻り値なので始点が抜けます。arcLen(始点, ${m[1]}) を使ってください`);
+}
+
+/* =========================================================
    9. アフィリエイトリンク
    ========================================================= */
 for (const f of jaPages.filter(x => x.startsWith("howto-") && !redirects.has(x))) {
