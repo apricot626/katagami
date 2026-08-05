@@ -173,7 +173,10 @@ const FIG_MAP = {
   tissuebox:"mitsuori", noren:"mitsuori", remotepocket:"mitsuori", neckpillow:"turnout",
   // 2026-08 追加パターン2
   coverall:"knit", uchiwacover:"turnout", itabag:"gusset", teacosy:"turnout",
-  cutlerycase:"topstitch", necktie:"turnout", treeskirt:"bias", fabricbasket:"gusset"
+  cutlerycase:"mitsuori", necktie:"turnout", treeskirt:"bias", fabricbasket:"gusset",
+  // 2026-08 追加パターン3
+  tablerunner:"turnout", picnicmat:"turnout", yogamatbag:"casing", pincushion:"turnout",
+  machinecover:"gusset", kidscape:"mitsuori", toiletcover:"casing", camerastrap:"tube"
 };
 
 /* returns the figure HTML for a pattern key, or "" if unmapped */

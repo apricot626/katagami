@@ -427,6 +427,20 @@ for (const k of Object.keys(PATTERNS)) {
 }
 
 /* =========================================================
+   8.55 図解の割り当て
+   FIG_MAP に存在しない図の名前を書くと figFor() が空文字を返し、
+   そのページだけ図解なしで静かに素通りします。
+   ========================================================= */
+{
+  const { FIGS, FIG_MAP } = require("./howto-figs.js");
+  for (const [k, id] of Object.entries(FIG_MAP))
+    if (!FIGS[id]) add("pattern", "scripts/howto-figs.js", `${k} の図 "${id}" が FIGS にありません`);
+  for (const k of Object.keys(PATTERNS))
+    if (isFile(`howto-${k}.html`) && !FIG_MAP[k] && !redirects.has(`howto-${k}.html`))
+      add("pattern", "scripts/howto-figs.js", `${k} に図解が割り当てられていません`);
+}
+
+/* =========================================================
    8.6 quad() の戻り値を plen() で測っていないか（ソースの静的チェック）
    quad() は始点を含まない点列を返すので、plen(quad(...)) だと曲線の実長より
    1区間ぶん（1割ほど）短く出る。袖ぐりの長さを測る場面でこれをやると、

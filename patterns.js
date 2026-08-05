@@ -7870,16 +7870,319 @@ PATTERNS.fabricbasket={
   }
 };
 
+/* ---- テーブルランナー ---- */
+PATTERNS.tablerunner={
+  mode:"home",
+  name:"テーブルランナー",
+  note:"食卓の中央に細長く敷く布。両端を三角に尖らせると、市販品らしい表情になります。表布と裏布を中表に縫って返すだけ。テーブルクロスより布が少なくて済み、洗濯もらくです。",
+  params:[
+    {key:"len",  label:"仕上がり長さ", unit:"cm",min:90,max:250,step:1,  val:160},
+    {key:"w",    label:"仕上がり幅",   unit:"cm",min:25,max:50, step:1,  val:33},
+    {key:"point",label:"両端の尖り",   unit:"cm",min:0, max:20, step:0.5,val:12},
+  ],
+  presets:[
+    {label:"4人掛け",vals:{len:140,w:30,point:10}},
+    {label:"6人掛け",vals:{len:180,w:33,point:12}},
+    {label:"角なし", vals:{len:160,w:35,point:0}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const W=cm(p.w), L=cm(p.len);
+    // 尖りが長さの4分の1を超えると、両端の三角が中央で出会って形が崩れる
+    const PT=Math.min(cm(p.point), L*0.25);
+    const fin=[{x:0,y:PT},{x:W/2,y:0},{x:W,y:PT},{x:W,y:L-PT},{x:W/2,y:L},{x:0,y:L-PT}];
+    const pc=pieceFrom(fin,()=>false,sa);
+    return {pieces:[
+      {title:"本体", cutInfo:"表布1枚・裏布1枚／中表に縫って返す", ...pc, foldX:null,
+       grain:{x1:W*0.5,y1:PT+20,x2:W*0.5,y2:L-PT-20},
+       notches:[{x:0,y:PT},{x:W,y:PT}], labelAt:{x:W*0.5,y:L*0.5}}
+    ],
+    memo:`仕上がり ${p.w}×${p.len}cm ／ 両端の尖り ${(PT/10).toFixed(1)}cm ／ テーブルから左右に15〜20cm垂らすと収まりがよい`};
+  }
+};
+
+/* ---- レジャーシート ---- */
+PATTERNS.picnicmat={
+  mode:"home",
+  name:"レジャーシート",
+  note:"公園や運動会で広げる布のシート。裏に撥水生地を使えば地面の湿りが染みません。本体1枚と、丸めて留めるベルト1本だけの構成です。角を丸くすると、たたむときにかさばりません。",
+  params:[
+    {key:"w",    label:"仕上がり幅",   unit:"cm",min:90,max:200,step:1,  val:140},
+    {key:"d",    label:"仕上がり奥行", unit:"cm",min:60,max:160,step:1,  val:100},
+    {key:"round",label:"角の丸み",     unit:"cm",min:0, max:15, step:0.5,val:6},
+    {key:"belt", label:"留めベルトの長さ",unit:"cm",min:30,max:80,step:1, val:50},
+  ],
+  presets:[
+    {label:"2人用",  vals:{w:120,d:90, round:5,belt:45}},
+    {label:"4人用",  vals:{w:140,d:100,round:6,belt:50}},
+    {label:"ファミリー",vals:{w:180,d:140,round:8,belt:65}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const W=cm(p.w), D=cm(p.d), R=clampR(cm(p.round), W, D);
+    let fin=[{x:0,y:R}];
+    fin=fin.concat(quad({x:0,y:R},{x:0,y:0},{x:R,y:0},8));
+    fin.push({x:W-R,y:0});
+    fin=fin.concat(quad({x:W-R,y:0},{x:W,y:0},{x:W,y:R},8));
+    fin.push({x:W,y:D-R});
+    fin=fin.concat(quad({x:W,y:D-R},{x:W,y:D},{x:W-R,y:D},8));
+    fin.push({x:R,y:D});
+    fin=fin.concat(quad({x:R,y:D},{x:0,y:D},{x:0,y:D-R},8));
+    const pc=pieceFrom(fin,()=>false,sa);
+    const BL=cm(p.belt), BW=cm(5);
+    const bpc=pieceFrom([{x:0,y:0},{x:BL,y:0},{x:BL,y:BW},{x:0,y:BW}],()=>false,sa);
+    return {pieces:[
+      {title:"本体", cutInfo:"表布1枚・裏布（撥水生地）1枚／中表に縫って返す", ...pc, foldX:null,
+       grain:{x1:W*0.5,y1:R+30,x2:W*0.5,y2:D-R-30},
+       notches:[{x:W*0.5,y:0},{x:W*0.5,y:D}], labelAt:{x:W*0.5,y:D*0.5}},
+      {title:"留めベルト", cutInfo:"1本（4つ折りにして縫う）／端に面ファスナーを付ける", ...bpc, foldX:null,
+       grain:{x1:BL*0.2,y1:BW/2,x2:BL*0.8,y2:BW/2},
+       notches:[], labelAt:{x:BL*0.5,y:BW*0.5}}
+    ],
+    memo:`仕上がり ${p.w}×${p.d}cm ／ 布幅が足りないときは2枚はぎ合わせる（継ぎ目は中央を避ける）`};
+  }
+};
+
+/* ---- ヨガマットケース ---- */
+PATTERNS.yogamatbag={
+  mode:"bag",
+  name:"ヨガマットケース",
+  note:"丸めたヨガマットを入れる筒型のケース。側面1枚と丸底1枚、ショルダーひも1本の構成です。上端をひも通しにして絞れば、フタも面ファスナーも要りません。肩に掛けて持ち運べます。",
+  params:[
+    {key:"matdia",label:"丸めたマットの直径",unit:"cm",min:12,max:24,step:0.5,val:16},
+    {key:"matlen",label:"マットの長さ",      unit:"cm",min:60,max:190,step:1, val:175},
+    {key:"ease",  label:"ゆとり",            unit:"cm",min:1, max:5,  step:0.5,val:2},
+    {key:"strap", label:"ショルダーの長さ",  unit:"cm",min:60,max:140,step:1, val:100},
+  ],
+  presets:[
+    {label:"標準（180cmマット）",vals:{matdia:16,matlen:175,ease:2,strap:100}},
+    {label:"厚手マット",         vals:{matdia:20,matlen:180,ease:2.5,strap:105}},
+    {label:"トラベル用（短い）", vals:{matdia:13,matlen:65, ease:1.5,strap:85}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const D=cm(p.matdia)+cm(p.ease);
+    const CIRC=Math.PI*D, H=cm(p.matlen)+cm(6);   // 6cm はひも通しと底の縫い代ぶん
+    const side=pieceFrom([{x:0,y:0},{x:CIRC,y:0},{x:CIRC,y:H},{x:0,y:H}],()=>false,sa);
+    const r=D/2, N=28, circ=[];
+    for(let i=0;i<N;i++){
+      const t=2*Math.PI*i/N;
+      circ.push({x:r+r*Math.cos(t), y:r+r*Math.sin(t)});
+    }
+    const bpc=pieceFrom(circ,()=>false,sa);
+    const SL=cm(p.strap), SW=cm(5);
+    const spc=pieceFrom([{x:0,y:0},{x:SL,y:0},{x:SL,y:SW},{x:0,y:SW}],()=>false,sa);
+    return {pieces:[
+      {title:"側面", cutInfo:"1枚／両端を縫って筒にし、上端はひも通しにする", ...side, foldX:null,
+       grain:{x1:CIRC*0.5,y1:20,x2:CIRC*0.5,y2:H-20},
+       notches:[{x:0,y:cm(6)},{x:CIRC,y:cm(6)}], labelAt:{x:CIRC*0.5,y:H*0.5}},
+      {title:"丸底", cutInfo:"1枚／筒の下端に合わせて縫い付ける", ...bpc, foldX:null,
+       grain:{x1:r,y1:r*0.35,x2:r,y2:r*1.65},
+       notches:[{x:r*2,y:r},{x:0,y:r}], labelAt:{x:r,y:r}},
+      {title:"ショルダーひも", cutInfo:"1本（4つ折りにして縫う）／上端と底の脇に縫い付ける", ...spc, foldX:null,
+       grain:{x1:SL*0.2,y1:SW/2,x2:SL*0.8,y2:SW/2},
+       notches:[], labelAt:{x:SL*0.5,y:SW*0.5}}
+    ],
+    memo:`筒の周囲 ${(CIRC/10).toFixed(0)}cm ／ 丸底の直径 ${(D/10).toFixed(1)}cm ／ ひもは口の周囲＋30cm`};
+  }
+};
+
+/* ---- リストピンクッション ---- */
+PATTERNS.pincushion={
+  mode:"small",
+  name:"リストピンクッション",
+  note:"手首に巻いて使う針山。縫っている最中にまち針の置き場を探さずに済みます。クッション2枚とベルト1本だけ。中身は手芸わたのほか、羊毛を詰めると針のすべりがよくなります。",
+  params:[
+    {key:"dia",  label:"クッションの直径",unit:"cm",min:6, max:12,step:0.5,val:8},
+    {key:"wrist",label:"手首まわり",      unit:"cm",min:13,max:24,step:0.5,val:16},
+    {key:"beltw",label:"ベルトの幅",      unit:"cm",min:2, max:5, step:0.5,val:3.5},
+  ],
+  presets:[
+    {label:"標準",  vals:{dia:8, wrist:16,beltw:3.5}},
+    {label:"小さめ",vals:{dia:6.5,wrist:15,beltw:3}},
+    {label:"子供",  vals:{dia:6, wrist:13.5,beltw:2.5}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const r=cm(p.dia)/2, N=24, circ=[];
+    for(let i=0;i<N;i++){
+      const t=2*Math.PI*i/N;
+      circ.push({x:r+r*Math.cos(t), y:r+r*Math.sin(t)});
+    }
+    const cpc=pieceFrom(circ,()=>false,sa);
+    const BL=cm(p.wrist)+cm(4), BW=cm(p.beltw);   // 4cm は面ファスナーの重なり分
+    const bpc=pieceFrom([{x:0,y:0},{x:BL,y:0},{x:BL,y:BW},{x:0,y:BW}],()=>false,sa);
+    return {pieces:[
+      {title:"クッション", cutInfo:"2枚／中表に縫って返し、わたを詰める", ...cpc, foldX:null,
+       grain:{x1:r,y1:r*0.35,x2:r,y2:r*1.65},
+       notches:[{x:0,y:r},{x:r*2,y:r}], labelAt:{x:r,y:r}},
+      {title:"ベルト", cutInfo:"1本（4つ折りにして縫う）／両端に面ファスナーを付ける", ...bpc, foldX:null,
+       grain:{x1:BL*0.2,y1:BW/2,x2:BL*0.8,y2:BW/2},
+       notches:[{x:BL*0.5,y:0},{x:BL*0.5,y:BW}], labelAt:{x:BL*0.5,y:BW*0.5}}
+    ],
+    memo:`クッション直径 ${p.dia}cm ／ ベルト全長 ${((BL)/10).toFixed(1)}cm（手首${p.wrist}cm＋重なり4cm）`};
+  }
+};
+
+/* ---- ミシンカバー ---- */
+PATTERNS.machinecover={
+  mode:"home",
+  name:"ミシンカバー",
+  note:"使わないときのミシンにかぶせる布カバー。ほこりが積もらず、出しっぱなしでも生活感が出ません。前面から天面、背面までを1枚でつなぎ、両脇を付けるだけ。パーツは2種類だけです。",
+  params:[
+    {key:"w",   label:"ミシンの幅",   unit:"cm",min:30,max:60,step:0.5,val:45},
+    {key:"d",   label:"ミシンの奥行", unit:"cm",min:15,max:32,step:0.5,val:20},
+    {key:"h",   label:"ミシンの高さ", unit:"cm",min:22,max:45,step:0.5,val:32},
+    {key:"ease",label:"ゆとり",       unit:"cm",min:1, max:5, step:0.5,val:2},
+  ],
+  presets:[
+    {label:"家庭用（標準）",vals:{w:45,d:20,h:32,ease:2}},
+    {label:"コンパクト",    vals:{w:38,d:17,h:28,ease:2}},
+    {label:"大きめ・職業用",vals:{w:52,d:24,h:36,ease:2.5}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const W=cm(p.w)+cm(p.ease), D=cm(p.d)+cm(p.ease), H=cm(p.h)+cm(p.ease)/2;
+    const SPAN=H*2+D;                              // 前面 → 天面 → 背面
+    const band=pieceFrom([{x:0,y:0},{x:W,y:0},{x:W,y:SPAN},{x:0,y:SPAN}],()=>false,sa);
+    const side=pieceFrom([{x:0,y:0},{x:D,y:0},{x:D,y:H},{x:0,y:H}],()=>false,sa);
+    return {pieces:[
+      {title:"渡し（前・天・後 一続き）", cutInfo:"1枚／合印が天面の前後の角に来る", ...band, foldX:null,
+       grain:{x1:W*0.5,y1:20,x2:W*0.5,y2:SPAN-20},
+       notches:[{x:0,y:H},{x:W,y:H},{x:0,y:H+D},{x:W,y:H+D}], labelAt:{x:W*0.5,y:SPAN*0.5}},
+      {title:"脇", cutInfo:"2枚（左右）／渡しの両脇に縫い付ける", ...side, foldX:null,
+       grain:{x1:D*0.5,y1:12,x2:D*0.5,y2:H-12},
+       notches:[{x:D*0.5,y:0}], labelAt:{x:D*0.5,y:H*0.55}}
+    ],
+    memo:`ミシン ${p.w}×${p.d}×${p.h}cm＋ゆとり${p.ease}cm ／ 渡しの全長 ${(SPAN/10).toFixed(0)}cm`};
+  }
+};
+
+/* ---- 子供用マント ---- */
+PATTERNS.kidscape={
+  mode:"kids",
+  name:"子供用マント",
+  note:"仮装にも防寒にも使えるマント。裾まわりの長方形を衿ぐりでギャザーに寄せ、衿のバンドで受けます。首もとはひもで結ぶので、サイズが多少合わなくても着られます。ハロウィンや発表会に。",
+  params:[
+    {key:"len",   label:"着丈",         unit:"cm",min:40,max:100,step:1,  val:65},
+    {key:"hem",   label:"裾まわり",     unit:"cm",min:90,max:220,step:2,  val:140},
+    {key:"neck",  label:"首まわり",     unit:"cm",min:26,max:44, step:0.5,val:32},
+    {key:"collar",label:"衿の高さ",     unit:"cm",min:2, max:8,  step:0.5,val:4},
+    {key:"tie",   label:"結びひもの長さ",unit:"cm",min:25,max:70, step:1,  val:40},
+  ],
+  presets:[
+    {label:"100cm",vals:{len:52,hem:115,neck:29,collar:3.5,tie:35}},
+    {label:"120cm",vals:{len:65,hem:140,neck:32,collar:4,  tie:40}},
+    {label:"140cm",vals:{len:78,hem:165,neck:35,collar:4.5,tie:45}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const HW=cm(p.hem)/2, L=cm(p.len);             // 後中心を「わ」に置いた半身
+    const body=pieceFrom([{x:0,y:0},{x:HW,y:0},{x:HW,y:L},{x:0,y:L}],(a,b)=>a.x===0&&b.x===0,sa);
+    const CL=cm(p.neck)+cm(3), CH=cm(p.collar)*2;  // 3cm は前端の重なり、衿は二つ折り
+    const cpc=pieceFrom([{x:0,y:0},{x:CL,y:0},{x:CL,y:CH},{x:0,y:CH}],()=>false,sa);
+    const TL=cm(p.tie), TW=cm(3);
+    const tpc=pieceFrom([{x:0,y:0},{x:TL,y:0},{x:TL,y:TW},{x:0,y:TW}],()=>false,sa);
+    return {pieces:[
+      {title:"身頃", cutInfo:"後中心を「わ」／1枚。上端をギャザーに寄せて衿に付ける", ...body, foldX:0,
+       grain:{x1:HW*0.5,y1:20,x2:HW*0.5,y2:L-20},
+       notches:[{x:HW*0.5,y:0}], labelAt:{x:HW*0.5,y:L*0.55}},
+      {title:"衿（バンド）", cutInfo:"表布1枚・裏布1枚／二つ折りにして身頃の上端を挟む", ...cpc, foldX:null,
+       grain:{x1:CL*0.5,y1:8,x2:CL*0.5,y2:CH-8},
+       notches:[{x:CL*0.5,y:0}], labelAt:{x:CL*0.5,y:CH*0.5}},
+      {title:"結びひも", cutInfo:"2本（4つ折りにして縫う）／衿の両端に挟む", ...tpc, foldX:null,
+       grain:{x1:TL*0.2,y1:TW/2,x2:TL*0.8,y2:TW/2},
+       notches:[], labelAt:{x:TL*0.5,y:TW*0.5}}
+    ],
+    memo:`裾まわり ${p.hem}cm を衿ぐり ${p.neck}cm に寄せます（ギャザー ${(cm(p.hem)/cm(p.neck)).toFixed(1)}倍）／ 着丈 ${p.len}cm`};
+  }
+};
+
+/* ---- トイレフタカバー ---- */
+PATTERNS.toiletcover={
+  mode:"home",
+  name:"トイレフタカバー",
+  note:"便座のフタにかぶせる布カバー。周囲にゴムを通してあるので、かぶせるだけで留まります。表布と裏布の2枚仕立て。市販品は柄が選べませんが、手作りなら好きな生地でそろえられます。",
+  params:[
+    {key:"w",   label:"フタの幅",   unit:"cm",min:30,max:45,step:0.5,val:37},
+    {key:"len", label:"フタの長さ", unit:"cm",min:36,max:56,step:0.5,val:45},
+    {key:"ease",label:"ゆとり",     unit:"cm",min:1, max:5, step:0.5,val:2},
+  ],
+  presets:[
+    {label:"標準",      vals:{w:37,len:45,ease:2}},
+    {label:"細長いフタ",vals:{w:35,len:50,ease:2}},
+    {label:"大きめ",    vals:{w:41,len:49,ease:2.5}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const W=cm(p.w)+cm(p.ease), L=cm(p.len)+cm(p.ease);
+    const N=40, fin=[];
+    for(let i=0;i<N;i++){
+      const t=2*Math.PI*i/N;
+      // 上（ちょうつがい側）をやや細くした卵形にする
+      const narrow=1-0.14*(1+Math.cos(t))/2;
+      fin.push({x:W/2+(W/2)*Math.sin(t)*narrow, y:(L/2)*(1-Math.cos(t))});
+    }
+    const pc=pieceFrom(fin,()=>false,sa);
+    const per=plen([...fin,fin[0]]);
+    return {pieces:[
+      {title:"本体", cutInfo:"表布1枚・裏布1枚／周囲にゴムを通す口を残して縫う", ...pc, foldX:null,
+       grain:{x1:W*0.5,y1:L*0.2,x2:W*0.5,y2:L*0.8},
+       notches:[{x:W*0.5,y:0},{x:W*0.5,y:L}], labelAt:{x:W*0.5,y:L*0.5}}
+    ],
+    memo:`フタ ${p.w}×${p.len}cm＋ゆとり${p.ease}cm ／ 周囲 約${(per/10).toFixed(0)}cm ／ ゴムは周囲の85%（約${(per*0.85/10).toFixed(0)}cm）`};
+  }
+};
+
+/* ---- カメラストラップ ---- */
+PATTERNS.camerastrap={
+  mode:"small",
+  name:"カメラストラップ",
+  note:"首から下げるカメラのストラップ。細いひも1本と、肩に当たる部分のパッド、カメラに付けるタブ2本の3パーツ。市販品は黒ばかりですが、手作りなら好きな布で作れます。パッドにキルト芯を入れると首が痛くなりません。",
+  params:[
+    {key:"len",   label:"全長",           unit:"cm",min:70,max:150,step:1,  val:100},
+    {key:"w",     label:"ひもの仕上がり幅",unit:"cm",min:2, max:5,  step:0.5,val:3},
+    {key:"padlen",label:"パッドの長さ",   unit:"cm",min:20,max:50, step:1,  val:35},
+    {key:"tabw",  label:"取り付けタブの幅",unit:"cm",min:1, max:2.5,step:0.5,val:1.5},
+  ],
+  presets:[
+    {label:"標準",        vals:{len:100,w:3,  padlen:35,tabw:1.5}},
+    {label:"短め（斜め掛けしない）",vals:{len:80, w:2.5,padlen:30,tabw:1.5}},
+    {label:"太幅（重い機材）",vals:{len:110,w:4,  padlen:42,tabw:2}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const SL=cm(p.len), SW=cm(p.w)*2+cm(1);        // 4つ折りにするので仕上がり幅の2倍＋折り込み
+    const spc=pieceFrom([{x:0,y:0},{x:SL,y:0},{x:SL,y:SW},{x:0,y:SW}],()=>false,sa);
+    const PL=Math.min(cm(p.padlen), SL*0.6), PW=cm(p.w)*2.4;
+    const ppc=pieceFrom([{x:0,y:0},{x:PL,y:0},{x:PL,y:PW},{x:0,y:PW}],()=>false,sa);
+    const TL=cm(12), TW=cm(p.tabw)*2+cm(1);
+    const tpc=pieceFrom([{x:0,y:0},{x:TL,y:0},{x:TL,y:TW},{x:0,y:TW}],()=>false,sa);
+    return {pieces:[
+      {title:"ストラップ", cutInfo:"1本（4つ折りにして両端をステッチ）", ...spc, foldX:null,
+       grain:{x1:SL*0.2,y1:SW/2,x2:SL*0.8,y2:SW/2},
+       notches:[{x:SL*0.5,y:0},{x:SL*0.5,y:SW}], labelAt:{x:SL*0.5,y:SW*0.5}},
+      {title:"肩パッド", cutInfo:"表布1枚・裏布1枚・キルト芯1枚／ストラップの中央にかぶせて縫う", ...ppc, foldX:null,
+       grain:{x1:PL*0.2,y1:PW/2,x2:PL*0.8,y2:PW/2},
+       notches:[{x:PL*0.5,y:0}], labelAt:{x:PL*0.5,y:PW*0.5}},
+      {title:"取り付けタブ", cutInfo:"2本（4つ折りにして縫う）／カメラの金具に通して折り返す", ...tpc, foldX:null,
+       grain:{x1:TL*0.2,y1:TW/2,x2:TL*0.8,y2:TW/2},
+       notches:[], labelAt:{x:TL*0.5,y:TW*0.5}}
+    ],
+    memo:`全長 ${p.len}cm（首から下げてカメラがみぞおちの高さ）／ 仕上がり幅 ${p.w}cm ／ タブは幅${p.tabw}cmの金具に対応`};
+  }
+};
+
 /* ---- 人気順に表示順を整列 ---- */
 (function(){
   const ORDER=[
     /* 大人服 */  'tee','apron','skirt','flareskirt','mermaid','sleevedress','adultgather','widepants','halfpants','tunic','camisole','blouse','onepiece','jacket','coat','tightskirt','pleatskirt','wrapskirt','tieredskirt','adultvest','cardigan','taperedpants','culotte','poncho','overall','dolman','hoodie','raglantee','sweatpants','shirtdress','shirt','yukata','samue','kappogi','pajamas','blouson', 'gown','nocollarjacket','cargopants','hanten',
-    /* 子供服 */  'kidstee','kidsdress','smock','kidsvest','pants','kidshalf','gather','jinbei','kidsrompers','kidsraglan','jumperskirt','kidshoodie','kidstank','kidscoat','kidsbibapron','jinbeipants','kidsculotte', 'kidsshirt',
+    /* 子供服 */  'kidstee','kidsdress','smock','kidsvest','pants','kidshalf','gather','jinbei','kidsrompers','kidsraglan','jumperskirt','kidshoodie','kidstank','kidscoat','kidsbibapron','jinbeipants','kidsculotte', 'kidsshirt','kidscape',
     /* ベビー */  'bloomers','swaddle','bandanastai','stai','babyhat','legwarmer','sleeper','babyshoes','babymitten','babycape','babypants','babyblanket','babytoy','diaperpouch','wipescase','carriercover', 'nursingcape','strollerseat', 'coverall',
-    /* 小物 */    'kinchaku','kincgusset','gymbag','shoesbag','movepocket','mask','fittedmask','bandana','placemat','shuushu','headband','tissuecase','bookcover','bowtie','potholder','eyemask','neckwarmer','maskcase','armcover','keycase','glassescase','sunhat','beret','hairturban','bottleholder','cap','boshitecho','cardcase','bousaizukin','dollclothes','teddy','scarf','nametag', 'pencase','bankbook','flaskcover','randocover','recordercase','nuiclothes', 'uchiwacover','cutlerycase','necktie',
-    /* バッグ */  'tote','pouch','pouchgusset','gamaguchi','sacoche','azuma','panel','clutchbag','shoulderbag','ecobag','bucketbag','backpack','roundkinchaku','bodybag','baginbag','wallet','phonepouch','lunchbag', 'cosmepouch','passportcase','laptopcase','tabletcase','waistbag','bostonbag','gadgetpouch','ehonbag', 'itabag',
+    /* 小物 */    'kinchaku','kincgusset','gymbag','shoesbag','movepocket','mask','fittedmask','bandana','placemat','shuushu','headband','tissuecase','bookcover','bowtie','potholder','eyemask','neckwarmer','maskcase','armcover','keycase','glassescase','sunhat','beret','hairturban','bottleholder','cap','boshitecho','cardcase','bousaizukin','dollclothes','teddy','scarf','nametag', 'pencase','bankbook','flaskcover','randocover','recordercase','nuiclothes', 'uchiwacover','cutlerycase','necktie','pincushion','camerastrap',
+    /* バッグ */  'tote','pouch','pouchgusset','gamaguchi','sacoche','azuma','panel','clutchbag','shoulderbag','ecobag','bucketbag','backpack','roundkinchaku','bodybag','baginbag','wallet','phonepouch','lunchbag', 'cosmepouch','passportcase','laptopcase','tabletcase','waistbag','bostonbag','gadgetpouch','ehonbag', 'itabag','yogamatbag',
     /* ペット */  'dog','dogsleeved','mannerbelt','petbandana','petsnood','catfuku','petvest','petbed','petcape','petcollar','pettoy','petmat','petpouch', 'petsling','petcarrier',
-    /* ホーム */  'cushioncover','tablecloth','pillowcase','curtain','chairpad','wallpocket','laundrybag','chaircover','boxcover','slipper','zabuton','cafecurtain','coaster','ovenmitt', 'tissuebox','noren','remotepocket','neckpillow', 'teacosy','treeskirt','fabricbasket',
+    /* ホーム */  'cushioncover','tablecloth','pillowcase','curtain','chairpad','wallpocket','laundrybag','chaircover','boxcover','slipper','zabuton','cafecurtain','coaster','ovenmitt', 'tissuebox','noren','remotepocket','neckpillow', 'teacosy','treeskirt','fabricbasket','tablerunner','picnicmat','machinecover','toiletcover',
   ];
   const extras=Object.keys(PATTERNS).filter(k=>!ORDER.includes(k));
   [...ORDER,...extras].forEach(k=>{
