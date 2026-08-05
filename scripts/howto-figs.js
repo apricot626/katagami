@@ -160,7 +160,17 @@ const FIG_MAP = {
   petpouch:"gusset",
   curtain:"mitsuori", chairpad:"turnout", wallpocket:"mitsuori", laundrybag:"casing",
   chaircover:"mitsuori", boxcover:"mitsuori", zabuton:"mitsuori",
-  cafecurtain:"mitsuori", ovenmitt:"bias"
+  cafecurtain:"mitsuori", ovenmitt:"bias",
+  // 2026-08 追加パターン
+  gown:"mitsuori", nocollarjacket:"bias", cargopants:"casing", hanten:"mitsuori",
+  kidsshirt:"mitsuori",
+  nursingcape:"casing", strollerseat:"turnout",
+  pencase:"gusset", bankbook:"mitsuori", flaskcover:"tube", randocover:"bias",
+  recordercase:"casing", nuiclothes:"bias",
+  cosmepouch:"gusset", passportcase:"mitsuori", laptopcase:"turnout", tabletcase:"turnout",
+  waistbag:"gusset", bostonbag:"gusset", gadgetpouch:"gusset", ehonbag:"turnout",
+  petsling:"gusset", petcarrier:"gusset",
+  tissuebox:"mitsuori", noren:"mitsuori", remotepocket:"mitsuori", neckpillow:"turnout"
 };
 
 /* returns the figure HTML for a pattern key, or "" if unmapped */

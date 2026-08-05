@@ -21,7 +21,8 @@ const fs=require("fs"), path=require("path");
 const ROOT=path.join(__dirname,"..");
 let src=fs.readFileSync(path.join(ROOT,"patterns.js"),"utf8").replace(/\bconst PATTERNS=/,"globalThis.PATTERNS=").replace(/window\./g,"globalThis._w_");
 (0,eval)(src);
-const keys=Object.keys(globalThis.PATTERNS);
+const only=process.argv.slice(2);
+const keys=only.length?only:Object.keys(globalThis.PATTERNS);
 (async()=>{
   const exe=findChrome();
   const b=await chromium.launch(exe?{executablePath:exe,args:["--no-sandbox"]}:{args:["--no-sandbox"]});
