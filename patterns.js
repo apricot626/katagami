@@ -43,6 +43,9 @@ function plen(a){let s=0;for(let i=1;i<a.length;i++)s+=Math.hypot(a[i].x-a[i-1].
 const cm=v=>v*10; // cm→mm
 // 角の丸み半径を、その角が接する辺の長さの半分までに抑える。
 // 半径が辺の半分を超えると出来上がり線が自己交差し、縫い代線に長いトゲが出ます。
+// quad() は始点を含まない点列を返すので、曲線の実長は始点を足して測る。
+// これを忘れると袖ぐりの長さが1区間ぶん（約1割）短く出て、袖山が足りなくなる。
+const arcLen=(p0,curve)=>plen([p0,...curve]);
 const clampR=(r,...sides)=>Math.max(0,Math.min(r,...sides.map(s=>s/2)));
 
 /* ============================================================
@@ -242,7 +245,7 @@ const PATTERNS={
         const isFold=(a,b)=>a.x===0&&b.x===0;
         const pc=pieceFrom(fin,isFold,sa);
         return {pc,
-          arm:plen(armCurve), neck:plen(neckCurve),
+          arm:arcLen({x:SHx,y:slope},armCurve), neck:arcLen({x:0,y:FD},neckCurve),
           piece:{title:back?"後身頃":"前身頃",
             cutInfo:`中心を「わ」／${back?"後ろ":"前"} 1枚`,
             ...pc, foldX:0,
@@ -251,13 +254,13 @@ const PATTERNS={
       };
       const F=body(false), B=body(true);
       // 袖（左右対称・cut2）
-      const capFull=F.arm+B.arm, SL=cm(p.sleeve), cuff=cm(p.cuff), capH=cm(2.5), cx=capFull/2;
+      const armSeam=F.arm+B.arm, capFull=armSeam, SL=cm(p.sleeve), cuff=cm(p.cuff), capH=cm(2.5), cx=capFull/2;
       let sf=[{x:0,y:capH}];
       sf=sf.concat(quad({x:0,y:capH},{x:cx*0.5,y:0},{x:cx,y:capH*0.4},8));
       sf=sf.concat(quad({x:cx,y:capH*0.4},{x:cx*1.5,y:0},{x:capFull,y:capH},8));
       sf.push({x:(capFull+cuff)/2,y:SL}); sf.push({x:(capFull-cuff)/2,y:SL});
       const spc=pieceFrom(sf,()=>false,sa);
-      const sleeve={title:"袖", cutInfo:"2枚（左右）", ...spc, foldX:null,
+      const sleeve={title:"袖", seamLen:armSeam, cutInfo:"2枚（左右）", ...spc, foldX:null,
         grain:{x1:cx,y1:capH+6,x2:cx,y2:SL-6},
         notches:[{x:cx,y:capH*0.4}], labelAt:{x:cx,y:SL*0.55}};
       return {pieces:[F.piece,B.piece,sleeve],
@@ -2228,14 +2231,14 @@ PATTERNS.blouse={
       notches:[{x:OL,y:fND},{x:OL+HW,y:ADy}],
       labelAt:{x:OL+HW*0.5,y:L*0.6}};
     // 袖
-    const armCirc=plen(bArm)*2;
+    const armSeam=arcLen({x:SHx,y:slope},bArm)*2; const armCirc=armSeam;
     const SL=cm(p.sleeveL),cuff=cm(p.cuff),capH=cm(3),cx=armCirc/2;
     let sf=[{x:0,y:capH}];
     sf=sf.concat(quad({x:0,y:capH},{x:cx*0.5,y:0},{x:cx,y:capH*0.4},8));
     sf=sf.concat(quad({x:cx,y:capH*0.4},{x:cx*1.5,y:0},{x:armCirc,y:capH},8));
     sf.push({x:(armCirc+cuff)/2,y:SL},{x:(armCirc-cuff)/2,y:SL});
     const sPC=pieceFrom(sf,()=>false,sa);
-    const sleeve={title:"袖",cutInfo:"2枚（左右）",
+    const sleeve={title:"袖", seamLen:armSeam,cutInfo:"2枚（左右）",
       ...sPC,foldX:null,
       grain:{x1:cx,y1:capH+8,x2:cx,y2:SL-8},
       notches:[{x:cx,y:capH*0.4}],labelAt:{x:cx,y:SL*0.55}};
@@ -2295,7 +2298,7 @@ PATTERNS.onepiece={
         ...pc,foldX:0,
         grain:{x1:BW*0.4,y1:FD+12,x2:BW*0.4,y2:BL-10},
         notches:[{x:BW,y:AHy}],labelAt:{x:BW*0.4,y:(FD+BL)*0.5}},
-        armLen:plen(armCurve)};
+        armLen:arcLen(shoulderPt,armCurve)};
     };
     const F=bodice(false),B=bodice(true);
     // スカート（Aライン）
@@ -2314,14 +2317,14 @@ PATTERNS.onepiece={
       grain:{x1:qH*0.42,y1:drop*0.5,x2:qH*0.42,y2:L*0.86},
       notches:[{x:qH,y:drop}],labelAt:{x:qH*0.42,y:L*0.5}};
     // 袖
-    const armCirc=F.armLen+B.armLen;
+    const armSeam=F.armLen+B.armLen; const armCirc=armSeam;
     const SL=cm(p.sleeveL),cuff=cm(p.cuff),capH=cm(3),cx=armCirc/2;
     let sf=[{x:0,y:capH}];
     sf=sf.concat(quad({x:0,y:capH},{x:cx*0.5,y:0},{x:cx,y:capH*0.4},8));
     sf=sf.concat(quad({x:cx,y:capH*0.4},{x:cx*1.5,y:0},{x:armCirc,y:capH},8));
     sf.push({x:(armCirc+cuff)/2,y:SL},{x:(armCirc-cuff)/2,y:SL});
     const sPC=pieceFrom(sf,()=>false,sa);
-    const sleeve={title:"袖",cutInfo:"2枚（左右）",
+    const sleeve={title:"袖", seamLen:armSeam,cutInfo:"2枚（左右）",
       ...sPC,foldX:null,
       grain:{x1:cx,y1:capH+8,x2:cx,y2:SL-8},
       notches:[{x:cx,y:capH*0.4}],labelAt:{x:cx,y:SL*0.55}};
@@ -2681,7 +2684,7 @@ PATTERNS.adultvest={
        grain:{x1:HW*0.5,y1:slope+14,x2:HW*0.5,y2:L-16},
        notches:[{x:HW,y:ADy}], labelAt:{x:HW*0.45,y:L*0.62}}
     ],
-    memo:`衿ぐり・袖ぐりの始末にバイアステープ 約${Math.round((plen(bNeck)*2+plen(fNeck)*2+plen(bArm)*2+plen(fArm)*2)/10)}cm`};
+    memo:`衿ぐり・袖ぐりの始末にバイアステープ 約${Math.round((arcLen({x:0,y:cm(2.2)},bNeck)*2+arcLen({x:0,y:VD},fNeck)*2+arcLen({x:SHx,y:slope},bArm)*2+arcLen({x:SHx,y:slope},fArm)*2)/10)}cm`};
   }
 };
 
@@ -2724,14 +2727,14 @@ PATTERNS.cardigan={
     ff.push({x:HW,y:L},{x:0,y:L});
     const fpc=pieceFrom(ff,()=>false,sa);
     // 袖
-    const capFull=plen(bArm)+plen(fArm), SL=cm(p.sleeve), cuff=cm(p.cuff), capH=cm(3), cx=capFull/2;
+    const armSeam=arcLen({x:SHx,y:slope},bArm)+arcLen({x:SHx,y:slope},fArm), capFull=armSeam, SL=cm(p.sleeve), cuff=cm(p.cuff), capH=cm(3), cx=capFull/2;
     let sf=[{x:0,y:capH}];
     sf=sf.concat(quad({x:0,y:capH},{x:cx*0.5,y:0},{x:cx,y:capH*0.4},8));
     sf=sf.concat(quad({x:cx,y:capH*0.4},{x:cx*1.5,y:0},{x:capFull,y:capH},8));
     sf.push({x:(capFull+cuff)/2,y:SL},{x:(capFull-cuff)/2,y:SL});
     const spc=pieceFrom(sf,()=>false,sa);
     // 前立て（左右2本）
-    const bandLen=L+plen(fNeck);
+    const bandLen=L+arcLen({x:0,y:cm(8)},fNeck);
     const bf2=[{x:0,y:0},{x:BD*2,y:0},{x:BD*2,y:bandLen},{x:0,y:bandLen}];
     const bpc2=pieceFrom(bf2,()=>false,sa);
     return {pieces:[
@@ -2741,7 +2744,7 @@ PATTERNS.cardigan={
       {title:"前身頃", cutInfo:"2枚（左右対称に裁断）", ...fpc, foldX:null,
        grain:{x1:HW*0.5,y1:slope+14,x2:HW*0.5,y2:L-16},
        notches:[{x:HW,y:ADy}], labelAt:{x:HW*0.5,y:L*0.6}},
-      {title:"袖", cutInfo:"2枚（左右）", ...spc, foldX:null,
+      {title:"袖", seamLen:armSeam, cutInfo:"2枚（左右）", ...spc, foldX:null,
        grain:{x1:cx,y1:capH+8,x2:cx,y2:SL-8},
        notches:[{x:cx,y:capH*0.4}], labelAt:{x:cx,y:SL*0.55}},
       {title:"前立て", cutInfo:"2本（二つ折りにして前端に付ける）", ...bpc2, foldX:BD,
@@ -2929,7 +2932,7 @@ PATTERNS.kidsrompers={
       fin=fin.concat(quad({x:HW,y:L*0.62},{x:CW*1.5,y:L*0.9},{x:CW,y:L},10));
       fin.push({x:0,y:L});
       const pc=pieceFrom(fin,(a,b)=>a.x===0&&b.x===0,sa);
-      return {pc, neck:plen(neck), arm:plen(arm)};
+      return {pc, neck:arcLen({x:0,y:FD},neck), arm:arcLen({x:SHx,y:slope},arm)};
     };
     const F=body(false), B=body(true);
     return {pieces:[
@@ -2976,7 +2979,7 @@ PATTERNS.kidsraglan={
       fin=fin.concat(rag);
       fin.push({x:HW,y:L},{x:0,y:L});
       const pc=pieceFrom(fin,(a,b)=>a.x===0&&b.x===0,sa);
-      return {pc, rag:plen(rag), neck:plen(neck)};
+      return {pc, rag:arcLen({x:NWh,y:0},rag), neck:arcLen({x:0,y:FD},neck)};
     };
     const F=body(false), B=body(true);
     // 袖：袖幅は二の腕まわりから算出し、前後のラグライン長に合わせて山の高さを決める
@@ -3093,10 +3096,10 @@ PATTERNS.kidshoodie={
       fin=fin.concat(arm);
       fin.push({x:HW,y:L},{x:0,y:L});
       const pc=pieceFrom(fin,(a,b)=>a.x===0&&b.x===0,sa);
-      return {pc, arm:plen(arm), neck:plen(neck)};
+      return {pc, arm:arcLen({x:SHx,y:slope},arm), neck:arcLen({x:0,y:FD},neck)};
     };
     const F=body(false), B=body(true);
-    const capFull=F.arm+B.arm, SL=cm(p.sleeve), cuff=cm(p.cuff), capH=cm(2.5), cx=capFull/2;
+    const armSeam=F.arm+B.arm, capFull=armSeam, SL=cm(p.sleeve), cuff=cm(p.cuff), capH=cm(2.5), cx=capFull/2;
     let sf=[{x:0,y:capH}];
     sf=sf.concat(quad({x:0,y:capH},{x:cx*0.5,y:0},{x:cx,y:capH*0.4},8));
     sf=sf.concat(quad({x:cx,y:capH*0.4},{x:cx*1.5,y:0},{x:capFull,y:capH},8));
@@ -3115,7 +3118,7 @@ PATTERNS.kidshoodie={
       {title:"後身頃", cutInfo:"中心を「わ」／後ろ 1枚", ...B.pc, foldX:0,
        grain:{x1:HW*0.5,y1:slope+12,x2:HW*0.5,y2:L-14},
        notches:[{x:HW,y:ADy}], labelAt:{x:HW*0.5,y:L*0.6}},
-      {title:"袖", cutInfo:"2枚（左右）", ...spc, foldX:null,
+      {title:"袖", seamLen:armSeam, cutInfo:"2枚（左右）", ...spc, foldX:null,
        grain:{x1:cx,y1:capH+8,x2:cx,y2:SL-8},
        notches:[{x:cx,y:capH*0.4}], labelAt:{x:cx,y:SL*0.55}},
       {title:"フード", cutInfo:"2枚（中表に縫い合わせて衿ぐりに付ける）", ...hpc, foldX:null,
@@ -3171,7 +3174,7 @@ PATTERNS.sleeper={
        grain:{x1:HW*0.5,y1:ADy+8,x2:HW*0.5,y2:L-14},
        notches:[{x:HW,y:ADy}], labelAt:{x:HW*0.5,y:L*0.62}}
     ],
-    memo:`前中心にスナップ4〜5個 ／ 衿ぐり・袖ぐりはバイアステープで始末（約${Math.round((plen(bNeck)*2+plen(fNeck)*2+plen(bArm)*2+plen(fArm)*2)/10)}cm）`};
+    memo:`前中心にスナップ4〜5個 ／ 衿ぐり・袖ぐりはバイアステープで始末（約${Math.round((arcLen({x:0,y:cm(1.8)},bNeck)*2+arcLen({x:0,y:cm(5)},fNeck)*2+arcLen({x:SHx,y:slope},bArm)*2+arcLen({x:SHx,y:slope},fArm)*2)/10)}cm）`};
   }
 };
 
@@ -3621,7 +3624,7 @@ PATTERNS.poncho={
       let fin=[{x:0,y:ND}].concat(neck);
       fin.push({x:HW,y:0},{x:HW,y:L},{x:0,y:L});
       const pc=pieceFrom(fin,(a,b)=>a.x===0&&b.x===0,sa);
-      return {pc, neck:plen(neck)};
+      return {pc, neck:arcLen({x:0,y:ND},neck)};
     };
     const F=mk(false), B=mk(true);
     return {pieces:[
@@ -3722,7 +3725,7 @@ PATTERNS.dolman={
       fin=fin.concat(quad({x:R,y:slope+cuff},{x:HW+(R-HW)*0.35,y:ADy*0.92},{x:HW,y:ADy},14));
       fin.push({x:HW,y:L},{x:0,y:L});
       const pc=pieceFrom(fin,(a,b)=>a.x===0&&b.x===0,sa);
-      return {pc, neck:plen(neck)};
+      return {pc, neck:arcLen({x:0,y:FD},neck)};
     };
     const F=mk(false), B=mk(true);
     return {pieces:[
@@ -3770,7 +3773,7 @@ PATTERNS.kidstank={
       fin=fin.concat(arm);
       fin.push({x:HW,y:L},{x:0,y:L});
       const pc=pieceFrom(fin,(a,b)=>a.x===0&&b.x===0,sa);
-      return {pc, neck:plen(neck), arm:plen(arm)};
+      return {pc, neck:arcLen({x:0,y:ND},neck), arm:arcLen({x:SI+SW,y:0},arm)};
     };
     const F=mk(false), B=mk(true);
     return {pieces:[
@@ -3823,14 +3826,14 @@ PATTERNS.kidscoat={
     ff.push({x:SHx,y:slope}); ff=ff.concat(fArm);
     ff.push({x:HW+FL,y:L},{x:-OV,y:L});
     const fpc=pieceFrom(ff,()=>false,sa);
-    const capFull=plen(bArm)+plen(fArm), SL=cm(p.sleeve), cuff=cm(p.cuff), capH=cm(2.5), cx=capFull/2;
+    const armSeam=arcLen({x:SHx,y:slope},bArm)+arcLen({x:SHx,y:slope},fArm), capFull=armSeam, SL=cm(p.sleeve), cuff=cm(p.cuff), capH=cm(2.5), cx=capFull/2;
     let sf=[{x:0,y:capH}];
     sf=sf.concat(quad({x:0,y:capH},{x:cx*0.5,y:0},{x:cx,y:capH*0.4},8));
     sf=sf.concat(quad({x:cx,y:capH*0.4},{x:cx*1.5,y:0},{x:capFull,y:capH},8));
     sf.push({x:(capFull+cuff)/2,y:SL},{x:(capFull-cuff)/2,y:SL});
     const spc=pieceFrom(sf,()=>false,sa);
     // 衿（スタンド）
-    const colLen=plen(bNeck)*2+plen(fNeck)*2, colH=cm(5);
+    const colLen=arcLen({x:0,y:cm(2.2)},bNeck)*2+arcLen({x:0,y:cm(6)},fNeck)*2, colH=cm(5);
     const cf=[{x:0,y:0},{x:colLen/2,y:0},{x:colLen/2,y:colH},{x:0,y:colH}];
     const cpc=pieceFrom(cf,(a,b)=>a.x===0&&b.x===0,sa);
     return {pieces:[
@@ -3840,7 +3843,7 @@ PATTERNS.kidscoat={
       {title:"前身頃", cutInfo:"2枚（左右対称に裁断）", ...fpc, foldX:null,
        grain:{x1:HW*0.5,y1:slope+12,x2:HW*0.5,y2:L-16},
        notches:[{x:HW,y:ADy}], labelAt:{x:HW*0.5,y:L*0.62}},
-      {title:"袖", cutInfo:"2枚（左右）", ...spc, foldX:null,
+      {title:"袖", seamLen:armSeam, cutInfo:"2枚（左右）", ...spc, foldX:null,
        grain:{x1:cx,y1:capH+8,x2:cx,y2:SL-8},
        notches:[{x:cx,y:capH*0.4}], labelAt:{x:cx,y:SL*0.55}},
       {title:"衿（スタンド）", cutInfo:"中心を「わ」／表布・裏布 各1枚", ...cpc, foldX:0,
@@ -4516,10 +4519,10 @@ PATTERNS.hoodie={
       let fin=[{x:0,y:FD}].concat(neck);
       fin.push({x:SHx,y:slope}); fin=fin.concat(arm);
       fin.push({x:HW,y:L},{x:0,y:L});
-      return {pc:pieceFrom(fin,(a,b)=>a.x===0&&b.x===0,sa), arm:plen(arm), neck:plen(neck)};
+      return {pc:pieceFrom(fin,(a,b)=>a.x===0&&b.x===0,sa), arm:arcLen({x:SHx,y:slope},arm), neck:arcLen({x:0,y:FD},neck)};
     };
     const F=body(false), B=body(true);
-    const capFull=F.arm+B.arm, SL=cm(p.sleeve), cuff=cm(p.cuff), capH=cm(3), cx=capFull/2;
+    const armSeam=F.arm+B.arm, capFull=armSeam, SL=cm(p.sleeve), cuff=cm(p.cuff), capH=cm(3), cx=capFull/2;
     let sf=[{x:0,y:capH}];
     sf=sf.concat(quad({x:0,y:capH},{x:cx*0.5,y:0},{x:cx,y:capH*0.4},8));
     sf=sf.concat(quad({x:cx,y:capH*0.4},{x:cx*1.5,y:0},{x:capFull,y:capH},8));
@@ -4537,7 +4540,7 @@ PATTERNS.hoodie={
       {title:"後身頃", cutInfo:"中心を「わ」／後ろ 1枚", ...B.pc, foldX:0,
        grain:{x1:HW*0.5,y1:slope+14,x2:HW*0.5,y2:L-16},
        notches:[{x:HW,y:ADy}], labelAt:{x:HW*0.5,y:L*0.6}},
-      {title:"袖", cutInfo:"2枚（左右）", ...spc, foldX:null,
+      {title:"袖", seamLen:armSeam, cutInfo:"2枚（左右）", ...spc, foldX:null,
        grain:{x1:cx,y1:capH+10,x2:cx,y2:SL-10},
        notches:[{x:cx,y:capH*0.4}], labelAt:{x:cx,y:SL*0.55}},
       {title:"フード", cutInfo:"2枚（中表に縫い合わせて衿ぐりに付ける）", ...hpc, foldX:null,
@@ -4577,7 +4580,7 @@ PATTERNS.raglantee={
       let fin=[{x:0,y:FD}].concat(neck);
       fin=fin.concat(rag);
       fin.push({x:HW,y:L},{x:0,y:L});
-      return {pc:pieceFrom(fin,(a,b)=>a.x===0&&b.x===0,sa), rag:plen(rag), neck:plen(neck)};
+      return {pc:pieceFrom(fin,(a,b)=>a.x===0&&b.x===0,sa), rag:arcLen({x:NWh,y:0},rag), neck:arcLen({x:0,y:FD},neck)};
     };
     const F=body(false), B=body(true);
     const SL=cm(p.sleeve), cuff=cm(p.cuff);
@@ -4691,13 +4694,13 @@ PATTERNS.shirtdress={
     ff.push({x:SHx,y:slope}); ff=ff.concat(fArm);
     ff.push({x:HW+FL,y:L},{x:-OV,y:L});
     const fpc=pieceFrom(ff,()=>false,sa);
-    const capFull=plen(bArm)+plen(fArm), SL=cm(p.sleeve), cuff=cm(p.cuff), capH=cm(3), cx=capFull/2;
+    const armSeam=arcLen({x:SHx,y:slope},bArm)+arcLen({x:SHx,y:slope},fArm), capFull=armSeam, SL=cm(p.sleeve), cuff=cm(p.cuff), capH=cm(3), cx=capFull/2;
     let sf=[{x:0,y:capH}];
     sf=sf.concat(quad({x:0,y:capH},{x:cx*0.5,y:0},{x:cx,y:capH*0.4},8));
     sf=sf.concat(quad({x:cx,y:capH*0.4},{x:cx*1.5,y:0},{x:capFull,y:capH},8));
     sf.push({x:(capFull+cuff)/2,y:SL},{x:(capFull-cuff)/2,y:SL});
     const spc=pieceFrom(sf,()=>false,sa);
-    const colLen=plen(bNeck)*2+plen(fNeck)*2, colH=cm(6);
+    const colLen=arcLen({x:0,y:cm(2.2)},bNeck)*2+arcLen({x:0,y:cm(7)},fNeck)*2, colH=cm(6);
     const cf=[{x:0,y:0},{x:colLen/2,y:0},{x:colLen/2,y:colH},{x:0,y:colH}];
     const cpc=pieceFrom(cf,(a,b)=>a.x===0&&b.x===0,sa);
     return {pieces:[
@@ -4707,7 +4710,7 @@ PATTERNS.shirtdress={
       {title:"前身頃", cutInfo:"2枚（左右対称に裁断）", ...fpc, foldX:null,
        grain:{x1:HW*0.5,y1:slope+14,x2:HW*0.5,y2:L-18},
        notches:[{x:HW,y:ADy}], labelAt:{x:HW*0.5,y:L*0.62}},
-      {title:"袖", cutInfo:"2枚（左右）", ...spc, foldX:null,
+      {title:"袖", seamLen:armSeam, cutInfo:"2枚（左右）", ...spc, foldX:null,
        grain:{x1:cx,y1:capH+8,x2:cx,y2:SL-8},
        notches:[{x:cx,y:capH*0.4}], labelAt:{x:cx,y:SL*0.55}},
       {title:"衿（スタンド）", cutInfo:"中心を「わ」／表布・裏布 各1枚", ...cpc, foldX:0,
@@ -5310,13 +5313,13 @@ PATTERNS.shirt={
     ff.push({x:SHx,y:slope}); ff=ff.concat(fArm);
     ff.push({x:HW,y:L},{x:-OV,y:L});
     const fpc=pieceFrom(ff,()=>false,sa);
-    const capFull=plen(bArm)+plen(fArm), SL=cm(p.sleeve), cuff=cm(p.cuff), capH=cm(3.5), cx=capFull/2;
+    const armSeam=arcLen({x:SHx,y:slope},bArm)+arcLen({x:SHx,y:slope},fArm), capFull=armSeam, SL=cm(p.sleeve), cuff=cm(p.cuff), capH=cm(3.5), cx=capFull/2;
     let sf=[{x:0,y:capH}];
     sf=sf.concat(quad({x:0,y:capH},{x:cx*0.5,y:0},{x:cx,y:capH*0.4},8));
     sf=sf.concat(quad({x:cx,y:capH*0.4},{x:cx*1.5,y:0},{x:capFull,y:capH},8));
     sf.push({x:(capFull+cuff)/2,y:SL},{x:(capFull-cuff)/2,y:SL});
     const spc=pieceFrom(sf,()=>false,sa);
-    const colLen=plen(bNeck)*2+plen(fNeck)*2, colH=cm(7);
+    const colLen=arcLen({x:0,y:cm(2)},bNeck)*2+arcLen({x:0,y:cm(7)},fNeck)*2, colH=cm(7);
     const cf=[{x:0,y:0},{x:colLen/2,y:0},{x:colLen/2,y:colH},{x:0,y:colH}];
     const cpc=pieceFrom(cf,(a,b)=>a.x===0&&b.x===0,sa);
     return {pieces:[
@@ -5326,7 +5329,7 @@ PATTERNS.shirt={
       {title:"前身頃", cutInfo:"2枚（左右対称に裁断）", ...fpc, foldX:null,
        grain:{x1:HW*0.5,y1:slope+14,x2:HW*0.5,y2:L-16},
        notches:[{x:HW,y:ADy}], labelAt:{x:HW*0.5,y:L*0.62}},
-      {title:"袖", cutInfo:"2枚（左右）", ...spc, foldX:null,
+      {title:"袖", seamLen:armSeam, cutInfo:"2枚（左右）", ...spc, foldX:null,
        grain:{x1:cx,y1:capH+10,x2:cx,y2:SL-10},
        notches:[{x:cx,y:capH*0.4}], labelAt:{x:cx,y:SL*0.55}},
       {title:"衿（スタンド）", cutInfo:"中心を「わ」／表布・裏布 各1枚", ...cpc, foldX:0,
@@ -5475,10 +5478,10 @@ PATTERNS.kappogi={
       let fin=[{x:0,y:FD}].concat(neck);
       fin.push({x:SHx,y:slope}); fin=fin.concat(arm);
       fin.push({x:HW,y:L},{x:0,y:L});
-      return {pc:pieceFrom(fin,(a,b)=>a.x===0&&b.x===0,sa), arm:plen(arm), neck:plen(neck)};
+      return {pc:pieceFrom(fin,(a,b)=>a.x===0&&b.x===0,sa), arm:arcLen({x:SHx,y:slope},arm), neck:arcLen({x:0,y:FD},neck)};
     };
     const F=mk(false), B=mk(true);
-    const capFull=F.arm+B.arm, SL=cm(p.sleeve), cuff=cm(p.cuff), capH=cm(2.5), cx=capFull/2;
+    const armSeam=F.arm+B.arm, capFull=armSeam, SL=cm(p.sleeve), cuff=cm(p.cuff), capH=cm(2.5), cx=capFull/2;
     let sf=[{x:0,y:capH}];
     sf=sf.concat(quad({x:0,y:capH},{x:cx*0.5,y:0},{x:cx,y:capH*0.4},8));
     sf=sf.concat(quad({x:cx,y:capH*0.4},{x:cx*1.5,y:0},{x:capFull,y:capH},8));
@@ -5494,7 +5497,7 @@ PATTERNS.kappogi={
       {title:"後身頃", cutInfo:"中心を「わ」／後ろ 1枚（背中は開けて仕立てる）", ...B.pc, foldX:0,
        grain:{x1:HW*0.5,y1:ADy+10,x2:HW*0.5,y2:L-16},
        notches:[{x:HW,y:ADy}], labelAt:{x:HW*0.5,y:L*0.6}},
-      {title:"袖", cutInfo:"2枚（左右）／袖口をゴム通しにする", ...spc, foldX:null,
+      {title:"袖", seamLen:armSeam, cutInfo:"2枚（左右）／袖口をゴム通しにする", ...spc, foldX:null,
        grain:{x1:cx,y1:capH+10,x2:cx,y2:SL-10},
        notches:[{x:cx,y:capH*0.4}], labelAt:{x:cx,y:SL*0.55}},
       {title:"背中ひも", cutInfo:"2本（4つ折りにして縫い、後ろ脇に付ける）", ...tpc, foldX:null,
@@ -5542,13 +5545,13 @@ PATTERNS.pajamas={
     ff.push({x:SHx,y:slope}); ff=ff.concat(fArm);
     ff.push({x:HW,y:L},{x:-OV,y:L});
     const fpc=pieceFrom(ff,()=>false,sa);
-    const capFull=plen(bArm)+plen(fArm), SL=cm(p.sleeve), cuff=cm(p.cuff), capH=cm(3), cx=capFull/2;
+    const armSeam=arcLen({x:SHx,y:slope},bArm)+arcLen({x:SHx,y:slope},fArm), capFull=armSeam, SL=cm(p.sleeve), cuff=cm(p.cuff), capH=cm(3), cx=capFull/2;
     let sf=[{x:0,y:capH}];
     sf=sf.concat(quad({x:0,y:capH},{x:cx*0.5,y:0},{x:cx,y:capH*0.4},8));
     sf=sf.concat(quad({x:cx,y:capH*0.4},{x:cx*1.5,y:0},{x:capFull,y:capH},8));
     sf.push({x:(capFull+cuff)/2,y:SL},{x:(capFull-cuff)/2,y:SL});
     const spc=pieceFrom(sf,()=>false,sa);
-    const colLen=plen(bNeck)*2+plen(fNeck)*2, colH=cm(6);
+    const colLen=arcLen({x:0,y:cm(2)},bNeck)*2+arcLen({x:0,y:cm(6.5)},fNeck)*2, colH=cm(6);
     const cf=[{x:0,y:0},{x:colLen/2,y:0},{x:colLen/2,y:colH},{x:0,y:colH}];
     const cpc=pieceFrom(cf,(a,b)=>a.x===0&&b.x===0,sa);
     return {pieces:[
@@ -5558,7 +5561,7 @@ PATTERNS.pajamas={
       {title:"前身頃", cutInfo:"2枚（左右対称に裁断）", ...fpc, foldX:null,
        grain:{x1:HW*0.5,y1:slope+14,x2:HW*0.5,y2:L-16},
        notches:[{x:HW,y:ADy}], labelAt:{x:HW*0.5,y:L*0.62}},
-      {title:"袖", cutInfo:"2枚（左右）", ...spc, foldX:null,
+      {title:"袖", seamLen:armSeam, cutInfo:"2枚（左右）", ...spc, foldX:null,
        grain:{x1:cx,y1:capH+10,x2:cx,y2:SL-10},
        notches:[{x:cx,y:capH*0.4}], labelAt:{x:cx,y:SL*0.55}},
       {title:"衿（スタンド）", cutInfo:"中心を「わ」／表布・裏布 各1枚", ...cpc, foldX:0,
@@ -5605,7 +5608,7 @@ PATTERNS.blouson={
     ff.push({x:SHx,y:slope}); ff=ff.concat(fArm);
     ff.push({x:HW*0.94,y:L},{x:0,y:L});
     const fpc=pieceFrom(ff,()=>false,sa);
-    const capFull=plen(bArm)+plen(fArm), SL=cm(p.sleeve), cuff=cm(p.cuff), capH=cm(3), cx=capFull/2;
+    const armSeam=arcLen({x:SHx,y:slope},bArm)+arcLen({x:SHx,y:slope},fArm), capFull=armSeam, SL=cm(p.sleeve), cuff=cm(p.cuff), capH=cm(3), cx=capFull/2;
     let sf=[{x:0,y:capH}];
     sf=sf.concat(quad({x:0,y:capH},{x:cx*0.5,y:0},{x:cx,y:capH*0.4},8));
     sf=sf.concat(quad({x:cx,y:capH*0.4},{x:cx*1.5,y:0},{x:capFull,y:capH},8));
@@ -5624,7 +5627,7 @@ PATTERNS.blouson={
       {title:"前身頃", cutInfo:"2枚（左右対称に裁断）／前端にファスナーを付ける", ...fpc, foldX:null,
        grain:{x1:HW*0.5,y1:slope+14,x2:HW*0.5,y2:L-14},
        notches:[{x:HW,y:ADy}], labelAt:{x:HW*0.5,y:L*0.62}},
-      {title:"袖", cutInfo:"2枚（左右）", ...spc, foldX:null,
+      {title:"袖", seamLen:armSeam, cutInfo:"2枚（左右）", ...spc, foldX:null,
        grain:{x1:cx,y1:capH+10,x2:cx,y2:SL-10},
        notches:[{x:cx,y:capH*0.4}], labelAt:{x:cx,y:SL*0.55}},
       {title:"裾リブ", cutInfo:"1枚（二つ折りにして裾に付ける）", ...rpc, foldX:null, foldY:RH,
@@ -6381,24 +6384,28 @@ PATTERNS.gown={
     const L=cm(p.len), SH=cm(p.shoulder)/2, SL=cm(p.sleeve), LP=cm(p.lapel);
     const arm=L*0.30;                        // 袖ぐり深さ
     const neck=SH*0.42;                      // 衿ぐり幅
+    // 袖ぐりのカーブ。身頃にもこの曲線をそのまま入れ、袖山もこの実長から出すので、
+    // 袖ぐりと袖山の長さが必ず一致する。
+    const armCurve=quad({x:SH,y:cm(1.5)},{x:(SH+HB/2)/2,y:cm(1.5)+(arm-cm(1.5))*0.45},{x:HB/2,y:arm},10);
     // 後身頃（中心わ）
     const back=[
       {x:0,y:0},{x:neck,y:0},
       ...quad({x:neck,y:0},{x:SH*0.8,y:0},{x:SH,y:cm(1.5)},8),
-      {x:HB/2,y:arm},{x:HB/2,y:L},{x:0,y:L}
+      ...armCurve,{x:HB/2,y:L},{x:0,y:L}
     ];
     const bpc=pieceFrom(back,(a,b)=>a.x<1e-6&&b.x<1e-6,sa);
     // 前身頃（前端に見返し分を足す）
     const front=[
       {x:0,y:0},{x:neck,y:0},
       ...quad({x:neck,y:0},{x:SH*0.8,y:0},{x:SH,y:cm(1.5)},8),
-      {x:HB/2,y:arm},{x:HB/2,y:L},{x:-LP,y:L},{x:-LP,y:cm(2)}
+      ...armCurve,{x:HB/2,y:L},{x:-LP,y:L},{x:-LP,y:cm(2)}
     ];
     const fpc=pieceFrom(front,()=>false,sa);
-    // 袖：袖幅は身頃の袖ぐり実長に合わせる（他パターンと同じ考え方）。
-    // 袖山は浅く取り、パーツの高さがそのまま袖丈になるようにします。
-    const armCurve=quad({x:SH,y:cm(1.5)},{x:(SH+HB/2)/2,y:cm(1.5)+(arm-cm(1.5))*0.45},{x:HB/2,y:arm},10);
-    const capFull=plen(armCurve)*2, capH=cm(3.5), cx=capFull/2, cuffW=capFull*0.72;
+    // 袖：袖山の縫い線が袖ぐり（前後の合計）と釣り合うよう、いせ分だけ長くする
+    const armSeam=arcLen({x:SH,y:cm(1.5)},armCurve)*2; const armLen=armSeam;
+    const capH=cm(3.5), cuffRatio=0.72;
+    // 袖山カーブは直線より少し長くなるので、その分を見込んで幅を決める
+    const capFull=armLen, cx=capFull/2, cuffW=capFull*cuffRatio;
     let sl=[{x:0,y:capH}];
     sl=sl.concat(quad({x:0,y:capH},{x:cx*0.5,y:0},{x:cx,y:capH*0.4},8));
     sl=sl.concat(quad({x:cx,y:capH*0.4},{x:cx*1.5,y:0},{x:capFull,y:capH},8));
@@ -6414,7 +6421,7 @@ PATTERNS.gown={
       {title:"前身頃", cutInfo:"2枚（左右）／前端の見返し分を折り返して衿にする", ...fpc, foldX:null,
        grain:{x1:HB*0.25,y1:arm+20,x2:HB*0.25,y2:L-20},
        notches:[{x:HB/2,y:arm},{x:0,y:L}], labelAt:{x:HB*0.24,y:L*0.6}},
-      {title:"袖", cutInfo:"2枚（左右）", ...spc, foldX:null,
+      {title:"袖", seamLen:armSeam, cutInfo:"2枚（左右）", ...spc, foldX:null,
        grain:{x1:cx,y1:capH+15,x2:cx,y2:SL-15},
        notches:[{x:cx,y:capH*0.4}], labelAt:{x:cx,y:SL*0.62}},
       {title:"腰ひも", cutInfo:"1本（4つ折りにして縫う）／ベルト通しを脇に付けると落ちません", ...tpc, foldX:null,
@@ -6460,7 +6467,7 @@ PATTERNS.nocollarjacket={
     const fpc=pieceFrom(front,()=>false,sa);
     // 袖：袖幅は身頃の袖ぐり実長に合わせ、パーツの高さがそのまま袖丈になるようにします。
     const armCurve=quad({x:SH,y:cm(1.5)},{x:(SH+HB/2)/2,y:cm(1.5)+(arm-cm(1.5))*0.45},{x:HB/2,y:arm},10);
-    const capFull=plen(armCurve)*2, capH=cm(3), cx=capFull/2, cuffW=capFull*0.62;
+    const armSeam=arcLen({x:SH,y:cm(1.5)},armCurve)*2, capFull=armSeam, capH=cm(3), cx=capFull/2, cuffW=capFull*0.62;
     let sl=[{x:0,y:capH}];
     sl=sl.concat(quad({x:0,y:capH},{x:cx*0.5,y:0},{x:cx,y:capH*0.4},8));
     sl=sl.concat(quad({x:cx,y:capH*0.4},{x:cx*1.5,y:0},{x:capFull,y:capH},8));
@@ -6476,7 +6483,7 @@ PATTERNS.nocollarjacket={
       {title:"前身頃", cutInfo:"2枚（左右）", ...fpc, foldX:null,
        grain:{x1:HB*0.26,y1:arm+15,x2:HB*0.26,y2:L-15},
        notches:[{x:HB/2,y:arm}], labelAt:{x:HB*0.24,y:L*0.65}},
-      {title:"袖", cutInfo:"2枚（左右）", ...spc, foldX:null,
+      {title:"袖", seamLen:armSeam, cutInfo:"2枚（左右）", ...spc, foldX:null,
        grain:{x1:cx,y1:capH+15,x2:cx,y2:SL-15},
        notches:[{x:cx,y:capH*0.4}], labelAt:{x:cx,y:SL*0.62}},
       {title:"前見返し", cutInfo:"2枚（左右）／前端と衿ぐりを裏から始末する", ...facpc, foldX:null,
@@ -6606,21 +6613,26 @@ PATTERNS.kidsshirt={
       {x:HB/2,y:arm},{x:HB/2,y:L},{x:0,y:L}
     ];
     const bpc=pieceFrom(back,(a,b)=>a.x<1e-6&&b.x<1e-6,sa);
+    const fNeckCurve=quad({x:0,y:neck*0.75},{x:neck*0.25,y:0},{x:neck,y:0},10);
     const front=[
-      ...quad({x:0,y:neck*0.75},{x:neck*0.25,y:0},{x:neck,y:0},10),
+      ...fNeckCurve,
       ...quad({x:neck,y:0},{x:SH*0.82,y:0},{x:SH,y:cm(1.2)},8),
       {x:HB/2,y:arm},{x:HB/2,y:L},{x:-PL,y:L},{x:-PL,y:neck*0.75}
     ];
     const fpc=pieceFrom(front,()=>false,sa);
     // 袖：袖幅は身頃の袖ぐり実長に合わせ、パーツの高さがそのまま袖丈になるようにします。
     const armCurve=quad({x:SH,y:cm(1.2)},{x:(SH+HB/2)/2,y:cm(1.2)+(arm-cm(1.2))*0.45},{x:HB/2,y:arm},10);
-    const capFull=plen(armCurve)*2, capH=cm(2.5), cx=capFull/2, cuffW=capFull*0.78;
+    const armSeam=arcLen({x:SH,y:cm(1.5)},armCurve)*2, capFull=armSeam, capH=cm(2.5), cx=capFull/2, cuffW=capFull*0.78;
     let sl=[{x:0,y:capH}];
     sl=sl.concat(quad({x:0,y:capH},{x:cx*0.5,y:0},{x:cx,y:capH*0.4},8));
     sl=sl.concat(quad({x:cx,y:capH*0.4},{x:cx*1.5,y:0},{x:capFull,y:capH},8));
     sl.push({x:(capFull+cuffW)/2,y:SL},{x:(capFull-cuffW)/2,y:SL});
     const spc=pieceFrom(sl,()=>false,sa);
-    const CL=neck*2+SH*0.5+PL*2, CH=cm(4);
+    // 衿の長さは衿ぐりの実長から出す（前立て分も足す）。
+    // 場当たりの係数で決めると衿が届かなくなる。
+    const backNeck=neck, frontNeck=arcLen({x:0,y:neck*0.75},fNeckCurve);
+    const neckSeam=(backNeck+frontNeck)*2;
+    const CL=neckSeam+PL*2, CH=cm(4);
     const cpc=pieceFrom([{x:0,y:0},{x:CL,y:0},{x:CL,y:CH},{x:0,y:CH}],()=>false,sa);
     return {pieces:[
       {title:"後身頃", cutInfo:"中心を「わ」／後 1枚", ...bpc, foldX:0,
@@ -6629,10 +6641,10 @@ PATTERNS.kidsshirt={
       {title:"前身頃", cutInfo:"2枚（左右）／前端に打ち合わせ分が付いています", ...fpc, foldX:null,
        grain:{x1:HB*0.26,y1:arm+12,x2:HB*0.26,y2:L-12},
        notches:[{x:HB/2,y:arm},{x:0,y:L}], labelAt:{x:HB*0.24,y:L*0.66}},
-      {title:"袖", cutInfo:"2枚（左右）", ...spc, foldX:null,
+      {title:"袖", seamLen:armSeam, cutInfo:"2枚（左右）", ...spc, foldX:null,
        grain:{x1:cx,y1:capH+10,x2:cx,y2:SL-10},
        notches:[{x:cx,y:capH*0.4}], labelAt:{x:cx,y:SL*0.62}},
-      {title:"衿（スタンドカラー）", cutInfo:"表布・裏布 各1枚／中表に縫って返し、衿ぐりに挟んで付ける", ...cpc, foldX:null,
+      {title:"衿（スタンドカラー）", seamLen:neckSeam, cutInfo:"表布・裏布 各1枚／中表に縫って返し、衿ぐりに挟んで付ける", ...cpc, foldX:null,
        grain:{x1:CL*0.5,y1:6,x2:CL*0.5,y2:CH-6},
        notches:[{x:CL/2,y:0}], labelAt:{x:CL*0.5,y:CH*0.55}}
     ],
