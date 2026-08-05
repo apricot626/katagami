@@ -55,11 +55,11 @@ function render(key, g){
   const ogImg = `https://katagami.org/ogp/${key}.png`;
   const lc = g.title.toLowerCase();
   // plural/mass nouns take no article ("...make dog clothes", "...make pants")
-  const makeTitle = /\b(pants|clothes|shorts|bloomers|warmers)\b/.test(lc)
+  const makeTitle = /\b(pants|clothes|shorts|bloomers|warmers|slippers)\b/.test(lc)
     ? `How to make ${lc}`
     : `How to make ${/^[aeiou]/.test(lc) ? "an" : "a"} ${lc}`;  // "an apron", "a tote bag"
   // same rule reused for meta descriptions: "for pants" vs "for a tote bag"
-  const forPhrase = /\b(pants|clothes|shorts|bloomers|warmers)\b/.test(lc)
+  const forPhrase = /\b(pants|clothes|shorts|bloomers|warmers|slippers)\b/.test(lc)
     ? `for ${lc}`
     : `for ${/^[aeiou]/.test(lc) ? "an" : "a"} ${lc}`;
   // Google shows about 60 characters of the title. Long pattern names would push

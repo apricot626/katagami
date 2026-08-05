@@ -6073,4 +6073,1999 @@ module.exports = {
     ],
     related: ["dollclothes", "teddy", "babytoy", "kidsdress"]
   },
+
+  /* ===================== bags ===================== */
+
+  ecobag: {
+    title: "Foldable shopping bag",
+    tab: "bag",
+    toolName: "Foldable shopping bag",
+    sizeStep: "Enter the finished width, height, gusset and handle length. Presets cover small, standard and large.",
+    desc: "How to sew a shopping bag that folds into its own pocket. Lightweight nylon keeps it small enough to live in a handbag.",
+    keywords: "shopping bag,eco bag,foldable tote,how to sew,sewing pattern,nylon,handmade",
+    lead: "A shopping bag that folds down into a small pocket sewn to its own side. In lightweight nylon it packs to the size of a purse, which is the only reason a spare bag ever actually gets carried.",
+    matNote: "standard size",
+    materials: [
+      "Main fabric (lightweight nylon or fine cotton) — about 110 cm wide × 90 cm (44 × 35 in)",
+      "Fabric for the fold-away pocket — about 15 × 20 cm (6 × 8 in)",
+      "Optional: a snap or short elastic to hold it folded"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the body (base on the fold), the handles and the pocket.",
+      "<strong>Cut</strong><br>Cut one body, two handles and one pocket.",
+      "<strong>Finish the edges</strong><br>Serge or zigzag, or use French seams — lightweight nylon frays quickly."
+    ],
+    sew: [
+      { h: "4-1. Make the handles and pocket", items: [
+        "Fold each handle in quarters lengthwise and topstitch both long edges.",
+        "Turn the pocket's opening edge under twice and stitch, then press the other three edges under."
+      ]},
+      { h: "4-2. Attach the pocket", items: [
+        "Topstitch the pocket to the outside of the body, low on one side, while the fabric is still flat.",
+        "This is the pocket the whole bag folds into, so stitch all three edges firmly."
+      ]},
+      { h: "4-3. Sew the body", items: [
+        "Fold the body at the base, right sides together, and sew both sides.",
+        "Pinch each base corner into a triangle and sew across to form the gusset."
+      ]},
+      { h: "4-4. Finish the opening and handles", items: [
+        "Turn the opening edge under twice and stitch.",
+        "Topstitch the handles to the inside of the opening with a stitched rectangle and a cross at each end.",
+        "Lightweight fabric plus a full shopping bag is a lot of load on four small squares of stitching, so go over them twice."
+      ]}
+    ],
+    sewNote: "Reinforce the handle attachments harder than feels necessary. Thin nylon tears at the stitch line long before the fabric itself gives way, and a bag of groceries finds that point immediately.",
+    tips: [
+      "<strong>French seams</strong>: they enclose every raw edge, which makes a thin bag far more durable.",
+      "<strong>Fold it small</strong>: roll from the base and tuck it into its pocket. A snap keeps it closed.",
+      "<strong>Ripstop</strong>: ripstop nylon is light, strong and packs down to almost nothing."
+    ],
+    related: ["tote", "azuma", "kinchaku", "bucketbag"]
+  },
+
+  bucketbag: {
+    title: "Bucket tote",
+    tab: "bag",
+    toolName: "Bucket tote",
+    sizeStep: "Enter the base diameter, bag height, handle length and cut width, and the opening fold. Presets cover small, standard and large.",
+    desc: "How to sew a cylindrical bucket tote with a round base. It stands up on its own and nothing falls to the corners.",
+    keywords: "bucket bag,bucket tote,round base bag,how to sew,sewing pattern,canvas,handmade",
+    lead: "A cylindrical bag with a round base that stands on its own. With no corners, the contents do not disappear into them and you can see everything from above. Canvas gives it the body it needs to hold the shape.",
+    matNote: "standard size",
+    materials: [
+      "Main fabric (8–11 oz canvas) — about 110 cm wide × 70 cm (44 × 28 in)",
+      "Lining fabric (sheeting or heavy cotton) — the same amount",
+      "Heavy fusible interfacing — for the base and body",
+      "Optional: a plastic base insert"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the base (a circle), the body and the handles. Trace the circle accurately or the base will not fit.",
+      "<strong>Cut</strong><br>Cut the base in main and lining, the body in main and lining (two panels each), and two handles.",
+      "<strong>Apply interfacing</strong><br>Fuse heavy interfacing to the main base and body if you want it to stand up."
+    ],
+    sew: [
+      { h: "4-1. Make the handles", items: [
+        "Fold each handle in quarters lengthwise, press, and topstitch 3 mm from both edges. Two parallel lines of stitching is what makes them look shop-bought."
+      ]},
+      { h: "4-2. Sew the body into a tube", items: [
+        "Sew the two main body panels together at both sides. Press the seams open.",
+        "Do the same with the lining, leaving a 12 cm (5 in) gap in one seam."
+      ]},
+      { h: "4-3. Attach the base", items: [
+        "Pin the base to the lower edge of the tube, right sides together. Pin at four points — the two side seams and the midpoints between them — then fill in.",
+        "Sew with the circle uppermost, turning the work gradually.",
+        "Clip the allowance every 1 cm so the base sits round rather than faceted.",
+        "Attach the lining base the same way."
+      ]},
+      { h: "4-4. Join and finish", items: [
+        "Turn the main bag right side out and slip it inside the lining, right sides together.",
+        "Catch the handle ends at even positions front and back as you sew around the opening. Check they are not twisted.",
+        "Turn through the gap in the lining, close it, push the lining in and topstitch around the opening."
+      ]}
+    ],
+    sewNote: "Setting the circular base is the only real skill here. Pin at four points and halve the gaps. If the circle seems to be running short or long, add pins and spread the difference — pulling it distorts the base and the bag leans.",
+    tips: [
+      "<strong>Base insert</strong>: a piece of plastic board cut to the base size stops it sagging when loaded.",
+      "<strong>Inner pocket</strong>: sew it to the lining before you make the lining into a tube. It cannot be done afterwards.",
+      "<strong>No corner gussets</strong>: a round base means no triangle-pinching step at all — this is simpler than a square tote."
+    ],
+    related: ["tote", "roundkinchaku", "shoulderbag", "lunchbag"]
+  },
+
+  backpack: {
+    title: "Backpack",
+    tab: "bag",
+    toolName: "Backpack",
+    sizeStep: "Enter the finished width, height, gusset, strap length and width, and the flap depth. Presets cover small, standard and large.",
+    desc: "How to sew a flap backpack. Body, gusset, flap and shoulder straps, closed with a buckle or hook-and-loop.",
+    keywords: "backpack,rucksack,day pack,how to sew,sewing pattern,canvas,handmade",
+    lead: "A flap-closing backpack. Two body panels, a continuous gusset, a flap and two shoulder straps. It has more pieces than most bags here, but each seam is straightforward and the result carries real weight. Canvas or nylon.",
+    matNote: "standard size",
+    materials: [
+      "Main fabric (canvas or nylon) — about 110 cm wide × 120 cm (44 × 47 in)",
+      "Lining fabric — the same amount",
+      "Heavy fusible interfacing — for the body",
+      "Webbing for the straps (about 4 cm / 1½ in wide) — the length you chose",
+      "Sliders and a buckle, or hook-and-loop — 1 set"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the body panels, the gusset, the flap and the straps.",
+      "<strong>Cut</strong><br>Cut everything in main and lining, plus two straps. The gusset is long — take it along the length of the fabric.",
+      "<strong>Apply interfacing</strong><br>Fuse heavy interfacing to the main body and gusset."
+    ],
+    sew: [
+      { h: "4-1. Make the straps and flap", items: [
+        "Fold self-fabric straps in quarters and topstitch, or cut webbing to length and seal the ends.",
+        "Sew the flap in main and lining, leaving the attachment edge open. Turn, press and topstitch."
+      ]},
+      { h: "4-2. Attach the straps to the back panel", items: [
+        "Stitch the strap tops to the back panel near the top, and the strap bottoms near the base.",
+        "Stitch each anchor as a rectangle with a cross through it, twice.",
+        "The straps carry everything the bag holds, so this is the joint that decides whether the bag survives."
+      ]},
+      { h: "4-3. Attach the gusset", items: [
+        "Match the center of the gusset to the center of the base of one body panel and pin outward from there.",
+        "Sew all the way around, clipping the gusset allowance at the base corners.",
+        "Attach the second body panel the same way. Assemble the lining likewise, leaving a gap."
+      ]},
+      { h: "4-4. Join and close", items: [
+        "Turn the main bag out and slip it inside the lining, right sides together, catching the flap at the back edge.",
+        "Sew around the opening, turn through the gap, close it and push the lining in.",
+        "Topstitch around the opening and fit the buckle or hook-and-loop."
+      ]}
+    ],
+    sewNote: "Work outward from the center when attaching the gusset. Starting at one end guarantees the two pieces run out of step and the last corner will not close.",
+    tips: [
+      "<strong>Webbing straps</strong>: stronger than self-fabric and far quicker. Add a shoulder pad if you carry weight.",
+      "<strong>Base reinforcement</strong>: a second layer of fabric on the base is worth the ten minutes.",
+      "<strong>Inner pocket</strong>: sew it to the lining while everything is still flat."
+    ],
+    related: ["gymbag", "bostonbag", "tote", "bodybag"]
+  },
+
+  roundkinchaku: {
+    title: "Round-base drawstring bag",
+    tab: "bag",
+    toolName: "Round-base drawstring bag",
+    sizeStep: "Enter the base diameter, bag height and the drawstring casing drop. Presets cover a cup bag, standard, lunch size and large.",
+    desc: "How to sew a drawstring bag with a circular base, so it stands up. Two cords, one from each side, close it evenly.",
+    keywords: "drawstring bag,round base,cup bag,lunch bag,how to sew,sewing pattern,handmade",
+    lead: "A drawstring bag with a round base, so it sits upright instead of flopping. That means a cup or a lunch box goes in standing rather than tipped. Two pieces, and threading a cord from each side lets it close evenly with one pull.",
+    matNote: "standard size",
+    materials: [
+      "Main fabric (oxford, sheeting or printed cotton) — about 60 × 50 cm (24 × 20 in)",
+      "Lining fabric — the same amount, if lining",
+      "Cord (about 5 mm / ³⁄₁₆ in) — the length given, × 2",
+      "Bodkin"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the base (a circle) and the body. Trace the circle accurately.",
+      "<strong>Cut</strong><br>Cut the base and two body panels, in main and lining if you are lining it.",
+      "<strong>Finish the edges</strong><br>Unlined, zigzag the side and base allowances."
+    ],
+    sew: [
+      { h: "4-1. Sew the sides, leaving the casing openings", items: [
+        "Sew the two body panels together at both sides.",
+        "Stop each seam at the casing drop measured down from the top — those unsewn sections are where the cords come out.",
+        "Press the allowances open there and topstitch them down in a narrow rectangle. Backstitch at the point where the seam stops."
+      ]},
+      { h: "4-2. Attach the base", items: [
+        "Pin the base to the lower edge of the tube, right sides together, at four points first, then fill in.",
+        "Sew with the circle uppermost, clipping the allowance every 1 cm.",
+        "Turn out and shape the base."
+      ]},
+      { h: "4-3. Make the casing", items: [
+        "Fold the opening edge under twice to the casing depth and stitch all the way around.",
+        "Check the channel connects to both side openings."
+      ]},
+      { h: "4-4. Thread the cords", items: [
+        "Thread one cord in through one opening, all the way around, and back out the same opening. Knot the ends.",
+        "Thread the second cord from the other opening.",
+        "One cord from each side is what lets it close evenly by pulling both."
+      ]}
+    ],
+    sewNote: "Both casing openings must stop at exactly the same height. Mark them on the two panels while they are stacked together, or the bag closes crooked.",
+    tips: [
+      "<strong>Cup bag size</strong>: the cup preset matches the size nurseries usually ask for.",
+      "<strong>Interface the base</strong>: heavy interfacing on the base makes it genuinely self-supporting.",
+      "<strong>Cord length</strong>: each cord should be about the circumference of the opening. Too short and it will not open fully."
+    ],
+    related: ["kinchaku", "kincgusset", "bucketbag", "laundrybag"]
+  },
+
+  bodybag: {
+    title: "Sling bag (crossbody)",
+    tab: "bag",
+    toolName: "Sling bag (crossbody)",
+    sizeStep: "Enter the finished width, height, gusset, lower corner radius, strap length and cut width. Presets cover small, standard and large.",
+    desc: "How to sew a compact crossbody sling bag with a zip. Body, gusset and an adjustable strap.",
+    keywords: "sling bag,crossbody bag,body bag,how to sew,sewing pattern,nylon,handmade",
+    lead: "A small bag worn across the body. The zip keeps everything in, and worn on the back it stays out of the way while you walk. Good as a day bag or as a second bag when travelling. Nylon or canvas.",
+    matNote: "standard size",
+    materials: [
+      "Main fabric (nylon or canvas) — about 70 × 60 cm (28 × 24 in)",
+      "Lining fabric — the same amount",
+      "Fusible interfacing — for the main fabric",
+      "Webbing or a self-fabric strap — the length you chose",
+      "Zip — to the opening width",
+      "A slider for adjustment — 1"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the body including the lower corner radius, the gusset and the strap.",
+      "<strong>Cut</strong><br>Cut two body panels and one gusset in main and lining, plus one strap.",
+      "<strong>Apply interfacing</strong><br>Fuse interfacing to the main pieces so the bag holds its shape when empty."
+    ],
+    sew: [
+      { h: "4-1. Make the strap", items: [
+        "For a self-fabric strap, fold in quarters, press and topstitch both edges. For webbing, cut and seal the ends.",
+        "Thread the slider on before attaching anything."
+      ]},
+      { h: "4-2. Insert the zip", items: [
+        "Sandwich the zip between the main fabric and the lining along the opening edge and sew all three layers.",
+        "Open them away from the zip and topstitch close to the teeth. Repeat on the other side."
+      ]},
+      { h: "4-3. Attach the gusset", items: [
+        "Match the center of the gusset to the base center of one body panel and pin outward.",
+        "Sew all the way around, catching the strap ends at the top of each side.",
+        "Attach the second body panel the same way, remembering to open the zip first so you can turn it."
+      ]},
+      { h: "4-4. Finish", items: [
+        "Turn through the open zip and shape the bag.",
+        "Topstitch around the gusset seams if you want a crisper edge."
+      ]}
+    ],
+    sewNote: "Open the zip before you sew the second body panel on. Sew it closed and the bag becomes a sealed pouch with no way to turn it right side out.",
+    tips: [
+      "<strong>Adjustable strap</strong>: a slider lets you wear it high at the chest or low at the hip.",
+      "<strong>Wear it forward</strong>: pulled round to the front in a crowd, it is far harder to get into.",
+      "<strong>Water-repellent fabric</strong>: this bag lives outdoors."
+    ],
+    related: ["waistbag", "sacoche", "phonepouch", "backpack"]
+  },
+
+  baginbag: {
+    title: "Bag-in-bag organizer",
+    tab: "bag",
+    toolName: "Bag-in-bag organizer",
+    sizeStep: "Enter the finished width, height, gusset, divider height and handle length. Presets cover small, standard and large.",
+    desc: "How to sew an organizer insert for a large bag. Dividers stop everything falling to the bottom, and it moves between bags.",
+    keywords: "bag organizer,bag in bag,insert,how to sew,sewing pattern,canvas,handmade",
+    lead: "An insert that stops everything in a large tote settling at the bottom. Stitch the divider vertically and pens, phone and keys each get a place. Change bags and you lift the whole thing across. It needs firm fabric or it collapses and defeats the point.",
+    matNote: "standard size",
+    materials: [
+      "Main fabric (canvas, oxford or quilted cotton) — about 110 cm wide × 60 cm (44 × 24 in)",
+      "Divider fabric — about 50 × 40 cm (20 × 16 in)",
+      "Heavy fusible interfacing — for the body",
+      "Optional: webbing for the handles"
+    ],
+    cut: [
+      "<strong>Measure the outer bag</strong><br>Measure the inside of the bag it goes into and make this 1–2 cm (½ in) smaller in width and height.",
+      "<strong>Trace the pattern</strong><br>Trace the body (base on the fold), the dividers and the handles.",
+      "<strong>Cut</strong><br>Cut one body, one or two dividers and two handles, then fuse heavy interfacing to the body."
+    ],
+    sew: [
+      { h: "4-1. Make the dividers", items: [
+        "Turn the top edge of each divider under twice and stitch. Do this first.",
+        "With two dividers, make them different heights so the contents are visible."
+      ]},
+      { h: "4-2. Attach the dividers", items: [
+        "Lay the body flat and position a divider the divider-height above the base fold.",
+        "Stitch vertically to create the pockets — about 2 cm (¾ in) for a pen, about 8 cm (3 in) for a phone.",
+        "Backstitch at the top of each line; that is where pockets tear.",
+        "Baste the lower and side edges within the seam allowance.",
+        "All of this must happen before the body becomes a tube — the machine arm cannot reach inside afterwards."
+      ]},
+      { h: "4-3. Sew the sides and gusset", items: [
+        "Fold the body at the base, right sides together, and sew both sides.",
+        "Pinch each base corner into a triangle and sew across at the gusset depth. Check both sides match before sewing.",
+        "Trim the triangles to 1 cm and finish the edges."
+      ]},
+      { h: "4-4. Finish the opening and handles", items: [
+        "Turn the opening edge under twice and stitch.",
+        "Stitch the handles inside the opening with a rectangle and a cross. They only have to lift the organizer out, so they can be short."
+      ]}
+    ],
+    sewNote: "Everything involving the dividers happens while the body is flat. Once the sides are sewn it becomes a tube, and there is no way to stitch a divider inside a tube on a domestic machine.",
+    tips: [
+      "<strong>Measure the host bag</strong>: 1–2 cm smaller in each direction is what makes it easy to lift in and out.",
+      "<strong>Dividers on both faces</strong>: front and back doubles the organization.",
+      "<strong>Firm interfacing matters</strong>: a soft organizer slumps inside the bag and does nothing at all."
+    ],
+    related: ["tote", "gadgetpouch", "pouchgusset", "boshitecho"]
+  },
+
+  wallet: {
+    title: "Long wallet",
+    tab: "bag",
+    toolName: "Long wallet",
+    sizeStep: "Enter the note width and height, card pocket height, coin section height and thickness. Presets cover standard, slim and large.",
+    desc: "How to sew a bi-fold long wallet that takes notes flat. Body, card pockets and a coin section.",
+    keywords: "long wallet,bifold wallet,how to sew,sewing pattern,card slots,handmade",
+    lead: "A long wallet that takes banknotes flat rather than folded. Body, card pockets and a coin section. Stitching the card pocket vertically decides how many slots you get, and interfacing is what keeps it looking like a wallet rather than a fabric envelope.",
+    matNote: "standard size",
+    materials: [
+      "Main fabric (faux leather, canvas or heavy cotton) — about 60 × 40 cm (24 × 16 in)",
+      "Lining fabric — the same amount",
+      "Card pocket fabric — about 40 × 30 cm (16 × 12 in)",
+      "Firm fusible interfacing — for the main fabric",
+      "Zip for the coin section — about 15 cm (6 in)",
+      "Snap fastener — 1 set"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the body, the card pockets and the coin section, and mark the center fold.",
+      "<strong>Cut</strong><br>Cut the body in main and lining, two or three card pockets and one coin section piece.",
+      "<strong>Apply interfacing</strong><br>Fuse firm interfacing to the main fabric."
+    ],
+    sew: [
+      { h: "4-1. Make the card pockets", items: [
+        "Turn the top edge of each card pocket under twice and stitch.",
+        "Stack them at staggered heights so each slot is visible."
+      ]},
+      { h: "4-2. Attach the pockets", items: [
+        "Lay them on the lining, from the lowest upward, aligning the sides.",
+        "Stitch vertically to divide them into slots — about 6 cm (2⅜ in) per card. Backstitch at the top of each line.",
+        "Work from the bottom up; attaching the top one first puts it under the presser foot when you sew the ones below."
+      ]},
+      { h: "4-3. Make the coin section", items: [
+        "Fold the coin piece in half and set the zip into the opening.",
+        "Attach it to the lining on the opposite side from the card pockets."
+      ]},
+      { h: "4-4. Assemble and fold", items: [
+        "Place main and lining right sides together and sew around, leaving a 12 cm (5 in) gap.",
+        "Trim the corners, turn, press and topstitch all the way around.",
+        "Fold at the center, load the wallet and fit the snap with everything inside."
+      ]}
+    ],
+    sewNote: "Attach card pockets from the bottom upward. Sew the top one on first and every pocket below it has to be sewn with the finished one bunched under the presser foot.",
+    tips: [
+      "<strong>Stagger the slots</strong>: each card should show a centimeter of itself so you can find the right one.",
+      "<strong>Do not over-interface</strong>: too stiff and the wallet springs open in your bag.",
+      "<strong>Faux leather</strong>: it has body without interfacing, but every needle hole is permanent."
+    ],
+    related: ["cardcase", "keycase", "gamaguchi", "passportcase"]
+  },
+
+  phonepouch: {
+    title: "Phone crossbody pouch",
+    tab: "bag",
+    toolName: "Phone crossbody pouch",
+    sizeStep: "Enter your phone's width, height and thickness, the flap depth, strap length and cut width. Presets cover standard, large-screen and slim.",
+    desc: "How to sew a small crossbody pouch for a phone. Body, flap and a shoulder strap — sized from your own phone.",
+    keywords: "phone pouch,phone crossbody,phone bag,how to sew,sewing pattern,handmade",
+    lead: "A small crossbody pouch that takes a phone and little else. For a walk or a quick errand that is all you need, and it leaves your hands free. Measure your own phone and it will actually fit — the flap keeps it in even if you run.",
+    matNote: "standard size",
+    materials: [
+      "Main fabric (canvas, faux leather or heavy cotton) — about 50 × 40 cm (20 × 16 in)",
+      "Lining fabric — the same amount",
+      "Fusible interfacing — for the main fabric",
+      "Webbing or a self-fabric strap — the length you chose",
+      "Snap or magnetic fastener — 1 set",
+      "Optional: a slider, swivel hook and D-rings"
+    ],
+    cut: [
+      "<strong>Measure your phone</strong><br>Measure width, height and thickness with the case on. The camera bump counts.",
+      "<strong>Trace the pattern</strong><br>Trace the body (base on the fold), the flap and the strap.",
+      "<strong>Cut</strong><br>Cut the body in main and lining, the flap in main and lining, and one strap."
+    ],
+    sew: [
+      { h: "4-1. Make the flap and strap", items: [
+        "Sew the flap main and lining right sides together, leaving the attachment edge open. Clip any curve, turn and topstitch.",
+        "For a self-fabric strap, fold in quarters and topstitch both edges."
+      ]},
+      { h: "4-2. Sew the sides and gusset", items: [
+        "Fold the body at the base, right sides together, and sew both sides.",
+        "Pinch each base corner into a triangle and sew across at the phone's thickness. It is a small measurement — use a ruler rather than eyeing it, and check both sides match.",
+        "Trim the triangles to 1 cm."
+      ]},
+      { h: "4-3. Attach the flap and strap", items: [
+        "Turn the opening edge under twice and stitch.",
+        "Stitch the flap to the back of the opening with two rows, or a rectangle with a cross.",
+        "Stitch the strap ends at the sides. D-rings here let you change the strap later.",
+        "Try the strap on before sewing it down — length is much easier to judge on the body than on the table."
+      ]},
+      { h: "4-4. Add the fastening", items: [
+        "Put the phone in, close the flap and mark where it lands.",
+        "A magnetic fastener opens one-handed, which matters on a bag you open while walking."
+      ]}
+    ],
+    sewNote: "The thickness measurement is where this usually goes wrong. Measure with the case on, at the thickest point, camera bump included. Entering 1 cm when the reality is 1.5 cm produces a pouch the phone will not go into.",
+    tips: [
+      "<strong>D-rings for a swappable strap</strong>: stitch D-rings to the bag and clip the strap on, and you can change it whenever you like.",
+      "<strong>Add a slider</strong>: it lets you adjust for wearing over a coat.",
+      "<strong>One inner pocket</strong>: on the lining, for a card or a key."
+    ],
+    related: ["sacoche", "bodybag", "waistbag", "pouchgusset"]
+  },
+
+  lunchbag: {
+    title: "Insulated lunch bag",
+    tab: "bag",
+    toolName: "Insulated lunch bag",
+    sizeStep: "Enter the lunch box width, depth and height, and the handle length and cut width. Presets cover one-tier, two-tier and large.",
+    desc: "How to sew a boxy lunch bag that holds a lunch box upright. Insulating lining keeps things cool.",
+    keywords: "lunch bag,insulated bag,bento bag,how to sew,sewing pattern,handmade",
+    lead: "A boxy bag that holds a lunch box upright rather than letting it tip. That is the whole point — a tipped lunch box leaks. Line it with insulating fabric for summer, and measure your own box so the fit is right.",
+    matNote: "standard, one-tier",
+    materials: [
+      "Main fabric (oxford, quilted cotton or canvas) — about 60 × 60 cm (24 × 24 in)",
+      "Lining fabric (insulating sheet or water-repellent fabric) — the same amount",
+      "Webbing or a self-fabric handle — the length you chose, × 2",
+      "Optional: hook-and-loop to close the opening"
+    ],
+    cut: [
+      "<strong>Measure the lunch box</strong><br>Width, depth and height. If an ice pack goes in too, add its thickness.",
+      "<strong>Trace the pattern</strong><br>Trace the body (base on the fold) and the handles.",
+      "<strong>Cut</strong><br>Cut the body in main and lining, and two handles. Insulating sheet can be left raw."
+    ],
+    sew: [
+      { h: "4-1. Make the handles", items: [
+        "Fold self-fabric handles in quarters and topstitch, or cut webbing to length and seal the ends."
+      ]},
+      { h: "4-2. Sew the main body and gusset", items: [
+        "Fold the main body at the base, right sides together, and sew both sides.",
+        "Pinch each base corner into a triangle, matching the side seam to the base fold exactly.",
+        "Sew across at the depth of the lunch box. Check both sides measure the same before you sew — this is what decides whether the box sits level.",
+        "Trim the triangles to 1 cm."
+      ]},
+      { h: "4-3. Sew the lining", items: [
+        "Make the lining the same way, leaving a 12 cm (5 in) gap in one side seam.",
+        "Insulating sheet is bulky — press its seam allowances to one side rather than open."
+      ]},
+      { h: "4-4. Join and finish", items: [
+        "Turn the main bag out and slip it inside the lining, right sides together.",
+        "Catch the handle ends front and back as you sew around the opening.",
+        "Turn through the gap, close it, push the lining in and topstitch around the opening."
+      ]}
+    ],
+    sewNote: "Both gussets must be identical. If the side seam and base fold are not exactly aligned when you pinch the triangle, one side ends up deeper and the lunch box sits at an angle — which is how it leaks.",
+    tips: [
+      "<strong>Insulating sheet as lining</strong>: sold as thermal or foil-backed sheeting. It makes a real difference in summer.",
+      "<strong>Close the opening</strong>: hook-and-loop across the top improves insulation and stops things falling out.",
+      "<strong>Two-tier boxes are tall</strong>: taller than people expect. Use the two-tier preset or measure."
+    ],
+    related: ["kincgusset", "bottleholder", "flaskcover", "tote"]
+  },
+
+  cosmepouch: {
+    title: "Cosmetic pouch (stand-up)",
+    tab: "bag",
+    toolName: "Cosmetic pouch (stand-up)",
+    sizeStep: "Enter the opening width, base width, height and base depth. Presets cover small, standard and large.",
+    desc: "How to sew a trapezoid cosmetic pouch that stands up and opens wide. Two body pieces plus a base.",
+    keywords: "cosmetic pouch,makeup bag,stand up pouch,how to sew,sewing pattern,quilted,handmade",
+    lead: "A trapezoid pouch with a wide base that opens up so you can see inside. Make-up stands upright rather than lying in a heap, and it stays put on a bathroom shelf. Interfacing or quilted fabric is what makes it stand.",
+    matNote: "standard size",
+    materials: [
+      "Main fabric (quilted cotton, canvas or oxford) — about 50 × 40 cm (20 × 16 in)",
+      "Lining fabric (light cotton or water-repellent fabric) — the same amount",
+      "Heavy fusible interfacing — for the main fabric (not needed with quilted fabric)",
+      "Zip — about 2 cm (¾ in) longer than the opening"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the body (a trapezoid) and the base (a rectangle).",
+      "<strong>Cut</strong><br>Cut two body pieces and one base, in both main and lining.",
+      "<strong>Apply interfacing</strong><br>Unless you are using quilted fabric, fuse heavy interfacing to the main pieces."
+    ],
+    sew: [
+      { h: "4-1. Insert the zip", items: [
+        "Lay the zip right sides together on the top edge of one body piece, add the lining on top, and sew all three layers.",
+        "Open the fabrics away and topstitch close to the teeth.",
+        "Attach the second body piece to the other side of the zip the same way."
+      ]},
+      { h: "4-2. Sew the sides", items: [
+        "Open the zip halfway — with it closed you cannot turn the pouch afterwards.",
+        "Arrange main against main and lining against lining, right sides together, and sew the sloping side edges.",
+        "The sides are angled, so line the top corners up carefully before sewing or the pouch will be lopsided."
+      ]},
+      { h: "4-3. Attach the base", items: [
+        "Pin the base to the lower edges, right sides together, matching the four corners first.",
+        "Sew all the way around, turning the work at each corner with the needle down.",
+        "Attach the lining base the same way, leaving an 8 cm (3 in) gap in one edge."
+      ]},
+      { h: "4-4. Turn and finish", items: [
+        "Turn everything through the gap in the lining.",
+        "Close the gap, push the lining inside and shape the corners.",
+        "Check it stands up and that the opening falls open when unzipped."
+      ]}
+    ],
+    sewNote: "Match the four corners of the base before you sew any of it. The lengths work out exactly on paper, but sewing from one end without matching the corners leaves you with fabric spare at the far end every time.",
+    tips: [
+      "<strong>Quilted fabric is the shortcut</strong>: it skips the interfacing step entirely and stands just as well.",
+      "<strong>Wipe-clean lining</strong>: laminate or coated nylon means a leaked bottle is not a disaster.",
+      "<strong>Zip length</strong>: 2 cm longer than the opening, or the metal stops land inside the side seam."
+    ],
+    related: ["pouchgusset", "pencase", "gadgetpouch", "pouch"]
+  },
+
+  passportcase: {
+    title: "Passport case",
+    tab: "bag",
+    toolName: "Passport case",
+    sizeStep: "Enter the passport width and height, the contents thickness and the card pocket height. Presets cover 1 person, 2 people and a family of 4.",
+    desc: "How to sew a bi-fold travel wallet for passports, tickets, cards and currency.",
+    keywords: "passport case,travel wallet,document holder,how to sew,sewing pattern,handmade",
+    lead: "A bi-fold case that keeps passports, boarding passes, cards and local currency in one place, so you are not searching a bag at the gate. Sized for a family, it lets you hand over everyone's documents at once, which is worth a great deal at immigration.",
+    matNote: "2 people",
+    materials: [
+      "Main fabric (canvas, faux leather or heavy cotton) — about 50 × 40 cm (20 × 16 in)",
+      "Lining fabric (light cotton) — the same amount",
+      "Pocket fabric — about 40 × 30 cm (16 × 12 in)",
+      "Firm fusible interfacing — for the main fabric",
+      "Optional: a snap or elastic closure"
+    ],
+    cut: [
+      "<strong>Measure the contents</strong><br>Measure a passport, and stack everything you intend to carry to get the thickness.",
+      "<strong>Trace the pattern</strong><br>Trace the body, the card pocket and the ticket pocket, and mark the center fold.",
+      "<strong>Cut</strong><br>Cut the body in main and lining, one card pocket and one ticket pocket, and fuse interfacing to the main fabric."
+    ],
+    sew: [
+      { h: "4-1. Make the pockets", items: [
+        "Turn the top edge of each pocket under twice and stitch. Do this before they go near the case."
+      ]},
+      { h: "4-2. Attach the pockets", items: [
+        "Lay the card pocket on one side of the center fold on the lining, and the ticket pocket on the other.",
+        "Stitch the card pocket vertically into slots, about 6 cm (2⅜ in) each. Backstitch at the top of every line.",
+        "Making the ticket pocket full height lets a passport slot in behind its cover, which holds it open at the photo page.",
+        "Baste the lower and side edges within the seam allowance."
+      ]},
+      { h: "4-3. Sew the layers together", items: [
+        "Place main and lining right sides together and sew around, leaving a 12 cm (5 in) gap.",
+        "Trim the corners, turn, press and topstitch all the way around."
+      ]},
+      { h: "4-4. Fold and close", items: [
+        "Fold at the center and press.",
+        "Load it and fit the snap or elastic with everything inside."
+      ]}
+    ],
+    sewNote: "Measure the thickness for real. One passport is about 5 mm; four passports with boarding passes and cards comes to nearly 2 cm. Leave that out and the case is held open by its own contents.",
+    tips: [
+      "<strong>Add a pen loop</strong>: you will need a pen for landing cards, and there is never one to hand.",
+      "<strong>Faux leather</strong>: no interfacing needed, but sew it once — the needle holes are permanent.",
+      "<strong>Also a passbook case</strong>: at other sizes this is a passbook or record book case."
+    ],
+    related: ["boshitecho", "bankbook", "cardcase", "wallet"]
+  },
+
+  laptopcase: {
+    title: "Laptop sleeve",
+    tab: "bag",
+    toolName: "Laptop sleeve",
+    sizeStep: "Enter your laptop's width, depth, thickness, ease and the flap depth. Presets cover 13, 14 and 16 inch.",
+    desc: "How to sew a padded laptop sleeve. One piece folded at the base with batting inside — sized from your own machine.",
+    keywords: "laptop sleeve,laptop case,padded sleeve,how to sew,sewing pattern,batting,handmade",
+    lead: "A padded sleeve for a laptop. Shop-bought sleeves come in a handful of sizes and rarely fit any particular machine properly. Measure your own and there is no slop and no squeeze. A layer of batting is all it takes to protect it in a bag.",
+    matNote: "14 inch",
+    materials: [
+      "Main fabric (canvas, corduroy or heavy cotton) — about 60 × 60 cm (24 × 24 in)",
+      "Lining fabric (flannel or brushed cotton — something soft) — the same amount",
+      "Fusible batting (medium) — the same amount",
+      "Hook-and-loop or a magnetic fastener — 1 set"
+    ],
+    cut: [
+      "<strong>Measure the laptop</strong><br>Width, depth and thickness. Measure the thickness at its greatest point — hinge and feet included.",
+      "<strong>Trace the pattern</strong><br>Trace the body. It is one piece folded at the base, with the flap continuing above.",
+      "<strong>Cut</strong><br>Cut the main and lining, and the batting 1 cm smaller all round so the seams are not bulky.",
+      "<strong>Fuse the batting</strong><br>Press it onto the wrong side of the main fabric, pressing straight down rather than gliding."
+    ],
+    sew: [
+      { h: "4-1. Sew the layers together", items: [
+        "Place main and lining right sides together and sew around, leaving a 15 cm (6 in) gap.",
+        "Trim the corners and cut the allowance back to 7 mm — with batting in there it will not turn otherwise."
+      ]},
+      { h: "4-2. Turn and topstitch", items: [
+        "Turn through the gap and ease the corners out.",
+        "Press with a cloth and a light hand so the batting is not flattened.",
+        "Topstitch 5 mm from the edge all the way around, closing the gap.",
+        "You now have one large two-sided rectangle."
+      ]},
+      { h: "4-3. Fold and stitch the sides", items: [
+        "Fold up from the marked line, leaving the flap standing above.",
+        "Stitch both sides 3 mm from the edge. Increase the presser foot pressure, or work the handwheel by hand.",
+        "Backstitch at both ends, then run a second line just inside the first — a laptop is heavy."
+      ]},
+      { h: "4-4. Add the fastening", items: [
+        "Put the laptop in, close the flap and mark where it lands.",
+        "Fit hook-and-loop or a magnetic fastener 3 mm outside the mark to allow for the thickness."
+      ]}
+    ],
+    sewNote: "Do not skip the measuring. A 13 inch label describes the screen, not the machine, and two 13 inch laptops can differ by more than 2 cm in width. Measure, then add the ease.",
+    tips: [
+      "<strong>Brushed lining</strong>: the surface the lid rests against. A napped fabric will not scratch it.",
+      "<strong>Medium batting</strong>: too thin and it protects nothing; too thick and the sleeve will not go in a bag.",
+      "<strong>Add a handle</strong>: a self-fabric loop caught in the side seam makes it easier to carry around the house."
+    ],
+    related: ["tabletcase", "gadgetpouch", "baginbag", "pouchgusset"]
+  },
+
+  tabletcase: {
+    title: "Tablet case",
+    tab: "bag",
+    toolName: "Tablet case",
+    sizeStep: "Enter your tablet's width, height, thickness, ease and the flap depth. Presets cover 8, 10 and 12 inch.",
+    desc: "How to sew a padded tablet case with a flap. Slim enough to fit inside a school bag.",
+    keywords: "tablet case,iPad case,school tablet,how to sew,sewing pattern,batting,handmade",
+    lead: "A flap case for a tablet. With one device per child in many schools now, a lot of people suddenly need one of these. Made at home it is lighter than a bought case, fits inside a school bag, and can carry a name where the teacher can see it.",
+    matNote: "10 inch",
+    materials: [
+      "Main fabric (quilted cotton, canvas or heavy cotton) — about 50 × 50 cm (20 × 20 in)",
+      "Lining fabric (flannel or light cotton) — the same amount",
+      "Fusible batting (medium) — the same amount, unless using quilted fabric",
+      "Snap or hook-and-loop — 1 set",
+      "Optional: a fabric name label"
+    ],
+    cut: [
+      "<strong>Measure the tablet</strong><br>Width, height and thickness. If it stays in its own case, measure it with the case on.",
+      "<strong>Trace the pattern</strong><br>Trace the body — one piece folded at the base with the flap above.",
+      "<strong>Cut</strong><br>Cut the main, lining and batting.",
+      "<strong>Fuse the batting</strong><br>Press it onto the main fabric. With quilted fabric, skip this."
+    ],
+    sew: [
+      { h: "4-1. Sew the layers together", items: [
+        "Place main and lining right sides together and sew around, leaving a 12 cm (5 in) gap.",
+        "Trim the corners and cut the allowance back to 7 mm."
+      ]},
+      { h: "4-2. Turn and topstitch", items: [
+        "Turn through the gap and ease the corners out.",
+        "Press with a cloth, then topstitch 5 mm from the edge all the way around."
+      ]},
+      { h: "4-3. Fold and stitch the sides", items: [
+        "Fold up from the marked line, leaving the flap above.",
+        "Stitch both sides 3 mm from the edge, backstitching at both ends."
+      ]},
+      { h: "4-4. Fastening and name", items: [
+        "Put the tablet in, close the flap and mark the fastening position.",
+        "Fit the snap or hook-and-loop.",
+        "Sew a name label to the outside of the flap. Every tablet in the classroom looks identical."
+      ]}
+    ],
+    sewNote: "Keep it slim if it has to go in a school bag. Two layers of batting protect better but the case then will not fit alongside the books. Medium batting, one layer, and no more than 1.5 cm of ease.",
+    tips: [
+      "<strong>Quilted fabric</strong>: skips the batting step and comes in prints children like.",
+      "<strong>Name it outside</strong>: not inside. The point is that a teacher can hand it back.",
+      "<strong>Add a loop</strong>: caught in the side seam, so it is less likely to be dropped."
+    ],
+    related: ["laptopcase", "ehonbag", "bousaizukin", "gadgetpouch"]
+  },
+
+  waistbag: {
+    title: "Belt bag (waist pack)",
+    tab: "bag",
+    toolName: "Belt bag (waist pack)",
+    sizeStep: "Enter the finished width, height, gusset, flap depth, belt length and cut width. Presets cover small, standard and a sling-style version.",
+    desc: "How to sew a belt bag you can wear at the waist or across the chest. Body, flap and an adjustable belt.",
+    keywords: "belt bag,waist pack,fanny pack,sling bag,how to sew,sewing pattern,handmade",
+    lead: "A small bag worn at the waist or across the chest — the belt length decides which. Hands free, and everything stays where you can feel it. Good for travel, walks, festivals and theme parks.",
+    matNote: "standard size",
+    materials: [
+      "Main fabric (nylon, canvas or heavy cotton) — about 70 × 60 cm (28 × 24 in)",
+      "Lining fabric (light cotton) — the same amount",
+      "Fusible interfacing — for the main fabric",
+      "Webbing or a self-fabric belt — the length you chose",
+      "A side-release buckle and slider — 1 each",
+      "Snap or magnetic fastener — 1 set"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the body (base on the fold), the flap and the belt.",
+      "<strong>Cut</strong><br>Cut the body in main and lining, the flap in main and lining, and one belt.",
+      "<strong>Apply interfacing</strong><br>Fuse interfacing to the main fabric so the bag keeps its shape when it is not full."
+    ],
+    sew: [
+      { h: "4-1. Make the flap and belt", items: [
+        "Sew the flap main and lining right sides together, leaving the attachment edge open. Clip the corner curves, turn, press and topstitch.",
+        "For a self-fabric belt, fold in quarters and topstitch. For webbing, cut and seal the ends."
+      ]},
+      { h: "4-2. Sew the sides and gusset", items: [
+        "Fold the main body at the base, right sides together, and sew both sides. Do the same with the lining, leaving a 10 cm (4 in) gap.",
+        "Pinch each base corner into a triangle and sew across at the gusset depth. Check both sides match."
+      ]},
+      { h: "4-3. Attach the flap and belt", items: [
+        "Turn the main bag out and slip it inside the lining, right sides together.",
+        "Catch the flap at the back edge and the belt ends at the sides as you sew around the opening.",
+        "Check the belt is not twisted before you sew."
+      ]},
+      { h: "4-4. Finish", items: [
+        "Turn through the gap in the lining, close it, push the lining in and topstitch around the opening.",
+        "Thread the buckle and slider onto the belt.",
+        "Load the bag, close the flap and fit the snap or magnetic fastener."
+      ]}
+    ],
+    sewNote: "The belt attachment is the highest-stress point on this bag. Backstitch two or three times, or stitch a rectangle with a cross. Webbing itself is strong; the stitching holding it is what fails, and when it does the bag goes on the ground.",
+    tips: [
+      "<strong>Belt length changes the bag</strong>: about 100 cm (39 in) for the waist, about 140 cm (55 in) to wear across the body. A slider covers both.",
+      "<strong>Magnetic fastener</strong>: opens one-handed while walking, which is exactly how this bag gets used.",
+      "<strong>Water-repellent fabric</strong>: it is an outdoor bag, so a sudden shower should not matter."
+    ],
+    related: ["bodybag", "sacoche", "petpouch", "phonepouch"]
+  },
+
+  bostonbag: {
+    title: "Boston bag",
+    tab: "bag",
+    toolName: "Boston bag",
+    sizeStep: "Enter the finished width, height, gusset, handle length and cut width, and the base corner radius. Presets cover 1 night, 2 nights and a sports size.",
+    desc: "How to sew a Boston bag for a night or two away. Two body panels, one continuous gusset and two handles.",
+    keywords: "boston bag,duffel bag,weekend bag,how to sew,sewing pattern,canvas,handmade",
+    lead: "A roomy bag for a night or two away. The gusset is one continuous strip that forms the base and both sides, so there are only two seams joining it to the body panels. It looks like a complicated bag and is not.",
+    matNote: "2 nights",
+    materials: [
+      "Main fabric (8–11 oz canvas or nylon) — about 110 cm wide × 150 cm (44 × 59 in)",
+      "Lining fabric (sheeting or nylon) — the same amount",
+      "Heavy fusible interfacing — for the body",
+      "Webbing for the handles (about 4 cm / 1½ in wide) — the length you chose, × 2",
+      "Zip — about the width of the opening",
+      "Optional: a plastic base insert"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the body panels, the gusset and the handles. The gusset is a long strip — its length is the width plus twice the height.",
+      "<strong>Cut</strong><br>Cut two body panels and one gusset in main and lining, plus two handles. Take the gusset along the length of the fabric.",
+      "<strong>Apply interfacing</strong><br>Fuse heavy interfacing to the main body and gusset."
+    ],
+    sew: [
+      { h: "4-1. Make the handles", items: [
+        "Fold self-fabric handles in quarters and topstitch both edges, with webbing inside for comfort if you like.",
+        "For webbing handles, cut to length and seal the ends."
+      ]},
+      { h: "4-2. Attach the handles", items: [
+        "Stitch a handle to each body panel, positioned symmetrically.",
+        "Run two lines of stitching from the handle end down about a third of the bag's height, and finish the top with a rectangle and a cross.",
+        "That long attachment is what stops handles pulling out. Stitched only at the top, they will come off.",
+        "Do this while the panels are still flat."
+      ]},
+      { h: "4-3. Attach the gusset", items: [
+        "Match the center of the gusset to the center of the base of one body panel and pin.",
+        "Work outward from there — base, then base corners, then up the sides — pinning a little at a time.",
+        "Clip the gusset allowance at the base corners so it turns.",
+        "Attach the second body panel the same way. Assemble the lining likewise, leaving a 15 cm (6 in) gap."
+      ]},
+      { h: "4-4. Insert the zip and finish", items: [
+        "Turn the main bag out and slip it inside the lining, right sides together.",
+        "Sandwich the zip in the opening and sew all the way around. Open the zip halfway first.",
+        "Turn through the gap, close it, push the lining in and topstitch around the opening.",
+        "Cut a plastic board to the base size and drop it in."
+      ]}
+    ],
+    sewNote: "Always work outward from the center of the gusset. Start at one end and the two pieces run out of step, so by the far corner you are easing in several centimeters of gusset that has nowhere to go.",
+    tips: [
+      "<strong>The handles are everything</strong>: a travel bag is heavy. Stitch them a third of the way down the body or they will pull out.",
+      "<strong>Base insert</strong>: plastic board cut to the base keeps the bag flat when loaded.",
+      "<strong>Add a shoulder strap</strong>: D-rings at each end let you add one later, which matters over any distance."
+    ],
+    related: ["tote", "backpack", "lunchbag", "bucketbag"]
+  },
+
+  gadgetpouch: {
+    title: "Gadget pouch",
+    tab: "bag",
+    toolName: "Gadget pouch",
+    sizeStep: "Enter the finished width, height, gusset and pocket height. Presets cover small, standard and large.",
+    desc: "How to sew a book-style pouch for chargers and cables. Mesh pockets and elastic loops keep everything visible.",
+    keywords: "gadget pouch,cable organizer,tech pouch,how to sew,sewing pattern,travel,handmade",
+    lead: "A pouch that keeps chargers, cables and earphones in order. Run the zip around three sides and it opens flat like a book, so you can see everything at once. That small stress of untangling cables in a bag simply disappears.",
+    matNote: "standard size",
+    materials: [
+      "Main fabric (canvas, nylon or heavy cotton) — about 50 × 40 cm (20 × 16 in)",
+      "Lining fabric (light cotton, or mesh) — the same amount",
+      "Pocket fabric (mesh lets you see the contents) — about 30 × 20 cm (12 × 8 in)",
+      "Fusible interfacing — for the main fabric",
+      "Flat elastic (1.5 cm / ⅝ in wide) — about 40 cm (16 in)",
+      "Zip — long enough to run around three sides"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the body (base on the fold), the pockets and the elastic backing strips.",
+      "<strong>Cut</strong><br>Cut the body in main and lining, one or two pockets and one or two backing strips.",
+      "<strong>Apply interfacing</strong><br>Fuse interfacing to the main fabric so it holds its shape when open."
+    ],
+    sew: [
+      { h: "4-1. Make and attach the pockets", items: [
+        "Turn the top edge of each pocket under twice and stitch. With mesh, bind the top edge with bias tape instead.",
+        "Stitch a pocket to one face of the lining and divide it vertically into two or three compartments.",
+        "Backstitch at the top of each dividing line."
+      ]},
+      { h: "4-2. Add the elastic loops", items: [
+        "Lay the elastic across the other face of the lining, cover it with the backing strip, and stitch across at both ends and at each division.",
+        "Space the divisions 3–5 cm (1½–2 in) apart so a cable slots into each.",
+        "Leave the elastic slack as you sew. Stitched taut, nothing will fit under it.",
+        "Do all of this while everything is still flat."
+      ]},
+      { h: "4-3. Insert the zip", items: [
+        "Lay the zip along the top edge and around both upper sides — three sides in all — sandwiched between main and lining, and sew.",
+        "Open the fabrics away and topstitch close to the teeth.",
+        "The three-sided zip is what lets it open flat like a book."
+      ]},
+      { h: "4-4. Sew the sides and gusset", items: [
+        "Open the zip halfway, arrange main to main and lining to lining, and sew the remaining side seams. Leave a 10 cm (4 in) gap in the lining.",
+        "Pinch the base corners into triangles and sew across at the gusset depth.",
+        "Turn through the gap, close it and push the lining in."
+      ]}
+    ],
+    sewNote: "Sew the elastic slack, not taut. About 5 mm of slack per compartment is what lets both a thin cable and a chunky charger fit under it. Stitched tight, the loops are decorative.",
+    tips: [
+      "<strong>Mesh pockets</strong>: you can see what is in them without opening anything.",
+      "<strong>The zip must go round three sides</strong>: with a zip along the top only, this is just a pouch. The book opening is the entire point.",
+      "<strong>Keep it slim</strong>: a 5 cm gusset is plenty. Deeper and it stops fitting inside a bag."
+    ],
+    related: ["pencase", "cosmepouch", "baginbag", "laptopcase"]
+  },
+
+  ehonbag: {
+    title: "Book bag (lesson bag)",
+    tab: "bag",
+    toolName: "Book bag (lesson bag)",
+    sizeStep: "Enter the finished width and height, and the handle length and cut width. Presets cover the usual nursery size (40 × 30), small and large.",
+    desc: "How to sew a flat book bag with no gusset. One piece folded at the base plus two handles.",
+    keywords: "book bag,lesson bag,library bag,school,how to sew,sewing pattern,quilted,handmade",
+    lead: "The flat tote that nurseries and schools ask for, usually with an exact size specified. Shop-bought ones rarely match, which is why so many people make one. The body is a single piece and you sew two side seams — it is a genuine first project.",
+    matNote: "nursery standard (40 × 30)",
+    materials: [
+      "Main fabric (quilted cotton, oxford or canvas) — about 110 cm wide × 70 cm (44 × 28 in)",
+      "Lining fabric (sheeting or light cotton) — the same amount",
+      "Webbing for the handles (2.5–3 cm / 1 in wide) — the length you chose, × 2",
+      "Optional: an appliqué or name label"
+    ],
+    cut: [
+      "<strong>Check the specified size</strong><br>Schools give it as height × width. Enter those numbers as they are — they are finished dimensions, not cutting dimensions.",
+      "<strong>Trace the pattern</strong><br>The body is a rectangle folded at the base, so mark it straight onto the fabric.",
+      "<strong>Cut</strong><br>Cut the body in main and lining, plus two handles.",
+      "<strong>Finish the edges</strong><br>Quilted fabric frays fast — zigzag the edges as soon as you cut, or sew straight away."
+    ],
+    sew: [
+      { h: "4-1. Position the handles", items: [
+        "Lay the main body flat and place the handle ends at the marked points on the opening edge, front and back.",
+        "Make sure the loops face outward, not inward — get this wrong and they end up inside the bag after turning.",
+        "Baste them 1 cm from the edge.",
+        "Do this while the fabric is still flat."
+      ]},
+      { h: "4-2. Sew the sides", items: [
+        "Fold the main body at the base, right sides together, and sew both sides.",
+        "Do the same with the lining, leaving a 12 cm (5 in) gap in one side.",
+        "Press the seam allowances open."
+      ]},
+      { h: "4-3. Join the layers", items: [
+        "Turn the main bag right side out and slip it inside the lining, right sides together.",
+        "Match the side seams to each other and pin, then sew all the way around the opening.",
+        "Backstitch two or three times where the handles are caught."
+      ]},
+      { h: "4-4. Turn and finish", items: [
+        "Turn through the gap in the lining and close it by machine.",
+        "Push the lining inside, shape the opening and press.",
+        "Topstitch 5 mm from the opening edge so the lining cannot roll out."
+      ]}
+    ],
+    sewNote: "The size a school gives is the finished size, and this pattern takes finished sizes too — so enter their numbers unchanged. Adding seam allowance yourself makes the bag a size too big for the locker, which is the most common mistake here.",
+    tips: [
+      "<strong>Quilted fabric</strong>: enough body to stop picture books bending, and it survives daily use.",
+      "<strong>Webbing handles</strong>: stronger and quicker than self-fabric, and they look right.",
+      "<strong>Make the set</strong>: a shoe bag, a gym bag and a cup bag in the same fabric covers the whole nursery list."
+    ],
+    related: ["tote", "shoesbag", "gymbag", "kincgusset"]
+  },
+
+  /* ===================== pets ===================== */
+
+  petbed: {
+    title: "Pet bed",
+    tab: "pet",
+    toolName: "Pet bed",
+    sizeStep: "Enter the inner diameter, bolster height and bolster thickness. Presets cover cat/small dog, medium and large.",
+    desc: "How to sew a round pet bed with a stuffed bolster around the edge. A base circle plus a long padded rim.",
+    keywords: "pet bed,dog bed,cat bed,how to sew,sewing pattern,fleece,handmade",
+    lead: "A round bed with a stuffed rim to rest a head on. A base circle and one long strip that becomes the bolster. Fleece or boa fabric for winter; cotton for summer. Make it washable — that matters more than anything else here.",
+    matNote: "cat / small dog",
+    materials: [
+      "Main fabric (fleece, boa or quilted cotton) — about 110 cm wide × 100 cm (44 × 39 in)",
+      "Toy stuffing — 400–800 g (14–28 oz) depending on size",
+      "Optional: non-slip fabric for the base"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the base (a circle) and the bolster (a long strip). Trace the circle accurately.",
+      "<strong>Cut</strong><br>Cut two base circles and two bolster strips (join them if your fabric is not long enough).",
+      "<strong>Finish the edges</strong><br>Fleece does not fray. Zigzag anything that does."
+    ],
+    sew: [
+      { h: "4-1. Make the bolster", items: [
+        "Sew the bolster strips together at their short ends to make one long loop.",
+        "Fold it in half lengthwise, right sides together, and sew the long edge, leaving a gap for stuffing.",
+        "Turn it right side out."
+      ]},
+      { h: "4-2. Make the base", items: [
+        "Sew the two base circles right sides together, leaving a gap. Turn and close the gap.",
+        "For extra comfort, quilt a layer of batting between them."
+      ]},
+      { h: "4-3. Attach the bolster", items: [
+        "Pin the raw lower edge of the bolster around the edge of the base, matching at four points first.",
+        "Sew all the way around."
+      ]},
+      { h: "4-4. Stuff and close", items: [
+        "Push stuffing into the bolster a little at a time, working around the ring.",
+        "Fill it firmly enough to hold its shape — an under-stuffed bolster collapses and the bed becomes a mat.",
+        "Close the stuffing gap with ladder stitch."
+      ]}
+    ],
+    sewNote: "Stuff the bolster in small handfuls, working right around the ring rather than filling one section at a time. Fill one part fully and the stuffing packs solid there while the far side stays empty.",
+    tips: [
+      "<strong>Make it washable</strong>: pet beds need washing often. Washable fabric and washable stuffing, and a separate cover if you can manage it.",
+      "<strong>Non-slip base</strong>: stops the bed skating across a wooden floor when the dog gets in.",
+      "<strong>Size it generously</strong>: measure the animal curled up and add a good margin — they spread out more than you expect."
+    ],
+    related: ["petmat", "petcarrier", "cushioncover", "chairpad"]
+  },
+
+  petcape: {
+    title: "Pet raincoat",
+    tab: "pet",
+    toolName: "Pet raincoat",
+    sizeStep: "Enter back length, chest, neck, ease, strap length and cut width. Presets cover small, medium and large dogs.",
+    desc: "How to sew a cape-style raincoat for a dog. No legs to thread, so it goes on quickly even on a reluctant dog.",
+    keywords: "dog raincoat,pet raincoat,dog cape,how to sew,sewing pattern,waterproof,handmade",
+    lead: "A cape that covers the back, fastening with straps at the neck and belly. Because there are no legs to thread, even a dog that hates being dressed will tolerate it. Water-repellent or laminated fabric makes wet walks far less of an ordeal.",
+    matNote: "medium dog",
+    materials: [
+      "Main fabric (water-repellent fabric, laminate or nylon) — about 110 cm wide × 80 cm (44 × 31 in)",
+      "Lining fabric (mesh or light cotton), if lining",
+      "Hook-and-loop — 2.5 cm (1 in) wide × 30 cm (12 in)",
+      "Optional: reflective tape for night walks"
+    ],
+    cut: [
+      "<strong>Measure your dog</strong><br>Measure the back from the base of the neck to the base of the tail, the chest at its widest, and the neck where the collar sits. Measure standing.",
+      "<strong>Trace the pattern</strong><br>Trace the cape (center back on the fold) and the straps.",
+      "<strong>Cut</strong><br>Cut one cape and two straps. Use clips rather than pins on laminate."
+    ],
+    sew: [
+      { h: "4-1. Make the straps", items: [
+        "Fold each strap in quarters lengthwise, press and topstitch both edges.",
+        "Sew hook to one end and loop to the underside of the other, making the loop side long so the length adjusts.",
+        "Make two — one for the neck and one for the belly."
+      ]},
+      { h: "4-2. Finish the edges", items: [
+        "For a single layer, turn the edges under twice and stitch. Ease the curves in as you fold, or bind them with bias tape.",
+        "If lining it, sew main and lining right sides together, leave a gap, turn and topstitch."
+      ]},
+      { h: "4-3. Attach the straps", items: [
+        "Stitch the neck strap at the sides near the neck, positioned to fasten under the throat.",
+        "Stitch the belly strap at the sides around the middle.",
+        "Stitch each one as a rectangle with a cross — a dog pulls at these constantly.",
+        "Fit the cape to the dog and check the positions before sewing them down."
+      ]},
+      { h: "4-4. Reflective tape (optional)", items: [
+        "Stitch reflective tape along the back or the hem for visibility in the dark."
+      ]}
+    ],
+    sewNote: "Laminated and coated fabric keep every needle hole. There is no unpicking, so fit the cape to the dog and mark the strap positions before you sew. Clips, not pins.",
+    tips: [
+      "<strong>Do not reduce the ease</strong>: it goes on over a coat of fur, so the preset ease is not generous — it is necessary.",
+      "<strong>Keep the hem short</strong>: too long and it tangles in the back legs. To the base of the tail is enough.",
+      "<strong>Skip the hood</strong>: dogs dislike having their ears covered. Covering the neck is as far as most will accept."
+    ],
+    related: ["dog", "dogsleeved", "petvest", "petbandana"]
+  },
+
+  petcollar: {
+    title: "Collar cover",
+    tab: "pet",
+    toolName: "Collar cover",
+    sizeStep: "Enter the collar length, collar width and the threading ease. Presets cover cat, small, medium and large dogs.",
+    desc: "How to sew a fabric cover that slides over an existing collar. A tube, turned and threaded on.",
+    keywords: "collar cover,dog collar,cat collar,how to sew,sewing pattern,scraps,handmade",
+    lead: "A tube of fabric that slides onto the collar the animal already wears, so you can change the look without buying a new collar. Make a few in different prints and walks become a bit more fun. It uses almost no fabric — this is a scrap project.",
+    matNote: "one cover",
+    materials: [
+      "Main fabric (printed cotton or linen) — a scrap about 50 × 15 cm (20 × 6 in)",
+      "Optional: fray-stop liquid"
+    ],
+    cut: [
+      "<strong>Measure the collar</strong><br>Measure the full length including the buckle, and the width.",
+      "<strong>Trace the pattern</strong><br>It is a long rectangle — mark it straight onto the fabric.",
+      "<strong>Cut</strong><br>Cut one piece."
+    ],
+    sew: [
+      { h: "4-1. Sew into a tube", items: [
+        "Fold lengthwise, right sides together, and sew the long edge to make a narrow tube, leaving both ends open.",
+        "Use a 5–7 mm seam allowance. Anything wider bunches inside and the collar will not go through.",
+        "Trim the allowance to 5 mm."
+      ]},
+      { h: "4-2. Turn it right side out", items: [
+        "Use a loop turner, or pin a safety pin to one end and push it back through the tube.",
+        "This is the only fiddly step. Work slowly.",
+        "Roll the seam to one edge and press flat."
+      ]},
+      { h: "4-3. Finish the ends", items: [
+        "Fold about 1 cm of each end inside and press.",
+        "Topstitch 3 mm from each end to close it.",
+        "A dab of fray-stop on the raw edges before folding is worth the extra minute."
+      ]},
+      { h: "4-4. Thread the collar", items: [
+        "Slide the collar through the tube.",
+        "If the buckle will not pass, leave one end open and close it by hand afterwards, or fit hook-and-loop there instead."
+      ]}
+    ],
+    sewNote: "Do not reduce the threading ease. Cut to the exact collar width, the seam allowances take up the space and the collar simply will not go through. The preset already allows for the buckle.",
+    tips: [
+      "<strong>Change with the season</strong>: florals, tartans, festive prints. Each one costs almost nothing.",
+      "<strong>Works on a harness</strong>: the same idea at other widths covers a harness strap.",
+      "<strong>Make several</strong>: the area around a collar gets greasy, so having spares keeps it clean."
+    ],
+    related: ["petbandana", "petsnood", "mannerbelt", "bowtie"]
+  },
+
+  pettoy: {
+    title: "Kicker toy (for cats)",
+    tab: "pet",
+    toolName: "Kicker toy (for cats)",
+    sizeStep: "Enter the total length, thickness and end radius. Presets cover small, standard and large.",
+    desc: "How to sew a kicker toy for a cat. Two pieces, turned and stuffed — with catnip inside if you want it used.",
+    keywords: "cat toy,kicker toy,catnip toy,how to sew,sewing pattern,handmade",
+    lead: "The long toy a cat grabs with its front paws and kicks with its back ones. Two pieces sewn right sides together, turned and stuffed. Add catnip and the difference in interest is dramatic. A cat's back legs are stronger than you think, so build it properly.",
+    matNote: "one toy",
+    materials: [
+      "Main fabric (denim, canvas or heavy cotton — something tough) — about 40 × 30 cm (16 × 12 in)",
+      "Toy stuffing — about 100 g (3½ oz)",
+      "Optional: catnip (powdered), a bell, or crinkle material"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the body including the rounded ends.",
+      "<strong>Cut</strong><br>Cut two pieces. Different fabrics on each side make it easier to see in play.",
+      "<strong>Finish the edges</strong><br>Not needed — everything is enclosed."
+    ],
+    sew: [
+      { h: "4-1. Sew the two pieces", items: [
+        "Place them right sides together and sew around, leaving an 8 cm (3 in) gap.",
+        "Set the stitch length shorter than usual, about 2 mm, so a cat cannot burst the seam.",
+        "Sewing a second line just inside the first is worth the extra minute.",
+        "Clip the curved ends every 5 mm."
+      ]},
+      { h: "4-2. Turn", items: [
+        "Turn through the gap. It is long and narrow, so work a chopstick in and ease it through gradually.",
+        "Push the ends out from inside with the handle of a point turner."
+      ]},
+      { h: "4-3. Stuff", items: [
+        "Add stuffing in small pieces, starting at the ends and pushing it down with a chopstick.",
+        "For catnip, wrap it in a small fabric pouch or a tea bag and add it once the toy is half full — loose catnip migrates to one end.",
+        "Stuff it so it gives slightly when squeezed. Packed solid, a cat cannot grip it."
+      ]},
+      { h: "4-4. Close the gap", items: [
+        "Fold the allowance in and close with ladder stitch.",
+        "Use doubled thread with small stitches and go around twice. This is the first seam that fails."
+      ]}
+    ],
+    sewNote: "A cat's back-leg kick is much stronger than it looks. Thin fabric or a long stitch length and the toy splits open within days. Denim or canvas, a 2 mm stitch length, and ideally a second line of stitching.",
+    tips: [
+      "<strong>Catnip changes everything</strong>: powdered catnip in a tea bag inside the toy transforms how much it gets used.",
+      "<strong>Add a crinkle</strong>: a scrap of laminate mixed into the stuffing makes the crackle cats respond to.",
+      "<strong>Length matters</strong>: about the length of the cat's own body is what it can hold and kick most easily."
+    ],
+    related: ["babytoy", "teddy", "petmat", "petbed"]
+  },
+
+  petmat: {
+    title: "Pet mat",
+    tab: "pet",
+    toolName: "Pet mat",
+    sizeStep: "Enter the width, depth and corner radius. Presets cover cat/small dog, medium and large.",
+    desc: "How to sew a thin pet mat with batting inside and a grid of quilting so the filling cannot shift.",
+    keywords: "pet mat,crate mat,dog mat,how to sew,sewing pattern,batting,handmade",
+    lead: "A thin mat for a crate or a napping spot. Batting between two layers, with a grid of stitching so the filling stays put. Being thin, it washes and dries easily — which is why two of these beat one thick bed.",
+    matNote: "medium dog",
+    materials: [
+      "Main fabric (cotton, oxford or boa) — about 110 cm wide × 80 cm (44 × 31 in)",
+      "Backing fabric (non-slip fabric works well) — the same amount",
+      "Medium batting — the same amount",
+      "Optional: bias tape if you bind the edges instead"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>With the corner radius at zero it is a rectangle, so mark it straight onto the fabric.",
+      "<strong>Cut</strong><br>Cut one main, one backing and one batting, cutting the batting 1 cm smaller all round.",
+      "<strong>Finish the edges</strong><br>Not needed — everything is enclosed."
+    ],
+    sew: [
+      { h: "4-1. Layer the three pieces", items: [
+        "Stack backing right side up, main fabric right side down, batting on top.",
+        "Clip all four sides. It is a large piece, so use plenty."
+      ]},
+      { h: "4-2. Sew and turn", items: [
+        "Sew all the way around, leaving a 20 cm (8 in) gap.",
+        "Clip the corner curves and trim the corners.",
+        "Turn through the gap. It is bulky with the batting in, so ease it through gradually."
+      ]},
+      { h: "4-3. Topstitch", items: [
+        "Fold the gap allowance in and press.",
+        "Topstitch 1 cm (⅜ in) from the edge all the way around, closing the gap."
+      ]},
+      { h: "4-4. Quilt a grid", items: [
+        "Mark a grid at 10–15 cm (4–6 in) intervals.",
+        "Stitch along the lines, always working from the center outward so the batting cannot bunch ahead of the needle."
+      ]}
+    ],
+    sewNote: "Do not skip the grid. Batting caught only at the edges migrates to one side in the first wash and never comes back. And always quilt from the center outward — starting at an edge leaves you with a ripple at the far end.",
+    tips: [
+      "<strong>Non-slip backing</strong>: sold in craft shops. It stops the mat sliding on a wooden floor.",
+      "<strong>Make two</strong>: pet things get dirty. One in use, one in the wash.",
+      "<strong>Bind instead</strong>: layer the three wrong sides together and bind the edge, and you skip the turning entirely — much easier at large sizes."
+    ],
+    related: ["petbed", "babyblanket", "chairpad", "cushioncover"]
+  },
+
+  petpouch: {
+    title: "Dog walking pouch",
+    tab: "pet",
+    toolName: "Dog walking pouch",
+    sizeStep: "Enter the finished width, height, gusset, flap height and belt loop width. Presets cover small, standard and large.",
+    desc: "How to sew a walking pouch for treats, waste bags and keys. It threads onto a belt or a bag strap.",
+    keywords: "dog walking pouch,treat pouch,belt pouch,how to sew,sewing pattern,handmade",
+    lead: "A pouch for treats, waste bags, keys and a phone, threaded onto a belt or a bag strap. Hands stay free for the lead, and a treat comes out in one movement. Use something you can throw in the wash.",
+    matNote: "standard size",
+    materials: [
+      "Main fabric (canvas, oxford or water-repellent fabric) — about 60 × 40 cm (24 × 16 in)",
+      "Lining fabric — the same amount",
+      "Fusible interfacing — for the main fabric",
+      "Snap or magnetic fastener — 1 set",
+      "Optional: an eyelet for dispensing waste bags"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the body (base on the fold), the flap and the belt loop.",
+      "<strong>Cut</strong><br>Cut the body in main and lining, the flap in main and lining, and one belt loop.",
+      "<strong>Apply interfacing</strong><br>Fuse interfacing to the main fabric — loaded with treats, an unstructured pouch collapses."
+    ],
+    sew: [
+      { h: "4-1. Make the flap and belt loop", items: [
+        "Sew the flap main and lining right sides together, leaving the attachment edge open. Turn, press and topstitch.",
+        "Fold the belt loop in quarters lengthwise, press and topstitch both edges."
+      ]},
+      { h: "4-2. Sew the sides and gusset", items: [
+        "Fold the body at the base, right sides together, and sew both sides.",
+        "Pinch each base corner into a triangle and sew across at the gusset depth. Check both sides match.",
+        "Trim the triangles to 1 cm."
+      ]},
+      { h: "4-3. Attach the flap and belt loop", items: [
+        "Turn the opening edge under twice and stitch.",
+        "Stitch the flap to the back of the opening with two rows, or a rectangle with a cross.",
+        "Lay the belt loop vertically on the back and stitch across it at the top and bottom, leaving room for a belt to pass through.",
+        "Stitch two lines at each end of the loop — this is what carries the weight while you walk."
+      ]},
+      { h: "4-4. Add the fastening", items: [
+        "Load the pouch, close the flap and mark where it lands.",
+        "A magnetic fastener opens one-handed, which matters when the other hand is holding a lead."
+      ]}
+    ],
+    sewNote: "Stitch the belt loop with two lines of stitching at each end. One line will fail — the pouch swings back and forth with every step, and that force never stops while you are walking.",
+    tips: [
+      "<strong>Magnetic fastener</strong>: a snap needs two hands. On this pouch that is the difference between usable and not.",
+      "<strong>Eyelet for waste bags</strong>: set an eyelet in the side or base and feed a roll through it, so bags pull out one at a time.",
+      "<strong>Washable fabric</strong>: it will get treat crumbs and worse. Choose something you can put in a machine."
+    ],
+    related: ["mannerbelt", "sacoche", "waistbag", "pouchgusset"]
+  },
+
+  petsling: {
+    title: "Pet sling",
+    tab: "pet",
+    toolName: "Pet sling",
+    sizeStep: "Enter the body length, pouch depth, gusset, shoulder strap length and cut width. Presets cover cat/toy dog, small dog and medium dog.",
+    desc: "How to sew a crossbody sling for carrying a small dog or cat, with a safety lead inside.",
+    keywords: "pet sling,dog carrier,cat sling,how to sew,sewing pattern,vet trips,handmade",
+    lead: "A crossbody sling for carrying a small dog or cat — for vet trips, or for the point on a walk where they refuse to go further. It leaves both hands free on stairs and trains. The animal's whole weight goes through these seams, so build it accordingly.",
+    matNote: "small dog",
+    materials: [
+      "Main fabric (8–11 oz canvas or denim — something strong) — about 110 cm wide × 100 cm (44 × 39 in)",
+      "Lining fabric (mesh or light cotton) — the same amount",
+      "Wide webbing or self-fabric for the shoulder strap — the length you chose",
+      "A slider and swivel hook — 1–2 each",
+      "Heavy fusible interfacing — for the body"
+    ],
+    cut: [
+      "<strong>Measure your animal</strong><br>Measure the body length curled up, and the height. A sling holds them curled, so it does not need standing measurements.",
+      "<strong>Trace the pattern</strong><br>Trace the body (base on the fold), the shoulder strap and the safety lead.",
+      "<strong>Cut</strong><br>Cut the body in main and lining, one strap and one lead, and fuse heavy interfacing to the main body."
+    ],
+    sew: [
+      { h: "4-1. Make the strap and lead", items: [
+        "Fold the shoulder strap in quarters lengthwise, press and topstitch. Make it wide — a narrow strap cuts into the shoulder.",
+        "Thread the slider on so you can adjust the length with the animal already in it.",
+        "Make the safety lead the same way and fit a swivel hook to one end."
+      ]},
+      { h: "4-2. Sew the sides and gusset", items: [
+        "Fold the body at the base, right sides together, and sew both sides.",
+        "Sew every one of these seams twice — a second line 1 mm inside the first. The animal's weight hangs on them.",
+        "Pinch each base corner into a triangle and sew across at the gusset depth, twice again. Trim to 1 cm.",
+        "Sew the lining the same way, leaving a 12 cm (5 in) gap."
+      ]},
+      { h: "4-3. Attach the strap and lead", items: [
+        "Turn the main bag out and slip it inside the lining, right sides together.",
+        "Catch the shoulder strap ends at the sides and the safety lead at the inner center as you sew around the opening.",
+        "Backstitch three times over the strap and lead anchors."
+      ]},
+      { h: "4-4. Finish and test", items: [
+        "Turn through the gap, close it, push the lining in and topstitch around the opening.",
+        "Before using it, load it with something of the same weight — a bottle of water works — and hang it for a few minutes to check every seam.",
+        "Always clip the safety lead to a harness, never to a collar."
+      ]}
+    ],
+    sewNote: "Sew the side and base seams twice. The entire weight of the animal passes through them, and a seam that fails is a fall. Load-test it with an equivalent weight before you put an animal in it.",
+    tips: [
+      "<strong>The lead is not optional</strong>: cats and dogs both jump when startled, faster than you can react.",
+      "<strong>Clip to a harness</strong>: a lead clipped to a collar injures the neck if they jump.",
+      "<strong>Wide strap</strong>: 10 cm (4 in) or more spreads the weight so your shoulder survives a long walk."
+    ],
+    related: ["petcarrier", "petpouch", "petcape", "petbed"]
+  },
+
+  petcarrier: {
+    title: "Pet carrier bag",
+    tab: "pet",
+    toolName: "Pet carrier bag",
+    sizeStep: "Enter the finished width, height, gusset and the handle length and cut width. Presets cover cat/small dog, standard and large.",
+    desc: "How to sew a boxy pet carrier with a mesh top. Two body panels, a continuous gusset, a mesh top and handles.",
+    keywords: "pet carrier,cat carrier,dog carrier,how to sew,sewing pattern,mesh,handmade",
+    lead: "A boxy carrier for a small dog or cat. The mesh top lets you see in and keeps the air moving, and a fabric carrier is often better tolerated than a hard plastic one. A stiff board in the base keeps it steady when you lift it.",
+    matNote: "standard size",
+    materials: [
+      "Main fabric (8–11 oz canvas or quilted cotton) — about 110 cm wide × 130 cm (44 × 51 in)",
+      "Lining fabric (water-repellent or washable) — the same amount",
+      "Mesh fabric — about 40 × 30 cm (16 × 12 in)",
+      "Heavy fusible interfacing or batting — for the body",
+      "Webbing for the handles — the length you chose, × 2",
+      "Zip for the top opening — 1",
+      "Plastic board for the base"
+    ],
+    cut: [
+      "<strong>Measure your animal</strong><br>Measure the body length lying down and the height sitting up. They will not stand in a carrier, so lying measurements are what matter.",
+      "<strong>Trace the pattern</strong><br>Trace the body panels, the gusset, the top and the handles.",
+      "<strong>Cut</strong><br>Cut everything in main and lining, plus two handles, and fuse heavy interfacing or batting to the main body and gusset."
+    ],
+    sew: [
+      { h: "4-1. Make the mesh top", items: [
+        "Cut the window out of the top panel.",
+        "Lay the mesh underneath and stitch 3 mm outside the window edge.",
+        "Bind the window edge with bias tape, or enclose it between the main and lining layers. A raw mesh edge catches claws.",
+        "Set the zip along one side of the top so it opens."
+      ]},
+      { h: "4-2. Attach the handles", items: [
+        "Stitch a handle to each body panel, running the stitching a third of the way down the panel and finishing with a rectangle and a cross.",
+        "The animal's weight is on these. Reinforce them thoroughly.",
+        "Do it while the panels are flat."
+      ]},
+      { h: "4-3. Attach the gusset", items: [
+        "Match the center of the gusset to the base center of one body panel and pin outward from there.",
+        "Sew all the way around, clipping the gusset at the base corners.",
+        "Attach the second panel the same way, and assemble the lining likewise leaving a 15 cm (6 in) gap.",
+        "Working from the center outward is what keeps the two pieces in step."
+      ]},
+      { h: "4-4. Attach the top and finish", items: [
+        "Turn the main carrier out and slip it inside the lining, right sides together.",
+        "Sew the top panel into the upper edge on three sides, leaving the zip side free to open.",
+        "Turn through the gap, close it, push the lining in and topstitch around the opening.",
+        "Cut a plastic board to the base size and drop it in."
+      ]}
+    ],
+    sewNote: "The mesh edge must be bound. A raw mesh edge is exactly what a claw catches on, and a claw caught in mesh is a genuine injury. Bind it or enclose it between two layers — this one is not optional.",
+    tips: [
+      "<strong>Base board</strong>: plastic board in the base stops the carrier sagging, and an animal on a firm floor settles much faster.",
+      "<strong>Washable lining</strong>: accidents happen. Water-repellent lining, or a separate removable mat.",
+      "<strong>Add a shoulder strap</strong>: D-rings at each end let you add one, which is far easier over any distance."
+    ],
+    related: ["petsling", "petbed", "petmat", "bostonbag"]
+  },
+  curtain: {
+    title: "Curtain", tab: "home", toolName: "Curtain",
+    sizeStep: "Enter the rail width, curtain length, fullness ratio and the top, hem and side turn-backs. Presets cover small, sill-height, floor-length and wide windows.",
+    desc: "How to sew curtains that fit your window exactly. Measure the rail, add fullness, hem three sides and stitch curtain tape along the top. Works for blackout or sheer fabric.",
+    keywords: "curtain,how to sew curtains,curtain sewing pattern,window curtain,curtain tape,DIY curtains",
+    lead: "Curtains sized from your own window, with fullness and turn-backs calculated for you. The sewing is only ever \"hem three sides, then stitch curtain tape along the top\". When a ready-made size does not fit your window, making your own gets you to the centimeter. Blackout and sheer fabric are made exactly the same way.",
+    matNote: "a pair for a sill-height window",
+    materials: [
+      "Main fabric (curtain fabric, blackout fabric or linen) — 3–8 m depending on the window",
+      "Curtain tape (heading tape) — rail width × fullness ratio × 2 panels",
+      "Curtain hooks — as many as the tape needs",
+      "Optional: weight tape for the hem",
+    ],
+    cut: [
+      "<strong>Measure the window carefully</strong><br>Measure the rail width end to end, and the drop from the hook position to the floor (or to the bottom of the window frame). Measure the drop in three places — left, center and right — and use the shortest figure.",
+      "<strong>Check the cut sizes</strong><br>The guide sheet shows cut sizes that already include fullness and turn-backs. Curtains are large, so rather than printing the pattern, mark these measurements straight onto the fabric and cut.",
+      "<strong>Cut the panels</strong><br>Cut two panels, one for each side. With a print, shift the cutting position so the motifs line up between the two panels.",
+      "<strong>If the fabric is not wide enough</strong><br>Join two widths. Place the seam towards the outer edge rather than the middle of the window and it will hardly show.",
+    ],
+    sew: [
+      { h: "4-1. Hem the sides", items: [
+        "Double-fold both side edges by the given turn-back and press. The panels are long, so press as you go rather than all at once.",
+        "Topstitch close to the fold, straight from top to bottom.",
+        "Because the fabric is heavy, set a table beside the machine to support it. Otherwise the weight drags the fabric and the stitching wanders.",
+      ]},
+      { h: "4-2. Hem the bottom", items: [
+        "Double-fold the hem by the given turn-back. A curtain hem is normally deep — 5 to 10 cm. The weight makes the fabric hang straight and drape well.",
+        "Topstitch close to the fold.",
+        "If you are using weight tape, tuck it into the fold before stitching.",
+      ]},
+      { h: "4-3. Attach the curtain tape", items: [
+        "Fold the top edge to the inside by the given turn-back.",
+        "Lay the curtain tape over it and stitch along both long edges of the tape.",
+        "Curtain tape has evenly spaced pockets for the hooks. Check that the tape is the right way up (pocket openings facing down) before you stitch.",
+      ]},
+      { h: "4-4. Hook it up", items: [
+        "Push the hooks into the tape pockets at even intervals.",
+        "Hang the curtain on the rail and check the length. If it is slightly long, moving the hooks down one row of pockets adjusts it by a few centimeters.",
+        "Make the second panel the same way.",
+      ]},
+    ],
+    sewNote: "Do not skip \"measure the drop in three places\". Neither window frames nor floors are truly level. If you do not work to the shortest measurement, one side will drag on the floor. Conversely, you can fine-tune by purpose: leave sheers 1 cm clear of the floor, let blackout curtains puddle 1 cm.",
+    tips: [
+      "<strong>Fullness changes the look</strong>: 1.5× hangs almost flat; 2× gives a generous drape. The thinner the fabric, the more fullness it needs to look expensive.",
+      "<strong>Do not print the pattern</strong>: a curtain is a rectangle. Ruling the lines straight onto the fabric from the guide sheet is faster and more accurate than taping dozens of A4 sheets together.",
+      "<strong>Make the hem deep</strong>: a turn-back of 5 cm or more lets the weight pull the fabric into an even drape. Skimping here is what makes a curtain look cheap.",
+    ],
+    related: ["cafecurtain", "noren", "boxcover"],
+  },
+
+  chairpad: {
+    title: "Chair pad", tab: "home", toolName: "Chair pad",
+    sizeStep: "Enter the seat width, depth, corner radius, tie length and tie cut width. Presets cover small, standard and large seats.",
+    desc: "How to sew a tie-on chair pad with rounded corners. Batting or foam between outer and lining, plus two ties that fasten to the chair back so it never slips.",
+    keywords: "chair pad,seat cushion,chair cushion,how to sew,sewing pattern,tie-on cushion",
+    lead: "A rounded-corner pad for a chair seat. All you do is sandwich quilt batting or memory foam between an outer and a lining. Two ties at the back fasten it to the chair, so it stays put however much you shift about. Make it from the same fabric as the chair back cover and the whole dining set pulls together.",
+    matNote: "one pad, standard size",
+    materials: [
+      "Outer fabric (cotton, linen or canvas) — about 50 cm × 100 cm",
+      "Lining fabric — the same amount",
+      "Thick quilt batting or memory foam sheet — the size of the seat",
+      "Matching fabric for the ties — about 60 cm × 10 cm",
+    ],
+    cut: [
+      "<strong>Measure the seat</strong><br>Measure the width and depth of the chair seat. If the seat is a trapezoid, measure at the widest point.",
+      "<strong>Trace the pattern</strong><br>Trace the pad and the ties. Do not forget the notches that mark where the ties go at the back.",
+      "<strong>Cut the pieces</strong><br>Cut 1 pad in the outer fabric, 1 in the lining, 1 in batting and 2 ties. Cut the batting 1 cm smaller all round so the seam allowance does not get bulky.",
+    ],
+    sew: [
+      { h: "4-1. Make the ties", items: [
+        "Fold each tie in four (both edges to the center, then in half) and press.",
+        "Topstitch 3 mm from both long edges. Make both ties the same way.",
+        "One end will be caught in the seam, so it needs no finishing. Turn the other end in by 5 mm and stitch it for a neat finish.",
+      ]},
+      { h: "4-2. Sew with the ties caught in", items: [
+        "Lay the outer fabric right side up and pin the raw end of each tie at the back notches, pointing inwards. Baste them in place.",
+        "Lay the lining on top, right sides together, then the batting on top of that.",
+        "Sew all the way round, leaving a 15 cm opening for turning. Backstitch over the ties to reinforce them.",
+      ]},
+      { h: "4-3. Turn and press", items: [
+        "Clip the seam allowance around the rounded corners and turn right side out through the opening.",
+        "The batting makes it bulky, so ease it out a little at a time, coaxing the corners with an awl.",
+        "Fold the opening edges in and press. Use a pressing cloth and a light touch so you do not flatten the batting.",
+      ]},
+      { h: "4-4. Topstitch to finish", items: [
+        "Topstitch all the way round, 1 cm in from the edge. This closes the opening at the same time.",
+        "A grid or diamond of quilting through the middle stops the batting shifting in the wash. Sew from the center outwards.",
+        "Put it on the chair, tie it to the chair back, and it is done.",
+      ]},
+    ],
+    sewNote: "Decide where the ties go with the pad actually on the chair. The uprights of a chair back sit in different places on different chairs, so the notches on the pattern may not reach yours. Measure the gap between the uprights while you are measuring the seat and you will not have to guess.",
+    tips: [
+      "<strong>Memory foam is kinder</strong>: swap the batting for a memory foam sheet (sold at craft shops) and long sittings stop being tiring.",
+      "<strong>Non-slip lining</strong>: use non-slip fabric for the lining and it will stay in place even without the ties.",
+      "<strong>Make the set</strong>: a chair back cover in the same fabric transforms how the whole chair reads.",
+    ],
+    related: ["chaircover", "cushioncover", "zabuton"],
+  },
+
+  wallpocket: {
+    title: "Wall pocket organizer", tab: "home", toolName: "Wall pocket organizer",
+    sizeStep: "Enter the panel width and height, the pocket height, the number of rows and the hanging loop width. Presets cover small, standard and large.",
+    desc: "How to sew a hanging wall pocket organizer. A backing panel with rows of pockets stitched into compartments, hung from a rod through loops at the top.",
+    keywords: "wall pocket,hanging organizer,wall organizer,how to sew,sewing pattern,storage",
+    lead: "A fabric organizer to hang on a wall or the back of a door. The construction is simple: pocket strips stitched onto a backing panel, then divided vertically into compartments. Remote controls, stationery, school letters, bathroom odds and ends — everything that has nowhere to live gets a home. Loops at the top take a rod.",
+    matNote: "standard size",
+    materials: [
+      "Outer fabric (canvas, oxford cloth or heavy cotton) — about 110 cm wide × 100 cm",
+      "Lining fabric — the same amount",
+      "Fabric for the pockets — depending on the number of rows",
+      "Heavyweight fusible interfacing — enough for the backing panel",
+      "A tension rod or wooden dowel — slightly wider than the panel",
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace three pieces: the backing panel, the pocket strips and the hanging loops. Mark the position of each row of pockets on the panel as well.",
+      "<strong>Cut the pieces</strong><br>Cut 1 panel in the outer fabric and 1 in the lining, one pocket strip per row, and 2 loops.",
+      "<strong>Fuse the interfacing</strong><br>Fuse heavyweight interfacing to the wrong side of the outer panel. Be generous here — it is what stops the panel sagging under the weight of the contents.",
+    ],
+    sew: [
+      { h: "4-1. Hem the top edge of each pocket strip", items: [
+        "Double-fold the top edge of each pocket strip by 1 cm and 1 cm again, then stitch.",
+        "Do this for every row before you go any further. Once a strip is attached to the panel you cannot reach this edge.",
+      ]},
+      { h: "4-2. Attach the pockets to the panel", items: [
+        "Spread out the outer panel and lay the pocket strips on, starting with the bottom row and working up.",
+        "Line up the bottom edge of each strip with its marked position and stitch it down.",
+        "For roomier pockets, take a 1–2 cm tuck along the bottom edge before stitching. That gives the pocket depth for bulkier items.",
+        "Baste the side edges too, inside the seam allowance.",
+      ]},
+      { h: "4-3. Divide into compartments", items: [
+        "Stitch vertical lines through each row to divide it into compartments. Set the widths to suit what you want to store.",
+        "Always backstitch at the start of each line (the top edge of the pocket). This is where it will tear.",
+        "You can also leave a row undivided as one wide pocket, which is handier for large items.",
+      ]},
+      { h: "4-4. Finish the panel and add the loops", items: [
+        "Fold each loop in four, topstitch, then fold it in half to make a loop.",
+        "Lay the outer panel and lining right sides together, tucking the raw ends of the loops in at the top edge, pointing inwards.",
+        "Sew all the way round leaving a 15 cm opening, turn right side out and press.",
+        "Topstitch 5 mm from the edge all the way round. Slide a rod through the loops and hang it up.",
+      ]},
+    ],
+    sewNote: "Attach the pockets from the bottom row upwards. If you start at the top, the finished upper pockets end up jammed under the presser foot while you sew the rows below. And never skip the backstitching at the top of each dividing line — that is exactly where a wall pocket tears with use.",
+    tips: [
+      "<strong>Vary the row heights</strong>: deeper at the bottom, shallower at the top, and you can see what is in each pocket.",
+      "<strong>Tuck the pockets</strong>: a tuck along the bottom edge turns a flat pocket into a gusseted one that holds bulky things.",
+      "<strong>Behind a door</strong>: hang it on the back of a door and you gain storage without changing how the room looks. Great in a child's room or a bathroom.",
+    ],
+    related: ["remotepocket", "laundrybag", "boxcover"],
+  },
+
+  laundrybag: {
+    title: "Laundry bag", tab: "home", toolName: "Laundry bag",
+    sizeStep: "Enter the finished width, height, gusset and the depth of the drawstring casing. Presets cover small, standard and generous.",
+    desc: "How to sew a large drawstring laundry bag. One body piece folded at the base, a boxed gusset and cord threaded from both sides so the top closes firmly.",
+    keywords: "laundry bag,drawstring bag,large drawstring bag,how to sew,sewing pattern,laundry hamper",
+    lead: "A big drawstring bag that swallows a whole load of laundry. It looks softer in a room than a plastic basket, and folds away flat when you do not need it. A casing at the top with cord threaded in from both sides pulls the opening properly shut, so nobody sees what is inside. Use breathable cotton or linen.",
+    matNote: "standard size",
+    materials: [
+      "Main fabric (linen, canvas or heavy cotton) — about 110 cm wide × 120 cm",
+      "Cord (thick cotton rope, about 8 mm) — 2 lengths, as given on the guide sheet",
+      "A bodkin (or a safety pin)",
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the bag body. It is cut in one piece with the base on the fold. It is large, so spread the fabric on the floor to work.",
+      "<strong>Cut the piece</strong><br>Cut 1 body with the base on the fold. It is a rectangle, so the quickest route is to rule the measurements from the guide sheet straight onto the fabric rather than printing the pattern.",
+      "<strong>Finish the edges</strong><br>Zigzag or overlock the side seam allowances. This is where the fabric rubs every time laundry goes in or out.",
+    ],
+    sew: [
+      { h: "4-1. Sew the sides, leaving the casing gaps", items: [
+        "Fold the body in half at the base, right sides together, and sew both sides.",
+        "Leave the seam open from the top edge down to the casing depth. These gaps are where the cord goes in and out.",
+        "Press the unsewn seam allowances open and topstitch a rectangle around each gap to hold them flat. Backstitch at the bottom of the gap, which takes all the strain.",
+      ]},
+      { h: "4-2. Box the base corners", items: [
+        "Pinch each bottom corner into a triangle, matching the side seam exactly to the base fold.",
+        "Rule a line at the gusset measurement and sew. Check both corners are the same width.",
+        "Trim off the triangle leaving 2 cm and zigzag the raw edge. On a bag this size, leaving more rather than less makes it stronger.",
+      ]},
+      { h: "4-3. Make the drawstring casing", items: [
+        "Fold the top edge over by 1 cm, then again by the casing depth, to make a double fold.",
+        "Stitch close to the fold all the way round. Make sure the gaps you left in step 4-1 open into this channel.",
+        "The casing carries the weight of the laundry, so backstitch firmly at the start and end.",
+      ]},
+      { h: "4-4. Thread the cord", items: [
+        "Using the bodkin, feed one cord in through one gap, all the way round, and out of the same gap. Knot the ends together.",
+        "Thread the second cord the same way, starting from the gap on the other side.",
+        "With one cord from each side, pulling both ways closes the bag.",
+      ]},
+    ],
+    sewNote: "A large bag drags on the machine under its own weight. Set a table or a chair in front of and to the left of the machine to support the fabric and your seams will stay straight. Sew it unsupported and the stitching drifts diagonally, which twists the finished bag.",
+    tips: [
+      "<strong>Add handles</strong>: two handles just below the opening make carrying it to the machine much easier.",
+      "<strong>Breathability first</strong>: damp laundry goes in here, so avoid vinyl and laminated fabric. Cotton and linen are ideal.",
+      "<strong>Hang it up</strong>: make the cords longer and hook the bag on the wall so it never sits on the floor.",
+    ],
+    related: ["wallpocket", "boxcover", "ecobag"],
+  },
+
+  chaircover: {
+    title: "Chair back cover", tab: "home", toolName: "Chair back cover",
+    sizeStep: "Enter the chair back width, the length you want it to cover, the thickness of the back and the top corner radius. Presets cover dining, small and large chairs.",
+    desc: "How to sew a slip-on chair back cover. Two pieces joined together, with elastic or ties at the hem so it stays put. Protects the chair and changes the look of a room.",
+    keywords: "chair back cover,chair cover,slipcover,how to sew,sewing pattern,dining chair",
+    lead: "A cover that simply slips over a chair back. Joining the front and back is essentially the same as making a bag. It protects the chair from marks and wear, and changing the fabric changes the feel of the whole room. Match it with a chair pad and the dining set looks deliberate.",
+    matNote: "one chair",
+    materials: [
+      "Main fabric (linen, canvas or heavy cotton) — about 110 cm wide × 70 cm",
+      "Optional: elastic for the hem, or matching fabric for ties",
+    ],
+    cut: [
+      "<strong>Measure the chair back</strong><br>Measure the width at the widest point, the length you want covered, and the thickness of the back. Forget the thickness and the cover will be too tight to go on.",
+      "<strong>Trace the pattern</strong><br>Trace the cover (the same piece serves for front and back). Do not forget the rounded top corners.",
+      "<strong>Cut the pieces</strong><br>Cut 2 from the same pattern, one front and one back.",
+      "<strong>Finish the edges</strong><br>Zigzag or overlock the seam allowances.",
+    ],
+    sew: [
+      { h: "4-1. Join the two pieces", items: [
+        "Place the two pieces right sides together and sew the top edge and both sides. Leave the hem open.",
+        "If the top corners are rounded, clip the seam allowance every 5 mm.",
+        "Press the seam allowances open.",
+      ]},
+      { h: "4-2. Hem the bottom", items: [
+        "Double-fold the hem by 1 cm and then 2 cm, and stitch.",
+        "If you are adding elastic, leave a 3 cm gap for threading.",
+      ]},
+      { h: "4-3. Turn it and try it on", items: [
+        "Turn right side out and press into shape.",
+        "Slip it onto the chair and check that it is neither tight nor the wrong length.",
+        "If it is tight, take less in the side seams; if it is loose, take more.",
+      ]},
+      { h: "4-4. Stop it slipping (optional)", items: [
+        "Elastic threaded through the hem pulls the cover snug against the chair. Cut it to about 85% of the actual hem circumference.",
+        "Alternatively, sew ties to the left and right of the hem and knot them behind the chair back. That version works on any chair shape.",
+      ]},
+    ],
+    sewNote: "Do not forget to enter the thickness. A chair back is not a flat board — most are 3 to 5 cm thick. Work from width and length alone and the cover will not go on. Measure the thickness, or if you are unsure, allow an extra centimeter.",
+    tips: [
+      "<strong>Elastic does the work</strong>: threading elastic through the hem takes five minutes and makes the cover fit snugly instead of looking homemade.",
+      "<strong>Make a spare</strong>: dining chairs get dirtier than you expect. A second cover in the same fabric means you can always have one in the wash.",
+      "<strong>Match the pad</strong>: a chair pad in the same fabric unifies the whole chair.",
+    ],
+    related: ["chairpad", "boxcover", "cushioncover"],
+  },
+
+  boxcover: {
+    title: "Storage box cover", tab: "home", toolName: "Storage box cover",
+    sizeStep: "Enter the box width, depth, the height you want covered, and the ease. Presets cover small, standard and cube-shelf sizes.",
+    desc: "How to sew a fabric cover for a storage box or shelf cube. One top piece plus four sides, with elastic in the hem. Every piece is a rectangle, so you can skip printing.",
+    keywords: "storage box cover,box cover,shelf cover,fabric cover,how to sew,sewing pattern",
+    lead: "A fabric cover for a storage cube or plastic box. One top piece and four sides sewn into a simple box shape. Hiding the contents alone makes a room read as tidy, and swapping the fabric is the cheapest redecoration there is. Every piece is a straight rectangle, so cutting directly without printing the pattern is the easy route.",
+    matNote: "standard size",
+    materials: [
+      "Main fabric (linen, canvas or heavy cotton) — about 110 cm wide × 100 cm",
+      "Optional: elastic for the hem",
+      "Optional: fusible interfacing (if you want the top to stay crisp)",
+    ],
+    cut: [
+      "<strong>Measure the box</strong><br>Measure the width, depth and the height you want covered. Without ease the cover will not go on — use the ease from the preset as it is.",
+      "<strong>Check the cut sizes</strong><br>Everything is a rectangle, so rather than printing the pattern, rule the measurements from the guide sheet straight onto the fabric.",
+      "<strong>Cut the pieces</strong><br>Cut 1 top, 2 sides (front and back) and 2 sides (left and right) — 5 pieces in all.",
+      "<strong>Finish the edges</strong><br>Zigzag the seam allowances.",
+    ],
+    sew: [
+      { h: "4-1. Join the sides into a ring", items: [
+        "Sew the four sides together right sides together in the order front → right → back → left, forming a ring.",
+        "The last seam is awkward because the fabric is now a loop. Slide it onto the free arm of the machine and go slowly.",
+        "Press the seam allowances open.",
+      ]},
+      { h: "4-2. Attach the top", items: [
+        "Place the top on the upper edge of the ring, right sides together.",
+        "Pin the four corners first, then pin evenly between them. Getting the corners right is what decides how the cover looks.",
+        "Sew all the way round. At each corner, stop with the needle down, lift the presser foot, pivot the fabric 90° and carry on.",
+        "Trim the corner seam allowances diagonally.",
+      ]},
+      { h: "4-3. Hem the bottom", items: [
+        "Double-fold the hem by 1 cm and then 2 cm, and stitch.",
+        "If you are adding elastic, leave a 3 cm gap for threading.",
+      ]},
+      { h: "4-4. Fit it over the box", items: [
+        "Thread the elastic if you are using it, overlap and stitch the ends, then close the gap.",
+        "Turn right side out and fit the cover over the box, checking that the elastic catches under the base.",
+      ]},
+    ],
+    sewNote: "The one thing that matters is matching the corners when you attach the top. Pin the four corners so the side seams land exactly on the four corners of the top, then fill in between. Get that wrong and the whole cover sits twisted on the box.",
+    tips: [
+      "<strong>Cut directly</strong>: with nothing but rectangles, a ruler is faster and more accurate than taping A4 sheets together.",
+      "<strong>Interface the top</strong>: if the top sinks in the middle, fusible interfacing gives it body.",
+      "<strong>Add a pull tab</strong>: a fabric loop on the front makes the box easy to pull off a shelf.",
+    ],
+    related: ["chaircover", "tissuebox", "wallpocket"],
+  },
+
+  slipper: {
+    title: "Room slippers", tab: "home", toolName: "Room slippers",
+    sizeStep: "Enter the foot length, foot width and the depth of the upper. Presets cover children, women and men.",
+    desc: "How to sew warm room slippers. Two soles and two uppers with batting in between, and non-slip fabric underneath. A quick project and a good one for guest pairs.",
+    keywords: "slippers,room slippers,house shoes,how to sew,sewing pattern,handmade slippers",
+    lead: "Warm slippers that wrap the whole foot. Just two soles and two uppers; add quilt batting and they come out plush. Use non-slip fabric for the underside and they are safe on a wooden floor too — worth making a few pairs to keep for guests.",
+    matNote: "women's size (24 cm foot)",
+    materials: [
+      "Outer fabric (quilted cotton, corduroy or felt) — about 50 × 50 cm",
+      "Lining fabric — the same amount",
+      "Non-slip fabric for the sole — about 30 × 30 cm",
+      "Quilt batting — about 50 × 50 cm",
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side of the fabric and trace both the cutting line and the finished line. Flip the pattern over for one of each pair so they mirror each other.",
+      "<strong>Cut the pieces</strong><br>Cut 2 soles (left and right) and 2 uppers, in both outer and lining. Using non-slip fabric for the sole lining is the safe choice. Cut the batting to the same shapes.",
+      "<strong>Transfer the notches</strong><br>Mark the front and back notches on the soles and the center notch on the uppers.",
+    ],
+    sew: [
+      { h: "4-1. Make the uppers", items: [
+        "Place the outer and lining uppers right sides together and sew the curved top edge — the opening your foot goes through. A layer of batting in between makes it plumper.",
+        "Clip the seam allowance, turn right side out and press.",
+      ]},
+      { h: "4-2. Attach the upper to the sole", items: [
+        "Lay the outer sole right side up and place the upper on it, wrong sides together, matching the center notch of the upper to the toe notch of the sole.",
+        "Ease the bottom edge of the upper around the sole and baste. Clipping the seam allowance of the upper helps it follow the curve.",
+      ]},
+      { h: "4-3. Close the sole", items: [
+        "Lay the sole lining (the non-slip fabric) on top, right sides together, sandwiching the upper, and sew all the way round leaving an 8 cm opening.",
+        "Clip the seam allowance on the curves, then turn right side out through the opening.",
+        "Slipstitch the opening closed and press into shape. Make the other slipper the same way.",
+      ]},
+    ],
+    sewNote: "When you ease the upper around the sole, clip its seam allowance and the fabric will follow the curve willingly. Force it round without clipping and you will get puckers.",
+    tips: [
+      "<strong>Stay on your feet</strong>: non-slip fabric on the sole, or a bought non-slip sheet, matters on a wooden floor.",
+      "<strong>Keep warm</strong>: two layers of batting, or a fleece outer, and your feet stay warm all winter.",
+      "<strong>For guests</strong>: a few pairs in a plain fabric are always useful when people visit.",
+    ],
+    related: ["neckpillow", "coaster", "chairpad"],
+  },
+
+  zabuton: {
+    title: "Floor cushion cover", tab: "home", toolName: "Floor cushion cover",
+    sizeStep: "Enter the cushion width, depth, thickness and the back overlap. Presets cover the standard Japanese meisen and hattan sizes plus a small cushion.",
+    desc: "How to sew an envelope cover for a Japanese floor cushion (zabuton). No zipper — one front and two overlapping back pieces. Every piece is a rectangle.",
+    keywords: "floor cushion cover,zabuton cover,envelope cover,no zipper,how to sew,sewing pattern",
+    lead: "An envelope-style cover for a Japanese floor cushion. There is no zipper — the two back pieces simply overlap, so a beginner cannot really get it wrong. Three pieces in total: one front and two backs. Enter the size of the cushion you actually own. Everything is a rectangle, so cutting directly is the quick route.",
+    matNote: "one meisen-size cover",
+    materials: [
+      "Main fabric (cotton, Japanese print or linen) — about 110 cm wide × 80 cm",
+      "Optional: decorative thread for the corner tufts",
+    ],
+    cut: [
+      "<strong>Measure the cushion</strong><br>Measure the width, depth and thickness. If you leave out the thickness, the corners will be pulled tight when the cushion goes in and the seams will split.",
+      "<strong>Check the cut sizes</strong><br>Everything is a rectangle, so rule the measurements from the guide sheet straight onto the fabric instead of printing the pattern.",
+      "<strong>Cut the pieces</strong><br>Cut 1 front and 2 backs. The backs are shorter than the front by the amount they overlap.",
+      "<strong>Finish the edges</strong><br>Zigzag the seam allowances.",
+    ],
+    sew: [
+      { h: "4-1. Hem the back opening edges", items: [
+        "Double-fold the opening edge of each back piece (the edge that will overlap) by 1 cm and then 2 cm, and stitch.",
+        "Doing this first is the rule. Once the pieces are joined you cannot reach these edges.",
+      ]},
+      { h: "4-2. Layer front and backs", items: [
+        "Lay the front right side up.",
+        "Lay the two back pieces on top, right sides together, overlapping each other in the middle by the overlap measurement.",
+        "That overlap is the opening you push the cushion through. Too little and the filling shows every time someone sits down.",
+      ]},
+      { h: "4-3. Sew all four sides", items: [
+        "Sew right round all four sides. Go slowly where the two back pieces overlap — that part is thick.",
+        "Trim the four corner seam allowances diagonally.",
+        "Backstitch at the start and end of the overlapped section.",
+      ]},
+      { h: "4-4. Turn and finish", items: [
+        "Reach in through the back overlap and turn the cover right side out.",
+        "Poke the corners out with an awl and press.",
+        "Slide the cushion in, check it is not straining, and it is done.",
+        "Decorative tufts at the four corners give it a traditional look.",
+      ]},
+    ],
+    sewNote: "Always enter the thickness. A floor cushion is 5 to 7 cm thick. Work from width and depth alone and the corners will be dragged tight when you insert it — the seams will split after a handful of uses. The right size is the one with the thickness added.",
+    tips: [
+      "<strong>Envelope backs are easiest</strong>: no zipper to insert and easy to take off for washing. This is the standard way floor cushion covers are made.",
+      "<strong>Be generous with the overlap</strong>: too little and the cushion shows. Do not reduce the preset figure.",
+      "<strong>Standard sizes</strong>: meisen (55 × 59 cm) is the most common; hattan (59 × 63 cm) is the guest size. Measuring your own is always safest.",
+    ],
+    related: ["cushioncover", "chairpad", "pillowcase"],
+  },
+
+  cafecurtain: {
+    title: "Cafe curtain", tab: "home", toolName: "Cafe curtain",
+    sizeStep: "Enter the finished width, length, fullness ratio, rod pocket height and the hem and side turn-backs. Presets cover small windows, standard and sill-height windows.",
+    desc: "How to sew a cafe curtain. One rectangle hemmed on three sides with a rod pocket at the top — no curtain tape and no hooks. A perfect first sewing project.",
+    keywords: "cafe curtain,rod pocket curtain,short curtain,how to sew,sewing pattern,kitchen curtain",
+    lead: "A short curtain for the lower half of a window, or to screen a shelf. You just fold the top edge over to make a rod pocket, so there is no curtain tape and no hooks. One rectangle, hemmed on three sides. If you have just bought a sewing machine, this is the project that makes you feel you can sew.",
+    matNote: "standard size",
+    materials: [
+      "Main fabric (linen, lace or lightweight cotton) — about 110 cm wide × 60 cm",
+      "A tension rod or slim dowel to fit the window",
+    ],
+    cut: [
+      "<strong>Measure the window</strong><br>Measure the drop from where the rod will sit down to where you want the curtain to end, and the width you want to cover.",
+      "<strong>Check the cut sizes</strong><br>The guide sheet shows cut sizes that already include fullness and turn-backs. It is a rectangle, so rule the lines straight onto the fabric instead of printing.",
+      "<strong>Cut the piece</strong><br>Cut 1. Keep the grain straight and the hem will not ripple when it hangs.",
+      "<strong>Finish the edges</strong><br>Not needed — every edge is double-folded.",
+    ],
+    sew: [
+      { h: "4-1. Hem the sides", items: [
+        "Double-fold both side edges by the given turn-back. Press the folds first and the stitching stays straight.",
+        "Topstitch close to the fold, straight from top to bottom.",
+        "Lace is sheer, so the seam allowances show from the front. Take extra care to keep the fold widths even.",
+      ]},
+      { h: "4-2. Hem the bottom", items: [
+        "Double-fold the hem by the given turn-back.",
+        "Topstitch close to the fold. A slightly deep hem, 3 to 5 cm, weights the curtain so it hangs well.",
+      ]},
+      { h: "4-3. Make the rod pocket", items: [
+        "Fold the top edge over by 1 cm, then again by the rod pocket height.",
+        "Topstitch close to the fold, straight from one side to the other. This channel is what the rod goes through.",
+        "Allow 5 mm clearance above and below the diameter of your rod. Made to the exact size, the rod will not go in.",
+      ]},
+      { h: "4-4. Hang it up", items: [
+        "Slide the tension rod through and fit it in the window.",
+        "Arrange the gathers with your hands. Distributed evenly, it looks shop-bought.",
+      ]},
+    ],
+    sewNote: "Always leave the rod pocket bigger than the rod. Tension rods are usually 1 to 2 cm across, so a pocket of around 3 cm slides on easily and lets the curtain move smoothly. Make it exact and it is a struggle to thread and the gathers never sit right.",
+    tips: [
+      "<strong>Your first project</strong>: three straight seams and nothing else. This is the ideal thing to make first.",
+      "<strong>Lace lets the light in</strong>: lace screens the view while still letting light through — lovely on a small kitchen window.",
+      "<strong>Screen a shelf</strong>: hung across the front of open shelving, it hides cluttered storage in one move.",
+    ],
+    related: ["curtain", "noren", "coaster"],
+  },
+
+  coaster: {
+    title: "Coaster", tab: "home", toolName: "Coaster",
+    sizeStep: "Enter the side length and the corner radius. Presets cover standard, large and round. Set the radius to half the side length and you get a circle.",
+    desc: "How to sew a coaster in five minutes. Two squares sewn right sides together, turned and topstitched. Perfect for using up scraps and for small gifts.",
+    keywords: "coaster,fabric coaster,drink coaster,how to sew,sewing pattern,scrap fabric project",
+    lead: "A coaster you can finish in five minutes: sew the outer and lining right sides together and turn. Rounding the corners makes it easier to turn and gives it a softer look. It is the perfect use for scraps, and a set of them makes a small gift.",
+    matNote: "standard size, 10 cm square",
+    materials: [
+      "Outer fabric (linen or cotton) — about 13 × 13 cm per coaster",
+      "Lining fabric — the same amount",
+      "Optional: lightweight quilt batting — the same amount",
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side of the fabric and trace both the cutting line and the finished line.",
+      "<strong>Cut the pieces</strong><br>Cut 1 outer and 1 lining. If you are adding batting, cut 1 of that too.",
+      "<strong>Cut in batches</strong><br>If you are making several, stack the fabric and cut them all at once.",
+    ],
+    sew: [
+      { h: "4-1. Sew and turn", items: [
+        "Place the outer and lining right sides together (with the batting underneath everything, if you are using it).",
+        "Sew all the way round, leaving a 4 cm opening for turning.",
+        "If the corners are rounded, clip the seam allowance; if they are square, trim them diagonally.",
+        "Turn right side out through the opening and press into shape.",
+      ]},
+      { h: "4-2. Finish", items: [
+        "Fold the opening edges in and topstitch all the way round. That single line of stitching closes the opening at the same time.",
+      ]},
+    ],
+    sewNote: "The final round of topstitching closes the opening for you, so there is no hand sewing at all. Stitching 2–3 mm from the edge looks the neatest.",
+    tips: [
+      "<strong>More absorbent</strong>: use terry or waffle cloth for the lining and it will soak up the condensation from a cold glass.",
+      "<strong>As a gift</strong>: a set of four tied with a ribbon makes a lovely little present.",
+      "<strong>Scale it up</strong>: at 18–20 cm a side with thicker batting, the same pattern becomes a trivet.",
+    ],
+    related: ["ovenmitt", "cafecurtain", "tablecloth"],
+  },
+
+  ovenmitt: {
+    title: "Oven mitt", tab: "home", toolName: "Oven mitt",
+    sizeStep: "Enter the palm width, total length, thumb projection and loop length. Presets cover standard, large and short.",
+    desc: "How to sew an oven mitt. Two layers of cotton batting between outer and lining keep the heat out. Use 100% cotton throughout — polyester melts.",
+    keywords: "oven mitt,oven glove,pot holder,heat resistant,how to sew,sewing pattern",
+    lead: "A mitt-shaped pot holder that you slide your hand into. With two layers of quilt batting between the outer and the lining, even an oven tray will not get through to you. Make it long enough to cover the wrist and reaching into the oven stops being nerve-racking. Use heavy cotton and 100% cotton thread.",
+    matNote: "one mitt (double it for a pair)",
+    materials: [
+      "Outer fabric (heavy cotton, canvas or quilted cotton — 100% cotton) — about 50 cm × 40 cm",
+      "Lining fabric (also 100% cotton) — the same amount",
+      "Quilt batting (100% cotton) — enough for two layers",
+      "Wide bias tape — about 40 cm",
+      "Thread (cotton or polyester)",
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the mitt body, the thumb and the hanging loop. Mark the notch on the body where the thumb attaches.",
+      "<strong>Cut the pieces</strong><br>Cut 4 body pieces (2 outer, 2 lining), 4 thumbs (2 outer, 2 lining), 2 body layers and 2 thumb layers in batting, and 1 loop.",
+      "<strong>Mirror the pieces</strong><br>Flip the pattern over for two of the body pieces so they mirror each other. Cut all four the same way round and you end up with two mitts for the same hand.",
+      "<strong>Check your materials</strong><br>Fabric and batting must both be 100% cotton. Polyester melts under heat.",
+    ],
+    sew: [
+      { h: "4-1. Make and attach the thumb", items: [
+        "Sandwich batting between the outer and lining thumb pieces and baste round the edge.",
+        "Finish the edge where the thumb joins the body, either bound with bias tape or double-folded.",
+        "Lay the thumb on the outer body at the notch and baste it in place.",
+      ]},
+      { h: "4-2. Build the outer and lining layers", items: [
+        "Stack batting with the two outer body pieces and baste the three layers as one unit. Do the same for the lining.",
+        "Two layers of batting insulate better but make the whole thing thicker. Increase the presser foot pressure and change to a heavier needle (size 90/14).",
+        "If the thickness makes it hard to handle, quilt a grid through the layers first to lock them together.",
+      ]},
+      { h: "4-3. Sew outer and lining together", items: [
+        "Place the outer and lining right sides together and sew all the way round, leaving the wrist open.",
+        "Clip the seam allowance every 5 mm around the fingertip curve and at the base of the thumb. With this much thickness, skipping the clips means it will pull when you turn it.",
+        "Trim the seam allowance to 7 mm.",
+      ]},
+      { h: "4-4. Turn and bind the wrist", items: [
+        "Turn right side out through the wrist opening. It is thick, so work it through a little at a time.",
+        "Bind the wrist edge with the wide bias tape.",
+        "Catch the ends of the loop in as you bind, so you can hang the mitt up.",
+        "Make the mitt for the other hand the same way, with the pieces mirrored.",
+      ]},
+    ],
+    sewNote: "Every material must be 100% cotton. Polyester fabric and polyester batting melt or shrink under heat. Buy batting labeled 100% cotton or flame-resistant. This is the one thing not to compromise on — it is a burn risk.",
+    tips: [
+      "<strong>Two layers of batting</strong>: one layer lets the heat through. Use two for the oven; one is fine for lifting a saucepan lid.",
+      "<strong>A heavier needle</strong>: with this many layers a standard 75/11 needle can snap. Switch to 90/14 or heavier.",
+      "<strong>Cover the wrist</strong>: a longer mitt protects your forearm when you reach into the oven. Adjust the length to how you actually cook.",
+    ],
+    related: ["coaster", "apron", "tablecloth"],
+  },
+
+  tissuebox: {
+    title: "Tissue box cover", tab: "home", toolName: "Tissue box cover",
+    sizeStep: "Enter the box width, depth, height, the width of the opening and the ease. Presets cover standard, slim and large boxes.",
+    desc: "How to sew a tissue box cover. One top piece with a bound opening plus four sides, and elastic in the hem so it stays on when you swap the box.",
+    keywords: "tissue box cover,tissue cover,box cover,how to sew,sewing pattern,home decor",
+    lead: "A cover that goes over a boxed tissue. Simply hiding the loud packaging makes a room feel considerably calmer. Cut an opening in the top piece and join the four sides — a plain box shape. Thread elastic through the hem and it stays on even after you refill it.",
+    matNote: "standard size",
+    materials: [
+      "Main fabric (linen, cotton or canvas) — about 60 cm × 50 cm",
+      "Bias tape for the opening — about 50 cm",
+      "Flat elastic (8 mm) — about 60 cm",
+      "Lightweight fusible interfacing — enough for the top (if you want it crisp)",
+    ],
+    cut: [
+      "<strong>Measure the box</strong><br>Measure the width, depth and height of your tissue box. Heights vary a lot between brands, so measure the real thing.",
+      "<strong>Trace the pattern</strong><br>Trace three shapes: the top, the front/back sides and the left/right sides. All are rectangles.",
+      "<strong>Cut the pieces</strong><br>Cut 1 top, 2 front/back sides and 2 left/right sides — 5 pieces in all.",
+      "<strong>Finish the edges</strong><br>Zigzag the seam allowances.",
+    ],
+    sew: [
+      { h: "4-1. Make the opening", items: [
+        "Draw the opening in the middle of the top piece, between the notches. Match the width to the opening on the box itself, and make it 2 to 2.5 cm high.",
+        "Cut along the line. Rounding the corners makes the binding much easier later.",
+        "Bind the cut edge with bias tape. Narrow bias tape follows a small opening better.",
+        "Do not make the opening too big or the tissues dry out. Room for two fingers is plenty.",
+      ]},
+      { h: "4-2. Join the sides into a ring", items: [
+        "Sew the four sides together right sides together in the order front → right → back → left, forming a ring.",
+        "The last seam is awkward because the fabric is now a loop. Slide it onto the free arm and go slowly.",
+        "Press the seam allowances open.",
+      ]},
+      { h: "4-3. Attach the top", items: [
+        "Place the top on the upper edge of the ring, right sides together.",
+        "Pin the four corners first, then pin evenly between them. The side seams must land on the four corners of the top.",
+        "Sew all the way round, pivoting at each corner with the needle down.",
+        "Trim the corner seam allowances diagonally.",
+      ]},
+      { h: "4-4. Thread elastic through the hem", items: [
+        "Double-fold the hem by 1 cm and then 1.5 cm and stitch, leaving a 3 cm gap for threading.",
+        "Thread the flat elastic — about 85% of the actual hem circumference. Overlap and stitch the ends, then close the gap.",
+        "Turn right side out, fit it over the box and check that the elastic catches under the base.",
+      ]},
+    ],
+    sewNote: "Do not make the opening too big. Cut it wider than the opening on the box itself and the tissues are exposed and dry out. Too large also weakens the top, so it distorts every time you pull a tissue. The same size as the box opening, or a little smaller, is right.",
+    tips: [
+      "<strong>Hang it up instead</strong>: put the opening in the base rather than the top and add a strap, and it hangs on a wall or the back of a car seat.",
+      "<strong>Elastic earns its keep</strong>: without it, the cover lifts every time you pull a tissue. Five minutes of work changes how it feels to use.",
+      "<strong>For wet wipes too</strong>: change the dimensions and the same pattern covers a wet-wipe box.",
+    ],
+    related: ["boxcover", "wipescase", "remotepocket"],
+  },
+
+  noren: {
+    title: "Noren (Japanese doorway curtain)", tab: "home", toolName: "Noren (Japanese doorway curtain)",
+    sizeStep: "Enter the finished width, length, the number of panels, the slit length, the rod pocket height and the hem and side turn-backs. Presets cover small windows and shelves, standard, and room dividers.",
+    desc: "How to sew a noren, the Japanese split doorway curtain. Fold the top for a rod pocket and leave the panels open below to form slits. Straight seams only.",
+    keywords: "noren,japanese curtain,doorway curtain,room divider,how to sew,sewing pattern",
+    lead: "A Japanese-style curtain hung to divide a room or screen a doorway. You fold the top edge over for a rod pocket and leave the lower part of the panel seams open to make the slits. There is nothing but straight stitching, so it works well as the first thing you make on a new machine. In linen or cotton-linen it sits happily in a Western room as well as a Japanese one.",
+    matNote: "standard size",
+    materials: [
+      "Main fabric (linen, cotton-linen or cotton) — about 110 cm wide × 150 cm",
+      "A tension rod or wooden dowel, slightly wider than the finished width",
+      "Thread",
+    ],
+    cut: [
+      "<strong>Measure where it will hang</strong><br>Measure the drop from the rod position down, and the width you want to cover. A noren normally stops 10 to 20 cm short of the floor rather than reaching it.",
+      "<strong>Check the cut sizes</strong><br>The guide sheet shows cut sizes that already include the turn-backs. It is a rectangle, so rule the measurements straight onto the fabric rather than printing.",
+      "<strong>Cut the panels</strong><br>Cut as many panels as you have chosen. Two is standard; three makes it easier to walk through.",
+      "<strong>Straighten the grain</strong><br>Square the fabric up before cutting. Pulling out a single lengthwise thread and cutting along that line gives you a truly straight edge.",
+    ],
+    sew: [
+      { h: "4-1. Hem the sides and bottom", items: [
+        "Double-fold both side edges of each panel by the given turn-back and stitch.",
+        "Hem the bottom edge the same way.",
+        "Press the folds before stitching. A noren is seen hanging, so a wandering seam line shows.",
+        "Remember to finish the inner edges — the edges of the slits — as well as the outer side edges.",
+      ]},
+      { h: "4-2. Join the panels at the top", items: [
+        "Place the panels right sides together and sew from the top edge down to the point where the slit begins.",
+        "In other words, sew only the upper part and leave the lower part open. That opening is the slit.",
+        "The end of that seam takes the strain every time someone walks through. Backstitch two or three times over it.",
+        "Press the seam allowances open.",
+      ]},
+      { h: "4-3. Make the rod pocket", items: [
+        "Fold the top edge over by 1 cm, then again by the rod pocket height.",
+        "Topstitch close to the fold, straight from one side to the other. This channel takes the rod.",
+        "Allow 5 mm clearance above and below the diameter of your rod. Made to the exact size, it will not go on.",
+      ]},
+      { h: "4-4. Hang it up", items: [
+        "Slide the rod through and fit it in place.",
+        "Arrange how far the slits fall open with your hands.",
+        "If it turns out too long, deepen the fold at the top rather than cutting the hem.",
+      ]},
+    ],
+    sewNote: "Always reinforce the end of the slit seam. A noren is pushed aside by hand every time somebody passes through, so that one point takes the strain over and over. Backstitch two or three times, or run a short horizontal bar tack across it, and it will survive years of use.",
+    tips: [
+      "<strong>Keep it off the floor</strong>: a noren that reaches the floor gets trodden on and dirty. Ending 10 to 20 cm short is the norm.",
+      "<strong>Make the slits long</strong>: short slits are awkward to walk through and you end up lifting the panel every time. About two-thirds of the length is comfortable.",
+      "<strong>Screen a kitchen</strong>: hung in front of a dresser or a washing machine, it hides cluttered storage in one move.",
+    ],
+    related: ["cafecurtain", "curtain", "tablecloth"],
+  },
+
+  remotepocket: {
+    title: "Remote control caddy", tab: "home", toolName: "Remote control caddy",
+    sizeStep: "Enter the armrest width, the front drop, the inner drop, the pocket height and the number of compartments. Presets cover narrow, standard and wide armrests.",
+    desc: "How to sew a remote control caddy for a sofa armrest. One band plus one pocket panel. The inner drop acts as a counterweight so it never slides off.",
+    keywords: "remote control caddy,sofa organizer,armrest organizer,remote holder,how to sew,sewing pattern",
+    lead: "Storage that hangs over the arm of a sofa. Missing remote controls and magazines piled on the floor both get solved in one go. It straddles the armrest, and the part that hangs down on the inside acts as a counterweight so it does not slide off. The construction is minimal: one band and one pocket panel.",
+    matNote: "standard size",
+    materials: [
+      "Outer fabric (linen, canvas or heavy cotton) — about 50 cm × 100 cm",
+      "Lining fabric — the same amount",
+      "Fabric for the pocket — about 30 cm × 25 cm",
+      "Heavyweight fusible interfacing — enough for the outer",
+      "Optional: a weight for the inner drop (poly pellets or a small bag of sand)",
+    ],
+    cut: [
+      "<strong>Measure the armrest</strong><br>Measure the width across the top of the sofa arm, and how far you want the caddy to hang on the front and on the inside.",
+      "<strong>Trace the pattern</strong><br>Trace the band and the pocket panel. The section between the notches on the band is the part that sits on top of the armrest.",
+      "<strong>Cut the pieces</strong><br>Cut 1 band in the outer fabric and 1 in the lining, plus 1 pocket panel.",
+      "<strong>Fuse the interfacing</strong><br>Fuse heavyweight interfacing to the wrong side of the outer band. That is what stops the caddy sagging once the pockets are loaded.",
+    ],
+    sew: [
+      { h: "4-1. Make the pocket", items: [
+        "Double-fold the top edge of the pocket panel by 1 cm and 1 cm again and stitch. That is the opening.",
+        "Fold the seam allowance of the other three edges 1 cm to the wrong side and press.",
+      ]},
+      { h: "4-2. Attach the pocket to the band", items: [
+        "Spread out the outer band and lay the pocket on the section that will hang down at the front.",
+        "Check the orientation before you pin: the pocket opening must face upwards when the caddy is draped over the sofa arm. Get it upside down and the remotes fall out.",
+        "Stitch the three folded edges down, 2–3 mm from the edge.",
+        "Stitch vertical dividing lines at the notches. About 5–6 cm per remote is a good width.",
+        "Always backstitch at the start of each line — the top of the pocket.",
+      ]},
+      { h: "4-3. Assemble the band", items: [
+        "Lay the outer and lining bands right sides together and sew all the way round, leaving a 12 cm opening.",
+        "If you are adding a weight, tuck the small bag into the tip of the inner drop at this stage.",
+        "Trim the four corner seam allowances diagonally and turn right side out through the opening.",
+        "Press, then topstitch 5 mm from the edge all the way round. That closes the opening too.",
+      ]},
+      { h: "4-4. Fit it to the sofa", items: [
+        "Drape it over the armrest.",
+        "Check that the section between the notches sits flat on top of the arm and that both sides hang naturally.",
+        "If it slides, lengthen the inner drop or add more weight to the tip.",
+      ]},
+    ],
+    sewNote: "The one thing to get right is which way the pocket faces. With the band flat on the table, the pocket opening looks like it is pointing down. Once the caddy is draped over the sofa arm the front drops, and in that position the opening faces up — that is correct. Picture it hanging before you place the pins.",
+    tips: [
+      "<strong>The inner drop is the counterweight</strong>: without it the loaded pockets pull the caddy off. A little shorter than the front drop is the balanced length.",
+      "<strong>Fit the dividers to real remotes</strong>: lay your own remotes out and measure before deciding where the dividing lines go.",
+      "<strong>Beside the bed too</strong>: tucked between the mattress and the frame, it becomes a home for a phone and a book.",
+    ],
+    related: ["wallpocket", "tissuebox", "boxcover"],
+  },
+
+  neckpillow: {
+    title: "Neck pillow", tab: "home", toolName: "Neck pillow",
+    sizeStep: "Enter the outer radius, the inner radius and the gap that goes around the neck. Presets cover children, standard and large.",
+    desc: "How to sew a U-shaped neck pillow. Two pieces sewn right sides together, turned and stuffed. Choose your own soft fabric and fill with batting or beads.",
+    keywords: "neck pillow,travel pillow,U-shaped pillow,how to sew,sewing pattern,travel accessory",
+    lead: "A U-shaped cushion that supports your neck. Sew two pieces right sides together, turn, and fill. With a bought one you take whatever fabric it comes in; making your own means choosing something that actually feels good against your skin. Batting gives a soft, airy fill; microbeads give a squishy one. Make a separate cover and you can wash it.",
+    matNote: "standard size",
+    materials: [
+      "Main fabric (fleece, terry or smooth jersey — something pleasant to touch) — about 50 cm × 80 cm",
+      "Polyester stuffing — about 200 g, or expanded polystyrene microbeads",
+      "Optional: lightweight cotton for an inner bag (if using beads)",
+      "Thread",
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the pillow body. It has an outer curve, an inner curve and the gap that goes around your neck.",
+      "<strong>Cut the pieces</strong><br>Cut 2. With fleece, cut with just the tips of the scissors through the base fabric so the pile does not fly everywhere.",
+      "<strong>Finish the edges</strong><br>Not needed — it is turned right side out.",
+      "<strong>If you are using beads</strong><br>Cut 2 inner bag pieces from lightweight cotton using the same pattern. Never put beads straight into the pillow; bag them first.",
+    ],
+    sew: [
+      { h: "4-1. Sew the two pieces together", items: [
+        "Place the two pieces right sides together and sew all the way round, leaving a 10 cm opening somewhere inconspicuous on the outer curve.",
+        "Clip the seam allowance of the outer curve every 1 cm.",
+        "The inner curve — the side that rests against your neck — has the opposite problem: too much seam allowance. Cut small notches out of it every 1 cm. Which way the curve bends decides whether you clip or notch.",
+        "Backstitch at both ends of the neck gap, where the strain falls.",
+      ]},
+      { h: "4-2. Turn it right side out", items: [
+        "Turn it through the opening. It is a U, so pull one end through and then the other.",
+        "Push the inner curve out from the inside with an awl and shape it.",
+        "Do not press it. Heat flattens the pile of fleece and terry. Shaping it by hand is enough.",
+      ]},
+      { h: "4-3. Fill it", items: [
+        "With stuffing, tear off small pieces and feed them in from both ends. A chopstick pushes them right to the tips.",
+        "With beads, make the inner bag first, fill it, sew it firmly shut and then put it inside the pillow. Poured in loose, they escape through the tiniest gap in a seam, endlessly.",
+        "Fill it until it gives a little when you press it against your neck. Packed hard, it lifts your head instead of supporting it and you end up more tired.",
+        "Keep the two ends — the parts under your chin — a little less full so you can still turn your head.",
+      ]},
+      { h: "4-4. Close the opening", items: [
+        "Fold the opening seam allowances inside and close with ladder stitch.",
+        "Use a double thread and small stitches, and go round twice. The filling tugs at this seam every time it shifts.",
+        "Hide the knot inside.",
+      ]},
+    ],
+    sewNote: "If you use beads, always bag them first. Expanded polystyrene beads are as fine as sand and will pour out endlessly through the smallest gap in a seam. Once they start escaping there is no stopping them. The inner bag takes ten minutes; skipping it is something you will regret.",
+    tips: [
+      "<strong>Make a separate cover</strong>: a slightly larger cover from the same pattern, closed with a zipper or hook-and-loop, means you can wash it. Your face touches this, so it is worth it.",
+      "<strong>Do not overfill</strong>: a hard pillow pushes your head up and tires your neck. Just soft enough to compress is right.",
+      "<strong>Mind the gap</strong>: too narrow and it will not go round your neck; too wide and it gives no support. About a third of your actual neck measurement is the guide.",
+    ],
+    related: ["slipper", "cushioncover", "passportcase"],
+  },
 };
