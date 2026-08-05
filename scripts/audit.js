@@ -254,6 +254,15 @@ for (const f of enPages) {
   if (hits.length) add("i18n", f, "英語ページに日本語: " + hits.slice(0, 6).join(" / "));
 }
 
+/* 和文ページのガイドリンクに、型紙のキーがそのまま出ていないか。
+   表示名の取りこぼしは、リンク文字が "blouse" のような英字になって現れます。 */
+for (const f of jaPages) {
+  if (redirects.has(f)) continue;
+  const bad = [...read(f).matchAll(/<a href="howto-([a-z]+)\.html"[^>]*>([^<]+)<\/a>/g)]
+    .filter(m => m[2].trim() === m[1]).map(m => m[1]);
+  if (bad.length) add("i18n", f, "和文ページのリンク文字が型紙キーのまま: " + [...new Set(bad)].join(", "));
+}
+
 /* =========================================================
    7. i18n の網羅
    ========================================================= */
@@ -288,6 +297,13 @@ for (const k of Object.keys(PATTERNS)) {
       if (pc.cutInfo && !I.PIECE[pc.cutInfo]) add("i18n", "i18n.js", `PIECE 未訳(cutInfo): "${pc.cutInfo.slice(0, 30)}…"（${k}）`);
     }
   }
+  // HOWTO_EN は英語ツール画面の「作り方」リンクの向き先を決める。ここが実際の
+  // ページとずれると、英語版があるのに日本語ガイドへ送ってしまう。
+  const hasEnPage = isFile(`en/howto-${k}.html`);
+  if (hasEnPage && !I.HOWTO_EN[k])
+    add("i18n", "i18n.js", `HOWTO_EN に ${k} がありません（en/howto-${k}.html は存在します）`);
+  if (!hasEnPage && I.HOWTO_EN[k])
+    add("i18n", "i18n.js", `HOWTO_EN の ${k} に対応する en/howto-${k}.html がありません`);
 }
 
 /* =========================================================
@@ -360,18 +376,21 @@ for (const k of Object.keys(PATTERNS)) {
    セットイン袖は袖山が袖ぐりより少し長い（いせ込み分）のが正しく、
    短いと物理的に袖が付かない。
    ========================================================= */
+/* 袖山は、袖幅がいちばん広い2点（＝左右の袖下）のあいだを、上を通って結ぶ経路。
+   「上から何割まで」で切り出すと、袖丈が短い型紙（半袖の小さいサイズなど）で
+   袖下の点を取りこぼし、袖山が実際より短く出ます。 */
 function capSeamLen(f) {
-  const ys = f.map(q => q.y);
-  const lim = Math.min(...ys) + (Math.max(...ys) - Math.min(...ys)) * 0.35;
-  let best = [], cur = [];
-  for (let i = 0; i < f.length * 2; i++) {
-    const q = f[i % f.length];
-    if (q.y <= lim) cur.push(q);
-    else { if (cur.length > best.length) best = cur; cur = []; }
-  }
-  if (cur.length > best.length) best = cur;
+  let li = 0, ri = 0;
+  f.forEach((q, i) => { if (q.x < f[li].x) li = i; if (q.x > f[ri].x) ri = i; });
+  const walk = (a, b) => {
+    const out = [];
+    for (let i = a; ; i = (i + 1) % f.length) { out.push(f[i]); if (i === b) break; }
+    return out;
+  };
+  const a = walk(li, ri), b = walk(ri, li);
+  const top = Math.min(...a.map(q => q.y)) <= Math.min(...b.map(q => q.y)) ? a : b;
   let t = 0;
-  for (let i = 1; i < best.length; i++) t += Math.hypot(best[i].x - best[i - 1].x, best[i].y - best[i - 1].y);
+  for (let i = 1; i < top.length; i++) t += Math.hypot(top[i].x - top[i - 1].x, top[i].y - top[i - 1].y);
   return t;
 }
 const EASE_MIN = 1, EASE_MAX = 45;   // mm。いせは 0.1〜4.5cm を許容範囲とする
@@ -394,6 +413,16 @@ for (const k of Object.keys(PATTERNS)) {
       add("pattern", k,
         `${c.label} / 袖山 ${(cap / 10).toFixed(1)}cm と袖ぐり ${(arm / 10).toFixed(1)}cm が釣り合いません` +
         `（いせ ${(ease / 10).toFixed(1)}cm・目安 0.1〜4.5cm）`);
+    // セットイン袖は縦に置くので、パーツの高さがそのまま入力した袖丈になるはず。
+    // 袖山が y=0 に届いていないと、印刷した型紙が入力より短くなります。
+    const sp = (p.params || []).find(x => x.label === "袖丈");
+    if (sp) {
+      const ys = sleeve.finished.map(q => q.y);
+      const h = Math.max(...ys) - Math.min(...ys), want = d[sp.key] * 10;
+      if (Math.abs(h - want) > 2)
+        add("pattern", k,
+          `${c.label} / 袖パーツの高さ ${(h / 10).toFixed(1)}cm が入力した袖丈 ${d[sp.key]}cm と違います`);
+    }
   }
 }
 
@@ -459,7 +488,7 @@ console.log(`対象: 日本語 ${jaPages.length} ページ / 英語 ${enPages.le
 for (const k of order) {
   const list = byKind[k] || [];
   console.log(`## ${LABEL[k]}: ${list.length} 件`);
-  const shown = list.slice(0, 40);
+  const shown = process.env.AUDIT_ALL ? list : list.slice(0, 40);
   for (const x of shown) console.log(`   [${x.file}] ${x.msg}`);
   if (list.length > shown.length) console.log(`   … 他 ${list.length - shown.length} 件`);
   console.log("");

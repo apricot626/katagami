@@ -8,6 +8,7 @@
    ============================================================ */
 const fs = require("fs");
 const path = require("path");
+const vm = require("vm");
 const { figFor } = require("./howto-figs.js");
 const DATA = require("./ja-howto-data.js");
 
@@ -25,6 +26,15 @@ const ld = o => '<script type="application/ld+json">\n'+JSON.stringify(o,null,2)
 /* 楽天アフィリエイト検索リンク（既存ページと同じ もしも経由の形式）。
    生地1本だけだと選びにくいので、材料リストから副資材も拾って並べます。 */
 const { materialLinks } = require("./material-links.js");
+
+/* 型紙の和名。ja-howto-data.js より前に手で書いたガイドはデータを持たないので、
+   関連リンクの表示名はここから引きます。キーをそのまま出すと、和文ページに
+   "blouse" のような英字が並んでしまいます。 */
+const patBox = { window: {}, console };
+vm.createContext(patBox);
+vm.runInContext(fs.readFileSync(path.join(ROOT, "patterns.js"), "utf8") +
+  ";globalThis.__P=PATTERNS;", patBox);
+const PAT_NAME = Object.fromEntries(Object.entries(patBox.__P).map(([k, v]) => [k, v.name]));
 
 /* 英語版ガイドがあるキー（lang-link の向き先を決める） */
 const EN_KEYS = new Set(
@@ -97,7 +107,7 @@ function render(key, g, allKeys){
   }
   rel = rel.slice(0,4);
   const relHtml = rel.map(k=>{
-    const t = DATA[k] ? DATA[k].title : k;
+    const t = (DATA[k] && DATA[k].title) || PAT_NAME[k] || k;
     return `        <li><a href="howto-${k}.html">${esc(t)}</a></li>`;
   }).join("\n");
 

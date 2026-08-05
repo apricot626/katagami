@@ -59,7 +59,24 @@ for (const [tab, heading] of Object.entries(TAB_H)) {
 fs.writeFileSync(p, html);
 console.log(`en/howto.html: カード ${cardCount} 枚に更新`);
 
-/* ---------- 2. sitemap ---------- */
+/* ---------- 2. i18n.js の HOWTO_EN ---------- */
+/* 英語ツール画面の「作り方」リンクは、この一覧に載っているかどうかで
+   英語ガイドへ送るか日本語ガイドへ送るかを決めています。手で足すと必ず
+   取りこぼすので、英語ガイドのデータから毎回書き直します。 */
+const i18nPath = path.join(ROOT, "i18n.js");
+const i18n = fs.readFileSync(i18nPath, "utf8");
+const line = "  var HOWTO_EN={ " + Object.keys(DATA).map(k => k + ":1").join(", ") + " };";
+const replaced = i18n.replace(/^ {2}var HOWTO_EN=\{[^}]*\};$/m, line);
+if (replaced === i18n && !i18n.includes(line))
+  console.warn("  i18n.js: HOWTO_EN の行が見つかりません");
+else if (replaced !== i18n) {
+  fs.writeFileSync(i18nPath, replaced);
+  console.log(`i18n.js: HOWTO_EN を ${Object.keys(DATA).length} 件に更新`);
+} else {
+  console.log("i18n.js: HOWTO_EN は変更なし");
+}
+
+/* ---------- 3. sitemap ---------- */
 const smPath = path.join(ROOT, "sitemap.xml");
 let sm = fs.readFileSync(smPath, "utf8");
 const today = new Date().toISOString().slice(0, 10);
