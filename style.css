@@ -255,3 +255,10 @@ svg.preview{display:block;background:var(--paper2);
   }
   .sheet:last-child{page-break-after:auto}
 }
+
+/* 画面には出さないが、検索エンジンとスクリーンリーダーには読ませる見出し。
+   ツール画面は操作UIが主役で見出しを置く場所がないため、これで h1 を補う。 */
+.sr-only{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;
+}

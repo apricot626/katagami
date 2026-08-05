@@ -151,7 +151,7 @@ const FIG_MAP = {
   babymitten:"casing", babycape:"bias", babypants:"casing", babyblanket:"turnout",
   babytoy:"turnout", wipescase:"turnout", carriercover:"turnout",
   maskcase:"turnout", armcover:"tube", keycase:"turnout", glassescase:"turnout",
-  beret:"turnout", hairturban:"tube", tissuepouch:"mitsuori", bottleholder:"tube",
+  beret:"turnout", hairturban:"tube", bottleholder:"tube",
   boshitecho:"mitsuori", cardcase:"mitsuori", dollclothes:"bias", teddy:"turnout",
   scarf:"tube", nametag:"turnout",
   bucketbag:"tube", roundkinchaku:"casing", baginbag:"gusset", phonepouch:"gusset",
