@@ -22,11 +22,9 @@ const strip = s => String(s).replace(/<[^>]+>/g," ").replace(/&nbsp;/g," ").repl
 const strongName = s => { const m=String(s).match(/<strong>(.*?)<\/strong>/); return m?strip(m[1]):""; };
 const ld = o => '<script type="application/ld+json">\n'+JSON.stringify(o,null,2).replace(/</g,"\\u003c")+'\n</script>';
 
-/* 楽天アフィリエイト検索リンク（既存ページと同じ もしも経由の形式） */
-function rakuten(kw){
-  const inner = "https://search.rakuten.co.jp/search/mall/" + encodeURIComponent(kw) + "/";
-  return "//af.moshimo.com/af/c/click?a_id=5652284&p_id=54&pc_id=54&pl_id=616&url=" + encodeURIComponent(inner);
-}
+/* 楽天アフィリエイト検索リンク（既存ページと同じ もしも経由の形式）。
+   生地1本だけだと選びにくいので、材料リストから副資材も拾って並べます。 */
+const { materialLinks } = require("./material-links.js");
 
 /* 英語版ガイドがあるキー（lang-link の向き先を決める） */
 const EN_KEYS = new Set(
@@ -173,7 +171,8 @@ ${TOOLS.map(t=>`      <li>${t}</li>`).join("\n")}
     <div class="material-box">
       <p class="material-box-head">材料をネットで探す</p>
       <div class="material-links">
-        <a class="ml-btn ml-btn-rakuten" href="${rakuten(g.buy)}" target="_blank" rel="nofollow" referrerpolicy="no-referrer-when-downgrade" attributionsrc>楽天 — ${esc(g.buyLabel)}</a>
+${materialLinks(g.materials, g.buy, g.buyLabel).map(l=>
+`        <a class="ml-btn ml-btn-rakuten" href="${l.href}" target="_blank" rel="nofollow" referrerpolicy="no-referrer-when-downgrade" attributionsrc>楽天 — ${esc(l.label)}</a>`).join("\n")}
       </div>
       <img src="//i.moshimo.com/af/i/impression?a_id=5652284&p_id=54&pc_id=54&pl_id=616" width="1" height="1" style="border:none;" alt="" loading="lazy">
       <p class="material-pr">※ 本ページはアフィリエイト広告（楽天アフィリエイト）を含みます。</p>
