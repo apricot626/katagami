@@ -4869,4 +4869,1208 @@ module.exports = {
     ],
     related: ["babyblanket", "carriercover", "petmat", "chairpad"]
   },
+
+  /* ===================== accessories ===================== */
+
+  potholder: {
+    title: "Pot holder",
+    tab: "small",
+    toolName: "Pot holder",
+    sizeStep: "Enter the side length, corner radius, loop length and loop cut width. Presets cover small, standard and large.",
+    desc: "How to sew a square pot holder with batting inside and a hanging loop caught in the corner.",
+    keywords: "pot holder,trivet,kitchen,how to sew,sewing pattern,batting,handmade",
+    lead: "A square pot holder with rounded corners. Batting between two layers, sewn and turned — that is the whole thing. Catch a loop in one corner to hang it up, and make two so you can lift a pan with both hands.",
+    matNote: "one pot holder",
+    materials: [
+      "Main fabric (cotton or linen, 100% natural fiber) — about 25 × 25 cm (10 × 10 in)",
+      "Backing fabric — the same amount",
+      "Heavy cotton batting — about 25 × 25 cm (10 × 10 in)",
+      "Fabric for the loop — about 5 × 12 cm (2 × 5 in)"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the body including the corner radius, and the loop strip.",
+      "<strong>Cut</strong><br>Cut one main, one backing, one batting and one loop.",
+      "<strong>Check the fibers</strong><br>Fabric and batting must both be 100% cotton. Polyester melts against a hot pan."
+    ],
+    sew: [
+      { h: "4-1. Make the loop", items: [
+        "Fold the loop strip in quarters lengthwise and topstitch both long edges.",
+        "Fold it in half to form a loop."
+      ]},
+      { h: "4-2. Layer and sew", items: [
+        "Stack batting, then backing right side up, then main fabric right side down.",
+        "Slip the loop into one corner between the main and backing layers, with the loop pointing inward.",
+        "Sew all the way around, leaving an 8 cm (3 in) gap."
+      ]},
+      { h: "4-3. Turn and finish", items: [
+        "Clip the corner curves and turn through the gap.",
+        "Press, close the gap, and topstitch all the way around.",
+        "Add a grid of stitching across the middle so the batting cannot shift in the wash."
+      ]}
+    ],
+    sewNote: "The loop goes between the main and backing layers with the loop pointing inward — it comes out on the outside when you turn it. Point it outward and it ends up sewn inside, which means unpicking.",
+    tips: [
+      "<strong>More insulation</strong>: two layers of batting, or a layer of heavy cotton in between, keeps far more heat out.",
+      "<strong>Make a pair</strong>: two lets you lift a hot pan with both hands.",
+      "<strong>Or a mitt</strong>: if you want to slide your hand inside, use the oven mitt pattern instead."
+    ],
+    related: ["ovenmitt", "coaster", "placemat", "apron"]
+  },
+
+  eyemask: {
+    title: "Eye mask",
+    tab: "small",
+    toolName: "Eye mask",
+    sizeStep: "Enter the width, height, nose notch depth and elastic length. Presets cover standard, wide and a child size.",
+    desc: "How to sew a sleep mask with a notch for the nose, so light does not leak in at the sides.",
+    keywords: "eye mask,sleep mask,how to sew,sewing pattern,silk,travel,handmade",
+    lead: "A sleep mask with a notch cut for the nose, which is what stops light creeping in beside it. Two layers sewn right sides together and turned. Line it in silk or gauze and it feels completely different against the skin.",
+    matNote: "one mask",
+    materials: [
+      "Main fabric (cotton or linen) — about 25 × 15 cm (10 × 6 in)",
+      "Lining fabric (silk, gauze or interlock) — the same amount",
+      "Lightweight batting (for better light blocking) — the same amount",
+      "Flat elastic (0.8–1 cm / ⅜ in wide) — about 30 cm (12 in)"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the body including the nose notch, and mark where the elastic attaches.",
+      "<strong>Cut</strong><br>Cut one main, one lining and, if using, one batting.",
+      "<strong>Finish the edges</strong><br>Not needed — everything is enclosed."
+    ],
+    sew: [
+      { h: "4-1. Baste the elastic", items: [
+        "Lay the main fabric right side up and baste an elastic end at each marked point, pointing inward.",
+        "Check the elastic is not twisted before you stitch."
+      ]},
+      { h: "4-2. Sew and turn", items: [
+        "Lay the lining on top, right sides together (batting on the outside of the stack), and sew around leaving a 6 cm (2½ in) gap.",
+        "Clip into the nose notch and any other inward curve. On outward curves, cut small wedges out instead to reduce bulk.",
+        "Turn through the gap and press."
+      ]},
+      { h: "4-3. Finish", items: [
+        "Close the gap and topstitch all the way around.",
+        "Backstitch over the elastic anchors so they cannot pull out."
+      ]}
+    ],
+    sewNote: "The nose notch is an inward curve, so it will pull when turned unless it is clipped. Clip up to 1–2 mm short of the stitching — close, but not through it.",
+    tips: [
+      "<strong>Block more light</strong>: one layer of thin batting makes a real difference. Thick batting presses on the eyes.",
+      "<strong>Silk lining</strong>: the side against your face is worth spending on. Silk or double gauze.",
+      "<strong>Adjustable</strong>: a slider on one side of the elastic lets you set the fit."
+    ],
+    related: ["neckwarmer", "scarf", "headband", "maskcase"]
+  },
+
+  neckwarmer: {
+    title: "Neck warmer",
+    tab: "small",
+    toolName: "Neck warmer",
+    sizeStep: "Enter the finished circumference and height. Presets cover child, standard and long.",
+    desc: "How to sew a tube neck warmer. Sew the short edges into a loop and hem — done in an afternoon.",
+    keywords: "neck warmer,snood,cowl,how to sew,sewing pattern,fleece,handmade",
+    lead: "A tube that covers the neck. Sew the short edges together into a loop and hem the top and bottom — you can finish it the same day you start. Fleece or knit works best, and a double layer is warmer and hides every seam.",
+    matNote: "standard size",
+    materials: [
+      "Main fabric (fleece, knit or faux fur) — about 55 × 30 cm (22 × 12 in)",
+      "Optional: lining fabric for a double layer — the same amount"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>It is a rectangle, so mark it straight onto the fabric.",
+      "<strong>Cut</strong><br>Cut one piece, or two if you are lining it.",
+      "<strong>Finish the edges</strong><br>Fleece can be left raw. Anything that frays needs the top and bottom hemmed."
+    ],
+    sew: [
+      { h: "4-1. Single layer", items: [
+        "Fold the fabric right sides together and sew the short edges into a loop.",
+        "Turn the top and bottom edges under and hem. On fleece you can leave them raw."
+      ]},
+      { h: "4-2. Double layer", items: [
+        "Make two loops, one in each fabric, by sewing the short edges.",
+        "Slip one inside the other, right sides together, and sew all the way around one edge.",
+        "Turn through the open edge, fold the remaining raw edges inward and stitch them closed."
+      ]}
+    ],
+    sewNote: "Size it to your neck plus ease — but if the fabric does not stretch, check it will go over your head first. Anything smaller than your head circumference simply will not go on.",
+    tips: [
+      "<strong>Check the head measurement</strong>: with non-stretch fabric, make the inner circumference at least 56–58 cm (22–23 in).",
+      "<strong>Longer is warmer</strong>: extra height lets you pull it up over your chin.",
+      "<strong>For dogs too</strong>: the dog snood pattern is the same idea in dog sizes."
+    ],
+    related: ["scarf", "legwarmer", "armcover", "petsnood"]
+  },
+
+  maskcase: {
+    title: "Mask case",
+    tab: "small",
+    toolName: "Mask case",
+    sizeStep: "Enter the finished width, height and flap depth. Presets cover child, standard and large.",
+    desc: "How to sew a folding case to hold a mask while you eat. One piece folded up and stitched at the sides.",
+    keywords: "mask case,mask holder,how to sew,sewing pattern,laminated,handmade",
+    lead: "A folding case for the mask you take off at the table. One piece folded up from the bottom with the sides stitched — twenty minutes, start to finish. Add a divider inside and you can keep the used one apart from the spare. Laminated fabric wipes clean.",
+    matNote: "one case",
+    materials: [
+      "Main fabric (laminated cotton, oxford or cotton) — about 30 × 30 cm (12 × 12 in)",
+      "Lining fabric — the same amount",
+      "Snap fastener or hook-and-loop — 1 set",
+      "Lightweight interfacing if the fabric is thin"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the body and mark the fold line.",
+      "<strong>Cut</strong><br>Cut one main and one lining. Use clips rather than pins on laminated fabric.",
+      "<strong>Apply interfacing</strong><br>On thin fabric, fuse interfacing to the main piece so the case holds its shape."
+    ],
+    sew: [
+      { h: "4-1. Sew the layers together", items: [
+        "Place main and lining right sides together and sew around, leaving an 8 cm (3 in) gap.",
+        "Trim the corners diagonally so they turn out sharp."
+      ]},
+      { h: "4-2. Turn and topstitch", items: [
+        "Turn through the gap, ease the corners out and press.",
+        "Topstitch 3–5 mm from the edge all the way around, closing the gap.",
+        "You now have a two-sided rectangle."
+      ]},
+      { h: "4-3. Fold and stitch the sides", items: [
+        "Fold up from the bottom at the marked line, leaving the flap standing above.",
+        "Stitch both sides 2–3 mm from the edge. This stitching shows, so match your thread to the main fabric.",
+        "Backstitch at the start and end of each side seam."
+      ]},
+      { h: "4-4. Add the fastening", items: [
+        "Close the flap and mark where the fastening lands.",
+        "Fit a snap or hook-and-loop 2–3 mm outside your mark to allow for the thickness of a mask inside."
+      ]}
+    ],
+    sewNote: "For an internal divider, sew a slightly smaller piece to the lining on three sides at step 4-3, before folding — and hem its top edge first. Neither can be done once the case is assembled.",
+    tips: [
+      "<strong>Laminated lining</strong>: a wipe-clean inside means a used mask does not contaminate the case.",
+      "<strong>Keep it slim</strong>: heavy interfacing makes it too bulky for a pocket. Lightweight is right.",
+      "<strong>Other uses</strong>: at other sizes this is a passbook case or a ticket wallet."
+    ],
+    related: ["mask", "fittedmask", "cardcase", "tissuecase"]
+  },
+
+  armcover: {
+    title: "Arm covers",
+    tab: "small",
+    toolName: "Arm covers",
+    sizeStep: "Enter the upper arm and wrist circumferences, the length and the elastic casing. Presets cover child, women's and men's.",
+    desc: "How to sew tube arm covers with elastic at both ends. Sun protection in summer, sleeve protection for chores.",
+    keywords: "arm covers,arm sleeves,UV protection,how to sew,sewing pattern,cooling fabric,handmade",
+    lead: "Tapered tubes for keeping the sun off, or keeping your sleeves clean. Sew the long edge into a tube, add a casing at each end, thread elastic. In UV-blocking or cooling knit they earn their keep in summer; in water-repellent fabric they protect your sleeves at the sink.",
+    matNote: "one pair",
+    materials: [
+      "Main fabric (UV-blocking fabric, cooling knit or cotton) — about 60 × 50 cm (24 × 20 in)",
+      "Narrow flat elastic (0.8–1 cm / ⅜ in wide) — about 80 cm (32 in)",
+      "Bodkin"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>The piece is a tapered rectangle — wider at one end. Mark which end is the top.",
+      "<strong>Cut</strong><br>Cut two. Cut stretch fabric lying flat and relaxed.",
+      "<strong>Finish the edges</strong><br>Serge or zigzag the long edge."
+    ],
+    sew: [
+      { h: "4-1. Sew into a tube", items: [
+        "Fold each piece right sides together lengthwise and sew the long edge.",
+        "On stretch fabric use a stretch stitch or a narrow zigzag — a straight stitch will snap as you pull it on.",
+        "Press the seam allowance to one side."
+      ]},
+      { h: "4-2. Make the casings", items: [
+        "Fold the wide end under twice to make a casing and stitch, leaving a 2 cm (¾ in) gap.",
+        "Do the same at the narrow end."
+      ]},
+      { h: "4-3. Thread the elastic", items: [
+        "Cut the upper elastic 2–3 cm (1 in) shorter than your upper arm — enough to stay up, not enough to dig in.",
+        "Cut the lower elastic 1–2 cm shorter than your wrist, but make sure your hand still goes through.",
+        "Thread, overlap and stitch the ends, then close the gaps. Repeat for the second cover."
+      ]}
+    ],
+    sewNote: "The balance between the two elastics decides how these wear. Tight at the top and loose at the bottom and they slide down every time you bend your arm. Aim for the least at the top that stays up and the most at the wrist that still lets your hand through.",
+    tips: [
+      "<strong>Add a thumb hole</strong>: leave 1.5 cm (⅝ in) unsewn at the lower end for your thumb. It covers the back of the hand and stops them riding up.",
+      "<strong>Skip the elastic</strong>: in stretchy knit, hemmed ends grip well enough on their own.",
+      "<strong>For chores</strong>: water-repellent fabric keeps your sleeves dry at the sink."
+    ],
+    related: ["legwarmer", "neckwarmer", "headband", "shuushu"]
+  },
+
+  keycase: {
+    title: "Key case",
+    tab: "small",
+    toolName: "Key case",
+    sizeStep: "Enter the finished width, height and closure tab extension. Presets cover small, standard and large.",
+    desc: "How to sew a bi-fold key case. Sew the outer and lining right sides together, turn, fold at the center and hand-stitch the hardware in.",
+    keywords: "key case,key holder,how to sew,sewing pattern,leather,scraps,handmade",
+    lead: "A small bi-fold case that keeps keys from scratching everything else in your bag. Twenty centimeters of fabric is enough, so this is where a favourite scrap earns its place. Interfacing is what makes it look bought rather than made.",
+    matNote: "one case",
+    materials: [
+      "Main fabric (canvas, faux leather or heavy cotton) — about 25 × 20 cm (10 × 8 in)",
+      "Lining fabric — the same amount",
+      "Firm fusible interfacing — the same as the main fabric",
+      "Key case hardware (a 6-hook key ring plate) — 1",
+      "Snap fastener — 1 set"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the body and mark the center fold line.",
+      "<strong>Cut</strong><br>Cut one main and one lining.",
+      "<strong>Apply interfacing</strong><br>Fuse firm interfacing to the main fabric — a key case needs body to hold its shape."
+    ],
+    sew: [
+      { h: "4-1. Sew the layers together", items: [
+        "Place main and lining right sides together and sew around, leaving a 6 cm (2½ in) gap.",
+        "Clip the curve on a rounded tab, or trim the corners diagonally on a square one."
+      ]},
+      { h: "4-2. Turn and topstitch", items: [
+        "Turn through the gap, ease the corners out and press.",
+        "Topstitch 3 mm from the edge all the way around, closing the gap. Slow the machine down — it is thick."
+      ]},
+      { h: "4-3. Attach the hardware", items: [
+        "Position the key plate on the center fold line.",
+        "Stitch it on by hand through its mounting holes. The machine cannot reach past the metal, so this part is hand sewing.",
+        "Use doubled heavy thread and go back and forth four or five times per hole — the weight of the keys hangs here permanently."
+      ]},
+      { h: "4-4. Add the snap", items: [
+        "Fold at the center and check where the tab reaches.",
+        "Fit the snap, allowing for the thickness of the keys inside."
+      ]}
+    ],
+    sewNote: "Hand-stitching the hardware is the one step people rush, and it is the one that fails. Doubled thread, four or five passes per hole, and hide the knots between the layers if you can.",
+    tips: [
+      "<strong>Faux leather needs no interfacing</strong>: it has body of its own. But every needle hole is permanent, so sew it once.",
+      "<strong>Add a D-ring</strong>: caught in the side seam, it takes a strap or a carabiner.",
+      "<strong>Contrast lining</strong>: a different fabric inside is a small pleasure every time it opens."
+    ],
+    related: ["cardcase", "wallet", "gamaguchi", "glassescase"]
+  },
+
+  glassescase: {
+    title: "Glasses case",
+    tab: "small",
+    toolName: "Glasses case",
+    sizeStep: "Enter the finished width, height, flap depth and flap corner radius. Presets cover standard, large and sunglasses.",
+    desc: "How to sew a soft glasses case with a flap. Batting inside protects the lenses; one piece folded up and stitched at the sides.",
+    keywords: "glasses case,spectacle case,sunglasses case,how to sew,sewing pattern,batting,handmade",
+    lead: "A soft case with a flap that folds over and snaps shut. One piece folded up with the sides stitched, so it takes under an hour. A layer of batting or felt inside means your lenses survive a day in a bag with everything else.",
+    matNote: "one case",
+    materials: [
+      "Main fabric (cotton, canvas or linen) — about 30 × 25 cm (12 × 10 in)",
+      "Lining fabric (flannel or brushed cotton — something soft) — the same amount",
+      "Fusible batting — the same as the main fabric",
+      "Snap or magnetic fastener — 1 set"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the body including the flap curve, and mark the fold line.",
+      "<strong>Cut</strong><br>Cut one main and one lining.",
+      "<strong>Fuse the batting</strong><br>Press the batting onto the wrong side of the main fabric. Press straight down rather than gliding the iron, or the batting shifts."
+    ],
+    sew: [
+      { h: "4-1. Sew the layers together", items: [
+        "Place main and lining right sides together and sew around, leaving an 8 cm (3 in) gap.",
+        "Clip the flap curve every 5 mm and trim the allowance to 5–7 mm — with batting in there it will not turn otherwise."
+      ]},
+      { h: "4-2. Turn and topstitch", items: [
+        "Turn through the gap and press with a cloth and a light hand so the batting is not crushed.",
+        "Topstitch 5 mm from the edge all the way around."
+      ]},
+      { h: "4-3. Fold and stitch the sides", items: [
+        "Fold up from the bottom at the marked line, leaving the flap above.",
+        "Stitch both sides 3 mm from the edge. Increase the presser foot pressure or turn the handwheel by hand — it is thick.",
+        "Backstitch at both ends of each seam."
+      ]},
+      { h: "4-4. Add the fastening", items: [
+        "Put the glasses in, fold the flap over and mark where it lands.",
+        "Fit a snap, or a magnetic fastener if you want to open it one-handed."
+      ]}
+    ],
+    sewNote: "Measure your actual glasses. Fold them and measure the thickest point — the hinge — and add that to the width. With batting, add another 5 mm. Cases that are too tight scratch the lenses going in.",
+    tips: [
+      "<strong>Brushed lining</strong>: the surface the lens touches. A soft napped fabric cleans as well as protects.",
+      "<strong>Sunglasses are bigger</strong>: larger lenses and springier arms. Use the sunglasses preset or add a centimeter of width.",
+      "<strong>Also a pencil case</strong>: the same construction at a different size."
+    ],
+    related: ["keycase", "cardcase", "pencase", "pouch"]
+  },
+
+  sunhat: {
+    title: "Bucket hat",
+    tab: "small",
+    toolName: "Bucket hat",
+    sizeStep: "Enter head circumference, crown depth, brim width and ease. Presets cover child, adult and large.",
+    desc: "How to sew a bucket hat. A crown, a side band and a brim — three pieces, all joined in circles.",
+    keywords: "bucket hat,sun hat,how to sew,sewing pattern,cotton,linen,handmade",
+    lead: "A classic bucket hat in three pieces: the flat crown, the side band and the brim. Everything joins in a circle, which is the only skill involved — and it is the same skill three times over. Cotton or linen, ideally with interfacing in the brim.",
+    matNote: "adult size",
+    materials: [
+      "Main fabric (cotton, linen or canvas) — about 60 × 60 cm (24 × 24 in)",
+      "Lining fabric — the same amount",
+      "Fusible interfacing — for the brim",
+      "Optional: a cord and eyelets for a chin strap"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the crown (a circle), the side band and the brim (a ring).",
+      "<strong>Cut</strong><br>Cut each piece in both main and lining fabric. Fuse interfacing to the brim pieces.",
+      "<strong>Finish the edges</strong><br>Not needed if you are lining it."
+    ],
+    sew: [
+      { h: "4-1. Make the brim", items: [
+        "Sew the two brim rings right sides together along the outer edge.",
+        "Clip the curve, turn and press. Topstitch concentric rings across the brim — that is what makes it hold its shape."
+      ]},
+      { h: "4-2. Make the crown and band", items: [
+        "Sew the side band into a loop, then sew the crown circle to its upper edge.",
+        "Pin at four points first, then fill in between. Starting at one end guarantees you run short at the other.",
+        "Assemble the lining the same way."
+      ]},
+      { h: "4-3. Assemble", items: [
+        "Pin the brim to the lower edge of the outer band, right sides together, and sew.",
+        "Slip the lining over it, right sides together, and sew around the same edge, leaving a gap.",
+        "Turn through the gap, close it, push the lining inside and topstitch around the base of the crown."
+      ]}
+    ],
+    sewNote: "Every seam here joins two circles. Pin at four points, then halve the gaps, then halve again. Sew from one end and the last few centimeters will never match.",
+    tips: [
+      "<strong>Interface the brim</strong>: without it the brim flops and the hat looks unfinished.",
+      "<strong>Reversible</strong>: use two good fabrics and it works either way out.",
+      "<strong>Add a chin cord</strong>: two eyelets and a cord keeps it on in wind, which matters for children."
+    ],
+    related: ["cap", "beret", "babyhat", "bandana"]
+  },
+
+  beret: {
+    title: "Beret",
+    tab: "small",
+    toolName: "Beret",
+    sizeStep: "Enter head circumference, puff, facing height and ease. Presets cover child, adult S, adult and large.",
+    desc: "How to sew a beret. A large top circle joined to a smaller ring, so the extra fullness makes the dome.",
+    keywords: "beret,hat,how to sew,sewing pattern,wool,corduroy,handmade",
+    lead: "A soft, round beret. The top circle is larger than the ring it joins to, and that difference is what puffs it up into a dome. Wool or corduroy holds the shape; anything too soft collapses.",
+    matNote: "adult size",
+    materials: [
+      "Main fabric (wool, corduroy or felt) — about 60 × 60 cm (24 × 24 in)",
+      "Lining fabric (cupro or light cotton) — the same amount, if lining",
+      "Lightweight fusible interfacing — for the facing",
+      "Optional: a covered button or short cord for the center top"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the top (a circle), the underside (a ring) and the facing (a band). Weight the pattern down — a shifted circle shows.",
+      "<strong>Cut</strong><br>Cut one top, two underside halves and two facings. On wool with a nap, keep every piece facing the same way.",
+      "<strong>Finish the edges</strong><br>Zigzag the allowances. Wool frays badly, so do not skip this."
+    ],
+    sew: [
+      { h: "4-1. Join the underside into a ring", items: [
+        "Sew the two underside halves together at their short edges to form a ring, and press the seams open."
+      ]},
+      { h: "4-2. Join the top to the underside", items: [
+        "Match the outer edges right sides together. The top is the larger of the two.",
+        "Pin at four points, then halve the gaps, then halve again — the aim is to spread the extra fullness evenly all the way round.",
+        "Sew with the top on the underside, easing the fullness in with your fingertips as you go. Done evenly it puffs; bunched in one place it makes a lump.",
+        "Press the allowance towards the underside."
+      ]},
+      { h: "4-3. Make and attach the facing", items: [
+        "Fuse interfacing to the facings, sew them into a ring and fold in half lengthwise.",
+        "Sew the facing to the inner opening of the underside, right sides together.",
+        "Fold it to the inside and topstitch 3 mm from the edge."
+      ]},
+      { h: "4-4. Shape it", items: [
+        "Hold a steam iron just above the crown, without touching, and lift the dome.",
+        "Stuff it with a rolled towel and let it dry that way to set the shape."
+      ]}
+    ],
+    sewNote: "The whole hat depends on distributing the extra fullness evenly. Pin at 4 points, then 8, then 16. Gather it all in one place and you get a bump instead of a dome.",
+    tips: [
+      "<strong>Add a lining</strong>: cut the same pattern in lining and baste it in before the facing. It stops static and feels better.",
+      "<strong>Adjust the puff</strong>: more puff for a slouchy beret, less for a flat classic one.",
+      "<strong>Top detail</strong>: a covered button or short loop of cord at the center is what says beret."
+    ],
+    related: ["cap", "sunhat", "babyhat", "hairturban"]
+  },
+
+  hairturban: {
+    title: "Hair turban",
+    tab: "small",
+    toolName: "Hair turban",
+    sizeStep: "Enter head circumference, finished width and the back elastic length. Presets cover child, adult and wide.",
+    desc: "How to sew a twisted hair turban. Two bands crossed at the front and joined to elastic at the back.",
+    keywords: "hair turban,headband,twisted headband,how to sew,sewing pattern,knit,handmade",
+    lead: "A turban with a twist at the front — more of a statement than a plain headband, and just as useful after a shower. Two bands crossed at the center front, with elastic at the back. In stretch knit it slips on and off easily.",
+    matNote: "one turban",
+    materials: [
+      "Main fabric (jersey, interlock or cotton) — about 60 × 30 cm (24 × 12 in)",
+      "Flat elastic (2–2.5 cm / 1 in wide) — about 15 cm (6 in)",
+      "Bodkin"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the band twice. On stretch fabric, run the direction of most stretch along the length.",
+      "<strong>Cut</strong><br>Cut two bands. Two different fabrics make the twist far more interesting.",
+      "<strong>Finish the edges</strong><br>Not needed — each band is sewn into a tube and turned."
+    ],
+    sew: [
+      { h: "4-1. Make the tubes", items: [
+        "Fold one band right sides together lengthwise and sew the long edge, leaving both ends open.",
+        "Turn it right side out with a loop turner, or a safety pin pushed through.",
+        "Roll the seam to one edge with your fingers and press. Make the second band the same way."
+      ]},
+      { h: "4-2. Cross them at the front", items: [
+        "Lay the two bands flat and cross them at the center, one passing over the other.",
+        "Pin the crossing and try it on to check how the twist sits — this is what gives the turban its shape.",
+        "Baste the crossing at both sides to hold it."
+      ]},
+      { h: "4-3. Attach the elastic", items: [
+        "Bring the ends of both bands together and sew across them at one side.",
+        "Catch one end of the elastic in that seam, and the other end in the matching seam on the other side.",
+        "Wrap the raw seam in a small scrap of fabric (about 3 × 5 cm) so it does not sit against your head."
+      ]}
+    ],
+    sewNote: "You can leave the crossing loose rather than basting it, and the twist will shift as you wear it. Baste it and the shape stays put through washing. Both are valid — decide which you want before you sew.",
+    tips: [
+      "<strong>Use knit</strong>: non-stretch fabric puts all the strain on the elastic and it goes slack quickly.",
+      "<strong>Two fabrics</strong>: a plain and a print makes the crossing read properly.",
+      "<strong>Wide for skincare</strong>: a wider band holds a fringe back properly while you wash your face."
+    ],
+    related: ["headband", "shuushu", "beret", "neckwarmer"]
+  },
+
+  bottleholder: {
+    title: "Bottle holder",
+    tab: "small",
+    toolName: "Bottle holder",
+    sizeStep: "Enter the bottle diameter and height, the strap length and the strap cut width. Presets cover 500 ml, 350 ml and 1 L.",
+    desc: "How to sew a shoulder holder for a drink bottle. A circular base, a body and a strap — insulate it and drinks stay cold.",
+    keywords: "bottle holder,water bottle carrier,how to sew,sewing pattern,insulated,handmade",
+    lead: "A tube holder for a drink bottle. Line it with insulating fabric and a cold drink stays cold for hours. The round base means it stands up on its own, and the shoulder strap frees your hands. A staple for school bags and summer outings.",
+    matNote: "500 ml bottle",
+    materials: [
+      "Main fabric (oxford, quilted cotton or canvas) — about 50 × 40 cm (20 × 16 in)",
+      "Lining fabric (insulating sheet, or lightweight quilted cotton) — the same amount",
+      "Webbing or a self-fabric strap — the length you chose",
+      "Optional: a swivel hook and slider for adjustment"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the base (a circle), the body (a rectangle) and the strap. Trace the circle accurately — a distorted base will not fit the tube.",
+      "<strong>Cut</strong><br>Cut the base and body in both main and lining, and one strap.",
+      "<strong>Finish the edges</strong><br>Not needed with a lining. Insulating sheet can be left raw."
+    ],
+    sew: [
+      { h: "4-1. Make the strap", items: [
+        "For a self-fabric strap, fold it in quarters lengthwise, press and topstitch both edges.",
+        "For webbing, cut to length and seal the ends with a lighter."
+      ]},
+      { h: "4-2. Sew the body into a tube", items: [
+        "Fold the main body right sides together and sew the short edge. Press the seam open.",
+        "Do the same with the lining, but leave an 8 cm (3 in) gap in the seam for turning."
+      ]},
+      { h: "4-3. Attach the base", items: [
+        "Pin the base circle to the lower edge of the tube, right sides together. Pin at four points first, then fill in between.",
+        "Sew with the circle uppermost, turning the work a little at a time.",
+        "Clip the allowance every 5 mm so the base settles into a curve.",
+        "Attach the lining base the same way."
+      ]},
+      { h: "4-4. Join and finish", items: [
+        "Turn the main piece right side out and slip it inside the lining, right sides together.",
+        "Catch the strap ends at the sides as you sew around the opening. Check the strap is not twisted.",
+        "Turn through the gap in the lining, close it, push the lining inside and topstitch around the opening."
+      ]}
+    ],
+    sewNote: "Setting a circle into a tube is the only difficult part. Pin at four points, then halve each gap. If the circle seems slightly too big or too small, do not pull it — add more pins and spread the difference.",
+    tips: [
+      "<strong>Insulating sheet</strong>: sold in craft shops as thermal or foil-backed sheeting. Using it as the lining makes a striking difference.",
+      "<strong>Add a lid</strong>: a self-fabric flap with hook-and-loop improves the insulation further.",
+      "<strong>For a flask</strong>: measure your own flask and it becomes a flask cover."
+    ],
+    related: ["flaskcover", "roundkinchaku", "kincgusset", "lunchbag"]
+  },
+
+  cap: {
+    title: "Baseball cap",
+    tab: "small",
+    toolName: "Baseball cap",
+    sizeStep: "Enter head circumference, crown depth, brim length and width, and ease. Presets cover child, adult and large.",
+    desc: "How to sew a six-panel baseball cap. Six panels form the crown and two pieces make the brim.",
+    keywords: "baseball cap,six panel cap,how to sew,sewing pattern,twill,denim,handmade",
+    lead: "A classic six-panel cap. The panels are joined in sequence to build the rounded crown, and a stiffened brim is set into the front. There are more seams here than in most accessories, but each one is short and the shape comes out of the sequence rather than out of skill.",
+    matNote: "adult size",
+    materials: [
+      "Main fabric (twill, denim or canvas) — about 60 × 50 cm (24 × 20 in)",
+      "Lining fabric — the same amount",
+      "Firm fusible interfacing or a brim insert — for the brim",
+      "Optional: an adjuster strap or elastic for the back"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the crown panel and the brim.",
+      "<strong>Cut</strong><br>Cut six panels and two brim pieces, plus lining. Fuse interfacing to the brim.",
+      "<strong>Finish the edges</strong><br>Zigzag or serge the panel seam allowances — there are a lot of them."
+    ],
+    sew: [
+      { h: "4-1. Join the panels", items: [
+        "Sew the panels together in pairs, then join the pairs into two sets of three, then join those two halves.",
+        "Working 2 → 3 sets → whole keeps the seams meeting neatly at the top. Sewing them one after another leaves a gap at the crown.",
+        "Press each seam open, or to one side and topstitch, as you go."
+      ]},
+      { h: "4-2. Make the brim", items: [
+        "Sew the two brim pieces right sides together along the outer curve.",
+        "Clip the curve, turn and press, then topstitch several concentric lines across the brim to stiffen it."
+      ]},
+      { h: "4-3. Attach the brim", items: [
+        "Pin the brim to the front of the crown opening, right sides together, matching the centers, and sew.",
+        "Baste it first and try the cap on — brim position is the difference between a cap that looks right and one that does not."
+      ]},
+      { h: "4-4. Finish the opening", items: [
+        "Sew the lining crown the same way and set it inside.",
+        "Bind or turn the lower edge, catching the brim, and topstitch all the way around.",
+        "Add an adjuster or elastic at the back if you want it to fit more than one head."
+      ]}
+    ],
+    sewNote: "Join the panels in pairs, then in threes, then join the halves. Sewn one after another around the circle, the last seam never closes cleanly and the crown pulls to one side.",
+    tips: [
+      "<strong>Stiffen the brim properly</strong>: a floppy brim is the one thing that makes a home-made cap look home-made. Use a proper brim insert if you can find one.",
+      "<strong>Topstitch the panels</strong>: pressing the seams to one side and topstitching gives the ridged look of a bought cap.",
+      "<strong>Adjuster at the back</strong>: it makes the cap fit anyone, and it is five minutes' work."
+    ],
+    related: ["sunhat", "beret", "bousaizukin", "babyhat"]
+  },
+
+  boshitecho: {
+    title: "Health-record book case",
+    tab: "small",
+    toolName: "Health-record book case",
+    sizeStep: "Enter the book width, height, thickness and the inner pocket height. Presets cover A6, B6 and A5.",
+    desc: "How to sew a bi-fold case for a health record book, appointment cards and insurance cards. Body plus inner pockets.",
+    keywords: "record book case,document case,passbook case,how to sew,sewing pattern,handmade",
+    lead: "A bi-fold case that keeps a child health record, appointment cards, an insurance card and scan photos in one place. Body and inner pockets is the whole construction, and stitching the pocket vertically turns it into card slots. It works just as well as a passbook or medicine-record case.",
+    matNote: "A6 size",
+    materials: [
+      "Main fabric (oxford, linen or canvas) — about 60 × 40 cm (24 × 16 in)",
+      "Lining fabric (light cotton) — the same amount",
+      "Pocket fabric — about 40 × 25 cm (16 × 10 in)",
+      "Firm fusible interfacing — for the main fabric",
+      "Snap fastener or elastic — 1"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the body and the inner pockets, and mark the center fold on the body.",
+      "<strong>Cut</strong><br>Cut the body in main and lining, and one or two pocket pieces.",
+      "<strong>Apply interfacing</strong><br>Fuse firm interfacing to the main fabric. Loaded up, this case is heavy, and without interfacing it collapses."
+    ],
+    sew: [
+      { h: "4-1. Make the pockets", items: [
+        "Turn the top edge of each pocket under twice and stitch. Always do this first — it cannot be done once the pocket is attached.",
+        "If you are using two, make them different heights so the contents are easy to tell apart."
+      ]},
+      { h: "4-2. Attach the pockets", items: [
+        "Lay the pockets on the right side of the lining, aligning the lower and side edges.",
+        "For card slots, stitch vertically now. About 6 cm (2⅜ in) per card is right. Backstitch at the top of each line — that is where the pocket tears.",
+        "Baste the lower and side edges within the seam allowance."
+      ]},
+      { h: "4-3. Sew the layers together", items: [
+        "Place main and lining right sides together and sew around, leaving a 10 cm (4 in) gap.",
+        "Trim the corners, turn through the gap and press.",
+        "Topstitch 5 mm from the edge all the way around."
+      ]},
+      { h: "4-4. Fold and add the closure", items: [
+        "Fold at the center line and press.",
+        "Put the actual contents in and check how it closes before fitting a snap, or run an elastic band around the spine."
+      ]}
+    ],
+    sewNote: "The thickness setting matters more than it looks. A record book, appointment cards and an insurance card together come to nearly 1.5 cm. Leave that out and the case is pulled open by its own contents.",
+    tips: [
+      "<strong>Stagger the pockets</strong>: card slots at different heights let you see at a glance what is where.",
+      "<strong>Add a pen loop</strong>: caught in the side seam, so there is always a pen at appointments.",
+      "<strong>Also a passbook case</strong>: same size, different pocket divisions."
+    ],
+    related: ["bankbook", "cardcase", "passportcase", "bookcover"]
+  },
+
+  cardcase: {
+    title: "Card case",
+    tab: "small",
+    toolName: "Card case",
+    sizeStep: "Enter the card width, height and ease. Presets cover business card, credit card and a larger size.",
+    desc: "How to sew a small bi-fold card case. Body plus an inner pocket, sewn right sides together and folded at the center.",
+    keywords: "card case,business card holder,how to sew,sewing pattern,scraps,interfacing,handmade",
+    lead: "A small bi-fold case for business cards or loyalty cards. Twenty-five centimeters of fabric is enough, so this is where a good scrap goes. Firm interfacing is what turns it from homemade-looking into something you would hand to a client.",
+    matNote: "one case",
+    materials: [
+      "Main fabric (faux leather, canvas or heavy cotton) — about 25 × 20 cm (10 × 8 in)",
+      "Lining fabric — the same amount",
+      "Pocket fabric — about 15 × 15 cm (6 × 6 in)",
+      "Firm fusible interfacing — for the main fabric",
+      "Optional: a snap fastener"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the body and the pocket, and mark the center fold.",
+      "<strong>Cut</strong><br>Cut the body in main and lining, plus one pocket.",
+      "<strong>Apply interfacing</strong><br>Fuse interfacing to the main fabric. On something this small the difference is dramatic."
+    ],
+    sew: [
+      { h: "4-1. Make the pocket", items: [
+        "Turn the top edge of the pocket under twice — 5 mm and 5 mm — and stitch. Press the folds hard first; at this size a wobble shows."
+      ]},
+      { h: "4-2. Attach the pocket", items: [
+        "Lay it on the right side of the lining, to one side of the center fold, and baste the lower and side edges within the seam allowance."
+      ]},
+      { h: "4-3. Sew the layers together", items: [
+        "Place main and lining right sides together and sew around, leaving a 6 cm (2½ in) gap.",
+        "Trim the corners well — on a small piece, bulk at the corners is obvious.",
+        "Turn, press and topstitch 3 mm from the edge all the way around."
+      ]},
+      { h: "4-4. Fold", items: [
+        "Fold firmly at the center and press.",
+        "Stitching the sides together for a couple of centimeters stops cards sliding out sideways.",
+        "Fit a snap with the cards in place if you want it to close."
+      ]}
+    ],
+    sewNote: "The ease setting is what makes this work. Cut to the exact card size and the interfacing plus seam allowances leave no room for a card at all. The preset ease already accounts for that — do not reduce it.",
+    tips: [
+      "<strong>Do not over-interface</strong>: too stiff and the case springs open instead of folding. Medium weight is right.",
+      "<strong>Faux leather</strong>: has body without interfacing, but every needle hole is permanent.",
+      "<strong>As a gift</strong>: small, cheap and genuinely used. One of the best things here to give away."
+    ],
+    related: ["keycase", "wallet", "boshitecho", "gamaguchi"]
+  },
+
+  bousaizukin: {
+    title: "Disaster hood cover",
+    tab: "small",
+    toolName: "Disaster hood cover",
+    sizeStep: "Enter the hood width, height and thickness, and the chair band length. Presets cover standard and large.",
+    desc: "How to sew a cover for a Japanese school disaster hood. It holds the hood and doubles as a chair-back cushion.",
+    keywords: "disaster hood cover,school,japan,how to sew,sewing pattern,quilted,handmade",
+    lead: "Japanese schools issue a padded hood for earthquake drills, and it lives on the back of the chair inside a cover like this one. The cover holds the hood and works as a back cushion at the same time. Schools usually specify the size, so enter what they ask for. Quilted fabric is the standard choice.",
+    matNote: "standard size",
+    materials: [
+      "Main fabric (quilted cotton or canvas) — about 110 cm wide × 90 cm (44 × 35 in)",
+      "Flat elastic (2.5 cm / 1 in wide) — about 70 cm (28 in)",
+      "Optional: hook-and-loop for the opening"
+    ],
+    cut: [
+      "<strong>Check the school's specification</strong><br>Most schools give exact dimensions. Enter those rather than measuring the hood.",
+      "<strong>Trace the pattern</strong><br>Trace the body and the chair bands.",
+      "<strong>Cut</strong><br>Cut one body and two bands.",
+      "<strong>Finish the edges</strong><br>Serge or zigzag the side allowances — quilted fabric frays quickly."
+    ],
+    sew: [
+      { h: "4-1. Make the bands", items: [
+        "Fold each band in quarters lengthwise and topstitch both long edges. Make two."
+      ]},
+      { h: "4-2. Finish the opening", items: [
+        "Turn the opening edge under twice and stitch.",
+        "Add hook-and-loop here if you want it to close."
+      ]},
+      { h: "4-3. Sew the body", items: [
+        "Fold the body right sides together and sew both sides.",
+        "Pinch the base corners into triangles and sew across to give the depth for the hood."
+      ]},
+      { h: "4-4. Attach the bands", items: [
+        "Stitch a band to each side of the back, positioned to go around the chair back.",
+        "Sew them with a stitched rectangle and a cross — these take the weight of the whole thing every day."
+      ]}
+    ],
+    sewNote: "Follow the school's dimensions exactly rather than measuring the hood. Schools specify a size so the covers all fit the chairs, and a cover that is a centimeter out will be sent home.",
+    tips: [
+      "<strong>Quilted fabric</strong>: it is the standard for a reason — it holds its shape and survives daily handling.",
+      "<strong>Name it clearly</strong>: every child in the class has one, and they all look similar.",
+      "<strong>Elastic instead of ties</strong>: elastic bands go over the chair back faster than ties, which matters to a six-year-old."
+    ],
+    related: ["gymbag", "ehonbag", "shoesbag", "randocover"]
+  },
+
+  dollclothes: {
+    title: "Doll dress",
+    tab: "small",
+    toolName: "Doll dress",
+    sizeStep: "Enter the doll's chest, length, shoulder width, hem flare and ease. Presets cover 20 cm, 27 cm and 40 cm dolls.",
+    desc: "How to sew an A-line dress for a doll. One front and two backs, fastened with snaps — and 5 mm seam allowances throughout.",
+    keywords: "doll clothes,doll dress,how to sew,sewing pattern,scraps,miniature,handmade",
+    lead: "An A-line dress for a doll. One front, two backs, snaps down the spine. Measure your own doll's chest and length and it will fit whatever you have. The pieces are tiny, which also makes it a low-stakes way to practise techniques you would not risk on a full-size garment.",
+    matNote: "27 cm doll",
+    materials: [
+      "Main fabric (lawn, broadcloth or double gauze — something thin) — about 40 × 30 cm (16 × 12 in)",
+      "Tiny snap fasteners or narrow hook-and-loop — 2–3 sets",
+      "Narrow bias tape (about 6 mm / ¼ in finished) — about 60 cm (24 in)",
+      "Optional: narrow lace or ribbon"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Use a mechanical pencil rather than chalk — a thick chalk line is a 1–2 mm error at this scale.",
+      "<strong>Cut</strong><br>Cut one front on the fold and two backs.",
+      "<strong>Finish the edges</strong><br>Seam allowances are 5 mm, so pinking shears are more manageable than a zigzag."
+    ],
+    sew: [
+      { h: "4-1. Sew the shoulders", items: [
+        "Place front and backs right sides together and sew both shoulder seams with a 5 mm allowance.",
+        "Press the allowances to one side rather than open — at this scale, pressing open adds visible bulk."
+      ]},
+      { h: "4-2. Bind the neckline and armholes", items: [
+        "Sew narrow bias tape around the neckline, turn it to the inside and topstitch.",
+        "Bind the armholes the same way.",
+        "Wide tape will not follow a doll-sized neckline. Use narrow tape, or cut your own bias strips from the main fabric."
+      ]},
+      { h: "4-3. Sew the sides", items: [
+        "Sew both side seams from the underarm to the hem, backstitching at the underarm."
+      ]},
+      { h: "4-4. Finish the back and hem", items: [
+        "Turn each back opening edge under twice — 5 mm and 5 mm — and stitch.",
+        "Hem the lower edge the same way, easing the flare in as you fold.",
+        "Fit two or three snaps, or narrow hook-and-loop, down the back."
+      ]}
+    ],
+    sewNote: "Two things decide whether doll clothes look right: a 5 mm seam allowance and thin fabric. A standard 1 cm allowance makes the side seams so bulky the dress will not go on.",
+    tips: [
+      "<strong>Hook-and-loop is easier</strong>: much simpler for a child to manage than tiny snaps.",
+      "<strong>Small prints only</strong>: a large print puts no complete motif on a garment this size.",
+      "<strong>Practice piece</strong>: bias-bound necklines and flared hems, in miniature and using almost no fabric."
+    ],
+    related: ["nuiclothes", "teddy", "kidsdress", "babytoy"]
+  },
+
+  teddy: {
+    title: "Teddy bear",
+    tab: "small",
+    toolName: "Teddy bear",
+    sizeStep: "Enter the overall height, head size and ear size. Presets cover small, standard and large.",
+    desc: "How to sew a flat teddy bear. Two body pieces and four ear pieces, turned and stuffed.",
+    keywords: "teddy bear,soft toy,plush,how to sew,sewing pattern,stuffing,handmade",
+    lead: "A simple flat-construction teddy. Two body pieces and four ear pieces — far less work than a jointed bear, and it still comes out unmistakably a bear. Fleece, felt or corduroy gives it character. Embroider the face rather than using button eyes.",
+    matNote: "standard size",
+    materials: [
+      "Main fabric (fleece, felt or corduroy) — about 60 × 50 cm (24 × 20 in)",
+      "Toy stuffing — about 200 g (7 oz)",
+      "Embroidery floss (black or brown) — for the eyes and nose",
+      "Optional: ribbon for the neck"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the body (on the fold) and the ears. On napped fabric, trace from the wrong side and keep the pile running the same way on every piece.",
+      "<strong>Cut</strong><br>Cut two bodies and four ears.",
+      "<strong>Cutting fleece</strong><br>Lift the upper layer slightly and cut the backing rather than the pile — far less mess."
+    ],
+    sew: [
+      { h: "4-1. Make the ears", items: [
+        "Sew two ear pieces right sides together, leaving the base open. Make two.",
+        "Clip the curve and turn.",
+        "Leave them unstuffed — flat ears look more like a bear than stuffed ones."
+      ]},
+      { h: "4-2. Sew the body with the ears caught in", items: [
+        "Lay the ears on the right side of one body piece at the head, loops pointing inward, and baste them in the seam allowance.",
+        "Lay the second body on top, right sides together, and sew around leaving a 10 cm (4 in) gap — the side under the arm turns most easily.",
+        "Clip into every inward curve: the neck, the underarms and between the legs. Skip these and the shape never appears."
+      ]},
+      { h: "4-3. Turn and stuff", items: [
+        "Turn through the gap, easing the paws out with a chopstick or the handle of a point turner.",
+        "Stuff in small pieces, working paws first, then head, then body. You cannot reach the paws once the body is full.",
+        "Stuff the head firmly and the body more softly — it sits better that way."
+      ]},
+      { h: "4-4. Close and embroider the face", items: [
+        "Close the gap with ladder stitch.",
+        "Embroider the eyes and nose. Set the eyes lower and closer together than instinct suggests — that is what makes a face look sweet rather than staring.",
+        "Pin markers in first and look from a distance before committing."
+      ]}
+    ],
+    sewNote: "If this is for a small child, embroider the eyes and nose. Plastic safety eyes and buttons come off eventually, and anything that comes off can be swallowed. Embroidery cannot, and it washes.",
+    tips: [
+      "<strong>Stuffing changes everything</strong>: packed hard it becomes a firm character; loosely filled it becomes something to cuddle.",
+      "<strong>Make it washable</strong>: washable fabric and stuffing. The more loved it is, the more this matters.",
+      "<strong>A ribbon at the neck</strong>: ten seconds, and it turns it into a present."
+    ],
+    related: ["babytoy", "pettoy", "nuiclothes", "dollclothes"]
+  },
+
+  scarf: {
+    title: "Scarf",
+    tab: "small",
+    toolName: "Scarf",
+    sizeStep: "Enter the total length and finished width. Presets cover child, standard and wide.",
+    desc: "How to sew a fabric scarf. Fold a rectangle lengthwise and sew — or cut fleece and fringe the ends.",
+    keywords: "scarf,winter scarf,how to sew,sewing pattern,fleece,fringe,handmade",
+    lead: "You do not need to knit to make a scarf. Fold a rectangle lengthwise, sew, turn. Fleece or wool for winter, double gauze for spring. Far faster than knitting — which is exactly what you want when a gift deadline is closing in.",
+    matNote: "standard size",
+    materials: [
+      "Main fabric (fleece, wool or double gauze) — about 110 cm wide × 60 cm (44 × 24 in)",
+      "Optional: a second fabric for a double-sided scarf"
+    ],
+    cut: [
+      "<strong>Mark the measurements</strong><br>It is a rectangle, so mark it straight onto the fabric.",
+      "<strong>Straighten the grain</strong><br>On something this long, a skewed grain shows. Pull a single thread and cut along the line it leaves.",
+      "<strong>Cut</strong><br>Cut one piece for a folded scarf, or one of each fabric for a double-sided one."
+    ],
+    sew: [
+      { h: "4-1. Sew the long edge", items: [
+        "Fold the piece lengthwise, right sides together, and sew the long edge with a 1 cm (⅜ in) allowance.",
+        "For a double-sided version, place the two fabrics right sides together and sew both long edges.",
+        "It is a long seam — support the fabric with your left hand so its weight does not drag it off line."
+      ]},
+      { h: "4-2. Sew one end and turn", items: [
+        "Sew one short end closed and leave the other open.",
+        "Turn through the open end. A chopstick pushed inside speeds this up considerably.",
+        "Roll the seam to the edge with your fingers and press."
+      ]},
+      { h: "4-3. Close the open end", items: [
+        "Fold the remaining raw edges inward and close with ladder stitch, or topstitch 3 mm from the edge.",
+        "If you topstitch, do the other end to match."
+      ]},
+      { h: "4-4. Fringe (optional)", items: [
+        "Instead of closing the ends, pull the crosswise threads out one at a time to make a fringe.",
+        "Stitch a line across at the depth you want first — 5–8 cm (2–3 in) — or the fringe keeps unravelling."
+      ]}
+    ],
+    sewNote: "With fleece, most of this is unnecessary. Fleece does not fray, so cut a rectangle, snip the ends into a fringe, and you are done in fifteen minutes. That is the fastest gift on this site.",
+    tips: [
+      "<strong>Length</strong>: roughly your own height gives you options for how to wrap it. About 120 cm (47 in) suits a child.",
+      "<strong>Two-sided</strong>: different fabrics front and back show a glimpse of contrast as it falls.",
+      "<strong>For small children</strong>: a neck warmer is safer than a long scarf around playground equipment."
+    ],
+    related: ["neckwarmer", "legwarmer", "bandana", "headband"]
+  },
+
+  nametag: {
+    title: "Name tag holder",
+    tab: "small",
+    toolName: "Name tag holder",
+    sizeStep: "Enter the badge width, height, ease and clip strip length. Presets cover standard and large.",
+    desc: "How to sew a name tag holder that clips on instead of pinning. A vinyl window keeps the badge visible.",
+    keywords: "name tag holder,name badge cover,school,how to sew,sewing pattern,vinyl,handmade",
+    lead: "School name badges are pinned on, and the pin makes a hole in the clothes. This holder clips instead. Add a clear vinyl window and the name still shows while the badge slides in and out. A standard part of the Japanese back-to-school list.",
+    matNote: "one holder",
+    materials: [
+      "Main fabric (oxford or printed cotton) — about 25 × 20 cm (10 × 8 in)",
+      "Clear vinyl (about 0.3 mm) — about 12 × 10 cm (5 × 4 in)",
+      "Fabric for the clip strip — about 15 × 8 cm (6 × 3 in)",
+      "A clip (badge clips are sold for exactly this) — 1"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the body and the clip strip, and mark the window opening.",
+      "<strong>Cut</strong><br>Cut two body pieces and one clip strip. Cut the vinyl slightly larger than the window.",
+      "<strong>Handling vinyl</strong><br>Pins leave permanent holes. Use clips or a strip of tape."
+    ],
+    sew: [
+      { h: "4-1. Make the window", items: [
+        "Cut the marked opening out of the piece that will be the front.",
+        "Lay the vinyl behind it and stitch 3 mm outside the opening edge all the way around.",
+        "Vinyl sticks to the presser foot. Lay tissue paper on top and tear it away afterwards."
+      ]},
+      { h: "4-2. Make the clip strip", items: [
+        "Fold it in quarters lengthwise, press and topstitch both edges.",
+        "Fold it into a loop and check the clip passes through."
+      ]},
+      { h: "4-3. Sew the body", items: [
+        "Place the two body pieces right sides together, catching the clip loop at the top edge with the loop pointing inward.",
+        "Sew around, leaving 8 cm (3 in) open at the bottom for the badge.",
+        "Trim the corners diagonally."
+      ]},
+      { h: "4-4. Turn and finish", items: [
+        "Turn through the opening and shape the corners. Press with a cloth on a low setting and keep the iron away from the vinyl.",
+        "Fold the opening edges in and topstitch 3 mm from the edge.",
+        "Thread the clip through the loop and check the badge slides in easily."
+      ]}
+    ],
+    sewNote: "An iron will melt vinyl. Use a pressing cloth, a low setting, and keep away from the vinyl entirely. If that worries you, crease the folds with a ruler instead of pressing them.",
+    tips: [
+      "<strong>Skip the vinyl</strong>: a plain pocket that the badge slides into avoids handling vinyl altogether — and is easier to make.",
+      "<strong>Buy the clip</strong>: badge clips are sold in craft and hundred-yen shops and are designed not to mark clothes.",
+      "<strong>Make one per child</strong>: different fabrics stop them getting mixed up."
+    ],
+    related: ["movepocket", "cardcase", "randocover", "maskcase"]
+  },
+
+  pencase: {
+    title: "Pencil case",
+    tab: "small",
+    toolName: "Pencil case",
+    sizeStep: "Enter the finished width, height and gusset depth. Presets cover slim, standard and large.",
+    desc: "How to sew a boxy zip pencil case. One piece folded at the base, sewn into a tube with boxed corners.",
+    keywords: "pencil case,pen case,how to sew,sewing pattern,zip,canvas,handmade",
+    lead: "A boxy pencil case with a zip. One piece, folded at the base, sewn into a tube with the base corners boxed. Interfaced, it stands up on its own, so tipped on its end it becomes a pen pot on the desk. Canvas or corduroy.",
+    matNote: "one case",
+    materials: [
+      "Main fabric (canvas, corduroy or heavy cotton) — about 40 × 30 cm (16 × 12 in)",
+      "Lining fabric (light cotton) — the same amount",
+      "Firm fusible interfacing — for the main fabric",
+      "Zip — about 2 cm (¾ in) longer than the finished width",
+      "Optional: fabric for zip end tabs"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the body (base on the fold) and the zip end tabs.",
+      "<strong>Cut</strong><br>Cut the body in main and lining, plus two tabs.",
+      "<strong>Apply interfacing</strong><br>Fuse firm interfacing to the main fabric. This is what makes it stand up, so do not skip it."
+    ],
+    sew: [
+      { h: "4-1. Add the zip tabs", items: [
+        "Fold each tab in quarters and press.",
+        "Fold a tab over each end of the zip and topstitch. This hides the metal stops and lets you fine-tune the length."
+      ]},
+      { h: "4-2. Insert the zip", items: [
+        "Lay the zip right sides together on one top edge of the main fabric, then lay the lining on top and sew all three layers.",
+        "Open the two fabrics away from the zip and topstitch close to the zip teeth.",
+        "Repeat on the other top edge with the other side of the zip.",
+        "That main–zip–lining sandwich is what keeps all the raw edges enclosed."
+      ]},
+      { h: "4-3. Sew the sides", items: [
+        "Open the zip halfway — you will need it open to turn the case through.",
+        "Arrange main against main and lining against lining, right sides together, and sew both side seams. Leave an 8 cm (3 in) gap in one lining seam.",
+        "Turn the handwheel by hand over the zip teeth."
+      ]},
+      { h: "4-4. Box the corners and turn", items: [
+        "Pinch each base corner into a triangle, matching the side seam to the base fold, and sew across at the gusset depth. Trim to 1 cm.",
+        "Do the same on the lining.",
+        "Turn everything through the gap, close it, push the lining in and shape the case."
+      ]}
+    ],
+    sewNote: "Buy the zip 2 cm longer than the finished width. Cut exactly to size, the metal stops end up inside the side seam allowance and you cannot sew past them. Too long is easy to hide with tabs; too short cannot be fixed.",
+    tips: [
+      "<strong>Firm interfacing</strong>: soft interfacing makes it slump, which defeats the boxy shape.",
+      "<strong>Stand it up</strong>: on its end with the zip open, it is a pen pot. That is the reason for the boxy shape.",
+      "<strong>Other sizes</strong>: the same construction makes a glasses case or a tool roll."
+    ],
+    related: ["pouchgusset", "glassescase", "gadgetpouch", "cosmepouch"]
+  },
+
+  bankbook: {
+    title: "Passbook case",
+    tab: "small",
+    toolName: "Passbook case",
+    sizeStep: "Enter the passbook width, height, how many you carry and the inner pocket height. Presets cover 1–2 books, 3 books and a medicine record book.",
+    desc: "How to sew a bi-fold case for bank passbooks, cards and a seal. Stitch the pocket vertically for card slots.",
+    keywords: "passbook case,bankbook cover,document case,how to sew,sewing pattern,handmade",
+    lead: "A bi-fold case that keeps passbooks, cards and a seal together instead of scattered through a drawer. Stitch the inner pocket vertically and it becomes card slots; add an elastic band and nothing falls out. Another good use for a nice scrap.",
+    matNote: "3 passbooks",
+    materials: [
+      "Main fabric (linen, oxford or canvas) — about 50 × 30 cm (20 × 12 in)",
+      "Lining fabric (light cotton) — the same amount",
+      "Pocket fabric — about 40 × 15 cm (16 × 6 in)",
+      "Firm fusible interfacing — for the main fabric",
+      "Narrow elastic (0.6 cm / ¼ in) — about 30 cm (12 in), or a snap"
+    ],
+    cut: [
+      "<strong>Measure what goes in</strong><br>Measure a passbook and count how many you carry — the thickness is calculated from that.",
+      "<strong>Trace the pattern</strong><br>Trace the body and the pocket, and mark the center fold.",
+      "<strong>Cut</strong><br>Cut the body in main and lining, plus one or two pockets, and fuse interfacing to the main fabric."
+    ],
+    sew: [
+      { h: "4-1. Make the pocket", items: [
+        "Turn the top edge under twice and stitch. Do this before it goes anywhere near the case.",
+        "With two pockets, make them different heights so the contents are easy to identify."
+      ]},
+      { h: "4-2. Attach the pocket", items: [
+        "Lay it on the right side of the lining, aligning the lower and side edges.",
+        "For card slots, stitch vertically now — about 6 cm (2⅜ in) per card. Backstitch at the top of each line.",
+        "Baste the lower and side edges within the seam allowance."
+      ]},
+      { h: "4-3. Sew the layers together", items: [
+        "Place main and lining right sides together and sew around, leaving a 10 cm (4 in) gap.",
+        "Trim the corners, turn, press and topstitch 5 mm from the edge."
+      ]},
+      { h: "4-4. Fold and close", items: [
+        "Fold at the center and press.",
+        "For an elastic closure, sew a small loop of self-fabric at the spine and run the elastic around the case.",
+        "For a snap, load the case first and mark the position with everything inside."
+      ]}
+    ],
+    sewNote: "Be honest about how many passbooks you carry. Each one is about 3.5 mm, so three come to over a centimeter. Leave that thickness out and the case will not stay shut.",
+    tips: [
+      "<strong>Stagger the slots</strong>: card pockets at different heights make everything visible at a glance.",
+      "<strong>A pocket for the seal</strong>: one small extra pocket stops it rolling around loose.",
+      "<strong>Elastic beats a snap</strong>: it copes with a varying thickness, which a snap does not."
+    ],
+    related: ["boshitecho", "cardcase", "passportcase", "bookcover"]
+  },
+
+  flaskcover: {
+    title: "Water bottle cover",
+    tab: "small",
+    toolName: "Water bottle cover",
+    sizeStep: "Enter the flask diameter and height, the strap length and cut width. Presets cover a 480 ml child flask, 600 ml standard and 1 L.",
+    desc: "How to sew an insulated shoulder cover for a flask, with a lid. A circular base, a body, a lid and a strap.",
+    keywords: "flask cover,bottle cover,insulated,school,how to sew,sewing pattern,handmade",
+    lead: "A shoulder cover with a lid for a flask. Covers wear out long before flasks do, and making a new one is far cheaper than replacing the flask. Line it with insulating fabric and it also stops the flask getting dented in a school bag.",
+    matNote: "600 ml standard",
+    materials: [
+      "Main fabric (oxford, quilted cotton or canvas) — about 60 × 50 cm (24 × 20 in)",
+      "Lining fabric (insulating sheet, or lightweight quilted cotton) — the same amount",
+      "Webbing or a self-fabric strap — the length you chose",
+      "A slider and swivel hook for adjustment — 1 each",
+      "Snap fastener for the lid — 1 set"
+    ],
+    cut: [
+      "<strong>Measure the flask</strong><br>Measure the widest diameter and the height including the cap and handle. Measuring the body only gives a cover the flask will not fit into.",
+      "<strong>Trace the pattern</strong><br>Trace the base (circle), the body, the lid (circle) and the strap. Trace the circles accurately.",
+      "<strong>Cut</strong><br>Cut the base, body and lid in both main and lining, and one strap."
+    ],
+    sew: [
+      { h: "4-1. Make the strap and lid", items: [
+        "For a self-fabric strap, fold in quarters, press and topstitch. For webbing, cut to length and seal the ends.",
+        "Sew the lid main and lining right sides together, leaving the straight attachment edge open.",
+        "Clip the curve, turn, press and topstitch around."
+      ]},
+      { h: "4-2. Sew the body into a tube", items: [
+        "Fold the main body right sides together and sew the short edge. Press the seam open.",
+        "Do the same with the lining, leaving an 8 cm (3 in) gap for turning."
+      ]},
+      { h: "4-3. Attach the base", items: [
+        "Pin the base circle to the lower edge of the tube, right sides together, pinning at four points first.",
+        "Sew with the circle uppermost, turning the work gradually and clipping the allowance every 5 mm.",
+        "Attach the lining base the same way."
+      ]},
+      { h: "4-4. Join and add the snap", items: [
+        "Turn the main piece out and slip it inside the lining, right sides together.",
+        "Catch the lid at the back edge and the strap ends at the sides, then sew around the opening.",
+        "Turn through the gap, close it, push the lining in and topstitch around the opening.",
+        "Put the flask in, close the lid and fit the snap 2–3 mm outside where it lands, to allow for the thickness."
+      ]}
+    ],
+    sewNote: "Setting the circular base into the tube is the only awkward part. Pin at four points and halve the gaps from there. If the circle seems slightly off, add pins rather than pulling — pulling distorts the base and the flask goes in crooked.",
+    tips: [
+      "<strong>Insulating sheet</strong>: sold as thermal or foil-backed sheeting in craft shops. The difference is genuinely noticeable.",
+      "<strong>Measure with the cap on</strong>: flask height means the whole thing, lid and handle included.",
+      "<strong>Adjustable strap</strong>: children grow. A slider makes the cover last several years."
+    ],
+    related: ["bottleholder", "roundkinchaku", "kincgusset", "lunchbag"]
+  },
+
+  randocover: {
+    title: "School satchel cover",
+    tab: "small",
+    toolName: "School satchel cover",
+    sizeStep: "Enter the flap width, length, lower corner radius and ease. Presets cover standard, large and a version for a clear cover.",
+    desc: "How to sew a cover for the flap of a Japanese school satchel. Water-repellent fabric plus reflective tape.",
+    keywords: "school satchel cover,randoseru cover,school bag,how to sew,sewing pattern,reflective,handmade",
+    lead: "A cover for the flap of a randoseru, the Japanese school satchel. It keeps the leather dry and unscratched, and a strip of reflective tape makes a child far more visible on a dark walk home. Water-repellent or laminated fabric is the point of it.",
+    matNote: "standard size",
+    materials: [
+      "Main fabric (water-repellent fabric, laminate or nylon) — about 40 × 45 cm (16 × 18 in)",
+      "Wide bias tape — about 120 cm (47 in)",
+      "Reflective tape — about 25 cm (10 in)",
+      "Narrow flat elastic (0.6 cm / ¼ in) — about 40 cm (16 in)",
+      "Optional: clear vinyl (about 0.3 mm)"
+    ],
+    cut: [
+      "<strong>Measure the satchel</strong><br>Measure the flap width and its length from the hinge to the tip, and note the radius of the rounded end.",
+      "<strong>Trace the pattern</strong><br>Trace the body. The marks show suggested elastic positions.",
+      "<strong>Cut</strong><br>Cut one body. Use clips rather than pins — laminate keeps every hole.",
+      "<strong>Finish the edges</strong><br>Not needed; the edges are bound."
+    ],
+    sew: [
+      { h: "4-1. Attach the reflective tape", items: [
+        "Lay the tape along the curve at the lower end, on the right side, and stitch both long edges.",
+        "Change direction gradually to follow the curve.",
+        "Do this first — once the edge is bound, the tape ends have nowhere to hide."
+      ]},
+      { h: "4-2. Bind the edges", items: [
+        "Bind all the way around with wide bias tape, which follows the curve naturally.",
+        "If you double-fold instead, ease the outer edge in around the curve.",
+        "Laminate sticks to the presser foot: use a Teflon foot, or lay tissue paper on top and tear it away."
+      ]},
+      { h: "4-3. Attach the elastic", items: [
+        "Sew elastic loops at the center of the lower edge and at the marked points on each side.",
+        "The lower loop hooks over the satchel's clasp; the side loops go over the strap fittings.",
+        "Fit the cover to the satchel and check the positions before sewing them permanently. Too loose and it falls off; too tight and the flap will not close."
+      ]},
+      { h: "4-4. Finish the top edge", items: [
+        "Either add two self-fabric loops that hook over the satchel hardware, or leave the top edge to tuck under the fitting.",
+        "For a version that holds a road-safety card, make the top edge into a pocket the card slides into."
+      ]}
+    ],
+    sewNote: "Laminate and coated fabric keep every needle hole. You cannot unpick and try again, so fit the cover to the actual satchel and mark the elastic positions before you sew anything down. Clips, not pins.",
+    tips: [
+      "<strong>Reflective tape earns its place</strong>: it costs very little and transforms visibility on a dark walk. Do not leave it off.",
+      "<strong>Water-repellent fabric only</strong>: the whole purpose is rain, and ordinary cotton simply soaks through.",
+      "<strong>Make two</strong>: it gets splashed with mud constantly."
+    ],
+    related: ["bousaizukin", "movepocket", "nametag", "ehonbag"]
+  },
+
+  recordercase: {
+    title: "Recorder case",
+    tab: "small",
+    toolName: "Recorder case",
+    sizeStep: "Enter the recorder length, bag width and the drawstring casing drop. Presets cover a soprano recorder, an alto recorder and a melodica hose.",
+    desc: "How to sew a drawstring bag for a school recorder. Fold one piece, sew the sides, add a drawstring at the top.",
+    keywords: "recorder case,recorder bag,school,how to sew,sewing pattern,drawstring,handmade",
+    lead: "A slim drawstring bag for a school recorder. Fold one piece at the base, sew the sides, make a casing. Shop-bought ones come in whatever print the shop had; this way the child picks the fabric. The same construction takes a melodica hose.",
+    matNote: "soprano recorder",
+    materials: [
+      "Main fabric (oxford, sheeting or printed cotton) — about 25 × 80 cm (10 × 31 in)",
+      "Cord (4–5 mm / ³⁄₁₆ in) — about 70 cm (28 in)",
+      "Bodkin",
+      "Optional: a fabric label for the name"
+    ],
+    cut: [
+      "<strong>Measure the recorder</strong><br>Measure it assembled — that is how a child will put it away.",
+      "<strong>Trace the pattern</strong><br>It is a rectangle folded at the base, so mark it straight onto the fabric.",
+      "<strong>Cut</strong><br>Cut one piece.",
+      "<strong>Finish the edges</strong><br>Zigzag the side allowances — they get plenty of wear."
+    ],
+    sew: [
+      { h: "4-1. Sew the sides, leaving the casing openings", items: [
+        "Fold at the base, right sides together.",
+        "Sew each side, but stop at the casing drop measured down from the top. Those unsewn sections are where the cord comes out.",
+        "It is a narrow bag, so a wandering seam shows. Rule a line and follow it."
+      ]},
+      { h: "4-2. Finish the casing openings", items: [
+        "Press the allowances open at the unsewn sections and topstitch them down in a narrow rectangle.",
+        "Backstitch at the point where the seam stops — that is where a bag tears."
+      ]},
+      { h: "4-3. Make the casing", items: [
+        "Fold the top edge under twice, to the casing depth, and stitch all the way around.",
+        "Check the channel connects to the side openings you left."
+      ]},
+      { h: "4-4. Thread the cord", items: [
+        "Turn right side out, thread the cord in one opening, around, and back out the same one. Knot the ends.",
+        "For a two-cord version, thread a second cord from the other side so it pulls evenly.",
+        "Add a name label and check the recorder goes in easily."
+      ]}
+    ],
+    sewNote: "Measure the recorder assembled, not in pieces. Children put it away in one piece. If the cleaning rod goes in too, add a centimeter to the width or the bag will always be a struggle.",
+    tips: [
+      "<strong>Name it prominently</strong>: every child in the class has the same recorder.",
+      "<strong>Melodica hose</strong>: the hose preset is sized for the tube and mouthpiece.",
+      "<strong>Washable fabric</strong>: it holds an instrument that goes in a mouth. Cotton that survives a hot wash."
+    ],
+    related: ["kinchaku", "shoesbag", "gymbag", "ehonbag"]
+  },
+
+  nuiclothes: {
+    title: "Plush toy dress",
+    tab: "small",
+    toolName: "Plush toy dress",
+    sizeStep: "Enter the plush toy's chest, bodice length, skirt length, shoulder width, skirt fullness and ease. Presets cover 10 cm and 20 cm plush toys and a 30 cm doll.",
+    desc: "How to sew a dress for a plush toy. A bodice with a gathered skirt, closing with snaps at the back.",
+    keywords: "plush toy clothes,plushie outfit,doll dress,how to sew,sewing pattern,scraps,handmade",
+    lead: "A dress for a plush toy around 20 cm tall. A bodice with a gathered skirt, snapping at the back. Shop-bought outfits assume a standard size that plush toys do not actually share — measure your own and it will fit. Scraps are all you need.",
+    matNote: "20 cm plush toy",
+    materials: [
+      "Main fabric (lawn, broadcloth or double gauze — thin) — about 40 × 30 cm (16 × 12 in)",
+      "Tiny snap fasteners or narrow hook-and-loop — 2–3 sets",
+      "Narrow bias tape (about 6 mm / ¼ in finished) — about 50 cm (20 in)",
+      "Optional: narrow lace or ribbon"
+    ],
+    cut: [
+      "<strong>Measure the toy</strong><br>Measure the chest at its widest, the shoulder width and the length you want. Lay the tape on gently — plush toys compress.",
+      "<strong>Trace the pattern</strong><br>Trace the front bodice (on the fold), the back bodices and the skirt. Use a mechanical pencil.",
+      "<strong>Cut</strong><br>Cut one front, two backs and two skirt panels.",
+      "<strong>Finish the edges</strong><br>Seam allowances are 5 mm — pinking shears handle this better than a zigzag."
+    ],
+    sew: [
+      { h: "4-1. Sew the shoulders", items: [
+        "Sew both shoulder seams with a 5 mm allowance.",
+        "Press the allowances to one side rather than open."
+      ]},
+      { h: "4-2. Bind the neckline and armholes", items: [
+        "Sew narrow bias tape around the neckline, turn it in and topstitch.",
+        "Bind the armholes the same way. Wide tape will not follow these curves."
+      ]},
+      { h: "4-3. Make and attach the skirt", items: [
+        "Sew the two skirt panels together at both sides to form a loop.",
+        "Run two rows of long stitches along the top edge and pull until it matches the bodice hem.",
+        "Pin the skirt to the bodice right sides together, spreading the gathers evenly, and sew.",
+        "Match the center front, sides and center back first, then even out the gathers between those points."
+      ]},
+      { h: "4-4. Finish the back and hem", items: [
+        "Turn each back opening edge under twice — 5 mm and 5 mm — and stitch.",
+        "Hem the skirt the same way.",
+        "Fit two or three snaps, or narrow hook-and-loop, down the back."
+      ]}
+    ],
+    sewNote: "Use a 5 mm seam allowance throughout and thin fabric. A standard 1 cm allowance on something this small makes the side seams so thick the dress will not go over the toy.",
+    tips: [
+      "<strong>Hook-and-loop</strong>: much easier than snaps if the outfit is going to be changed often.",
+      "<strong>Tiny prints only</strong>: a large print puts no complete motif anywhere on the garment.",
+      "<strong>Measure your own</strong>: two toys both described as 20 cm can be completely different widths."
+    ],
+    related: ["dollclothes", "teddy", "babytoy", "kidsdress"]
+  },
 };
