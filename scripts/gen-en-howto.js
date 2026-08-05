@@ -29,9 +29,11 @@ function steps(items){
 }
 
 const TOOLS_EN = ["Sewing machine (or needle and thread)","Fabric marker or pencil","Ruler and scissors","Iron","Pins or clips"];
-/* keys that have an English guide — used for the related-guides block */
-const EN_KEYS = ["tee","tote","kinchaku","pouch","shuushu","bowtie","placemat","bookcover","headband","sacoche","skirt","gather","apron","mask","pants","kidstee","pouchgusset","tissuecase","cushioncover","dog","tablecloth","pillowcase","tunic","camisole","shoesbag","gymbag","bloomers","bandana","swaddle","azuma","sleevedress","flareskirt","adultgather","widepants","halfpants","blouse","onepiece","jacket","coat","stai","mermaid","kidsdress","smock","kidsvest","kidshalf","bandanastai","babyhat","legwarmer","kincgusset","movepocket","fittedmask","gamaguchi","panel","clutchbag","shoulderbag","dogsleeved","mannerbelt","petbandana","petsnood","catfuku","petvest"];
-const EN_TITLE = { tee:"T-shirt", tote:"Tote bag", kinchaku:"Drawstring pouch", pouch:"Zipper pouch", shuushu:"Scrunchie", bowtie:"Bow tie", placemat:"Placemat", bookcover:"Book cover", headband:"Headband", sacoche:"Sacoche", skirt:"A-line skirt", gather:"Gathered skirt", apron:"Apron", mask:"Pleated mask", pants:"Elastic-waist pants", kidstee:"Kids\u0027 T-shirt", pouchgusset:"Pouch (gusseted)", tissuecase:"Tissue case", cushioncover:"Cushion cover (envelope)", dog:"Dog clothes (tank)", tablecloth:"Tablecloth", pillowcase:"Pillowcase (envelope)", tunic:"Tunic", camisole:"Camisole", shoesbag:"Shoe bag", gymbag:"Gym bag (drawstring backpack)", bloomers:"Bloomers", bandana:"Triangle headscarf", swaddle:"Swaddle (hooded)", azuma:"Azuma bag", sleevedress:"Sleeveless dress", flareskirt:"Circle skirt", adultgather:"Gathered skirt (adult)", widepants:"Wide pants (elastic waist)", halfpants:"Shorts (adult)", blouse:"Blouse", onepiece:"Dress (with sleeves)", jacket:"Jacket", coat:"Coat", stai:"Baby bib", mermaid:"Mermaid skirt", kidsdress:"Kids' dress", smock:"Kids' smock", kidsvest:"Kids' vest", kidshalf:"Kids' shorts", bandanastai:"Bandana bib", babyhat:"Baby hat (tulip hat)", legwarmer:"Baby leg warmers", kincgusset:"Cup bag (gusseted)", movepocket:"Clip-on pocket", fittedmask:"Fitted mask (2-piece)", gamaguchi:"Clasp purse (gamaguchi)", panel:"Fabric panel (square)", clutchbag:"Clutch bag", shoulderbag:"Shoulder bag (flap)", dogsleeved:"Dog clothes (sleeved)", mannerbelt:"Dog belly band", petbandana:"Pet bandana", petsnood:"Dog snood (neck warmer)", catfuku:"Cat clothes (tank top)", petvest:"Pet vest (dog & cat)" };
+/* 英語ガイドのキーと表題はデータから導く。手書きのリストを置くと、
+   ガイドを足すたびに更新し忘れて関連リンクが古いままになる。 */
+const DATA = require("./en-howto-data.js");
+const EN_KEYS = Object.keys(DATA);
+const EN_TITLE = Object.fromEntries(EN_KEYS.map(k => [k, DATA[k].title]));
 
 /* Google truncates the description in search results at roughly 160 characters,
    so cut it at the last sentence that still fits. If no sentence boundary is
@@ -66,6 +68,7 @@ function render(key, g){
   // エスケープはテンプレート側の esc() が行うので、ここでは素のまま返す
   const pageTitle = longTitle.length <= 66 ? longTitle
     : `${g.title} — Free Sewing Pattern | Katagami`;
+  const sewNote = g.sewNote ? `    <p class="note">✏️ ${g.sewNote}</p>\n` : "";
   const metaDesc = clampDesc(`Free printable sewing pattern ${forPhrase}, in your size. ${g.desc}`);
   const patternSteps = [
     `<strong>Open the tool</strong><br>Open the <a href="tool.html">pattern tool</a> and choose “<b>${tab}</b>” → “<b>${g.toolName}</b>” from the tabs at the top.`,
@@ -103,7 +106,12 @@ function render(key, g){
   // visible breadcrumb (replaces the plain category label)
   const crumbHtml = `<nav class="crumb" aria-label="Breadcrumb"><a href="index.html">Katagami</a><span class="sep">›</span><a href="howto.html">Sewing guides</a><span class="sep">›</span><span class="cur">${esc(g.title)}</span></nav>`;
   // related guides: other English guides
-  const relItems = EN_KEYS.filter(k=>k!==key).slice(0,4)
+  // 明示指定があればそれを、なければ同じカテゴリのガイドを、それでも足りなければ他から補う
+  const sameTab = EN_KEYS.filter(k => k !== key && DATA[k].tab === g.tab);
+  const others  = EN_KEYS.filter(k => k !== key && DATA[k].tab !== g.tab);
+  const relKeys = [...(g.related || []).filter(k => DATA[k] && k !== key), ...sameTab, ...others]
+    .filter((k, i, a) => a.indexOf(k) === i).slice(0, 4);
+  const relItems = relKeys
     .map(k=>`        <li><a href="howto-${k}.html">${esc(EN_TITLE[k])}</a></li>`).join("\n");
   const relatedHtml = `  <nav class="related" aria-label="Related guides">\n    <h2>Related guides</h2>\n    <ul>\n${relItems}\n    </ul>\n  </nav>\n`;
 
@@ -221,7 +229,7 @@ ${steps(g.cut)}
     <h2>4. Sewing</h2>
 
 ${sew}
-${figHtml}  </section>
+${sewNote}${figHtml}  </section>
 
   <section id="tips">
     <h2>5. Tips &amp; variations</h2>
@@ -248,7 +256,7 @@ ${relatedHtml}</article>
 }
 
 /* ---- guide content ---- */
-const GUIDES = require("./en-howto-data.js");
+const GUIDES = DATA;
 
 let count = 0;
 for (const key of Object.keys(GUIDES)) {

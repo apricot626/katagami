@@ -2639,6 +2639,1171 @@ module.exports = {
       "<strong>Easier dressing</strong>: snaps or hook-and-loop at the back or belly make changing quick — hook-and-loop is especially fast.",
       "<strong>Dog vs cat</strong>: for cats, add a little more ease (about +2 cm) and widen the front-leg openings so it feels more like a vest and they tolerate it better."
     ]
-  }
+  },
 
+  /* ===================== adult clothes ===================== */
+
+  tightskirt: {
+    title: "Pencil skirt",
+    tab: "human",
+    toolName: "Pencil skirt",
+    sizeStep: "Enter waist, hip, skirt length, hip drop and hem taper. Presets cover S, M, L and XL.",
+    desc: "How to sew a pencil skirt with an elastic waist. Only two pieces, both cut on the fold, plus a back slit so you can walk in it.",
+    keywords: "pencil skirt,straight skirt,how to sew,sewing pattern,elastic waist,handmade",
+    lead: "A slim skirt that follows the waist and hip and tapers slightly to the hem. Front and back are each cut as one piece on the fold, so there are only two pattern pieces. The back slit is what makes it walkable — don't skip it.",
+    matNote: "size M",
+    materials: [
+      "Main fabric (twill, gabardine or wool) — about 110 cm wide × 80 cm (44 × 32 in)",
+      "Flat elastic (2–3 cm / 1 in wide) — your waist measurement",
+      "Optional: lining fabric"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side of the fabric and trace the cut line and the seam line. Align the grain with the grainline marking.",
+      "<strong>Cut</strong><br>Cut the front and back as one piece each, with the center on the fold. If you want a back slit, cut the back open at the center instead and add seam allowance there.",
+      "<strong>Finish the edges</strong><br>Zigzag or serge the side seam allowances before you start sewing."
+    ],
+    sew: [
+      { h: "4-1. Sew the sides", items: [
+        "Place front and back right sides together and sew both side seams. Pin the hip notches first — matching them keeps the two sides level.",
+        "Press the seam allowances open."
+      ]},
+      { h: "4-2. Make the elastic waist", items: [
+        "Fold the waist edge under by the seam allowance, then fold again by the elastic width plus a little ease to make a casing. Topstitch all the way around, leaving a 3 cm (1¼ in) gap to thread the elastic.",
+        "Thread the elastic, try it on, overlap and stitch the ends, then close the gap."
+      ]},
+      { h: "4-3. Hem and slit", items: [
+        "At the center back, sew the seam from the waist down to about 15–20 cm (6–8 in) above the hem. The unsewn part is the slit.",
+        "Press the slit seam allowances to each side and topstitch them down.",
+        "Turn the hem up twice and stitch."
+      ]}
+    ],
+    sewNote: "Without a slit the skirt hangs straight but you cannot take a full stride. If you skip it, either shorten the skirt to above the knee or reduce the hem taper.",
+    tips: [
+      "<strong>Add a lining</strong>: cut the same pattern in lining fabric and join at the waist. It stops the skirt clinging and looks far more finished.",
+      "<strong>Hide the elastic</strong>: make a separate waistband, flat at the front and elasticated only at the back, for a smoother line.",
+      "<strong>Room to sit</strong>: too little hip ease and you cannot sit down. Enter your actual hip plus about 4 cm (1½ in)."
+    ],
+    related: ["skirt", "flareskirt", "pleatskirt", "wrapskirt"]
+  },
+
+  pleatskirt: {
+    title: "Pleated skirt",
+    tab: "human",
+    toolName: "Pleated skirt",
+    sizeStep: "Enter waist, skirt length, pleat ratio and the visible pleat width. The tool works out how many pleats you get and how much each one folds away.",
+    desc: "How to sew a pleated skirt from two rectangles. No curves anywhere — mark, fold, press and add an elastic waist.",
+    keywords: "pleated skirt,knife pleats,how to sew,sewing pattern,elastic waist,handmade",
+    lead: "A skirt made by folding the fabric at regular intervals. The pattern is two rectangles and there is not a single curve. The tool calculates the number of pleats and how much each one takes up, so all you do is mark and fold. Crisp lightweight fabric holds the pleats best.",
+    matNote: "size M at a 3× pleat ratio",
+    materials: [
+      "Main fabric (polyester, chambray or lightweight wool) — about 110 cm wide × 130 cm (44 × 51 in)",
+      "Flat elastic (2–3 cm / 1 in wide) — your waist measurement"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Both pieces are rectangles, so you can skip printing and mark the measurements from the guide sheet straight onto the fabric.",
+      "<strong>Cut</strong><br>Cut two panels. The pleat ratio makes these wide — check you have enough fabric width before you start.",
+      "<strong>Finish the edges</strong><br>Zigzag or serge the side seam allowances."
+    ],
+    sew: [
+      { h: "4-1. Join into a loop", items: [
+        "Place the two panels right sides together, sew both side seams and press the allowances open."
+      ]},
+      { h: "4-2. Fold the pleats", items: [
+        "Along the waist edge, mark at the interval given as the visible pleat width on the guide sheet.",
+        "Fold at the marks, all in the same direction, and pin. The amount each pleat folds away is on the guide sheet.",
+        "Baste 2–3 cm (1 in) below the waist edge with a long machine stitch so the pleats cannot shift.",
+        "Press the whole thing firmly. If you want the pleats to show all the way down, press them to the hem too."
+      ]},
+      { h: "4-3. Waist and hem", items: [
+        "Fold the waist edge over twice to make a casing and stitch, leaving a 3 cm (1¼ in) gap.",
+        "Thread the elastic, fit it to your waist, stitch the ends and close the gap.",
+        "Turn the hem up twice and stitch."
+      ]}
+    ],
+    sewNote: "Work in this order: mark → fold and pin every pleat → baste → press. If you sew as you go, a pleat that drifts out of place cannot be corrected without unpicking.",
+    tips: [
+      "<strong>Pleats that last</strong>: polyester blends take a pressed crease and keep it through the wash. Pure linen will not.",
+      "<strong>Fewer pleats</strong>: increase the visible pleat width to about 5 cm (2 in) for a calmer, box-pleat look and far less folding.",
+      "<strong>Short on fabric</strong>: drop the pleat ratio to 2–2.5×. The pleats are shallower but still read as pleats."
+    ],
+    related: ["skirt", "tightskirt", "adultgather", "tieredskirt"]
+  },
+
+  wrapskirt: {
+    title: "Wrap skirt",
+    tab: "human",
+    toolName: "Wrap skirt",
+    sizeStep: "Enter waist, skirt length, overlap width, hem flare and tie length. Presets cover S, M, L and a wider version.",
+    desc: "How to sew a wrap skirt that ties at the waist. One body piece and two ties — no zip, no buttons, and it adjusts as your size changes.",
+    keywords: "wrap skirt,tie skirt,how to sew,sewing pattern,beginner,handmade",
+    lead: "A skirt you wrap around and tie. One body piece and two ties, with no zip or buttons to fit. It goes on easily, and because it ties, it still fits when your size shifts. Give it a generous overlap and it will not fall open as you walk.",
+    matNote: "size M",
+    materials: [
+      "Main fabric (linen, cotton or double gauze) — about 110 cm wide × 90 cm (44 × 35 in)",
+      "Optional: one button to hold the overlap in place"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side of the fabric and trace the cut line and seam line.",
+      "<strong>Cut</strong><br>Cut one body piece and two ties.",
+      "<strong>Finish the edges</strong><br>The front edges and hem are double-folded, so only the waist edge needs finishing."
+    ],
+    sew: [
+      { h: "4-1. Make the ties", items: [
+        "Fold each tie in quarters lengthwise and topstitch the long edge and one short end. Make two."
+      ]},
+      { h: "4-2. Finish the body", items: [
+        "Turn both front edges under twice and stitch.",
+        "Hem the lower edge the same way. Where the hem curves, ease it in a little at a time as you fold."
+      ]},
+      { h: "4-3. Attach the ties and waistband", items: [
+        "Baste a tie at each end of the waist edge, pointing inward so they end up on the outside once turned.",
+        "Fold the waist edge over twice, catching the ties, and stitch all the way across.",
+        "Flip the ties up and stitch across them again — that second line is what stops them pulling out."
+      ]}
+    ],
+    sewNote: "Make a buttonhole in the waistband on one side and pass that tie through it to the outside. The skirt then closes on both the inside and the outside, which is far more secure than tying over the top.",
+    tips: [
+      "<strong>Overlap generously</strong>: 25 cm (10 in) or more and your leg stays covered when you walk.",
+      "<strong>Add a button</strong>: one button on the inner overlap stops the layers sliding apart.",
+      "<strong>Make it reversible</strong>: cut the body twice, sew right sides together and turn, and you get a skirt you can wear either way."
+    ],
+    related: ["skirt", "tightskirt", "adultgather", "culotte"]
+  },
+
+  tieredskirt: {
+    title: "Tiered skirt",
+    tab: "human",
+    toolName: "Tiered skirt",
+    sizeStep: "Enter waist, the length of each of the three tiers, the gather ratio and the waist casing. The width of each tier is worked out for you.",
+    desc: "How to sew a three-tier gathered skirt. Every tier is a rectangle, so it is straight seams all the way — plus an elastic waist.",
+    keywords: "tiered skirt,gathered skirt,how to sew,sewing pattern,elastic waist,handmade",
+    lead: "A full skirt built from three tiers, each gathered onto the one above and each wider than the last. Every tier is a rectangle, so it is straight sewing throughout, and the tool works out the width of each one.",
+    matNote: "size M",
+    materials: [
+      "Main fabric (lawn, double gauze or linen) — about 110 cm wide × 180 cm (44 × 71 in)",
+      "Flat elastic (2–3 cm / 1 in wide) — your waist measurement"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>All three tiers are rectangles, so marking the measurements straight onto the fabric is quicker than printing.",
+      "<strong>Cut</strong><br>Cut two panels for each tier, six pieces in total. Keep them labelled — the tiers look similar once they are off the table.",
+      "<strong>Finish the edges</strong><br>Zigzag or serge the side seam allowances of every panel."
+    ],
+    sew: [
+      { h: "4-1. Join each tier into a loop", items: [
+        "Sew the two panels of each tier together at both sides. Do this for all three tiers."
+      ]},
+      { h: "4-2. Gather and join the tiers", items: [
+        "Run two rows of long machine stitches along the top edge of tier 2. Pull both bobbin threads until it matches the lower edge of tier 1.",
+        "Pin tier 1 and tier 2 right sides together, spreading the gathers evenly, and sew.",
+        "Join tier 3 to tier 2 the same way.",
+        "Press each seam allowance upward and topstitch from the right side to hold it flat."
+      ]},
+      { h: "4-3. Waist and hem", items: [
+        "Fold the waist edge over twice to make a casing and stitch, leaving a 3 cm (1¼ in) gap.",
+        "Thread the elastic, fit, stitch the ends and close the gap.",
+        "Turn the hem up twice and stitch."
+      ]}
+    ],
+    sewNote: "Always gather with two rows of stitching and pull both threads together. With a single row the thread snaps halfway along and the gathers come out uneven.",
+    tips: [
+      "<strong>Mix the fabrics</strong>: use a different fabric for each tier for a patchwork effect.",
+      "<strong>Less volume</strong>: drop the gather ratio to 1.3× for a much calmer shape.",
+      "<strong>For children</strong>: pick the child preset and you get the twirly skirt they actually want."
+    ],
+    related: ["adultgather", "pleatskirt", "wrapskirt", "gather"]
+  },
+
+  adultvest: {
+    title: "Vest (adult)",
+    tab: "human",
+    toolName: "Vest (adult)",
+    sizeStep: "Enter bust, length, shoulder width, front neck depth and the front overlap. Presets cover women's S/M and men's M/L.",
+    desc: "How to sew an open-front vest. Two fronts and one back, with the neckline and armholes bound in bias tape — no sleeves to set in.",
+    keywords: "vest,gilet,waistcoat,how to sew,sewing pattern,bias binding,handmade",
+    lead: "A sleeveless open-front vest. Two fronts and one back is the whole thing, and as a single layer you simply bind the neckline and armholes with bias tape. Thrown over a plain outfit it changes the whole look.",
+    matNote: "women's M",
+    materials: [
+      "Main fabric (linen, wool or tweed) — about 110 cm wide × 130 cm (44 × 51 in)",
+      "Bias tape for the neckline and armholes — about 130 cm (51 in)",
+      "Optional: 2–3 buttons"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side of the fabric and trace the cut line and seam line.",
+      "<strong>Cut</strong><br>Cut one back with the center on the fold and two fronts, cutting the second with the pattern flipped over.",
+      "<strong>Finish the edges</strong><br>Zigzag or serge the shoulder and side seam allowances."
+    ],
+    sew: [
+      { h: "4-1. Sew the shoulders and sides", items: [
+        "Place fronts and back right sides together, sew both shoulder seams and press the allowances open.",
+        "Sew both side seams and press those open too."
+      ]},
+      { h: "4-2. Bind the neckline and armholes", items: [
+        "Bind in one continuous run: up one front edge, around the neckline and back down the other front edge.",
+        "Bind each armhole the same way. Go slowly around the curve and do not pull the tape."
+      ]},
+      { h: "4-3. Finish", items: [
+        "If you have not bound the hem, turn it up twice and stitch.",
+        "Add buttons and buttonholes if you want it to fasten."
+      ]}
+    ],
+    sewNote: "Let bias tape follow the curve rather than forcing it. Pull it and the edge puckers; leave it slack and the edge ripples. Feed it in at the rate the tape naturally wants to bend.",
+    tips: [
+      "<strong>Add a lining</strong>: cut the same pattern in lining, sew right sides together and turn for a properly tailored finish.",
+      "<strong>Make it long</strong>: set the length to about 80 cm (31 in) and you have a long gilet to layer over everything.",
+      "<strong>Self-fabric binding</strong>: cutting your own bias strips from the main fabric looks far more considered than shop-bought tape."
+    ],
+    related: ["kidsvest", "cardigan", "jacket", "poncho"]
+  },
+
+  cardigan: {
+    title: "Cardigan",
+    tab: "human",
+    toolName: "Cardigan",
+    sizeStep: "Enter bust, length, shoulder width, sleeve length, cuff width, neck width and the front band width. Presets cover women's S/M/L and men's M/L.",
+    desc: "How to sew a cardigan in knit fabric. Fronts, back and sleeves plus a front band that runs in one piece from hem to hem.",
+    keywords: "cardigan,knit cardigan,how to sew,sewing pattern,front band,handmade",
+    lead: "An open-front cardigan you can throw on. Beyond the usual fronts, back and sleeves there is a front band — a long strip sewn to the front edges. Add buttons or leave it open. In a stretchy knit it is genuinely comfortable to wear.",
+    matNote: "women's M",
+    materials: [
+      "Main fabric (jersey, interlock or other knit) — about 150 cm wide × 160 cm (59 × 63 in)",
+      "Ballpoint machine needle and stretch thread",
+      "Optional: 5–6 buttons",
+      "Optional: stay tape for the front band"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the back (center on the fold), the fronts, the sleeves and the front band.",
+      "<strong>Cut</strong><br>Knit stretches, so cut it lying flat and relaxed — never pull it straight as you cut.",
+      "<strong>Finish the edges</strong><br>Knits do not fray, so you can skip finishing, but a serged edge wears better over many washes."
+    ],
+    sew: [
+      { h: "4-1. Shoulders and sleeves", items: [
+        "Sew both shoulder seams with a stretch stitch — a straight stitch will snap when you pull the cardigan on.",
+        "Match the center of the sleeve head to the shoulder seam and sew each sleeve into its armhole."
+      ]},
+      { h: "4-2. Sides and underarms", items: [
+        "Sew from the cuff, along the underarm and down the side seam in one continuous line.",
+        "Line the underarm seams up with each other before you start or the sleeve will twist."
+      ]},
+      { h: "4-3. Attach the front band", items: [
+        "Fold the band in half lengthwise and press.",
+        "Sew one long edge of the band to the garment in one continuous run: up the front edge, around the neckline and down the other front edge. Stretch the band very slightly around the neck curve.",
+        "Turn the band out, fold the remaining edge under to hide the seam, and topstitch it down."
+      ]},
+      { h: "4-4. Cuffs and hem", items: [
+        "Turn the cuffs and hem under by the seam allowance and finish with a stretch stitch."
+      ]}
+    ],
+    sewNote: "Sew the band as one piece from front edge to front edge without breaking it at the shoulders. A band pieced at the neck never hangs straight once the cardigan is on.",
+    tips: [
+      "<strong>Add buttons</strong>: work buttonholes in the band. Fuse stay tape behind them first — knit buttonholes stretch out otherwise.",
+      "<strong>Make it long</strong>: 70–80 cm (28–31 in) turns it into a longline cardigan.",
+      "<strong>Heavier fabric</strong>: sweatshirt fleece or wool knit makes this warm enough to wear as a jacket."
+    ],
+    related: ["adultvest", "hoodie", "jacket", "blouson"]
+  },
+
+  taperedpants: {
+    title: "Tapered pants",
+    tab: "human",
+    toolName: "Tapered pants",
+    sizeStep: "Enter hip, rise, inseam, hem width, ease and the waist casing. Presets cover women's S/M/L and men's M/L.",
+    desc: "How to sew tapered pants with an elastic waist. Front and back use the same pattern piece, so it is four pieces and three seams.",
+    keywords: "tapered pants,trousers,how to sew,sewing pattern,elastic waist,handmade",
+    lead: "Roomy through the hip and narrowing towards the hem. Front and back use the same pattern piece, so you cut four and sew — but the taper is what makes them look considered rather than casual. The waist is elastic, so they are as comfortable as they look.",
+    matNote: "women's M",
+    materials: [
+      "Main fabric (twill, linen or stretch woven) — about 110 cm wide × 160 cm (44 × 63 in)",
+      "Flat elastic (3 cm / 1¼ in wide) — your waist measurement"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the cut line and seam line, and mark the crotch curve carefully — it is the one line that decides how they fit.",
+      "<strong>Cut</strong><br>Cut two fronts and two backs from the same pattern, flipping it for the second of each pair.",
+      "<strong>Finish the edges</strong><br>Serge or zigzag the crotch, side and inseam allowances."
+    ],
+    sew: [
+      { h: "4-1. Sew the crotch seams", items: [
+        "Put the two front legs right sides together and sew the curved center front seam. Repeat for the backs.",
+        "Sew the curve slowly with a shorter stitch length — it takes the strain every time you sit down."
+      ]},
+      { h: "4-2. Sides and inseams", items: [
+        "Open the front and back out, lay them right sides together and sew both side seams.",
+        "Sew the inseam in one continuous line from one hem, through the crotch, to the other hem. Backstitch two or three times over the crotch junction."
+      ]},
+      { h: "4-3. Waist and hem", items: [
+        "Fold the waist edge over twice to make a casing and stitch, leaving a 3 cm (1¼ in) gap.",
+        "Thread the elastic, fit it, stitch the ends and close the gap.",
+        "Turn the hems up twice and stitch."
+      ]}
+    ],
+    sewNote: "Baste the crotch seams and try them on before sewing for real. A shallow rise pulls when you sit and a deep one bags underneath — five minutes of basting saves the whole pair.",
+    tips: [
+      "<strong>Choosing the length</strong>: an ankle length that shows the ankle bone (about 60 cm / 24 in inseam) looks the most current.",
+      "<strong>Press a crease</strong>: after sewing, press a crease down the center front of each leg for a much sharper look.",
+      "<strong>Add pockets</strong>: catch a pocket bag in each side seam before you sew it."
+    ],
+    related: ["pants", "widepants", "sweatpants", "cargopants"]
+  },
+
+  culotte: {
+    title: "Culottes (gaucho pants)",
+    tab: "human",
+    toolName: "Culottes (gaucho pants)",
+    sizeStep: "Enter hip, rise, inseam, hem flare, ease and the waist casing. Presets cover S, M, L and a cropped version.",
+    desc: "How to sew wide culottes with an elastic waist. They read as a skirt but move like pants, and the pattern is four straight-ish pieces.",
+    keywords: "culottes,gaucho pants,wide leg,how to sew,sewing pattern,handmade",
+    lead: "Wide enough through the leg to look like a skirt, but they are pants, so nothing rides up and nothing blows about. Front and back use the same pattern piece and the waist is elastic, which makes this one of the quickest wearable garments in the collection.",
+    matNote: "size M",
+    materials: [
+      "Main fabric (linen, rayon or other fabric with drape) — about 110 cm wide × 170 cm (44 × 67 in)",
+      "Flat elastic (3 cm / 1¼ in wide) — your waist measurement"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the cut line, seam line and the crotch curve.",
+      "<strong>Cut</strong><br>Cut two fronts and two backs, flipping the pattern for the second of each pair. The pieces are wide, so lay the fabric out fully before you start.",
+      "<strong>Finish the edges</strong><br>Serge or zigzag the seam allowances."
+    ],
+    sew: [
+      { h: "4-1. Sew the crotch seams", items: [
+        "Sew the two fronts together along the center front curve, then the two backs the same way.",
+        "Clip the curve every 5 mm (¼ in) so it opens out flat."
+      ]},
+      { h: "4-2. Sides and inseams", items: [
+        "Lay front and back right sides together and sew both side seams.",
+        "Sew the inseam in one run from hem to hem, reinforcing the crotch junction."
+      ]},
+      { h: "4-3. Waist and hem", items: [
+        "Fold the waist edge over twice, stitch leaving a gap, thread the elastic, fit and close.",
+        "Hem the wide legs with a double fold. Because the hem is wider than the leg above it, ease the fabric in a little at a time as you fold."
+      ]}
+    ],
+    sewNote: "Wide hems fight you when you turn them up — the outer edge is longer than the inner one. Press in small sections rather than trying to fold the whole hem at once, or bind the edge with bias tape instead.",
+    tips: [
+      "<strong>Fabric matters</strong>: culottes live or die on drape. Linen and rayon fall beautifully; stiff cotton makes them look like a tent.",
+      "<strong>Cropped version</strong>: a shorter inseam reads more like a skirt; a longer one reads more like wide trousers.",
+      "<strong>Add pockets</strong>: side-seam pockets disappear into the width and are genuinely useful here."
+    ],
+    related: ["widepants", "kidsculotte", "taperedpants", "wrapskirt"]
+  },
+
+  poncho: {
+    title: "Poncho",
+    tab: "human",
+    toolName: "Poncho",
+    sizeStep: "Enter the width, length, neck opening and neck ease. Presets cover a short cape, standard and a long version.",
+    desc: "How to sew a poncho from one piece of fabric with a neck opening cut in it. About as few seams as a garment can have.",
+    keywords: "poncho,cape,how to sew,sewing pattern,beginner,wool,handmade",
+    lead: "One piece of fabric with a hole for your head. That really is the construction — which makes it a genuine first garment, and still something you will actually wear. Wool or fleece for winter, gauze or linen for a summer layer.",
+    matNote: "standard size",
+    materials: [
+      "Main fabric (wool, fleece, linen or double gauze) — about 140 cm wide × 140 cm (55 × 55 in)",
+      "Bias tape for the neckline — about 70 cm (28 in)",
+      "Optional: fringe trim or pompoms for the hem"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the outline and the neck opening. Mark the neckline before you cut anything — it is easier to place while the fabric is still square.",
+      "<strong>Cut</strong><br>Cut the body, then cut out the neck opening.",
+      "<strong>Finish the edges</strong><br>Fleece and boiled wool can be left raw. Anything that frays needs the outer edges hemmed."
+    ],
+    sew: [
+      { h: "4-1. Bind the neckline", items: [
+        "Pin bias tape around the neck opening right sides together and sew.",
+        "Clip the seam allowance every 5 mm (¼ in) around the curve, turn the tape to the inside and topstitch it down.",
+        "Without those clips the neckline will not lie flat, however carefully you sew."
+      ]},
+      { h: "4-2. Hem the outer edges", items: [
+        "Turn the outer edges under twice and stitch.",
+        "At the corners, fold one side first and then the other so the layers do not build up."
+      ]},
+      { h: "4-3. Finish", items: [
+        "Add fringe or pompoms along the hem if you like.",
+        "Try it on and check the neckline sits where you want it — you can still adjust the drape by shifting the opening slightly."
+      ]}
+    ],
+    sewNote: "Check the neck opening will actually go over your head before you bind it. Once the tape is on, enlarging it means unpicking. Measure around your head, not around your neck.",
+    tips: [
+      "<strong>Fleece is the shortcut</strong>: it does not fray, so you only finish the neckline and you are done in an hour.",
+      "<strong>Add a hood</strong>: attach the hood pattern from the hoodie to the neck opening instead of binding it.",
+      "<strong>Make it uneven</strong>: cutting the front shorter than the back keeps it out of the way while still covering your back."
+    ],
+    related: ["gown", "babycape", "adultvest", "petcape"]
+  },
+
+  overall: {
+    title: "Overalls (dungarees)",
+    tab: "human",
+    toolName: "Overalls (dungarees)",
+    sizeStep: "Enter hip, rise, inseam, bib width and height, strap length and width, ease and the waist casing. Presets cover S, M, L and a cropped version.",
+    desc: "How to sew overalls with an elastic waist. Pants plus a bib and two straps — no fly, no zip and no buttonholes.",
+    keywords: "overalls,dungarees,how to sew,sewing pattern,bib,elastic waist,handmade",
+    lead: "Pants with a bib and straps. Because the waist is elastic there is no fly, no zip and no buttonholes — the hard parts of a normal pair of trousers are simply absent. Denim or linen both work; denim reads as workwear, linen as summer.",
+    matNote: "size M",
+    materials: [
+      "Main fabric (denim, linen or twill) — about 110 cm wide × 220 cm (44 × 87 in)",
+      "Flat elastic (2.5–3 cm / 1 in wide) — for the back waist",
+      "Overall buckles and buttons — 2 sets",
+      "Optional: fabric for a bib pocket"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the legs, the bib and the straps.",
+      "<strong>Cut</strong><br>Cut two fronts and two backs, the bib in outer and lining, and two straps.",
+      "<strong>Finish the edges</strong><br>Serge or zigzag the crotch, side and inseam allowances."
+    ],
+    sew: [
+      { h: "4-1. Make the bib and straps", items: [
+        "Sew the bib outer and lining right sides together, leaving the lower edge open. Turn, press and topstitch the edges.",
+        "Fold each strap in quarters lengthwise and topstitch both long edges. Make two.",
+        "If you want a bib pocket, sew it on now while the bib is still flat."
+      ]},
+      { h: "4-2. Sew the legs", items: [
+        "Sew the two fronts together at the center front curve, then the two backs.",
+        "Lay them right sides together and sew both side seams, then the inseam in one run from hem to hem. Reinforce the crotch junction."
+      ]},
+      { h: "4-3. Attach the bib and straps", items: [
+        "Pin the lower edge of the bib to the center front waist edge, right sides together, and sew.",
+        "Baste the strap ends to the back waist edge, crossing them if you prefer.",
+        "Fold the waist edge over twice to make a casing, catching the bib and straps, and stitch — leaving a gap at the back for the elastic.",
+        "Thread elastic through the back section only, so the front stays flat."
+      ]},
+      { h: "4-4. Finish", items: [
+        "Fit the buckles to the strap ends and sew the buttons to the bib.",
+        "Turn the hems up twice and stitch."
+      ]}
+    ],
+    sewNote: "Elasticate the back of the waist only. Run elastic all the way round and the bib gathers up and sits badly; a flat front with a stretchy back is what makes overalls fit.",
+    tips: [
+      "<strong>Adjustable straps</strong>: overall buckles let you set the length after you have made them, which matters more than you would think.",
+      "<strong>Cross the straps</strong>: crossing them at the back stops them sliding off your shoulders.",
+      "<strong>Denim needle</strong>: heavy denim will break a universal needle at the seam intersections. Use a jeans needle."
+    ],
+    related: ["kidsrompers", "taperedpants", "cargopants", "kidsbibapron"]
+  },
+
+  dolman: {
+    title: "Dolman-sleeve top",
+    tab: "human",
+    toolName: "Dolman-sleeve top",
+    sizeStep: "Enter bust, length, sleeve reach from center, cuff width, neck width and ease. Presets cover S, M, L and a cropped version.",
+    desc: "How to sew a dolman top where the body and sleeve are cut as one piece. No sleeve to set in, so there is nothing to ease.",
+    keywords: "dolman sleeve,batwing top,how to sew,sewing pattern,no set-in sleeve,handmade",
+    lead: "The body and sleeve are cut as one piece, so there is no armhole to ease a sleeve into — the single step that puts most people off making tops. Two pieces, four seams. Jersey or anything with drape.",
+    matNote: "size M",
+    materials: [
+      "Main fabric (jersey, rayon or other fabric with drape) — about 150 cm wide × 130 cm (59 × 51 in)",
+      "Bias tape or ribbing for the neckline — about 60 cm (24 in)",
+      "Ballpoint needle and stretch thread if using knit"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the front and back. Both are wide — the sleeve is part of the piece — so check your fabric width first.",
+      "<strong>Cut</strong><br>Cut one front and one back, each with the center on the fold.",
+      "<strong>Finish the edges</strong><br>Serge or zigzag the shoulder, underarm and side allowances."
+    ],
+    sew: [
+      { h: "4-1. Sew the shoulders", items: [
+        "Place front and back right sides together and sew along the top edge, from the neckline out to the cuff.",
+        "This one seam forms the shoulder and the top of the sleeve at the same time."
+      ]},
+      { h: "4-2. Sew the underarm and sides", items: [
+        "Sew from the cuff, through the underarm curve and down to the hem in one continuous line.",
+        "Clip into the underarm curve — it is a tight corner and will pull if you do not."
+      ]},
+      { h: "4-3. Finish the neckline", items: [
+        "Bind the neckline with bias tape, or attach ribbing stretched slightly as you sew.",
+        "Ribbing should be about 85% of the neckline length so it pulls in and sits flat."
+      ]},
+      { h: "4-4. Cuffs and hem", items: [
+        "Turn the cuffs and hem under twice and stitch."
+      ]}
+    ],
+    sewNote: "The underarm is the one place this shape can fail. It is a tight curve carrying all the movement, so clip the allowance and sew a second line just outside the first before you clip.",
+    tips: [
+      "<strong>Fabric with drape</strong>: the whole point of a dolman is the fold of fabric under the arm. Stiff cotton looks boxy.",
+      "<strong>Cropped version</strong>: shortening the body makes it work over high-waisted skirts and trousers.",
+      "<strong>Longer sleeve</strong>: increasing the sleeve reach gives a full batwing."
+    ],
+    related: ["tee", "tunic", "raglantee", "cardigan"]
+  },
+
+  hoodie: {
+    title: "Hoodie (adult)",
+    tab: "human",
+    toolName: "Hoodie (adult)",
+    sizeStep: "Enter bust, length, shoulder width, sleeve length, cuff width, hood height and ease. Presets cover women's M, men's M/L and a relaxed fit.",
+    desc: "How to sew a pullover hoodie. Front, back, two sleeves and a hood — and the hood is just two pieces sewn together and attached to the neckline.",
+    keywords: "hoodie,hooded sweatshirt,how to sew,sewing pattern,fleece,knit,handmade",
+    lead: "A pullover hoodie in four pattern pieces. The hood looks like the difficult part but it is two pieces sewn right sides together and then joined to the neckline. Sweatshirt fleece or French terry has enough body to sew easily and enough stretch to be comfortable.",
+    matNote: "men's M",
+    materials: [
+      "Main fabric (French terry, sweatshirt fleece or other knit) — about 150 cm wide × 180 cm (59 × 71 in)",
+      "Ballpoint machine needle and stretch thread",
+      "Optional: ribbing for the cuffs and hem",
+      "Optional: cord for the hood (about 120 cm / 47 in) and eyelets"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the front, back, sleeves and hood.",
+      "<strong>Cut</strong><br>Cut one front and one back (each on the fold), two sleeves and two hood pieces. Cut knit lying flat and relaxed.",
+      "<strong>Finish the edges</strong><br>Serge or zigzag the allowances. Knits do not fray, but the edges wear better finished."
+    ],
+    sew: [
+      { h: "4-1. Shoulders and sleeves", items: [
+        "Sew both shoulder seams with a stretch stitch.",
+        "Match the center of each sleeve head to the shoulder seam and sew the sleeves into the armholes while the garment is still flat."
+      ]},
+      { h: "4-2. Sides and underarms", items: [
+        "Sew from the cuff along the underarm and down the side in one continuous line, lining the underarm seams up first."
+      ]},
+      { h: "4-3. Make and attach the hood", items: [
+        "Sew the two hood pieces right sides together along the curved back edge.",
+        "Turn the front edge of the hood under twice and stitch. If you are adding a cord, this fold is the channel it runs through.",
+        "Pin the lower edge of the hood to the neckline right sides together, matching the notches, and sew all the way around."
+      ]},
+      { h: "4-4. Cuffs and hem", items: [
+        "Turn the cuffs and hem under and finish with a stretch stitch.",
+        "For ribbing, sew it into a loop, fold in half and attach it stretched slightly as you sew."
+      ]}
+    ],
+    sewNote: "Hood order matters: sew the back curve, then finish the front edge, then attach it to the neckline. Leave the front edge until last and you will be trying to fold a narrow hem inside a hood that is already attached.",
+    tips: [
+      "<strong>Ribbing looks shop-bought</strong>: cuff and hem ribbing cut to about 85% of the opening is what makes a home-made hoodie stop looking home-made.",
+      "<strong>Add a kangaroo pocket</strong>: a trapezoid with the top and bottom turned under, topstitched to the front before you sew the sides.",
+      "<strong>If knits scare you</strong>: a walking foot feeds the layers evenly and removes most of the difficulty."
+    ],
+    related: ["kidshoodie", "cardigan", "raglantee", "sweatpants"]
+  },
+
+  raglantee: {
+    title: "Raglan T-shirt (adult)",
+    tab: "human",
+    toolName: "Raglan T-shirt (adult)",
+    sizeStep: "Enter bust, length, raglan seam length, sleeve length, cuff width, neck width and ease. Presets cover women's M, men's M/L and a relaxed fit.",
+    desc: "How to sew a raglan tee. The sleeve runs to the neckline in one piece, so there is no shoulder seam and no armhole curve to ease.",
+    keywords: "raglan t-shirt,raglan sleeve,how to sew,sewing pattern,knit,baseball tee,handmade",
+    lead: "On a raglan the sleeve reaches all the way to the neckline, so there is no shoulder seam and no set-in armhole. Four long straight-ish seams and you have a shirt. Cut the sleeves in a contrast fabric for the classic baseball look.",
+    matNote: "men's M",
+    materials: [
+      "Main fabric (jersey or interlock) — about 150 cm wide × 150 cm (59 × 59 in)",
+      "Optional: contrast knit for the sleeves",
+      "Ribbing for the neckline — about 60 cm (24 in)",
+      "Ballpoint machine needle and stretch thread"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the front, back and raglan sleeves. Mark the notches on the raglan seams — they are what keeps front and back level.",
+      "<strong>Cut</strong><br>Cut one front and one back on the fold, plus two sleeves.",
+      "<strong>Finish the edges</strong><br>Serge or zigzag the raglan and side allowances."
+    ],
+    sew: [
+      { h: "4-1. Sew the raglan seams", items: [
+        "Pin the front edge of one sleeve to the front raglan edge, matching the notches, and sew.",
+        "Sew the back edge of the same sleeve to the back. Repeat for the other sleeve.",
+        "All four raglan seams are slightly curved. Match the notches first and the curves fall into place."
+      ]},
+      { h: "4-2. Sides and underarms", items: [
+        "Sew from the cuff along the underarm and down the side in one continuous line on each side."
+      ]},
+      { h: "4-3. Attach the neckband", items: [
+        "Sew the ribbing into a loop and fold it in half lengthwise.",
+        "Pin it to the neckline in quarters and sew, stretching the ribbing to fit as you go.",
+        "Cut the ribbing to about 85% of the neckline length — any longer and the neck gapes."
+      ]},
+      { h: "4-4. Cuffs and hem", items: [
+        "Turn the cuffs and hem under and finish with a stretch stitch."
+      ]}
+    ],
+    sewNote: "The four raglan seams are the whole garment, so the notches matter more here than anywhere else. Pin notch to notch first, then fill in between — starting at one end guarantees you run out of fabric at the other.",
+    tips: [
+      "<strong>Contrast sleeves</strong>: the classic baseball tee. It costs nothing extra and transforms the look.",
+      "<strong>Easier than a set-in sleeve</strong>: no easing, no sleeve cap. If set-in sleeves have put you off, start here.",
+      "<strong>Three-quarter sleeves</strong>: a shorter sleeve length gives the classic raglan proportions."
+    ],
+    related: ["tee", "hoodie", "kidsraglan", "dolman"]
+  },
+
+  sweatpants: {
+    title: "Sweatpants (joggers)",
+    tab: "human",
+    toolName: "Sweatpants (joggers)",
+    sizeStep: "Enter hip, rise, inseam, hem width, hem ribbing height, ease and the waist casing. Presets cover S, M, L and a cropped version.",
+    desc: "How to sew sweatpants with ribbed cuffs and an elastic waist. Front and back share a pattern piece.",
+    keywords: "sweatpants,joggers,track pants,how to sew,sewing pattern,French terry,handmade",
+    lead: "Sweatpants gathered into ribbing at the ankle. Front and back use the same pattern piece, so the sewing is three seams plus the waist and cuffs. French terry or sweatshirt fleece — the same fabric as the hoodie, if you want a set.",
+    matNote: "men's M",
+    materials: [
+      "Main fabric (French terry or sweatshirt fleece) — about 150 cm wide × 160 cm (59 × 63 in)",
+      "Ribbing for the cuffs — about 40 cm (16 in)",
+      "Flat elastic (3 cm / 1¼ in wide) — your waist measurement",
+      "Optional: cord for the waist and eyelets"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the leg pattern and the cuff ribbing.",
+      "<strong>Cut</strong><br>Cut two fronts and two backs from the same pattern, flipping it for the second of each pair, plus two cuffs.",
+      "<strong>Finish the edges</strong><br>Serge or zigzag the allowances, or skip it — knit does not fray."
+    ],
+    sew: [
+      { h: "4-1. Sew the crotch seams", items: [
+        "Sew the two fronts together along the center front curve, then the two backs."
+      ]},
+      { h: "4-2. Sides and inseams", items: [
+        "Lay front and back right sides together and sew both side seams.",
+        "Sew the inseam in one run from hem to hem and reinforce the crotch junction."
+      ]},
+      { h: "4-3. Attach the cuffs", items: [
+        "Sew each cuff into a loop and fold it in half lengthwise.",
+        "Pin it to the leg opening in quarters and sew, stretching the ribbing to fit.",
+        "Cut the ribbing to about 85% of the leg opening — that difference is what makes the cuff hug the ankle."
+      ]},
+      { h: "4-4. Waist", items: [
+        "Fold the waist edge over twice to make a casing and stitch, leaving a gap.",
+        "Thread the elastic, fit it and close the gap. Add eyelets and a cord at the front if you want a drawstring."
+      ]}
+    ],
+    sewNote: "Ribbing must be shorter than the opening it goes on, or it does nothing. About 85% is the standard ratio: enough to pull in, not so much that it grips.",
+    tips: [
+      "<strong>Make a set</strong>: the same fabric as the hoodie gives you a matching tracksuit.",
+      "<strong>Add pockets</strong>: side-seam pockets are worth the ten extra minutes on trousers you will live in.",
+      "<strong>No ribbing</strong>: a plain double-fold hem gives straight-leg sweatpants instead of joggers."
+    ],
+    related: ["hoodie", "taperedpants", "pants", "cargopants"]
+  },
+
+  shirtdress: {
+    title: "Shirt dress",
+    tab: "human",
+    toolName: "Shirt dress",
+    sizeStep: "Enter bust, length, shoulder width, sleeve length, front overlap, neck width and ease. Presets cover S, M, L and a short-sleeved version.",
+    desc: "How to sew a shirt dress. A button-front shirt lengthened into a dress, with a stand collar and set-in sleeves.",
+    keywords: "shirt dress,button front dress,how to sew,sewing pattern,collar,handmade",
+    lead: "A shirt lengthened into a dress. Two fronts, one back, two sleeves and a collar — the same construction as a shirt, just longer, so if you can make one you can make the other. Wear it buttoned as a dress or open over a tee.",
+    matNote: "size M",
+    materials: [
+      "Main fabric (cotton lawn, linen or chambray) — about 110 cm wide × 250 cm (44 × 98 in)",
+      "Lightweight fusible interfacing — for the collar and front bands",
+      "Buttons (1–1.3 cm / ½ in) — 8–10",
+      "Optional: a fabric belt or tie"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the back (on the fold), the fronts, the sleeves and the collar.",
+      "<strong>Cut</strong><br>Cut one back, two fronts, two sleeves and two collar pieces.",
+      "<strong>Apply interfacing</strong><br>Fuse interfacing to one collar piece and to the front band area — buttonholes need it or they stretch out.",
+      "<strong>Finish the edges</strong><br>Zigzag or serge the shoulder, side and underarm allowances."
+    ],
+    sew: [
+      { h: "4-1. Finish the front edges", items: [
+        "Turn each front edge under twice by the overlap width and stitch. Press the folds firmly first so the two sides match.",
+        "Do this before anything else — once the collar is on, the presser foot will not reach."
+      ]},
+      { h: "4-2. Shoulders and sleeves", items: [
+        "Sew both shoulder seams and press the allowances open.",
+        "Match the center of each sleeve head to the shoulder seam and sew the sleeves in while the garment is flat."
+      ]},
+      { h: "4-3. Make and attach the collar", items: [
+        "Sew the two collar pieces right sides together, leaving the lower edge open. Trim the corners, turn and press.",
+        "Sandwich the neckline between the collar layers and sew all the way around, lining the collar ends up with the folded front edges.",
+        "Clip the neckline curve so the collar stands up rather than fighting the neckline."
+      ]},
+      { h: "4-4. Sides, hem and buttons", items: [
+        "Sew from the cuff along the underarm and down the side in one line.",
+        "Turn the cuffs and hem under twice and stitch.",
+        "Work buttonholes on the right front and sew buttons to the left. Space them evenly, starting 1 cm below the collar."
+      ]}
+    ],
+    sewNote: "Test every buttonhole on a scrap first. Machines differ, and a hole cut a millimetre short will not take the button while one cut long lets it slip out. The correct length is the button diameter plus its thickness.",
+    tips: [
+      "<strong>Belt it</strong>: a tie belt at the waist turns the same dress into a completely different shape.",
+      "<strong>Short sleeves</strong>: the short-sleeve preset makes it a summer dress from the same pattern.",
+      "<strong>Snaps instead</strong>: if buttonholes put you off, plastic snaps do the same job with no cutting."
+    ],
+    related: ["shirt", "onepiece", "blouse", "kidsshirt"]
+  },
+
+  shirt: {
+    title: "Shirt",
+    tab: "human",
+    toolName: "Shirt",
+    sizeStep: "Enter bust, length, shoulder width, sleeve length, cuff width, neck width and the front overlap. Presets cover women's M, men's M/L and a short-sleeved version.",
+    desc: "How to sew a button-front shirt with a stand collar. Two fronts, one back, two sleeves and a collar, with every step spelled out.",
+    keywords: "shirt,button front shirt,how to sew,sewing pattern,collar,oxford,handmade",
+    lead: "A classic shirt with a front band and a stand collar. Two fronts, one back, two sleeves and a collar — once you are past the buttonholes the steps run in a straight line. Oxford, broadcloth or linen all have enough body to be easy to handle.",
+    matNote: "men's M",
+    materials: [
+      "Main fabric (oxford, broadcloth or linen) — about 110 cm wide × 200 cm (44 × 79 in)",
+      "Lightweight fusible interfacing — for the collar and front bands",
+      "Buttons (1–1.3 cm / ½ in) — 7–8",
+      "Sewing thread to match"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the back (on the fold), the fronts, the sleeves and the collar. The front pieces already include the button band allowance.",
+      "<strong>Cut</strong><br>Cut one back, two fronts, two sleeves and two collar pieces.",
+      "<strong>Apply interfacing</strong><br>Fuse interfacing to one collar piece and to the front band area.",
+      "<strong>Finish the edges</strong><br>Zigzag or serge the shoulder, side and underarm allowances."
+    ],
+    sew: [
+      { h: "4-1. Finish the front edges", items: [
+        "Turn each front edge under twice by the overlap width and stitch. Press hard before stitching so both sides come out the same width.",
+        "Always do this first — it is impossible once the collar is attached."
+      ]},
+      { h: "4-2. Shoulders and sleeves", items: [
+        "Sew both shoulder seams and press the allowances open.",
+        "Match the center of each sleeve head to the shoulder seam and sew the sleeve into the armhole while everything is still flat.",
+        "The sleeve head is slightly longer than the armhole. Spread that ease across the top of the cap rather than letting it bunch in one spot."
+      ]},
+      { h: "4-3. Make and attach the collar", items: [
+        "Sew the collar pieces right sides together, leaving the lower edge open. Trim the corners, turn and press.",
+        "Sandwich the neckline between the collar layers and sew around, lining the collar ends up with the folded front edges.",
+        "Clip the neckline curve every 5 mm (¼ in)."
+      ]},
+      { h: "4-4. Sides, cuffs and buttons", items: [
+        "Sew from the cuff, along the underarm and down the side hem in one continuous line, matching the underarm seams.",
+        "Turn the cuffs and hem under twice and stitch. A curved shirt hem is easier if you stitch a guideline first and press to it.",
+        "Work buttonholes on the right front, sew buttons on the left, evenly spaced from just under the collar to the hem."
+      ]}
+    ],
+    sewNote: "Sew a test buttonhole on a scrap of the same fabric with the same interfacing. The right length is the button diameter plus the button thickness — a millimetre short and it will not do up.",
+    tips: [
+      "<strong>Short sleeves</strong>: the short-sleeve preset uses the same body, so you can make both from one pattern.",
+      "<strong>Straight or curved hem</strong>: straight to wear out, curved to tuck in.",
+      "<strong>Interface the band</strong>: it is tempting to skip, but an uninterfaced button band ripples after a few washes."
+    ],
+    related: ["shirtdress", "blouse", "kidsshirt", "pajamas"]
+  },
+
+  yukata: {
+    title: "Yukata",
+    tab: "human",
+    toolName: "Yukata",
+    sizeStep: "Enter height, bust, panel width, sleeve width and length, okumi width and collar width. Presets cover a child's 120 cm, women's and men's sizes.",
+    desc: "How to sew a yukata, the casual Japanese summer robe. Every piece is a rectangle — there is not one curve in the whole garment.",
+    keywords: "yukata,kimono,japanese robe,how to sew,sewing pattern,straight cut,handmade",
+    lead: "Traditional Japanese summer wear cut entirely from straight lines. Four kinds of rectangle — body panels, sleeves, okumi (front panels) and collar — and not a single curve, so it is approachable even if you have never sewn a kimono. Cotton or cotton-linen makes a casual, wearable version.",
+    matNote: "women's size",
+    materials: [
+      "Main fabric (cotton, cotton-linen or shibori; a traditional bolt is about 36 cm / 14 in wide) — about 11 m (12 yd)",
+      "Hand sewing thread (kimono is traditionally hand sewn, but a machine works)",
+      "Optional: collar stiffener"
+    ],
+    cut: [
+      "<strong>Check the measurements</strong><br>Every piece is a rectangle, so skip printing and mark the measurements from the guide sheet straight onto the fabric — a yukata is long and would take a great many sheets.",
+      "<strong>Cut</strong><br>Cut two body panels (folded at the shoulder), two sleeves, two okumi and one collar.",
+      "<strong>Finish the edges</strong><br>Traditional kimono seam allowances are folded rather than serged, so no edge finishing is needed."
+    ],
+    sew: [
+      { h: "4-1. Sew the body", items: [
+        "Fold each body panel at the shoulder and sew the two center back edges together.",
+        "Sew the side seams, leaving the sleeve opening (the miyatsuguchi) unsewn."
+      ]},
+      { h: "4-2. Make and attach the sleeves", items: [
+        "Fold each sleeve at the top and sew the underarm seam, leaving the cuff opening unsewn.",
+        "Turn the cuff and the rounded lower sleeve edge under twice and stitch.",
+        "Pin each sleeve to its opening on the body, right sides together, and sew."
+      ]},
+      { h: "4-3. Attach the okumi", items: [
+        "Sew an okumi panel to each front edge, right sides together.",
+        "Press the seam allowances towards the body."
+      ]},
+      { h: "4-4. Attach the collar", items: [
+        "Fold the collar in half lengthwise and press.",
+        "Sew one edge of the collar to the garment in one continuous run, from the end of one okumi, around the back neck, to the end of the other.",
+        "Turn the collar out, fold the remaining edge under and slipstitch it down."
+      ]},
+      { h: "4-5. Hem", items: [
+        "Turn the hem under twice and slipstitch."
+      ]}
+    ],
+    sewNote: "In Japanese garment sewing you press seam allowances to one side rather than open, and you keep every allowance falling the same way. Do that and no seam shows from the outside — the principle holds whether you sew by hand or by machine.",
+    tips: [
+      "<strong>Start child-sized</strong>: far less fabric and far less sewing. Make one in the child size before committing 11 m of fabric.",
+      "<strong>A machine is fine</strong>: it is all straight seams. Slipstitch only the collar by hand and it still looks right.",
+      "<strong>Make a set</strong>: a jinbei in the same fabric gives the whole family matching summer wear."
+    ],
+    related: ["samue", "jinbei", "hanten", "kappogi"]
+  },
+
+  samue: {
+    title: "Samue (Japanese work jacket)",
+    tab: "human",
+    toolName: "Samue (Japanese work jacket)",
+    sizeStep: "Enter bust, length, shoulder width, sleeve length, front overlap, ease and tie length. Presets cover women's M and men's M/L.",
+    desc: "How to sew a samue jacket. One back, two fronts, two sleeves and ties — it fastens at the sides, so it goes on and off easily.",
+    keywords: "samue,japanese work jacket,how to sew,sewing pattern,sashiko,handmade",
+    lead: "A Japanese jacket that began as workwear. One back, two fronts, two sleeves and ties, fastening at the sides rather than the front. Pair it with the tapered pants or jinbei shorts and you have the full set. Cotton or sashiko weave suits it best.",
+    matNote: "women's M",
+    materials: [
+      "Main fabric (cotton, sashiko weave or denim) — about 110 cm wide × 200 cm (44 × 79 in)",
+      "Optional: snap fasteners"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the back, fronts, sleeves and ties.",
+      "<strong>Cut</strong><br>Cut one back, two fronts, two sleeves and four ties.",
+      "<strong>Finish the edges</strong><br>Zigzag or serge the shoulder, side and underarm allowances."
+    ],
+    sew: [
+      { h: "4-1. Sew the shoulders", items: [
+        "Sew both shoulder seams and press the allowances open."
+      ]},
+      { h: "4-2. Attach the sleeves", items: [
+        "Hem the cuff edge of each sleeve first, while the sleeve is still flat.",
+        "Match the center of the sleeve to the shoulder seam and sew it into the armhole."
+      ]},
+      { h: "4-3. Sew the sides", items: [
+        "Sew from the underarm down to the hem on each side."
+      ]},
+      { h: "4-4. Finish the front edges, neckline and hem", items: [
+        "Turn the front edges and neckline under twice in one continuous run and stitch.",
+        "Hem the lower edge the same way."
+      ]},
+      { h: "4-5. Attach the ties", items: [
+        "Fold each of the four ties in quarters lengthwise and topstitch.",
+        "Sew them at the top of the side openings, positioned so that one pair ties on the inside and the other on the outside."
+      ]}
+    ],
+    sewNote: "Tie the inside pair first, then the outside pair. That two-stage closure is what stops the front falling open when you move — a single tie will not hold it.",
+    tips: [
+      "<strong>Make the set</strong>: tapered pants or jinbei shorts in the same fabric give you a complete samue.",
+      "<strong>Sashiko weave</strong>: sashiko or kasuri cotton makes it look properly traditional rather than costume-like.",
+      "<strong>As loungewear</strong>: double gauze makes a soft, light version for wearing at home."
+    ],
+    related: ["yukata", "jinbei", "hanten", "kappogi"]
+  },
+
+  kappogi: {
+    title: "Kappogi (Japanese cover-all apron)",
+    tab: "human",
+    toolName: "Kappogi (Japanese cover-all apron)",
+    sizeStep: "Enter bust, length, shoulder width, sleeve length, cuff elastic and back tie length. Presets cover adult and child sizes.",
+    desc: "How to sew a kappogi, the Japanese apron with sleeves that goes right over your clothes. Elastic cuffs keep sleeves clean and it ties at the back.",
+    keywords: "kappogi,apron with sleeves,cover-all apron,how to sew,sewing pattern,handmade",
+    lead: "A Japanese apron with sleeves that you pull on over your clothes. Elastic at the cuffs keeps your sleeves out of the washing up, and it simply ties at the back, so it goes on and off in seconds. Good for cooking, cleaning and school lunch duty.",
+    matNote: "adult size",
+    materials: [
+      "Main fabric (cotton, sheeting or broadcloth) — about 110 cm wide × 200 cm (44 × 79 in)",
+      "Flat elastic (1 cm / ⅜ in wide) — about 40 cm (16 in) for the cuffs",
+      "Optional: fabric for a pocket"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the front, back, sleeves and back ties.",
+      "<strong>Cut</strong><br>Cut one front, one back, two sleeves and two ties.",
+      "<strong>Finish the edges</strong><br>Zigzag or serge the shoulder, side and underarm allowances."
+    ],
+    sew: [
+      { h: "4-1. Sew the shoulders", items: [
+        "Sew both shoulder seams and press the allowances open."
+      ]},
+      { h: "4-2. Attach the sleeves", items: [
+        "Match the center of each sleeve head to the shoulder seam and sew it into the armhole.",
+        "Turn each cuff under twice to make a casing and stitch, leaving a 2 cm (¾ in) gap for the elastic."
+      ]},
+      { h: "4-3. Sides and back opening", items: [
+        "Sew from the cuff along the underarm and down the side in one line — but do not sew the center back closed. That opening is how you get into it.",
+        "Turn the back opening edges and the neckline under twice and stitch."
+      ]},
+      { h: "4-4. Ties, elastic and hem", items: [
+        "Fold each tie in quarters lengthwise, topstitch, and sew them to the back at waist level.",
+        "Thread the cuff elastic, fit it around your wrist, stitch the ends and close the gap.",
+        "Turn the hem up twice and stitch."
+      ]}
+    ],
+    sewNote: "Leaving the center back open is the whole point of a kappogi. Sew it closed and you cannot get it over your head, so watch that you do not run the side seam past the back opening.",
+    tips: [
+      "<strong>Add a pocket</strong>: a large patch pocket at hip level on the front holds cloths and utensils.",
+      "<strong>Water-repellent fabric</strong>: laminated or coated cotton is worth it if you do a lot of washing up.",
+      "<strong>Child size</strong>: the child preset gives the size used for school lunch duty in Japan."
+    ],
+    related: ["apron", "samue", "smock", "kidsbibapron"]
+  },
+
+  pajamas: {
+    title: "Pajama top",
+    tab: "human",
+    toolName: "Pajama top",
+    sizeStep: "Enter bust, length, shoulder width, sleeve length, cuff width, neck width and the front overlap. Presets cover S, M, L and a short-sleeved version.",
+    desc: "How to sew a relaxed button-front pajama top. Two fronts, one back, two sleeves and a collar, cut loose enough to sleep in.",
+    keywords: "pajama top,pyjamas,sleepwear,how to sew,sewing pattern,double gauze,handmade",
+    lead: "A loose button-front pajama top with nothing that binds when you turn over. Pair it with the sweatpants or tapered pants for a set. Double gauze or brushed flannel is the obvious choice — soft, and it gets softer with washing.",
+    matNote: "size M",
+    materials: [
+      "Main fabric (double gauze, flannel or cotton) — about 110 cm wide × 220 cm (44 × 87 in)",
+      "Lightweight fusible interfacing — about 40 × 40 cm (16 × 16 in) for the collar and front bands",
+      "Buttons — 5–6"
+    ],
+    cut: [
+      "<strong>Pre-wash the fabric</strong><br>Double gauze shrinks by about 10%. Wash, dry and press it before you cut or the finished top will not fit after its first wash.",
+      "<strong>Trace the pattern</strong><br>Trace the back, fronts, sleeves and collar.",
+      "<strong>Cut</strong><br>Cut one back, two fronts, two sleeves and two collar pieces, then fuse interfacing to one collar piece and the front band areas."
+    ],
+    sew: [
+      { h: "4-1. Finish the front edges", items: [
+        "Turn each front edge under twice and topstitch."
+      ]},
+      { h: "4-2. Shoulders, sleeves and sides", items: [
+        "Sew both shoulder seams and press the allowances open.",
+        "Match the center of each sleeve head to the shoulder seam and sew the sleeves in.",
+        "Sew from the cuff along the underarm and down the side in one continuous line."
+      ]},
+      { h: "4-3. Make and attach the collar", items: [
+        "Sew the collar pieces right sides together around the outer edge, trim the corners and turn.",
+        "Sew the collar to the neckline, then fold the inner layer under and topstitch it down."
+      ]},
+      { h: "4-4. Finish", items: [
+        "Turn the cuffs and hem under twice and stitch.",
+        "Work the buttonholes and sew on the buttons."
+      ]}
+    ],
+    sewNote: "Pre-washing double gauze is not optional. It shrinks around 10%, so a top that fits when you make it will be a size smaller after one wash. Wash, dry, then press while slightly damp.",
+    tips: [
+      "<strong>Make the set</strong>: sweatpants or tapered pants in the same fabric.",
+      "<strong>Short sleeves</strong>: the short-sleeve preset turns it into summer pajamas.",
+      "<strong>Add a chest pocket</strong>: it is what makes a shirt read as pajamas rather than a shirt."
+    ],
+    related: ["shirt", "sweatpants", "gown", "taperedpants"]
+  },
+
+  blouson: {
+    title: "Blouson jacket",
+    tab: "human",
+    toolName: "Blouson jacket",
+    sizeStep: "Enter bust, length excluding ribbing, shoulder width, sleeve length, hem and cuff ribbing height and ease. Presets cover S, M, L and a relaxed fit.",
+    desc: "How to sew a blouson jacket gathered into ribbing at the hem and cuffs, closed with a separating zip.",
+    keywords: "blouson,bomber jacket,how to sew,sewing pattern,ribbing,zip,handmade",
+    lead: "A light jacket pulled in by ribbing at the hem and cuffs. Two fronts, one back, two sleeves and the ribbing. Close it with a separating zip or with snaps if zips are not your favourite. Nylon, twill or denim all have the body this shape needs.",
+    matNote: "size M",
+    materials: [
+      "Main fabric (nylon, twill or denim) — about 110 cm wide × 180 cm (44 × 71 in)",
+      "Ribbing for the hem and cuffs — about 30 × 90 cm (12 × 35 in)",
+      "Separating zip — to the finished body length"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the back, fronts, sleeves and the two ribbing pieces.",
+      "<strong>Cut</strong><br>Cut one back, two fronts, two sleeves, two cuff ribbings and one hem ribbing.",
+      "<strong>Finish the edges</strong><br>Serge or zigzag the shoulder, side and underarm allowances."
+    ],
+    sew: [
+      { h: "4-1. Shoulders, sleeves and sides", items: [
+        "Sew both shoulder seams and press the allowances open.",
+        "Match the center of each sleeve head to the shoulder seam and sew the sleeves in.",
+        "Sew from the cuff along the underarm and down the side in one continuous line."
+      ]},
+      { h: "4-2. Attach the ribbing", items: [
+        "Sew each cuff ribbing into a loop, fold it in half lengthwise and sew it to the cuff, stretching it to fit.",
+        "Fold the hem ribbing in half lengthwise and sew it to the hem, stretching evenly. It is shorter than the hem — that is what makes the jacket blouse."
+      ]},
+      { h: "4-3. Insert the zip", items: [
+        "Sew one side of the separating zip to each front edge. Line the bottom stops up with each other before you start, or one side will finish higher than the other.",
+        "Turn the neckline under twice and stitch."
+      ]}
+    ],
+    sewNote: "Cut ribbing to about 85% of the edge it goes on. Stretching that shorter piece evenly as you sew is exactly what pulls the hem in and gives a blouson its shape.",
+    tips: [
+      "<strong>If zips put you off</strong>: snaps or hook-and-loop close it just as well. Make it that way first and add a zip to the second one.",
+      "<strong>Water-repellent fabric</strong>: in coated nylon this becomes a light rain jacket.",
+      "<strong>Add pockets</strong>: slash pockets caught in the side seams are worth the extra ten minutes."
+    ],
+    related: ["cardigan", "jacket", "nocollarjacket", "hoodie"]
+  },
+
+  gown: {
+    title: "Robe / dressing gown",
+    tab: "human",
+    toolName: "Robe / dressing gown",
+    sizeStep: "Enter bust, length, shoulder width, sleeve length, lapel fold width and ease. Presets cover women's M, men's M and a short version.",
+    desc: "How to sew a wrap robe tied with a sash. One back, two fronts, two sleeves and a sash — no buttons and no zip.",
+    keywords: "robe,dressing gown,bathrobe,how to sew,sewing pattern,waffle,handmade",
+    lead: "A robe you wrap and tie. No buttons, no zip — just knot the sash, which makes this one of the least fiddly garments here. Waffle or gauze makes a bathrobe; linen makes a summer cover-up. Same pattern, completely different garment.",
+    matNote: "women's M",
+    materials: [
+      "Main fabric (waffle, double gauze or linen) — about 110 cm wide × 250 cm (44 × 98 in)",
+      "Optional: self-fabric belt loops for the sides",
+      "Thread to match"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the back (on the fold), the fronts, the sleeves and the sash. The front edge already includes the allowance that folds back to form the lapel.",
+      "<strong>Cut</strong><br>Cut one back, two fronts (flipping the pattern for the second), two sleeves and one sash.",
+      "<strong>Finish the edges</strong><br>Zigzag or serge the shoulder, side and underarm allowances."
+    ],
+    sew: [
+      { h: "4-1. Sew the shoulders", items: [
+        "Sew both shoulder seams and press the allowances open. A robe carries weight on the shoulders, so pressed-open seams sit better than pressed-to-one-side."
+      ]},
+      { h: "4-2. Attach the sleeves", items: [
+        "Match the center of each sleeve head to the shoulder seam and sew the sleeve into the armhole.",
+        "Sew the sleeves in while the garment is still flat — the armhole is far easier to handle open than in the round."
+      ]},
+      { h: "4-3. Sides and underarms", items: [
+        "Sew from the cuff along the underarm and down to the hem in one continuous line, lining the underarm seams up first.",
+        "If you are adding belt loops, catch them in the side seams now."
+      ]},
+      { h: "4-4. Fold back the lapel", items: [
+        "Fold the allowance on each front edge to the inside — that fold is the lapel.",
+        "Topstitch it down in one run from the hem, around the neckline, to the other hem.",
+        "Clip the neckline curve so the lapel lies flat instead of standing away."
+      ]},
+      { h: "4-5. Cuffs, hem and sash", items: [
+        "Turn the cuffs and hem under twice and stitch.",
+        "Fold the sash in quarters lengthwise, press and topstitch all round.",
+        "Thread it through the belt loops."
+      ]}
+    ],
+    sewNote: "The fold-back allowance on the front edge is the lapel, so its width is the width of the lapel. Wider reads as a shawl collar, narrower as a light wrap. About 7 cm (2¾ in) is easy to sew and looks balanced.",
+    tips: [
+      "<strong>Waffle for a bathrobe</strong>: absorbent and quick-drying, which is the whole job.",
+      "<strong>Add pockets</strong>: catch pocket bags in the side seams for your phone and glasses.",
+      "<strong>Belt loops are essential</strong>: without them the sash slides round and the robe falls open. They take five minutes."
+    ],
+    related: ["poncho", "pajamas", "cardigan", "samue"]
+  },
+
+  nocollarjacket: {
+    title: "Collarless jacket",
+    tab: "human",
+    toolName: "Collarless jacket",
+    sizeStep: "Enter bust, length, shoulder width, sleeve length and ease. Presets cover women's S/M and a relaxed fit.",
+    desc: "How to sew a collarless open-front jacket. With no collar to set, this is the most approachable jacket shape — the neckline is finished with a facing.",
+    keywords: "collarless jacket,no collar jacket,how to sew,sewing pattern,facing,tweed,handmade",
+    lead: "An open-front jacket with no collar. Collar setting is the step that defeats most people on a jacket, and here it simply is not there — yet worn, it still reads as a jacket. Tweed or linen, anything with a bit of body.",
+    matNote: "women's M",
+    materials: [
+      "Main fabric (tweed, linen or heavy cotton) — about 110 cm wide × 200 cm (44 × 79 in)",
+      "Lightweight fusible interfacing — about 30 cm (12 in) for the front facings",
+      "Optional: a covered button or snap",
+      "Optional: lining fabric"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the back (on the fold), the fronts, the sleeves and the front facings.",
+      "<strong>Cut</strong><br>Cut one back, two fronts, two sleeves and two facings.",
+      "<strong>Apply interfacing</strong><br>Fuse interfacing to the facings. That is what makes the front edge sit crisply instead of rolling.",
+      "<strong>Finish the edges</strong><br>Zigzag or serge the shoulder, side and underarm allowances."
+    ],
+    sew: [
+      { h: "4-1. Sew the shoulders", items: [
+        "Sew both shoulder seams and press the allowances open."
+      ]},
+      { h: "4-2. Attach the facings", items: [
+        "Join the facings at the shoulders if your version continues around the back neck.",
+        "Pin a facing to each front, right sides together, and sew in one run up the front edge and around the neckline.",
+        "Clip the neckline curve every 5 mm (¼ in). Skip this and the neckline will pull no matter how carefully you sewed it.",
+        "Turn the facing to the inside, press hard, and understitch 2–3 mm from the edge so it stays rolled in."
+      ]},
+      { h: "4-3. Attach the sleeves", items: [
+        "Match the center of each sleeve head to the shoulder seam and sew the sleeve in.",
+        "Spread the sleeve-head ease across roughly 15 cm (6 in) either side of the top. Bunched in one place it becomes a tuck."
+      ]},
+      { h: "4-4. Sides and underarms", items: [
+        "Sew from the cuff along the underarm and down to the hem in one line, matching the underarm seams."
+      ]},
+      { h: "4-5. Cuffs and hem", items: [
+        "Turn the cuffs under twice and stitch.",
+        "Hem the lower edge. At the facings, fold the hem with the facing opened out, then fold the facing back and slipstitch.",
+        "Add a snap or covered button at chest height if you want it to fasten."
+      ]}
+    ],
+    sewNote: "Do not be shy about clipping the neckline. Curved seam allowances always pull unless they are clipped, up to 1–2 mm short of the stitching, every 5 mm. Kept that shallow they will not fray.",
+    tips: [
+      "<strong>Interface the facings only</strong>: interfacing the whole jacket makes it board-stiff. The front edge and neckline are all that need to hold their shape.",
+      "<strong>No fastening needed</strong>: collarless jackets are usually worn open. Leaving off the button looks entirely deliberate.",
+      "<strong>Adding a lining</strong>: cut the same pattern in lining and join it to the inner edge of the facings. It slides on far more easily."
+    ],
+    related: ["jacket", "cardigan", "adultvest", "blouson"]
+  },
+
+  cargopants: {
+    title: "Cargo pants",
+    tab: "human",
+    toolName: "Cargo pants",
+    sizeStep: "Enter hip, rise, inseam, hem width, side pocket width and height, ease and the waist casing. Presets cover women's M, men's M and a shorts version.",
+    desc: "How to sew cargo pants with big patch pockets on the legs. The waist is elastic, so there is no fly, zip or buttonhole.",
+    keywords: "cargo pants,work pants,how to sew,sewing pattern,patch pocket,elastic waist,handmade",
+    lead: "Work pants with big patch pockets on the sides. Because the waist is elastic there is no fly and no buttonholes — you sew the legs, then stitch the pockets on. Chino or ripstop holds the pocket shape; anything too soft and the pockets collapse.",
+    matNote: "men's M",
+    materials: [
+      "Main fabric (chino, twill or ripstop) — about 110 cm wide × 220 cm (44 × 87 in)",
+      "Flat elastic (2.5–3 cm / 1 in wide) — about 90 cm (35 in)",
+      "Optional: snap fasteners for the pocket flaps — 2 sets"
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Trace the leg pattern, the side pockets and the pocket flaps.",
+      "<strong>Cut</strong><br>Cut two fronts and two backs, two pockets, and the flaps in outer and lining.",
+      "<strong>Finish the edges</strong><br>Serge or zigzag the crotch, side and inseam allowances."
+    ],
+    sew: [
+      { h: "4-1. Make the pockets", items: [
+        "Turn the top edge of each pocket under twice and stitch — that is the opening.",
+        "Press the other three edges under by 1 cm (⅜ in), folding the corners diagonally so the layers do not build up.",
+        "Sew each flap in outer and lining, leaving the top edge open, then turn and topstitch."
+      ]},
+      { h: "4-2. Attach the pockets", items: [
+        "Position a pocket on each leg towards the side, 5–8 cm (2–3 in) below the rise so it does not dig in when you sit.",
+        "Topstitch the three folded edges down 2–3 mm from the edge.",
+        "Reinforce both top corners of the opening with a triangle or a square of stitching — that is where a patch pocket always tears first.",
+        "Lay a flap above each pocket and stitch straight across the top.",
+        "Do all of this before the legs become tubes — once the seams are sewn the presser foot cannot reach."
+      ]},
+      { h: "4-3. Sew the crotch seams", items: [
+        "Sew the two fronts together along the center front curve, then the two backs.",
+        "Clip the curves every 5 mm (¼ in)."
+      ]},
+      { h: "4-4. Sides and inseams", items: [
+        "Sew both side seams, then the inseam in one run from hem to hem. Reinforce the crotch junction."
+      ]},
+      { h: "4-5. Waist and hem", items: [
+        "Fold the waist edge over twice, stitch leaving a 4 cm (1½ in) gap, thread the elastic to about 85–90% of your waist, stitch the ends and close.",
+        "Turn the hems up twice and stitch."
+      ]}
+    ],
+    sewNote: "Attach the pockets while the legs are still flat pieces. Once you have sewn the side and inseam, the leg is a tube and the machine arm will not reach the pocket position.",
+    tips: [
+      "<strong>Measure what goes in</strong>: if the pocket is for a phone or wallet, measure it before you set the pocket size.",
+      "<strong>Add pocket gussets</strong>: folding a pleat into the sides and base gives depth for bulky things. Fiddly, but a real difference.",
+      "<strong>Shorts version</strong>: the shorts preset gives cargo shorts from the same pattern."
+    ],
+    related: ["taperedpants", "sweatpants", "widepants", "overall"]
+  },
+
+  hanten: {
+    title: "Hanten (Japanese padded jacket)",
+    tab: "human",
+    toolName: "Hanten (Japanese padded jacket)",
+    sizeStep: "Enter panel width, length, sleeve length, sleeve width and finished collar width. Presets cover child, women's and men's sizes.",
+    desc: "How to sew a hanten, the padded Japanese house jacket. Every piece is a straight cut, and a layer of batting turns it into the real thing.",
+    keywords: "hanten,padded jacket,japanese jacket,how to sew,sewing pattern,quilted,handmade",
+    lead: "The Japanese padded jacket you live in all winter. Not one curve anywhere — the body panels fold at the shoulder, so there is not even a shoulder seam to sew. Add a layer of batting and it becomes the genuinely warm article rather than a light robe.",
+    matNote: "women's size",
+    materials: [
+      "Main fabric (Japanese-print cotton, chirimen or flannel) — about 110 cm wide × 250 cm (44 × 98 in)",
+      "Lining fabric (lightweight cotton) — the same amount",
+      "Medium batting — about 200 cm (79 in) if you are padding it",
+      "Optional: ties or a decorative cord for the front"
+    ],
+    cut: [
+      "<strong>Check the measurements</strong><br>Body, sleeves and collar are all rectangles, so mark them straight onto the fabric from the guide sheet rather than printing.",
+      "<strong>Cut</strong><br>Cut two body panels (folded at the shoulder), two sleeves and one collar.",
+      "<strong>Open the center front</strong><br>Cut the front half of each body panel open down the center — that is where you get into it.",
+      "<strong>If padding</strong><br>Cut the batting to the same dimensions as the body and sleeves."
+    ],
+    sew: [
+      { h: "4-1. Sew the center back", items: [
+        "Place the two body panels right sides together and sew the center back seam. The shoulders are folds, so there is nothing to sew there.",
+        "If you are padding it, layer outer, batting and lining now and quilt a grid across them to lock the layers together."
+      ]},
+      { h: "4-2. Make and attach the sleeves", items: [
+        "Fold each sleeve in half and sew the underarm seam, leaving the cuff open.",
+        "Sew the open edge of each sleeve to the body between the notches. Both edges are straight, so if the notches match, the seam matches."
+      ]},
+      { h: "4-3. Sew the sides", items: [
+        "Sew each side from below the sleeve opening down to the hem, reinforcing where the sleeve meets the body."
+      ]},
+      { h: "4-4. Attach the collar", items: [
+        "Fold the collar in half lengthwise and sew one edge to the garment in one run: front edge, around the back neck, down to the other front edge.",
+        "Turn it out, fold the remaining edge under and slipstitch or topstitch it down.",
+        "The collar goes on as one straight line — there is no curve to ease it around."
+      ]},
+      { h: "4-5. Cuffs and hem", items: [
+        "Turn the cuffs and hem under twice and stitch. If it is padded, hand slipstitching handles the bulk better than a machine.",
+        "Add ties at the front if you want it to fasten."
+      ]}
+    ],
+    sewNote: "If you are padding it, do not skip the quilting grid. Batting that is only caught at the edges shifts to one side in the first wash and never comes back. A grid every 10–15 cm (4–6 in) fixes it permanently.",
+    tips: [
+      "<strong>Do not print the pattern</strong>: it is all rectangles. Ruling the lines straight onto the fabric is faster and more accurate.",
+      "<strong>Skip the padding</strong>: in flannel or fleece as a single layer it becomes a light spring jacket.",
+      "<strong>Child size</strong>: the child preset makes the version worn for festivals and shichi-go-san."
+    ],
+    related: ["samue", "yukata", "gown", "jinbei"]
+  },
 };
