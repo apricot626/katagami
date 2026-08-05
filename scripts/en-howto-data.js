@@ -655,7 +655,7 @@ module.exports = {
     tips: [
       "<strong>No serger?</strong> A narrow zigzag works; don't pull the fabric as you sew.",
       "<strong>Grow with them</strong>: add length and longer sleeves for next season.",
-      "<strong>Contrast neckband</strong>: a different colour band makes a fun accent."
+      "<strong>Contrast neckband</strong>: a different color band makes a fun accent."
     ]
   },
 
@@ -1650,11 +1650,11 @@ module.exports = {
     sizeStep: "Enter the neckline width and depth, and the bib size by age. Add a snap to close.",
     desc: "How to sew the classic baby bib. Layer an outer and an absorbent backing, sew around, turn through a gap and close with a snap. A lovely, quick baby gift.",
     keywords: "baby bib,bib,how to sew,sewing pattern,baby gift,snap,handmade",
-    lead: "The classic baby bib: layer an outer fabric and an absorbent backing, sew around, turn right side out through a gap, and finish with a snap. Gauze or towelling is gentle on skin and makes a welcome baby gift.",
+    lead: "The classic baby bib: layer an outer fabric and an absorbent backing, sew around, turn right side out through a gap, and finish with a snap. Gauze or toweling is gentle on skin and makes a welcome baby gift.",
     matNote: "one bib",
     materials: [
       "Outer fabric (cotton, double gauze) — about 25 × 30 cm (10 × 12 in)",
-      "Backing (towelling or gauze, absorbent) — the same size",
+      "Backing (toweling or gauze, absorbent) — the same size",
       "1 set of snaps (e.g. plastic snaps)"
     ],
     cut: [
@@ -1677,7 +1677,7 @@ module.exports = {
       ]}
     ],
     tips: [
-      "<strong>Extra absorbent</strong>: use towelling or a layer of batting for the backing.",
+      "<strong>Extra absorbent</strong>: use toweling or a layer of batting for the backing.",
       "<strong>Bandana style</strong>: a triangular version catches more drool.",
       "<strong>Great gift</strong>: make a few in coordinating prints."
     ]
@@ -1912,7 +1912,7 @@ module.exports = {
     matNote: "one bib",
     materials: [
       "Outer fabric (double gauze, cotton) — about 25 cm square",
-      "Backing (towelling or terry, absorbent) — the same size",
+      "Backing (toweling or terry, absorbent) — the same size",
       "1 set of snaps"
     ],
     cut: [
@@ -2114,7 +2114,7 @@ module.exports = {
     materials: [
       "Outer fabric (double gauze, cotton) — about 25 cm square",
       "Lining (gauze or cotton) — the same",
-      "Nose wire (aluminium or craft wire) — about 10 cm",
+      "Nose wire (aluminum or craft wire) — about 10 cm",
       "Flat mask elastic (3–4 mm) — about 30–35 cm × 2"
     ],
     cut: [
@@ -2189,7 +2189,7 @@ module.exports = {
         h: "4-3. Fit the clasp",
         items: [
           "Run craft glue (or clasp adhesive) into the channel of the metal frame.",
-          "Push the fabric edge into the channel with an awl, working from the centre out to each end so it stays even.",
+          "Push the fabric edge into the channel with an awl, working from the center out to each end so it stays even.",
           "Press paper cord into the channel alongside the fabric to lock it in place.",
           "With a scrap of cloth protecting the metal, gently squeeze the clasp ends with pliers. Let it dry and you are done."
         ]
@@ -2225,10 +2225,10 @@ module.exports = {
         h: "Envelope cushion cover",
         items: [
           "Split the back into two pieces; on each, hem the opening edge with a double fold.",
-          "Lay the front right side up, then layer the two back pieces on top right sides together so their openings overlap at the centre.",
+          "Lay the front right side up, then layer the two back pieces on top right sides together so their openings overlap at the center.",
           "Sew all four sides at the seam allowance.",
           "Trim the corners diagonally and turn right side out through the opening.",
-          "Shape it, insert the cushion through the centre opening, and you are done."
+          "Shape it, insert the cushion through the center opening, and you are done."
         ]
       }
     ],
@@ -2266,7 +2266,7 @@ module.exports = {
         items: [
           "Place the flap outer and lining right sides together and sew around, leaving a 5–6 cm turning gap.",
           "Clip the curved seam allowance, turn right side out, and close the gap with a slip stitch or edge stitch.",
-          "Fit the female half of the magnetic snap centred on the flap lining."
+          "Fit the female half of the magnetic snap centered on the flap lining."
         ]
       },
       {
@@ -2274,7 +2274,7 @@ module.exports = {
         items: [
           "Fold the outer body in half at the bottom \"wa\".",
           "With outer-to-outer and lining-to-lining right sides together, sew both side seams.",
-          "Turn the outer right side out and fit the male half of the snap centred on the front (flap side).",
+          "Turn the outer right side out and fit the male half of the snap centered on the front (flap side).",
           "Slip the lining inside the outer and join them at the opening. To add a zip, sew the zip tape into the opening at this stage."
         ]
       },
@@ -2322,7 +2322,7 @@ module.exports = {
         items: [
           "Place the flap outer and lining right sides together and sew around, leaving a 5–6 cm turning gap on the top edge.",
           "Clip the corners and curves, turn right side out, and close the gap with a slip or edge stitch.",
-          "Fit the female snap centred and slightly low on the flap lining."
+          "Fit the female snap centered and slightly low on the flap lining."
         ]
       },
       {
@@ -2373,7 +2373,7 @@ module.exports = {
     ],
     cut: [
       "<strong>Trace the pattern</strong><br>Trace the cut line and seam line onto the wrong side; align the grain with the grain line.",
-      "<strong>Cut the pieces</strong><br>Cut one back and one belly panel (centre on the fold) and 2 sleeves. Mark the front-leg notches accurately.",
+      "<strong>Cut the pieces</strong><br>Cut one back and one belly panel (center on the fold) and 2 sleeves. Mark the front-leg notches accurately.",
       "<strong>Finish the edges</strong><br>Zigzag or overlock the seam edges if the fabric frays."
     ],
     sew: [
@@ -2408,13 +2408,13 @@ module.exports = {
     ],
     tips: [
       "<strong>Loose sleeves</strong>: add a little extra sleeve ease so the front legs move freely and it's easy to put on.",
-      "<strong>Warmer</strong>: brushed knit or fleece makes a cosy coat for cold-weather walks.",
+      "<strong>Warmer</strong>: brushed knit or fleece makes a cozy coat for cold-weather walks.",
       "<strong>Build up to it</strong>: if sleeves feel daunting, make the sleeveless dog tank first to lock in your dog's measurements."
     ]
   },
 
   mannerbelt: {
-    title: "Belly band (manner belt)",
+    title: "Dog belly band",
     tab: "pet",
     toolName: "Belly band",
     sizeStep: "Measure your dog's belly circumference and enter it, then set the finished band width and the hook-and-loop overlap. Presets cover small / medium / large dogs.",

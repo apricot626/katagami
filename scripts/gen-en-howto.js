@@ -31,7 +31,20 @@ function steps(items){
 const TOOLS_EN = ["Sewing machine (or needle and thread)","Fabric marker or pencil","Ruler and scissors","Iron","Pins or clips"];
 /* keys that have an English guide — used for the related-guides block */
 const EN_KEYS = ["tee","tote","kinchaku","pouch","shuushu","bowtie","placemat","bookcover","headband","sacoche","skirt","gather","apron","mask","pants","kidstee","pouchgusset","tissuecase","cushioncover","dog","tablecloth","pillowcase","tunic","camisole","shoesbag","gymbag","bloomers","bandana","swaddle","azuma","sleevedress","flareskirt","adultgather","widepants","halfpants","blouse","onepiece","jacket","coat","stai","mermaid","kidsdress","smock","kidsvest","kidshalf","bandanastai","babyhat","legwarmer","kincgusset","movepocket","fittedmask","gamaguchi","panel","clutchbag","shoulderbag","dogsleeved","mannerbelt","petbandana","petsnood","catfuku","petvest"];
-const EN_TITLE = { tee:"T-shirt", tote:"Tote bag", kinchaku:"Drawstring pouch", pouch:"Zipper pouch", shuushu:"Scrunchie", bowtie:"Bow tie", placemat:"Placemat", bookcover:"Book cover", headband:"Headband", sacoche:"Sacoche", skirt:"A-line skirt", gather:"Gathered skirt", apron:"Apron", mask:"Pleated mask", pants:"Elastic-waist pants", kidstee:"Kids\u0027 T-shirt", pouchgusset:"Pouch (gusseted)", tissuecase:"Tissue case", cushioncover:"Cushion cover (envelope)", dog:"Dog clothes (tank)", tablecloth:"Tablecloth", pillowcase:"Pillowcase (envelope)", tunic:"Tunic", camisole:"Camisole", shoesbag:"Shoe bag", gymbag:"Gym bag (drawstring backpack)", bloomers:"Bloomers", bandana:"Triangle headscarf", swaddle:"Swaddle (hooded)", azuma:"Azuma bag", sleevedress:"Sleeveless dress", flareskirt:"Circle skirt", adultgather:"Gathered skirt (adult)", widepants:"Wide pants (elastic waist)", halfpants:"Shorts (adult)", blouse:"Blouse", onepiece:"Dress (with sleeves)", jacket:"Jacket", coat:"Coat", stai:"Baby bib", mermaid:"Mermaid skirt", kidsdress:"Kids' dress", smock:"Kids' smock", kidsvest:"Kids' vest", kidshalf:"Kids' shorts", bandanastai:"Bandana bib", babyhat:"Baby hat (tulip hat)", legwarmer:"Baby leg warmers", kincgusset:"Cup bag (gusseted)", movepocket:"Clip-on pocket", fittedmask:"Fitted mask (2-piece)", gamaguchi:"Clasp purse (gamaguchi)", panel:"Fabric panel (square)", clutchbag:"Clutch bag", shoulderbag:"Shoulder bag (flap)", dogsleeved:"Dog clothes (sleeved)", mannerbelt:"Belly band (manner belt)", petbandana:"Pet bandana", petsnood:"Dog snood (neck warmer)", catfuku:"Cat clothes (tank top)", petvest:"Pet vest (dog & cat)" };
+const EN_TITLE = { tee:"T-shirt", tote:"Tote bag", kinchaku:"Drawstring pouch", pouch:"Zipper pouch", shuushu:"Scrunchie", bowtie:"Bow tie", placemat:"Placemat", bookcover:"Book cover", headband:"Headband", sacoche:"Sacoche", skirt:"A-line skirt", gather:"Gathered skirt", apron:"Apron", mask:"Pleated mask", pants:"Elastic-waist pants", kidstee:"Kids\u0027 T-shirt", pouchgusset:"Pouch (gusseted)", tissuecase:"Tissue case", cushioncover:"Cushion cover (envelope)", dog:"Dog clothes (tank)", tablecloth:"Tablecloth", pillowcase:"Pillowcase (envelope)", tunic:"Tunic", camisole:"Camisole", shoesbag:"Shoe bag", gymbag:"Gym bag (drawstring backpack)", bloomers:"Bloomers", bandana:"Triangle headscarf", swaddle:"Swaddle (hooded)", azuma:"Azuma bag", sleevedress:"Sleeveless dress", flareskirt:"Circle skirt", adultgather:"Gathered skirt (adult)", widepants:"Wide pants (elastic waist)", halfpants:"Shorts (adult)", blouse:"Blouse", onepiece:"Dress (with sleeves)", jacket:"Jacket", coat:"Coat", stai:"Baby bib", mermaid:"Mermaid skirt", kidsdress:"Kids' dress", smock:"Kids' smock", kidsvest:"Kids' vest", kidshalf:"Kids' shorts", bandanastai:"Bandana bib", babyhat:"Baby hat (tulip hat)", legwarmer:"Baby leg warmers", kincgusset:"Cup bag (gusseted)", movepocket:"Clip-on pocket", fittedmask:"Fitted mask (2-piece)", gamaguchi:"Clasp purse (gamaguchi)", panel:"Fabric panel (square)", clutchbag:"Clutch bag", shoulderbag:"Shoulder bag (flap)", dogsleeved:"Dog clothes (sleeved)", mannerbelt:"Dog belly band", petbandana:"Pet bandana", petsnood:"Dog snood (neck warmer)", catfuku:"Cat clothes (tank top)", petvest:"Pet vest (dog & cat)" };
+
+/* Google truncates the description in search results at roughly 160 characters,
+   so cut it at the last sentence that still fits. If no sentence boundary is
+   close enough, fall back to a word boundary. */
+function clampDesc(text, max = 158) {
+  const t = String(text).replace(/\s+/g, " ").trim();
+  if (t.length <= max) return t;
+  const head = t.slice(0, max + 1);
+  const dot = head.lastIndexOf(". ");
+  if (dot >= 90) return head.slice(0, dot + 1);
+  const space = head.lastIndexOf(" ");
+  return (space > 0 ? head.slice(0, space) : head.slice(0, max)).replace(/[,;:]$/, "") + "…";
+}
 
 function render(key, g){
   const url = `https://katagami.org/en/howto-${key}.html`;
@@ -47,6 +60,13 @@ function render(key, g){
   const forPhrase = /\b(pants|clothes|shorts|bloomers|warmers)\b/.test(lc)
     ? `for ${lc}`
     : `for ${/^[aeiou]/.test(lc) ? "an" : "a"} ${lc}`;
+  // Google shows about 60 characters of the title. Long pattern names would push
+  // the brand off the end, so drop the secondary phrase when the title gets long.
+  const longTitle = `${g.title} — Free Sewing Pattern & How to Sew | Katagami`;
+  // エスケープはテンプレート側の esc() が行うので、ここでは素のまま返す
+  const pageTitle = longTitle.length <= 66 ? longTitle
+    : `${g.title} — Free Sewing Pattern | Katagami`;
+  const metaDesc = clampDesc(`Free printable sewing pattern ${forPhrase}, in your size. ${g.desc}`);
   const patternSteps = [
     `<strong>Open the tool</strong><br>Open the <a href="tool.html">pattern tool</a> and choose “<b>${tab}</b>” → “<b>${g.toolName}</b>” from the tabs at the top.`,
     `<strong>Enter the size</strong><br>${g.sizeStep}`,
@@ -103,12 +123,12 @@ function render(key, g){
   gtag("js",new Date());
   gtag("config","G-3HFK3VE3Q8");
 </script>
-<title>${esc(g.title)} — Free Sewing Pattern &amp; How to Sew | Katagami</title>
-<meta name="description" content="Free printable sewing pattern ${esc(forPhrase)}, in your size. ${esc(g.desc)}">
+<title>${esc(pageTitle)}</title>
+<meta name="description" content="${esc(metaDesc)}">
 <meta name="keywords" content="${esc(g.keywords)},free sewing pattern,PDF sewing pattern,printable pattern,print at home">
 <meta property="og:type" content="article">
 <meta property="og:title" content="${esc(g.title)} — Free Sewing Pattern & How to Sew | Katagami">
-<meta property="og:description" content="Free printable sewing pattern in your size. ${esc(g.desc)}">
+<meta property="og:description" content="${esc(metaDesc)}">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="ja_JP">
 <link rel="stylesheet" href="../howto.css">
@@ -122,7 +142,7 @@ function render(key, g){
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${esc(g.title)} — Free Sewing Pattern & How to Sew | Katagami">
-<meta name="twitter:description" content="Free printable sewing pattern in your size. ${esc(g.desc)}">
+<meta name="twitter:description" content="${esc(metaDesc)}">
 <meta name="twitter:image" content="${ogImg}">
 <script type="application/ld+json">
 {

@@ -36,6 +36,12 @@ function render(key, g, allKeys){
   const ogImg = `https://katagami.org/ogp/${key}.png`;
   const title = `${g.title}の作り方`;
   const langHref = EN_KEYS.has(key) ? `en/howto-${key}.html` : "en/howto.html";
+  // hreflang は相互参照でないと Google に無視されるので、英語版があるときだけ出す
+  const hreflang = EN_KEYS.has(key)
+    ? `<link rel="alternate" hreflang="ja" href="${url}">\n` +
+      `<link rel="alternate" hreflang="en" href="https://katagami.org/en/howto-${key}.html">\n` +
+      `<link rel="alternate" hreflang="x-default" href="${url}">\n`
+    : "";
 
   const patternSteps = [
     `<strong>ツールを開く</strong><br>\n        <a href="tool.html">型紙ツール</a>を開き、上部タブの「<b>${TAB[g.tab]}</b>」→「<b>${g.toolName}</b>」を選択します。`,
@@ -120,7 +126,7 @@ function render(key, g, allKeys){
 <meta property="og:locale" content="ja_JP">
 <link rel="stylesheet" href="howto.css">
 <link rel="canonical" href="${url}">
-<meta property="og:url" content="${url}">
+${hreflang}<meta property="og:url" content="${url}">
 <meta property="og:image" content="${ogImg}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">

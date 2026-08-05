@@ -1,5 +1,8 @@
 .DS_Store
 docs/
+# レビュー手順書だけは共有したいので除外の例外にする
+!docs/
+!docs/review-checklist.md
 .claude/
 node_modules/
 package-lock.json
