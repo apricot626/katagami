@@ -168,6 +168,10 @@ node scripts/gen-ogp.js bostonbag neckpillow   # キー指定で部分生成
 | organise, organiser | organize, organizer |
 | nappy / pushchair / pyjama | diaper / stroller / pajama |
 | towelling / labelled / cosy / aluminium | toweling / labeled / cozy / aluminum |
+| favourite / practise / neighbour / grey | favorite / practice / neighbor / gray |
+
+この表は `audit.js` が英語ページ全体を走査して見ています（**自動**）。
+新しい英式のつづりに気づいたら、`audit.js` の `BRITISH` に足してください。
 
 ### 和製英語に気をつける
 
@@ -207,6 +211,25 @@ node scripts/gen-ogp.js bostonbag neckpillow   # キー指定で部分生成
 | まち針 | 待ち針 |
 | 中表 | なか表 |
 | ひも | 紐 ※「抱っこ紐」のような複合語は漢字 |
+
+### 型紙の名前
+
+名前は一覧・ツール画面・ガイドの表題・OGP画像・`<title>` に出ます。ここがぶれると、
+同じ物が2つの名前で呼ばれることになります。
+
+| 決めごと | 例 |
+|---|---|
+| 子供服は**「キッズ〜」**に統一する | 子供Tシャツ → キッズTシャツ |
+| 大人版に「（大人）」を付けない。子供側に「キッズ」が付いていれば足りる | ベスト（大人） → ベスト |
+| 上下セットは**同じ書き方**でそろえる | 甚平（上衣）／甚平（パンツ） |
+| 「〜あり」ではなく**「〜付き」** | ワンピース（袖あり） → （袖付き） |
+| ペットは**「ペット〜」**（特定の動物に限るときだけ犬・猫を出す） | 犬用スヌード → ペットスヌード |
+| **同じ意味の語を重ねない** | 布バスケット（収納かご） → 布バスケット |
+| **構成や用途を名前に入れない**（note と本文で説明する） | 立体マスク（上下2パーツ） → 立体マスク |
+| 括弧の中は**型を見分けるためだけ**に使う | 犬服（タンクトップ）／犬服（袖付き） |
+
+`patterns.js` の `name` と、和文・英文ガイドの `title` / `toolName` が一致しているかは
+監査が見ています（過去に9件ずれていました）。
 
 ### 用語
 

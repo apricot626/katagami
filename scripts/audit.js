@@ -42,6 +42,8 @@ vm.runInContext(
       "PIECE:PIECE,UNIT:UNIT,TOGGLE:TOGGLE,MODE:MODE,HOWTO_EN:HOWTO_EN};})();"),
   i18nBox);
 const I = i18nBox.__R;
+const JA_DATA = require("./ja-howto-data.js");
+const EN_DATA = require("./en-howto-data.js");
 
 /* =========================================================
    1. HTML の基本
@@ -254,6 +256,26 @@ for (const f of enPages) {
   if (hits.length) add("i18n", f, "英語ページに日本語: " + hits.slice(0, 6).join(" / "));
 }
 
+/* つづりは米式にそろえている（docs/review-checklist.md の9章）。
+   英式が混ざると、同じページの中で colour と color が並ぶことになる。 */
+const BRITISH = {
+  cosy: "cozy", cosier: "cozier", colour: "color", colours: "colors", coloured: "colored",
+  centre: "center", centres: "centers", metre: "meter", metres: "meters",
+  organise: "organize", organised: "organized", organiser: "organizer",
+  nappy: "diaper", nappies: "diapers", pushchair: "stroller", pyjama: "pajama", pyjamas: "pajamas",
+  towelling: "toweling", labelled: "labeled", aluminium: "aluminum", jewellery: "jewelry",
+  practise: "practice", favourite: "favorite", neighbour: "neighbor", neighbours: "neighbors",
+  fibre: "fiber", fibres: "fibers", moulded: "molded", grey: "gray", analyse: "analyze",
+};
+for (const f of enPages) {
+  if (redirects.has(f)) continue;
+  const text = read(f).replace(/<script[\s\S]*?<\/script>/g, "").replace(/<[^>]+>/g, " ");
+  const hits = [...new Set([...text.matchAll(/[A-Za-z]+/g)].map(m => m[0].toLowerCase())
+    .filter(w => BRITISH[w]))];
+  if (hits.length)
+    add("i18n", f, "英式のつづり: " + hits.map(w => `${w} → ${BRITISH[w]}`).join(" / "));
+}
+
 /* 和文ページのガイドリンクに、型紙のキーがそのまま出ていないか。
    表示名の取りこぼしは、リンク文字が "blouse" のような英字になって現れます。 */
 for (const f of jaPages) {
@@ -296,6 +318,18 @@ for (const k of Object.keys(PATTERNS)) {
       if (pc.title && !I.PIECE[pc.title]) add("i18n", "i18n.js", `PIECE 未訳: "${pc.title}"（${k}）`);
       if (pc.cutInfo && !I.PIECE[pc.cutInfo]) add("i18n", "i18n.js", `PIECE 未訳(cutInfo): "${pc.cutInfo.slice(0, 30)}…"（${k}）`);
     }
+  }
+  // 型紙の名前とガイドの表題がずれると、同じ物が2つの名前で呼ばれることになる。
+  // 一覧では型紙名、ガイドでは別名、という食い違いが実際に9件ありました。
+  for (const [data, field, want, label] of [
+    [JA_DATA, "title", p.name, "和文ガイドの title"],
+    [JA_DATA, "toolName", p.name, "和文ガイドの toolName"],
+    [EN_DATA, "title", I.NAME[k], "英文ガイドの title"],
+    [EN_DATA, "toolName", I.NAME[k], "英文ガイドの toolName"],
+  ]) {
+    const g = data[k];
+    if (g && g[field] !== want)
+      add("i18n", "scripts", `${k}: ${label} 「${g[field]}」が型紙名「${want}」と違います`);
   }
   // HOWTO_EN は英語ツール画面の「作り方」リンクの向き先を決める。ここが実際の
   // ページとずれると、英語版があるのに日本語ガイドへ送ってしまう。

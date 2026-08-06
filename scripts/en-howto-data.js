@@ -444,9 +444,9 @@ module.exports = {
   },
 
   gather: {
-    title: "Gathered skirt",
+    title: "Kids' gathered skirt",
     tab: "kids",
-    toolName: "Gathered skirt",
+    toolName: "Kids' gathered skirt",
     sizeStep: "Enter the waist, skirt length and gather ratio. A higher ratio = fuller gathers.",
     desc: "How to sew the easiest gathered elastic-waist skirt. Straight rectangles, side seams, an elastic casing and a hem. The gather ratio sets the fullness.",
     keywords: "gathered skirt,elastic waist,how to sew,sewing pattern,easy skirt,kids,handmade",
@@ -570,9 +570,9 @@ module.exports = {
   },
 
   pants: {
-    title: "Elastic-waist pants",
+    title: "Kids' pants",
     tab: "kids",
-    toolName: "Elastic-waist pants",
+    toolName: "Kids' pants",
     sizeStep: "Enter the rise, inseam, waist and hip. Presets cover heights 80–130 cm and adult M.",
     desc: "How to sew simple elastic-waist pants. Front and back use the same pattern: sew the center seams, then the sides and inseam, add an elastic waist and hem. The only curve is the crotch.",
     keywords: "elastic waist pants,how to sew,sewing pattern,kids pants,easy pants,handmade",
@@ -781,9 +781,9 @@ module.exports = {
   },
 
   dog: {
-    title: "Dog clothes (tank)",
+    title: "Dog clothes (tank top)",
     tab: "pet",
-    toolName: "Dog clothes (tank)",
+    toolName: "Dog clothes (tank top)",
     sizeStep: "Enter the chest girth, back length, neck and front-leg opening. Baste first and adjust to your dog.",
     desc: "How to sew a sleeveless tube tank for a dog. Sew a back panel and a belly panel at the sides, leaving the front-leg openings. Baste first — dogs vary a lot in shape.",
     keywords: "dog clothes,dog tank,pet clothes,how to sew,sewing pattern,handmade",
@@ -1193,9 +1193,9 @@ module.exports = {
   },
 
   azuma: {
-    title: "Azuma bag",
+    title: "Azuma bag (Japanese origami tote)",
     tab: "bag",
-    toolName: "Azuma bag",
+    toolName: "Azuma bag (Japanese origami tote)",
     sizeStep: "Enter the base square (the bag scales from it). The fabric is a 1:3 rectangle.",
     desc: "How to sew an azuma bag from one 1:3 rectangle folded in thirds and sewn. It wraps like a furoshiki and ties to adjust. Great as a reusable shopping or bento bag.",
     keywords: "azuma bag,furoshiki bag,reusable bag,how to sew,sewing pattern,eco bag,handmade",
@@ -1320,9 +1320,9 @@ module.exports = {
   },
 
   adultgather: {
-    title: "Gathered skirt (adult)",
+    title: "Gathered skirt",
     tab: "human",
-    toolName: "Gathered skirt (adult)",
+    toolName: "Gathered skirt",
     sizeStep: "Enter waist, skirt length and gather ratio. A higher ratio = fuller gathers.",
     desc: "How to sew the easiest gathered skirt for adults. Just two rectangles, side seams, an elastic waist and a hem. The gather ratio sets the fullness.",
     keywords: "gathered skirt,elastic waist,easy skirt,how to sew,sewing pattern,beginner,handmade",
@@ -1401,9 +1401,9 @@ module.exports = {
   },
 
   halfpants: {
-    title: "Shorts (adult)",
+    title: "Shorts",
     tab: "human",
-    toolName: "Shorts (adult)",
+    toolName: "Shorts",
     sizeStep: "Enter the rise, inseam, waist and hip. Adjust the inseam for the length you want.",
     desc: "How to sew relaxed elastic-waist shorts. Same construction as the wide pants with a shorter inseam: sew the crotch seams, inseam and sides, then hem and add elastic.",
     keywords: "shorts,elastic waist shorts,how to sew,sewing pattern,easy shorts,handmade",
@@ -2103,9 +2103,9 @@ module.exports = {
   },
 
   fittedmask: {
-    title: "Fitted mask (2-piece)",
+    title: "Fitted mask",
     tab: "small",
-    toolName: "Fitted mask (2-piece)",
+    toolName: "Fitted mask",
     sizeStep: "Enter the face width, nose-to-chin length and nose depth. Three sizes.",
     desc: "How to sew a 3D fitted face mask from an upper and lower piece joined on a curved center seam. It sits off the lips for easier breathing. A nose-wire pocket included.",
     keywords: "fitted mask,3D mask,face mask,how to sew,sewing pattern,nose wire,handmade",
@@ -2149,7 +2149,7 @@ module.exports = {
   gamaguchi: {
     title: "Clasp purse (gamaguchi)",
     tab: "bag",
-    toolName: "Clasp purse",
+    toolName: "Clasp purse (gamaguchi)",
     sizeStep: "Enter your clasp's outer width and height plus the purse depth; the fabric width is auto-calculated as clasp width × 1.6. Turn on the rounded-corner option to match the clasp curve.",
     desc: "How to make a Japanese gamaguchi clasp purse. Sew an outer and a lining bag, join them around the opening, then glue the fabric into the metal clasp. Perfect for coins or small accessories.",
     keywords: "gamaguchi,clasp purse,coin purse,metal frame purse,how to sew,sewing pattern,handmade",
@@ -2205,7 +2205,7 @@ module.exports = {
   panel: {
     title: "Fabric panel (square)",
     tab: "bag",
-    toolName: "Fabric panel",
+    toolName: "Fabric panel (square)",
     sizeStep: "Enter the finished width and height. Turn on \"left edge on the fold\" to cut symmetrically from folded fabric.",
     desc: "How to make a simple fabric panel — the building block of cushion covers, bag panels, placemats and pouch bases. Enter a width and height for a seam-allowance-included pattern. Shown here as an envelope cushion cover.",
     keywords: "fabric panel,square,cushion cover,envelope cushion,how to sew,sewing pattern,beginner",
@@ -2296,7 +2296,7 @@ module.exports = {
   shoulderbag: {
     title: "Shoulder bag (flap)",
     tab: "bag",
-    toolName: "Shoulder bag",
+    toolName: "Shoulder bag (flap)",
     sizeStep: "Enter the width, height, flap depth, strap length and strap width, or pick a mini / standard / A4 preset. The pattern gives body, flap and strap pieces.",
     desc: "How to make a simple flap shoulder bag from three pieces — body, flap and strap. A lined body with a flap that snaps shut. Canvas, faux leather or cotton suits both casual and smart looks.",
     keywords: "shoulder bag,crossbody bag,flap bag,how to sew,sewing pattern,messenger bag",
@@ -2416,7 +2416,7 @@ module.exports = {
   mannerbelt: {
     title: "Dog belly band",
     tab: "pet",
-    toolName: "Belly band",
+    toolName: "Dog belly band",
     sizeStep: "Measure your dog's belly circumference and enter it, then set the finished band width and the hook-and-loop overlap. Presets cover small / medium / large dogs.",
     desc: "How to make a dog belly band (manner belt) to prevent marking. Fold the fabric in half lengthwise into a tube, sew, and close with hook-and-loop. Slip a pad or pet sheet inside for use.",
     keywords: "belly band,manner belt,dog marking,male dog,how to sew,sewing pattern,pet",
@@ -2497,9 +2497,9 @@ module.exports = {
   },
 
   petsnood: {
-    title: "Dog snood (neck warmer)",
+    title: "Pet snood",
     tab: "pet",
-    toolName: "Dog snood",
+    toolName: "Pet snood",
     sizeStep: "Enter the neck circumference, length and ease, or pick a small / medium / large preset. The single rectangle pattern is sewn into a tube and hemmed (or threaded with elastic).",
     desc: "How to make a tube-style dog snood. It keeps long ears clean at mealtimes and warm on cold days. Just sew the long edge into a tube; add elastic on one side for a gentle face-side fit.",
     keywords: "dog snood,neck warmer,ear cover,floppy ears,how to sew,sewing pattern,pet",
@@ -2589,7 +2589,7 @@ module.exports = {
   },
 
   petvest: {
-    title: "Pet vest (dog & cat)",
+    title: "Pet vest",
     tab: "pet",
     toolName: "Pet vest",
     sizeStep: "Enter the chest, body length, belly length, neck, front-leg position, front-leg width and ease, or pick a cat / mame-shiba / small / medium / large preset. Recommended seam allowance 0.7 cm.",
@@ -2785,7 +2785,7 @@ module.exports = {
     ],
     cut: [
       "<strong>Trace the pattern</strong><br>All three tiers are rectangles, so marking the measurements straight onto the fabric is quicker than printing.",
-      "<strong>Cut</strong><br>Cut two panels for each tier, six pieces in total. Keep them labelled — the tiers look similar once they are off the table.",
+      "<strong>Cut</strong><br>Cut two panels for each tier, six pieces in total. Keep them labeled — the tiers look similar once they are off the table.",
       "<strong>Finish the edges</strong><br>Zigzag or serge the side seam allowances of every panel."
     ],
     sew: [
@@ -2814,9 +2814,9 @@ module.exports = {
   },
 
   adultvest: {
-    title: "Vest (adult)",
+    title: "Vest",
     tab: "human",
-    toolName: "Vest (adult)",
+    toolName: "Vest",
     sizeStep: "Enter bust, length, shoulder width, front neck depth and the front overlap. Presets cover women's S/M and men's M/L.",
     desc: "How to sew an open-front vest. Two fronts and one back, with the neckline and armholes bound in bias tape — no sleeves to set in.",
     keywords: "vest,gilet,waistcoat,how to sew,sewing pattern,bias binding,handmade",
@@ -2945,9 +2945,9 @@ module.exports = {
   },
 
   culotte: {
-    title: "Culottes (gaucho pants)",
+    title: "Culottes",
     tab: "human",
-    toolName: "Culottes (gaucho pants)",
+    toolName: "Culottes",
     sizeStep: "Enter hip, rise, inseam, hem flare, ease and the waist casing. Presets cover S, M, L and a cropped version.",
     desc: "How to sew wide culottes with an elastic waist. They read as a skirt but move like pants, and the pattern is four straight-ish pieces.",
     keywords: "culottes,gaucho pants,wide leg,how to sew,sewing pattern,handmade",
@@ -3124,9 +3124,9 @@ module.exports = {
   },
 
   hoodie: {
-    title: "Hoodie (adult)",
+    title: "Hoodie",
     tab: "human",
-    toolName: "Hoodie (adult)",
+    toolName: "Hoodie",
     sizeStep: "Enter bust, length, shoulder width, sleeve length, cuff width, hood height and ease. Presets cover women's M, men's M/L and a relaxed fit.",
     desc: "How to sew a pullover hoodie. Front, back, two sleeves and a hood — and the hood is just two pieces sewn together and attached to the neckline.",
     keywords: "hoodie,hooded sweatshirt,how to sew,sewing pattern,fleece,knit,handmade",
@@ -3171,9 +3171,9 @@ module.exports = {
   },
 
   raglantee: {
-    title: "Raglan T-shirt (adult)",
+    title: "Raglan T-shirt",
     tab: "human",
-    toolName: "Raglan T-shirt (adult)",
+    toolName: "Raglan T-shirt",
     sizeStep: "Enter bust, length, raglan seam length, sleeve length, cuff width, neck width and ease. Presets cover women's M, men's M/L and a relaxed fit.",
     desc: "How to sew a raglan tee. The sleeve runs to the neckline in one piece, so there is no shoulder seam and no armhole curve to ease.",
     keywords: "raglan t-shirt,raglan sleeve,how to sew,sewing pattern,knit,baseball tee,handmade",
@@ -3515,7 +3515,7 @@ module.exports = {
     toolName: "Pajama top",
     sizeStep: "Enter bust, length, shoulder width, sleeve length, cuff width, neck width and the front overlap. Presets cover S, M, L and a short-sleeved version.",
     desc: "How to sew a relaxed button-front pajama top. Two fronts, one back, two sleeves and a collar, cut loose enough to sleep in.",
-    keywords: "pajama top,pyjamas,sleepwear,how to sew,sewing pattern,double gauze,handmade",
+    keywords: "pajama top,pajamas,sleepwear,how to sew,sewing pattern,double gauze,handmade",
     lead: "A loose button-front pajama top with nothing that binds when you turn over. Pair it with the sweatpants or tapered pants for a set. Double gauze or brushed flannel is the obvious choice — soft, and it gets softer with washing.",
     matNote: "size M",
     materials: [
@@ -3562,7 +3562,7 @@ module.exports = {
     sizeStep: "Enter bust, length excluding ribbing, shoulder width, sleeve length, hem and cuff ribbing height and ease. Presets cover S, M, L and a relaxed fit.",
     desc: "How to sew a blouson jacket gathered into ribbing at the hem and cuffs, closed with a separating zip.",
     keywords: "blouson,bomber jacket,how to sew,sewing pattern,ribbing,zip,handmade",
-    lead: "A light jacket pulled in by ribbing at the hem and cuffs. Two fronts, one back, two sleeves and the ribbing. Close it with a separating zip or with snaps if zips are not your favourite. Nylon, twill or denim all have the body this shape needs.",
+    lead: "A light jacket pulled in by ribbing at the hem and cuffs. Two fronts, one back, two sleeves and the ribbing. Close it with a separating zip or with snaps if zips are not your favorite. Nylon, twill or denim all have the body this shape needs.",
     matNote: "size M",
     materials: [
       "Main fabric (nylon, twill or denim) — about 110 cm wide × 180 cm (44 × 71 in)",
@@ -3599,9 +3599,9 @@ module.exports = {
   },
 
   gown: {
-    title: "Robe / dressing gown",
+    title: "Robe",
     tab: "human",
-    toolName: "Robe / dressing gown",
+    toolName: "Robe",
     sizeStep: "Enter bust, length, shoulder width, sleeve length, lapel fold width and ease. Presets cover women's M, men's M and a short version.",
     desc: "How to sew a wrap robe tied with a sash. One back, two fronts, two sleeves and a sash — no buttons and no zip.",
     keywords: "robe,dressing gown,bathrobe,how to sew,sewing pattern,waffle,handmade",
@@ -3810,9 +3810,9 @@ module.exports = {
   /* ===================== kids' clothes ===================== */
 
   jinbei: {
-    title: "Jinbei top (kids)",
+    title: "Jinbei top",
     tab: "kids",
-    toolName: "Jinbei top (kids)",
+    toolName: "Jinbei top",
     sizeStep: "Enter bust, length, shoulder width, sleeve length, front overlap, ease and tie length. Presets cover 90–130 cm.",
     desc: "How to sew a jinbei top, the Japanese summer jacket for children. One back, two fronts, two sleeves and four ties that fasten at the sides.",
     keywords: "jinbei,japanese summer wear,kids,how to sew,sewing pattern,festival,handmade",
@@ -3887,26 +3887,26 @@ module.exports = {
       ]},
       { h: "4-3. Finish the crotch and add snaps", items: [
         "Turn the edges of the crotch tabs under twice and stitch.",
-        "Fit three snaps where the front and back tabs overlap. Space them so you can open just the middle one for a quick nappy check."
+        "Fit three snaps where the front and back tabs overlap. Space them so you can open just the middle one for a quick diaper check."
       ]}
     ],
     sewNote: "Do not stretch bias tape as you sew it round the neckline — a pulled binding puckers the whole edge. Let it follow the curve at its own pace and feed it gently.",
     tips: [
       "<strong>Soft fabric next to skin</strong>: jersey or double gauze. This sits directly against the baby all day.",
-      "<strong>Two rows of snaps</strong>: nappy sizes change. A second row of snaps lets you lengthen the crotch later.",
+      "<strong>Two rows of snaps</strong>: diaper sizes change. A second row of snaps lets you lengthen the crotch later.",
       "<strong>Add sleeves</strong>: borrow the sleeve from the kids' T-shirt pattern and set it into the armhole."
     ],
     related: ["kidstee", "bloomers", "sleeper", "stai"]
   },
 
   kidsraglan: {
-    title: "Raglan T-shirt (kids)",
+    title: "Kids' raglan T-shirt",
     tab: "kids",
-    toolName: "Raglan T-shirt (kids)",
+    toolName: "Kids' raglan T-shirt",
     sizeStep: "Enter chest, length, raglan seam length, sleeve length, neck width and ease. Presets cover 90–130 cm.",
     desc: "How to sew a raglan T-shirt for children. The sleeve reaches the neckline, so there is no shoulder seam and no armhole to ease.",
     keywords: "raglan t-shirt,kids,how to sew,sewing pattern,knit,baseball tee,handmade",
-    lead: "A T-shirt where the sleeve runs all the way to the neckline. The seams sit diagonally across the shoulder and they are almost straight, which makes them far easier to sew than a set-in sleeve. Cut the sleeves in a contrast colour and it looks shop-bought.",
+    lead: "A T-shirt where the sleeve runs all the way to the neckline. The seams sit diagonally across the shoulder and they are almost straight, which makes them far easier to sew than a set-in sleeve. Cut the sleeves in a contrast color and it looks shop-bought.",
     matNote: "size 110 cm",
     materials: [
       "Main fabric (jersey or interlock) — about 150 cm wide × 80 cm (59 × 31 in)",
@@ -4069,7 +4069,7 @@ module.exports = {
     ],
     sewNote: "Check the neckline goes over the child's head before you bind it. The straps are narrow here, so it is easy to end up with an opening that looks fine flat but will not pass a head.",
     tips: [
-      "<strong>Contrast binding</strong>: bias tape in a different colour turns a plain tank into something deliberate.",
+      "<strong>Contrast binding</strong>: bias tape in a different color turns a plain tank into something deliberate.",
       "<strong>As an undershirt</strong>: in soft double gauze it works as a base layer under everything.",
       "<strong>Make several</strong>: it uses very little fabric and sews up in under an hour."
     ],
@@ -4202,19 +4202,19 @@ module.exports = {
     tips: [
       "<strong>Make the set</strong>: the jinbei top in the same fabric and size preset.",
       "<strong>Cool fabrics</strong>: textured weaves do not cling to damp skin.",
-      "<strong>Plain colours</strong>: made up plain, these are simply good summer shorts."
+      "<strong>Plain colors</strong>: made up plain, these are simply good summer shorts."
     ],
     related: ["jinbei", "kidshalf", "kidsculotte", "pants"]
   },
 
   kidsculotte: {
-    title: "Culotte skirt (kids)",
+    title: "Kids' culottes",
     tab: "kids",
-    toolName: "Culotte skirt (kids)",
+    toolName: "Kids' culottes",
     sizeStep: "Enter hip, rise, inseam and hem flare. Presets cover 90–130 cm.",
     desc: "How to sew culottes for children. They look like a skirt but move like shorts, so nothing flies up in the playground.",
     keywords: "culottes,skort,kids,how to sew,sewing pattern,elastic waist,handmade",
-    lead: "It looks like a skirt and moves like shorts, so there is nothing to worry about on the climbing frame. Front and back use the same pattern piece — cut four, sew three seams, add elastic. A nursery and primary-school favourite.",
+    lead: "It looks like a skirt and moves like shorts, so there is nothing to worry about on the climbing frame. Front and back use the same pattern piece — cut four, sew three seams, add elastic. A nursery and primary-school favorite.",
     matNote: "size 120 cm",
     materials: [
       "Main fabric (cotton, linen or denim) — about 110 cm wide × 70 cm (44 × 28 in)",
@@ -4481,9 +4481,9 @@ module.exports = {
     tab: "baby",
     toolName: "Baby pull-on pants",
     sizeStep: "Enter hip, rise, inseam, ease, crotch extension, waist casing and hem casing. Presets cover 60, 70, 80 and 90 cm.",
-    desc: "How to sew baby pants with a deep rise that fits over a nappy. Elastic at the waist and at the hems.",
-    keywords: "baby pants,baby trousers,nappy cover,how to sew,sewing pattern,elastic,handmade",
-    lead: "Pants with a rise deep enough to go over a nappy. Front and back use the same pattern piece, so you cut four and sew in three stages: crotch, sides and inseam, then elastic. Elastic at the hems as well as the waist means they stay put through crawling.",
+    desc: "How to sew baby pants with a deep rise that fits over a diaper. Elastic at the waist and at the hems.",
+    keywords: "baby pants,baby trousers,diaper cover,how to sew,sewing pattern,elastic,handmade",
+    lead: "Pants with a rise deep enough to go over a diaper. Front and back use the same pattern piece, so you cut four and sew in three stages: crotch, sides and inseam, then elastic. Elastic at the hems as well as the waist means they stay put through crawling.",
     matNote: "size 80 cm",
     materials: [
       "Main fabric (jersey, double gauze or light cotton) — about 110 cm wide × 60 cm (44 × 24 in)",
@@ -4514,7 +4514,7 @@ module.exports = {
         "Set it loosely around the calf for a soft, gathered leg — or skip the hem elastic entirely for straight legs."
       ]}
     ],
-    sewNote: "The room for the nappy comes from the rise and the crotch extension. With cloth nappies, add 2–3 cm (1 in) to the rise beyond the preset. With disposables the preset is enough.",
+    sewNote: "The room for the diaper comes from the rise and the crotch extension. With cloth diapers, add 2–3 cm (1 in) to the rise beyond the preset. With disposables the preset is enough.",
     tips: [
       "<strong>Loose leg elastic</strong>: a baby's legs move constantly. The hem elastic should leave no mark at all.",
       "<strong>Mark the back</strong>: front and back are the same shape, so a tag or a line of stitching inside the back waist saves confusion at 3 am.",
@@ -4626,7 +4626,7 @@ module.exports = {
     toolName: "Diaper pouch",
     sizeStep: "Enter the finished width, height, gusset and flap depth. Presets cover small, standard and large.",
     desc: "How to sew a diaper pouch that opens flat into a changing mat. Body, flap and a handle.",
-    keywords: "diaper pouch,nappy wallet,changing pouch,how to sew,sewing pattern,laminated,handmade",
+    keywords: "diaper pouch,diaper wallet,changing pouch,how to sew,sewing pattern,laminated,handmade",
     lead: "A pouch that holds diapers and wipes together, and opens out flat to become a changing mat. Body, flap and handle. In laminated fabric you wipe it down in seconds, which matters more than it sounds.",
     matNote: "standard size",
     materials: [
@@ -5099,7 +5099,7 @@ module.exports = {
     sizeStep: "Enter the finished width, height and closure tab extension. Presets cover small, standard and large.",
     desc: "How to sew a bi-fold key case. Sew the outer and lining right sides together, turn, fold at the center and hand-stitch the hardware in.",
     keywords: "key case,key holder,how to sew,sewing pattern,leather,scraps,handmade",
-    lead: "A small bi-fold case that keeps keys from scratching everything else in your bag. Twenty centimeters of fabric is enough, so this is where a favourite scrap earns its place. Interfacing is what makes it look bought rather than made.",
+    lead: "A small bi-fold case that keeps keys from scratching everything else in your bag. Twenty centimeters of fabric is enough, so this is where a favorite scrap earns its place. Interfacing is what makes it look bought rather than made.",
     matNote: "one case",
     materials: [
       "Main fabric (canvas, faux leather or heavy cotton) — about 25 × 20 cm (10 × 8 in)",
@@ -5578,7 +5578,7 @@ module.exports = {
     sizeStep: "Enter the doll's chest, length, shoulder width, hem flare and ease. Presets cover 20 cm, 27 cm and 40 cm dolls.",
     desc: "How to sew an A-line dress for a doll. One front and two backs, fastened with snaps — and 5 mm seam allowances throughout.",
     keywords: "doll clothes,doll dress,how to sew,sewing pattern,scraps,miniature,handmade",
-    lead: "An A-line dress for a doll. One front, two backs, snaps down the spine. Measure your own doll's chest and length and it will fit whatever you have. The pieces are tiny, which also makes it a low-stakes way to practise techniques you would not risk on a full-size garment.",
+    lead: "An A-line dress for a doll. One front, two backs, snaps down the spine. Measure your own doll's chest and length and it will fit whatever you have. The pieces are tiny, which also makes it a low-stakes way to practice techniques you would not risk on a full-size garment.",
     matNote: "27 cm doll",
     materials: [
       "Main fabric (lawn, broadcloth or double gauze — something thin) — about 40 × 30 cm (16 × 12 in)",
@@ -6124,9 +6124,9 @@ module.exports = {
   },
 
   bucketbag: {
-    title: "Bucket tote",
+    title: "Bucket tote bag",
     tab: "bag",
-    toolName: "Bucket tote",
+    toolName: "Bucket tote bag",
     sizeStep: "Enter the base diameter, bag height, handle length and cut width, and the opening fold. Presets cover small, standard and large.",
     desc: "How to sew a cylindrical bucket tote with a round base. It stands up on its own and nothing falls to the corners.",
     keywords: "bucket bag,bucket tote,round base bag,how to sew,sewing pattern,canvas,handmade",
@@ -8069,7 +8069,7 @@ module.exports = {
     related: ["slipper", "cushioncover", "passportcase"],
   },
   coverall: {
-    title: "Baby coverall (all-in-one)", tab: "baby", toolName: "Baby coverall (all-in-one)",
+    title: "Baby coverall", tab: "baby", toolName: "Baby coverall",
     sizeStep: "Enter the chest, body length (shoulder to crotch), inseam, shoulder width, sleeve length, neckline width, leg opening and ease. Presets cover 50-60 through 80-90.",
     desc: "How to sew a baby coverall. Two fronts, one back and two sleeves, with snaps down the center front and along the inseam so you can change a diaper without undressing.",
     keywords: "baby coverall,all-in-one,footed romper,how to sew,sewing pattern,baby clothes,newborn",
@@ -8225,12 +8225,12 @@ module.exports = {
   },
 
   teacosy: {
-    title: "Tea cosy", tab: "home", toolName: "Tea cosy",
+    title: "Tea cozy", tab: "home", toolName: "Tea cozy",
     sizeStep: "Enter the teapot width and height, the ease and the top loop length. Presets cover 2-3 cups, 4-5 cups and small.",
-    desc: "How to sew a tea cosy. Outer and lining with quilt batting between, left open at both sides for the spout and the handle. Lift it off by the loop on top.",
-    keywords: "tea cosy,tea cozy,teapot cover,how to sew,sewing pattern,quilted,kitchen",
+    desc: "How to sew a tea cozy. Outer and lining with quilt batting between, left open at both sides for the spout and the handle. Lift it off by the loop on top.",
+    keywords: "tea cozy,teapot warmer,teapot cover,how to sew,sewing pattern,quilted,kitchen",
     lead: "A padded cover that keeps a teapot hot. Outer and lining with quilt batting between, left open at both sides for the spout and the handle. Lift it off by the loop on top. Tea that is still hot ten minutes after brewing makes more difference than you would expect.",
-    matNote: "one cosy, 4-5 cup size",
+    matNote: "one cozy, 4-5 cup size",
     materials: [
       "Outer fabric (linen or a cotton print) — about 50 cm × 50 cm",
       "Lining fabric — the same amount",
@@ -8238,7 +8238,7 @@ module.exports = {
       "Optional: aluminized insulating sheet, for extra heat retention",
     ],
     cut: [
-      "<strong>Measure the teapot</strong><br>Measure the width including the spout and the handle, and the height up to the top of the lid knob. The cosy goes over the pot, so it has to be bigger than the pot itself.",
+      "<strong>Measure the teapot</strong><br>Measure the width including the spout and the handle, and the height up to the top of the lid knob. The cozy goes over the pot, so it has to be bigger than the pot itself.",
       "<strong>Trace the pattern</strong><br>Trace the body and the top loop. Below the notches on each side is the opening for the spout and the handle.",
       "<strong>Cut the pieces</strong><br>Cut 2 in the outer, 2 in the lining, 2 in batting and 1 loop.",
       "<strong>Finish the edges</strong><br>Not needed — it is turned right side out.",
@@ -8266,7 +8266,7 @@ module.exports = {
         "Put it over the pot and check that the spout and the handle come through.",
       ]},
     ],
-    sewNote: "Do not reduce the ease. A teapot is wider across the spout and the handle than it is across the body. Measure only the body and the cosy will catch on the spout and refuse to go on. The 4 cm of ease in the preset is there for exactly that.",
+    sewNote: "Do not reduce the ease. A teapot is wider across the spout and the handle than it is across the body. Measure only the body and the cozy will catch on the spout and refuse to go on. The 4 cm of ease in the preset is there for exactly that.",
     tips: [
       "<strong>Use thick batting</strong>: the whole point is insulation, so thin batting defeats it. One thick layer, or two thin ones.",
       "<strong>Add a foil layer</strong>: an aluminized sheet between the batting and the lining makes a noticeable difference.",

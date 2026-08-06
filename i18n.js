@@ -46,34 +46,34 @@
 
   var NAME={
     /* 2026-08 追加パターン3 */ "kidscape":"Kids' cape", "pincushion":"Wrist pincushion", "camerastrap":"Camera strap", "yogamatbag":"Yoga mat bag", "tablerunner":"Table runner", "picnicmat":"Picnic blanket", "machinecover":"Sewing machine cover", "toiletcover":"Toilet lid cover",
-    /* 2026-08 追加パターン2 */ "coverall":"Baby coverall (all-in-one)", "uchiwacover":"Fan sleeve (uchiwa case)", "itabag":"Ita bag (clear window tote)", "teacosy":"Tea cosy", "cutlerycase":"Cutlery roll", "necktie":"Necktie", "treeskirt":"Christmas tree skirt", "fabricbasket":"Fabric storage basket",
-    /* 2026-08 追加パターン */ "gown":"Robe / dressing gown", "nocollarjacket":"Collarless jacket", "cargopants":"Cargo pants", "hanten":"Hanten (Japanese padded jacket)", "kidsshirt":"Kids' shirt", "nursingcape":"Nursing cover", "strollerseat":"Stroller seat liner", "pencase":"Pencil case", "bankbook":"Passbook case", "flaskcover":"Water bottle cover", "randocover":"School satchel cover", "recordercase":"Recorder case", "nuiclothes":"Plush toy dress", "cosmepouch":"Cosmetic pouch (stand-up)", "passportcase":"Passport case", "laptopcase":"Laptop sleeve", "tabletcase":"Tablet case", "waistbag":"Belt bag (waist pack)", "bostonbag":"Boston bag", "gadgetpouch":"Gadget pouch", "ehonbag":"Book bag (lesson bag)", "petsling":"Pet sling", "petcarrier":"Pet carrier bag", "tissuebox":"Tissue box cover", "noren":"Noren (Japanese doorway curtain)", "remotepocket":"Remote control caddy", "neckpillow":"Neck pillow",
+    /* 2026-08 追加パターン2 */ "coverall":"Baby coverall", "uchiwacover":"Fan sleeve (uchiwa case)", "itabag":"Ita bag (clear window tote)", "teacosy":"Tea cozy", "cutlerycase":"Cutlery roll", "necktie":"Necktie", "treeskirt":"Christmas tree skirt", "fabricbasket":"Fabric storage basket",
+    /* 2026-08 追加パターン */ "gown":"Robe", "nocollarjacket":"Collarless jacket", "cargopants":"Cargo pants", "hanten":"Hanten (Japanese padded jacket)", "kidsshirt":"Kids' shirt", "nursingcape":"Nursing cover", "strollerseat":"Stroller seat liner", "pencase":"Pencil case", "bankbook":"Passbook case", "flaskcover":"Water bottle cover", "randocover":"School satchel cover", "recordercase":"Recorder case", "nuiclothes":"Plush toy dress", "cosmepouch":"Cosmetic pouch (stand-up)", "passportcase":"Passport case", "laptopcase":"Laptop sleeve", "tabletcase":"Tablet case", "waistbag":"Belt bag (waist pack)", "bostonbag":"Boston bag", "gadgetpouch":"Gadget pouch", "ehonbag":"Book bag (lesson bag)", "petsling":"Pet sling", "petcarrier":"Pet carrier bag", "tissuebox":"Tissue box cover", "noren":"Noren (Japanese doorway curtain)", "remotepocket":"Remote control caddy", "neckpillow":"Neck pillow",
 
     /* 2026-07 追加パターン4 */ shirt:"Shirt", yukata:"Yukata", samue:"Samue (Japanese work jacket)", kappogi:"Kappogi (Japanese cover-all apron)", pajamas:"Pajama top", blouson:"Blouson jacket", diaperpouch:"Diaper pouch", wipescase:"Baby wipes case", carriercover:"Baby carrier strap covers", cap:"Baseball cap", boshitecho:"Health-record book case", cardcase:"Card case", bousaizukin:"Disaster hood cover", dollclothes:"Doll dress", teddy:"Teddy bear", scarf:"Scarf", nametag:"Name tag holder", wallet:"Long wallet", phonepouch:"Phone crossbody pouch", lunchbag:"Insulated lunch bag", zabuton:"Floor cushion cover", cafecurtain:"Cafe curtain", coaster:"Coaster", ovenmitt:"Oven mitt",
 
-    /* 2026-07 追加パターン3 */ hoodie:"Hoodie (adult)", raglantee:"Raglan T-shirt (adult)", sweatpants:"Sweatpants (joggers)", shirtdress:"Shirt dress", jinbeipants:"Jinbei shorts", kidsculotte:"Culotte skirt (kids)", babyblanket:"Baby blanket", babytoy:"Baby rattle toy", beret:"Beret", hairturban:"Hair turban", bottleholder:"Bottle holder", bodybag:"Sling bag (crossbody)", baginbag:"Bag-in-bag organizer", petmat:"Pet mat", petpouch:"Dog walking pouch", boxcover:"Storage box cover", slipper:"Room slippers",
+    /* 2026-07 追加パターン3 */ hoodie:"Hoodie", raglantee:"Raglan T-shirt", sweatpants:"Sweatpants (joggers)", shirtdress:"Shirt dress", jinbeipants:"Jinbei shorts", kidsculotte:"Kids' culottes", babyblanket:"Baby blanket", babytoy:"Baby rattle toy", beret:"Beret", hairturban:"Hair turban", bottleholder:"Bottle holder", bodybag:"Sling bag (crossbody)", baginbag:"Bag-in-bag organizer", petmat:"Pet mat", petpouch:"Dog walking pouch", boxcover:"Storage box cover", slipper:"Room slippers",
 
     /* 2026-07 追加パターン2 */ poncho:"Poncho", overall:"Overalls (dungarees)", dolman:"Dolman-sleeve top", kidstank:"Kids' tank top", kidscoat:"Kids' coat", kidsbibapron:"Feeding bib apron", babycape:"Baby cape", babypants:"Baby pull-on pants", armcover:"Arm covers", keycase:"Key case", glassescase:"Glasses case", sunhat:"Bucket hat", backpack:"Backpack", roundkinchaku:"Round-base drawstring bag", petbed:"Pet bed", petcape:"Pet raincoat", petcollar:"Collar cover", pettoy:"Kicker toy (for cats)", wallpocket:"Wall pocket organizer", laundrybag:"Laundry bag", chaircover:"Chair back cover",
 
-    /* 2026-07 追加パターン */ tightskirt:"Pencil skirt", pleatskirt:"Pleated skirt", wrapskirt:"Wrap skirt", tieredskirt:"Tiered skirt", adultvest:"Vest (adult)", cardigan:"Cardigan", taperedpants:"Tapered pants", culotte:"Culottes (gaucho pants)", jinbei:"Jinbei top (kids)", kidsrompers:"Rompers", kidsraglan:"Raglan T-shirt (kids)", jumperskirt:"Pinafore dress", kidshoodie:"Kids' hoodie", sleeper:"Baby sleep sack", babyshoes:"Baby shoes", babymitten:"Baby mittens", potholder:"Pot holder", eyemask:"Eye mask", neckwarmer:"Neck warmer", maskcase:"Mask case", ecobag:"Foldable shopping bag", bucketbag:"Bucket tote", curtain:"Curtain", chairpad:"Chair pad",
+    /* 2026-07 追加パターン */ tightskirt:"Pencil skirt", pleatskirt:"Pleated skirt", wrapskirt:"Wrap skirt", tieredskirt:"Tiered skirt", adultvest:"Vest", cardigan:"Cardigan", taperedpants:"Tapered pants", culotte:"Culottes", jinbei:"Jinbei top", kidsrompers:"Rompers", kidsraglan:"Kids' raglan T-shirt", jumperskirt:"Pinafore dress", kidshoodie:"Kids' hoodie", sleeper:"Baby sleep sack", babyshoes:"Baby shoes", babymitten:"Baby mittens", potholder:"Pot holder", eyemask:"Eye mask", neckwarmer:"Neck warmer", maskcase:"Mask case", ecobag:"Foldable shopping bag", bucketbag:"Bucket tote bag", curtain:"Curtain", chairpad:"Chair pad",
 
     tee:"T-shirt", apron:"Apron", skirt:"A-line skirt", flareskirt:"Circle skirt",
-    mermaid:"Mermaid skirt", sleevedress:"Sleeveless dress", adultgather:"Gathered skirt (adult)",
-    widepants:"Wide pants (elastic waist)", halfpants:"Shorts (adult)", tunic:"Tunic",
+    mermaid:"Mermaid skirt", sleevedress:"Sleeveless dress", adultgather:"Gathered skirt",
+    widepants:"Wide pants (elastic waist)", halfpants:"Shorts", tunic:"Tunic",
     camisole:"Camisole", blouse:"Blouse", onepiece:"Dress (with sleeves)", jacket:"Jacket",
     coat:"Coat", kidstee:"Kids' T-shirt", kidsdress:"Kids' dress", smock:"Kids' smock",
-    kidsvest:"Kids' vest", pants:"Elastic-waist pants", kidshalf:"Kids' shorts", gather:"Gathered skirt",
+    kidsvest:"Kids' vest", pants:"Kids' pants", kidshalf:"Kids' shorts", gather:"Kids' gathered skirt",
     bloomers:"Bloomers", swaddle:"Swaddle (hooded)", bandanastai:"Bandana bib", stai:"Baby bib",
     babyhat:"Baby hat (tulip hat)", legwarmer:"Baby leg warmers", kinchaku:"Drawstring pouch",
     kincgusset:"Cup bag (gusseted)", gymbag:"Gym bag (drawstring backpack)", shoesbag:"Shoe bag",
-    movepocket:"Clip-on pocket", mask:"Pleated mask", fittedmask:"Fitted mask (2-piece)",
+    movepocket:"Clip-on pocket", mask:"Pleated mask", fittedmask:"Fitted mask",
     bandana:"Triangle headscarf", placemat:"Placemat", shuushu:"Scrunchie", headband:"Headband",
     tissuecase:"Tissue case", bookcover:"Book cover", bowtie:"Bow tie", tote:"Tote bag",
     pouch:"Zipper pouch", pouchgusset:"Pouch (gusseted)", gamaguchi:"Clasp purse (gamaguchi)",
-    sacoche:"Sacoche", azuma:"Azuma bag (Japanese origami tote)", panel:"Generic panel", clutchbag:"Clutch bag",
-    shoulderbag:"Shoulder bag (flap)", dog:"Dog clothes (tank)", dogsleeved:"Dog clothes (sleeved)",
-    mannerbelt:"Dog belly band", petbandana:"Pet bandana", petsnood:"Dog snood (neck warmer)",
-    catfuku:"Cat clothes (tank top)", petvest:"Pet vest (dog & cat)",
+    sacoche:"Sacoche", azuma:"Azuma bag (Japanese origami tote)", panel:"Fabric panel (square)", clutchbag:"Clutch bag",
+    shoulderbag:"Shoulder bag (flap)", dog:"Dog clothes (tank top)", dogsleeved:"Dog clothes (sleeved)",
+    mannerbelt:"Dog belly band", petbandana:"Pet bandana", petsnood:"Pet snood",
+    catfuku:"Cat clothes (tank top)", petvest:"Pet vest",
     cushioncover:"Cushion cover (envelope)", tablecloth:"Tablecloth", pillowcase:"Pillowcase (envelope)"
   };
 

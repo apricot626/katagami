@@ -226,7 +226,7 @@ module.exports = [
       { q: "ゴム通しがありません。", a: "安全ピンで代用できます。ゴム端に留めて、布越しに少しずつ送って通します。" }
     ],
     related: [
-      { href: "howto-pants.html", label: "ゴムウエストパンツの作り方" },
+      { href: "howto-pants.html", label: "キッズパンツの作り方" },
       { href: "howto-gather.html", label: "ギャザースカートの作り方" },
       { href: "tool.html", label: "型紙ツールを開く" }
     ]
