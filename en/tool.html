@@ -55,10 +55,13 @@
 </script>
 <script>window.KATAGAMI_LANG='en';</script>
 <style>
-  /* English category labels are longer than Japanese. Size the mode tabs to
-     their text and let them wrap, instead of forcing equal widths (which
-     clips long labels like "Accessories"). Japanese tool.html is unaffected. */
-  .mode-tabs button{ flex:0 1 auto; min-width:0; white-space:nowrap; padding:6px 12px; }
+  /* English category labels are longer than Japanese, so give the tab grid
+     wider columns and let a label wrap rather than be cut off. The base
+     .mode-tabs is a grid, so flex properties here would do nothing — and
+     white-space:nowrap actively clipped "Adult clothes" at 390 px.
+     Japanese tool.html is unaffected. */
+  .mode-tabs{ grid-template-columns:repeat(auto-fit,minmax(96px,1fr)); }
+  .mode-tabs button{ white-space:normal; padding:6px 8px; }
   /* Keep the paper/unit segmented controls from crowding on narrow panels. */
   .seg-row{ gap:14px 20px; }
 </style>

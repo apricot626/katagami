@@ -276,6 +276,25 @@ for (const f of enPages) {
     add("i18n", f, "英式のつづり: " + hits.map(w => `${w} → ${BRITISH[w]}`).join(" / "));
 }
 
+/* 和文の表記ゆれ（docs/review-checklist.md の10章の表）。
+   同じ物が2つの書き方で出てくると、読んでいて別物かと迷います。 */
+const JA_STYLE = [
+  [/できあがり線/, "できあがり線 → 出来上がり線"],
+  [/待ち針/, "待ち針 → まち針"],
+  [/なか表/, "なか表 → 中表"],
+  [/(?<!抱っこ|肩)紐/, "紐 → ひも（抱っこ紐・肩紐のような複合語だけ漢字）"],
+  [/することができ/, "〜することができます → 〜できます"],
+  [/下さい/, "下さい → ください"],
+  [/出来ます|出来る(?!上が)/, "出来ます → できます"],
+  [/ショルダー紐/, "ショルダー紐 → ショルダーひも"],
+];
+for (const f of jaPages) {
+  if (redirects.has(f)) continue;
+  const text = read(f).replace(/<script[\s\S]*?<\/script>/g, "").replace(/<[^>]+>/g, " ");
+  const hits = JA_STYLE.filter(([re]) => re.test(text)).map(([, msg]) => msg);
+  if (hits.length) add("i18n", f, "表記ゆれ: " + hits.join(" / "));
+}
+
 /* 和文ページのガイドリンクに、型紙のキーがそのまま出ていないか。
    表示名の取りこぼしは、リンク文字が "blouse" のような英字になって現れます。 */
 for (const f of jaPages) {
