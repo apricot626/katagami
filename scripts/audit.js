@@ -17,11 +17,13 @@ const add = (kind, file, msg) => findings.push({ kind, file, msg });
 const jaPages = fs.readdirSync(ROOT).filter(f => f.endsWith(".html"));
 const enPages = fs.readdirSync(path.join(ROOT, "en")).filter(f => f.endsWith(".html")).map(f => "en/" + f);
 const pages = [...jaPages, ...enPages];
-/* 別ページへ寄せた転送用ページ。sitemap に載せず、canonical も自分を指さないので
-   通常のチェックからは外す（noindex なので検索対象でもない）。 */
-const isRedirect = f => /<meta http-equiv="refresh"/.test(
-  fs.readFileSync(path.join(ROOT, f), "utf8"));
-const redirects = new Set(pages.filter(isRedirect));
+/* 検索対象にしないページ（転送用ページと 404）。sitemap に載せず、canonical も
+   持たないので、通常のチェックからは外す。noindex が付いているかどうかで判定する。 */
+const isNoindex = f => {
+  const h = fs.readFileSync(path.join(ROOT, f), "utf8");
+  return /<meta http-equiv="refresh"/.test(h) || /<meta name="robots" content="[^"]*noindex/.test(h);
+};
+const redirects = new Set(pages.filter(isNoindex));
 const read = f => fs.readFileSync(path.join(ROOT, f), "utf8");
 const isFile = f => { try { return fs.statSync(path.join(ROOT, f)).isFile(); } catch (e) { return false; } };
 
@@ -44,6 +46,15 @@ vm.runInContext(
 const I = i18nBox.__R;
 const JA_DATA = require("./ja-howto-data.js");
 const EN_DATA = require("./en-howto-data.js");
+
+/* app.js の HOWTO（ツール画面の「作り方」リンク）を取り出す */
+const APP_HOWTO = (() => {
+  const m = fs.readFileSync(path.join(ROOT, "app.js"), "utf8").match(/const HOWTO=\{[\s\S]*?\n\};/);
+  if (!m) return {};
+  const box = vm.createContext({});
+  vm.runInContext(m[0] + ";globalThis.__H=HOWTO;", box);
+  return box.__H;
+})();
 
 /* =========================================================
    1. HTML の基本
@@ -367,6 +378,12 @@ for (const k of Object.keys(PATTERNS)) {
     if (g && g[field] !== want)
       add("i18n", "scripts", `${k}: ${label} 「${g[field]}」が型紙名「${want}」と違います`);
   }
+  // app.js の HOWTO はツール画面から作り方ガイドへ出すリンク。ここが実際のページと
+  // ずれると、ガイドがあるのにツールから辿れません（61件で止まっていました）。
+  if (isFile(`howto-${k}.html`) && !redirects.has(`howto-${k}.html`) && !APP_HOWTO[k])
+    add("link", "app.js", `HOWTO に ${k} がありません（howto-${k}.html は存在します）`);
+  if (APP_HOWTO[k] && !isFile(`howto-${k}.html`))
+    add("link", "app.js", `HOWTO の ${k} に対応する howto-${k}.html がありません`);
   // HOWTO_EN は英語ツール画面の「作り方」リンクの向き先を決める。ここが実際の
   // ページとずれると、英語版があるのに日本語ガイドへ送ってしまう。
   const hasEnPage = isFile(`en/howto-${k}.html`);
