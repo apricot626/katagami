@@ -95,7 +95,25 @@ const guidesOf = mode => guideKeys.filter(k => PATTERNS[k].mode === mode);
   console.log(`index.html: 作り方ガイド一覧 ${n} 件に更新`);
 }
 
-/* ---------- 3. howto.html のカード ---------- */
+/* ---------- 3. app.js の HOWTO ---------- */
+/* ツール画面から作り方ガイドへ出すリンク。手で足していたため61件で止まっていて、
+   ガイドがあるのにリンクが出ない型紙が129種ありました。実在するページから作ります。 */
+{
+  const p = path.join(ROOT, "app.js");
+  const src = fs.readFileSync(p, "utf8");
+  const body = guideKeys.map(k =>
+    `  ${k}:{url:"howto-${k}.html", label:"📄 ${title(k)}の作り方を見る"},`).join("\n");
+  const next = src.replace(/const HOWTO=\{\n[\s\S]*?\n\};/, `const HOWTO={\n${body}\n};`);
+  if (next === src && !src.includes(body)) console.warn("  app.js: HOWTO の定義が見つかりません");
+  else if (next !== src) {
+    fs.writeFileSync(p, next);
+    console.log(`app.js: HOWTO を ${guideKeys.length} 件に更新`);
+  } else {
+    console.log("app.js: HOWTO は変更なし");
+  }
+}
+
+/* ---------- 4. howto.html のカード ---------- */
 {
   const p = path.join(ROOT, "howto.html");
   let html = fs.readFileSync(p, "utf8");

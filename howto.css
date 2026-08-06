@@ -41,7 +41,9 @@ body{
 }
 .article-head{margin-bottom:40px}
 .category{
-  font-size:11px;letter-spacing:.18em;color:var(--vermilion);
+  /* 11px と小さいので、本文の朱色（#C24033）だと 4.31:1 で 4.5:1 に届かない。
+     この用途だけ濃い朱を使う。 */
+  font-size:11px;letter-spacing:.18em;color:#B23A2E;
   font-weight:700;margin:0 0 8px;
 }
 /* ---- breadcrumb ---- */

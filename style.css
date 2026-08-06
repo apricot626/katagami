@@ -244,8 +244,11 @@ svg.preview{display:block;background:var(--paper2);
 
 /* ---- print ---- */
 #print-root{display:none}
+/* 版面の寸法（@page の size と .sheet の縦横）は、選ばれた用紙に合わせて
+   app.js が #print-page-rule に書き込みます。ここはその前に印刷された場合の
+   保険で、A4 の値を置いています。ここだけを直しても Letter には効きません。 */
 @media print{
-  @page{size:A4;margin:0}
+  @page{size:210mm 297mm;margin:0}
   body{background:#fff;background-image:none}
   .app{display:none!important}
   #print-root{display:block}
