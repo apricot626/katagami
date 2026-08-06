@@ -198,7 +198,7 @@
     "本の高さ":"Book height","本の幅（片面）":"Book width (one side)","本の厚み":"Book thickness","折り返し幅":"Fold-over width",
     "中央バンド幅":"Center band width","首バンドの長さ":"Neck band length","持ち手の裁ち幅":"Handle cut width",
     "マチ（底の奥行き）":"Gusset (base depth)","口金の幅（外幅）":"Clasp width (outer)","口金の高さ":"Clasp height",
-    "ポーチの深さ":"Pouch depth","ショルダー紐長さ":"Shoulder strap length","紐の裁ち幅":"Strap cut width",
+    "ポーチの深さ":"Pouch depth","ショルダーひも長さ":"Shoulder strap length","ひもの裁ち幅":"Strap cut width",
     "基準の正方形（一辺）":"Base square (side)","幅":"Width","高さ（収納）":"Height (folded)","フラップ深さ":"Flap depth",
     "高さ":"Height","ストラップ長さ":"Strap length","ストラップ幅（裁ち幅）":"Strap width (cut)",
     "胴回り":"Chest girth","背丈（背側）":"Back length","腹側の丈":"Belly length","首回り":"Neck girth",
@@ -285,7 +285,7 @@
     "レッグウォーマー":"Leg warmer","袋本体":"Bag body","持ち手":"Handle","Dカンタブ":"D-ring tab","フラップ":"Flap","ベルト通し":"Belt loop",
     "マスク本体":"Mask body","上パーツ（鼻・頰）":"Upper piece (nose/cheek)","下パーツ（口・顎）":"Lower piece (mouth/chin)","三角巾":"Triangle scarf",
     "ランチョンマット":"Placemat","シュシュ本体":"Scrunchie body","ヘアバンド本体":"Headband body","ケース本体":"Case body","ブックカバー":"Book cover",
-    "中央バンド":"Center band","首バンド":"Neck band","ポーチ前/後":"Pouch front/back","ポーチ本体":"Pouch body","ショルダー紐":"Shoulder strap","パネル":"Panel",
+    "中央バンド":"Center band","首バンド":"Neck band","ポーチ前/後":"Pouch front/back","ポーチ本体":"Pouch body","ショルダーひも":"Shoulder strap","パネル":"Panel",
     "ストラップ":"Strap","背パネル":"Back panel","腹パネル":"Belly panel","前足袖":"Front-leg sleeve","マナーベルト":"Manner belt","バンダナ":"Bandana",
     "スヌード本体":"Snood body","表布":"Outer fabric","裏布（2枚）":"Lining (2 pcs)","テーブルクロス":"Tablecloth",
     /* cutInfo */

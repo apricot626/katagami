@@ -676,8 +676,8 @@ PATTERNS.sacoche={
   params:[
     {key:"w",     label:"仕上がり幅",      unit:"cm",min:15,max:40,step:1,  val:22},
     {key:"h",     label:"仕上がり高さ",    unit:"cm",min:12,max:35,step:1,  val:18},
-    {key:"strapL",label:"ショルダー紐長さ",unit:"cm",min:80,max:180,step:5, val:120},
-    {key:"strapW",label:"紐の裁ち幅",      unit:"cm",min:3, max:8,  step:0.5,val:5},
+    {key:"strapL",label:"ショルダーひも長さ",unit:"cm",min:80,max:180,step:5, val:120},
+    {key:"strapW",label:"ひもの裁ち幅",      unit:"cm",min:3, max:8,  step:0.5,val:5},
   ],
   presets:[
     {label:"スリム", vals:{w:18, h:15, strapL:120, strapW:4}},
@@ -696,7 +696,7 @@ PATTERNS.sacoche={
     const SL=cm(p.strapL), SW=cm(p.strapW);
     const strapFin=[{x:0,y:0},{x:SW,y:0},{x:SW,y:SL},{x:0,y:SL}];
     const strappc=pieceFrom(strapFin,()=>false,sa);
-    const strap={title:"ショルダー紐", cutInfo:"1枚（長さ方向に二つ折りで縫う）",
+    const strap={title:"ショルダーひも", cutInfo:"1枚（長さ方向に二つ折りで縫う）",
       ...strappc, foldX:null,
       grain:{x1:SW/2,y1:15,x2:SW/2,y2:SL-15},
       notches:[], labelAt:{x:SW/2,y:SL/2}};
@@ -4963,12 +4963,12 @@ PATTERNS.hairturban={
 PATTERNS.bottleholder={
   mode:"small",
   name:"ペットボトルホルダー",
-  note:"保冷剤シートを挟めば冷たさが長持ちする筒型ホルダー。底（円）＋本体＋ショルダー紐。裏地に保冷シートを使うと本格的。夏のお出かけや通園・通学に。",
+  note:"保冷剤シートを挟めば冷たさが長持ちする筒型ホルダー。底（円）＋本体＋ショルダーひも。裏地に保冷シートを使うと本格的。夏のお出かけや通園・通学に。",
   params:[
     {key:"dia",   label:"ボトルの直径",   unit:"cm",min:5, max:10, step:0.5,val:6.5},
     {key:"h",     label:"ボトルの高さ",   unit:"cm",min:12,max:26, step:0.5,val:19},
-    {key:"strap", label:"ショルダー紐長さ",unit:"cm",min:40,max:110,step:1,  val:80},
-    {key:"strapw",label:"紐の裁ち幅",     unit:"cm",min:3, max:8,  step:0.5,val:5},
+    {key:"strap", label:"ショルダーひも長さ",unit:"cm",min:40,max:110,step:1,  val:80},
+    {key:"strapw",label:"ひもの裁ち幅",     unit:"cm",min:3, max:8,  step:0.5,val:5},
   ],
   presets:[
     {label:"500ml", vals:{dia:6.5, h:19, strap:80, strapw:5}},
@@ -4995,7 +4995,7 @@ PATTERNS.bottleholder={
        ...bodypc, foldX:null,
        grain:{x1:circ*0.5,y1:10,x2:circ*0.5,y2:H-10},
        notches:[{x:circ/2,y:H}], labelAt:{x:circ*0.5,y:H*0.55}},
-      {title:"ショルダー紐", cutInfo:"1本（4つ折りにして縫い、両脇に付ける）", ...spc, foldX:null,
+      {title:"ショルダーひも", cutInfo:"1本（4つ折りにして縫い、両脇に付ける）", ...spc, foldX:null,
        grain:{x1:SL*0.2,y1:SW/2,x2:SL*0.8,y2:SW/2},
        notches:[], labelAt:{x:SL*0.5,y:SW*0.5}}
     ],
@@ -6115,14 +6115,14 @@ PATTERNS.wallet={
 PATTERNS.phonepouch={
   mode:"bag",
   name:"スマホポーチ",
-  note:"スマホと小物だけを入れて出かける、斜めがけの小さなポーチ。本体（底わ）＋フラップ＋ショルダー紐。手ぶらで散歩や買い物に行けます。お使いのスマホのサイズを入力してください。",
+  note:"スマホと小物だけを入れて出かける、斜めがけの小さなポーチ。本体（底わ）＋フラップ＋ショルダーひも。手ぶらで散歩や買い物に行けます。お使いのスマホのサイズを入力してください。",
   params:[
     {key:"phonew",label:"スマホの幅",     unit:"cm",min:6, max:10, step:0.5,val:7.5},
     {key:"phoneh",label:"スマホの高さ",   unit:"cm",min:12,max:18, step:0.5,val:15},
     {key:"thick", label:"厚み（マチ）",   unit:"cm",min:1, max:6,  step:0.5,val:3},
     {key:"flap",  label:"フラップ深さ",   unit:"cm",min:3, max:9,  step:0.5,val:5},
-    {key:"strap", label:"ショルダー紐長さ",unit:"cm",min:80,max:140,step:1, val:110},
-    {key:"strapw",label:"紐の裁ち幅",     unit:"cm",min:3, max:8,  step:0.5,val:5},
+    {key:"strap", label:"ショルダーひも長さ",unit:"cm",min:80,max:140,step:1, val:110},
+    {key:"strapw",label:"ひもの裁ち幅",     unit:"cm",min:3, max:8,  step:0.5,val:5},
   ],
   presets:[
     {label:"標準",  vals:{phonew:7.5,phoneh:15,  thick:3, flap:5, strap:110, strapw:5}},
@@ -6149,7 +6149,7 @@ PATTERNS.phonepouch={
       {title:"フラップ", cutInfo:"表布・裏布 各1枚／中表に縫って返し、後ろ上端に付ける", ...fpc, foldX:null,
        grain:{x1:W*0.5,y1:8,x2:W*0.5,y2:FP-8},
        notches:[{x:W/2,y:FP}], labelAt:{x:W*0.5,y:FP*0.5}},
-      {title:"ショルダー紐", cutInfo:"1本（4つ折りにして縫い、両脇に付ける）", ...spc, foldX:null,
+      {title:"ショルダーひも", cutInfo:"1本（4つ折りにして縫い、両脇に付ける）", ...spc, foldX:null,
        grain:{x1:SL*0.2,y1:SW/2,x2:SL*0.8,y2:SW/2},
        notches:[], labelAt:{x:SL*0.5,y:SW*0.5}}
     ],
@@ -6547,7 +6547,7 @@ PATTERNS.cargopants={
 PATTERNS.hanten={
   mode:"human",
   name:"半纏（はんてん）",
-  note:"綿入りの和風の羽織り。すべて直線裁ちで、身頃2枚（肩わ）＋袖2枚＋衿の構成です。中に薄い綿（キルト芯）を挟むと、市販の半纏のような暖かさになります。前は打ち合わせるだけで、ひもや紐留めで結びます。",
+  note:"綿入りの和風の羽織り。すべて直線裁ちで、身頃2枚（肩わ）＋袖2枚＋衿の構成です。中に薄い綿（キルト芯）を挟むと、市販の半纏のような暖かさになります。前は打ち合わせるだけで、ひもやひも留めで結びます。",
   params:[
     {key:"width", label:"身幅（片身）", unit:"cm",min:26,max:44, step:0.5,val:34},
     {key:"len",   label:"着丈",         unit:"cm",min:55,max:95, step:1,  val:75},
@@ -6810,12 +6810,12 @@ PATTERNS.bankbook={
 PATTERNS.flaskcover={
   mode:"small",
   name:"水筒カバー",
-  note:"水筒にかぶせる、フタ付きのショルダーカバー。底（円）＋側面＋フタ＋ショルダー紐。裏地に保冷シートを使うと保冷力が上がります。ぶつけても本体が傷つかないので、通園・通学に。",
+  note:"水筒にかぶせる、フタ付きのショルダーカバー。底（円）＋側面＋フタ＋ショルダーひも。裏地に保冷シートを使うと保冷力が上がります。ぶつけても本体が傷つかないので、通園・通学に。",
   params:[
     {key:"dia",   label:"水筒の直径",     unit:"cm",min:5, max:12, step:0.5,val:7.5},
     {key:"h",     label:"水筒の高さ",     unit:"cm",min:12,max:32, step:0.5,val:22},
-    {key:"strap", label:"ショルダー紐長さ",unit:"cm",min:50,max:130,step:1,  val:90},
-    {key:"strapw",label:"紐の裁ち幅",     unit:"cm",min:4, max:10, step:0.5,val:6},
+    {key:"strap", label:"ショルダーひも長さ",unit:"cm",min:50,max:130,step:1,  val:90},
+    {key:"strapw",label:"ひもの裁ち幅",     unit:"cm",min:4, max:10, step:0.5,val:6},
   ],
   presets:[
     {label:"子供 480ml",vals:{dia:7,  h:20,strap:80, strapw:5}},
@@ -6842,7 +6842,7 @@ PATTERNS.flaskcover={
       {title:"フタ（円）", cutInfo:"表布・裏布 各1枚／中表に縫って返し、後ろ側に付けてスナップで留める", ...lid, foldX:null,
        grain:{x1:R,y1:R*0.35,x2:R,y2:R*1.7},
        notches:[{x:R,y:0}], labelAt:{x:R,y:R*1.05}},
-      {title:"ショルダー紐", cutInfo:"1本（4つ折りにして縫い、両脇に付ける）／移動カンで長さ調節を", ...st, foldX:null,
+      {title:"ショルダーひも", cutInfo:"1本（4つ折りにして縫い、両脇に付ける）／移動カンで長さ調節を", ...st, foldX:null,
        grain:{x1:SL*0.2,y1:SW/2,x2:SL*0.8,y2:SW/2},
        notches:[], labelAt:{x:SL*0.5,y:SW*0.5}}
     ],
