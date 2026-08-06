@@ -276,6 +276,23 @@ for (const f of enPages) {
     add("i18n", f, "英式のつづり: " + hits.map(w => `${w} → ${BRITISH[w]}`).join(" / "));
 }
 
+/* ページの取りこぼし。
+   全型紙に作り方ガイドがあるか、和文にあるページの英語版があるか（逆も）、
+   そして「4. 縫い方」が工程ごとに区切られているか。
+   基礎ガイドは和文6本に対して英語3本しかなく、気づかないままでした。 */
+for (const k of Object.keys(PATTERNS)) {
+  for (const [f, lang] of [[`howto-${k}.html`, "和文"], [`en/howto-${k}.html`, "英文"]])
+    if (!isFile(f)) add("link", f, `${lang}の作り方ガイドがありません（型紙 ${k}）`);
+}
+for (const f of pages) {
+  if (redirects.has(f)) continue;
+  const other = f.startsWith("en/") ? f.slice(3) : "en/" + f;
+  if (!isFile(other)) add("link", f, `対になる ${other} がありません`);
+  // 縫い方の節は「4-1.」のように工程で区切る（6ページが一続きのままでした）
+  if (/^(en\/)?howto-[a-z]+\.html$/.test(f) && !/<h3[^>]*>\s*\d+-\d+\./.test(read(f)))
+    add("html", f, "「縫い方」に工程の小見出し（4-1. …）がありません");
+}
+
 /* 和文の表記ゆれ（docs/review-checklist.md の10章の表）。
    同じ物が2つの書き方で出てくると、読んでいて別物かと迷います。 */
 const JA_STYLE = [
