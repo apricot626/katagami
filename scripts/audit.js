@@ -480,6 +480,78 @@ function capSeamLen(f) {
   for (let i = 1; i < top.length; i++) t += Math.hypot(top[i].x - top[i - 1].x, top[i].y - top[i - 1].y);
   return t;
 }
+/* プリセットの値が入力範囲に収まっているか。
+   app.js は範囲外を黙って丸めるので、「子供120」を押すと130cmの浴衣が出る、
+   アルトリコーダー48cmが42cmに切られる、といったことが起きていました。
+   刻みで選べない値も、スライダーで戻せなくなるので拾います。 */
+for (const k of Object.keys(PATTERNS)) {
+  const p = PATTERNS[k];
+  const byKey = Object.fromEntries((p.params || []).map(x => [x.key, x]));
+  for (const pre of p.presets || []) {
+    for (const [key, v] of Object.entries(pre.vals || {})) {
+      const f = byKey[key];
+      if (!f) { add("pattern", k, `プリセット「${pre.label}」に無いパラメータ ${key} が指定されています`); continue; }
+      if (v < f.min || v > f.max)
+        add("pattern", k, `プリセット「${pre.label}」の ${f.label}=${v} が範囲外（${f.min}〜${f.max}）。押しても丸められます`);
+      const n = (v - f.min) / f.step;
+      if (Math.abs(n - Math.round(n)) > 1e-6)
+        add("pattern", k, `プリセット「${pre.label}」の ${f.label}=${v} は刻み ${f.step} では選べません`);
+    }
+    const miss = (p.params || []).filter(f => !(f.key in (pre.vals || {}))).map(f => f.label);
+    if (miss.length) add("pattern", k, `プリセット「${pre.label}」に指定のないパラメータ: ${miss.join("・")}`);
+  }
+}
+
+/* 材料に書いた布の量で、実際にパーツが取れるか。
+   足りない量を書いていると、その通りに買った人が布屋からやり直しになります。
+   パーツを布幅に棚詰めして必要な長さを出し、記載量と比べます（21本が足りませんでした）。 */
+function fabricNeeded(pieces, W) {
+  const items = [];
+  for (const pc of pieces) {
+    const xs = pc.cut.map(q => q.x), ys = pc.cut.map(q => q.y);
+    let w = Math.max(...xs) - Math.min(...xs), h = Math.max(...ys) - Math.min(...ys);
+    if (pc.foldX !== null && pc.foldX !== undefined) w *= 2;   // 「わ」は開くと倍の幅
+    const n = +((String(pc.cutInfo || "").match(/(\d+)枚|(\d+)本/) || [])[1] || 1);
+    for (let i = 0; i < Math.max(1, n); i++) items.push([w, h]);
+  }
+  items.sort((a, b) => Math.max(b[0], b[1]) - Math.max(a[0], a[1]));
+  let y = 0, rowH = 0, x = 0;
+  for (let [w, h] of items) {
+    if (w > W && h <= W) { const t = w; w = h; h = t; }
+    if (x + w > W) { y += rowH; x = 0; rowH = 0; }
+    x += w; rowH = Math.max(rowH, h);
+  }
+  return y + rowH;
+}
+for (const k of Object.keys(JA_DATA)) {
+  const p = PATTERNS[k];
+  if (!p) continue;
+  const d = {};
+  (p.params || []).forEach(x => d[x.key] = x.val);
+  (p.toggles || []).forEach(x => d[x.key] = x.def);
+  let pieces;
+  try { pieces = p.gen(d, 10).pieces; } catch (e) { continue; }
+  const m1 = (JA_DATA[k].materials || [])[0] || "";
+  const mm = m1.match(/(\d+(?:\.\d+)?)\s*cm幅\s*[×x]\s*(\d+(?:\.\d+)?)\s*cm/) ||
+             m1.match(/(\d+(?:\.\d+)?)\s*[×x]\s*(\d+(?:\.\d+)?)\s*cm/);
+  if (!mm) continue;
+  const fw = +mm[1] * 10, fl = +mm[2] * 10;
+  const req = fabricNeeded(pieces, fw);
+  if (req > fl * 1.05)
+    add("pattern", k, `材料の布が足りません：記載 ${mm[1]}×${mm[2]}cm、必要 約${(req / 10).toFixed(0)}cm`);
+}
+
+/* 英文の材料に添えたインチが、cm と合っているか */
+for (const k of Object.keys(EN_DATA)) {
+  for (const m of EN_DATA[k].materials || []) {
+    const x = m.match(/(\d+(?:\.\d+)?)\s*cm(?:\s*wide)?\s*[×x]\s*(\d+(?:\.\d+)?)\s*cm\s*\((\d+)\s*[×x]\s*(\d+)\s*in\)/);
+    if (!x) continue;
+    const wi = Math.round(+x[1] / 2.54), li = Math.round(+x[2] / 2.54);
+    if (wi !== +x[3] || li !== +x[4])
+      add("i18n", "scripts/en-howto-data.js", `${k}: ${x[1]}×${x[2]}cm は ${wi}×${li}in（${x[3]}×${x[4]}in と書かれています）`);
+  }
+}
+
 const EASE_MIN = 1, EASE_MAX = 45;   // mm。いせは 0.1〜4.5cm を許容範囲とする
 for (const k of Object.keys(PATTERNS)) {
   const p = PATTERNS[k];

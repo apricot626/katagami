@@ -2222,7 +2222,7 @@ module.exports = {
     ],
     sew: [
       {
-        h: "Envelope cushion cover",
+        h: "4-1. Envelope cushion cover",
         items: [
           "Split the back into two pieces; on each, hem the opening edge with a double fold.",
           "Lay the front right side up, then layer the two back pieces on top right sides together so their openings overlap at the center.",
@@ -2434,7 +2434,7 @@ module.exports = {
     ],
     sew: [
       {
-        h: "Sew the band",
+        h: "4-1. Sew the band",
         items: [
           "Fold the fabric right sides together lengthwise and sew the long edge and one short edge, leaving the other short edge open as a turning gap.",
           "Trim the corners, turn right side out through the gap, and press.",
@@ -2653,7 +2653,7 @@ module.exports = {
     lead: "A slim skirt that follows the waist and hip and tapers slightly to the hem. Front and back are each cut as one piece on the fold, so there are only two pattern pieces. The back slit is what makes it walkable — don't skip it.",
     matNote: "size M",
     materials: [
-      "Main fabric (twill, gabardine or wool) — about 110 cm wide × 80 cm (44 × 32 in)",
+      "Main fabric (twill, gabardine or wool) — about 110 cm wide × 80 cm (43 × 31 in)",
       "Flat elastic (2–3 cm / 1 in wide) — your waist measurement",
       "Optional: lining fabric"
     ],
@@ -2696,7 +2696,7 @@ module.exports = {
     lead: "A skirt made by folding the fabric at regular intervals. The pattern is two rectangles and there is not a single curve. The tool calculates the number of pleats and how much each one takes up, so all you do is mark and fold. Crisp lightweight fabric holds the pleats best.",
     matNote: "size M at a 3× pleat ratio",
     materials: [
-      "Main fabric (polyester, chambray or lightweight wool) — about 110 cm wide × 130 cm (44 × 51 in)",
+      "Main fabric (polyester, chambray or lightweight wool) — about 110 cm wide × 130 cm (43 × 51 in)",
       "Flat elastic (2–3 cm / 1 in wide) — your waist measurement"
     ],
     cut: [
@@ -2739,7 +2739,7 @@ module.exports = {
     lead: "A skirt you wrap around and tie. One body piece and two ties, with no zip or buttons to fit. It goes on easily, and because it ties, it still fits when your size shifts. Give it a generous overlap and it will not fall open as you walk.",
     matNote: "size M",
     materials: [
-      "Main fabric (linen, cotton or double gauze) — about 110 cm wide × 90 cm (44 × 35 in)",
+      "Main fabric (linen, cotton or double gauze) — about 110 cm wide × 90 cm (43 × 35 in)",
       "Optional: one button to hold the overlap in place"
     ],
     cut: [
@@ -2780,7 +2780,7 @@ module.exports = {
     lead: "A full skirt built from three tiers, each gathered onto the one above and each wider than the last. Every tier is a rectangle, so it is straight sewing throughout, and the tool works out the width of each one.",
     matNote: "size M",
     materials: [
-      "Main fabric (lawn, double gauze or linen) — about 110 cm wide × 180 cm (44 × 71 in)",
+      "Main fabric (lawn, double gauze or linen) — about 110 cm wide × 180 cm (43 × 71 in)",
       "Flat elastic (2–3 cm / 1 in wide) — your waist measurement"
     ],
     cut: [
@@ -2823,7 +2823,7 @@ module.exports = {
     lead: "A sleeveless open-front vest. Two fronts and one back is the whole thing, and as a single layer you simply bind the neckline and armholes with bias tape. Thrown over a plain outfit it changes the whole look.",
     matNote: "women's M",
     materials: [
-      "Main fabric (linen, wool or tweed) — about 110 cm wide × 130 cm (44 × 51 in)",
+      "Main fabric (linen, wool or tweed) — about 110 cm wide × 130 cm (43 × 51 in)",
       "Bias tape for the neckline and armholes — about 130 cm (51 in)",
       "Optional: 2–3 buttons"
     ],
@@ -2912,7 +2912,7 @@ module.exports = {
     lead: "Roomy through the hip and narrowing towards the hem. Front and back use the same pattern piece, so you cut four and sew — but the taper is what makes them look considered rather than casual. The waist is elastic, so they are as comfortable as they look.",
     matNote: "women's M",
     materials: [
-      "Main fabric (twill, linen or stretch woven) — about 110 cm wide × 160 cm (44 × 63 in)",
+      "Main fabric (twill, linen or stretch woven) — about 110 cm wide × 160 cm (43 × 63 in)",
       "Flat elastic (3 cm / 1¼ in wide) — your waist measurement"
     ],
     cut: [
@@ -2954,7 +2954,7 @@ module.exports = {
     lead: "Wide enough through the leg to look like a skirt, but they are pants, so nothing rides up and nothing blows about. Front and back use the same pattern piece and the waist is elastic, which makes this one of the quickest wearable garments in the collection.",
     matNote: "size M",
     materials: [
-      "Main fabric (linen, rayon or other fabric with drape) — about 110 cm wide × 170 cm (44 × 67 in)",
+      "Main fabric (linen, rayon or other fabric with drape) — about 110 cm wide × 170 cm (43 × 67 in)",
       "Flat elastic (3 cm / 1¼ in wide) — your waist measurement"
     ],
     cut: [
@@ -3038,7 +3038,7 @@ module.exports = {
     lead: "Pants with a bib and straps. Because the waist is elastic there is no fly, no zip and no buttonholes — the hard parts of a normal pair of trousers are simply absent. Denim or linen both work; denim reads as workwear, linen as summer.",
     matNote: "size M",
     materials: [
-      "Main fabric (denim, linen or twill) — about 110 cm wide × 220 cm (44 × 87 in)",
+      "Main fabric (denim, linen or twill) — about 110 cm wide × 220 cm (43 × 87 in)",
       "Flat elastic (2.5–3 cm / 1 in wide) — for the back waist",
       "Overall buckles and buttons — 2 sets",
       "Optional: fabric for a bib pocket"
@@ -3274,7 +3274,7 @@ module.exports = {
     lead: "A shirt lengthened into a dress. Two fronts, one back, two sleeves and a collar — the same construction as a shirt, just longer, so if you can make one you can make the other. Wear it buttoned as a dress or open over a tee.",
     matNote: "size M",
     materials: [
-      "Main fabric (cotton lawn, linen or chambray) — about 110 cm wide × 250 cm (44 × 98 in)",
+      "Main fabric (cotton lawn, linen or chambray) — about 110 cm wide × 280 cm (43 × 110 in)",
       "Lightweight fusible interfacing — for the collar and front bands",
       "Buttons (1–1.3 cm / ½ in) — 8–10",
       "Optional: a fabric belt or tie"
@@ -3324,7 +3324,7 @@ module.exports = {
     lead: "A classic shirt with a front band and a stand collar. Two fronts, one back, two sleeves and a collar — once you are past the buttonholes the steps run in a straight line. Oxford, broadcloth or linen all have enough body to be easy to handle.",
     matNote: "men's M",
     materials: [
-      "Main fabric (oxford, broadcloth or linen) — about 110 cm wide × 200 cm (44 × 79 in)",
+      "Main fabric (oxford, broadcloth or linen) — about 110 cm wide × 200 cm (43 × 79 in)",
       "Lightweight fusible interfacing — for the collar and front bands",
       "Buttons (1–1.3 cm / ½ in) — 7–8",
       "Sewing thread to match"
@@ -3426,7 +3426,7 @@ module.exports = {
     lead: "A Japanese jacket that began as workwear. One back, two fronts, two sleeves and ties, fastening at the sides rather than the front. Pair it with the tapered pants or jinbei shorts and you have the full set. Cotton or sashiko weave suits it best.",
     matNote: "women's M",
     materials: [
-      "Main fabric (cotton, sashiko weave or denim) — about 110 cm wide × 200 cm (44 × 79 in)",
+      "Main fabric (cotton, sashiko weave or denim) — about 110 cm wide × 200 cm (43 × 79 in)",
       "Optional: snap fasteners"
     ],
     cut: [
@@ -3473,7 +3473,7 @@ module.exports = {
     lead: "A Japanese apron with sleeves that you pull on over your clothes. Elastic at the cuffs keeps your sleeves out of the washing up, and it simply ties at the back, so it goes on and off in seconds. Good for cooking, cleaning and school lunch duty.",
     matNote: "adult size",
     materials: [
-      "Main fabric (cotton, sheeting or broadcloth) — about 110 cm wide × 200 cm (44 × 79 in)",
+      "Main fabric (cotton, sheeting or broadcloth) — about 110 cm wide × 230 cm (43 × 91 in)",
       "Flat elastic (1 cm / ⅜ in wide) — about 40 cm (16 in) for the cuffs",
       "Optional: fabric for a pocket"
     ],
@@ -3519,7 +3519,7 @@ module.exports = {
     lead: "A loose button-front pajama top with nothing that binds when you turn over. Pair it with the sweatpants or tapered pants for a set. Double gauze or brushed flannel is the obvious choice — soft, and it gets softer with washing.",
     matNote: "size M",
     materials: [
-      "Main fabric (double gauze, flannel or cotton) — about 110 cm wide × 220 cm (44 × 87 in)",
+      "Main fabric (double gauze, flannel or cotton) — about 110 cm wide × 220 cm (43 × 87 in)",
       "Lightweight fusible interfacing — about 40 × 40 cm (16 × 16 in) for the collar and front bands",
       "Buttons — 5–6"
     ],
@@ -3565,7 +3565,7 @@ module.exports = {
     lead: "A light jacket pulled in by ribbing at the hem and cuffs. Two fronts, one back, two sleeves and the ribbing. Close it with a separating zip or with snaps if zips are not your favorite. Nylon, twill or denim all have the body this shape needs.",
     matNote: "size M",
     materials: [
-      "Main fabric (nylon, twill or denim) — about 110 cm wide × 180 cm (44 × 71 in)",
+      "Main fabric (nylon, twill or denim) — about 110 cm wide × 180 cm (43 × 71 in)",
       "Ribbing for the hem and cuffs — about 30 × 90 cm (12 × 35 in)",
       "Separating zip — to the finished body length"
     ],
@@ -3608,7 +3608,7 @@ module.exports = {
     lead: "A robe you wrap and tie. No buttons, no zip — just knot the sash, which makes this one of the least fiddly garments here. Waffle or gauze makes a bathrobe; linen makes a summer cover-up. Same pattern, completely different garment.",
     matNote: "women's M",
     materials: [
-      "Main fabric (waffle, double gauze or linen) — about 110 cm wide × 250 cm (44 × 98 in)",
+      "Main fabric (waffle, double gauze or linen) — about 110 cm wide × 330 cm (43 × 130 in)",
       "Optional: self-fabric belt loops for the sides",
       "Thread to match"
     ],
@@ -3659,7 +3659,7 @@ module.exports = {
     lead: "An open-front jacket with no collar. Collar setting is the step that defeats most people on a jacket, and here it simply is not there — yet worn, it still reads as a jacket. Tweed or linen, anything with a bit of body.",
     matNote: "women's M",
     materials: [
-      "Main fabric (tweed, linen or heavy cotton) — about 110 cm wide × 200 cm (44 × 79 in)",
+      "Main fabric (tweed, linen or heavy cotton) — about 110 cm wide × 200 cm (43 × 79 in)",
       "Lightweight fusible interfacing — about 30 cm (12 in) for the front facings",
       "Optional: a covered button or snap",
       "Optional: lining fabric"
@@ -3712,7 +3712,7 @@ module.exports = {
     lead: "Work pants with big patch pockets on the sides. Because the waist is elastic there is no fly and no buttonholes — you sew the legs, then stitch the pockets on. Chino or ripstop holds the pocket shape; anything too soft and the pockets collapse.",
     matNote: "men's M",
     materials: [
-      "Main fabric (chino, twill or ripstop) — about 110 cm wide × 220 cm (44 × 87 in)",
+      "Main fabric (chino, twill or ripstop) — about 110 cm wide × 220 cm (43 × 87 in)",
       "Flat elastic (2.5–3 cm / 1 in wide) — about 90 cm (35 in)",
       "Optional: snap fasteners for the pocket flaps — 2 sets"
     ],
@@ -3765,7 +3765,7 @@ module.exports = {
     lead: "The Japanese padded jacket you live in all winter. Not one curve anywhere — the body panels fold at the shoulder, so there is not even a shoulder seam to sew. Add a layer of batting and it becomes the genuinely warm article rather than a light robe.",
     matNote: "women's size",
     materials: [
-      "Main fabric (Japanese-print cotton, chirimen or flannel) — about 110 cm wide × 250 cm (44 × 98 in)",
+      "Main fabric (Japanese-print cotton, chirimen or flannel) — about 110 cm wide × 300 cm (43 × 118 in)",
       "Lining fabric (lightweight cotton) — the same amount",
       "Medium batting — about 200 cm (79 in) if you are padding it",
       "Optional: ties or a decorative cord for the front"
@@ -3819,7 +3819,7 @@ module.exports = {
     lead: "The Japanese summer top worn to festivals and as nightwear. One back, two fronts, two sleeves and four ties, fastening at the sides rather than the front. Choose an airy weave — crinkle cotton or shijira — and it stays cool even in August.",
     matNote: "size 110 cm",
     materials: [
-      "Main fabric (cotton, crinkle cotton or shijira weave) — about 110 cm wide × 120 cm (44 × 47 in)",
+      "Main fabric (cotton, crinkle cotton or shijira weave) — about 110 cm wide × 120 cm (43 × 47 in)",
       "Optional: snap fasteners if you want the front to close"
     ],
     cut: [
@@ -3952,7 +3952,7 @@ module.exports = {
     lead: "A strappy pinafore to layer over a T-shirt or blouse. Three parts — bib, gathered skirt and straps — joined at the waist. The skirt is a plain rectangle, so the only technique involved is gathering.",
     matNote: "size 110 cm",
     materials: [
-      "Main fabric (corduroy, linen or cotton) — about 110 cm wide × 90 cm (44 × 35 in)",
+      "Main fabric (corduroy, linen or cotton) — about 110 cm wide × 90 cm (43 × 35 in)",
       "Lining fabric for the bib — about 30 × 30 cm (12 × 12 in)",
       "Optional: 2 buttons for adjustable straps"
     ],
@@ -4086,7 +4086,7 @@ module.exports = {
     lead: "A simple unlined coat in child sizes. Two fronts, one back, two sleeves and a stand collar — the same construction as a shirt, in heavier fabric. Wool or quilted cotton keeps it warm without needing a lining.",
     matNote: "size 110 cm",
     materials: [
-      "Main fabric (wool, quilted cotton or heavy twill) — about 110 cm wide × 130 cm (44 × 51 in)",
+      "Main fabric (wool, quilted cotton or heavy twill) — about 110 cm wide × 130 cm (43 × 51 in)",
       "Fusible interfacing — for the collar and front bands",
       "Buttons — 4–5",
       "Optional: lining fabric"
@@ -4176,7 +4176,7 @@ module.exports = {
     lead: "The shorts that go with the jinbei top. Front and back use the same pattern piece, the waist is elastic, and there is nothing to fit — which makes them one of the quickest things here to sew. In plain fabric they work as ordinary summer shorts too.",
     matNote: "size 110 cm",
     materials: [
-      "Main fabric (cotton, crinkle cotton or shijira weave) — about 110 cm wide × 60 cm (44 × 24 in)",
+      "Main fabric (cotton, crinkle cotton or shijira weave) — about 110 cm wide × 60 cm (43 × 24 in)",
       "Flat elastic (2 cm / ¾ in wide) — the child's waist measurement"
     ],
     cut: [
@@ -4217,7 +4217,7 @@ module.exports = {
     lead: "It looks like a skirt and moves like shorts, so there is nothing to worry about on the climbing frame. Front and back use the same pattern piece — cut four, sew three seams, add elastic. A nursery and primary-school favorite.",
     matNote: "size 120 cm",
     materials: [
-      "Main fabric (cotton, linen or denim) — about 110 cm wide × 70 cm (44 × 28 in)",
+      "Main fabric (cotton, linen or denim) — about 110 cm wide × 70 cm (43 × 28 in)",
       "Flat elastic (2 cm / ¾ in wide) — the child's waist measurement"
     ],
     cut: [
@@ -4256,7 +4256,7 @@ module.exports = {
     lead: "A button-front shirt in child sizes. The construction is the same as an adult shirt, but the pieces are smaller, the seams are shorter and three to five buttons covers it. Good for nursery, school and weekends alike.",
     matNote: "size 110 cm",
     materials: [
-      "Main fabric (oxford, broadcloth or linen) — about 110 cm wide × 110 cm (44 × 43 in)",
+      "Main fabric (oxford, broadcloth or linen) — about 110 cm wide × 110 cm (43 × 43 in)",
       "Lightweight fusible interfacing — about 30 cm (12 in) for the collar and front bands",
       "Buttons (1–1.3 cm / ½ in) — 3–5",
       "Sewing thread to match"
@@ -4443,7 +4443,7 @@ module.exports = {
     lead: "A cape you throw over a baby in a carrier or a pram. No sleeves, so it goes on easily and does not bunch up in a car seat. The pattern is a quarter-circle: fold the fabric in four, cut once, and the whole thing is done.",
     matNote: "size 0–1 year",
     materials: [
-      "Main fabric (fleece, wool or double gauze) — about 110 cm wide × 90 cm (44 × 35 in)",
+      "Main fabric (fleece, wool or double gauze) — about 110 cm wide × 90 cm (43 × 35 in)",
       "Snap fasteners or covered buttons — 1–2 sets",
       "Optional: fabric for a hood, or bias tape for the neckline"
     ],
@@ -4486,7 +4486,7 @@ module.exports = {
     lead: "Pants with a rise deep enough to go over a diaper. Front and back use the same pattern piece, so you cut four and sew in three stages: crotch, sides and inseam, then elastic. Elastic at the hems as well as the waist means they stay put through crawling.",
     matNote: "size 80 cm",
     materials: [
-      "Main fabric (jersey, double gauze or light cotton) — about 110 cm wide × 60 cm (44 × 24 in)",
+      "Main fabric (jersey, double gauze or light cotton) — about 110 cm wide × 60 cm (43 × 24 in)",
       "Flat elastic (1.5 cm / ⅝ in wide) — about 50 cm (20 in) for the waist",
       "Narrow flat elastic (0.8 cm / ⅜ in wide) — about 40 cm (16 in) for the hems",
       "Bodkin"
@@ -4533,7 +4533,7 @@ module.exports = {
     lead: "A small blanket for the pram or for naps. Sew the two layers right sides together, turn through the gap, topstitch. Gauze on one side and fleece on the other makes it work all year. Embroider a name and it becomes a baby gift.",
     matNote: "standard size",
     materials: [
-      "Main fabric (six-layer gauze or printed cotton) — about 110 cm wide × 90 cm (44 × 35 in)",
+      "Main fabric (six-layer gauze or printed cotton) — about 110 cm wide × 110 cm (43 × 43 in)",
       "Backing fabric (fleece or double gauze) — the same amount",
       "Optional: wide bias tape if you bind the edges instead"
     ],
@@ -4773,7 +4773,7 @@ module.exports = {
     lead: "A cover to drape over you while feeding out and about. The construction is simple — gather the top edge of a rectangle and hang it from a strap — but the wire threaded through the top is what makes it work, holding the neckline open so you can see how the feed is going.",
     matNote: "standard size",
     materials: [
-      "Main fabric (double gauze, light cotton or linen) — about 110 cm wide × 80 cm (44 × 31 in)",
+      "Main fabric (double gauze, light cotton or linen) — about 110 cm wide × 80 cm (43 × 31 in)",
       "Craft wire or shape-retaining tape — about 40 cm (16 in)",
       "Strap slider — 1",
       "Thread to match"
@@ -4829,7 +4829,7 @@ module.exports = {
     lead: "A single-piece liner for a stroller or car seat, with the back and the seat cut as one. It takes the sweat and the spills so the stroller itself stays clean — and a stroller is far harder to wash than a liner. Two is a sensible number to make.",
     matNote: "full-recline stroller",
     materials: [
-      "Main fabric (six-layer gauze, toweling or printed cotton) — about 110 cm wide × 90 cm (44 × 35 in)",
+      "Main fabric (six-layer gauze, toweling or printed cotton) — about 110 cm wide × 90 cm (43 × 35 in)",
       "Backing fabric (muslin or light cotton) — the same amount",
       "Lightweight batting — the same amount, for a little padding",
       "Eyelet pliers, or a buttonhole foot, for the harness slots"
@@ -5199,7 +5199,7 @@ module.exports = {
     lead: "A classic bucket hat in three pieces: the flat crown, the side band and the brim. Everything joins in a circle, which is the only skill involved — and it is the same skill three times over. Cotton or linen, ideally with interfacing in the brim.",
     matNote: "adult size",
     materials: [
-      "Main fabric (cotton, linen or canvas) — about 60 × 60 cm (24 × 24 in)",
+      "Main fabric (cotton, linen or canvas) — about 70 × 70 cm (24 × 24 in)",
       "Lining fabric — the same amount",
       "Fusible interfacing — for the brim",
       "Optional: a cord and eyelets for a chin strap"
@@ -5388,7 +5388,7 @@ module.exports = {
     lead: "A classic six-panel cap. The panels are joined in sequence to build the rounded crown, and a stiffened brim is set into the front. There are more seams here than in most accessories, but each one is short and the shape comes out of the sequence rather than out of skill.",
     matNote: "adult size",
     materials: [
-      "Main fabric (twill, denim or canvas) — about 60 × 50 cm (24 × 20 in)",
+      "Main fabric (twill, denim or canvas) — about 60 × 60 cm (24 × 20 in)",
       "Lining fabric — the same amount",
       "Firm fusible interfacing or a brim insert — for the brim",
       "Optional: an adjuster strap or elastic for the back"
@@ -5535,7 +5535,7 @@ module.exports = {
     lead: "Japanese schools issue a padded hood for earthquake drills, and it lives on the back of the chair inside a cover like this one. The cover holds the hood and works as a back cushion at the same time. Schools usually specify the size, so enter what they ask for. Quilted fabric is the standard choice.",
     matNote: "standard size",
     materials: [
-      "Main fabric (quilted cotton or canvas) — about 110 cm wide × 90 cm (44 × 35 in)",
+      "Main fabric (quilted cotton or canvas) — about 110 cm wide × 90 cm (43 × 35 in)",
       "Flat elastic (2.5 cm / 1 in wide) — about 70 cm (28 in)",
       "Optional: hook-and-loop for the opening"
     ],
@@ -5680,7 +5680,7 @@ module.exports = {
     lead: "You do not need to knit to make a scarf. Fold a rectangle lengthwise, sew, turn. Fleece or wool for winter, double gauze for spring. Far faster than knitting — which is exactly what you want when a gift deadline is closing in.",
     matNote: "standard size",
     materials: [
-      "Main fabric (fleece, wool or double gauze) — about 110 cm wide × 60 cm (44 × 24 in)",
+      "Main fabric (fleece, wool or double gauze) — about 110 cm wide × 160 cm (43 × 63 in)",
       "Optional: a second fabric for a double-sided scarf"
     ],
     cut: [
@@ -6086,7 +6086,7 @@ module.exports = {
     lead: "A shopping bag that folds down into a small pocket sewn to its own side. In lightweight nylon it packs to the size of a purse, which is the only reason a spare bag ever actually gets carried.",
     matNote: "standard size",
     materials: [
-      "Main fabric (lightweight nylon or fine cotton) — about 110 cm wide × 90 cm (44 × 35 in)",
+      "Main fabric (lightweight nylon or fine cotton) — about 110 cm wide × 90 cm (43 × 35 in)",
       "Fabric for the fold-away pocket — about 15 × 20 cm (6 × 8 in)",
       "Optional: a snap or short elastic to hold it folded"
     ],
@@ -6133,7 +6133,7 @@ module.exports = {
     lead: "A cylindrical bag with a round base that stands on its own. With no corners, the contents do not disappear into them and you can see everything from above. Canvas gives it the body it needs to hold the shape.",
     matNote: "standard size",
     materials: [
-      "Main fabric (8–11 oz canvas) — about 110 cm wide × 70 cm (44 × 28 in)",
+      "Main fabric (8–11 oz canvas) — about 110 cm wide × 70 cm (43 × 28 in)",
       "Lining fabric (sheeting or heavy cotton) — the same amount",
       "Heavy fusible interfacing — for the base and body",
       "Optional: a plastic base insert"
@@ -6182,7 +6182,7 @@ module.exports = {
     lead: "A flap-closing backpack. Two body panels, a continuous gusset, a flap and two shoulder straps. It has more pieces than most bags here, but each seam is straightforward and the result carries real weight. Canvas or nylon.",
     matNote: "standard size",
     materials: [
-      "Main fabric (canvas or nylon) — about 110 cm wide × 120 cm (44 × 47 in)",
+      "Main fabric (canvas or nylon) — about 110 cm wide × 150 cm (43 × 59 in)",
       "Lining fabric — the same amount",
       "Heavy fusible interfacing — for the body",
       "Webbing for the straps (about 4 cm / 1½ in wide) — the length you chose",
@@ -6283,7 +6283,7 @@ module.exports = {
     lead: "A small bag worn across the body. The zip keeps everything in, and worn on the back it stays out of the way while you walk. Good as a day bag or as a second bag when travelling. Nylon or canvas.",
     matNote: "standard size",
     materials: [
-      "Main fabric (nylon or canvas) — about 70 × 60 cm (28 × 24 in)",
+      "Main fabric (nylon or canvas) — about 70 × 140 cm (28 × 24 in)",
       "Lining fabric — the same amount",
       "Fusible interfacing — for the main fabric",
       "Webbing or a self-fabric strap — the length you chose",
@@ -6333,7 +6333,7 @@ module.exports = {
     lead: "An insert that stops everything in a large tote settling at the bottom. Stitch the divider vertically and pens, phone and keys each get a place. Change bags and you lift the whole thing across. It needs firm fabric or it collapses and defeats the point.",
     matNote: "standard size",
     materials: [
-      "Main fabric (canvas, oxford or quilted cotton) — about 110 cm wide × 60 cm (44 × 24 in)",
+      "Main fabric (canvas, oxford or quilted cotton) — about 110 cm wide × 60 cm (43 × 24 in)",
       "Divider fabric — about 50 × 40 cm (20 × 16 in)",
       "Heavy fusible interfacing — for the body",
       "Optional: webbing for the handles"
@@ -6384,7 +6384,7 @@ module.exports = {
     lead: "A long wallet that takes banknotes flat rather than folded. Body, card pockets and a coin section. Stitching the card pocket vertically decides how many slots you get, and interfacing is what keeps it looking like a wallet rather than a fabric envelope.",
     matNote: "standard size",
     materials: [
-      "Main fabric (faux leather, canvas or heavy cotton) — about 60 × 40 cm (24 × 16 in)",
+      "Main fabric (faux leather, canvas or heavy cotton) — about 60 × 50 cm (24 × 16 in)",
       "Lining fabric — the same amount",
       "Card pocket fabric — about 40 × 30 cm (16 × 12 in)",
       "Firm fusible interfacing — for the main fabric",
@@ -6788,7 +6788,7 @@ module.exports = {
     lead: "A roomy bag for a night or two away. The gusset is one continuous strip that forms the base and both sides, so there are only two seams joining it to the body panels. It looks like a complicated bag and is not.",
     matNote: "2 nights",
     materials: [
-      "Main fabric (8–11 oz canvas or nylon) — about 110 cm wide × 150 cm (44 × 59 in)",
+      "Main fabric (8–11 oz canvas or nylon) — about 110 cm wide × 150 cm (43 × 59 in)",
       "Lining fabric (sheeting or nylon) — the same amount",
       "Heavy fusible interfacing — for the body",
       "Webbing for the handles (about 4 cm / 1½ in wide) — the length you chose, × 2",
@@ -6897,7 +6897,7 @@ module.exports = {
     lead: "The flat tote that nurseries and schools ask for, usually with an exact size specified. Shop-bought ones rarely match, which is why so many people make one. The body is a single piece and you sew two side seams — it is a genuine first project.",
     matNote: "nursery standard (40 × 30)",
     materials: [
-      "Main fabric (quilted cotton, oxford or canvas) — about 110 cm wide × 70 cm (44 × 28 in)",
+      "Main fabric (quilted cotton, oxford or canvas) — about 110 cm wide × 70 cm (43 × 28 in)",
       "Lining fabric (sheeting or light cotton) — the same amount",
       "Webbing for the handles (2.5–3 cm / 1 in wide) — the length you chose, × 2",
       "Optional: an appliqué or name label"
@@ -6952,7 +6952,7 @@ module.exports = {
     lead: "A round bed with a stuffed rim to rest a head on. A base circle and one long strip that becomes the bolster. Fleece or boa fabric for winter; cotton for summer. Make it washable — that matters more than anything else here.",
     matNote: "cat / small dog",
     materials: [
-      "Main fabric (fleece, boa or quilted cotton) — about 110 cm wide × 100 cm (44 × 39 in)",
+      "Main fabric (fleece, boa or quilted cotton) — about 110 cm wide × 100 cm (43 × 39 in)",
       "Toy stuffing — 400–800 g (14–28 oz) depending on size",
       "Optional: non-slip fabric for the base"
     ],
@@ -7000,7 +7000,7 @@ module.exports = {
     lead: "A cape that covers the back, fastening with straps at the neck and belly. Because there are no legs to thread, even a dog that hates being dressed will tolerate it. Water-repellent or laminated fabric makes wet walks far less of an ordeal.",
     matNote: "medium dog",
     materials: [
-      "Main fabric (water-repellent fabric, laminate or nylon) — about 110 cm wide × 80 cm (44 × 31 in)",
+      "Main fabric (water-repellent fabric, laminate or nylon) — about 110 cm wide × 80 cm (43 × 31 in)",
       "Lining fabric (mesh or light cotton), if lining",
       "Hook-and-loop — 2.5 cm (1 in) wide × 30 cm (12 in)",
       "Optional: reflective tape for night walks"
@@ -7146,7 +7146,7 @@ module.exports = {
     lead: "A thin mat for a crate or a napping spot. Batting between two layers, with a grid of stitching so the filling stays put. Being thin, it washes and dries easily — which is why two of these beat one thick bed.",
     matNote: "medium dog",
     materials: [
-      "Main fabric (cotton, oxford or boa) — about 110 cm wide × 80 cm (44 × 31 in)",
+      "Main fabric (cotton, oxford or boa) — about 110 cm wide × 80 cm (43 × 31 in)",
       "Backing fabric (non-slip fabric works well) — the same amount",
       "Medium batting — the same amount",
       "Optional: bias tape if you bind the edges instead"
@@ -7245,7 +7245,7 @@ module.exports = {
     lead: "A crossbody sling for carrying a small dog or cat — for vet trips, or for the point on a walk where they refuse to go further. It leaves both hands free on stairs and trains. The animal's whole weight goes through these seams, so build it accordingly.",
     matNote: "small dog",
     materials: [
-      "Main fabric (8–11 oz canvas or denim — something strong) — about 110 cm wide × 100 cm (44 × 39 in)",
+      "Main fabric (8–11 oz canvas or denim — something strong) — about 110 cm wide × 120 cm (43 × 47 in)",
       "Lining fabric (mesh or light cotton) — the same amount",
       "Wide webbing or self-fabric for the shoulder strap — the length you chose",
       "A slider and swivel hook — 1–2 each",
@@ -7298,7 +7298,7 @@ module.exports = {
     lead: "A boxy carrier for a small dog or cat. The mesh top lets you see in and keeps the air moving, and a fabric carrier is often better tolerated than a hard plastic one. A stiff board in the base keeps it steady when you lift it.",
     matNote: "standard size",
     materials: [
-      "Main fabric (8–11 oz canvas or quilted cotton) — about 110 cm wide × 130 cm (44 × 51 in)",
+      "Main fabric (8–11 oz canvas or quilted cotton) — about 110 cm wide × 160 cm (43 × 63 in)",
       "Lining fabric (water-repellent or washable) — the same amount",
       "Mesh fabric — about 40 × 30 cm (16 × 12 in)",
       "Heavy fusible interfacing or batting — for the body",
@@ -7686,7 +7686,7 @@ module.exports = {
     lead: "An envelope-style cover for a Japanese floor cushion. There is no zipper — the two back pieces simply overlap, so a beginner cannot really get it wrong. Three pieces in total: one front and two backs. Enter the size of the cushion you actually own. Everything is a rectangle, so cutting directly is the quick route.",
     matNote: "one meisen-size cover",
     materials: [
-      "Main fabric (cotton, Japanese print or linen) — about 110 cm wide × 80 cm",
+      "Main fabric (cotton, Japanese print or linen) — about 110 cm wide × 160 cm",
       "Optional: decorative thread for the corner tufts",
     ],
     cut: [
@@ -8178,7 +8178,7 @@ module.exports = {
     lead: "A tote with a clear window on the front so you can display badges and plush charms. Swap the backing panel behind the window and the background color changes with your mood. Four pieces: body, gusset, handles and backing panel. Use heavyweight clear vinyl for the window.",
     matNote: "standard size, fits A4",
     materials: [
-      "Outer fabric (11 oz canvas or oxford cloth) — about 110 cm wide × 80 cm",
+      "Outer fabric (11 oz canvas or oxford cloth) — about 110 cm wide × 140 cm",
       "Lining fabric — the same amount",
       "Clear vinyl, around 0.3 mm thick — about 30 cm × 40 cm",
       "Heavyweight fusible interfacing — enough for the outer",
@@ -8334,7 +8334,7 @@ module.exports = {
     lead: "Three pieces: the wide blade, the narrow blade and the keeper loop. Cutting on the bias — 45 degrees to the grain — is the whole trick. It lets the knot pull up properly and lets creases fall out overnight. An interlining gives it the body of a bought tie. Tie widths move with fashion, so measure one you already like.",
     matNote: "one tie",
     materials: [
-      "Main fabric (silk, wool or a fine cotton) — about 110 cm wide × 50 cm (bias cutting needs extra)",
+      "Main fabric (silk, wool or a fine cotton) — about 110 cm wide × 100 cm (bias cutting needs extra)",
       "Tipping fabric for the back of the points — about 20 cm × 20 cm",
       "Necktie interlining — about 110 cm wide × 15 cm",
       "Hand-sewing thread for the slip stitch",
@@ -8385,7 +8385,7 @@ module.exports = {
     lead: "A circle of fabric for the base of a Christmas tree. It has a hole in the middle and one slit out to the edge, so it wraps around the trunk. Cut four quarter panels, sew three seams and leave the fourth open. Just covering the bare stand changes how the whole tree reads.",
     matNote: "for a 150 cm tree (110 cm diameter)",
     materials: [
-      "Outer fabric (cotton print, felt or velvet) — about 110 cm wide × 130 cm",
+      "Outer fabric (cotton print, felt or velvet) — about 110 cm wide × 240 cm",
       "Lining fabric — the same amount",
       "Wide bias tape for binding — about 400 cm",
       "Optional: hook-and-loop tape or snaps to close the slit — 3 sets",
@@ -8484,7 +8484,7 @@ module.exports = {
     lead: "A long narrow cloth for the middle of a table. Pointed ends give it the look of a bought one. Outer and lining sewn right sides together and turned — that is all. It uses far less fabric than a tablecloth and washes more easily. Having one designated spot for the flowers and the serving dishes also keeps the table from silting up.",
     matNote: "one runner for a table seating 6",
     materials: [
-      "Outer fabric (linen, cotton-linen or a cotton print) — about 110 cm wide × 60 cm",
+      "Outer fabric (linen, cotton-linen or a cotton print) — about 110 cm wide × 180 cm",
       "Lining fabric — the same amount",
       "Optional: lightweight fusible interfacing, if you want it to lie crisply",
     ],
@@ -8536,7 +8536,7 @@ module.exports = {
     cut: [
       "<strong>Choose the size</strong><br>About 120 cm wide seats two adults, about 140 cm seats four. Allow for where the bags go too — slightly larger is more comfortable.",
       "<strong>Check the cut sizes</strong><br>It is large, so rather than printing the pattern, mark the measurements from the guide sheet straight onto the fabric. For the rounded corners, trace round a plate or a bowl.",
-      "<strong>Cut the pieces</strong><br>Cut 1 outer and 1 backing. If the fabric is not wide enough, join two widths and offset the seam so it does not land in the middle.",
+      "<strong>Cut the pieces</strong><br>Cut 1 outer, 1 backing and 1 strap — the strap comes out of the leftover outer fabric. If the fabric is not wide enough, join two widths for the body and offset the seam so it does not land in the middle.",
       "<strong>Handling laminated fabric</strong><br>Pins leave permanent holes in laminated fabric. Use clips. It cannot be pressed either.",
     ],
     sew: [
@@ -8579,7 +8579,7 @@ module.exports = {
     lead: "A tube-shaped bag for a rolled yoga mat. One side piece, one round base and a shoulder strap. Make the top edge into a drawstring casing and it needs no flap and no fastening. It carries over the shoulder. Make it slightly roomier than a bought one and a sloppy roll still goes in.",
     matNote: "standard, for a 180 cm mat",
     materials: [
-      "Main fabric (11 oz canvas, oxford cloth or duck) — about 110 cm wide × 90 cm",
+      "Main fabric (11 oz canvas, oxford cloth or duck) — about 110 cm wide × 230 cm",
       "Cord (5 mm round cord) — about 100 cm",
       "Webbing, 2.5 cm wide, if you prefer it for the strap — as given on the guide sheet",
       "Eyelets, 1 cm — 2 sets, for the cord exits",
@@ -8732,7 +8732,7 @@ module.exports = {
     lead: "A cape for dressing up or for warmth. A rectangle gathered at the neck into a collar band, tied at the throat. Because it ties, it fits even when the size is not exact. Straight cutting only — no sleeves, no fitting. You can start it the night before Halloween and finish it.",
     matNote: "one cape, size 120",
     materials: [
-      "Main fabric (satin, felt, fleece or cotton) — about 110 cm wide × 80 cm",
+      "Main fabric (satin, felt, fleece or cotton) — about 110 cm wide × 160 cm",
       "Optional: lining fabric (a contrasting color looks convincing)",
       "Thread",
     ],

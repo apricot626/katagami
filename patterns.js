@@ -350,10 +350,10 @@ const PATTERNS={
     note:"背パネルと腹パネルを脇で縫う筒型タンク。前足ぐりは脇の内えぐり。体型差が大きいので、まず仮縫いしてワンちゃんに合わせて調整してください。",
     params:[
       {key:"chest",label:"胴回り",unit:"cm",min:24,max:90,step:1,val:48},
-      {key:"len",label:"背丈（背側）",unit:"cm",min:18,max:60,step:1,val:34},
+      {key:"len",label:"背丈（背側）",unit:"cm",min:14,max:60,step:1,val:34},
       {key:"bellylen",label:"腹側の丈",unit:"cm",min:10,max:45,step:1,val:24},
       {key:"neck",label:"首回り",unit:"cm",min:16,max:60,step:1,val:28},
-      {key:"legpos",label:"前足ぐり位置",unit:"cm",min:6,max:20,step:0.5,val:11},
+      {key:"legpos",label:"前足ぐり位置",unit:"cm",min:4,max:20,step:0.5,val:11},
       {key:"legw",label:"前足ぐり大きさ",unit:"cm",min:3,max:14,step:0.5,val:7},
       {key:"ease",label:"ゆとり（総量）",unit:"cm",min:0,max:16,step:1,val:6},
     ],
@@ -491,9 +491,9 @@ PATTERNS.bookcover={
   name:"ブックカバー",
   note:"本を包んで折り返すシンプルなカバー。上下をミシンで縫い、左右のフラップ（破線部分）を折り返して差し込むだけで固定できます。",
   params:[
-    {key:"bh",   label:"本の高さ",      unit:"cm",min:10,max:26,step:0.5,val:14.8},
-    {key:"bw",   label:"本の幅（片面）",unit:"cm",min:7, max:16,step:0.5,val:10.5},
-    {key:"thick",label:"本の厚み",       unit:"cm",min:0.5,max:5,step:0.5,val:1.5},
+    {key:"bh",   label:"本の高さ",      unit:"cm",min:10,max:26,step:0.1,val:14.8},
+    {key:"bw",   label:"本の幅（片面）",unit:"cm",min:7, max:16,step:0.1,val:10.5},
+    {key:"thick",label:"本の厚み",       unit:"cm",min:0.5,max:5,step:0.1,val:1.5},
     {key:"flap", label:"折り返し幅",     unit:"cm",min:3, max:8, step:0.5,val:4},
   ],
   presets:[
@@ -628,8 +628,8 @@ PATTERNS.apron={
     {key:"hip",   label:"裾幅",                unit:"cm",min:40,max:80,step:1,  val:58},
     {key:"len",   label:"エプロン丈",           unit:"cm",min:40,max:90,step:1,  val:70},
     {key:"waist", label:"腰ひも位置（上から）", unit:"cm",min:15,max:45,step:1,  val:28},
-    {key:"tieL",  label:"腰ひも長さ（片側）",  unit:"cm",min:50,max:120,step:5, val:65},
-    {key:"neckL", label:"衿ひも長さ",           unit:"cm",min:50,max:100,step:5, val:65},
+    {key:"tieL",  label:"腰ひも長さ（片側）",  unit:"cm",min:50,max:120,step:1, val:65},
+    {key:"neckL", label:"衿ひも長さ",           unit:"cm",min:50,max:100,step:1, val:65},
     {key:"tieW",  label:"ひも裁ち幅",           unit:"cm",min:4, max:10, step:0.5,val:6},
   ],
   presets:[
@@ -791,8 +791,8 @@ PATTERNS.pants={
   name:"キッズパンツ",
   note:"前後同じ型紙のゆったりシルエット。中心線同士を縫い合わせ、脇縫いして、ウエストを折り返してゴムを通します。右端が股ぐりカーブ（中心縫い側）。仮縫いで股ぐりを確認してください。",
   params:[
-    {key:"hip",    label:"ヒップ",             unit:"cm",min:50,max:130,step:1,  val:68},
-    {key:"rise",   label:"股上（ウエスト〜股ぐり）",unit:"cm",min:18,max:40,step:1,  val:24},
+    {key:"hip",    label:"ヒップ",             unit:"cm",min:44,max:130,step:1,  val:68},
+    {key:"rise",   label:"股上（ウエスト〜股ぐり）",unit:"cm",min:14,max:40,step:1,  val:24},
     {key:"inseam", label:"股下（股〜裾）",      unit:"cm",min:10,max:80,step:1,  val:30},
     {key:"ease",   label:"ゆとり（総量）",      unit:"cm",min:4, max:30,step:1,  val:10},
     {key:"crotchF",label:"股ぐり延長",          unit:"cm",min:1, max:6, step:0.5,val:2.5},
@@ -2123,7 +2123,7 @@ PATTERNS.fittedmask={
   params:[
     {key:"fw",  label:"顔幅",          unit:"cm",min:10,max:18,step:0.5,val:14},
     {key:"nh",  label:"鼻下〜顎丈",    unit:"cm",min:7, max:14,step:0.5,val:10},
-    {key:"nose",label:"鼻立体量",      unit:"cm",min:0.5,max:3,step:0.5,val:1.5},
+    {key:"nose",label:"鼻立体量",      unit:"cm",min:0.5,max:3,step:0.1,val:1.5},
     {key:"ease",label:"ゆとり（総量）",unit:"cm",min:0, max:4, step:0.5,val:2},
   ],
   presets:[
@@ -3324,7 +3324,7 @@ PATTERNS.eyemask={
   params:[
     {key:"width", label:"横幅",         unit:"cm",min:14,max:24, step:0.5,val:19},
     {key:"height",label:"縦（高さ）",   unit:"cm",min:7, max:12, step:0.5,val:9},
-    {key:"nose",  label:"鼻のくぼみ",   unit:"cm",min:0, max:3,  step:0.25,val:1.2},
+    {key:"nose",  label:"鼻のくぼみ",   unit:"cm",min:0, max:3,  step:0.1,val:1.2},
     {key:"elastic",label:"ゴム長さ",    unit:"cm",min:20,max:40, step:1,  val:28},
   ],
   presets:[
@@ -3645,8 +3645,8 @@ PATTERNS.overall={
   name:"サロペット",
   note:"胸当てと肩ひもの付いたつなぎパンツ。胸当て＋パンツ＋肩ひもの3パーツ。パンツは前後同じ型紙で、中心（股ぐり）同士を縫ってから脇と股下を縫います。デニムやリネンが向きます。",
   params:[
-    {key:"hip",    label:"ヒップ",             unit:"cm",min:74,max:130,step:1,  val:94},
-    {key:"rise",   label:"股上（ウエスト〜股ぐり）",unit:"cm",min:24,max:42,step:1,val:30},
+    {key:"hip",    label:"ヒップ",             unit:"cm",min:60,max:130,step:1,  val:94},
+    {key:"rise",   label:"股上（ウエスト〜股ぐり）",unit:"cm",min:20,max:42,step:1,val:30},
     {key:"inseam", label:"股下（股〜裾）",      unit:"cm",min:20,max:80, step:1,  val:62},
     {key:"bibw",   label:"胸当て幅",            unit:"cm",min:18,max:36, step:1,  val:26},
     {key:"bibh",   label:"胸当て丈",            unit:"cm",min:14,max:32, step:1,  val:22},
@@ -4613,7 +4613,7 @@ PATTERNS.sweatpants={
   name:"スウェットパンツ",
   note:"裾をリブで絞ったジョガータイプのパンツ。前後同じ型紙で、中心（股ぐり）同士を縫ってから脇と股下を縫います。ウエストはゴム＋ひも、裾はリブを輪にして付けます。裏毛やスウェット地で。",
   params:[
-    {key:"hip",    label:"ヒップ",             unit:"cm",min:74,max:130,step:1,  val:96},
+    {key:"hip",    label:"ヒップ",             unit:"cm",min:60,max:130,step:1,  val:96},
     {key:"rise",   label:"股上（ウエスト〜股ぐり）",unit:"cm",min:22,max:42,step:1,val:30},
     {key:"inseam", label:"股下（股〜裾）",      unit:"cm",min:40,max:85, step:1,  val:64},
     {key:"hemw",   label:"裾幅（リブ付け位置）",unit:"cm",min:14,max:32, step:0.5,val:20},
@@ -5346,8 +5346,8 @@ PATTERNS.yukata={
   name:"浴衣",
   note:"直線裁ちだけで作る和装。身頃2枚（肩で折り返す）＋袖2枚＋おくみ2枚＋衿1本。曲線がひとつもないので、和裁が初めてでも作れます。反物幅（約36cm）に合わせた寸法で計算します。綿や綿麻で。すべて長方形なので、型紙は印刷せず案内シートの寸法どおり布に直接線を引いて裁つのがおすすめです（着丈が長く印刷枚数が多くなるため）。",
   params:[
-    {key:"height", label:"身長",           unit:"cm",min:130,max:185,step:1,  val:160},
-    {key:"bust",   label:"バスト",         unit:"cm",min:75,max:120,step:1,  val:88},
+    {key:"height", label:"身長",           unit:"cm",min:100,max:185,step:1,  val:160},
+    {key:"bust",   label:"バスト",         unit:"cm",min:60,max:120,step:1,  val:88},
     {key:"width",  label:"身幅（片身）",   unit:"cm",min:26,max:40, step:0.5,val:33},
     {key:"sleevew",label:"袖幅",           unit:"cm",min:26,max:38, step:0.5,val:33},
     {key:"sleevel",label:"袖丈",           unit:"cm",min:35,max:60, step:1,  val:49},
@@ -5454,8 +5454,8 @@ PATTERNS.kappogi={
   name:"割烹着",
   note:"服の上からすっぽり着られる袖付きエプロン。前後身頃＋袖2枚＋ひも。背中で結ぶタイプで、袖口はゴムを通して汚れを防ぎます。台所仕事や掃除、園の給食当番にも。",
   params:[
-    {key:"bust",   label:"バスト",         unit:"cm",min:80,max:130,step:1,  val:100},
-    {key:"len",    label:"着丈",           unit:"cm",min:55,max:100,step:1,  val:80},
+    {key:"bust",   label:"バスト",         unit:"cm",min:60,max:130,step:1,  val:100},
+    {key:"len",    label:"着丈",           unit:"cm",min:45,max:100,step:1,  val:80},
     {key:"sleeve", label:"袖丈",           unit:"cm",min:25,max:55, step:1,  val:44},
     {key:"cuff",   label:"袖口（裁ち幅）", unit:"cm",min:14,max:30, step:0.5,val:20},
     {key:"neckw",  label:"衿ぐり幅",       unit:"cm",min:16,max:28, step:0.5,val:22},
@@ -5514,9 +5514,9 @@ PATTERNS.pajamas={
   name:"パジャマ（上衣）",
   note:"前開きのゆったりしたパジャマトップス。前身頃2枚＋後身頃1枚＋袖2枚＋衿。締めつけないシルエットで寝返りもらく。パンツは「スウェットパンツ」や「テーパードパンツ」と合わせてセットに。ダブルガーゼやネル生地で。",
   params:[
-    {key:"bust",    label:"バスト",         unit:"cm",min:80,max:130,step:1,  val:100},
-    {key:"len",     label:"着丈",           unit:"cm",min:55,max:80, step:1,  val:66},
-    {key:"shoulder",label:"肩幅",           unit:"cm",min:36,max:54, step:1,  val:44},
+    {key:"bust",    label:"バスト",         unit:"cm",min:60,max:130,step:1,  val:100},
+    {key:"len",     label:"着丈",           unit:"cm",min:40,max:80, step:1,  val:66},
+    {key:"shoulder",label:"肩幅",           unit:"cm",min:28,max:54, step:1,  val:44},
     {key:"sleeve",  label:"袖丈",           unit:"cm",min:14,max:62, step:1,  val:54},
     {key:"cuff",    label:"袖口（裁ち幅）", unit:"cm",min:14,max:32, step:0.5,val:22},
     {key:"neckw",   label:"衿ぐり幅",       unit:"cm",min:15,max:24, step:0.5,val:19},
@@ -5853,8 +5853,8 @@ PATTERNS.cardcase={
   name:"カードケース",
   note:"名刺やポイントカードを入れる小さな二つ折りケース。本体1枚＋内ポケット。表布・裏布を中表に縫って返し、中央で折るだけ。接着芯を貼るとしっかりします。ハギレでどうぞ。",
   params:[
-    {key:"cardw", label:"カードの幅",   unit:"cm",min:5, max:10, step:0.5,val:9},
-    {key:"cardh", label:"カードの高さ", unit:"cm",min:4, max:8,  step:0.5,val:5.5},
+    {key:"cardw", label:"カードの幅",   unit:"cm",min:5, max:10, step:0.1,val:9},
+    {key:"cardh", label:"カードの高さ", unit:"cm",min:4, max:8,  step:0.1,val:5.5},
     {key:"ease",  label:"ゆとり",       unit:"cm",min:0.5,max:2, step:0.5,val:1},
   ],
   presets:[
@@ -6078,7 +6078,7 @@ PATTERNS.wallet={
     {key:"w",     label:"仕上がり幅",     unit:"cm",min:16,max:22, step:0.5,val:19},
     {key:"h",     label:"仕上がり高さ",   unit:"cm",min:8, max:13, step:0.5,val:10},
     {key:"pockh", label:"カードポケット高さ",unit:"cm",min:4,max:9, step:0.5,val:6},
-    {key:"coinh", label:"小銭入れ高さ",   unit:"cm",min:5, max:11, step:0.5,val:8},
+    {key:"coinh", label:"小銭入れ高さ",   unit:"cm",min:0, max:11, step:0.5,val:8},
   ],
   presets:[
     {label:"標準",  vals:{w:19, h:10,  pockh:6, coinh:8}},
@@ -6778,7 +6778,7 @@ PATTERNS.bankbook={
   note:"通帳・カード・印鑑をまとめて入れる二つ折りケース。本体1枚＋内ポケット。ポケットを縦に縫い分けるとカード入れになります。ゴムバンドで留めると中身が落ちません。ハギレでも作れます。",
   params:[
     {key:"w",     label:"通帳の幅",     unit:"cm",min:8, max:16, step:0.5,val:13},
-    {key:"h",     label:"通帳の高さ",   unit:"cm",min:6, max:14, step:0.5,val:8.7},
+    {key:"h",     label:"通帳の高さ",   unit:"cm",min:6, max:16, step:0.1,val:8.7},
     {key:"count", label:"入れる冊数",   unit:"冊",min:1, max:6,  step:1,  val:3},
     {key:"pockh", label:"内ポケット高さ",unit:"cm",min:4, max:10, step:0.5,val:6},
   ],
@@ -6896,7 +6896,7 @@ PATTERNS.recordercase={
   name:"リコーダーケース",
   note:"小学校で使うソプラノリコーダーを入れる細長い袋。1枚を二つ折りにして脇を縫い、上をひもで絞るだけ。名前タグを付ければ取り違えもありません。鍵盤ハーモニカのホース入れにも使えます。",
   params:[
-    {key:"len",   label:"リコーダーの長さ",unit:"cm",min:24,max:42, step:0.5,val:33},
+    {key:"len",   label:"リコーダーの長さ",unit:"cm",min:24,max:50, step:0.5,val:33},
     {key:"w",     label:"袋の幅",         unit:"cm",min:5, max:12, step:0.5,val:7},
     {key:"casing",label:"ひも通し下がり", unit:"cm",min:2, max:6,  step:0.5,val:3.5},
   ],
@@ -7050,7 +7050,7 @@ PATTERNS.laptopcase={
   params:[
     {key:"pcw",   label:"PCの幅",     unit:"cm",min:22,max:42, step:0.5,val:32},
     {key:"pch",   label:"PCの奥行",   unit:"cm",min:16,max:30, step:0.5,val:22},
-    {key:"thick", label:"PCの厚み",   unit:"cm",min:0.5,max:4, step:0.5,val:2},
+    {key:"thick", label:"PCの厚み",   unit:"cm",min:0.5,max:4, step:0.1,val:2},
     {key:"ease",  label:"ゆとり",     unit:"cm",min:0.5,max:3, step:0.5,val:1.5},
     {key:"flap",  label:"フタの深さ", unit:"cm",min:0, max:12, step:0.5,val:7},
   ],
@@ -8065,7 +8065,7 @@ PATTERNS.kidscape={
   note:"仮装にも防寒にも使えるマント。裾まわりの長方形を衿ぐりでギャザーに寄せ、衿のバンドで受けます。首もとはひもで結ぶので、サイズが多少合わなくても着られます。ハロウィンや発表会に。",
   params:[
     {key:"len",   label:"着丈",         unit:"cm",min:40,max:100,step:1,  val:65},
-    {key:"hem",   label:"裾まわり",     unit:"cm",min:90,max:220,step:2,  val:140},
+    {key:"hem",   label:"裾まわり",     unit:"cm",min:90,max:220,step:1,  val:140},
     {key:"neck",  label:"首まわり",     unit:"cm",min:26,max:44, step:0.5,val:32},
     {key:"collar",label:"衿の高さ",     unit:"cm",min:2, max:8,  step:0.5,val:4},
     {key:"tie",   label:"結びひもの長さ",unit:"cm",min:25,max:70, step:1,  val:40},
