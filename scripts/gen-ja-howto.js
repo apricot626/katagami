@@ -157,7 +157,7 @@ ${crumbLd}
 
 <article class="article">
   <div class="article-head">
-    <nav class="crumb" aria-label="パンくずリスト"><a href="index.html">カタガミ</a><span class="sep">›</span><a href="howto.html">作り方ガイド</a><span class="sep">›</span><span class="cur">${esc(title)}</span></nav>
+    <nav class="crumb" aria-label="パンくずリスト"><a href="index.html">カタガミ</a><span class="sep" aria-hidden="true">›</span><a href="howto.html">作り方ガイド</a><span class="sep" aria-hidden="true">›</span><span class="cur">${esc(title)}</span></nav>
     <h1>${esc(title)}</h1>
     <p class="lead">
       ${g.lead}

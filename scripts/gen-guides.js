@@ -149,8 +149,8 @@ function render(g, c) {
   }) : "";
 
   const crumbHtml = `<nav class="crumb" aria-label="Breadcrumb"><a href="${c.crumbHome.href}">${esc(c.crumbHome.name)}</a>` +
-    (c.crumbMid ? `<span class="sep">›</span><a href="${c.crumbMid.href}">${esc(c.crumbMid.name)}</a>` : "") +
-    `<span class="sep">›</span><span class="cur">${esc(g.h1)}</span></nav>`;
+    (c.crumbMid ? `<span class="sep" aria-hidden="true">›</span><a href="${c.crumbMid.href}">${esc(c.crumbMid.name)}</a>` : "") +
+    `<span class="sep" aria-hidden="true">›</span><span class="cur">${esc(g.h1)}</span></nav>`;
 
   return `<!DOCTYPE html>
 <html lang="${c.lang}">

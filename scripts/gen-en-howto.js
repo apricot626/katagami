@@ -104,7 +104,7 @@ function render(key, g){
     ]
   });
   // visible breadcrumb (replaces the plain category label)
-  const crumbHtml = `<nav class="crumb" aria-label="Breadcrumb"><a href="index.html">Katagami</a><span class="sep">›</span><a href="howto.html">Sewing guides</a><span class="sep">›</span><span class="cur">${esc(g.title)}</span></nav>`;
+  const crumbHtml = `<nav class="crumb" aria-label="Breadcrumb"><a href="index.html">Katagami</a><span class="sep" aria-hidden="true">›</span><a href="howto.html">Sewing guides</a><span class="sep" aria-hidden="true">›</span><span class="cur">${esc(g.title)}</span></nav>`;
   // related guides: other English guides
   // 明示指定があればそれを、なければ同じカテゴリのガイドを、それでも足りなければ他から補う
   const sameTab = EN_KEYS.filter(k => k !== key && DATA[k].tab === g.tab);

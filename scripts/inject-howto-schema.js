@@ -84,7 +84,7 @@ function relatedHtml(key) {
       ]
     };
     html = html.replace("</head>", ld(howTo) + "\n" + ld(crumbs) + "\n</head>");
-    const crumbHtml = `<nav class="crumb" aria-label="パンくずリスト"><a href="index.html">カタガミ</a><span class="sep">›</span><a href="howto.html">作り方ガイド</a><span class="sep">›</span><span class="cur">${esc(data.name)}</span></nav>`;
+    const crumbHtml = `<nav class="crumb" aria-label="パンくずリスト"><a href="index.html">カタガミ</a><span class="sep" aria-hidden="true">›</span><a href="howto.html">作り方ガイド</a><span class="sep" aria-hidden="true">›</span><span class="cur">${esc(data.name)}</span></nav>`;
     html = html.replace('<p class="category">作り方ガイド</p>', crumbHtml);
     html = html.replace("</article>", relatedHtml(key) + "</article>");
     fs.writeFileSync(file, html);
