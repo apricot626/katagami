@@ -45,7 +45,7 @@
     small:"Accessories", bag:"Bags", pet:"Pets", home:"Home" };
 
   var NAME={
-    /* 2026-08 犬ベスト */ "dogvest":"Dog vest (belly fastening)",
+    /* 2026-08 犬ベスト */ "dogvest":"Dog vest (wrap style)",
     /* 2026-08 小物・バッグ・ペット・ホームの追加 */ "maskcover":"Mask cover", "casquette":"Casquette", "bandanacap":"Bandana cap", "hairribbon":"Hair ribbon", "hairclip":"Ribbon barrette", "haramaki":"Belly warmer", "brooch":"Fabric brooch", "pocketsquare":"Pocket square", "fabricbelt":"Fabric belt", "breadbag":"Bread bag", "potmat":"Trivet", "teatowel":"Tea towel", "coinpurse":"Coin purse", "bifoldwallet":"Bifold wallet", "gamaguchiwallet":"Gamaguchi wallet", "travelpouch":"Hanging travel pouch", "keyboardcover":"Keyboard cover", "phoneshoulder":"Phone shoulder bag", "tabletstand":"Tablet stand", "petbowtie":"Pet bow tie", "petscarf":"Pet scarf", "petseatcover":"Pet car seat cover", "petblanket":"Pet blanket", "pettent":"Pet tent", "tapestry":"Wall hanging", "shelfcurtain":"Shelf curtain", "doormat":"Doormat",
     /* 2026-08 子供服・大人服の追加 */ "kidsleggings":"Kids' leggings", "kidstunic":"Kids' tunic", "kidsponcho":"Kids' poncho", "kidsjacket":"Kids' jacket", "kidsraincoat":"Kids' raincoat", "kidsyukata":"Kids' yukata", "kidsapron":"Kids' apron", "jumpsuit":"Jumpsuit", "adultjinbei":"Jinbei top (adult)", "cafeapron":"Cafe apron",
     /* 2026-08 ベビーの追加 */ "fabricball":"Fabric ball", "clothbook":"Cloth book", "taghanky":"Taggie square", "otedama":"Otedama beanbag", "babypillow":"Doughnut baby pillow", "napmat":"Nap mat", "babyfuton":"Baby duvet cover", "diapercover":"Diaper cover", "nursingpillow":"Nursing pillow cover", "gauzehanky":"Gauze square", "babyleggings":"Baby leggings", "suckpad":"Carrier suck pads",
