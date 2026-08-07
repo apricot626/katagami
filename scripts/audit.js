@@ -647,15 +647,38 @@ for (const f of jaPages.filter(x => x.startsWith("howto-") && !redirects.has(x))
 }
 
 /* =========================================================
+   10. 一覧の副題（groups.js）
+   型紙を足したときにグループへ入れ忘れると、一覧の末尾の「その他」に
+   落ちて気づけません。取りこぼしと、存在しないキーの残骸を拾います。
+   ========================================================= */
+{
+  const GROUPS = require("../groups.js");
+  for (const mode of Object.keys(GROUPS)) {
+    const inMode = Object.keys(PATTERNS).filter(k => PATTERNS[k].mode === mode);
+    const listed = GROUPS[mode].flatMap(g => g.keys);
+    for (const k of inMode.filter(k => !listed.includes(k)))
+      add("group", "groups.js", `${mode}: ${k}（${PATTERNS[k].name}）がどのグループにも入っていません`);
+    for (const k of listed.filter((k, i) => listed.indexOf(k) !== i))
+      add("group", "groups.js", `${mode}: ${k} が複数のグループに入っています`);
+    for (const k of listed.filter(k => !PATTERNS[k]))
+      add("group", "groups.js", `${mode}: ${k} という型紙はありません`);
+    for (const k of listed.filter(k => PATTERNS[k] && PATTERNS[k].mode !== mode))
+      add("group", "groups.js", `${mode}: ${k} は ${PATTERNS[k].mode} の型紙です`);
+    for (const g of GROUPS[mode])
+      if (!g.ja || !g.en) add("group", "groups.js", `${mode}: 副題「${g.ja || g.en}」の和英どちらかがありません`);
+  }
+}
+
+/* =========================================================
    出力
    ========================================================= */
 const byKind = {};
 for (const f of findings) (byKind[f.kind] = byKind[f.kind] || []).push(f);
-const order = ["pattern", "html", "link", "seo", "sitemap", "jsonld", "ogp", "meta", "i18n", "affiliate"];
+const order = ["pattern", "html", "link", "seo", "sitemap", "jsonld", "ogp", "meta", "i18n", "affiliate", "group"];
 const LABEL = {
   pattern: "製図", html: "HTML", link: "リンク", seo: "canonical/hreflang",
   sitemap: "sitemap", jsonld: "構造化データ", ogp: "OGP", meta: "メタ情報",
-  i18n: "翻訳", affiliate: "アフィリエイト",
+  i18n: "翻訳", affiliate: "アフィリエイト", group: "一覧の副題",
 };
 console.log(`対象: 日本語 ${jaPages.length} ページ / 英語 ${enPages.length} ページ / 型紙 ${Object.keys(PATTERNS).length} 種\n`);
 for (const k of order) {

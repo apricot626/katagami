@@ -28,6 +28,7 @@ vm.runInContext(fs.readFileSync(path.join(ROOT, "i18n.js"), "utf8")
 const EN_NAME = i18nBox.__R.NAME;
 
 const JA = require("./ja-howto-data.js");
+const GROUPS = require("../groups.js");
 
 /* カテゴリの見出し。PATTERNS の mode と一覧の <h3> を対応させる。 */
 const CATS = [
@@ -59,8 +60,19 @@ for (const [file, lang] of [["index.html", "ja"], ["en/index.html", "en"]]) {
   for (const c of CATS) {
     const keys = Object.keys(PATTERNS).filter(k => PATTERNS[k].mode === c.mode);
     if (!keys.length) continue;
-    const body = keys.map(k =>
-      `          <li><a href="tool.html?p=${k}">${esc(lang === "en" ? (EN_NAME[k] || PATTERNS[k].name) : PATTERNS[k].name)}</a></li>\n`).join("");
+    /* 副題ごとに並べ直す。どのグループにも無いものは末尾の「その他」へ。 */
+    const groups = (GROUPS[c.mode] || []).map(g => ({
+      label: lang === "en" ? g.en : g.ja,
+      keys: g.keys.filter(k => keys.includes(k)),
+    })).filter(g => g.keys.length);
+    const grouped = new Set(groups.flatMap(g => g.keys));
+    const rest = keys.filter(k => !grouped.has(k));
+    if (rest.length) groups.push({ label: lang === "en" ? "Others" : "その他", keys: rest });
+    const li = k =>
+      `          <li><a href="tool.html?p=${k}">${esc(lang === "en" ? (EN_NAME[k] || PATTERNS[k].name) : PATTERNS[k].name)}</a></li>\n`;
+    const body = groups.map(g =>
+      `          <li class="pat-sub" role="presentation">${esc(g.label)}</li>\n` +
+      g.keys.map(li).join("")).join("");
     html = replaceList(html, lang === "en" ? c.en : c.ja, "pat-list", body, file);
     n += keys.length;
   }
