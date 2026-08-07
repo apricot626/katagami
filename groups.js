@@ -75,14 +75,13 @@
       { ja: "防寒・リラックス", en: "Warmth & rest",
         keys: ["scarf", "neckwarmer", "legwarmer", "haramaki", "eyemask"] },
       { ja: "ケース・カバー", en: "Cases & covers",
-        keys: ["tissuecase", "bookcover", "keycase", "glassescase", "boshitecho",
-               "cardcase", "bankbook", "uchiwacover", "bottleholder"] },
+        keys: ["tissuecase", "bookcover", "boshitecho", "cardcase", "bankbook"] },
       { ja: "アクセサリー", en: "Neckwear & accents",  /* 英語は大分類が Accessories なので重複を避ける */
         keys: ["bowtie", "necktie", "brooch", "pocketsquare", "fabricbelt"] },
       { ja: "キッチン・食卓", en: "Kitchen & table",
         keys: ["potholder", "placemat", "breadbag", "potmat", "teatowel"] },
-      { ja: "手芸・ぬいぐるみ", en: "Craft & soft toys",
-        keys: ["dollclothes", "nuiclothes", "teddy", "pincushion", "camerastrap"] },
+      { ja: "持ち歩きの小道具", en: "Everyday carry",
+        keys: ["pincushion", "camerastrap", "bottleholder", "keycase", "glassescase"] },
     ],
 
     bag: [
@@ -111,6 +110,17 @@
         keys: ["mannerbelt", "petpouch", "petsling", "petcarrier", "petseatcover"] },
       { ja: "くつろぐ", en: "Rest & play",
         keys: ["petbed", "petmat", "pettoy", "petblanket", "pettent"] },
+    ],
+
+    oshi: [
+      { ja: "ぬい服", en: "Plushie clothes",
+        keys: ["nuitee", "nuihoodie", "nuisailor", "nuikigurumi", "nuiclothes",
+               "nuipajama", "nuijinbei", "nuiskirt", "nuipants",
+               "nuiponcho", "nuicape"] },
+      { ja: "ぬいの持ちもの", en: "Plushie gear",
+        keys: ["nuihat", "nuibag", "nuisleep", "nuifuton", "dollclothes", "teddy"] },
+      { ja: "応援グッズ", en: "Fan goods",
+        keys: ["rosette", "canbadge", "ribbonkey", "tradingcard", "uchiwacover"] },
     ],
 
     home: [

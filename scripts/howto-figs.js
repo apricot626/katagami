@@ -195,7 +195,13 @@ const FIG_MAP = {
   keyboardcover:"gusset", phoneshoulder:"gusset", tabletstand:"gusset",
   petbowtie:"tube", petscarf:"mitsuori", petseatcover:"mitsuori", petblanket:"mitsuori",
   pettent:"bias", tapestry:"casing", shelfcurtain:"casing", doormat:"bias",
-  dogvest:"turnout"
+  dogvest:"turnout",
+  // 2026-08 推し活
+  nuitee:"mitsuori", nuihoodie:"bias", nuisailor:"gusset", nuikigurumi:"turnout",
+  nuipajama:"mitsuori", nuijinbei:"mitsuori", nuiskirt:"casing", nuipants:"casing",
+  nuiponcho:"bias", nuicape:"bias", nuihat:"gusset", nuibag:"gusset",
+  nuisleep:"turnout", nuifuton:"turnout", rosette:"gusset", canbadge:"turnout",
+  ribbonkey:"tube", tradingcard:"turnout"
 };
 
 /* returns the figure HTML for a pattern key, or "" if unmapped */

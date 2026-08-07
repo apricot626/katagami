@@ -25,7 +25,7 @@ function cardSub(g) {
 /* ---------- 1. en/howto.html のカード ---------- */
 const TAB_H = {
   human: "Adult clothes", kids: "Kids' clothes", baby: "Baby",
-  small: "Accessories", bag: "Bags", pet: "Pets", home: "Home",
+  small: "Accessories", bag: "Bags", pet: "Pets", home: "Home", oshi: "Fandom",
 };
 
 const p = path.join(ROOT, "en", "howto.html");
