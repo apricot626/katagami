@@ -19,6 +19,39 @@ const ld = obj => '<script type="application/ld+json">\n' + JSON.stringify(obj, 
    Geometric, with bilingual labels chosen by lang. Wrapped in <figure class="fig">. */
 const FIG_WRAP = (svg, cap) => `\n    <figure class="fig">\n${svg}\n      <figcaption>${cap}</figcaption>\n    </figure>`;
 const FIGS = {
+  trimways: (l) => FIG_WRAP(
+`      <svg viewBox="0 0 380 220" role="img" aria-label="${l === "ja" ? "レースの3つの付け方の断面" : "three ways to attach lace, in cross-section"}">
+        <text x="60" y="18" text-anchor="middle" font-size="11" font-weight="700" fill="#1B1D1A" font-family="sans-serif">${l === "ja" ? "はさむ" : "in the seam"}</text>
+        <rect x="18" y="34" width="84" height="9" fill="#d9d5c6" stroke="#1B1D1A" stroke-width="1.4"/>
+        <rect x="18" y="55" width="84" height="9" fill="#d9d5c6" stroke="#1B1D1A" stroke-width="1.4"/>
+        <path d="M18 47 h84" stroke="#C24033" stroke-width="2.6" stroke-dasharray="5 3"/>
+        <path d="M102 47 l16 -7 M102 47 l16 7 M102 47 l18 0" stroke="#C24033" stroke-width="1.8" fill="none"/>
+        <line x1="34" y1="30" x2="34" y2="68" stroke="#2E63B4" stroke-width="1.6"/>
+        <text x="34" y="86" text-anchor="middle" font-size="9" fill="#2E63B4" font-family="sans-serif">${l === "ja" ? "縫い目" : "seam"}</text>
+        <text x="60" y="106" text-anchor="middle" font-size="9" fill="#666" font-family="sans-serif">${l === "ja" ? "2枚のあいだに" : "between the layers"}</text>
+        <text x="190" y="18" text-anchor="middle" font-size="11" font-weight="700" fill="#1B1D1A" font-family="sans-serif">${l === "ja" ? "のせる" : "on top"}</text>
+        <rect x="148" y="44" width="84" height="10" fill="#d9d5c6" stroke="#1B1D1A" stroke-width="1.4"/>
+        <path d="M150 40 h80" stroke="#C24033" stroke-width="2.6"/>
+        <line x1="160" y1="36" x2="160" y2="44" stroke="#2E63B4" stroke-width="1.6"/>
+        <line x1="220" y1="36" x2="220" y2="44" stroke="#2E63B4" stroke-width="1.6"/>
+        <text x="190" y="86" text-anchor="middle" font-size="9" fill="#2E63B4" font-family="sans-serif">${l === "ja" ? "上下2本のステッチ" : "stitch both edges"}</text>
+        <text x="190" y="106" text-anchor="middle" font-size="9" fill="#666" font-family="sans-serif">${l === "ja" ? "布の上に置いて縫う" : "laid on the fabric"}</text>
+        <text x="318" y="18" text-anchor="middle" font-size="11" font-weight="700" fill="#1B1D1A" font-family="sans-serif">${l === "ja" ? "くるむ" : "bound"}</text>
+        <rect x="278" y="44" width="66" height="10" fill="#d9d5c6" stroke="#1B1D1A" stroke-width="1.4"/>
+        <path d="M344 40 q14 9 0 18 l-10 0 l0 -18 z" fill="none" stroke="#C24033" stroke-width="2.2"/>
+        <line x1="338" y1="36" x2="338" y2="58" stroke="#2E63B4" stroke-width="1.6"/>
+        <text x="318" y="86" text-anchor="middle" font-size="9" fill="#666" font-family="sans-serif">${l === "ja" ? "ふちを包んで縫う" : "wraps the raw edge"}</text>
+        <line x1="18" y1="130" x2="362" y2="130" stroke="#dedbcf" stroke-width="1"/>
+        <text x="18" y="150" font-size="10" font-weight="700" fill="#1B1D1A" font-family="sans-serif">${l === "ja" ? "必要な長さ" : "How much to buy"}</text>
+        <rect x="18" y="160" width="150" height="10" fill="none" stroke="#1B1D1A" stroke-width="1.2"/>
+        <text x="93" y="168" text-anchor="middle" font-size="8" fill="#1B1D1A" font-family="sans-serif">${l === "ja" ? "ふちの長さ ＋5cm" : "edge length + 5 cm"}</text>
+        <text x="176" y="168" font-size="9" fill="#666" font-family="sans-serif">${l === "ja" ? "平らに付ける" : "flat"}</text>
+        <rect x="18" y="184" width="225" height="10" fill="none" stroke="#C24033" stroke-width="1.2"/>
+        <text x="130" y="192" text-anchor="middle" font-size="8" fill="#C24033" font-family="sans-serif">${l === "ja" ? "ふちの長さ × 1.5" : "edge length x 1.5"}</text>
+        <text x="251" y="192" font-size="9" fill="#666" font-family="sans-serif">${l === "ja" ? "ギャザーを寄せる" : "gathered"}</text>
+      </svg>`,
+    l === "ja" ? "レースの付け方は3通り。必要な長さは、平らなら「ふち＋5cm」、ギャザーなら「ふち×1.5」。"
+              : "Three ways to attach lace. Buy the edge length plus 5 cm for flat trim, or 1.5x for gathered."),
   seamlines: (l) => FIG_WRAP(
 `      <svg viewBox="0 0 360 200" role="img" aria-label="${l === "ja" ? "出来上がり線と裁ち切り線" : "seam line and cutting line"}">
         <rect x="40" y="30" width="280" height="140" fill="none" stroke="#C24033" stroke-width="2.5"/>

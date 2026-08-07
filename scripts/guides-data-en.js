@@ -2,9 +2,9 @@
 module.exports = [
   {
     slug: "guide-print",
-    title: "How to print sewing patterns at actual size (100%, no scaling)",
+    title: "How to print sewing patterns at actual size (100%)",
     h1: "Printing patterns at actual size",
-    desc: "How to print PDF/home sewing patterns at true 100% size on Letter or A4. Turn off “Fit to page”, set scale to 100%, and check the calibration box. Fixes patterns that print too small.",
+    desc: "Print sewing patterns at true 100% size on Letter or A4: turn off “Fit to page”, set the scale to 100%, then check the calibration box before you cut.",
     keywords: "print sewing pattern,actual size,100%,no scaling,fit to page,letter,A4,pattern prints too small",
     lead: "The most common problem with home-printed patterns is “it printed the wrong size.” Almost always the cause is the printer's <strong>automatic shrink-to-fit</strong>. Here's how to print at true actual size and confirm it worked.",
     sections: [
@@ -57,13 +57,13 @@ module.exports = [
     slug: "guide-assembly",
     title: "How to assemble tiled A4 / Letter pattern sheets",
     h1: "Assembling tiled pattern sheets",
-    desc: "How to join home-printed pattern sheets into one piece: the order to lay them out (row/column codes), how to overlap the seam allowance, and tips for a straight, accurate join.",
+    desc: "How to join home-printed pattern sheets into one piece: laying them out by row and column code, overlapping the edges correctly, and keeping the join straight.",
     keywords: "assemble pattern,tiled pattern,join A4 sheets,letter,overlap,pattern assembly,print at home",
     lead: "A large pattern is printed across several sheets and joined into one. There are really only two things to get right: <strong>the order you lay the sheets out</strong> and <strong>how you overlap them</strong>.",
     sections: [
       { id: "order", h2: "1. Lay the sheets out (top-left, across, then down)",
         html: `<p>Each sheet has a <strong>row/column code</strong> in the corner (1A, 2A… / 1B, 2B…). Starting from <strong>1A at the top-left, go right, then to the next row</strong> to see the whole layout.</p>
-        <p>Katagami prints an <strong>assembly map</strong> (a mini diagram) on the first guide sheet, and each tile also shows its neighbours (“→ to 2A”, “↓ to 1B”). Lay everything out on a floor or table first.</p>` },
+        <p>Katagami prints an <strong>assembly map</strong> (a mini diagram) on the first guide sheet, and each tile also shows its neighbors (“→ to 2A”, “↓ to 1B”). Lay everything out on a floor or table first.</p>` },
       { id: "overlap", h2: "2. Overlap the join", fig: "tileoverlap",
         html: `<p>Adjacent sheets are made to <strong>overlap by about 10&nbsp;mm</strong>. When overlapping, line up the <strong>dashed content border and the grid lines</strong> exactly.</p>
         <ol class="steps">
@@ -101,7 +101,7 @@ module.exports = [
     slug: "guide-seam-allowance",
     title: "How much seam allowance? A by-area guide for beginners",
     h1: "How much seam allowance?",
-    desc: "Seam allowance basics and recommended amounts by area (sides, hems, armholes, curves). The difference between the seam line and cutting line, and how to add seam allowance.",
+    desc: "Seam allowance basics for beginners: how much to add at sides, hems, armholes and curves, and the difference between the seam line and the cutting line.",
     keywords: "seam allowance,how much,by area,seam line,cutting line,sewing basics,beginner",
     lead: "Seam allowance is the <strong>extra you add outside the finished (seam) line</strong> for sewing. The right amount varies by area. Here's a quick reference and tips for adding it cleanly.",
     sections: [
@@ -145,4 +145,73 @@ module.exports = [
       { href: "tool.html", label: "Open the pattern tool" }
     ]
   }
+,
+{
+  "slug": "guide-trim",
+  "title": "How to attach lace and trims | lengths and three methods",
+  "h1": "How to attach lace and trims",
+  "desc": "Where to put lace and ribbon on a pattern and how to attach it. Three methods, and how to work out the length you need (edge plus 5 cm flat, 1.5x gathered).",
+  "keywords": "lace,trim,ribbon,piping,how to attach,how much to buy,gathered,sewing",
+  "lead": "Once the pattern sews up cleanly, the next step is decoration. Where lace and ribbon go, and how they are attached, changes the whole result. There are only three ways to attach them. This page covers those, and how to work out the length you need. The Katagami tool prints the length of every edge in your pattern, so the arithmetic is done for you.",
+  "sections": [
+    {
+      "id": "three",
+      "h2": "1. There are only three ways",
+      "fig": "trimways",
+      "html": "<p>Reduced to essentials, lace and ribbon go on in one of three ways. Which you choose changes both the length you need and the order you sew in.</p>\n<ol class=\"steps\">\n<li><strong>In the seam</strong>: caught between two layers as they are sewn right sides together. The root of the trim hides in the seam allowance, which gives the cleanest finish. <strong>It has to be decided before you sew.</strong></li>\n<li><strong>On top</strong>: laid on finished fabric and stitched down along both edges. The advantage is that it can be added later, anywhere you like.</li>\n<li><strong>Bound</strong>: the raw edge is wrapped in bias tape or lace. This finishes the edge and decorates it in one pass.</li>\n</ol>\n<p>If you are unsure: <strong>catch it in the seam at hems and cuffs, lay it on top anywhere in the middle of a panel.</strong> That covers most cases.</p>"
+    },
+    {
+      "id": "length",
+      "h2": "2. Working out the length",
+      "html": "<p>How much you buy depends on the method.</p>\n<table class=\"g-table\">\n<thead><tr><th>Method</th><th>Length needed</th><th>Why</th></tr></thead>\n<tbody>\n<tr><td>Flat</td><td>edge length + 5 cm</td><td>for finishing the ends</td></tr>\n<tr><td>Gathered</td><td>edge length x 1.5</td><td>1.5x gives a natural ruffle</td></tr>\n<tr><td>Heavily gathered</td><td>edge length x 2</td><td>for a full, wavy frill</td></tr>\n<tr><td>Round a curve</td><td>edge length x 1.1</td><td>outward curves eat a little extra</td></tr>\n</tbody></table>\n<p><strong>The edge length means the finished line, not the cutting line.</strong> Generate a pattern in the Katagami tool and <strong>the trim estimate lists every edge with its length</strong>, already multiplied by the number of pieces.</p>\n<p>Having a little too much is far easier than being short — especially with gathering, where running out means starting again.</p>"
+    },
+    {
+      "id": "where",
+      "h2": "3. Which edges can take trim",
+      "html": "<p>Not every edge can.</p>\n<ul>\n<li><strong>Suitable</strong>: hems, cuffs, necklines, pocket openings, skirt seams — <strong>edges that end up on the outside</strong>.</li>\n<li><strong>Unsuitable</strong>: side seams, inseams, shoulders. These <strong>rub against the body</strong> or carry strain. Lace caught in them is pulled every time the garment is worn, and the threads give.</li>\n<li><strong>Never on a fold</strong>: the fold line on a pattern is a fold, not an edge. Nothing is cut there.</li>\n</ul>\n<p>For babies and small children, <strong>keep trim away from anything that goes in the mouth</strong>. Saliva loosens the stitching and fibers can be swallowed. Avoid the neckline of a bib and the surface of a toy.</p>"
+    },
+    {
+      "id": "corner",
+      "h2": "4. Corners and curves",
+      "html": "<p>Straight runs are easy. Corners and curves are where it goes wrong.</p>\n<h3>Corners</h3>\n<ol class=\"steps\">\n<li>Stop with the needle down just before the corner.</li>\n<li>Fold the trim at the corner so it turns towards the next edge (45 degrees to the stitching).</li>\n<li>Hold the fold and carry on.</li>\n</ol>\n<p>Pulling it round instead of folding leaves the corner standing away from the fabric. <strong>Always fold.</strong></p>\n<h3>Outward curves (hems)</h3>\n<p>Feed the trim with a <strong>slight pull</strong>. Without it, the inner edge has excess and ripples.</p>\n<h3>Inward curves (necklines)</h3>\n<p>The opposite: <strong>let it relax</strong>. Pulled tight, it drags and waves once turned.</p>\n<p>Basting first is the reliable answer for both. Pins alone shift as the fabric feeds.</p>"
+    },
+    {
+      "id": "kinds",
+      "h2": "5. Types of trim and where they suit",
+      "html": "<table class=\"g-table\">\n<thead><tr><th>Type</th><th>Suits</th><th>Watch for</th></tr></thead>\n<tbody>\n<tr><td>Cotton lace</td><td>hems, cuffs, necklines</td><td>shrinks; pre-wash it</td></tr>\n<tr><td>Tulle lace</td><td>skirt layers, veils</td><td>sheer, so stitching shows; use fine thread</td></tr>\n<tr><td>Satin ribbon</td><td>applied trim, waistbands</td><td>cut ends fray; seal them</td></tr>\n<tr><td>Grosgrain ribbon</td><td>handles, tabs</td><td>thick, so it makes a ridge if caught in a seam</td></tr>\n<tr><td>Corded piping</td><td>cushion and bag edges</td><td>a piping foot makes it far easier</td></tr>\n<tr><td>Bias binding</td><td>any bound edge</td><td>follows curves; almost too willing on straights</td></tr>\n<tr><td>Pom-pom trim</td><td>curtains, cushions</td><td>stitch close to the tape so no pom is caught</td></tr>\n</tbody></table>"
+    },
+    {
+      "id": "order",
+      "h2": "6. Get the order right",
+      "html": "<p>The commonest way trim goes wrong is <strong>the order it is added in</strong>.</p>\n<ul>\n<li><strong>Trim caught in a seam goes on before the sides are closed.</strong> Once it is a tube, your hands will not reach.</li>\n<li><strong>Applied trim is easier flat too.</strong> A closed tube may not fit round the machine arm.</li>\n<li><strong>Trim on a pocket goes on before the pocket does</strong>, or you will catch the garment.</li>\n</ul>\n<p>Following our how-to guides, <strong>add the trim before step 4-1</strong> and you will nearly always be in time.</p>"
+    }
+  ],
+  "faq": [
+    {
+      "q": "How much lace should I buy?",
+      "a": "For flat trim, the edge length plus 5 cm. For gathered trim, about 1.5 times the edge length. Generate the pattern in the Katagami tool and the trim estimate lists every edge with its length, already multiplied by the number of pieces."
+    },
+    {
+      "q": "Can I add lace afterwards?",
+      "a": "If you apply it on top, yes — lay it on the finished fabric and stitch both edges. Trim caught in a seam cannot be added later, because it sits inside the stitching."
+    },
+    {
+      "q": "My lace ripples. What went wrong?",
+      "a": "The feeding is probably reversed for the curve. Pull gently on outward curves such as a hem, and let it relax on inward curves such as a neckline. Basting before you stitch makes it reliable."
+    },
+    {
+      "q": "Is lace safe on baby items?",
+      "a": "Keep it away from anything that reaches the mouth. On a bib neckline or a toy surface, saliva loosens the stitching and fibers can be swallowed. Put it on hems and outer edges instead."
+    },
+    {
+      "q": "Only the lace shrank in the wash.",
+      "a": "Cotton lace shrinks. Pre-wash it exactly as you pre-wash the main fabric. Washing only the fabric and using the lace straight off the reel means the lace draws up and puckers the seam."
+    }
+  ],
+  "related": [
+    {"href":"guide-bias.html","label":"Using bias binding"},
+    {"href":"guide-seam-allowance.html","label":"How wide should the seam allowance be?"},
+    {"href":"tool.html","label":"Open the pattern tool"}
+  ]
+}
 ];

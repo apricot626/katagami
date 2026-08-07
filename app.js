@@ -612,12 +612,127 @@ const HOWTO={
   doormat:{url:"howto-doormat.html", label:"📄 玄関マットの作り方を見る"},
 };
 
+/* ---- 飾り（レース・リボン・パイピング）の目安 ----
+   出来上がり線の輪郭を「辺」に分けて、それぞれの長さを実寸で出す。
+   どのふちに何cm必要かが分かれば、買う量と付ける場所が決められる。
+
+   縫い代は含めません（飾りは出来上がり線に沿って付くため）。
+   「わ」の辺は折り山なので、飾りの対象から外します。 */
+function trimEdges(piece){
+  const P=piece.finished;
+  if(!P || P.length<3) return [];
+  const n=P.length;
+  const seg=[];
+  for(let i=0;i<n;i++){
+    const a=P[i], b=P[(i+1)%n];
+    const len=Math.hypot(b.x-a.x,b.y-a.y);
+    if(len<0.01) continue;
+    seg.push({a,b,len,dir:Math.atan2(b.y-a.y,b.x-a.x)});
+  }
+  if(!seg.length) return [];
+  // 向きが近い連続した線分をひとつの辺にまとめる。曲がりが積もればカーブ扱い。
+  const dAng=(x,y)=>{let d=x-y; while(d>Math.PI)d-=2*Math.PI; while(d<-Math.PI)d+=2*Math.PI; return d;};
+  const groups=[]; let cur=null;
+  for(const s of seg){
+    if(cur && Math.abs(dAng(s.dir,cur.lastDir))<0.22){          // 約12度まで同じ辺
+      cur.len+=s.len; cur.turn+=Math.abs(dAng(s.dir,cur.lastDir));
+      cur.lastDir=s.dir; cur.pts.push(s.b);
+    }else{
+      if(cur) groups.push(cur);
+      cur={len:s.len, turn:0, lastDir:s.dir, dir0:s.dir, pts:[s.a,s.b]};
+    }
+  }
+  if(cur) groups.push(cur);
+  // 輪の先頭と末尾がつながっているならまとめる
+  if(groups.length>1){
+    const f=groups[0], l=groups[groups.length-1];
+    if(Math.abs(dAng(f.dir0,l.lastDir))<0.22){
+      f.len+=l.len; f.turn+=l.turn; f.pts=l.pts.concat(f.pts); groups.pop();
+    }
+  }
+  const xs=P.map(q=>q.x), ys=P.map(q=>q.y);
+  const cx=(Math.min(...xs)+Math.max(...xs))/2, cy=(Math.min(...ys)+Math.max(...ys))/2;
+  const foldX=piece.foldX;
+  const out=[];
+  for(const g of groups){
+    if(g.len<20) continue;                                       // 2cm未満は飾りに使わない
+    const mid=g.pts[Math.floor(g.pts.length/2)];
+    const onFold=(foldX!==null&&foldX!==undefined)&&g.pts.every(q=>Math.abs(q.x-foldX)<0.6);
+    if(onFold) continue;                                         // 「わ」は折り山なので対象外
+    const curved=g.turn>0.5;                                      // 積算約30度以上でカーブ
+    const dx=Math.abs(Math.cos(g.dir0)), dy=Math.abs(Math.sin(g.dir0));
+    let pos;
+    if(curved) pos='curve';
+    else if(dx>=dy) pos=(mid.y<cy)?'top':'bottom';
+    else pos=(mid.x<cx)?'left':'right';
+    out.push({len:g.len/10, pos, curved});                        // cm
+  }
+  // 同じ位置の辺はまとめる（左右対称の脇など）
+  const merged={};
+  for(const e of out){
+    const k=e.pos;
+    if(!merged[k]) merged[k]={pos:k, len:0, count:0, curved:e.curved};
+    merged[k].len+=e.len; merged[k].count++;
+  }
+  return Object.values(merged).sort((a,b)=>b.len-a.len);
+}
+
+const TRIM_POS={top:'上端', bottom:'下端', left:'左端', right:'右端', curve:'カーブ'};
+const TRIM_POS_EN={top:'top edge', bottom:'bottom edge', left:'left edge', right:'right edge', curve:'curved edge'};
+
+/* 型紙全体の飾り目安。パーツごとの辺と、必要な長さの合計を返す。 */
+function trimSummary(pieces){
+  const rows=[]; let total=0;
+  for(const pc of pieces){
+    // 「前1枚・後1枚（計2枚）」のような書き方があるので、最初の数字ではなく最大を採る。
+    const nums=[...String(pc.cutInfo||'').matchAll(/(\d+)\s*[枚本]/g)].map(x=>+x[1]);
+    let cnt=nums.length?Math.max(...nums):1;
+    // 「わ」裁ちは開くと左右対称に倍になる。ふちの長さも倍で数える。
+    if(pc.foldX!==null && pc.foldX!==undefined) cnt*=2;
+    const edges=trimEdges(pc);
+    if(!edges.length) continue;
+    rows.push({title:pc.title, count:cnt, edges});
+    for(const e of edges) total+=e.len*cnt;
+  }
+  return {rows, total};
+}
+
+/* 飾りの目安をパネルに出す。どのふちに何cm要るかが分かれば、
+   レースやリボンを買う量と付ける場所が決められる。 */
+function buildTrim(pieces){
+  const box=el("trimBox"); if(!box) return;
+  const EN=KG.lang==='en';
+  const s=trimSummary(pieces);
+  if(!s.rows.length){ box.innerHTML=""; box.style.display="none"; return; }
+  box.style.display="";
+  const L=EN?TRIM_POS_EN:TRIM_POS;
+  const u=(cm)=>isInch()? (cm/2.54).toFixed(1)+' in' : Math.round(cm)+' cm';
+  const rows=s.rows.map(r=>{
+    const es=r.edges.map(e=>`<span class="trim-e">${L[e.pos]} <b>${u(e.len)}</b>${e.count>1?' ×'+e.count:''}</span>`).join('');
+    const per=r.edges.reduce((a,e)=>a+e.len,0);
+    const sub=EN? `${r.count} pc → ${u(per*r.count)}` : `${r.count}枚ぶん → ${u(per*r.count)}`;
+    return `<div class="trim-row"><div class="trim-t">${esc(r.title)} <span class="trim-sub">${sub}</span></div><div>${es}</div></div>`;
+  }).join('');
+  const head=EN?'Trim estimate (lace, ribbon, piping)':'飾りの目安（レース・リボン・パイピング）';
+  const note=EN
+    ? `Finished-line lengths, fold edges excluded. Seamed edges do not need trim, so buy for the edges you are actually decorating. Flat-applied trim: length + 5 cm. Gathered lace: about 1.5x.`
+    : `出来上がり線の長さです（「わ」は除く）。縫い合わせるふちには飾りが要らないので、実際に付けるふちの分だけ買ってください。平らに付けるなら「長さ＋5cm」、ギャザーを寄せるなら「約1.5倍」が目安です。`;
+  const all=EN?`All edges together`:`ぜんぶのふちに付けるなら`;
+  box.innerHTML=`<details class="trim"><summary>${head}</summary>`+
+    `<div class="trim-body">${rows}`+
+    `<div class="trim-total">${all} <b>${u(s.total)}</b>`+
+    ` ／ ${EN?'gathered':'ギャザーなら'} <b>${u(s.total*1.5)}</b></div>`+
+    `<p class="trim-note">${note}</p>`+
+    `<a class="trim-link" href="guide-trim.html">${EN?'How to attach lace and trims →':'レース・飾りの付け方を見る →'}</a>`+
+    `</div></details>`;
+}
 function render(){
   const {placed,canvasW,canvasH,memo}=layout();
   const def=PATTERNS[state.pat];
   const noteTxt=KG.note(state.pat,def.note);
   // memo は数値が埋め込まれるためフェーズ1では英語化せず、日本語版でのみ併記する
   el("patNote").textContent = (memo && KG.lang!=='en') ? `${noteTxt} ／ ${memo}` : noteTxt;
+  buildTrim(placed.map(x=>x.pc));
   // 作り方リンク（対応する記事がある型紙のときだけ表示）
   const howto=HOWTO[state.pat], hl=el("howtoLink");
   if(howto){
@@ -705,6 +820,16 @@ function buildPrintSheets(){
   addLine(`${EN?KG.ui.seamAllowance:"縫い代"}${sep}${isInch()?uDisp(state.sa).toFixed(1)+' in':state.sa.toFixed(1)+' cm'}`);
   addLine(EN?KG.ui.sheetsLine(cols,rows,cols*rows):`型紙シート：${cols}列 × ${rows}行 ＝ ${cols*rows} 枚`);
   if(memo && !EN) addLine(memo);
+  // 飾りの目安：買う量が決められるよう、外まわりの合計を一行だけ入れる
+  {
+    const ts=trimSummary(placed.map(x=>x.pc));
+    if(ts.total>0){
+      const uu=(v)=>isInch()? (v/2.54).toFixed(1)+' in' : Math.round(v)+' cm';
+      addLine(EN
+        ? `Trim (all edges)${sep}${uu(ts.total)}  (gathered ${uu(ts.total*1.5)})`
+        : `飾りの目安（全ふち）${sep}${uu(ts.total)}  ／ ギャザーなら ${uu(ts.total*1.5)}`);
+    }
+  }
   ty+=4;
 
   // 校正エリア：タテヨコ50mmボックス＋ 水平/垂直ルーラー（プリンタの縦横スケール誤差を検出）
