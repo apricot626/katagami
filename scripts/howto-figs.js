@@ -176,7 +176,9 @@ const FIG_MAP = {
   cutlerycase:"mitsuori", necktie:"turnout", treeskirt:"bias", fabricbasket:"gusset",
   // 2026-08 追加パターン3
   tablerunner:"turnout", picnicmat:"turnout", yogamatbag:"casing", pincushion:"turnout",
-  machinecover:"gusset", kidscape:"mitsuori", toiletcover:"casing", camerastrap:"tube"
+  machinecover:"gusset", kidscape:"mitsuori", toiletcover:"casing", camerastrap:"tube",
+  // 2026-08 上下セットのパンツ
+  samuepants:"casing", pajamapants:"casing"
 };
 
 /* returns the figure HTML for a pattern key, or "" if unmapped */

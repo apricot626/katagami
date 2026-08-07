@@ -8876,4 +8876,107 @@ module.exports = {
     ],
     related: ["nametag", "phonepouch", "keycase"],
   },
+  samuepants: {
+    title: "Samue pants", tab: "human", toolName: "Samue pants",
+    sizeStep: "Enter the hip, rise, inseam, leg opening, ease, crotch extension and waist casing depth. Presets cover S to XL.",
+    desc: "How to sew samue pants — elastic at the waist, drawstrings at the hems. Front and back use the same pattern piece, so you join the crotch curves and then sew the sides.",
+    keywords: "samue pants,japanese work pants,monpe,elastic waist,how to sew,sewing pattern",
+    lead: "The trousers that go with a samue. Elastic at the waist and a drawstring at each hem. Front and back use the same pattern piece: join the crotch curves, then sew the sides and the inseam. Made from the same fabric as the samue top they read as a set. Because the hems draw in, they stay out of the way while you work.",
+    matNote: "one pair, size M",
+    materials: [
+      "Main fabric (cotton, sashiko weave or denim) — about 110 cm wide × 210 cm (43 × 83 in)",
+      "Flat elastic, 2.5 cm wide — your waist measurement × 0.8, plus 5 cm",
+      "Cord for the hems (4 mm round cord) — 2 lengths of about 60 cm",
+      "A bodkin (or a safety pin)",
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side of the fabric and trace both the cutting line and the finished line. Line the grain up with the grainline on the pattern.",
+      "<strong>Cut the pieces</strong><br>Cut 2 fronts and 2 backs — 4 in all, from the same pattern piece. Cut 2 hem drawstrings.",
+      "<strong>Transfer the notches</strong><br>Mark the point where the crotch curve ends. That is where the side seam and the inseam divide.",
+      "<strong>Finish the edges</strong><br>Zigzag or overlock the seam allowances.",
+    ],
+    sew: [
+      { h: "4-1. Sew the crotch curves", items: [
+        "Place the two front pieces right sides together and sew the crotch curve.",
+        "Do the same with the two back pieces.",
+        "The curve stretches easily, so let the feed dogs take the fabric. Clipping the seam allowance every 1 cm stops it pulling when opened out.",
+      ]},
+      { h: "4-2. Sew the sides and the inseam", items: [
+        "Place front and back right sides together and sew both side seams.",
+        "Then sew the inseam in one run, from one hem right through to the other.",
+        "Backstitch over the crotch junction — that is where the strain lands.",
+      ]},
+      { h: "4-3. Thread the waist elastic", items: [
+        "Fold the waist over by 1 cm, then again by the casing depth.",
+        "Stitch close to the fold all the way round, leaving a 3 cm gap for threading.",
+        "Thread the elastic and overlap the ends by 2 cm and stitch. About 80% of your actual waist is the guide.",
+        "Close the gap.",
+      ]},
+      { h: "4-4. Make the hem casings", items: [
+        "Fold each drawstring in four and topstitch.",
+        "Fold the hem over by 1 cm, then again by 2 cm.",
+        "Make two openings near the inseam for the cord to come out. Work them as buttonholes or set eyelets so they do not tear.",
+        "Stitch close to the fold all the way round, thread the cord and knot the ends.",
+        "Finish the other leg the same way.",
+      ]},
+    ],
+    sewNote: "Always reinforce the openings where the hem cord comes out. That spot takes the pull every time you tighten the cord, and a raw cut edge tears within a few wearings. A buttonhole or an eyelet is the reliable answer — even overcasting it by hand lasts far longer than nothing.",
+    tips: [
+      "<strong>Make the set</strong>: in the same fabric as the samue top, the two read as a bought set. Choose the same size.",
+      "<strong>Monpe too</strong>: drawn-in hems are exactly how monpe work trousers are built, so they suit gardening or a summer festival.",
+      "<strong>Without the drawstring</strong>: make the leg opening wider and simply hem it, and you have ordinary loose trousers.",
+    ],
+    related: ["samue", "jinbeipants", "widepants"],
+  },
+
+  pajamapants: {
+    title: "Pajama pants", tab: "human", toolName: "Pajama pants",
+    sizeStep: "Enter the hip, rise, inseam, leg opening, ease, crotch extension and waist casing depth. Presets cover S, M, L and a shorts length.",
+    desc: "How to sew pajama pants with an elastic waist. Front and back use the same pattern piece: join the crotch curves, then sew the sides and the inseam.",
+    keywords: "pajama pants,pyjama bottoms,lounge pants,elastic waist,how to sew,sewing pattern",
+    lead: "Loose pajama pants with an elastic waist. Front and back use the same pattern piece: join the crotch curves, then sew the sides and the inseam. In the same fabric as the pajama top they read as a set. Choose something that feels good against skin — double gauze or jersey.",
+    matNote: "one pair, size M",
+    materials: [
+      "Main fabric (double gauze, jersey or linen) — about 110 cm wide × 220 cm (43 × 87 in)",
+      "Flat elastic, 2.5 cm wide — your waist measurement × 0.8, plus 5 cm",
+      "A bodkin (or a safety pin)",
+      "Optional: a decorative drawstring for the waist",
+    ],
+    cut: [
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side of the fabric and trace both the cutting line and the finished line.",
+      "<strong>Cut the pieces</strong><br>Cut 2 fronts and 2 backs — 4 in all, from the same pattern piece.",
+      "<strong>Transfer the notches</strong><br>Mark the point where the crotch curve ends. That is where the side seam and the inseam divide.",
+      "<strong>Finish the edges</strong><br>Zigzag or overlock. Double gauze frays quickly, so finish it as soon as it is cut.",
+    ],
+    sew: [
+      { h: "4-1. Sew the crotch curves", items: [
+        "Place the two front pieces right sides together and sew the crotch curve.",
+        "Do the same with the two back pieces.",
+        "Do not pull on the curve. Clipping the seam allowance every 1 cm stops it pulling when opened out.",
+      ]},
+      { h: "4-2. Sew the sides and the inseam", items: [
+        "Place front and back right sides together and sew both side seams.",
+        "Then sew the inseam in one run, from one hem right through to the other.",
+        "Backstitch over the crotch junction — it takes the strain every time you turn over in bed.",
+      ]},
+      { h: "4-3. Thread the waist elastic", items: [
+        "Fold the waist over by 1 cm, then again by the casing depth.",
+        "Stitch close to the fold all the way round, leaving a 3 cm gap for threading.",
+        "Thread the elastic, overlap the ends by 2 cm and stitch. About 80% of your actual waist is the guide.",
+        "Close the gap.",
+      ]},
+      { h: "4-4. Hem the legs", items: [
+        "Fold each hem by 1 cm, then again by 2 cm, and stitch all the way round.",
+        "Try them on first — if they are long, deepen the fold now.",
+        "Finish the other leg the same way.",
+      ]},
+    ],
+    sewNote: "Cut the elastic to about 80% of your actual waist. Pajamas are worn for hours, so anything tighter leaves a mark by morning; anything looser slides down while you sleep. Thread it, try them on, adjust, and only then stitch the ends.",
+    tips: [
+      "<strong>Make the set</strong>: in the same fabric as the pajama top the two match. Choose the same size.",
+      "<strong>Use wide elastic</strong>: 2.5 cm or wider does not dig in, and it stays put until morning.",
+      "<strong>Add a drawstring</strong>: two openings at the center front with a cord through them look like a bought pair. The elastic stays inside, so nothing gets tighter.",
+    ],
+    related: ["pajamas", "samuepants", "sweatpants"],
+  },
 };

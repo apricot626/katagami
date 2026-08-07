@@ -8173,10 +8173,98 @@ PATTERNS.camerastrap={
   }
 };
 
+/* ---- 作務衣（パンツ） ---- */
+PATTERNS.samuepants={
+  mode:"human",
+  name:"作務衣（パンツ）",
+  note:"作務衣の下。ウエストはゴム、裾はひもで絞る形です。前後同じ型紙で、股ぐり同士を縫ってから脇と股下を縫います。「作務衣（上衣）」と同じ生地で作るとセットになります。綿や刺子織で。",
+  params:[
+    {key:"hip",    label:"ヒップ",             unit:"cm",min:80,max:130,step:1,  val:96},
+    {key:"rise",   label:"股上（ウエスト〜股ぐり）",unit:"cm",min:24,max:42,step:1,val:30},
+    {key:"inseam", label:"股下（股〜裾）",     unit:"cm",min:45,max:80, step:1,  val:62},
+    {key:"cuff",   label:"裾まわり",           unit:"cm",min:24,max:48, step:1,  val:34},
+    {key:"ease",   label:"ゆとり（総量）",     unit:"cm",min:10,max:36, step:1,  val:20},
+    {key:"crotchF",label:"股ぐり延長",         unit:"cm",min:2, max:7,  step:0.5,val:4},
+    {key:"casing", label:"ウエスト折り返し",   unit:"cm",min:3, max:7,  step:0.5,val:4},
+  ],
+  presets:[
+    {label:"S",    vals:{hip:88, rise:28,inseam:58,cuff:32,ease:18,crotchF:4,casing:4}},
+    {label:"M",    vals:{hip:96, rise:30,inseam:62,cuff:34,ease:20,crotchF:4,casing:4}},
+    {label:"L",    vals:{hip:104,rise:32,inseam:65,cuff:36,ease:22,crotchF:4.5,casing:4}},
+    {label:"LL",   vals:{hip:112,rise:34,inseam:68,cuff:38,ease:24,crotchF:5,casing:4.5}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const HW=(cm(p.hip)+cm(p.ease))/4, CR=cm(p.rise), IL=cm(p.inseam);
+    const CAS=cm(p.casing), CF=cm(p.crotchF);
+    // 裾は半身幅より広げない。広げると裾が脇線を追い越して型紙が反り返る。
+    const CW=Math.min(cm(p.cuff)/2, HW+CF);
+    const H=CAS+CR+IL, hipX=HW+CF;
+    let fin=[{x:0,y:0},{x:HW,y:0},{x:HW,y:CAS}];
+    fin=fin.concat(quad({x:HW,y:CAS},{x:hipX,y:CAS},{x:hipX,y:CAS+CR},8));
+    fin.push({x:CW,y:H},{x:0,y:H});
+    const pc=pieceFrom(fin,()=>false,sa);
+    const TL=cm(60), TW=cm(3);
+    const tie=pieceFrom([{x:0,y:0},{x:TL,y:0},{x:TL,y:TW},{x:0,y:TW}],()=>false,sa);
+    return {pieces:[
+      {title:"前/後パンツ", cutInfo:"前後それぞれ2枚（左右）計4枚／中心線・股ぐり同士を縫う",
+       ...pc, foldX:null,
+       grain:{x1:HW*0.45,y1:CAS+CR/2,x2:HW*0.45,y2:H-16},
+       casingLines:[CAS], casingLabel:"ウエスト折り返し",
+       notches:[{x:hipX,y:CAS+CR}], labelAt:{x:HW*0.45,y:CAS+(CR+IL)*0.6}},
+      {title:"裾ひも", cutInfo:"2本（4つ折りにして縫う）／裾のひも通しに通す", ...tie, foldX:null,
+       grain:{x1:TL*0.2,y1:TW/2,x2:TL*0.8,y2:TW/2},
+       notches:[], labelAt:{x:TL*0.5,y:TW*0.5}}
+    ],
+    memo:`ウエストゴムの目安 ${Math.round(cm(p.hip)*0.82/10)}cm ／ 裾まわり ${p.cuff}cm ／ 「作務衣（上衣）」と同じサイズを選ぶとセットになります`};
+  }
+};
+
+/* ---- パジャマ（パンツ） ---- */
+PATTERNS.pajamapants={
+  mode:"human",
+  name:"パジャマ（パンツ）",
+  note:"ウエストゴムのゆったりしたパジャマパンツ。前後同じ型紙で、股ぐり同士を縫ってから脇と股下を縫います。「パジャマ（上衣）」と同じ生地で作るとセットに。ダブルガーゼや天竺など、肌に当たっても気にならない生地で。",
+  params:[
+    {key:"hip",    label:"ヒップ",             unit:"cm",min:80,max:130,step:1,  val:96},
+    {key:"rise",   label:"股上（ウエスト〜股ぐり）",unit:"cm",min:24,max:42,step:1,val:30},
+    {key:"inseam", label:"股下（股〜裾）",     unit:"cm",min:20,max:80, step:1,  val:64},
+    {key:"cuff",   label:"裾まわり",           unit:"cm",min:26,max:60, step:1,  val:44},
+    {key:"ease",   label:"ゆとり（総量）",     unit:"cm",min:10,max:36, step:1,  val:22},
+    {key:"crotchF",label:"股ぐり延長",         unit:"cm",min:2, max:7,  step:0.5,val:4},
+    {key:"casing", label:"ウエスト折り返し",   unit:"cm",min:3, max:7,  step:0.5,val:4},
+  ],
+  presets:[
+    {label:"S",        vals:{hip:88, rise:28,inseam:60,cuff:42,ease:20,crotchF:4,casing:4}},
+    {label:"M",        vals:{hip:96, rise:30,inseam:64,cuff:44,ease:22,crotchF:4,casing:4}},
+    {label:"L",        vals:{hip:104,rise:32,inseam:67,cuff:46,ease:24,crotchF:4.5,casing:4}},
+    {label:"ハーフ丈", vals:{hip:96, rise:30,inseam:28,cuff:52,ease:22,crotchF:4,casing:4}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const HW=(cm(p.hip)+cm(p.ease))/4, CR=cm(p.rise), IL=cm(p.inseam);
+    const CAS=cm(p.casing), CF=cm(p.crotchF);
+    const CW=Math.min(cm(p.cuff)/2, HW+CF);
+    const H=CAS+CR+IL, hipX=HW+CF;
+    let fin=[{x:0,y:0},{x:HW,y:0},{x:HW,y:CAS}];
+    fin=fin.concat(quad({x:HW,y:CAS},{x:hipX,y:CAS},{x:hipX,y:CAS+CR},8));
+    fin.push({x:CW,y:H},{x:0,y:H});
+    const pc=pieceFrom(fin,()=>false,sa);
+    return {pieces:[
+      {title:"前/後パンツ", cutInfo:"前後それぞれ2枚（左右）計4枚／中心線・股ぐり同士を縫う",
+       ...pc, foldX:null,
+       grain:{x1:HW*0.45,y1:CAS+CR/2,x2:HW*0.45,y2:H-16},
+       casingLines:[CAS], casingLabel:"ウエスト折り返し",
+       notches:[{x:hipX,y:CAS+CR}], labelAt:{x:HW*0.45,y:CAS+(CR+IL)*0.6}}
+    ],
+    memo:`ウエストゴムの目安 ${Math.round(cm(p.hip)*0.82/10)}cm ／ 裾まわり ${p.cuff}cm ／ 「パジャマ（上衣）」と同じサイズを選ぶとセットになります`};
+  }
+};
+
 /* ---- 人気順に表示順を整列 ---- */
 (function(){
   const ORDER=[
-    /* 大人服 */  'tee','apron','skirt','flareskirt','mermaid','sleevedress','adultgather','widepants','halfpants','tunic','camisole','blouse','onepiece','jacket','coat','tightskirt','pleatskirt','wrapskirt','tieredskirt','adultvest','cardigan','taperedpants','culotte','poncho','overall','dolman','hoodie','raglantee','sweatpants','shirtdress','shirt','yukata','samue','kappogi','pajamas','blouson', 'gown','nocollarjacket','cargopants','hanten',
+    /* 大人服 */  'tee','apron','skirt','flareskirt','mermaid','sleevedress','adultgather','widepants','halfpants','tunic','camisole','blouse','onepiece','jacket','coat','tightskirt','pleatskirt','wrapskirt','tieredskirt','adultvest','cardigan','taperedpants','culotte','poncho','overall','dolman','hoodie','raglantee','sweatpants','shirtdress','shirt','yukata','samue','samuepants','kappogi','pajamas','pajamapants','blouson', 'gown','nocollarjacket','cargopants','hanten',
     /* 子供服 */  'kidstee','kidsdress','smock','kidsvest','pants','kidshalf','gather','jinbei','kidsrompers','kidsraglan','jumperskirt','kidshoodie','kidstank','kidscoat','kidsbibapron','jinbeipants','kidsculotte', 'kidsshirt','kidscape',
     /* ベビー */  'bloomers','swaddle','bandanastai','stai','babyhat','legwarmer','sleeper','babyshoes','babymitten','babycape','babypants','babyblanket','babytoy','diaperpouch','wipescase','carriercover', 'nursingcape','strollerseat', 'coverall',
     /* 小物 */    'kinchaku','kincgusset','gymbag','shoesbag','movepocket','mask','fittedmask','bandana','placemat','shuushu','headband','tissuecase','bookcover','bowtie','potholder','eyemask','neckwarmer','maskcase','armcover','keycase','glassescase','sunhat','beret','hairturban','bottleholder','cap','boshitecho','cardcase','bousaizukin','dollclothes','teddy','scarf','nametag', 'pencase','bankbook','flaskcover','randocover','recordercase','nuiclothes', 'uchiwacover','cutlerycase','necktie','pincushion','camerastrap',
