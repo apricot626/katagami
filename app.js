@@ -139,13 +139,29 @@ function groupsOf(mode){
   if(rest.length) out.push({label:KG.group('その他','Others'), keys:rest});
   return out.length?out:[{label:'',keys}];
 }
+/* グループごとに折りたたむ。開いておくのは、いま選んでいる型紙が入っている
+   ひとつだけ。<details> を使うので、キーボードと読み上げは素のまま動きます。
+
+   型紙を選び直すと組み直すため、手で開いた他のグループは閉じます。
+   「選んでいるもの以外は閉じておく」ためで、意図した動きです。 */
 function buildTabs(){
   const wrap=el("patTabs"); wrap.innerHTML="";
-  groupsOf(state.mode).forEach(g=>{
+  const groups=groupsOf(state.mode);
+  groups.forEach(g=>{
+    const has=g.keys.includes(state.pat);
+    const box=document.createElement(g.label?"details":"div");
+    box.className="pat-group";
+    const grid=document.createElement("div"); grid.className="pat-grid";
     if(g.label){
-      const h=document.createElement("div");
-      h.className="pat-sub"; h.textContent=g.label; h.setAttribute("role","presentation");
-      wrap.appendChild(h);
+      box.open=has;                       // 選択中のグループだけ開く
+      const sm=document.createElement("summary");
+      sm.className="pat-sub";
+      sm.innerHTML=`<span class="lbl"></span><span class="n">${g.keys.length}</span>`;
+      sm.querySelector(".lbl").textContent=g.label;
+      box.appendChild(sm);
+      box.addEventListener("toggle",()=>{
+        if(box.open) ga('open_group',{group:g.label,mode:state.mode});
+      });
     }
     g.keys.forEach(k=>{
       const v=PATTERNS[k];
@@ -154,8 +170,10 @@ function buildTabs(){
       b.onclick=()=>{state.pat=k; initParams(); render(); buildFields(); buildTabs();
         ga('select_pattern',{pattern:k,pattern_name:v.name,mode:state.mode});
       };
-      wrap.appendChild(b);
+      grid.appendChild(b);
     });
+    box.appendChild(grid);
+    wrap.appendChild(box);
   });
 }
 function buildFields(){
@@ -416,7 +434,6 @@ const HOWTO={
   bandanastai:{url:"howto-bandanastai.html", label:"📄 バンダナスタイの作り方を見る"},
   stai:{url:"howto-stai.html", label:"📄 スタイの作り方を見る"},
   babyhat:{url:"howto-babyhat.html", label:"📄 ベビー帽子（チューリップハット）の作り方を見る"},
-  legwarmer:{url:"howto-legwarmer.html", label:"📄 レッグウォーマーの作り方を見る"},
   sleeper:{url:"howto-sleeper.html", label:"📄 スリーパーの作り方を見る"},
   babyshoes:{url:"howto-babyshoes.html", label:"📄 ベビーシューズの作り方を見る"},
   babymitten:{url:"howto-babymitten.html", label:"📄 ベビーミトンの作り方を見る"},
@@ -447,6 +464,7 @@ const HOWTO={
   potholder:{url:"howto-potholder.html", label:"📄 鍋つかみの作り方を見る"},
   eyemask:{url:"howto-eyemask.html", label:"📄 アイマスクの作り方を見る"},
   neckwarmer:{url:"howto-neckwarmer.html", label:"📄 ネックウォーマーの作り方を見る"},
+  legwarmer:{url:"howto-legwarmer.html", label:"📄 レッグウォーマーの作り方を見る"},
   maskcase:{url:"howto-maskcase.html", label:"📄 マスクケースの作り方を見る"},
   armcover:{url:"howto-armcover.html", label:"📄 アームカバーの作り方を見る"},
   keycase:{url:"howto-keycase.html", label:"📄 キーケースの作り方を見る"},
