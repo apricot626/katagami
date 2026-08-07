@@ -8263,12 +8263,442 @@ PATTERNS.pajamapants={
   }
 };
 
+/* ---- 布ボール（おもちゃ） ---- */
+PATTERNS.fabricball={
+  mode:"baby",
+  name:"布ボール",
+  note:"6枚のパネルを縫い合わせて作る布のボール。当たっても痛くないので、室内でも安心して転がせます。中に鈴を入れると音が鳴ります。返し口は最後にコの字とじで閉じてください。",
+  params:[
+    {key:"dia",  label:"できあがりの直径",unit:"cm",min:8, max:22, step:1,  val:14},
+    {key:"panel",label:"パネルの枚数",    unit:"枚",min:5, max:8,  step:1,  val:6},
+  ],
+  presets:[
+    {label:"小さめ（にぎり用）",vals:{dia:10,panel:6}},
+    {label:"標準",              vals:{dia:14,panel:6}},
+    {label:"大きめ",            vals:{dia:18,panel:6}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const D=cm(p.dia), N=p.panel;
+    // 球の外周の半分がパネルの丈。幅は赤道の周長を枚数で割る。
+    const H=Math.PI*D/2, W=Math.PI*D/N;
+    const fin=[]; const n=28;
+    for(let i=0;i<=n;i++){ const t=i/n; fin.push({x:W/2*Math.sin(Math.PI*t), y:H*t}); }
+    for(let i=n;i>=0;i--){ const t=i/n; fin.push({x:-W/2*Math.sin(Math.PI*t), y:H*t}); }
+    const sh=fin.map(q=>({x:q.x+W/2, y:q.y}));
+    const pc=pieceFrom(sh,()=>false,sa);
+    return {pieces:[{
+      title:"パネル", cutInfo:`${N}枚／となり合う辺を中表に縫い合わせる`,
+      ...pc, foldX:null,
+      grain:{x1:W/2,y1:H*0.25,x2:W/2,y2:H*0.75},
+      notches:[{x:W/2,y:H/2}], labelAt:{x:W/2,y:H/2}
+    }],
+    memo:`${N}枚を順に縫い、最後の1辺を7cmほど残して返し口にします ／ 綿は角までしっかり詰めると丸くなります`};
+  }
+};
+
+/* ---- 布絵本（おもちゃ） ---- */
+PATTERNS.clothbook={
+  mode:"baby",
+  name:"布絵本",
+  note:"やぶれない布の絵本。表布と裏布を中表に縫って返し、中心を縫うと本になります。ページにフェルトの果物やボタンを付ければ、遊びながら指先の練習に。角は丸く落としてあります。",
+  params:[
+    {key:"w",    label:"1ページの幅",unit:"cm",min:10,max:22, step:1,  val:15},
+    {key:"h",    label:"高さ",       unit:"cm",min:10,max:24, step:1,  val:16},
+    {key:"sheet",label:"シートの枚数",unit:"枚",min:2, max:5,  step:1,  val:3},
+    {key:"round",label:"角の丸み",   unit:"cm",min:0, max:4,  step:0.5,val:2},
+  ],
+  presets:[
+    {label:"小さめ",vals:{w:12,h:13,sheet:3,round:1.5}},
+    {label:"標準",  vals:{w:15,h:16,sheet:3,round:2}},
+    {label:"大きめ",vals:{w:18,h:19,sheet:4,round:2.5}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const W=cm(p.w)*2, H=cm(p.h), R=Math.min(cm(p.round),W/2-1,H/2-1);
+    let fin=[{x:R,y:0},{x:W-R,y:0}];
+    fin=fin.concat(quad({x:W-R,y:0},{x:W,y:0},{x:W,y:R},8));
+    fin.push({x:W,y:H-R});
+    fin=fin.concat(quad({x:W,y:H-R},{x:W,y:H},{x:W-R,y:H},8));
+    fin.push({x:R,y:H});
+    fin=fin.concat(quad({x:R,y:H},{x:0,y:H},{x:0,y:H-R},8));
+    fin.push({x:0,y:R});
+    fin=fin.concat(quad({x:0,y:R},{x:0,y:0},{x:R,y:0},8));
+    const pc=pieceFrom(fin,()=>false,sa);
+    return {pieces:[{
+      title:"ページシート", cutInfo:`${p.sheet*2}枚（${p.sheet}組）／2枚ずつ中表に縫って返し、中心で二つ折り`,
+      ...pc, foldX:null,
+      grain:{x1:W/2,y1:H*0.2,x2:W/2,y2:H*0.8},
+      casingLines:[], notches:[{x:W/2,y:0},{x:W/2,y:H}], labelAt:{x:W/2,y:H/2}
+    }],
+    memo:`できあがり ${p.w}×${p.h}cm の ${p.sheet*2}ページ ／ 中心の合印をそろえて重ね、まとめて縫うと背になります`};
+  }
+};
+
+/* ---- タグハンカチ（おもちゃ） ---- */
+PATTERNS.taghanky={
+  mode:"baby",
+  name:"タグハンカチ",
+  note:"周りにリボンのタグをはさんだ小さなハンカチ。赤ちゃんはタグを触るのが好きなので、これひとつでよく遊びます。2枚を中表に縫って返すだけ。タオル地とガーゼで作ると手触りが変わって楽しめます。",
+  params:[
+    {key:"size", label:"1辺の長さ",unit:"cm",min:14,max:30, step:1,  val:20},
+    {key:"round",label:"角の丸み", unit:"cm",min:0, max:5,  step:0.5,val:2.5},
+    {key:"tabs", label:"タグの数（1辺あたり）",unit:"個",min:1,max:4,step:1,val:2},
+  ],
+  presets:[
+    {label:"小さめ",vals:{size:16,round:2,tabs:2}},
+    {label:"標準",  vals:{size:20,round:2.5,tabs:2}},
+    {label:"大きめ",vals:{size:25,round:3,tabs:3}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const S=cm(p.size), R=Math.min(cm(p.round),S/2-1);
+    let fin=[{x:R,y:0},{x:S-R,y:0}];
+    fin=fin.concat(quad({x:S-R,y:0},{x:S,y:0},{x:S,y:R},8));
+    fin.push({x:S,y:S-R});
+    fin=fin.concat(quad({x:S,y:S-R},{x:S,y:S},{x:S-R,y:S},8));
+    fin.push({x:R,y:S});
+    fin=fin.concat(quad({x:R,y:S},{x:0,y:S},{x:0,y:S-R},8));
+    fin.push({x:0,y:R});
+    fin=fin.concat(quad({x:0,y:R},{x:0,y:0},{x:R,y:0},8));
+    const pc=pieceFrom(fin,()=>false,sa);
+    const nt=[];
+    for(let i=1;i<=p.tabs;i++){ const t=S*i/(p.tabs+1);
+      nt.push({x:t,y:0},{x:t,y:S},{x:0,y:t},{x:S,y:t}); }
+    return {pieces:[{
+      title:"ハンカチ", cutInfo:"2枚（表布・裏布）／合印にタグをはさんで中表に縫う",
+      ...pc, foldX:null,
+      grain:{x1:S/2,y1:S*0.2,x2:S/2,y2:S*0.8},
+      notches:nt, labelAt:{x:S/2,y:S/2}
+    }],
+    memo:`タグは合計 ${p.tabs*4} 本 ／ リボンは6cmに切って輪にし、外向きに合わせてはさみます`};
+  }
+};
+
+/* ---- お手玉（おもちゃ） ---- */
+PATTERNS.otedama={
+  mode:"baby",
+  name:"お手玉",
+  note:"座布団型のお手玉。長方形2枚を十字に組んで縫うと、あの形になります。中身はペレットか小豆を6分目まで。にぎる・投げる・音を聞く、と長く遊べます。縫い目は返し縫いで詰めてください。",
+  params:[
+    {key:"w",label:"布の短辺",unit:"cm",min:5, max:11, step:0.5,val:7},
+    {key:"l",label:"布の長辺",unit:"cm",min:12,max:26, step:1,  val:17},
+  ],
+  presets:[
+    {label:"小さめ",vals:{w:6,l:14}},
+    {label:"標準",  vals:{w:7,l:17}},
+    {label:"大きめ",vals:{w:8.5,l:20}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const W=cm(p.w), L=cm(p.l);
+    const fin=[{x:0,y:0},{x:W,y:0},{x:W,y:L},{x:0,y:L}];
+    const pc=pieceFrom(fin,()=>false,sa);
+    return {pieces:[{
+      title:"お手玉布", cutInfo:"2枚／十字に重ねて、突き合う辺どうしを縫う",
+      ...pc, foldX:null,
+      grain:{x1:W/2,y1:L*0.2,x2:W/2,y2:L*0.8},
+      notches:[{x:0,y:L/2},{x:W,y:L/2}], labelAt:{x:W/2,y:L/2}
+    }],
+    memo:`中身は約 ${Math.round(p.w*p.l*0.55)}g が目安（ペレットまたは小豆）／ 入れすぎると角が張るので6分目で`};
+  }
+};
+
+/* ---- ベビー枕（ドーナツ枕） ---- */
+PATTERNS.babypillow={
+  mode:"baby",
+  name:"ベビー枕（ドーナツ型）",
+  note:"まんなかがくぼんだドーナツ型のベビー枕。頭の一点に重さがかからないので、向きぐせが気になるときに。ドーナツ2枚を中表に縫い、外周の返し口から返して綿を入れます。洗い替えに2つあると安心です。",
+  params:[
+    {key:"outer",label:"外径",     unit:"cm",min:16,max:30, step:1,  val:22},
+    {key:"inner",label:"内径（穴）",unit:"cm",min:5, max:14, step:1,  val:8},
+  ],
+  presets:[
+    {label:"新生児",   vals:{outer:19,inner:7}},
+    {label:"標準",     vals:{outer:22,inner:8}},
+    {label:"大きめ",   vals:{outer:26,inner:10}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const RO=cm(p.outer)/2, RI=Math.min(cm(p.inner)/2, RO-cm(3));
+    const ring=(r,cx,cy)=>{const a=[];for(let i=0;i<48;i++){const t=i/48*Math.PI*2;
+      a.push({x:cx+r*Math.cos(t),y:cy+r*Math.sin(t)});}return a;};
+    const out=pieceFrom(ring(RO,RO,RO),()=>false,sa);
+    const inn=pieceFrom(ring(RI,RI,RI),()=>false,sa);
+    return {pieces:[
+      {title:"枕（外まわり）", cutInfo:"2枚／中表に合わせ、外周を返し口を残して縫う",
+       ...out, foldX:null, grain:{x1:RO,y1:RO*0.3,x2:RO,y2:RO*1.7},
+       notches:[{x:RO*2,y:RO}], labelAt:{x:RO,y:RO}},
+      {title:"中央の穴", cutInfo:"2枚に同じ位置で開ける／穴のまわりを先に縫ってから外周へ",
+       ...inn, foldX:null, grain:{x1:RI,y1:RI*0.4,x2:RI,y2:RI*1.6},
+       notches:[], labelAt:{x:RI,y:RI}}
+    ],
+    memo:`穴は枕の中央に配置します ／ 綿はやわらかめに、押すと沈むくらいで止めてください`};
+  }
+};
+
+/* ---- お昼寝マット ---- */
+PATTERNS.napmat={
+  mode:"baby",
+  name:"お昼寝マット",
+  note:"床にさっと敷ける薄手のマット。表布・キルト芯・裏布を重ねて周りをバイアスでくるむだけ。保育園のお昼寝用にも、リビングでの寝かせ置きにも。丸めてひもで留められます。",
+  params:[
+    {key:"w",    label:"幅",       unit:"cm",min:50,max:90, step:1,  val:70},
+    {key:"l",    label:"長さ",     unit:"cm",min:80,max:140,step:1,  val:120},
+    {key:"round",label:"角の丸み", unit:"cm",min:0, max:10, step:1,  val:5},
+  ],
+  presets:[
+    {label:"新生児",       vals:{w:60,l:90, round:4}},
+    {label:"標準",         vals:{w:70,l:120,round:5}},
+    {label:"保育園サイズ", vals:{w:78,l:128,round:6}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const W=cm(p.w), L=cm(p.l), R=Math.min(cm(p.round),W/2-1,L/2-1);
+    let fin=[{x:R,y:0},{x:W-R,y:0}];
+    fin=fin.concat(quad({x:W-R,y:0},{x:W,y:0},{x:W,y:R},8));
+    fin.push({x:W,y:L-R});
+    fin=fin.concat(quad({x:W,y:L-R},{x:W,y:L},{x:W-R,y:L},8));
+    fin.push({x:R,y:L});
+    fin=fin.concat(quad({x:R,y:L},{x:0,y:L},{x:0,y:L-R},8));
+    fin.push({x:0,y:R});
+    fin=fin.concat(quad({x:0,y:R},{x:0,y:0},{x:R,y:0},8));
+    const pc=pieceFrom(fin,()=>false,sa);
+    const TL=cm(50), TW=cm(3.5);
+    const tie=pieceFrom([{x:0,y:0},{x:TL,y:0},{x:TL,y:TW},{x:0,y:TW}],()=>false,sa);
+    return {pieces:[
+      {title:"マット本体", cutInfo:"表布1枚・裏布1枚・キルト芯1枚／3枚重ねて周りをバイアスでくるむ",
+       ...pc, foldX:null, grain:{x1:W/2,y1:L*0.15,x2:W/2,y2:L*0.85},
+       notches:[{x:0,y:L*0.25},{x:0,y:L*0.75}], labelAt:{x:W/2,y:L/2}},
+      {title:"留めひも", cutInfo:"1本（4つ折りにして縫う）／左端の合印に縫い付ける", ...tie, foldX:null,
+       grain:{x1:TL*0.2,y1:TW/2,x2:TL*0.8,y2:TW/2}, notches:[], labelAt:{x:TL/2,y:TW/2}}
+    ],
+    memo:`バイアステープは約 ${Math.round((2*(p.w+p.l))/10+30)/10*10}cm 必要です ／ 芯は薄手のドミット芯が扱いやすいです`};
+  }
+};
+
+/* ---- ベビー布団カバー ---- */
+PATTERNS.babyfuton={
+  mode:"baby",
+  name:"ベビー布団カバー",
+  note:"ベビー布団の掛けカバー。封筒型で、入れ口を折り返すだけなのでファスナーもボタンも要りません。お使いの布団の実寸に少しゆとりを足して作ります。ダブルガーゼで作ると軽くて乾きも早いです。",
+  params:[
+    {key:"w",   label:"布団の幅",   unit:"cm",min:60,max:110,step:1,val:90},
+    {key:"l",   label:"布団の長さ", unit:"cm",min:80,max:140,step:1,val:120},
+    {key:"ease",label:"ゆとり",     unit:"cm",min:0, max:6,  step:0.5,val:2},
+    {key:"flap",label:"入れ口の折り返し",unit:"cm",min:10,max:30,step:1,val:18},
+  ],
+  presets:[
+    {label:"ミニサイズ",   vals:{w:75, l:95, ease:2,flap:15}},
+    {label:"レギュラー",   vals:{w:90, l:120,ease:2,flap:18}},
+    {label:"大きめ",       vals:{w:100,l:130,ease:3,flap:20}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const W=cm(p.w)+cm(p.ease), L=cm(p.l)+cm(p.ease), F=cm(p.flap);
+    const front=pieceFrom([{x:0,y:0},{x:W,y:0},{x:W,y:L},{x:0,y:L}],()=>false,sa);
+    const back =pieceFrom([{x:0,y:0},{x:W,y:0},{x:W,y:L+F},{x:0,y:L+F}],()=>false,sa);
+    return {pieces:[
+      {title:"表面", cutInfo:"1枚", ...front, foldX:null,
+       grain:{x1:W/2,y1:L*0.2,x2:W/2,y2:L*0.8}, notches:[], labelAt:{x:W/2,y:L/2}},
+      {title:"裏面（折り返しつき）", cutInfo:`1枚／下端を${p.flap}cm内側に折り返して入れ口にする`,
+       ...back, foldX:null, grain:{x1:W/2,y1:L*0.2,x2:W/2,y2:L*0.8},
+       casingLines:[L], casingLabel:"折り返し位置", notches:[{x:0,y:L},{x:W,y:L}], labelAt:{x:W/2,y:L/2}}
+    ],
+    memo:`できあがり ${Math.round(p.w+p.ease)}×${Math.round(p.l+p.ease)}cm ／ 洗い替えに2枚あると安心です`};
+  }
+};
+
+/* ---- おむつカバー ---- */
+PATTERNS.diapercover={
+  mode:"baby",
+  name:"おむつカバー",
+  note:"布おむつの上からはくカバー。股上を深めにとって、脇はスナップで留めます。脚まわりと胴まわりにゴムを通すともれにくくなります。防水布で作ると外出にも使えます。",
+  params:[
+    {key:"waist", label:"胴まわり",   unit:"cm",min:36,max:56, step:1,  val:44},
+    {key:"rise",  label:"股上",       unit:"cm",min:14,max:26, step:1,  val:19},
+    {key:"crotch",label:"股ぐりの幅", unit:"cm",min:7, max:14, step:0.5,val:10},
+    {key:"ease",  label:"ゆとり（総量）",unit:"cm",min:4,max:14,step:1, val:8},
+  ],
+  presets:[
+    {label:"新生児",  vals:{waist:38,rise:16,crotch:8, ease:6}},
+    {label:"3〜6か月",vals:{waist:44,rise:19,crotch:10,ease:8}},
+    {label:"6〜12か月",vals:{waist:50,rise:22,crotch:11,ease:9}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const HW=(cm(p.waist)+cm(p.ease))/4, CR=cm(p.rise), CW=cm(p.crotch)/2;
+    let fin=[{x:0,y:0},{x:HW,y:0}];
+    fin=fin.concat(quad({x:HW,y:0},{x:HW,y:CR*0.72},{x:CW,y:CR},10));
+    fin.push({x:0,y:CR});
+    const pc=pieceFrom(fin,(a,b)=>Math.abs(a.x)<0.01&&Math.abs(b.x)<0.01,sa);
+    return {pieces:[{
+      title:"前/後カバー", cutInfo:"前後それぞれ「わ」で1枚ずつ／股下を縫い、脇はスナップ留め",
+      ...pc, foldX:0,
+      grain:{x1:HW*0.5,y1:CR*0.2,x2:HW*0.5,y2:CR*0.8},
+      casingLines:[cm(1.5)], casingLabel:"胴まわりのゴム通し",
+      notches:[{x:HW,y:CR*0.72}], labelAt:{x:HW*0.45,y:CR*0.5}
+    }],
+    memo:`胴のゴムは ${Math.round(p.waist*0.85)}cm、脚まわりは各 ${Math.round(p.crotch*1.6)}cm が目安 ／ 脇はスナップ2組`};
+  }
+};
+
+/* ---- 授乳クッションカバー ---- */
+PATTERNS.nursingpillow={
+  mode:"baby",
+  name:"授乳クッションカバー",
+  note:"三日月型の授乳クッションにかぶせるカバー。よごれるたびに洗えるよう、入れ口は封筒型にしてあります。手持ちのクッションの外径・内径・幅を測って入れてください。",
+  params:[
+    {key:"outer",label:"外径",   unit:"cm",min:40,max:70, step:1,  val:56},
+    {key:"inner",label:"内径",   unit:"cm",min:12,max:34, step:1,  val:22},
+    {key:"thick",label:"厚み",   unit:"cm",min:8, max:18, step:1,  val:12},
+    {key:"open", label:"開き角度",unit:"度",min:50,max:110,step:5,  val:80},
+  ],
+  presets:[
+    {label:"小さめ",vals:{outer:50,inner:18,thick:10,open:75}},
+    {label:"標準",  vals:{outer:56,inner:22,thick:12,open:80}},
+    {label:"大きめ",vals:{outer:64,inner:28,thick:14,open:90}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const RO=cm(p.outer)/2, RI=cm(p.inner)/2, T=cm(p.thick);
+    const a0=(p.open/2)*Math.PI/180, a1=Math.PI*2-a0;   // 開口部を残した三日月
+    const fin=[];
+    for(let i=0;i<=40;i++){const t=a0+(a1-a0)*i/40; fin.push({x:RO+RO*Math.cos(t),y:RO+RO*Math.sin(t)});}
+    for(let i=40;i>=0;i--){const t=a0+(a1-a0)*i/40; fin.push({x:RO+RI*Math.cos(t),y:RO+RI*Math.sin(t)});}
+    const pc=pieceFrom(fin,()=>false,sa);
+    const gl=pieceFrom([{x:0,y:0},{x:Math.PI*RO*1.2,y:0},{x:Math.PI*RO*1.2,y:T},{x:0,y:T}],()=>false,sa);
+    return {pieces:[
+      {title:"上面/下面", cutInfo:"2枚（上下）／まち布をはさんで縫い合わせる",
+       ...pc, foldX:null, grain:{x1:RO,y1:RO*0.35,x2:RO,y2:RO*1.65},
+       notches:[{x:RO+RO*Math.cos(a0),y:RO+RO*Math.sin(a0)}], labelAt:{x:RO,y:RO*0.35}},
+      {title:"まち布", cutInfo:`2本（外まわり用・内まわり用）／幅${p.thick}cm。長さは縫いながら合わせる`,
+       ...gl, foldX:null, grain:{x1:Math.PI*RO*0.2,y1:T/2,x2:Math.PI*RO,y2:T/2},
+       notches:[], labelAt:{x:Math.PI*RO*0.6,y:T/2}}
+    ],
+    memo:`まち布は少し長めに裁って、縫いながら余りを切ると失敗しません ／ 開口部は重ねの封筒型にします`};
+  }
+};
+
+/* ---- ガーゼハンカチ ---- */
+PATTERNS.gauzehanky={
+  mode:"baby",
+  name:"ガーゼハンカチ",
+  note:"沐浴にも、汗ふきにも、よだれふきにも使う定番。ダブルガーゼ2枚を中表に縫って返すだけなので、はぎれの消化にもぴったりです。何枚あっても困りません。角は丸くしてあります。",
+  params:[
+    {key:"w",    label:"幅",      unit:"cm",min:18,max:36, step:1,  val:25},
+    {key:"h",    label:"高さ",    unit:"cm",min:18,max:36, step:1,  val:25},
+    {key:"round",label:"角の丸み",unit:"cm",min:0, max:5,  step:0.5,val:2},
+  ],
+  presets:[
+    {label:"小（沐浴用）",vals:{w:20,h:20,round:1.5}},
+    {label:"標準",        vals:{w:25,h:25,round:2}},
+    {label:"大（body用）",vals:{w:32,h:32,round:3}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const W=cm(p.w), H=cm(p.h), R=Math.min(cm(p.round),W/2-1,H/2-1);
+    let fin=[{x:R,y:0},{x:W-R,y:0}];
+    fin=fin.concat(quad({x:W-R,y:0},{x:W,y:0},{x:W,y:R},8));
+    fin.push({x:W,y:H-R});
+    fin=fin.concat(quad({x:W,y:H-R},{x:W,y:H},{x:W-R,y:H},8));
+    fin.push({x:R,y:H});
+    fin=fin.concat(quad({x:R,y:H},{x:0,y:H},{x:0,y:H-R},8));
+    fin.push({x:0,y:R});
+    fin=fin.concat(quad({x:0,y:R},{x:0,y:0},{x:R,y:0},8));
+    const pc=pieceFrom(fin,()=>false,sa);
+    return {pieces:[{
+      title:"ハンカチ", cutInfo:"2枚／中表に縫い、返し口から返してぐるりとステッチ",
+      ...pc, foldX:null,
+      grain:{x1:W/2,y1:H*0.2,x2:W/2,y2:H*0.8},
+      notches:[{x:W*0.35,y:H},{x:W*0.65,y:H}], labelAt:{x:W/2,y:H/2}
+    }],
+    memo:`下辺の合印のあいだ（約${Math.round(p.w*0.3)}cm）を返し口に残します ／ 水通しをすると縮みが落ち着きます`};
+  }
+};
+
+/* ---- ベビーレギンス ---- */
+PATTERNS.babyleggings={
+  mode:"baby",
+  name:"ベビーレギンス",
+  note:"おむつの上からはける、細身のレギンス。前後同じ型紙で、股ぐり同士を縫ってから股下を縫います。おむつ分に股上を深くとってあります。ニット地で作ってください。",
+  params:[
+    {key:"hip",   label:"ヒップ",   unit:"cm",min:36,max:60, step:1,  val:46},
+    {key:"rise",  label:"股上",     unit:"cm",min:16,max:28, step:1,  val:21},
+    {key:"inseam",label:"股下",     unit:"cm",min:10,max:34, step:1,  val:20},
+    {key:"cuff",  label:"裾まわり", unit:"cm",min:10,max:22, step:1,  val:14},
+    {key:"ease",  label:"ゆとり（総量）",unit:"cm",min:0,max:10,step:1,val:4},
+    {key:"casing",label:"ウエスト折り返し",unit:"cm",min:2,max:4,step:0.5,val:2.5},
+  ],
+  presets:[
+    {label:"70cm", vals:{hip:44,rise:20,inseam:17,cuff:13,ease:4,casing:2.5}},
+    {label:"80cm", vals:{hip:47,rise:21,inseam:21,cuff:14,ease:4,casing:2.5}},
+    {label:"90cm", vals:{hip:50,rise:22,inseam:25,cuff:15,ease:4,casing:3}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const HW=(cm(p.hip)+cm(p.ease))/4, CR=cm(p.rise), IL=cm(p.inseam);
+    const CAS=cm(p.casing), CF=cm(2.5);
+    const CW=Math.min(cm(p.cuff)/2, HW+CF);
+    const H=CAS+CR+IL, hipX=HW+CF;
+    let fin=[{x:0,y:0},{x:HW,y:0},{x:HW,y:CAS}];
+    fin=fin.concat(quad({x:HW,y:CAS},{x:hipX,y:CAS},{x:hipX,y:CAS+CR},8));
+    fin.push({x:CW,y:H},{x:0,y:H});
+    const pc=pieceFrom(fin,()=>false,sa);
+    return {pieces:[{
+      title:"前/後レギンス", cutInfo:"前後それぞれ2枚（左右）計4枚／中心線・股ぐり同士を縫う",
+      ...pc, foldX:null,
+      grain:{x1:HW*0.45,y1:CAS+CR/2,x2:HW*0.45,y2:H-8},
+      casingLines:[CAS], casingLabel:"ウエスト折り返し",
+      notches:[{x:hipX,y:CAS+CR}], labelAt:{x:HW*0.45,y:CAS+(CR+IL)*0.6}
+    }],
+    memo:`ウエストゴムの目安 ${Math.round(p.hip*0.8)}cm ／ ニット用針とストレッチステッチで縫ってください`};
+  }
+};
+
+/* ---- 抱っこ紐よだれカバー ---- */
+PATTERNS.suckpad={
+  mode:"baby",
+  name:"抱っこ紐よだれカバー",
+  note:"抱っこ紐の肩ベルトに巻きつけて、よだれから守るカバー。スナップで留めるだけなので、洗いたいときにすぐ外せます。表はガーゼ、裏はタオル地にすると吸います。左右2枚で1組です。",
+  params:[
+    {key:"len",  label:"長さ",       unit:"cm",min:16,max:32, step:1,  val:22},
+    {key:"wrap", label:"ベルトを巻く幅",unit:"cm",min:14,max:26,step:1,val:19},
+    {key:"round",label:"角の丸み",   unit:"cm",min:0, max:4,  step:0.5,val:2},
+  ],
+  presets:[
+    {label:"細めのベルト",vals:{len:20,wrap:16,round:2}},
+    {label:"標準",        vals:{len:22,wrap:19,round:2}},
+    {label:"太めのベルト",vals:{len:26,wrap:23,round:2.5}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const L=cm(p.len), W=cm(p.wrap), R=Math.min(cm(p.round),W/2-1,L/2-1);
+    let fin=[{x:R,y:0},{x:W-R,y:0}];
+    fin=fin.concat(quad({x:W-R,y:0},{x:W,y:0},{x:W,y:R},8));
+    fin.push({x:W,y:L-R});
+    fin=fin.concat(quad({x:W,y:L-R},{x:W,y:L},{x:W-R,y:L},8));
+    fin.push({x:R,y:L});
+    fin=fin.concat(quad({x:R,y:L},{x:0,y:L},{x:0,y:L-R},8));
+    fin.push({x:0,y:R});
+    fin=fin.concat(quad({x:0,y:R},{x:0,y:0},{x:R,y:0},8));
+    const pc=pieceFrom(fin,()=>false,sa);
+    return {pieces:[{
+      title:"よだれカバー", cutInfo:"表布2枚・裏布2枚（左右で1組）／中表に縫って返す",
+      ...pc, foldX:null,
+      grain:{x1:W/2,y1:L*0.2,x2:W/2,y2:L*0.8},
+      notches:[{x:0,y:L*0.5},{x:W,y:L*0.5}], labelAt:{x:W/2,y:L/2}
+    }],
+    memo:`左右の合印にスナップを2組ずつ ／ 巻いてみて、ベルトが動かない位置で留め具を決めてください`};
+  }
+};
+
 /* ---- 人気順に表示順を整列 ---- */
 (function(){
   const ORDER=[
     /* 大人服 */  'tee','apron','skirt','flareskirt','mermaid','sleevedress','adultgather','widepants','halfpants','tunic','camisole','blouse','onepiece','jacket','coat','tightskirt','pleatskirt','wrapskirt','tieredskirt','adultvest','cardigan','taperedpants','culotte','poncho','overall','dolman','hoodie','raglantee','sweatpants','shirtdress','shirt','yukata','samue','samuepants','kappogi','pajamas','pajamapants','blouson', 'gown','nocollarjacket','cargopants','hanten',
     /* 子供服 */  'kidstee','kidsdress','smock','kidsvest','pants','kidshalf','gather','jinbei','kidsrompers','kidsraglan','jumperskirt','kidshoodie','kidstank','kidscoat','kidsbibapron','jinbeipants','kidsculotte', 'kidsshirt','kidscape',
-    /* ベビー */  'bloomers','swaddle','bandanastai','stai','babyhat','sleeper','babyshoes','babymitten','babycape','babypants','babyblanket','babytoy','diaperpouch','wipescase','carriercover', 'nursingcape','strollerseat', 'coverall',
+    /* ベビー */  'bloomers','swaddle','bandanastai','stai','babyhat','sleeper','babyshoes','babymitten','babycape','babypants','babyblanket','babytoy','fabricball','clothbook','taghanky','otedama','babypillow','napmat','babyfuton','diapercover','nursingpillow','gauzehanky','babyleggings','suckpad','diaperpouch','wipescase','carriercover', 'nursingcape','strollerseat', 'coverall',
     /* 小物 */    'kinchaku','kincgusset','gymbag','shoesbag','movepocket','mask','fittedmask','bandana','placemat','shuushu','headband','tissuecase','bookcover','bowtie','potholder','eyemask','neckwarmer','legwarmer','maskcase','armcover','keycase','glassescase','sunhat','beret','hairturban','bottleholder','cap','boshitecho','cardcase','bousaizukin','dollclothes','teddy','scarf','nametag', 'pencase','bankbook','flaskcover','randocover','recordercase','nuiclothes', 'uchiwacover','cutlerycase','necktie','pincushion','camerastrap',
     /* バッグ */  'tote','pouch','pouchgusset','gamaguchi','sacoche','azuma','panel','clutchbag','shoulderbag','ecobag','bucketbag','backpack','roundkinchaku','bodybag','baginbag','wallet','phonepouch','lunchbag', 'cosmepouch','passportcase','laptopcase','tabletcase','waistbag','bostonbag','gadgetpouch','ehonbag', 'itabag','yogamatbag',
     /* ペット */  'dog','dogsleeved','mannerbelt','petbandana','petsnood','catfuku','petvest','petbed','petcape','petcollar','pettoy','petmat','petpouch', 'petsling','petcarrier',

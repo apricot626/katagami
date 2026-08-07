@@ -178,7 +178,11 @@ const FIG_MAP = {
   tablerunner:"turnout", picnicmat:"turnout", yogamatbag:"casing", pincushion:"turnout",
   machinecover:"gusset", kidscape:"mitsuori", toiletcover:"casing", camerastrap:"tube",
   // 2026-08 上下セットのパンツ
-  samuepants:"casing", pajamapants:"casing"
+  samuepants:"casing", pajamapants:"casing",
+  // 2026-08 ベビーの追加
+  fabricball:"gusset", clothbook:"mitsuori", taghanky:"mitsuori", otedama:"gusset",
+  babypillow:"gusset", napmat:"mitsuori", babyfuton:"mitsuori", diapercover:"casing",
+  nursingpillow:"gusset", gauzehanky:"mitsuori", babyleggings:"casing", suckpad:"mitsuori"
 };
 
 /* returns the figure HTML for a pattern key, or "" if unmapped */

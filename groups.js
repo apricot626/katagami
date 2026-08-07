@@ -48,17 +48,17 @@
 
     baby: [
       { ja: "ウェア", en: "Clothing",
-        keys: ["coverall", "bloomers", "babypants", "sleeper"] },
+        keys: ["coverall", "bloomers", "babypants", "babyleggings", "sleeper"] },
       { ja: "寝る・くるむ", en: "Sleep & swaddle",
-        keys: ["swaddle", "babyblanket"] },
+        keys: ["swaddle", "babyblanket", "babypillow", "babyfuton", "napmat"] },
       { ja: "スタイ・身につける小物", en: "Bibs & small things",
         keys: ["stai", "bandanastai", "babyhat", "babymitten", "babyshoes"] },
       { ja: "おでかけ", en: "Out and about",
-        keys: ["babycape", "nursingcape", "carriercover", "strollerseat"] },
+        keys: ["babycape", "nursingcape", "carriercover", "suckpad", "strollerseat"] },
       { ja: "お世話", en: "Diaper changing",
-        keys: ["diaperpouch", "wipescase"] },
+        keys: ["diaperpouch", "wipescase", "diapercover", "nursingpillow", "gauzehanky"] },
       { ja: "おもちゃ", en: "Toys",
-        keys: ["babytoy"] },
+        keys: ["babytoy", "fabricball", "clothbook", "taghanky", "otedama"] },
     ],
 
     small: [
