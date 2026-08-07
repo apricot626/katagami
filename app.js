@@ -568,6 +568,7 @@ const HOWTO={
   petsnood:{url:"howto-petsnood.html", label:"📄 ペットスヌードの作り方を見る"},
   catfuku:{url:"howto-catfuku.html", label:"📄 猫服（タンクトップ）の作り方を見る"},
   petvest:{url:"howto-petvest.html", label:"📄 ペットベストの作り方を見る"},
+  dogvest:{url:"howto-dogvest.html", label:"📄 犬ベスト（腹側で留める）の作り方を見る"},
   petbed:{url:"howto-petbed.html", label:"📄 ペットベッドの作り方を見る"},
   petcape:{url:"howto-petcape.html", label:"📄 ペットレインコートの作り方を見る"},
   petcollar:{url:"howto-petcollar.html", label:"📄 首輪カバーの作り方を見る"},
