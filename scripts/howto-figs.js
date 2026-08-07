@@ -186,7 +186,15 @@ const FIG_MAP = {
   // 2026-08 子供服・大人服の追加
   kidsleggings:"casing", kidstunic:"bias", kidsponcho:"bias", kidsjacket:"bias",
   kidsraincoat:"mitsuori", kidsyukata:"mitsuori", kidsapron:"mitsuori",
-  jumpsuit:"casing", adultjinbei:"mitsuori", cafeapron:"mitsuori"
+  jumpsuit:"casing", adultjinbei:"mitsuori", cafeapron:"mitsuori",
+  // 2026-08 小物・バッグ・ペット・ホームの追加
+  maskcover:"mitsuori", casquette:"gusset", bandanacap:"mitsuori", hairribbon:"tube",
+  hairclip:"tube", haramaki:"knit", brooch:"gusset", pocketsquare:"mitsuori",
+  fabricbelt:"tube", breadbag:"casing", potmat:"bias", teatowel:"mitsuori",
+  coinpurse:"turnout", bifoldwallet:"mitsuori", gamaguchiwallet:"gusset", travelpouch:"mitsuori",
+  keyboardcover:"gusset", phoneshoulder:"gusset", tabletstand:"gusset",
+  petbowtie:"tube", petscarf:"mitsuori", petseatcover:"mitsuori", petblanket:"mitsuori",
+  pettent:"bias", tapestry:"casing", shelfcurtain:"casing", doormat:"bias"
 };
 
 /* returns the figure HTML for a pattern key, or "" if unmapped */
