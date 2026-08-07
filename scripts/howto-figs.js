@@ -194,7 +194,8 @@ const FIG_MAP = {
   coinpurse:"turnout", bifoldwallet:"mitsuori", gamaguchiwallet:"gusset", travelpouch:"mitsuori",
   keyboardcover:"gusset", phoneshoulder:"gusset", tabletstand:"gusset",
   petbowtie:"tube", petscarf:"mitsuori", petseatcover:"mitsuori", petblanket:"mitsuori",
-  pettent:"bias", tapestry:"casing", shelfcurtain:"casing", doormat:"bias"
+  pettent:"bias", tapestry:"casing", shelfcurtain:"casing", doormat:"bias",
+  dogvest:"turnout"
 };
 
 /* returns the figure HTML for a pattern key, or "" if unmapped */

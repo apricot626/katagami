@@ -10134,6 +10134,76 @@ PATTERNS.fabricbelt={
   }
 };
 
+/* ---- 犬ベスト（腹側で留める） ---- */
+PATTERNS.dogvest={
+  mode:"pet",
+  name:"犬ベスト（腹側で留める）",
+  note:"背中にのせて、首と胴の帯をお腹側で留めるベスト。頭からかぶせたり前足を通したりしないので、着せるのを嫌がる子でも一瞬で着せられます。前足は2本の帯のあいだを通ります。留めは面ファスナーかスナップ。",
+  params:[
+    {key:"chest",  label:"胴回り（前足のうしろ）",unit:"cm",min:24,max:90, step:1,  val:46},
+    {key:"neck",   label:"首回り",             unit:"cm",min:16,max:60, step:1,  val:30},
+    {key:"backLen",label:"背丈（首〜尾のつけね）",unit:"cm",min:16,max:70,step:1, val:34},
+    {key:"legGap", label:"前足を通すあき",      unit:"cm",min:4, max:16, step:0.5,val:7},
+    {key:"band",   label:"帯の幅",             unit:"cm",min:3, max:10, step:0.5,val:5},
+    {key:"overlap",label:"重なり（留め代）",    unit:"cm",min:3, max:12, step:0.5,val:6},
+    {key:"ease",   label:"ゆとり（総量）",      unit:"cm",min:0, max:14, step:1,  val:4},
+  ],
+  presets:[
+    {label:"超小型犬（チワワなど）",vals:{chest:32,neck:22,backLen:22,legGap:5,  band:3.5,overlap:4,ease:3}},
+    {label:"小型犬（トイプードルなど）",vals:{chest:40,neck:26,backLen:28,legGap:6,band:4,  overlap:5,ease:4}},
+    {label:"中型犬（柴犬など）",  vals:{chest:56,neck:36,backLen:42,legGap:8.5,band:6,  overlap:7,ease:5}},
+    {label:"大型犬",              vals:{chest:74,neck:46,backLen:56,legGap:11, band:7.5,overlap:9,ease:6}},
+  ],
+  toggles:[{key:"snap",label:"スナップで留める（外すと面ファスナー）",val:false}],
+  gen(p,sa){
+    const CH=cm(p.chest)+cm(p.ease), NK=cm(p.neck)+cm(p.ease)*0.6;
+    const BL=cm(p.backLen), GAP=cm(p.legGap), BW=cm(p.band);
+    // スナップは重ねが少なくて足りる。面ファスナーは貼り代が要るので広くとる。
+    const OV=p.snap? cm(p.overlap)*0.7 : cm(p.overlap);
+    const isFold=(a,b)=>Math.abs(a.x)<0.01&&Math.abs(b.x)<0.01;
+
+    /* 背パネル：中心を「わ」。首側は細く、胴で最も広く、尾に向けて絞る。
+       背にのせる分だけなので、胴回りの約1/3を半身幅の目安にする。 */
+    const wNeck=NK*0.30, wChest=CH*0.34, wTail=CH*0.22;
+    const yChest=BW+GAP+BW;                 // 胴ベルトの下端＝いちばん広いところ
+    let back=[{x:0,y:0},{x:wNeck,y:0}];
+    back=back.concat(quad({x:wNeck,y:0},{x:wChest,y:BW*0.9},{x:wChest,y:yChest},10));
+    back=back.concat(quad({x:wChest,y:yChest},{x:wChest*0.98,y:BL*0.78},{x:wTail,y:BL},12));
+    back.push({x:0,y:BL});
+    const bp=pieceFrom(back,isFold,sa);
+
+    /* 首ベルト・胴ベルト：背パネルの左右から出して、お腹側で重ねて留める。
+       長さは（まわり − 背パネルが受け持つ幅）＋ 重なり。 */
+    // ベルトは左右2本で残りの周を分担する。重なりも2本で分け合うので、
+    // 1本あたり (周 − 背パネルの受け持ち)/2 ＋ 重なり/2。合わせて指定どおり重なる。
+    const neckBandL=Math.max(cm(3), (NK-wNeck*2)/2)+OV/2;
+    const bodyBandL=Math.max(cm(3), (CH-wChest*2)/2)+OV/2;
+    const strip=(L,H)=>pieceFrom([{x:0,y:0},{x:L,y:0},{x:L,y:H},{x:0,y:H}],()=>false,sa);
+
+    const fastener=p.snap? "スナップ" : "面ファスナー";
+    return {pieces:[
+      {title:"背パネル", cutInfo:"背中心を「わ」／表布1枚・裏布1枚",
+       ...bp, foldX:0,
+       grain:{x1:wChest*0.5,y1:BW,x2:wChest*0.5,y2:BL-cm(2)},
+       casingLines:[BW,BW+GAP], casingLabel:"帯を付ける位置（このあいだが前足のあき）",
+       notches:[{x:wNeck,y:0},{x:wChest,y:BW},{x:wChest,y:BW+GAP}],
+       labelAt:{x:wChest*0.45,y:BL*0.6}},
+      {title:"首ベルト", cutInfo:`2枚（左右）／背パネルの首側に付け、お腹側で重ねて${fastener}で留める`,
+       ...strip(neckBandL,BW*2), foldX:null,
+       grain:{x1:neckBandL*0.2,y1:BW,x2:neckBandL*0.8,y2:BW},
+       casingLines:[BW], casingLabel:"折り位置",
+       notches:[{x:neckBandL-OV/2,y:0}], labelAt:{x:neckBandL*0.5,y:BW}},
+      {title:"胴ベルト", cutInfo:`2枚（左右）／背パネルの胴側に付け、お腹側で重ねて${fastener}で留める`,
+       ...strip(bodyBandL,BW*2), foldX:null,
+       grain:{x1:bodyBandL*0.2,y1:BW,x2:bodyBandL*0.8,y2:BW},
+       casingLines:[BW], casingLabel:"折り位置",
+       notches:[{x:bodyBandL-OV/2,y:0}], labelAt:{x:bodyBandL*0.5,y:BW}}
+    ],
+    memo:`${fastener}で留めます／重なり ${Math.round(OV/10*10)/10}cm ／ `+
+         `合印から先が重なる部分です。まず仮留めして、必ず実際に着せてから位置を決めてください`};
+  }
+};
+
 /* ---- 人気順に表示順を整列 ---- */
 (function(){
   const ORDER=[
@@ -10142,7 +10212,7 @@ PATTERNS.fabricbelt={
     /* ベビー */  'bloomers','swaddle','bandanastai','stai','babyhat','sleeper','babyshoes','babymitten','babycape','babypants','babyblanket','babytoy','fabricball','clothbook','taghanky','otedama','babypillow','napmat','babyfuton','diapercover','nursingpillow','gauzehanky','babyleggings','suckpad','diaperpouch','wipescase','carriercover', 'nursingcape','strollerseat', 'coverall',
     /* 小物 */    'kinchaku','kincgusset','gymbag','shoesbag','movepocket','mask','fittedmask','bandana','placemat','shuushu','headband','tissuecase','bookcover','bowtie','potholder','eyemask','neckwarmer','legwarmer','maskcase','armcover','keycase','glassescase','sunhat','beret','hairturban','bottleholder','cap','boshitecho','cardcase','bousaizukin','dollclothes','teddy','scarf','nametag', 'pencase','bankbook','flaskcover','randocover','recordercase','nuiclothes', 'uchiwacover','cutlerycase','necktie','pincushion','camerastrap','maskcover','casquette','bandanacap','hairribbon','hairclip','haramaki','brooch','pocketsquare','fabricbelt','breadbag','potmat','teatowel',
     /* バッグ */  'tote','pouch','pouchgusset','gamaguchi','sacoche','azuma','panel','clutchbag','shoulderbag','ecobag','bucketbag','backpack','roundkinchaku','bodybag','baginbag','wallet','phonepouch','lunchbag', 'cosmepouch','passportcase','laptopcase','tabletcase','waistbag','bostonbag','gadgetpouch','ehonbag', 'itabag','yogamatbag','coinpurse','bifoldwallet','gamaguchiwallet','travelpouch','keyboardcover','phoneshoulder','tabletstand',
-    /* ペット */  'dog','dogsleeved','mannerbelt','petbandana','petsnood','catfuku','petvest','petbed','petcape','petcollar','pettoy','petmat','petpouch', 'petsling','petcarrier','petbowtie','petscarf','petseatcover','petblanket','pettent',
+    /* ペット */  'dog','dogsleeved','mannerbelt','petbandana','petsnood','catfuku','petvest','dogvest','petbed','petcape','petcollar','pettoy','petmat','petpouch', 'petsling','petcarrier','petbowtie','petscarf','petseatcover','petblanket','pettent',
     /* ホーム */  'cushioncover','tablecloth','pillowcase','curtain','chairpad','wallpocket','laundrybag','chaircover','boxcover','slipper','zabuton','cafecurtain','coaster','ovenmitt', 'tissuebox','noren','remotepocket','neckpillow', 'teacosy','treeskirt','fabricbasket','tablerunner','picnicmat','machinecover','toiletcover','tapestry','shelfcurtain','doormat',
   ];
   const extras=Object.keys(PATTERNS).filter(k=>!ORDER.includes(k));
