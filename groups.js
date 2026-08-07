@@ -77,7 +77,7 @@
       { ja: "ケース・カバー", en: "Cases & covers",
         keys: ["tissuecase", "bookcover", "keycase", "glassescase", "boshitecho",
                "cardcase", "bankbook", "uchiwacover", "bottleholder"] },
-      { ja: "装う", en: "Neckwear",
+      { ja: "アクセサリー", en: "Neckwear",  /* 英語は大分類が Accessories なので重複を避ける */
         keys: ["bowtie", "necktie"] },
       { ja: "キッチン・食卓", en: "Kitchen & table",
         keys: ["potholder", "placemat"] },

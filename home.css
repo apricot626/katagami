@@ -131,10 +131,13 @@ a:hover{text-decoration:underline}
 
 /* ---- patterns section ---- */
 .pat-section{padding:40px 0;border-bottom:1px solid var(--rule-soft)}
-.cat-block{margin-bottom:24px}
+.cat-block{margin-bottom:34px}
+/* 大分類（大人服・ベビーなど）。小分類の副題と見分けがつくよう、
+   大きさ・濃さ・下線の3つで差をつける。副題は 11px の muted のまま。 */
 .cat-h{
-  font-size:12px;font-weight:700;letter-spacing:.14em;
-  color:var(--muted);margin-bottom:10px;
+  font-size:17px;font-weight:700;letter-spacing:.04em;
+  color:var(--ink);margin:0 0 12px;
+  padding-bottom:7px;border-bottom:2px solid var(--ink);
 }
 .pat-list{
   list-style:none;
