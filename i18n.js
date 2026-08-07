@@ -65,7 +65,7 @@
     coat:"Coat", kidstee:"Kids' T-shirt", kidsdress:"Kids' dress", smock:"Kids' smock",
     kidsvest:"Kids' vest", pants:"Kids' pants", kidshalf:"Kids' shorts", gather:"Kids' gathered skirt",
     bloomers:"Bloomers", swaddle:"Swaddle (hooded)", bandanastai:"Bandana bib", stai:"Baby bib",
-    babyhat:"Baby hat (tulip hat)", legwarmer:"Baby leg warmers", kinchaku:"Drawstring pouch",
+    babyhat:"Baby hat (tulip hat)", legwarmer:"Leg warmers", kinchaku:"Drawstring pouch",
     kincgusset:"Cup bag (gusseted)", gymbag:"Gym bag (drawstring backpack)", shoesbag:"Shoe bag",
     movepocket:"Clip-on pocket", mask:"Pleated mask", fittedmask:"Fitted mask",
     bandana:"Triangle headscarf", placemat:"Placemat", shuushu:"Scrunchie", headband:"Headband",
@@ -119,7 +119,7 @@
     bandanastai:"A cute triangular bandana-style bib. Sew the outer and lining right sides together, turn through the opening, and fasten the two neck points (the left/right corners of the top edge) with snaps.",
     stai:"The classic bib: layer the outer and lining, sew, and turn right side out through the opening. The neck curve is a guide; adjust to the actual neck size and fasten with a snap.",
     babyhat:"A tulip hat with a crown of 6 petals (gores) and a downward brim. Cut 6 petals; cut the brim on a double fold for one outer and one lining. Make it with separate outer and lining fabrics for a reversible hat.",
-    legwarmer:"Leg warmers you just sew into tubes. Fold the long edge right sides together to make a tube, then fold and hem the top and bottom. Knit fabric is comfortable without binding. Cut for two (left and right).",
+    legwarmer:"Leg warmers you just sew into tubes. Adult or baby — change the calf measurement and the length and the method is the same. Fold the long edge right sides together to make a tube, then fold and hem the top and bottom. Knit fabric is comfortable without binding. Cut for two (left and right).",
     kinchaku:"The simplest drawstring pouch: fold one piece of fabric at the base (bottom) into a loop and sew both sides. The dotted line near the top marks the drawstring casing (fold-over).",
     kincgusset:"A drawstring pouch with a triangular base gusset. Cut the base on the fold. After sewing the sides, pinch the base corners into triangles up to the notches (▽) to sew the gusset, then fold the triangles.",
     gymbag:"A drawstring-top bag. Cut as one piece with the base on the fold and sew both sides. Add loops at the bottom corners to thread the cord and carry it like a backpack.",
@@ -213,6 +213,7 @@
   };
 
   var PRESET={
+    /* 2026-08 レッグウォーマーを大人サイズまで拡張 */ "大人（ロング）":"Adult (long)", "大人（ショート）":"Adult (short)", "ベビー（0〜1歳）":"Baby (0-1y)", "ベビー（1〜2歳）":"Baby (1-2y)",
     /* 2026-08 追加パターン3 */ "140cm":"140 cm", "短め（斜め掛けしない）":"Short (worn on the neck)", "太幅（重い機材）":"Wide (heavy gear)", "標準（180cmマット）":"Standard (180 cm mat)", "厚手マット":"Thick mat", "トラベル用（短い）":"Travel (short mat)", "4人掛け":"Seats 4", "6人掛け":"Seats 6", "角なし":"No points", "2人用":"For 2", "4人用":"For 4", "ファミリー":"Family size", "家庭用（標準）":"Domestic (standard)", "大きめ・職業用":"Large / industrial", "細長いフタ":"Long narrow lid",
     /* 2026-08 追加パターン2 */ "50-60(新生児)":"50-60 (newborn)", "60-70(3-6M)":"60-70 (3-6M)", "70-80(6-12M)":"70-80 (6-12M)", "80-90(1-2歳)":"80-90 (1-2y)", "標準（レギュラー）":"Standard (regular)", "3点（箸・スプーン・フォーク）":"3 pieces (chopsticks, spoon, fork)", "4点セット":"4-piece set", "絵筆・編み針":"Paintbrushes / knitting needles", "標準（幅8cm）":"Standard (8 cm wide)", "ナロー（6cm）":"Narrow (6 cm)", "ワイド（9cm）":"Wide (9 cm)", "標準（A4）":"Standard (A4)", "2〜3人用":"2-3 cups", "4〜5人用":"4-5 cups", "小ぶり":"Small", "120cmツリー":"120 cm tree", "150cmツリー":"150 cm tree", "180cmツリー":"180 cm tree", "小（小物入れ）":"Small (odds and ends)", "大（おもちゃ）":"Large (toys)",
     /* 2026-08 追加パターン */ "ショート丈":"Short length", "ハーフ丈":"Half length", "レディース":"Women's", "メンズ":"Men's", "コンパクト":"Compact", "A型ベビーカー":"Full-recline stroller", "B型ベビーカー":"Lightweight buggy", "チャイルドシート":"Car seat", "通帳1〜2冊":"1–2 passbooks", "通帳3冊":"3 passbooks", "お薬手帳":"Medicine record book", "子供 480ml":"Child 480 ml", "標準 600ml":"Standard 600 ml", "大 1L":"Large 1 L", "透明カバー用":"For a clear cover", "ソプラノリコーダー":"Soprano recorder", "アルトリコーダー":"Alto recorder", "ホース入れ":"Melodica hose", "10cmぬい":"10cm plush", "20cmぬい":"20cm plush", "30cm人形":"30cm doll", "1人分":"For 1 person", "2人分":"For 2 people", "家族4人分":"For a family of 4", "13インチ":"13 inch", "14インチ":"14 inch", "16インチ":"16 inch", "8インチ":"8 inch", "10インチ":"10 inch", "12インチ":"12 inch", "ボディバッグ風":"Sling-bag style", "1泊":"1 night", "2泊":"2 nights", "スポーツ":"Sports", "園の標準（40×30）":"Nursery standard (40×30)", "小さめ（35×27）":"Small (35×27)", "大きめ（45×35）":"Large (45×35)", "猫・超小型犬":"Cat / toy dog", "小窓・棚":"Small window / shelf", "間仕切り":"Room divider", "細いひじ掛け":"Narrow sofa arm",
@@ -353,6 +354,7 @@
     lang:lang,
     ui:UI,
     mode:function(k,ja){ return (lang==='en'&&MODE[k])?MODE[k]:ja; },
+    group:function(ja,en){ return (lang==='en'&&en)?en:ja; },
     name:function(k,ja){ return (lang==='en'&&NAME[k])?NAME[k]:ja; },
     note:function(k,ja){ return (lang==='en'&&NOTE[k])?NOTE[k]:ja; },
     label:function(s){ return tr(LABEL,s); },

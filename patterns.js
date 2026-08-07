@@ -1500,18 +1500,20 @@ PATTERNS.bandanastai={
 
 /* ---- ベビー：レッグウォーマー ---- */
 PATTERNS.legwarmer={
-  mode:"baby",
-  name:"ベビーレッグウォーマー",
-  note:"筒状に縫うだけのレッグウォーマー。長辺を中表に縫って筒にし、上下を折り返してヘムします。ニット地なら締め付けず快適。左右2本分を裁ちます。",
+  mode:"small",
+  name:"レッグウォーマー",
+  note:"筒状に縫うだけのレッグウォーマー。長辺を中表に縫って筒にし、上下を折り返してヘムします。ニット地なら締め付けず快適。左右2本分を裁ちます。赤ちゃんから大人まで、足回りと丈を変えれば同じ作り方で作れます。",
   params:[
-    {key:"circ",label:"足回り（ふくらはぎ）",unit:"cm",min:12,max:24,step:1,val:16},
-    {key:"len", label:"丈",unit:"cm",min:12,max:30,step:1,val:20},
-    {key:"hem", label:"折り返し",unit:"cm",min:1.5,max:4,step:0.5,val:2.5},
+    {key:"circ",label:"足回り（ふくらはぎ）",unit:"cm",min:12,max:46,step:1,val:34},
+    {key:"len", label:"丈",unit:"cm",min:12,max:60,step:1,val:35},
+    {key:"hem", label:"折り返し",unit:"cm",min:1.5,max:6,step:0.5,val:3},
   ],
   presets:[
-    {label:"0〜1歳",vals:{circ:14,len:16,hem:2.5}},
-    {label:"1〜2歳",vals:{circ:16,len:20,hem:2.5}},
-    {label:"2〜3歳",vals:{circ:18,len:24,hem:3}},
+    {label:"大人（ロング）",vals:{circ:36,len:45,hem:3}},
+    {label:"大人（ショート）",vals:{circ:34,len:28,hem:3}},
+    {label:"子供",vals:{circ:24,len:28,hem:3}},
+    {label:"ベビー（0〜1歳）",vals:{circ:14,len:16,hem:2.5}},
+    {label:"ベビー（1〜2歳）",vals:{circ:16,len:20,hem:2.5}},
   ],
   toggles:[],
   gen(p,sa){

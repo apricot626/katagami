@@ -1981,9 +1981,9 @@ module.exports = {
   },
 
   legwarmer: {
-    title: "Baby leg warmers",
+    title: "Leg warmers",
     tab: "baby",
-    toolName: "Baby leg warmers",
+    toolName: "Leg warmers",
     sizeStep: "Enter the leg circumference and length. Knit fabric hugs without binding.",
     desc: "How to sew the easiest baby item: tube leg warmers. Sew into a tube and hem the ends. Makes diaper changes easy and keeps little legs warm.",
     keywords: "baby leg warmers,leg warmers,how to sew,sewing pattern,knit,easy,handmade",

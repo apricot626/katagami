@@ -126,16 +126,36 @@ function buildModes(){
     wrap.appendChild(b);
   });
 }
+/* 一覧を副題（groups.js）ごとに小分けにする。
+   1カテゴリに40種を超えるものがあり、平らに並べると目当てのものが探せません。
+   groups.js に載っていない型紙は末尾の「その他」に出るので、消えることはありません。 */
+function groupsOf(mode){
+  const keys=patsInMode(mode);
+  const defs=(typeof GROUPS!=='undefined' && GROUPS[mode]) ? GROUPS[mode] : [];
+  const out=defs.map(g=>({label:KG.group(g.ja,g.en), keys:g.keys.filter(k=>keys.includes(k))}))
+                .filter(g=>g.keys.length);
+  const seen=new Set(out.flatMap(g=>g.keys));
+  const rest=keys.filter(k=>!seen.has(k));
+  if(rest.length) out.push({label:KG.group('その他','Others'), keys:rest});
+  return out.length?out:[{label:'',keys}];
+}
 function buildTabs(){
   const wrap=el("patTabs"); wrap.innerHTML="";
-  patsInMode(state.mode).forEach(k=>{
-    const v=PATTERNS[k];
-    const b=document.createElement("button");
-    b.textContent=KG.name(k,v.name); b.setAttribute("aria-pressed", k===state.pat);
-    b.onclick=()=>{state.pat=k; initParams(); render(); buildFields(); buildTabs();
-      ga('select_pattern',{pattern:k,pattern_name:v.name,mode:state.mode});
-    };
-    wrap.appendChild(b);
+  groupsOf(state.mode).forEach(g=>{
+    if(g.label){
+      const h=document.createElement("div");
+      h.className="pat-sub"; h.textContent=g.label; h.setAttribute("role","presentation");
+      wrap.appendChild(h);
+    }
+    g.keys.forEach(k=>{
+      const v=PATTERNS[k];
+      const b=document.createElement("button");
+      b.textContent=KG.name(k,v.name); b.setAttribute("aria-pressed", k===state.pat);
+      b.onclick=()=>{state.pat=k; initParams(); render(); buildFields(); buildTabs();
+        ga('select_pattern',{pattern:k,pattern_name:v.name,mode:state.mode});
+      };
+      wrap.appendChild(b);
+    });
   });
 }
 function buildFields(){
@@ -396,7 +416,7 @@ const HOWTO={
   bandanastai:{url:"howto-bandanastai.html", label:"📄 バンダナスタイの作り方を見る"},
   stai:{url:"howto-stai.html", label:"📄 スタイの作り方を見る"},
   babyhat:{url:"howto-babyhat.html", label:"📄 ベビー帽子（チューリップハット）の作り方を見る"},
-  legwarmer:{url:"howto-legwarmer.html", label:"📄 ベビーレッグウォーマーの作り方を見る"},
+  legwarmer:{url:"howto-legwarmer.html", label:"📄 レッグウォーマーの作り方を見る"},
   sleeper:{url:"howto-sleeper.html", label:"📄 スリーパーの作り方を見る"},
   babyshoes:{url:"howto-babyshoes.html", label:"📄 ベビーシューズの作り方を見る"},
   babymitten:{url:"howto-babymitten.html", label:"📄 ベビーミトンの作り方を見る"},
