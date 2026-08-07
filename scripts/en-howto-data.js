@@ -11286,10 +11286,10 @@ module.exports = {
   },
   dogvest: {
     title:"Dog vest (belly fastening)", tab:"pet", toolName:"Dog vest (belly fastening)",
-    sizeStep:"Enter the chest, neck, back length, front-leg opening, neck band width, belly panel length, overlap and ease. Presets cover toy, small, medium and large dogs. Tick the snap option if you are using snaps — the overlap reduces to suit.",
+    sizeStep:"Enter the chest, neck, back length, chest panel length, armhole size, belly panel length, overlap and ease. Presets cover toy, small, medium and large dogs. Tick the snap option if you are using snaps — the overlap reduces to suit.",
     desc:"How to sew a dog vest that fastens under the belly. Nothing goes over the head and no legs are threaded, so it goes on in seconds.",
     keywords:"dog vest,dog coat,hook and loop,velcro,snaps,easy on,how to sew,sewing pattern",
-    lead:"A vest that lies over the back, with a neck band and a full-length belly panel that fasten underneath. Nothing goes over the head and no legs are threaded through, so even a dog that hates being dressed is done in seconds. Because the belly panel runs the length of the torso, it does not ride up. The front legs pass through the gap between the neck band and the belly panel. Hook-and-loop or snaps.",
+    lead:"A vest built as chest panel, armhole, belly panel. <strong>The chest panel closes in front of the front leg and the belly panel behind it, and the space between them is the armhole.</strong> Both simply fasten under the body, so nothing goes over the head and no leg has to be lifted through. Hook-and-loop or snaps.",
     matNote:"one vest, medium dog",
     materials:[
       "Outer (cotton, quilted cotton or fleece) — about 110 cm wide × 60 cm (43 × 24 in)",
@@ -11301,12 +11301,12 @@ module.exports = {
     cut:[
       "<strong>Measure first</strong><br>Chest (the widest point behind the front legs), neck, and back length (base of neck to base of tail). <strong>Measure standing, with two fingers' slack under the tape.</strong>",
       "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines. The back panel's center line is the fold.",
-      "<strong>Cut the pieces</strong><br>Back panel on the fold, in outer and lining. Two neck bands and two belly panels, again in outer and lining.",
-      "<strong>Transfer the notches</strong><br>Mark the three lines on the back panel (below the neck band, top of the belly panel, bottom of the belly panel) and the overlap notch on each piece. <strong>The space between the neck band and the belly panel is the front-leg opening.</strong>",
-      "<strong>Interface them</strong><br>Fuse lightweight interfacing to the neck bands and belly panels. Without it they stretch with use and stop holding.",
+      "<strong>Cut the pieces</strong><br>Back panel on the fold, in outer and lining. Two chest panels and two belly panels, again in outer and lining.",
+      "<strong>Transfer the notches</strong><br>Mark the three lines on the back panel (bottom of the chest panel, the armhole, bottom of the belly panel) and the overlap notch on each piece. <strong>The space between the chest panel and the belly panel is the armhole. Narrow it and the leg will not fit.</strong>",
+      "<strong>Interface them</strong><br>Fuse lightweight interfacing to the chest and belly panels. Without it they stretch with use and stop holding.",
     ],
     sew:[
-      {h:"4-1. Make the bands and belly panels", items:[
+      {h:"4-1. Make the chest and belly panels", items:[
         "Place the outer and lining of each piece right sides together.",
         "Sew three sides, leaving open the short end that joins the back panel.",
         "Trim the corners diagonally, turn and press.",
@@ -11314,12 +11314,12 @@ module.exports = {
       ]},
       {h:"4-2. Baste them to the back panel", items:[
         "Lay the back panel outer right side up.",
-        "Place the neck bands and belly panels at the notches, pointing inwards, so they end up on the outside.",
-        "<strong>The gap between the neck band and the belly panel is where the front legs go.</strong> Check the positions before pinning so you do not close it up.",
+        "Place the chest and belly panels at the notches, pointing inwards, so they end up on the outside.",
+        "<strong>The gap between the chest panel and the belly panel is the armhole.</strong> The leg sits in it, bounded by the chest panel in front, the belly panel behind and the back panel above. Check the positions before pinning so you do not close it up.",
         "Baste or clip.",
       ]},
       {h:"4-3. Sew the back panel", items:[
-        "Lay the lining on top, right sides together, and sew all the way round, catching the bands and panels.",
+        "Lay the lining on top, right sides together, and sew all the way round, catching both panels.",
         "Leave about 10 cm open at the tail end.",
         "Clip the curved allowance every 1 cm.",
         "The belly panel joins along a long edge — backstitch the whole length of it. All of the strain lands there.",
@@ -11327,12 +11327,12 @@ module.exports = {
       {h:"4-4. Turn and topstitch", items:[
         "Turn through the gap and shape it with an awl.",
         "Fold the gap's allowance inwards and topstitch all round.",
-        "A stitched square with its diagonals at each neck-band root makes it hold indefinitely.",
+        "A stitched square with its diagonals at each chest-panel root makes it hold indefinitely.",
       ]},
       {h:"4-5. Fit the fastenings", items:[
-        "<strong>Put it on the dog now.</strong> Wrap the neck band and the belly panel and mark where they should meet.",
+        "<strong>Put it on the dog now.</strong> Wrap the chest and belly panels, check the front leg slips into the armhole easily, then mark where they should meet.",
         "Hook-and-loop: loop side to the outside of one piece, hook side to the inside of the other. On the belly panel, use two separate patches rather than one long strip — it resists pulling better.",
-        "Snaps: two pairs at the neck, three or four along the belly panel. Two rows lets you adjust as the coat thickens and thins.",
+        "Snaps: two or three pairs on the chest panel, three or four along the belly panel. Two rows lets you adjust as the coat thickens and thins.",
         "Fasten both and it is done.",
       ]},
     ],
@@ -11341,6 +11341,7 @@ module.exports = {
       "<strong>Hook-and-loop or snaps</strong>: hook-and-loop adjusts infinitely and is quickest, but it catches fur. For a long-coated dog, snaps are kinder. Toggling the option in the tool changes the overlap to suit.",
       "<strong>Keep the leg opening generous</strong>: too narrow and it digs in at the armpit. Walk the dog in it, and widen the opening next time if it rubs.",
       "<strong>Belly panel length</strong>: about half the back length. Too long and it catches between the legs when the dog squats, so always leave some free at the tail end.",
+      "<strong>Do not skimp on the armhole</strong>: the gap between the chest and belly panels is what the leg goes into. Too small and it will not go on, and it rubs at the armpit. When in doubt, go larger.",
       "<strong>Make it loose</strong>: two fingers of slack is the guide. Tight and the dog will try to get out of it.",
       "<strong>One pattern, two seasons</strong>: single-layer cotton for summer, quilted cotton or fleece for winter.",
     ],

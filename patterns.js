@@ -10138,76 +10138,74 @@ PATTERNS.fabricbelt={
 PATTERNS.dogvest={
   mode:"pet",
   name:"犬ベスト（腹側で留める）",
-  note:"背中にのせて、首帯と腹当てをお腹側で留めるベスト。頭からかぶせたり前足を通したりしないので、着せるのを嫌がる子でも一瞬で着せられます。腹当ては胴の長さぶんあるので、走ってもめくれません。前足は首帯と腹当てのあいだを通ります。留めは面ファスナーかスナップ。",
+  note:"胸当て・前足ぐり・腹当ての順に並んだベスト。前足の前を胸当てが、後ろを腹当てがふさぐので、そのあいだが前足ぐりになります。どちらもお腹側で留めるだけなので、頭からかぶせたり前足を持ち上げたりせずに着せられます。留めは面ファスナーかスナップ。",
   params:[
-    {key:"chest",  label:"胴回り（前足のうしろ）",unit:"cm",min:24,max:90, step:1,  val:46},
-    {key:"neck",   label:"首回り",             unit:"cm",min:16,max:60, step:1,  val:30},
-    {key:"backLen",label:"背丈（首〜尾のつけね）",unit:"cm",min:16,max:70,step:1, val:34},
-    {key:"legGap", label:"前足を通すあき",      unit:"cm",min:4, max:16, step:0.5,val:7},
-    {key:"neckBand",label:"首帯の幅",           unit:"cm",min:3, max:10, step:0.5,val:5},
-    {key:"bellyLen",label:"腹当ての長さ",        unit:"cm",min:6, max:45, step:1,  val:17},
-    {key:"overlap",label:"重なり（留め代）",    unit:"cm",min:3, max:12, step:0.5,val:6},
-    {key:"ease",   label:"ゆとり（総量）",      unit:"cm",min:0, max:14, step:1,  val:4},
+    {key:"chest",   label:"胴回り（前足のうしろ）",unit:"cm",min:24,max:90, step:1,  val:46},
+    {key:"neck",    label:"首回り",              unit:"cm",min:16,max:60, step:1,  val:30},
+    {key:"backLen", label:"背丈（首〜尾のつけね）",unit:"cm",min:16,max:70,step:1,  val:34},
+    {key:"chestLen",label:"胸当ての長さ（首〜前足）",unit:"cm",min:3,max:20,step:0.5,val:6},
+    {key:"legGap",  label:"前足ぐりの大きさ",     unit:"cm",min:4, max:16, step:0.5,val:7},
+    {key:"bellyLen",label:"腹当ての長さ",         unit:"cm",min:6, max:45, step:1,  val:16},
+    {key:"overlap", label:"重なり（留め代）",     unit:"cm",min:3, max:12, step:0.5,val:6},
+    {key:"ease",    label:"ゆとり（総量）",       unit:"cm",min:0, max:14, step:1,  val:4},
   ],
   presets:[
-    {label:"超小型犬（チワワなど）",    vals:{chest:32,neck:22,backLen:22,legGap:5,  neckBand:3.5,bellyLen:11,overlap:4,ease:3}},
-    {label:"小型犬（トイプードルなど）",vals:{chest:40,neck:26,backLen:28,legGap:6,  neckBand:4,  bellyLen:14,overlap:5,ease:4}},
-    {label:"中型犬（柴犬など）",        vals:{chest:56,neck:36,backLen:42,legGap:8.5,neckBand:6,  bellyLen:21,overlap:7,ease:5}},
-    {label:"大型犬",                    vals:{chest:74,neck:46,backLen:56,legGap:11, neckBand:7.5,bellyLen:28,overlap:9,ease:6}},
+    {label:"超小型犬（チワワなど）",    vals:{chest:32,neck:22,backLen:22,chestLen:4,  legGap:5,  bellyLen:10,overlap:4,ease:3}},
+    {label:"小型犬（トイプードルなど）",vals:{chest:40,neck:26,backLen:28,chestLen:5,  legGap:6,  bellyLen:13,overlap:5,ease:4}},
+    {label:"中型犬（柴犬など）",        vals:{chest:56,neck:36,backLen:42,chestLen:7.5,legGap:8.5,bellyLen:20,overlap:7,ease:5}},
+    {label:"大型犬",                    vals:{chest:74,neck:46,backLen:56,chestLen:10, legGap:11, bellyLen:27,overlap:9,ease:6}},
   ],
   toggles:[{key:"snap",label:"スナップで留める（外すと面ファスナー）",val:false}],
   gen(p,sa){
     const CH=cm(p.chest)+cm(p.ease), NK=cm(p.neck)+cm(p.ease)*0.6;
-    const BL=cm(p.backLen), GAP=cm(p.legGap), NB=cm(p.neckBand);
+    const BL=cm(p.backLen), CL=cm(p.chestLen), GAP=cm(p.legGap);
+    // 前足の前の胴回り（胸）は、前足のうしろより少し細い。
+    const FG=CH*0.92;
     // スナップは重ねが少なくて足りる。面ファスナーは貼り代が要るので広くとる。
     const OV=p.snap? cm(p.overlap)*0.7 : cm(p.overlap);
     const isFold=(a,b)=>Math.abs(a.x)<0.01&&Math.abs(b.x)<0.01;
 
-    /* 腹当ては胴の長さぶん取る。尾側に少し残さないと、しゃがんだときに
-       腹当てが股に当たるので、背丈から首帯・あき・尾側の余りを引いた分を上限にする。 */
+    /* 腹当ては胴の長さぶん。尾側に少し残さないと、しゃがんだときに股に当たる。 */
     const tailFree=Math.max(cm(3), BL*0.12);
-    const BELLY=Math.min(cm(p.bellyLen), Math.max(cm(5), BL-NB-GAP-tailFree));
-    const yBellyTop=NB+GAP, yBellyBot=yBellyTop+BELLY;
+    const BELLY=Math.min(cm(p.bellyLen), Math.max(cm(5), BL-CL-GAP-tailFree));
+    const yLegTop=CL, yLegBot=CL+GAP, yBellyBot=yLegBot+BELLY;
 
-    /* 背パネル：中心を「わ」。首側は細く、胴で最も広く、尾に向けて絞る。 */
+    /* 背パネル：中心を「わ」。首側から胸で広がり、胴で最大、尾に向けて絞る。 */
     const wNeck=NK*0.30, wChest=CH*0.34, wTail=CH*0.22;
     let back=[{x:0,y:0},{x:wNeck,y:0}];
-    back=back.concat(quad({x:wNeck,y:0},{x:wChest,y:NB*0.9},{x:wChest,y:yBellyTop},10));
+    back=back.concat(quad({x:wNeck,y:0},{x:wChest,y:CL*0.45},{x:wChest,y:yLegTop},8));
     back.push({x:wChest,y:yBellyBot});
-    // 制御点は必ず腹当ての下端より下に置く。上に来ると線が戻って尾側に折れが出る。
     const yCtl=yBellyBot+(BL-yBellyBot)*0.55;
     back=back.concat(quad({x:wChest,y:yBellyBot},{x:wChest*0.98,y:yCtl},{x:wTail,y:BL},12));
     back.push({x:0,y:BL});
     const bp=pieceFrom(back,isFold,sa);
 
-    /* 首帯・腹当て：背パネルの左右から出して、お腹側で重ねて留める。
+    /* 胸当て・腹当て：背パネルの左右から出して、お腹側で重ねて留める。
        左右2枚で残りの周を分担し、重なりも2枚で分け合う。 */
     const wrap=(circ,half)=>Math.max(cm(3),(circ-half*2)/2)+OV/2;
-    const neckW=wrap(NK,wNeck), bellyW=wrap(CH,wChest);
+    const chestW=wrap(FG,wChest), bellyW=wrap(CH,wChest);
     const strip=(W,H)=>pieceFrom([{x:0,y:0},{x:W,y:0},{x:W,y:H},{x:0,y:H}],()=>false,sa);
 
     const fastener=p.snap? "スナップ" : "面ファスナー";
     return {pieces:[
       {title:"背パネル", cutInfo:"背中心を「わ」／表布1枚・裏布1枚",
        ...bp, foldX:0,
-       grain:{x1:wChest*0.5,y1:NB,x2:wChest*0.5,y2:BL-cm(2)},
-       casingLines:[NB,yBellyTop,yBellyBot],
-       casingLabel:"首帯／前足のあき／腹当ての範囲",
-       notches:[{x:wNeck,y:0},{x:wChest,y:NB},{x:wChest,y:yBellyTop},{x:wChest,y:yBellyBot}],
-       labelAt:{x:wChest*0.45,y:BL*0.72}},
-      {title:"首帯", cutInfo:`2枚（左右）／背パネルの首側に付け、のどの下で重ねて${fastener}で留める`,
-       ...strip(neckW,NB*2), foldX:null,
-       grain:{x1:neckW*0.2,y1:NB,x2:neckW*0.8,y2:NB},
-       casingLines:[NB], casingLabel:"折り位置",
-       notches:[{x:neckW-OV/2,y:0}], labelAt:{x:neckW*0.5,y:NB}},
-      {title:"腹当て", cutInfo:`2枚（左右）／背パネルの胴側に付け、お腹の下で重ねて${fastener}で留める`,
+       grain:{x1:wChest*0.5,y1:CL+cm(1),x2:wChest*0.5,y2:BL-cm(2)},
+       casingLines:[yLegTop,yLegBot,yBellyBot],
+       casingLabel:"胸当ての下／前足ぐり／腹当ての下",
+       notches:[{x:wNeck,y:0},{x:wChest,y:yLegTop},{x:wChest,y:yLegBot},{x:wChest,y:yBellyBot}],
+       labelAt:{x:wChest*0.45,y:BL*0.74}},
+      {title:"胸当て", cutInfo:`2枚（左右）／前足の前を巻き、胸の下で重ねて${fastener}で留める`,
+       ...strip(chestW,CL), foldX:null,
+       grain:{x1:chestW*0.5,y1:CL*0.2,x2:chestW*0.5,y2:CL*0.8},
+       notches:[{x:chestW-OV/2,y:0},{x:chestW-OV/2,y:CL}], labelAt:{x:chestW*0.5,y:CL*0.5}},
+      {title:"腹当て", cutInfo:`2枚（左右）／前足のうしろを巻き、お腹の下で重ねて${fastener}で留める`,
        ...strip(bellyW,BELLY), foldX:null,
        grain:{x1:bellyW*0.5,y1:BELLY*0.2,x2:bellyW*0.5,y2:BELLY*0.8},
-       notches:[{x:bellyW-OV/2,y:0},{x:bellyW-OV/2,y:BELLY}],
-       labelAt:{x:bellyW*0.5,y:BELLY*0.5}}
+       notches:[{x:bellyW-OV/2,y:0},{x:bellyW-OV/2,y:BELLY}], labelAt:{x:bellyW*0.5,y:BELLY*0.5}}
     ],
     memo:`${fastener}で留めます／重なり ${Math.round(OV/10*10)/10}cm ／ `+
-         `腹当ては胴の長さ ${Math.round(BELLY/10)}cm ぶん。合印から先が重なる部分です。`+
+         `胸当て${Math.round(CL/10)}cm と 腹当て${Math.round(BELLY/10)}cm のあいだ ${p.legGap}cm が前足ぐりです。`+
          `まず仮留めして、必ず実際に着せてから位置を決めてください`};
   }
 };
