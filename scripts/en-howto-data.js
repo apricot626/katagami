@@ -9548,4 +9548,484 @@ module.exports = {
     ],
     related:["carriercover","gauzehanky","stai"],
   },
+  kidsleggings: {
+    title:"Kids' leggings", tab:"kids", toolName:"Kids' leggings",
+    sizeStep:"Enter the hip, rise, inseam, leg opening, ease and waist casing. Presets cover heights of 100 to 130 cm.",
+    desc:"How to sew kids' leggings. Front and back use the same pattern piece — join the crotch curves and sew the inseam.",
+    keywords:"kids leggings,children,knit,jersey,how to sew,sewing pattern",
+    lead:"Slim leggings from a single pattern piece used for front and back. Under a skirt or on their own. Sew them in jersey with a stretch stitch. Cut them long and turn the hems up, and they still fit after a growth spurt.",
+    matNote:"one pair, 120 cm height",
+    materials:[
+      "Jersey (single knit, interlock or rib) — about 90 cm wide × 70 cm",
+      "Flat elastic, 2.5 cm — about 50 cm",
+      "A ballpoint needle (75/11) and stretch thread",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines. Run the stretchiest direction across the body.",
+      "<strong>Cut the pieces</strong><br>Cut 2 fronts and 2 backs — 4 in all, from the same pattern piece.",
+      "<strong>Transfer the notches</strong><br>Mark where the crotch curve ends.",
+    ],
+    sew:[
+      {h:"4-1. Sew the crotch curves", items:[
+        "Place the two fronts right sides together and sew the crotch curve. Same for the backs.",
+        "Use a ballpoint needle and a stretch stitch — zigzag or a knit stitch.",
+        "A plain straight stitch will snap the first time they are pulled on.",
+      ]},
+      {h:"4-2. Sew the sides and inseam", items:[
+        "Place front and back right sides together and sew both sides.",
+        "Then sew the inseam in one run, hem to hem.",
+        "Backstitch over the crotch junction.",
+      ]},
+      {h:"4-3. Thread the waist elastic", items:[
+        "Fold the waist into a casing and stitch, leaving a 3 cm gap.",
+        "Thread the elastic, overlap the ends by 2 cm and stitch.",
+        "Close the gap.",
+      ]},
+      {h:"4-4. Hem the legs", items:[
+        "Fold each hem by 1 cm, then 2 cm, and stitch.",
+        "Use a stretch stitch here too, or the foot will not go through.",
+      ]},
+    ],
+    sewNote:"Jersey needs a ballpoint needle, stretch thread and a stretch stitch. A plain straight stitch snaps the first time the leggings go on. If your machine only offers zigzag, a narrow one (1 mm wide, 2.5 mm long) works.",
+    tips:[
+      "<strong>Turn the hems up</strong>: cut long and turn them up, then let them down as the child grows.",
+      "<strong>Soft elastic</strong>: 2.5 cm or wider at 80% of the hip. Tighter presses on the tummy.",
+      "<strong>Make the set</strong>: pair them with the kids' tunic.",
+    ],
+    related:["kidstunic","pants","babyleggings"],
+  },
+
+  kidstunic: {
+    title:"Kids' tunic", tab:"kids", toolName:"Kids' tunic",
+    sizeStep:"Enter the chest, length, hem flare, sleeve length, neckline width and ease. Presets cover heights of 100 to 130 cm.",
+    desc:"How to sew a kids' tunic. Sew the shoulders and sides, bind the neckline — the hem flares so nothing pulls.",
+    keywords:"kids tunic,children,top,how to sew,sewing pattern",
+    lead:"A pull-on top that covers the bottom. It flares towards the hem, so nothing pulls when they move. Paired with leggings it makes an outfit. Sew the shoulders, sew the sides, finish the neckline — that is all of it.",
+    matNote:"one tunic, 120 cm height",
+    materials:[
+      "Main fabric (double gauze, sheeting or linen) — about 110 cm wide × 60 cm (43 × 24 in)",
+      "Fabric for the bias binding — about 40 × 6 cm (or shop-bought tape)",
+      "Sewing thread",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines. The center line is the fold.",
+      "<strong>Cut the pieces</strong><br>Cut the front on the fold and the back on the fold. <strong>Cut the front neckline 1.5 cm deeper than the back.</strong>",
+      "<strong>Cut the bias</strong><br>Cut a 3.5 cm strip at 45° to the grain.",
+      "<strong>Transfer the notches</strong><br>Mark the armhole position on the side.",
+    ],
+    sew:[
+      {h:"4-1. Sew the shoulders", items:[
+        "Place front and back right sides together and sew both shoulders.",
+        "Zigzag the allowances and press them towards the back.",
+      ]},
+      {h:"4-2. Bind the neckline", items:[
+        "Sew the bias strip round the neckline, right sides together.",
+        "Clip the allowance, turn the binding to the inside and topstitch.",
+        "Overlap the start and finish by 1 cm.",
+      ]},
+      {h:"4-3. Sleeves and sides", items:[
+        "Hem the sleeve openings first — they are awkward to reach once the sides are closed.",
+        "Place front and back right sides together and sew from the sleeve opening down to the hem in one run.",
+        "The allowance changes direction at the notch, so match the marks before sewing.",
+      ]},
+      {h:"4-4. Hem it", items:[
+        "Fold the hem by 1 cm, then 2 cm, and stitch.",
+        "The hem is flared, so it resists folding. Press as you go to ease it round.",
+      ]},
+    ],
+    sewNote:"Cut the front neckline 1.5 cm deeper than the back. At the same depth it presses on the throat once it is on. The pattern piece is the same for both, so it is the cutting that has to differ — easy to forget.",
+    tips:[
+      "<strong>Make the set</strong>: pair it with the kids' leggings.",
+      "<strong>Sleeve length is yours</strong>: set it to 0 for sleeveless, or lengthen it for long sleeves.",
+      "<strong>The flare</strong>: more flare reads more like a dress. About 6 cm moves well.",
+    ],
+    related:["kidsleggings","kidstee","kidsdress"],
+  },
+
+  kidsponcho: {
+    title:"Kids' poncho", tab:"kids", toolName:"Kids' poncho",
+    sizeStep:"Enter the width, the length, the neck opening diameter and the hood depth. There is a preset with no hood.",
+    desc:"How to sew a kids' poncho. A rectangle with a hole in the middle — every seam is straight.",
+    keywords:"kids poncho,children,fleece,hood,how to sew,sewing pattern",
+    lead:"Pulled on over the head, with no sleeves, so getting it on and off takes seconds. Structurally it is a rectangle with a hole in the middle, which means every seam is straight. Fleece or wool.",
+    matNote:"one poncho, 120 cm height",
+    materials:[
+      "Main fabric (fleece or wool) — about 150 cm wide × 110 cm (59 × 43 in)",
+      "Bias binding, 12.7 mm folded — about 80 cm",
+      "Sewing thread",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace the cutting line. The center line is the fold.",
+      "<strong>Cut the pieces</strong><br>Cut the front on the fold and the back on the fold. Cut 2 hood pieces if you want a hood.",
+      "<strong>Do not cut the neck opening yet</strong><br>Cut it after the shoulders are sewn, or it will end up off-center.",
+    ],
+    sew:[
+      {h:"4-1. Sew the shoulders", items:[
+        "Place front and back right sides together and sew along the top edge on each side.",
+        "Leave the center section — the neck opening — unsewn.",
+        "Fleece does not fray, so the allowances need no finishing.",
+      ]},
+      {h:"4-2. Cut the neck opening", items:[
+        "Open the piece out and lay the neck template in the center; mark it.",
+        "Loop a tape measure round the child's head and compare it with the marked circle before cutting.",
+        "Only then cut. You cannot add fabric back.",
+      ]},
+      {h:"4-3. Attach the hood", items:[
+        "Place the two hood pieces right sides together and sew the back curve.",
+        "Hem the face opening.",
+        "Sew the lower edge of the hood to the neck opening, right sides together.",
+        "Without a hood, simply bind the neck opening and you are done.",
+      ]},
+      {h:"4-4. Finish the hem", items:[
+        "Fleece can be left raw.",
+        "In wool, hem it or bind the edge with bias tape.",
+      ]},
+    ],
+    sewNote:"Check that the head fits through before you cut the neck opening. Children's heads are larger than you expect, and even the standard 20 cm can be too small. Loop a tape measure round the head and compare it with the marked circle. Once cut, there is no going back.",
+    tips:[
+      "<strong>Fleece needs no hems</strong>: it does not fray, so hem and armholes can be left raw. An afternoon's work.",
+      "<strong>Skip the hood</strong>: set the hood depth to 0 and just bind the neckline.",
+      "<strong>Add reflective tape</strong>: along the hem, for playing out at dusk.",
+    ],
+    related:["kidscape","kidscoat","poncho"],
+  },
+
+  kidsjacket: {
+    title:"Kids' jacket", tab:"kids", toolName:"Kids' jacket",
+    sizeStep:"Enter the chest, length, sleeve length, neckline width, ease and placket width. Presets cover heights of 100 to 130 cm.",
+    desc:"How to sew a collarless kids' jacket. No lining — the raw edges are bound with bias tape.",
+    keywords:"kids jacket,children,corduroy,how to sew,sewing pattern",
+    lead:"A simple open-front jacket. No collar; it fastens with buttons or snaps. There is no lining — the seam allowances are bound with bias tape. In a heavier cotton or corduroy it becomes the spring and autumn layer.",
+    matNote:"one jacket, 120 cm height",
+    materials:[
+      "Main fabric (corduroy, Oxford cloth or canvas) — about 110 cm wide × 100 cm (43 × 39 in)",
+      "Bias binding, 12.7 mm folded — about 2.5 m",
+      "Buttons, 15 mm — 3 or 4",
+      "Sewing thread",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines. The back's center line is the fold.",
+      "<strong>Cut the pieces</strong><br>Back on the fold, 2 fronts, 2 sleeves. With corduroy, keep the nap running the same way on every piece.",
+      "<strong>Transfer the notches</strong><br>Mark the armhole on the body and the center of the sleeve head. Miss these and the sleeve twists.",
+      "<strong>Finish the edges</strong><br>Zigzag the seam allowances.",
+    ],
+    sew:[
+      {h:"4-1. Sew the shoulders", items:[
+        "Place front and back right sides together and sew both shoulders.",
+        "Press the allowances towards the back.",
+      ]},
+      {h:"4-2. Set the sleeves", items:[
+        "Match the center notch of the sleeve head to the shoulder seam.",
+        "The sleeve head is slightly longer than the armhole. Ease it in with a gathering row.",
+        "Sew right sides together, round the whole armhole.",
+      ]},
+      {h:"4-3. Sew the sides and underarms", items:[
+        "Place front and back right sides together and sew from the cuff to the hem in one run.",
+        "Backstitch over the underarm junction.",
+      ]},
+      {h:"4-4. Bind the edges", items:[
+        "Bind the neckline, the front edges, the hem and the cuffs with bias tape.",
+        "Running the front edge in one continuous length gives the cleanest finish.",
+        "Work the buttonholes and sew on the buttons.",
+      ]},
+    ],
+    sewNote:"The sleeve head is deliberately longer than the armhole — that extra is the room to move the arm. Ease it in with a gathering row rather than stretching the armhole to match. Forcing it puts creases at the underarm.",
+    tips:[
+      "<strong>Snaps instead of buttons</strong>: easier for small hands to manage alone.",
+      "<strong>Neat without a lining</strong>: bound allowances mean the inside looks finished too.",
+      "<strong>Corduroy nap</strong>: cut every piece the same way up, or the panels read as different colors.",
+    ],
+    related:["kidscoat","kidsraincoat","kidsvest"],
+  },
+
+  kidsraincoat: {
+    title:"Kids' raincoat", tab:"kids", toolName:"Kids' raincoat",
+    sizeStep:"Enter the chest, front length, extra back length, sleeve length, hood depth and ease. Presets cover heights of 110 to 140 cm.",
+    desc:"How to sew a kids' raincoat in laminated fabric. Hooded, front-opening, and longer at the back to clear a backpack.",
+    keywords:"kids raincoat,children,laminate,waterproof,hood,how to sew,sewing pattern",
+    lead:"A hooded, front-opening raincoat in laminated fabric. The back is cut longer so it goes over a school backpack. Pins leave permanent holes, so use clips throughout.",
+    matNote:"one coat, 130 cm height",
+    materials:[
+      "Laminated fabric (lightweight) — about 110 cm wide × 180 cm (43 × 71 in)",
+      "Snap fasteners — 5 or 6 pairs",
+      "Seam-sealing tape (optional) — about 3 m",
+      "A Teflon foot, if you have one",
+      "Clips instead of pins",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Trace on the wrong side. Chalk marks stay on laminate — choose an unobtrusive color.",
+      "<strong>Cut the pieces</strong><br>Back on the fold, 2 fronts, 2 sleeves, 2 hood pieces. The back is longer than the front.",
+      "<strong>Transfer the notches</strong><br>Mark the armhole and the sleeve head.",
+      "<strong>Use clips</strong><br>Pin holes let water through. Clips only.",
+    ],
+    sew:[
+      {h:"4-1. Shoulders and sleeves", items:[
+        "Place front and back right sides together and sew both shoulders.",
+        "Match the sleeve head notch to the shoulder seam and set the sleeves in.",
+        "Laminate sticks to the presser foot. Without a Teflon foot, sew through a strip of tracing paper and tear it away afterwards.",
+      ]},
+      {h:"4-2. Sides and underarms", items:[
+        "Place front and back right sides together and sew from cuff to hem in one run.",
+        "Unpicking leaves holes, so clip everything first and check the shape before you sew.",
+      ]},
+      {h:"4-3. Attach the hood", items:[
+        "Sew the two hood pieces together along the back curve.",
+        "Hem the face opening.",
+        "Sew the lower edge of the hood to the neckline, right sides together.",
+      ]},
+      {h:"4-4. Front edges, hem and snaps", items:[
+        "Turn the front edges under twice and stitch. A deep overlap keeps the rain out.",
+        "Hem the bottom and the cuffs the same way.",
+        "Fit 5 or 6 pairs of snaps down the front.",
+        "Seal the seams with tape and it will hold up to real rain.",
+      ]},
+    ],
+    sewNote:"Pins leave holes in laminate and water comes through them. Use clips. The same goes for unpicking, so clip everything, check the shape, and only then run the seam.",
+    tips:[
+      "<strong>A longer back</strong>: 8 cm or more if it has to go over a backpack.",
+      "<strong>Reflective tape</strong>: visibility is poor in rain. Add it to the cuffs and hem.",
+      "<strong>A bag to match</strong>: a drawstring bag in the same fabric lets it be packed away wet.",
+    ],
+    related:["kidsjacket","kidscape","kidscoat"],
+  },
+
+  kidsyukata: {
+    title:"Kids' yukata", tab:"kids", toolName:"Kids' yukata",
+    sizeStep:"Enter the length, the body width, the sleeve length, the sleeve width and the collar width. Presets cover heights of 100 to 130 cm.",
+    desc:"How to sew a child's yukata. Straight cutting only — no curves anywhere. Four rectangular pieces sewn with straight seams.",
+    keywords:"kids yukata,children,japanese,straight cutting,summer festival,how to sew,sewing pattern",
+    lead:"A child's yukata cut entirely from straight lines. There is not a single curve, so it comes out right even if you have never done Japanese dressmaking. Four kinds of piece — body, sleeve, collar and okumi — sewn with straight seams. For when the summer festival is close.",
+    matNote:"one yukata, 120 cm height",
+    materials:[
+      "Main fabric (cotton, chusen-dyed or double gauze) — about 110 cm wide × 250 cm (43 × 98 in)",
+      "Sewing thread",
+      "Two waist cords (shop-bought or made from the same fabric)",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Every piece is a rectangle. You can rule the lines straight onto the fabric.",
+      "<strong>Cut the pieces</strong><br>2 body panels, 2 sleeves, 1 collar, 2 okumi.",
+      "<strong>Transfer the notches</strong><br>Mark the shoulder fold on the body and the fold on the sleeve. Those are where the pieces fold double.",
+    ],
+    sew:[
+      {h:"4-1. Make the body", items:[
+        "Fold each body panel at the shoulder notch, which joins front to back.",
+        "Place the two panels right sides together and sew the center back.",
+        "Sew the sides, leaving the top section — the sleeve width — open.",
+      ]},
+      {h:"4-2. Attach the okumi", items:[
+        "Sew an okumi panel to the front edge of each front, right sides together.",
+        "The okumi is the overlap that lets the front wrap. Without it the front gapes.",
+      ]},
+      {h:"4-3. Attach the sleeves", items:[
+        "Fold each sleeve at its notch and sew the underarm, leaving the cuff end open.",
+        "Sew each sleeve into the opening left at the side of the body.",
+        "Hem the cuff openings.",
+      ]},
+      {h:"4-4. Attach the collar", items:[
+        "Fold the collar in half lengthwise and press.",
+        "Sew it round the neckline and down both front edges, enclosing the raw edge.",
+        "Hem the bottom.",
+      ]},
+    ],
+    sewNote:"Cut the length to roughly the child's height. It will look far too long, but the excess is taken up as the ohashori fold under the waist cord — that is what makes it a yukata. Cut it short to begin with and there is no fold to make, and it cannot be dressed properly.",
+    tips:[
+      "<strong>Length equals height</strong>: this is the rule in Japanese dressmaking. The waist cord takes up the rest.",
+      "<strong>Match the jinbei</strong>: made in the same fabric as the jinbei top and pants, siblings match.",
+      "<strong>A machine is fine</strong>: it is all straight seams, so hand sewing is not required.",
+    ],
+    related:["jinbei","jinbeipants","yukata"],
+  },
+
+  kidsapron: {
+    title:"Kids' apron", tab:"kids", toolName:"Kids' apron",
+    sizeStep:"Enter the body width, length, hem width, bib height and pocket size. Presets cover heights of 100 to 140 cm.",
+    desc:"How to sew a kids' apron. An elastic neck loop means they can put it on themselves.",
+    keywords:"kids apron,children,cooking,how to sew,sewing pattern",
+    lead:"Over the head, with the waist ties knotted at the back. Make the neck loop from elastic and they can put it on alone. For cooking lessons and for helping out. Made to match a triangular headscarf, it becomes a proper set.",
+    matNote:"one apron, 120–130 cm height",
+    materials:[
+      "Main fabric (Oxford cloth, sheeting or linen) — about 110 cm wide × 70 cm (43 × 28 in)",
+      "Flat elastic, 1.5 cm — about 45 cm for the neck loop",
+      "Sewing thread",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines. The center line is the fold.",
+      "<strong>Cut the pieces</strong><br>The body on the fold, one or two pockets, two waist ties.",
+      "<strong>Transfer the notches</strong><br>Mark the top of the bib, where the side curve begins.",
+    ],
+    sew:[
+      {h:"4-1. Finish the edges", items:[
+        "Turn the diagonal side edges under twice, 1 cm each time, and stitch.",
+        "Do the same on both sides of the bib.",
+        "Diagonal edges stretch easily. Press the folds firmly before sewing.",
+      ]},
+      {h:"4-2. Add the pocket", items:[
+        "Turn the pocket's top edge under twice and stitch.",
+        "Press the other three allowances to the wrong side.",
+        "Position it and stitch round three sides.",
+        "Triangles of backstitching at the top corners stop it pulling off.",
+      ]},
+      {h:"4-3. Attach the neck loop", items:[
+        "Turn the top of the bib under twice, catching the ends of the elastic as you go.",
+        "Decide the elastic length against the actual child — long enough for the head, short enough not to sag.",
+        "Backstitch two or three times over the ends.",
+      ]},
+      {h:"4-4. Ties and hem", items:[
+        "Fold each waist tie in four and topstitch.",
+        "Catch a tie at each side notch and backstitch it in place.",
+        "Hem the bottom.",
+      ]},
+    ],
+    sewNote:"An elastic neck loop lets a child put the apron on unaided. Set the length against the actual child: too short and it will not go over the head, too long and the bib hangs uselessly low. Pin it, have them try it on, and only then stitch it down.",
+    tips:[
+      "<strong>Match the headscarf</strong>: the triangular headscarf in the same fabric makes the cooking-lesson set.",
+      "<strong>Somewhere for a name</strong>: a name tape behind the pocket or on a tie end saves it going astray.",
+      "<strong>Divide the pocket</strong>: a line of stitching down the middle makes two.",
+    ],
+    related:["bandana","kidsbibapron","apron"],
+  },
+
+  jumpsuit: {
+    title:"Jumpsuit", tab:"human", toolName:"Jumpsuit",
+    sizeStep:"Enter the chest, hip, bodice length, rise, inseam, neckline width and ease. Presets cover S, M, L and a wide version.",
+    desc:"How to sew a jumpsuit. A sleeveless bodice joined to trousers at the waist, with elastic in the join.",
+    keywords:"jumpsuit,all-in-one,boilersuit,linen,how to sew,sewing pattern",
+    lead:"A loose one-piece. Rather than hanging from straps, a sleeveless bodice is joined to trousers at the waist. The waist is elasticated, so getting in and out is no trouble. Linen or a lightweight denim.",
+    matNote:"one jumpsuit, size M",
+    materials:[
+      "Main fabric (linen, lightweight denim or cotton) — about 110 cm wide × 260 cm (43 × 102 in)",
+      "Flat elastic, 2.5 cm — your waist measurement × 0.8, plus 5 cm",
+      "Fabric for bias binding — about 50 × 6 cm × 3",
+      "Sewing thread",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines. The bodice's center line is the fold.",
+      "<strong>Cut the pieces</strong><br>Bodice: front on the fold, back on the fold. Trousers: 2 fronts and 2 backs, 4 in all.",
+      "<strong>Transfer the notches</strong><br>Mark the armholes on the bodice and the crotch notch on the trousers.",
+      "<strong>Finish the edges</strong><br>Zigzag or overlock the allowances.",
+    ],
+    sew:[
+      {h:"4-1. Sew the bodice", items:[
+        "Place front and back right sides together and sew both shoulders.",
+        "Carry on and sew both side seams.",
+        "Bind the neckline and both armholes with bias tape.",
+      ]},
+      {h:"4-2. Sew the trousers", items:[
+        "Place the two fronts right sides together and sew the crotch curve. Same for the backs.",
+        "Place front and back right sides together and sew both sides.",
+        "Then sew the inseam in one run, hem to hem.",
+      ]},
+      {h:"4-3. Join bodice to trousers", items:[
+        "Turn the bodice right side out, leave the trousers wrong side out, and drop the bodice inside the trousers — right sides together.",
+        "Match side seam to side seam and center to center, then sew right round the waist.",
+        "Press the allowance up into the bodice and topstitch it down. That allowance becomes the elastic casing.",
+      ]},
+      {h:"4-4. Elastic and hems", items:[
+        "Leave 3 cm of that topstitching unsewn and thread the elastic through.",
+        "Cut it to 80% of your waist, overlap the ends by 2 cm and stitch.",
+        "Close the gap and hem both legs.",
+      ]},
+    ],
+    sewNote:"When you join bodice to trousers, match the side seams first. If they are out, the whole thing twists on the body and the side seam runs at an angle. Pin the four points — both sides, center front, center back — and fill in between them.",
+    tips:[
+      "<strong>Wide elastic</strong>: 2.5 cm or more keeps the waist from bunching.",
+      "<strong>Layer it</strong>: sleeveless by design, meant to go over a T-shirt or blouse.",
+      "<strong>Go wider</strong>: increase the ease for a proper workwear silhouette.",
+    ],
+    related:["overall","onepiece","widepants"],
+  },
+
+  adultjinbei: {
+    title:"Jinbei top (adult)", tab:"human", toolName:"Jinbei top (adult)",
+    sizeStep:"Enter the chest, length, sleeve length, collar width and ease. Presets cover S to XL.",
+    desc:"How to sew an adult jinbei top. Straight cutting, sleeves cut in one with the body, sides tied with cords.",
+    keywords:"jinbei,japanese,loungewear,straight cutting,summer,how to sew,sewing pattern",
+    lead:"An adult jinbei, cut from straight lines. The sides tie with cords, and the sleeves are cut in one with the body rather than set in. In cotton or crepe it earns its place as summer loungewear all year round. With the samue pants it makes a set.",
+    matNote:"one top, size M",
+    materials:[
+      "Main fabric (cotton, crepe or shijira weave) — about 110 cm wide × 180 cm (43 × 71 in)",
+      "Sewing thread",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines. The back's center line is the fold.",
+      "<strong>Cut the pieces</strong><br>Back on the fold, 2 fronts, 1 collar, 4 side cords.",
+      "<strong>Transfer the notches</strong><br>Mark where the side opening stops. Below that point you do not sew.",
+      "<strong>Finish the edges</strong><br>Zigzag the seam allowances.",
+    ],
+    sew:[
+      {h:"4-1. Shoulders and underarms", items:[
+        "Place front and back right sides together and sew both shoulders.",
+        "The sleeves are cut in one with the body, so there is nothing to set in.",
+        "Sew from the underarm down the side, stopping at the notch. Below it, leave the seam open.",
+      ]},
+      {h:"4-2. Finish the side openings", items:[
+        "Turn the allowances under twice from the notch to the hem and stitch.",
+        "Backstitch at the notch — that point takes the strain.",
+      ]},
+      {h:"4-3. Attach the collar", items:[
+        "Fold the collar in half lengthwise and press.",
+        "Sew it round the neckline and down both front edges, enclosing the raw edge.",
+        "Running it in one continuous length gives the cleanest line.",
+      ]},
+      {h:"4-4. Cords and hems", items:[
+        "Fold each cord in four and topstitch. Four in all.",
+        "Stitch two to each side, just above the notch.",
+        "Hem the cuffs and the bottom.",
+      ]},
+    ],
+    sewNote:"Leave the side seams open for about a third of the length from the hem. That opening is what makes it a jinbei, and it is why air moves through it. Sew the sides closed and you have an ordinary straight-cut shirt. Mark the stopping point before you sew.",
+    tips:[
+      "<strong>Make the set</strong>: the samue pants in the same fabric complete it.",
+      "<strong>Fabric</strong>: shijira and crepe weaves stand away from the skin and stay cool.",
+      "<strong>Match a child</strong>: the kids' jinbei top covers smaller sizes.",
+    ],
+    related:["samue","samuepants","jinbei"],
+  },
+
+  cafeapron: {
+    title:"Cafe apron", tab:"human", toolName:"Cafe apron",
+    sizeStep:"Enter the width, length, pocket width, pocket depth and tie length. Presets cover short, standard, long and wide.",
+    desc:"How to sew a waist apron. No bib, straight seams only, with a generous pocket.",
+    keywords:"cafe apron,waist apron,half apron,linen,canvas,how to sew,sewing pattern",
+    lead:"A short apron from the waist down. With no bib it goes on and comes off quickly, which suits cooking and workshop alike. A generous pocket takes a cloth and a notebook. Linen or canvas.",
+    matNote:"one apron, standard size",
+    materials:[
+      "Main fabric (linen, canvas or Oxford cloth) — about 110 cm wide × 70 cm (43 × 28 in)",
+      "Sewing thread",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Every piece is a rectangle. You can rule the lines straight onto the fabric.",
+      "<strong>Cut the pieces</strong><br>One body, one pocket, two ties.",
+      "<strong>Transfer the notches</strong><br>Mark the center of the pocket, where the dividing line goes.",
+    ],
+    sew:[
+      {h:"4-1. Finish the body edges", items:[
+        "Turn each side under twice, 1 cm each time, and stitch.",
+        "Hem the bottom the same way.",
+        "Leave the top edge — the ties go in there.",
+      ]},
+      {h:"4-2. Add the pocket", items:[
+        "Turn the pocket's top edge under twice and stitch.",
+        "Press the other three allowances to the wrong side.",
+        "Position it and stitch round three sides, with triangles of backstitching at the top corners.",
+        "A line of stitching at the center notch divides it in two.",
+      ]},
+      {h:"4-3. Attach the ties", items:[
+        "Fold each tie in four and topstitch.",
+        "Turn the top edge of the body under by 1 cm, then 2 cm.",
+        "Catch a tie at each end as you fold.",
+      ]},
+      {h:"4-4. Stitch the top edge", items:[
+        "Stitch along the fold from end to end, catching the ties.",
+        "Backstitch two or three times where each tie enters — that joint is pulled every time it is knotted.",
+      ]},
+    ],
+    sewNote:"Reinforce where the ties join. That is almost always the first thing to fail on an apron. Caught in the hem fold and then secured with a stitched square and its diagonals, it will not pull out.",
+    tips:[
+      "<strong>A generous pocket</strong>: big enough for a cloth, a notebook and a phone.",
+      "<strong>Canvas lasts</strong>: a medium canvas stands up to workshop use.",
+      "<strong>Length sets the mood</strong>: short reads as cafe, long as workwear.",
+    ],
+    related:["apron","kappogi","kidsapron"],
+  },
 };

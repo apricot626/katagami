@@ -182,7 +182,11 @@ const FIG_MAP = {
   // 2026-08 ベビーの追加
   fabricball:"gusset", clothbook:"mitsuori", taghanky:"mitsuori", otedama:"gusset",
   babypillow:"gusset", napmat:"mitsuori", babyfuton:"mitsuori", diapercover:"casing",
-  nursingpillow:"gusset", gauzehanky:"mitsuori", babyleggings:"casing", suckpad:"mitsuori"
+  nursingpillow:"gusset", gauzehanky:"mitsuori", babyleggings:"casing", suckpad:"mitsuori",
+  // 2026-08 子供服・大人服の追加
+  kidsleggings:"casing", kidstunic:"bias", kidsponcho:"bias", kidsjacket:"bias",
+  kidsraincoat:"mitsuori", kidsyukata:"mitsuori", kidsapron:"mitsuori",
+  jumpsuit:"casing", adultjinbei:"mitsuori", cafeapron:"mitsuori"
 };
 
 /* returns the figure HTML for a pattern key, or "" if unmapped */
