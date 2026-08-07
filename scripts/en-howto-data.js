@@ -3305,7 +3305,7 @@ module.exports = {
         "Work buttonholes on the right front and sew buttons to the left. Space them evenly, starting 1 cm below the collar."
       ]}
     ],
-    sewNote: "Test every buttonhole on a scrap first. Machines differ, and a hole cut a millimetre short will not take the button while one cut long lets it slip out. The correct length is the button diameter plus its thickness.",
+    sewNote: "Test every buttonhole on a scrap first. Machines differ, and a hole cut a millimeter short will not take the button while one cut long lets it slip out. The correct length is the button diameter plus its thickness.",
     tips: [
       "<strong>Belt it</strong>: a tie belt at the waist turns the same dress into a completely different shape.",
       "<strong>Short sleeves</strong>: the short-sleeve preset makes it a summer dress from the same pattern.",
@@ -3356,7 +3356,7 @@ module.exports = {
         "Work buttonholes on the right front, sew buttons on the left, evenly spaced from just under the collar to the hem."
       ]}
     ],
-    sewNote: "Sew a test buttonhole on a scrap of the same fabric with the same interfacing. The right length is the button diameter plus the button thickness — a millimetre short and it will not do up.",
+    sewNote: "Sew a test buttonhole on a scrap of the same fabric with the same interfacing. The right length is the button diameter plus the button thickness — a millimeter short and it will not do up.",
     tips: [
       "<strong>Short sleeves</strong>: the short-sleeve preset uses the same body, so you can make both from one pattern.",
       "<strong>Straight or curved hem</strong>: straight to wear out, curved to tuck in.",
@@ -4288,7 +4288,7 @@ module.exports = {
         "Work buttonholes on the right front and sew buttons on the left, evenly spaced with the first 1 cm below the collar."
       ]}
     ],
-    sewNote: "Always test a buttonhole on a scrap first. Machines differ, and a hole a millimetre short will not take the button while one cut long lets it slip open. The right length is the button diameter plus its thickness.",
+    sewNote: "Always test a buttonhole on a scrap first. Machines differ, and a hole a millimeter short will not take the button while one cut long lets it slip open. The right length is the button diameter plus its thickness.",
     tips: [
       "<strong>Snaps for small children</strong>: plastic snaps are far easier for little fingers than buttonholes.",
       "<strong>Short sleeves</strong>: shorten the sleeve and the same pattern covers summer.",
@@ -8978,5 +8978,2310 @@ module.exports = {
       "<strong>Add a drawstring</strong>: two openings at the center front with a cord through them look like a bought pair. The elastic stays inside, so nothing gets tighter.",
     ],
     related: ["pajamas", "samuepants", "sweatpants"],
+  },
+  fabricball: {
+    title:"Fabric ball", tab:"baby", toolName:"Fabric ball",
+    sizeStep:"Enter the finished diameter and the number of panels. Presets cover small, standard and large.",
+    desc:"How to sew a soft fabric ball from six panels. It cannot hurt anyone, so it rolls indoors happily.",
+    keywords:"fabric ball,soft ball,baby toy,how to sew,sewing pattern,scraps",
+    lead:"A soft ball made from six panels sewn together. It cannot hurt anyone, so it rolls around indoors happily. Put a bell inside and it rings. A few scraps in different colors give it character on their own.",
+    matNote:"one ball, 14 cm across",
+    materials:[
+      "Main fabric (cotton or double gauze) — 6 panels; scraps are fine (about 10 × 24 cm each)",
+      "Toy stuffing — about 60 g",
+      "A bell (optional) — 1, always wrapped in fabric before it goes in",
+      "Hand-sewing thread for the ladder stitch",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side of the fabric and trace both the cutting line and the finished line. Line the grain up with the grainline.",
+      "<strong>Cut the pieces</strong><br>Cut 6 panels. If you are changing colors, 3 colors × 2 panels puts matching colors opposite each other.",
+      "<strong>Transfer the notches</strong><br>Mark the middle of each panel, at its widest point. Matching those keeps the seams from creeping.",
+    ],
+    sew:[
+      {h:"4-1. Join the panels in pairs", items:[
+        "Place two panels right sides together and sew one curved edge.",
+        "Make three pairs. The edges are curved, so match the notches first and then pin closely.",
+        "Trim the seam allowance to 5 mm and clip it every 1 cm along the curve.",
+      ]},
+      {h:"4-2. Join the three pairs", items:[
+        "Sew the pairs together in turn to make a ring.",
+        "Leave about 7 cm of the last seam open for turning.",
+        "All six panels meet at a point top and bottom. The fabric piles up there, so go slowly.",
+      ]},
+      {h:"4-3. Turn and stuff", items:[
+        "Turn right side out through the opening, easing the points out with an awl.",
+        "Add the stuffing a little at a time, starting at the points. Fist-sized handfuls keep it even.",
+        "If you are adding a bell, bury it in the middle of the stuffing — wrapped in fabric first.",
+      ]},
+      {h:"4-4. Close the opening", items:[
+        "Close the opening with ladder stitch.",
+        "Machine stitching would show on the outside, so hand sewing is the reliable choice here.",
+        "Roll it between your hands to settle the shape.",
+      ]},
+    ],
+    sewNote:"When you think no more stuffing will fit, add one more handful. Too little and it collapses and never reads as round. But do not pack it until the points stand up hard — that puts the strain on the seams. About 1 cm of give when you press it is right.",
+    tips:[
+      "<strong>Always wrap the bell</strong>: wrap it in a scrap before burying it. If a seam ever gives, the bell still cannot come out on its own.",
+      "<strong>Change the panel count</strong>: more panels, rounder ball. Five gives a slightly faceted shape.",
+      "<strong>Vary the textures</strong>: mixing toweling, corduroy and gauze means it feels different each time it is grabbed.",
+    ],
+    related:["babytoy","taghanky","otedama"],
+  },
+
+  clothbook: {
+    title:"Cloth book", tab:"baby", toolName:"Cloth book",
+    sizeStep:"Enter the width of one page, the height, the number of sheets and the corner radius. Presets cover small, standard and large.",
+    desc:"How to sew a cloth book. Sew two layers right sides together, turn, and stitch down the middle. It cannot be torn.",
+    keywords:"cloth book,quiet book,baby toy,how to sew,sewing pattern",
+    lead:"A book that cannot be torn. Sew the outer and lining right sides together, turn, and stitch down the center to make it a book. Add felt fruit or buttons to the pages and it becomes finger practice as well as a story. Being cloth, it survives going in the mouth.",
+    matNote:"15 × 16 cm, 6 pages",
+    materials:[
+      "Outer and lining (Oxford cloth or sheeting) — about 35 × 20 cm each, per sheet",
+      "Lightweight fusible interfacing — one per sheet, if you want body",
+      "Felt, buttons, ribbon — as much as your activities need",
+      "Hand-sewing thread",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines. One pattern piece is a two-page spread.",
+      "<strong>Cut the pieces</strong><br>Two per sheet (outer and lining). The standard is 3 sheets — 6 pages.",
+      "<strong>Transfer the notches</strong><br>Mark the center top and bottom. That line becomes the spine.",
+      "<strong>Add the activities first</strong><br>Sew felt and buttons to each page before the layers go together. There is no reaching inside afterwards.",
+    ],
+    sew:[
+      {h:"4-1. Add the activities", items:[
+        "Sew felt fruit, buttons and ribbons to what will be the outside of each sheet.",
+        "Use doubled thread for buttons and wrap the shank well. A button that comes off is a choking hazard.",
+        "Leave 1.5 cm either side of the center line clear — the spine gets stitched there.",
+      ]},
+      {h:"4-2. Sew each sheet", items:[
+        "Place outer and lining right sides together and sew around, leaving about 8 cm open along the bottom.",
+        "Clip the seam allowance at the rounded corners so they do not pull when turned.",
+        "Sew every sheet the same way.",
+      ]},
+      {h:"4-3. Turn and topstitch", items:[
+        "Turn right side out and ease the corners out with an awl.",
+        "Fold the opening's allowance inwards and topstitch all the way round, closing it as you go.",
+      ]},
+      {h:"4-4. Sew the spine", items:[
+        "Stack every sheet with the center notches lined up.",
+        "Machine along the center line, going back and forth two or three times. That is the spine.",
+        "If the machine will not climb the thickness, backstitch it by hand instead.",
+        "Crease the fold so it opens flat.",
+      ]},
+    ],
+    sewNote:"Sew the spine through every sheet at once. Sewing pairs and stacking them afterwards leaves the pages loose and it never becomes a book. If the thickness stalls the machine, reduce the presser-foot pressure or switch to hand sewing.",
+    tips:[
+      "<strong>Pages come in twos</strong>: one sheet is a two-page spread. Three sheets give six pages, four give eight.",
+      "<strong>Interfacing or not</strong>: fused interfacing makes pages crisp and easy to turn. Leave it out for something floppier.",
+      "<strong>Classic activities</strong>: doing up a button, threading a cord, pulling apart hook-and-loop. All of it is finger practice.",
+    ],
+    related:["babytoy","taghanky","fabricball"],
+  },
+
+  taghanky: {
+    title:"Taggie square", tab:"baby", toolName:"Taggie square",
+    sizeStep:"Enter the side length, the corner radius and how many tags per side. Presets cover small, standard and large.",
+    desc:"How to sew a taggie square. Ribbon loops caught in the seam of two squares — babies play with the tags for ages.",
+    keywords:"taggie,ribbon tags,baby toy,comforter,how to sew,sewing pattern",
+    lead:"A small square with ribbon tags caught all round the edge. Babies love fiddling with tags, and this one thing keeps them busy. Two squares sewn right sides together and turned. In toweling and gauze, the two faces feel completely different.",
+    matNote:"one 20 cm square",
+    materials:[
+      "Outer (double gauze) — about 25 × 25 cm",
+      "Lining (toweling or terry) — about 25 × 25 cm",
+      "Ribbon, 1–2.5 cm wide — 6 cm × 8 pieces (mixing types is more fun)",
+      "Hand-sewing thread",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines.",
+      "<strong>Cut the pieces</strong><br>One outer, one lining.",
+      "<strong>Transfer the notches</strong><br>Mark the tag positions on each side — two per side, eight in all, at the standard setting.",
+      "<strong>Cut the ribbon</strong><br>Cut 6 cm lengths and seal the ends with a flame or fray stopper.",
+    ],
+    sew:[
+      {h:"4-1. Pin the tags", items:[
+        "Fold each ribbon in half to make a loop.",
+        "Lay the loops on the right side of the outer, pointing inwards, with the cut ends level with the fabric edge.",
+        "Pin or baste at the notches. Eight in all.",
+        "Get the direction wrong and the tags end up inside after turning. Check that every loop points towards the middle.",
+      ]},
+      {h:"4-2. Sew the two layers", items:[
+        "Lay the lining on top, right sides together, and sew around, leaving about 7 cm open along the bottom.",
+        "Backstitch two or three times over each tag so it cannot pull out.",
+        "Clip the rounded corners.",
+      ]},
+      {h:"4-3. Turn and topstitch", items:[
+        "Turn right side out and check that every tag is on the outside.",
+        "Fold the opening's allowance inwards and topstitch all the way round.",
+        "Running a second line over the base of the tags makes them stronger still.",
+      ]},
+    ],
+    sewNote:"Babies put their whole weight into pulling on the tags. Backstitch over each one when you sew the seam, then catch them again with the topstitching. Seal the ribbon ends too — once they fray, they split from there.",
+    tips:[
+      "<strong>Mix the ribbons</strong>: satin, grosgrain, lace. Different textures keep it interesting.",
+      "<strong>Different face each side</strong>: gauze and toweling is the classic pairing — it changes as it is squeezed.",
+      "<strong>Clip it to the pram</strong>: make one tag longer (12 cm) and you can thread a clip through it so it never hits the floor.",
+    ],
+    related:["babytoy","gauzehanky","fabricball"],
+  },
+
+  otedama: {
+    title:"Otedama beanbag", tab:"baby", toolName:"Otedama beanbag",
+    sizeStep:"Enter the short and long sides of the fabric. Presets cover small, standard and large.",
+    desc:"How to sew an otedama, the Japanese cushion-shaped beanbag. Two rectangles crossed at right angles make the shape.",
+    keywords:"otedama,beanbag,juggling,japanese,how to sew,sewing pattern,scraps",
+    lead:"The cushion-shaped Japanese beanbag. Two rectangles crossed at right angles and sewn make that shape. Fill with pellets or beans to about 60% full. Squeezing, throwing, listening to it — it lasts. Two scraps are all it takes.",
+    matNote:"one beanbag, standard size",
+    materials:[
+      "Fabric (chirimen crepe or cotton) — about 9 × 19 cm × 2; scraps are fine",
+      "Filling (poly pellets, azuki beans or Job's tears) — about 65 g",
+      "Hand-sewing thread",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines.",
+      "<strong>Cut the pieces</strong><br>Cut two identical rectangles. Two different prints give a chequered finish.",
+      "<strong>Transfer the notches</strong><br>Mark the middle of each long side. That is where they cross.",
+    ],
+    sew:[
+      {h:"4-1. Cross the two pieces", items:[
+        "Lay the two rectangles right sides together at right angles, forming a cross.",
+        "Where they overlap is a square. Sew two opposite sides of that square, matching the center notches.",
+        "Only two sides. Leave the other two.",
+      ]},
+      {h:"4-2. Make it a loop", items:[
+        "Open out what you have sewn and the cross becomes one long strip.",
+        "Bring the two ends right sides together and sew them into a loop.",
+        "You now have a bag with four openings.",
+      ]},
+      {h:"4-3. Sew three sides and fill", items:[
+        "Sew three of the four openings closed, keeping the corners meeting neatly.",
+        "Turn right side out through the fourth.",
+        "Add the filling — about 65 g of pellets, roughly 60% full.",
+      ]},
+      {h:"4-4. Close it", items:[
+        "Close the last opening with ladder stitch.",
+        "Two passes with small stitches keeps the filling in.",
+        "Square up the shape and it is done.",
+      ]},
+    ],
+    sewNote:"Do not overfill. Packed tight, the corners stand out, it stings the hand when caught, and the seams split. At about 60% you get that characteristic soft landing. For a baby, use poly pellets rather than beans — they will not spoil with damp, and they are large enough not to be a choking risk if one escapes.",
+    tips:[
+      "<strong>Two prints</strong>: using a different fabric for each piece gives a chequerboard finish.",
+      "<strong>Change the sound</strong>: pellets whisper, azuki beans rustle, Job's tears rattle.",
+      "<strong>For juggling</strong>: make three at the standard size if you want to practice properly.",
+    ],
+    related:["babytoy","fabricball","taghanky"],
+  },
+
+  babypillow: {
+    title:"Doughnut baby pillow", tab:"baby", toolName:"Doughnut baby pillow",
+    sizeStep:"Enter the outer and inner diameters. Presets cover newborn, standard and large.",
+    desc:"How to sew a doughnut-shaped baby pillow. Two rings sewn together and stuffed, so the weight never sits on one spot.",
+    keywords:"baby pillow,doughnut pillow,flat head,how to sew,sewing pattern",
+    lead:"A ring-shaped pillow with a dip in the middle, so the weight never rests on a single spot. Sew two rings right sides together, turn through the opening and stuff. Heads sweat, so a second one to swap in is worth having.",
+    matNote:"one pillow, 22 cm across",
+    materials:[
+      "Fabric (double gauze or terry) — about 25 × 50 cm",
+      "Toy stuffing — about 50 g",
+      "Hand-sewing thread for the ladder stitch",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Trace the outer ring twice. Mark the central hole in the same place on both.",
+      "<strong>Cut the pieces</strong><br>Cut two outer rings. Do not cut the hole yet — it gets sewn first.",
+      "<strong>Mark the hole</strong><br>Mark the finished line of the hole on both pieces.",
+    ],
+    sew:[
+      {h:"4-1. Sew the inner hole", items:[
+        "Place the two pieces right sides together and sew along the marked circle in the middle.",
+        "Cut the inside away, leaving 1 cm of allowance.",
+        "Clip that allowance every 1 cm. The curve is tight, and without clips it will pull when turned.",
+      ]},
+      {h:"4-2. Sew the outer edge", items:[
+        "Sew round the outside, leaving about 8 cm open for turning.",
+        "Clip the outer allowance every 1 cm as well.",
+      ]},
+      {h:"4-3. Turn and stuff", items:[
+        "Turn right side out through the opening and smooth the edge of the hole with an awl.",
+        "Add stuffing a little at a time, working round from the far side. All at once and it bunches.",
+        "Feel round the whole ring to check the thickness is even.",
+      ]},
+      {h:"4-4. Close the opening", items:[
+        "Close the opening with ladder stitch and settle the shape.",
+      ]},
+    ],
+    sewNote:"Keep the stuffing soft — it should sink when pressed. Packed hard, the pillow sits too high and puts strain on the neck instead of relieving it. If it feels high in use, open the seam a little and take some out.",
+    tips:[
+      "<strong>Make two</strong>: babies sweat through the head. Having a second means you can wash one.",
+      "<strong>Gauze or terry</strong>: both absorb and dry. A waterproof layer traps heat and does not belong in the pillow itself.",
+      "<strong>When to stop</strong>: once rolling starts, take the pillow away. A moving baby is safer without one.",
+    ],
+    related:["babyfuton","napmat","babyblanket"],
+  },
+
+  napmat: {
+    title:"Nap mat", tab:"baby", toolName:"Nap mat",
+    sizeStep:"Enter the width, the length and the corner radius. Presets cover newborn, standard and nursery size.",
+    desc:"How to sew a nap mat. Outer, wadding and lining stacked and bound with bias tape. It rolls up and ties.",
+    keywords:"nap mat,play mat,nursery,baby,how to sew,sewing pattern",
+    lead:"A thin mat to put straight on the floor. Stack outer, wadding and lining, then bind the edge with bias tape. Good for nursery naps and for putting the baby down in the living room. It rolls up and ties with its own cord.",
+    matNote:"one mat, 70 × 120 cm",
+    materials:[
+      "Outer (double gauze or sheeting) — about 110 cm wide × 130 cm (43 × 51 in)",
+      "Lining (the same) — about 110 cm wide × 130 cm",
+      "Wadding (thin, low-loft) — about 90 cm wide × 130 cm",
+      "Bias binding, 12.7 mm folded — about 4 m",
+      "Fabric for the tie — about 55 × 9 cm",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace the cutting line. It is large — spreading it on the floor is easier.",
+      "<strong>Cut the pieces</strong><br>One outer, one lining, one wadding. Cut the wadding on the finished line, with no allowance.",
+      "<strong>Cut the tie</strong><br>One tie.",
+      "<strong>Transfer the notches</strong><br>Mark the two tie positions on the left edge.",
+    ],
+    sew:[
+      {h:"4-1. Stack the layers", items:[
+        "Lay the lining wrong side up, then the wadding, then the outer right side up.",
+        "Smooth from the center outwards so no wrinkles get trapped.",
+        "Baste the whole thing with long stitches, or pin every 20 cm. If the layers shift, the edges will not match at the end.",
+      ]},
+      {h:"4-2. Quilt it", items:[
+        "Stitch a grid across the mat from the right side, about 20 cm apart.",
+        "Work from the center outwards. Starting at an edge pushes the fabric ahead of the foot.",
+        "You can skip this, but the wadding will shift in the wash. Quilting makes it last.",
+      ]},
+      {h:"4-3. Attach the tie", items:[
+        "Fold the tie in four and topstitch.",
+        "Stitch its middle to the two notches on the left edge.",
+        "Keep it inside the seam allowance — the binding will catch it next.",
+      ]},
+      {h:"4-4. Bind the edge", items:[
+        "Bind all round with bias tape and stitch.",
+        "Easing the tape slightly as you go makes it sit flat on the rounded corners.",
+        "Overlap the start and finish by 1.5 cm.",
+        "Roll it up and tie.",
+      ]},
+    ],
+    sewNote:"Secure the three layers before you sew anything. Skip the basting and they creep as you stitch, leaving an edge that does not match at the end. This is the one step not worth saving time on — it costs more later.",
+    tips:[
+      "<strong>Nursery sizes</strong>: many nurseries specify one. The presets are common sizes; follow the nursery's if it differs.",
+      "<strong>Keep the wadding thin</strong>: thick wadding is bulky to roll and slow to dry. Low-loft is easiest to handle.",
+      "<strong>Label it</strong>: if it goes to nursery, stitch a name tape into a back corner.",
+    ],
+    related:["babyfuton","babypillow","babyblanket"],
+  },
+
+  babyfuton: {
+    title:"Baby duvet cover", tab:"baby", toolName:"Baby duvet cover",
+    sizeStep:"Enter the duvet's width and length, the ease and the depth of the envelope flap. Presets cover mini, regular and large.",
+    desc:"How to sew a baby duvet cover. An envelope closure means no zip and no buttons — straight seams only.",
+    keywords:"duvet cover,baby bedding,envelope closure,how to sew,sewing pattern",
+    lead:"A cover for a baby duvet. The envelope closure folds over, so there is no zip and no buttons to fit — every seam is straight. Measure your own duvet and enter the figures. Double gauze makes it light and quick to dry.",
+    matNote:"regular, 90 × 120 cm",
+    materials:[
+      "Outer (double gauze or sheeting) — about 110 cm wide × 150 cm (43 × 59 in)",
+      "Lining (the same) — about 110 cm wide × 170 cm (43 × 67 in)",
+      "Sewing thread",
+    ],
+    cut:[
+      "<strong>Measure the duvet</strong><br>Measure its width and length first. The cover is those figures plus about 2 cm of ease.",
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace the cutting line.",
+      "<strong>Cut the pieces</strong><br>One front, and one back — the longer piece, with the flap.",
+      "<strong>Transfer the notches</strong><br>Mark the fold line on the back piece.",
+    ],
+    sew:[
+      {h:"4-1. Finish the opening edges", items:[
+        "Fold the bottom edge of the front by 1 cm, then 2 cm, and stitch.",
+        "Do the same on the bottom edge of the back.",
+        "This edge gets pulled every time the duvet goes in and out. Backstitch at both ends.",
+      ]},
+      {h:"4-2. Fold the flap", items:[
+        "Lay the back right side up and fold the bottom edge inwards at the notch.",
+        "That folded section becomes the flap that holds the duvet in.",
+      ]},
+      {h:"4-3. Sew the two pieces", items:[
+        "Lay the front on top, right sides together, and sew the two sides and the top.",
+        "Leave the bottom — that is the opening.",
+        "Backstitch at the corners, where the strain lands.",
+      ]},
+      {h:"4-4. Turn and finish", items:[
+        "Zigzag or overlock the seam allowances.",
+        "Turn right side out, ease the corners and press.",
+        "Put the duvet in and tuck the flap over it.",
+      ]},
+    ],
+    sewNote:"Two centimeters of ease is enough. More and the duvet swims about inside and ends up bunched at one end by morning. Less and it is a fight to get in. Measure, add 2 cm, and stop there.",
+    tips:[
+      "<strong>Make two</strong>: bringing up milk is routine at this age. A spare keeps you going.",
+      "<strong>Corner ties</strong>: if the duvet still shifts, add ties inside the four corners and knot them to it.",
+      "<strong>Fabric</strong>: double gauze is light, dries fast and softens with washing. Brushed cotton suits winter.",
+    ],
+    related:["babypillow","napmat","babyblanket"],
+  },
+
+  diapercover: {
+    title:"Diaper cover", tab:"baby", toolName:"Diaper cover",
+    sizeStep:"Enter the waist, the rise, the crotch width and the ease. Presets cover newborn, 3–6 months and 6–12 months.",
+    desc:"How to sew a diaper cover for cloth diapers. Cut front and back on the fold, sew the crotch, snap the sides.",
+    keywords:"diaper cover,diaper cover,cloth diaper,how to sew,sewing pattern,waterproof",
+    lead:"A cover that goes over a cloth diaper. The rise is deep, and the sides fasten with snaps. Elastic at the waist and around the legs keeps things where they belong. In waterproof fabric it works for outings too.",
+    matNote:"one cover, 3–6 months",
+    materials:[
+      "Main fabric (laminate, PUL or cotton) — about 50 × 50 cm",
+      "Flat elastic, 6 mm — about 40 cm for the waist, 16 cm × 2 for the legs",
+      "Snap fasteners — 2 pairs",
+      "Sewing thread (a Teflon foot helps with laminates)",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines. The center line is the fold.",
+      "<strong>Cut the pieces</strong><br>Cut the front on the fold and the back on the fold. Pins leave permanent holes in laminate — use clips.",
+      "<strong>Transfer the notches</strong><br>Mark the side notch where the crotch curve begins.",
+      "<strong>Finish the edges</strong><br>Zigzag the allowances if you are using cotton. Laminate does not fray.",
+    ],
+    sew:[
+      {h:"4-1. Sew the crotch", items:[
+        "Place front and back right sides together and sew the crotch seam.",
+        "It is curved, so clip the allowance to stop it pulling.",
+        "Clipping breaks the waterproof layer on laminate — trim the allowance to 5 mm instead.",
+      ]},
+      {h:"4-2. Elastic at the legs", items:[
+        "Fold each leg edge by 1 cm, then 1 cm again, and stitch, leaving a 2 cm gap.",
+        "Thread the elastic and secure at about 16 cm a side.",
+        "Keep it loose — two fingers should slide under easily.",
+      ]},
+      {h:"4-3. Elastic at the waist", items:[
+        "Fold and stitch the waist the same way.",
+        "Thread elastic through the back only. A front that does not stretch is easier to fasten.",
+        "About 85% of the waist measurement is the guide.",
+      ]},
+      {h:"4-4. Add the snaps", items:[
+        "Fit two pairs of snaps at each side.",
+        "Hold the cover against the baby and decide the positions before you set them.",
+        "Two rows lets you take it in as they grow.",
+      ]},
+    ],
+    sewNote:"Do not tighten the elastic. A diaper cover is worn all day, and anything snug leaves marks. Two fingers should slide under the leg elastic easily. If it leaks at that tension, the diaper underneath usually needs adjusting rather than the cover.",
+    tips:[
+      "<strong>Waterproof fabric</strong>: laminate or PUL for going out. Use clips, not pins.",
+      "<strong>Or plain cotton</strong>: at home, cotton is fine and breathes far better.",
+      "<strong>Two rows of snaps</strong>: fitting both rows lets the cover shrink as the baby grows.",
+    ],
+    related:["diaperpouch","babypants","bloomers"],
+  },
+
+  nursingpillow: {
+    title:"Nursing pillow cover", tab:"baby", toolName:"Nursing pillow cover",
+    sizeStep:"Enter the outer and inner diameters, the depth and the opening angle. Measure your own pillow.",
+    desc:"How to sew a cover for a crescent nursing pillow. Gussets between two crescents, with an envelope opening.",
+    keywords:"nursing pillow,feeding pillow,cover,crescent,how to sew,sewing pattern",
+    lead:"A cover for a crescent nursing pillow. The opening is an envelope so it comes off easily for washing. Shop-bought pillows vary a lot between makers, so measure your own outer diameter, inner diameter and depth and enter those.",
+    matNote:"one cover, standard size",
+    materials:[
+      "Main fabric (double gauze, terry or Oxford) — about 110 cm wide × 80 cm (43 × 31 in)",
+      "Sewing thread",
+      "Optional: 2 pairs of snaps for the opening",
+    ],
+    cut:[
+      "<strong>Measure the pillow</strong><br>Outer diameter, inner diameter and depth. Get these wrong and it will not go on.",
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines.",
+      "<strong>Cut the pieces</strong><br>One top, one bottom. Cut the two gussets — outer and inner — slightly long.",
+      "<strong>Transfer the notches</strong><br>Mark the ends of the opening.",
+    ],
+    sew:[
+      {h:"4-1. Attach the gussets", items:[
+        "Sew the outer gusset to the outer edge of the top piece, right sides together.",
+        "Ease it round the curve, pinning as you go.",
+        "Sew the inner gusset to the inner edge the same way.",
+        "The gussets were cut long — trim the excess as you sew.",
+      ]},
+      {h:"4-2. Attach the bottom", items:[
+        "Sew the bottom piece to the free edge of each gusset, right sides together.",
+        "Check the notches on top and bottom line up before you sew, or the crescent will twist.",
+      ]},
+      {h:"4-3. Finish the opening", items:[
+        "Turn the allowances at the opening under twice and stitch.",
+        "Arrange it so the top and bottom overlap by about 3 cm, making an envelope that stays shut.",
+      ]},
+      {h:"4-4. Finish", items:[
+        "Turn right side out and press the seams.",
+        "Put the pillow in and check the fit.",
+        "If the overlap gapes, add two pairs of snaps.",
+      ]},
+    ],
+    sewNote:"Cut the gussets long. Easing them round a curve always takes a little more than the calculation says, and cutting them exactly leaves you short in the last few centimeters with nothing to do but start again. Trimming the excess afterwards costs nothing.",
+    tips:[
+      "<strong>Make two</strong>: a nursing pillow is used daily and gets grubby. Two lets you rotate.",
+      "<strong>Soft fabrics</strong>: the baby's face rests on it. Double gauze or terry.",
+      "<strong>Pregnancy too</strong>: the same pattern covers a body pillow of the same shape.",
+    ],
+    related:["nursingcape","babypillow","cushioncover"],
+  },
+
+  gauzehanky: {
+    title:"Gauze square", tab:"baby", toolName:"Gauze square",
+    sizeStep:"Enter the width, the height and the corner radius. Presets cover small, standard and large.",
+    desc:"How to sew gauze squares. Two layers sewn right sides together and turned — good for bath time, sweat and dribble.",
+    keywords:"gauze square,muslin,burp cloth,baby,how to sew,sewing pattern,double gauze",
+    lead:"The one you use for bath time, for sweat and for dribble. Two layers of double gauze sewn right sides together and turned, so it is ideal for using up scraps. You will never have too many. The corners are rounded, which makes them turn out cleanly.",
+    matNote:"one 25 cm square",
+    materials:[
+      "Double gauze — about 30 × 30 cm × 2 (outer and lining; scraps are fine)",
+      "Sewing thread",
+    ],
+    cut:[
+      "<strong>Pre-wash</strong><br>Gauze shrinks noticeably. Wash, dry and press before cutting. Skip this and the finished square distorts in the first wash.",
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines.",
+      "<strong>Cut the pieces</strong><br>Cut two. Different prints front and back are more fun.",
+      "<strong>Transfer the notches</strong><br>Mark the two notches on the bottom edge for the opening.",
+    ],
+    sew:[
+      {h:"4-1. Sew the two layers", items:[
+        "Place the two right sides together and sew around.",
+        "Leave the section between the notches on the bottom edge — about 8 cm — open for turning.",
+        "Clip the rounded corners every 1 cm.",
+      ]},
+      {h:"4-2. Turn", items:[
+        "Turn right side out through the opening.",
+        "Ease the corners out with an awl. Push gently — too hard and the point goes through.",
+        "Press flat, folding the opening's allowance inwards as you go.",
+      ]},
+      {h:"4-3. Topstitch", items:[
+        "Topstitch all the way round, about 3 mm from the edge.",
+        "That closes the opening too.",
+        "Gauze stretches easily, so let the machine feed it rather than pulling.",
+      ]},
+    ],
+    sewNote:"Pre-washing is not optional here. Double gauze shrinks about 5%, and if it shrinks after sewing, the two layers pull against each other and the square ripples. Wash and dry before cutting and the finish is completely different.",
+    tips:[
+      "<strong>Make a batch</strong>: about 15 minutes each. A meter of fabric yields ten or more, so batching is efficient.",
+      "<strong>As a gift</strong>: nobody has too many. Five tied with a ribbon is a good present.",
+      "<strong>Softer with use</strong>: double gauze puffs up and softens as it is washed. Ignore the initial stiffness.",
+    ],
+    related:["taghanky","stai","bandanastai"],
+  },
+
+  babyleggings: {
+    title:"Baby leggings", tab:"baby", toolName:"Baby leggings",
+    sizeStep:"Enter the hip, rise, inseam, leg opening, ease and waist casing. Presets cover 70, 80 and 90 cm heights.",
+    desc:"How to sew baby leggings. Front and back use the same pattern piece; the rise is deep to clear a diaper.",
+    keywords:"baby leggings,knit,jersey,baby,how to sew,sewing pattern",
+    lead:"Slim leggings that go over a diaper. Front and back use the same pattern piece: join the crotch curves, then sew the inseam. The rise is deep enough that squatting does not leave a gap at the back. Sew them in jersey.",
+    matNote:"one pair, 80 cm height",
+    materials:[
+      "Jersey (single knit, interlock or rib) — about 90 cm wide × 60 cm",
+      "Flat elastic, 2 cm — about 40 cm",
+      "A ballpoint machine needle (size 75/11) and stretch thread",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines. Run the stretchiest direction of the fabric across the body.",
+      "<strong>Cut the pieces</strong><br>Cut 2 fronts and 2 backs — 4 in all, from the same pattern piece.",
+      "<strong>Transfer the notches</strong><br>Mark where the crotch curve ends.",
+    ],
+    sew:[
+      {h:"4-1. Sew the crotch curves", items:[
+        "Place the two fronts right sides together and sew the crotch curve. Same for the backs.",
+        "Use a ballpoint needle and a stretch stitch — zigzag or a knit stitch.",
+        "A plain straight stitch will snap the first time they are pulled on.",
+      ]},
+      {h:"4-2. Sew the sides and inseam", items:[
+        "Place front and back right sides together and sew both sides.",
+        "Then sew the inseam in one run, hem to hem.",
+        "Backstitch over the crotch junction.",
+      ]},
+      {h:"4-3. Thread the waist elastic", items:[
+        "Fold the waist to make a casing and stitch, leaving a 3 cm gap.",
+        "Thread the elastic, overlap the ends by 2 cm and stitch.",
+        "Close the gap.",
+      ]},
+      {h:"4-4. Hem the legs", items:[
+        "Fold each hem by 1 cm, then 1.5 cm, and stitch.",
+        "Use a stretch stitch here too, or the hem will not go over the foot.",
+      ]},
+    ],
+    sewNote:"Jersey needs a ballpoint needle, stretch thread and a stretch stitch. A plain straight stitch snaps the first time the leggings are pulled on. If your machine only offers zigzag, a narrow one (1 mm wide, 2.5 mm long) does the job.",
+    tips:[
+      "<strong>Deep rise</strong>: the diaper needs the room. The presets already allow for one.",
+      "<strong>Soft elastic</strong>: 2 cm or wider, cut to 80% of the waist. Tighter presses on the tummy.",
+      "<strong>Turn-up hems</strong>: cut them long and turn the hems up. Let them down as the baby grows.",
+    ],
+    related:["babypants","bloomers","legwarmer"],
+  },
+
+  suckpad: {
+    title:"Carrier suck pads", tab:"baby", toolName:"Carrier suck pads",
+    sizeStep:"Enter the length, the wrap width and the corner radius. Presets cover narrow, standard and wide straps.",
+    desc:"How to sew suck pads for a baby carrier. Two layers sewn and turned, then snapped round the shoulder straps.",
+    keywords:"suck pads,drool pads,baby carrier,how to sew,sewing pattern",
+    lead:"Pads that wrap round the shoulder straps of a carrier to protect them from dribble. They fasten with snaps, so they come off the moment you want to wash them. Gauze on the outside and toweling inside gives you something that actually absorbs. Two pads make a pair.",
+    matNote:"one pair, standard size",
+    materials:[
+      "Outer (double gauze or Oxford) — about 25 × 50 cm",
+      "Lining (toweling or terry) — about 25 × 50 cm",
+      "Snap fasteners — 4 pairs",
+      "Sewing thread",
+    ],
+    cut:[
+      "<strong>Measure the strap</strong><br>Measure the width of the carrier's shoulder strap and the length you want covered. The strap's circumference plus 2 cm gives the wrap width.",
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines.",
+      "<strong>Cut the pieces</strong><br>Two outer and two lining — a pair.",
+      "<strong>Transfer the notches</strong><br>Mark the snap positions on each side.",
+    ],
+    sew:[
+      {h:"4-1. Sew the two layers", items:[
+        "Place outer and lining right sides together and sew around, leaving about 7 cm open along the bottom.",
+        "Clip the rounded corners.",
+        "Make two.",
+      ]},
+      {h:"4-2. Turn and topstitch", items:[
+        "Turn right side out and ease the corners.",
+        "Fold the opening's allowance inwards and topstitch all the way round.",
+      ]},
+      {h:"4-3. Add the snaps", items:[
+        "Wrap the pad round the actual strap and find the position where it sits snugly.",
+        "Fit two pairs of snaps at that position.",
+        "Too tight crushes the strap padding; too loose and it slides down. Check by wrapping before you set them.",
+      ]},
+    ],
+    sewNote:"Decide the snap positions on the real strap, not from the pattern. Carriers differ a great deal in how thick their straps are, and the drawn positions may not suit yours. Pin the pad closed first, confirm it does not slide, then set the snaps.",
+    tips:[
+      "<strong>Toweling inside</strong>: absorbing is the job. Terry or toweling on the inner face.",
+      "<strong>Make two pairs</strong>: a spare set means no waiting for the wash to dry.",
+      "<strong>Match the head rest</strong>: a cover for the head support in the same fabric completes the set.",
+    ],
+    related:["carriercover","gauzehanky","stai"],
+  },
+  kidsleggings: {
+    title:"Kids' leggings", tab:"kids", toolName:"Kids' leggings",
+    sizeStep:"Enter the hip, rise, inseam, leg opening, ease and waist casing. Presets cover heights of 100 to 130 cm.",
+    desc:"How to sew kids' leggings. Front and back use the same pattern piece — join the crotch curves and sew the inseam.",
+    keywords:"kids leggings,children,knit,jersey,how to sew,sewing pattern",
+    lead:"Slim leggings from a single pattern piece used for front and back. Under a skirt or on their own. Sew them in jersey with a stretch stitch. Cut them long and turn the hems up, and they still fit after a growth spurt.",
+    matNote:"one pair, 120 cm height",
+    materials:[
+      "Jersey (single knit, interlock or rib) — about 90 cm wide × 70 cm",
+      "Flat elastic, 2.5 cm — about 50 cm",
+      "A ballpoint needle (75/11) and stretch thread",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines. Run the stretchiest direction across the body.",
+      "<strong>Cut the pieces</strong><br>Cut 2 fronts and 2 backs — 4 in all, from the same pattern piece.",
+      "<strong>Transfer the notches</strong><br>Mark where the crotch curve ends.",
+    ],
+    sew:[
+      {h:"4-1. Sew the crotch curves", items:[
+        "Place the two fronts right sides together and sew the crotch curve. Same for the backs.",
+        "Use a ballpoint needle and a stretch stitch — zigzag or a knit stitch.",
+        "A plain straight stitch will snap the first time they are pulled on.",
+      ]},
+      {h:"4-2. Sew the sides and inseam", items:[
+        "Place front and back right sides together and sew both sides.",
+        "Then sew the inseam in one run, hem to hem.",
+        "Backstitch over the crotch junction.",
+      ]},
+      {h:"4-3. Thread the waist elastic", items:[
+        "Fold the waist into a casing and stitch, leaving a 3 cm gap.",
+        "Thread the elastic, overlap the ends by 2 cm and stitch.",
+        "Close the gap.",
+      ]},
+      {h:"4-4. Hem the legs", items:[
+        "Fold each hem by 1 cm, then 2 cm, and stitch.",
+        "Use a stretch stitch here too, or the foot will not go through.",
+      ]},
+    ],
+    sewNote:"Jersey needs a ballpoint needle, stretch thread and a stretch stitch. A plain straight stitch snaps the first time the leggings go on. If your machine only offers zigzag, a narrow one (1 mm wide, 2.5 mm long) works.",
+    tips:[
+      "<strong>Turn the hems up</strong>: cut long and turn them up, then let them down as the child grows.",
+      "<strong>Soft elastic</strong>: 2.5 cm or wider at 80% of the hip. Tighter presses on the tummy.",
+      "<strong>Make the set</strong>: pair them with the kids' tunic.",
+    ],
+    related:["kidstunic","pants","babyleggings"],
+  },
+
+  kidstunic: {
+    title:"Kids' tunic", tab:"kids", toolName:"Kids' tunic",
+    sizeStep:"Enter the chest, length, hem flare, sleeve length, neckline width and ease. Presets cover heights of 100 to 130 cm.",
+    desc:"How to sew a kids' tunic. Sew the shoulders and sides, bind the neckline — the hem flares so nothing pulls.",
+    keywords:"kids tunic,children,top,how to sew,sewing pattern",
+    lead:"A pull-on top that covers the bottom. It flares towards the hem, so nothing pulls when they move. Paired with leggings it makes an outfit. Sew the shoulders, sew the sides, finish the neckline — that is all of it.",
+    matNote:"one tunic, 120 cm height",
+    materials:[
+      "Main fabric (double gauze, sheeting or linen) — about 110 cm wide × 60 cm (43 × 24 in)",
+      "Fabric for the bias binding — about 40 × 6 cm (or shop-bought tape)",
+      "Sewing thread",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines. The center line is the fold.",
+      "<strong>Cut the pieces</strong><br>Cut the front on the fold and the back on the fold. <strong>Cut the front neckline 1.5 cm deeper than the back.</strong>",
+      "<strong>Cut the bias</strong><br>Cut a 3.5 cm strip at 45° to the grain.",
+      "<strong>Transfer the notches</strong><br>Mark the armhole position on the side.",
+    ],
+    sew:[
+      {h:"4-1. Sew the shoulders", items:[
+        "Place front and back right sides together and sew both shoulders.",
+        "Zigzag the allowances and press them towards the back.",
+      ]},
+      {h:"4-2. Bind the neckline", items:[
+        "Sew the bias strip round the neckline, right sides together.",
+        "Clip the allowance, turn the binding to the inside and topstitch.",
+        "Overlap the start and finish by 1 cm.",
+      ]},
+      {h:"4-3. Sleeves and sides", items:[
+        "Hem the sleeve openings first — they are awkward to reach once the sides are closed.",
+        "Place front and back right sides together and sew from the sleeve opening down to the hem in one run.",
+        "The allowance changes direction at the notch, so match the marks before sewing.",
+      ]},
+      {h:"4-4. Hem it", items:[
+        "Fold the hem by 1 cm, then 2 cm, and stitch.",
+        "The hem is flared, so it resists folding. Press as you go to ease it round.",
+      ]},
+    ],
+    sewNote:"Cut the front neckline 1.5 cm deeper than the back. At the same depth it presses on the throat once it is on. The pattern piece is the same for both, so it is the cutting that has to differ — easy to forget.",
+    tips:[
+      "<strong>Make the set</strong>: pair it with the kids' leggings.",
+      "<strong>Sleeve length is yours</strong>: set it to 0 for sleeveless, or lengthen it for long sleeves.",
+      "<strong>The flare</strong>: more flare reads more like a dress. About 6 cm moves well.",
+    ],
+    related:["kidsleggings","kidstee","kidsdress"],
+  },
+
+  kidsponcho: {
+    title:"Kids' poncho", tab:"kids", toolName:"Kids' poncho",
+    sizeStep:"Enter the width, the length, the neck opening diameter and the hood depth. There is a preset with no hood.",
+    desc:"How to sew a kids' poncho. A rectangle with a hole in the middle — every seam is straight.",
+    keywords:"kids poncho,children,fleece,hood,how to sew,sewing pattern",
+    lead:"Pulled on over the head, with no sleeves, so getting it on and off takes seconds. Structurally it is a rectangle with a hole in the middle, which means every seam is straight. Fleece or wool.",
+    matNote:"one poncho, 120 cm height",
+    materials:[
+      "Main fabric (fleece or wool) — about 150 cm wide × 110 cm (59 × 43 in)",
+      "Bias binding, 12.7 mm folded — about 80 cm",
+      "Sewing thread",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace the cutting line. The center line is the fold.",
+      "<strong>Cut the pieces</strong><br>Cut the front on the fold and the back on the fold. Cut 2 hood pieces if you want a hood.",
+      "<strong>Do not cut the neck opening yet</strong><br>Cut it after the shoulders are sewn, or it will end up off-center.",
+    ],
+    sew:[
+      {h:"4-1. Sew the shoulders", items:[
+        "Place front and back right sides together and sew along the top edge on each side.",
+        "Leave the center section — the neck opening — unsewn.",
+        "Fleece does not fray, so the allowances need no finishing.",
+      ]},
+      {h:"4-2. Cut the neck opening", items:[
+        "Open the piece out and lay the neck template in the center; mark it.",
+        "Loop a tape measure round the child's head and compare it with the marked circle before cutting.",
+        "Only then cut. You cannot add fabric back.",
+      ]},
+      {h:"4-3. Attach the hood", items:[
+        "Place the two hood pieces right sides together and sew the back curve.",
+        "Hem the face opening.",
+        "Sew the lower edge of the hood to the neck opening, right sides together.",
+        "Without a hood, simply bind the neck opening and you are done.",
+      ]},
+      {h:"4-4. Finish the hem", items:[
+        "Fleece can be left raw.",
+        "In wool, hem it or bind the edge with bias tape.",
+      ]},
+    ],
+    sewNote:"Check that the head fits through before you cut the neck opening. Children's heads are larger than you expect, and even the standard 20 cm can be too small. Loop a tape measure round the head and compare it with the marked circle. Once cut, there is no going back.",
+    tips:[
+      "<strong>Fleece needs no hems</strong>: it does not fray, so hem and armholes can be left raw. An afternoon's work.",
+      "<strong>Skip the hood</strong>: set the hood depth to 0 and just bind the neckline.",
+      "<strong>Add reflective tape</strong>: along the hem, for playing out at dusk.",
+    ],
+    related:["kidscape","kidscoat","poncho"],
+  },
+
+  kidsjacket: {
+    title:"Kids' jacket", tab:"kids", toolName:"Kids' jacket",
+    sizeStep:"Enter the chest, length, sleeve length, neckline width, ease and placket width. Presets cover heights of 100 to 130 cm.",
+    desc:"How to sew a collarless kids' jacket. No lining — the raw edges are bound with bias tape.",
+    keywords:"kids jacket,children,corduroy,how to sew,sewing pattern",
+    lead:"A simple open-front jacket. No collar; it fastens with buttons or snaps. There is no lining — the seam allowances are bound with bias tape. In a heavier cotton or corduroy it becomes the spring and autumn layer.",
+    matNote:"one jacket, 120 cm height",
+    materials:[
+      "Main fabric (corduroy, Oxford cloth or canvas) — about 110 cm wide × 100 cm (43 × 39 in)",
+      "Bias binding, 12.7 mm folded — about 2.5 m",
+      "Buttons, 15 mm — 3 or 4",
+      "Sewing thread",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines. The back's center line is the fold.",
+      "<strong>Cut the pieces</strong><br>Back on the fold, 2 fronts, 2 sleeves. With corduroy, keep the nap running the same way on every piece.",
+      "<strong>Transfer the notches</strong><br>Mark the armhole on the body and the center of the sleeve head. Miss these and the sleeve twists.",
+      "<strong>Finish the edges</strong><br>Zigzag the seam allowances.",
+    ],
+    sew:[
+      {h:"4-1. Sew the shoulders", items:[
+        "Place front and back right sides together and sew both shoulders.",
+        "Press the allowances towards the back.",
+      ]},
+      {h:"4-2. Set the sleeves", items:[
+        "Match the center notch of the sleeve head to the shoulder seam.",
+        "The sleeve head is slightly longer than the armhole. Ease it in with a gathering row.",
+        "Sew right sides together, round the whole armhole.",
+      ]},
+      {h:"4-3. Sew the sides and underarms", items:[
+        "Place front and back right sides together and sew from the cuff to the hem in one run.",
+        "Backstitch over the underarm junction.",
+      ]},
+      {h:"4-4. Bind the edges", items:[
+        "Bind the neckline, the front edges, the hem and the cuffs with bias tape.",
+        "Running the front edge in one continuous length gives the cleanest finish.",
+        "Work the buttonholes and sew on the buttons.",
+      ]},
+    ],
+    sewNote:"The sleeve head is deliberately longer than the armhole — that extra is the room to move the arm. Ease it in with a gathering row rather than stretching the armhole to match. Forcing it puts creases at the underarm.",
+    tips:[
+      "<strong>Snaps instead of buttons</strong>: easier for small hands to manage alone.",
+      "<strong>Neat without a lining</strong>: bound allowances mean the inside looks finished too.",
+      "<strong>Corduroy nap</strong>: cut every piece the same way up, or the panels read as different colors.",
+    ],
+    related:["kidscoat","kidsraincoat","kidsvest"],
+  },
+
+  kidsraincoat: {
+    title:"Kids' raincoat", tab:"kids", toolName:"Kids' raincoat",
+    sizeStep:"Enter the chest, front length, extra back length, sleeve length, hood depth and ease. Presets cover heights of 110 to 140 cm.",
+    desc:"How to sew a kids' raincoat in laminated fabric. Hooded, front-opening, and longer at the back to clear a backpack.",
+    keywords:"kids raincoat,children,laminate,waterproof,hood,how to sew,sewing pattern",
+    lead:"A hooded, front-opening raincoat in laminated fabric. The back is cut longer so it goes over a school backpack. Pins leave permanent holes, so use clips throughout.",
+    matNote:"one coat, 130 cm height",
+    materials:[
+      "Laminated fabric (lightweight) — about 110 cm wide × 180 cm (43 × 71 in)",
+      "Snap fasteners — 5 or 6 pairs",
+      "Seam-sealing tape (optional) — about 3 m",
+      "A Teflon foot, if you have one",
+      "Clips instead of pins",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Trace on the wrong side. Chalk marks stay on laminate — choose an unobtrusive color.",
+      "<strong>Cut the pieces</strong><br>Back on the fold, 2 fronts, 2 sleeves, 2 hood pieces. The back is longer than the front.",
+      "<strong>Transfer the notches</strong><br>Mark the armhole and the sleeve head.",
+      "<strong>Use clips</strong><br>Pin holes let water through. Clips only.",
+    ],
+    sew:[
+      {h:"4-1. Shoulders and sleeves", items:[
+        "Place front and back right sides together and sew both shoulders.",
+        "Match the sleeve head notch to the shoulder seam and set the sleeves in.",
+        "Laminate sticks to the presser foot. Without a Teflon foot, sew through a strip of tracing paper and tear it away afterwards.",
+      ]},
+      {h:"4-2. Sides and underarms", items:[
+        "Place front and back right sides together and sew from cuff to hem in one run.",
+        "Unpicking leaves holes, so clip everything first and check the shape before you sew.",
+      ]},
+      {h:"4-3. Attach the hood", items:[
+        "Sew the two hood pieces together along the back curve.",
+        "Hem the face opening.",
+        "Sew the lower edge of the hood to the neckline, right sides together.",
+      ]},
+      {h:"4-4. Front edges, hem and snaps", items:[
+        "Turn the front edges under twice and stitch. A deep overlap keeps the rain out.",
+        "Hem the bottom and the cuffs the same way.",
+        "Fit 5 or 6 pairs of snaps down the front.",
+        "Seal the seams with tape and it will hold up to real rain.",
+      ]},
+    ],
+    sewNote:"Pins leave holes in laminate and water comes through them. Use clips. The same goes for unpicking, so clip everything, check the shape, and only then run the seam.",
+    tips:[
+      "<strong>A longer back</strong>: 8 cm or more if it has to go over a backpack.",
+      "<strong>Reflective tape</strong>: visibility is poor in rain. Add it to the cuffs and hem.",
+      "<strong>A bag to match</strong>: a drawstring bag in the same fabric lets it be packed away wet.",
+    ],
+    related:["kidsjacket","kidscape","kidscoat"],
+  },
+
+  kidsyukata: {
+    title:"Kids' yukata", tab:"kids", toolName:"Kids' yukata",
+    sizeStep:"Enter the length, the body width, the sleeve length, the sleeve width and the collar width. Presets cover heights of 100 to 130 cm.",
+    desc:"How to sew a child's yukata. Straight cutting only — no curves anywhere. Four rectangular pieces sewn with straight seams.",
+    keywords:"kids yukata,children,japanese,straight cutting,summer festival,how to sew,sewing pattern",
+    lead:"A child's yukata cut entirely from straight lines. There is not a single curve, so it comes out right even if you have never done Japanese dressmaking. Four kinds of piece — body, sleeve, collar and okumi — sewn with straight seams. For when the summer festival is close.",
+    matNote:"one yukata, 120 cm height",
+    materials:[
+      "Main fabric (cotton, chusen-dyed or double gauze) — about 110 cm wide × 250 cm (43 × 98 in)",
+      "Sewing thread",
+      "Two waist cords (shop-bought or made from the same fabric)",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Every piece is a rectangle. You can rule the lines straight onto the fabric.",
+      "<strong>Cut the pieces</strong><br>2 body panels, 2 sleeves, 1 collar, 2 okumi.",
+      "<strong>Transfer the notches</strong><br>Mark the shoulder fold on the body and the fold on the sleeve. Those are where the pieces fold double.",
+    ],
+    sew:[
+      {h:"4-1. Make the body", items:[
+        "Fold each body panel at the shoulder notch, which joins front to back.",
+        "Place the two panels right sides together and sew the center back.",
+        "Sew the sides, leaving the top section — the sleeve width — open.",
+      ]},
+      {h:"4-2. Attach the okumi", items:[
+        "Sew an okumi panel to the front edge of each front, right sides together.",
+        "The okumi is the overlap that lets the front wrap. Without it the front gapes.",
+      ]},
+      {h:"4-3. Attach the sleeves", items:[
+        "Fold each sleeve at its notch and sew the underarm, leaving the cuff end open.",
+        "Sew each sleeve into the opening left at the side of the body.",
+        "Hem the cuff openings.",
+      ]},
+      {h:"4-4. Attach the collar", items:[
+        "Fold the collar in half lengthwise and press.",
+        "Sew it round the neckline and down both front edges, enclosing the raw edge.",
+        "Hem the bottom.",
+      ]},
+    ],
+    sewNote:"Cut the length to roughly the child's height. It will look far too long, but the excess is taken up as the ohashori fold under the waist cord — that is what makes it a yukata. Cut it short to begin with and there is no fold to make, and it cannot be dressed properly.",
+    tips:[
+      "<strong>Length equals height</strong>: this is the rule in Japanese dressmaking. The waist cord takes up the rest.",
+      "<strong>Match the jinbei</strong>: made in the same fabric as the jinbei top and pants, siblings match.",
+      "<strong>A machine is fine</strong>: it is all straight seams, so hand sewing is not required.",
+    ],
+    related:["jinbei","jinbeipants","yukata"],
+  },
+
+  kidsapron: {
+    title:"Kids' apron", tab:"kids", toolName:"Kids' apron",
+    sizeStep:"Enter the body width, length, hem width, bib height and pocket size. Presets cover heights of 100 to 140 cm.",
+    desc:"How to sew a kids' apron. An elastic neck loop means they can put it on themselves.",
+    keywords:"kids apron,children,cooking,how to sew,sewing pattern",
+    lead:"Over the head, with the waist ties knotted at the back. Make the neck loop from elastic and they can put it on alone. For cooking lessons and for helping out. Made to match a triangular headscarf, it becomes a proper set.",
+    matNote:"one apron, 120–130 cm height",
+    materials:[
+      "Main fabric (Oxford cloth, sheeting or linen) — about 110 cm wide × 70 cm (43 × 28 in)",
+      "Flat elastic, 1.5 cm — about 45 cm for the neck loop",
+      "Sewing thread",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines. The center line is the fold.",
+      "<strong>Cut the pieces</strong><br>The body on the fold, one or two pockets, two waist ties.",
+      "<strong>Transfer the notches</strong><br>Mark the top of the bib, where the side curve begins.",
+    ],
+    sew:[
+      {h:"4-1. Finish the edges", items:[
+        "Turn the diagonal side edges under twice, 1 cm each time, and stitch.",
+        "Do the same on both sides of the bib.",
+        "Diagonal edges stretch easily. Press the folds firmly before sewing.",
+      ]},
+      {h:"4-2. Add the pocket", items:[
+        "Turn the pocket's top edge under twice and stitch.",
+        "Press the other three allowances to the wrong side.",
+        "Position it and stitch round three sides.",
+        "Triangles of backstitching at the top corners stop it pulling off.",
+      ]},
+      {h:"4-3. Attach the neck loop", items:[
+        "Turn the top of the bib under twice, catching the ends of the elastic as you go.",
+        "Decide the elastic length against the actual child — long enough for the head, short enough not to sag.",
+        "Backstitch two or three times over the ends.",
+      ]},
+      {h:"4-4. Ties and hem", items:[
+        "Fold each waist tie in four and topstitch.",
+        "Catch a tie at each side notch and backstitch it in place.",
+        "Hem the bottom.",
+      ]},
+    ],
+    sewNote:"An elastic neck loop lets a child put the apron on unaided. Set the length against the actual child: too short and it will not go over the head, too long and the bib hangs uselessly low. Pin it, have them try it on, and only then stitch it down.",
+    tips:[
+      "<strong>Match the headscarf</strong>: the triangular headscarf in the same fabric makes the cooking-lesson set.",
+      "<strong>Somewhere for a name</strong>: a name tape behind the pocket or on a tie end saves it going astray.",
+      "<strong>Divide the pocket</strong>: a line of stitching down the middle makes two.",
+    ],
+    related:["bandana","kidsbibapron","apron"],
+  },
+
+  jumpsuit: {
+    title:"Jumpsuit", tab:"human", toolName:"Jumpsuit",
+    sizeStep:"Enter the chest, hip, bodice length, rise, inseam, neckline width and ease. Presets cover S, M, L and a wide version.",
+    desc:"How to sew a jumpsuit. A sleeveless bodice joined to trousers at the waist, with elastic in the join.",
+    keywords:"jumpsuit,all-in-one,boilersuit,linen,how to sew,sewing pattern",
+    lead:"A loose one-piece. Rather than hanging from straps, a sleeveless bodice is joined to trousers at the waist. The waist is elasticated, so getting in and out is no trouble. Linen or a lightweight denim.",
+    matNote:"one jumpsuit, size M",
+    materials:[
+      "Main fabric (linen, lightweight denim or cotton) — about 110 cm wide × 260 cm (43 × 102 in)",
+      "Flat elastic, 2.5 cm — your waist measurement × 0.8, plus 5 cm",
+      "Fabric for bias binding — about 50 × 6 cm × 3",
+      "Sewing thread",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines. The bodice's center line is the fold.",
+      "<strong>Cut the pieces</strong><br>Bodice: front on the fold, back on the fold. Trousers: 2 fronts and 2 backs, 4 in all.",
+      "<strong>Transfer the notches</strong><br>Mark the armholes on the bodice and the crotch notch on the trousers.",
+      "<strong>Finish the edges</strong><br>Zigzag or overlock the allowances.",
+    ],
+    sew:[
+      {h:"4-1. Sew the bodice", items:[
+        "Place front and back right sides together and sew both shoulders.",
+        "Carry on and sew both side seams.",
+        "Bind the neckline and both armholes with bias tape.",
+      ]},
+      {h:"4-2. Sew the trousers", items:[
+        "Place the two fronts right sides together and sew the crotch curve. Same for the backs.",
+        "Place front and back right sides together and sew both sides.",
+        "Then sew the inseam in one run, hem to hem.",
+      ]},
+      {h:"4-3. Join bodice to trousers", items:[
+        "Turn the bodice right side out, leave the trousers wrong side out, and drop the bodice inside the trousers — right sides together.",
+        "Match side seam to side seam and center to center, then sew right round the waist.",
+        "Press the allowance up into the bodice and topstitch it down. That allowance becomes the elastic casing.",
+      ]},
+      {h:"4-4. Elastic and hems", items:[
+        "Leave 3 cm of that topstitching unsewn and thread the elastic through.",
+        "Cut it to 80% of your waist, overlap the ends by 2 cm and stitch.",
+        "Close the gap and hem both legs.",
+      ]},
+    ],
+    sewNote:"When you join bodice to trousers, match the side seams first. If they are out, the whole thing twists on the body and the side seam runs at an angle. Pin the four points — both sides, center front, center back — and fill in between them.",
+    tips:[
+      "<strong>Wide elastic</strong>: 2.5 cm or more keeps the waist from bunching.",
+      "<strong>Layer it</strong>: sleeveless by design, meant to go over a T-shirt or blouse.",
+      "<strong>Go wider</strong>: increase the ease for a proper workwear silhouette.",
+    ],
+    related:["overall","onepiece","widepants"],
+  },
+
+  adultjinbei: {
+    title:"Jinbei top (adult)", tab:"human", toolName:"Jinbei top (adult)",
+    sizeStep:"Enter the chest, length, sleeve length, collar width and ease. Presets cover S to XL.",
+    desc:"How to sew an adult jinbei top. Straight cutting, sleeves cut in one with the body, sides tied with cords.",
+    keywords:"jinbei,japanese,loungewear,straight cutting,summer,how to sew,sewing pattern",
+    lead:"An adult jinbei, cut from straight lines. The sides tie with cords, and the sleeves are cut in one with the body rather than set in. In cotton or crepe it earns its place as summer loungewear all year round. With the samue pants it makes a set.",
+    matNote:"one top, size M",
+    materials:[
+      "Main fabric (cotton, crepe or shijira weave) — about 110 cm wide × 180 cm (43 × 71 in)",
+      "Sewing thread",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines. The back's center line is the fold.",
+      "<strong>Cut the pieces</strong><br>Back on the fold, 2 fronts, 1 collar, 4 side cords.",
+      "<strong>Transfer the notches</strong><br>Mark where the side opening stops. Below that point you do not sew.",
+      "<strong>Finish the edges</strong><br>Zigzag the seam allowances.",
+    ],
+    sew:[
+      {h:"4-1. Shoulders and underarms", items:[
+        "Place front and back right sides together and sew both shoulders.",
+        "The sleeves are cut in one with the body, so there is nothing to set in.",
+        "Sew from the underarm down the side, stopping at the notch. Below it, leave the seam open.",
+      ]},
+      {h:"4-2. Finish the side openings", items:[
+        "Turn the allowances under twice from the notch to the hem and stitch.",
+        "Backstitch at the notch — that point takes the strain.",
+      ]},
+      {h:"4-3. Attach the collar", items:[
+        "Fold the collar in half lengthwise and press.",
+        "Sew it round the neckline and down both front edges, enclosing the raw edge.",
+        "Running it in one continuous length gives the cleanest line.",
+      ]},
+      {h:"4-4. Cords and hems", items:[
+        "Fold each cord in four and topstitch. Four in all.",
+        "Stitch two to each side, just above the notch.",
+        "Hem the cuffs and the bottom.",
+      ]},
+    ],
+    sewNote:"Leave the side seams open for about a third of the length from the hem. That opening is what makes it a jinbei, and it is why air moves through it. Sew the sides closed and you have an ordinary straight-cut shirt. Mark the stopping point before you sew.",
+    tips:[
+      "<strong>Make the set</strong>: the samue pants in the same fabric complete it.",
+      "<strong>Fabric</strong>: shijira and crepe weaves stand away from the skin and stay cool.",
+      "<strong>Match a child</strong>: the kids' jinbei top covers smaller sizes.",
+    ],
+    related:["samue","samuepants","jinbei"],
+  },
+
+  cafeapron: {
+    title:"Cafe apron", tab:"human", toolName:"Cafe apron",
+    sizeStep:"Enter the width, length, pocket width, pocket depth and tie length. Presets cover short, standard, long and wide.",
+    desc:"How to sew a waist apron. No bib, straight seams only, with a generous pocket.",
+    keywords:"cafe apron,waist apron,half apron,linen,canvas,how to sew,sewing pattern",
+    lead:"A short apron from the waist down. With no bib it goes on and comes off quickly, which suits cooking and workshop alike. A generous pocket takes a cloth and a notebook. Linen or canvas.",
+    matNote:"one apron, standard size",
+    materials:[
+      "Main fabric (linen, canvas or Oxford cloth) — about 110 cm wide × 70 cm (43 × 28 in)",
+      "Sewing thread",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Every piece is a rectangle. You can rule the lines straight onto the fabric.",
+      "<strong>Cut the pieces</strong><br>One body, one pocket, two ties.",
+      "<strong>Transfer the notches</strong><br>Mark the center of the pocket, where the dividing line goes.",
+    ],
+    sew:[
+      {h:"4-1. Finish the body edges", items:[
+        "Turn each side under twice, 1 cm each time, and stitch.",
+        "Hem the bottom the same way.",
+        "Leave the top edge — the ties go in there.",
+      ]},
+      {h:"4-2. Add the pocket", items:[
+        "Turn the pocket's top edge under twice and stitch.",
+        "Press the other three allowances to the wrong side.",
+        "Position it and stitch round three sides, with triangles of backstitching at the top corners.",
+        "A line of stitching at the center notch divides it in two.",
+      ]},
+      {h:"4-3. Attach the ties", items:[
+        "Fold each tie in four and topstitch.",
+        "Turn the top edge of the body under by 1 cm, then 2 cm.",
+        "Catch a tie at each end as you fold.",
+      ]},
+      {h:"4-4. Stitch the top edge", items:[
+        "Stitch along the fold from end to end, catching the ties.",
+        "Backstitch two or three times where each tie enters — that joint is pulled every time it is knotted.",
+      ]},
+    ],
+    sewNote:"Reinforce where the ties join. That is almost always the first thing to fail on an apron. Caught in the hem fold and then secured with a stitched square and its diagonals, it will not pull out.",
+    tips:[
+      "<strong>A generous pocket</strong>: big enough for a cloth, a notebook and a phone.",
+      "<strong>Canvas lasts</strong>: a medium canvas stands up to workshop use.",
+      "<strong>Length sets the mood</strong>: short reads as cafe, long as workwear.",
+    ],
+    related:["apron","kappogi","kidsapron"],
+  },
+  maskcover: {
+    title:"Mask cover", tab:"small", toolName:"Mask cover",
+    sizeStep:"Enter the width, the height and the center tuck. Presets cover small, standard and large.",
+    desc:"How to sew a cloth cover that goes over a disposable mask. Sew the center seam and thread elastic at each side.",
+    keywords:"mask cover,cloth mask,gauze,how to sew,sewing pattern",
+    lead:"A cover that goes over a shop-bought disposable mask, so what touches the skin is cloth. Sew the center seam and thread elastic at each side. In gauze or silk the difference in comfort is immediate.",
+    matNote:"one cover, standard size",
+    materials:[
+      "Fabric (double gauze or silk) — about 25 × 36 cm (for two pieces; scraps are fine)",
+      "Mask elastic — about 24 cm × 2",
+      "Sewing thread",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines. The center line is the fold.",
+      "<strong>Cut the pieces</strong><br>Cut 2 on the fold — a left and a right.",
+      "<strong>Transfer the notches</strong><br>Mark where the center curve begins.",
+    ],
+    sew:[
+      {h:"4-1. Sew the center seam", items:[
+        "Place the two pieces right sides together and sew the curved center edge.",
+        "Clip the allowance every 1 cm so it does not pull when opened out.",
+        "Press the allowance open and topstitch either side.",
+      ]},
+      {h:"4-2. Finish top and bottom", items:[
+        "Turn the top and bottom edges under twice, 1 cm each time, and stitch.",
+        "Gauze stretches easily, so let the machine feed it.",
+      ]},
+      {h:"4-3. Make the elastic casings", items:[
+        "Turn each side edge under by 1 cm, then 1.5 cm, and stitch.",
+        "Those become the casings.",
+        "Thread the elastic and try it on before knotting.",
+      ]},
+    ],
+    sewNote:"Decide the elastic length with the cover actually on. It sits over a disposable mask, so fitting it on its own makes it too tight. Put the mask on, lay the cover over it, and knot the elastic at the length that feels right.",
+    tips:[
+      "<strong>Pick what touches the skin</strong>: silk and double gauze suit anyone bothered by chafing.",
+      "<strong>Keep the mask underneath</strong>: this is a cover, not a mask. Always use it over a disposable one.",
+      "<strong>Make several</strong>: they come out of scraps, so a batch is easy.",
+    ],
+    related:["mask", "fittedmask", "maskcase"],
+  },
+
+  casquette: {
+    title:"Casquette", tab:"small", toolName:"Casquette",
+    sizeStep:"Enter the head circumference, the depth and the brim projection. Presets cover child, S, M and L.",
+    desc:"How to sew a six-panel casquette with a short brim. The panels give it a rounded crown that sits on the head.",
+    keywords:"casquette,cap,six panel,brim,how to sew,sewing pattern",
+    lead:"A six-panel crown with a short brim. Because the panels are joined, the crown is properly rounded and sits on the head. Fuse two layers of interfacing into the brim so it holds its shape.",
+    matNote:"one hat, size M",
+    materials:[
+      "Main fabric (linen, corduroy or denim) — about 110 cm wide × 50 cm (43 × 20 in)",
+      "Heavyweight fusible interfacing — about 35 × 20 cm (two brim pieces)",
+      "Fabric for the inner band — about 60 × 6 cm",
+      "Sewing thread",
+    ],
+    cut:[
+      "<strong>Measure the head</strong><br>Round the head above the brows and over the ears. Enter that measurement plus 1 cm.",
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines.",
+      "<strong>Cut the pieces</strong><br>6 panels, 2 brim pieces, 1 inner band. Also 2 brim pieces in interfacing.",
+      "<strong>Transfer the notches</strong><br>Mark the bottom of each panel and the center of the brim.",
+    ],
+    sew:[
+      {h:"4-1. Build the crown", items:[
+        "Place two panels right sides together and sew one curved edge. Make three pairs.",
+        "Join the pairs in turn so the six panels form a ring.",
+        "Press the allowances open and topstitch either side to settle the shape.",
+        "All six meet at the top. The fabric piles up there, so go slowly.",
+      ]},
+      {h:"4-2. Make the brim", items:[
+        "Fuse interfacing to both brim pieces.",
+        "Place them right sides together and sew the outer curve.",
+        "Clip the allowance, turn and press.",
+        "Two rows of topstitching, at 5 mm and 1 cm from the edge, give it the bought look.",
+      ]},
+      {h:"4-3. Attach the brim", items:[
+        "Match the center front of the crown to the center notch of the brim.",
+        "Sew the brim to the lower edge of the crown, right sides together.",
+        "The brim covers only the front half, not the whole circumference.",
+      ]},
+      {h:"4-4. Attach the inner band", items:[
+        "Sew the inner band right round the lower edge of the crown, right sides together.",
+        "Fold it to the inside and topstitch. That also hides the brim's allowance.",
+      ]},
+    ],
+    sewNote:"Use two layers of interfacing in the brim. One layer collapses and the brim droops as soon as it is worn. Heavyweight interfacing fused to both brim pieces gives a brim that survives washing.",
+    tips:[
+      "<strong>Head measurement plus 1 cm</strong>: exact feels tight once it is on.",
+      "<strong>Corduroy nap</strong>: cut all six panels the same way up or they read as different colors.",
+      "<strong>Add a lining</strong>: the same panel pattern makes a lining that hides every seam.",
+    ],
+    related:["cap", "sunhat", "beret"],
+  },
+
+  bandanacap: {
+    title:"Bandana cap", tab:"small", toolName:"Bandana cap",
+    sizeStep:"Enter the head circumference, the depth and the tie length. Presets cover child, standard and large.",
+    desc:"How to sew a bandana cap that ties at the back. It hugs the head — for cooking, cleaning or covering the hair.",
+    keywords:"bandana cap,head scarf,cooking,hair cover,how to sew,sewing pattern",
+    lead:"A triangular cap that ties at the back. It hugs the head, which suits cooking, cleaning, and any time the hair needs covering. A short length of elastic across the back makes tying easy.",
+    matNote:"one cap, standard size",
+    materials:[
+      "Fabric (Oxford cloth, linen or double gauze) — about 55 × 45 cm",
+      "Flat elastic, 1 cm — about 14 cm",
+      "Sewing thread",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines.",
+      "<strong>Cut the pieces</strong><br>Two body pieces and two ties.",
+      "<strong>Transfer the notches</strong><br>Mark where the curve ends. Below that point you do not sew.",
+    ],
+    sew:[
+      {h:"4-1. Sew the body", items:[
+        "Place the two pieces right sides together and sew the curved edge that passes over the head.",
+        "Stop at the notch — below it stays open, which is the back opening.",
+        "Clip the curve, press the allowance open.",
+      ]},
+      {h:"4-2. Hem the face edge", items:[
+        "Turn the straight front edge under by 1 cm, then 1.5 cm, and stitch.",
+        "This edge shows, so keep the fold even.",
+      ]},
+      {h:"4-3. Add the elastic", items:[
+        "Turn the lower back edge under twice, threading elastic through as you go.",
+        "About 14 cm. Try it on and adjust so it does not slip.",
+        "Backstitch over both ends of the elastic.",
+      ]},
+      {h:"4-4. Attach the ties", items:[
+        "Fold each tie in four and topstitch.",
+        "Stitch one to each end of the back edge.",
+        "Put it on and knot the ties at the back.",
+      ]},
+    ],
+    sewNote:"The elastic across the back means the ties do not have to be pulled tight. Elastic alone squeezes the head; ties alone work loose during the day. A little of each is what makes it wearable for hours.",
+    tips:[
+      "<strong>For cooking</strong>: it covers the hair properly, which keeps it out of the food.",
+      "<strong>Match an apron</strong>: made in the same fabric as the apron or cafe apron, it becomes a set.",
+      "<strong>For medical use</strong>: it also serves for covering hair during treatment. Choose something soft against the skin.",
+    ],
+    related:["bandana", "cap", "hairturban"],
+  },
+
+  hairribbon: {
+    title:"Hair ribbon", tab:"small", toolName:"Hair ribbon",
+    sizeStep:"Enter the ribbon width, the ribbon length and the tail length. Presets cover small, standard, large and with tails.",
+    desc:"How to sew a fabric hair ribbon for an elastic. Sew a tube, turn it, and wrap the middle.",
+    keywords:"hair ribbon,hair tie,bow,scraps,how to sew,sewing pattern",
+    lead:"A fabric bow for a hair elastic. The middle is gathered and wrapped with a narrow strip, so it comes out of scraps and you can make as many as you like. For a child's hair tie or an adult's ponytail.",
+    matNote:"one ribbon, standard size",
+    materials:[
+      "Fabric (cotton print) — about 25 × 26 cm (scraps are fine)",
+      "A hair elastic — 1",
+      "Sewing thread",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines.",
+      "<strong>Cut the pieces</strong><br>One ribbon body and one wrap strip. Two tails if you want them.",
+      "<strong>Transfer the notches</strong><br>Mark the center of the ribbon body — that is where it gathers.",
+    ],
+    sew:[
+      {h:"4-1. Sew a tube", items:[
+        "Fold the ribbon body right sides together and sew the long edge into a tube.",
+        "Leave about 5 cm open for turning.",
+        "Pressing the allowance open before turning gives a cleaner edge.",
+      ]},
+      {h:"4-2. Turn and close the ends", items:[
+        "Turn right side out and press flat.",
+        "Turn the allowances at both ends inwards and topstitch closed.",
+        "That closes the turning gap at the same time.",
+      ]},
+      {h:"4-3. Gather the middle", items:[
+        "Pinch the ribbon vertically at the center notch.",
+        "Whip a few stitches by hand to hold the gather.",
+      ]},
+      {h:"4-4. Wrap and attach the elastic", items:[
+        "Fold the wrap strip in four and topstitch.",
+        "Wrap it round the gathered middle and stitch on the underside, catching the hair elastic as you go.",
+        "Turn the strip's raw ends inwards before stitching.",
+      ]},
+    ],
+    sewNote:"Gather the middle by hand first, then wrap. Relying on the wrap alone to hold the shape lets the bow spread out flat. Gathering first is what keeps it looking full over time.",
+    tips:[
+      "<strong>For using up scraps</strong>: 25 × 26 cm is enough. A little of a favorite print goes a long way.",
+      "<strong>Add tails</strong>: setting a tail length gives the bow movement.",
+      "<strong>Interface thin fabric</strong>: fusible interfacing stops a lightweight print from collapsing.",
+    ],
+    related:["shuushu", "hairclip", "headband"],
+  },
+
+  hairclip: {
+    title:"Ribbon barrette", tab:"small", toolName:"Ribbon barrette",
+    sizeStep:"Enter the clip length, the clip width and the ribbon width. Presets cover small, standard, large and no ribbon.",
+    desc:"How to cover a snap hair clip with fabric and add a bow. No machine needed.",
+    keywords:"barrette,hair clip,snap clip,bow,scraps,how to sew,sewing pattern",
+    lead:"A shop-bought snap clip covered in fabric. The metal never touches the hair, and it comes out of scraps. Since the cover is glued on the underside, you can make it without a sewing machine.",
+    matNote:"one barrette, standard size",
+    materials:[
+      "Fabric (cotton print) — about 20 × 15 cm (scraps are fine)",
+      "A snap hair clip, 6 cm — 1",
+      "Craft glue",
+      "Hand-sewing thread",
+    ],
+    cut:[
+      "<strong>Measure the clip</strong><br>Measure the length and width of your clip. 6 cm is the common size.",
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace the cutting line.",
+      "<strong>Cut the pieces</strong><br>One cover strip, plus the ribbon and wrap if you want a bow.",
+    ],
+    sew:[
+      {h:"4-1. Cover the clip", items:[
+        "Fold both long edges of the cover strip to the middle so it matches the clip's width.",
+        "Spread a thin layer of glue on the face of the clip and lay the fabric on.",
+        "Fold the ends round to the underside. Clamp with a clothes peg until dry.",
+      ]},
+      {h:"4-2. Make the bow", items:[
+        "Fold the ribbon right sides together and sew the long edge into a tube.",
+        "Turn, press flat and close both ends.",
+        "Gather at the center notch and whip a few stitches by hand.",
+      ]},
+      {h:"4-3. Wrap the middle", items:[
+        "Fold the wrap strip in four and topstitch.",
+        "Wrap it round the gather and stitch on the underside.",
+      ]},
+      {h:"4-4. Attach to the clip", items:[
+        "Glue or stitch the bow to the covered clip.",
+        "Stitching in a few places survives washing better than glue alone.",
+      ]},
+    ],
+    sewNote:"Spread the glue thinly. Too much soaks through the fabric and dries as a stain. Spread it with a cocktail stick and clamp with a clothes peg — that is enough for a permanent bond.",
+    tips:[
+      "<strong>No machine needed</strong>: the covered clip on its own can be made entirely with glue.",
+      "<strong>Skip the bow</strong>: a plain covered clip in a good fabric looks fine on its own.",
+      "<strong>Match the hair ribbon</strong>: the same fabric makes a pair.",
+    ],
+    related:["hairribbon", "shuushu", "headband"],
+  },
+
+  haramaki: {
+    title:"Belly warmer", tab:"small", toolName:"Belly warmer",
+    sizeStep:"Enter the waist, the length, the ease and the turn-back. Presets cover S, M, L and child.",
+    desc:"How to sew a belly warmer. A knit tube with turned-back edges — for air conditioning or under pajamas.",
+    keywords:"belly warmer,haramaki,knit,tube,how to sew,sewing pattern",
+    lead:"A tube to keep the middle warm. Join a piece of jersey into a ring and turn the edges back — that is all of it. Cut it with the stretch running around the body so it does not squeeze. Under pajamas, or against air conditioning.",
+    matNote:"one warmer, size M",
+    materials:[
+      "Jersey (interlock, rib or wool blend) — about 90 cm wide × 40 cm",
+      "A ballpoint needle (75/11) and stretch thread",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace the cutting line. <strong>Run the stretchiest direction across the width.</strong>",
+      "<strong>Cut the piece</strong><br>Cut one.",
+      "<strong>Check the stretch</strong><br>Pull the fabric both ways and confirm which stretches more before you place the pattern.",
+    ],
+    sew:[
+      {h:"4-1. Join into a ring", items:[
+        "Fold right sides together and sew the short edges into a ring.",
+        "Use a ballpoint needle and a stretch stitch.",
+        "Rather than pressing the allowance open, press it to one side and topstitch — it sits softer against the skin.",
+      ]},
+      {h:"4-2. Turn the edges back", items:[
+        "Fold the top edge inwards by the turn-back amount and stitch all round.",
+        "Do the same at the bottom.",
+        "Use a stretch stitch, or the thread snaps when it is pulled on.",
+      ]},
+      {h:"4-3. Finish", items:[
+        "Turn it inside out and check nothing rubs.",
+        "Press on a low setting through a cloth, lightly.",
+      ]},
+    ],
+    sewNote:"The ease is negative — smaller than the actual measurement. Jersey stretches, so made to the exact measurement it slides down. About 6 cm under the waist measurement stays put without squeezing.",
+    tips:[
+      "<strong>Stretch runs across</strong>: cut the other way and it will not go on. Check before cutting.",
+      "<strong>Go longer</strong>: covering the lower back as well as the stomach changes how warm it feels.",
+      "<strong>Wool for winter</strong>: a wool blend for cold weather, cotton interlock for air conditioning.",
+    ],
+    related:["neckwarmer", "legwarmer", "scarf"],
+  },
+
+  brooch: {
+    title:"Fabric brooch", tab:"small", toolName:"Fabric brooch",
+    sizeStep:"Enter the size and the shape (round, flower or leaf). Presets cover round, flower, leaf and large.",
+    desc:"How to sew a padded fabric brooch. Two pieces, a little stuffing, and a pin on the back.",
+    keywords:"brooch,fabric,scraps,embroidery,gift,how to sew,sewing pattern",
+    lead:"A softly padded fabric brooch with a pin stitched to the back. It comes out of scraps and makes a good small gift. A little embroidery gives it more character.",
+    matNote:"one brooch, standard size",
+    materials:[
+      "Fabric (linen, wool or felt) — about 15 × 10 cm (scraps are fine)",
+      "Toy stuffing — a small amount",
+      "A brooch pin, 25 mm — 1",
+      "Hand-sewing thread",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines.",
+      "<strong>Cut the pieces</strong><br>Cut two. Different fabrics front and back are fine.",
+      "<strong>Embroider first</strong><br>Any embroidery goes on the front piece before the two are joined.",
+    ],
+    sew:[
+      {h:"4-1. Sew the two pieces", items:[
+        "Place them right sides together and sew around.",
+        "Leave about 3 cm open at the bottom. It is small, so a narrow gap will not turn.",
+        "Trim the curved allowance to 5 mm and clip every 1 cm.",
+      ]},
+      {h:"4-2. Turn and stuff", items:[
+        "Turn right side out and shape it with an awl.",
+        "Add a little stuffing. <strong>Not too much.</strong>",
+        "Flower and leaf shapes resist stuffing in the concave parts — push it in a little at a time.",
+      ]},
+      {h:"4-3. Close and add the pin", items:[
+        "Close the opening with ladder stitch.",
+        "Stitch the brooch pin to the back, slightly above center so it hangs straight.",
+        "Secure it in at least four places.",
+      ]},
+    ],
+    sewNote:"Go light on the stuffing. It is tempting to fill it out, but an overstuffed brooch bulges at the back, will not sit flat, and stands away from the garment. Enough that you feel the base when you press is plenty.",
+    tips:[
+      "<strong>Pin above center</strong>: set at the center, the weight tips it forward. Slightly high sits straight.",
+      "<strong>Add embroidery</strong>: a few stitches for veins or a flower center give it character.",
+      "<strong>As a gift</strong>: in a small box it makes a good present.",
+    ],
+    related:["pincushion", "shuushu", "bowtie"],
+  },
+
+  pocketsquare: {
+    title:"Pocket square", tab:"small", toolName:"Pocket square",
+    sizeStep:"Enter the side length and the hem fold. Presets cover small, standard and large.",
+    desc:"How to sew a pocket square. Cut a square and hand-roll the edges — it takes an evening.",
+    keywords:"pocket square,handkerchief,suit,wedding,silk,how to sew,sewing pattern",
+    lead:"The square of cloth that goes in a jacket's breast pocket. Hand-hemmed edges sit softly and give it character. A scrap of silk or linen is enough. Made to match a tie, it pulls an outfit together.",
+    matNote:"one square, standard size",
+    materials:[
+      "Fabric (silk, linen or fine cotton) — about 35 × 35 cm",
+      "Hand-sewing thread (silk thread looks best)",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines.",
+      "<strong>Cut the piece</strong><br>Cut one. <strong>Keep the grain straight.</strong> Cut off-grain and it will not sit properly in the pocket.",
+      "<strong>Mark the hem</strong><br>Rule the fold line on all four sides.",
+    ],
+    sew:[
+      {h:"4-1. Fold the edges", items:[
+        "Fold each side once at the marked line and press.",
+        "Fold again by the same amount.",
+        "At the corners, fold the diagonal first and then the two sides — that keeps the bulk down.",
+      ]},
+      {h:"4-2. Hem by hand", items:[
+        "Slip-stitch along the fold.",
+        "Catch only the fold on the underside so no thread shows on the face.",
+        "You can machine it, but a hand hem sits softer.",
+      ]},
+      {h:"4-3. Finish", items:[
+        "Press lightly.",
+        "Pressing hard flattens the rolled edge — hover the iron and use steam.",
+      ]},
+    ],
+    sewNote:"Cut it on the straight grain. Even slightly off-grain, one side droops when it is folded into a pocket and the shape never settles. Check the right angle with a ruler before cutting; it changes the result.",
+    tips:[
+      "<strong>Match a tie</strong>: the same fabric as the necktie pulls the outfit together.",
+      "<strong>Hem by hand</strong>: softer and more refined than a machine hem.",
+      "<strong>Size changes the fold</strong>: smaller suits a square fold, larger a puff.",
+    ],
+    related:["necktie", "bowtie", "bandana"],
+  },
+
+  fabricbelt: {
+    title:"Fabric belt", tab:"small", toolName:"Fabric belt",
+    sizeStep:"Enter the waist, the belt width and the tie allowance. Presets cover narrow, standard and wide.",
+    desc:"How to sew a fabric sash belt. Sew a tube, turn it, and tie it at the front — no hardware.",
+    keywords:"fabric belt,sash belt,tie belt,dress,how to sew,sewing pattern",
+    lead:"A belt sewn as a tube and turned. There is no hardware — it simply ties at the front. Over a dress or a tunic it changes the whole line. Fuse interfacing and it will not twist when it is pulled tight.",
+    matNote:"one belt, standard size",
+    materials:[
+      "Fabric (linen or cotton) — about 140 cm wide × 25 cm (piece it in two if your fabric is narrower)",
+      "Lightweight fusible interfacing — the same",
+      "Sewing thread",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>One rectangle. You can rule it straight onto the fabric.",
+      "<strong>Cut the piece</strong><br>Cut one. It is long — if your fabric is narrower, cut two and join them at the center.",
+      "<strong>Fuse the interfacing</strong><br>Fuse it to the wrong side. Without it the belt twists when tightened.",
+      "<strong>Transfer the notches</strong><br>Mark where the tie allowance begins — that is where the waist sits.",
+    ],
+    sew:[
+      {h:"4-1. Sew a tube", items:[
+        "Fold right sides together and sew the long edge into a tube.",
+        "Leave about 8 cm open near the middle for turning.",
+        "Pressing the allowance open first gives a straight line on the face.",
+      ]},
+      {h:"4-2. Close the ends", items:[
+        "Sew both ends closed. Cutting them at an angle first gives pointed tips.",
+        "Trim the corner allowances diagonally before turning so the points come out.",
+      ]},
+      {h:"4-3. Turn and topstitch", items:[
+        "Turn right side out. It is long, so a loop turner or a stick helps.",
+        "Press flat and close the turning gap.",
+        "Topstitching all round settles the shape.",
+      ]},
+    ],
+    sewNote:"Do not skip the interfacing. Fabric alone twists and rolls the moment the belt is pulled tight. A lightweight fusible over the whole length is all it takes to get a belt that stays flat.",
+    tips:[
+      "<strong>Length is yours</strong>: a longer tie allowance gives more to hang at the front.",
+      "<strong>Use the leftovers</strong>: made from a dress's remnants it becomes a matching belt.",
+      "<strong>Width sets the look</strong>: narrow is understated, wide emphasises the waist.",
+    ],
+    related:["shuushu", "brooch", "onepiece"],
+  },
+
+  breadbag: {
+    title:"Bread bag", tab:"small", toolName:"Bread bag",
+    sizeStep:"Enter the width, the height, the gusset and the casing width. Presets cover a loaf, a baguette and large.",
+    desc:"How to sew a linen bread bag. Linen lets moisture out, so bread neither sweats nor dries hard.",
+    keywords:"bread bag,linen,storage,zero waste,how to sew,sewing pattern",
+    lead:"A cloth bag for fresh bread. Linen lets moisture escape at a measured rate, so the bread neither sweats nor goes hard. The top draws closed with cords. The standard size takes a loaf.",
+    matNote:"one bag, loaf size",
+    materials:[
+      "Fabric (linen or heavy cotton) — about 55 × 40 cm",
+      "Cord, 4 mm round — about 55 cm × 2",
+      "Sewing thread",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines.",
+      "<strong>Cut the pieces</strong><br>Two body pieces and two cords.",
+      "<strong>Transfer the notches</strong><br>Mark where the casing opening stops. You sew below that point.",
+      "<strong>Finish the edges</strong><br>Zigzag the seam allowances.",
+    ],
+    sew:[
+      {h:"4-1. Sew the sides and base", items:[
+        "Place the two pieces right sides together and sew both sides and the base.",
+        "Leave the sides unsewn from the top down to the casing notch — that is where the cords come out.",
+        "Backstitch at the notch.",
+      ]},
+      {h:"4-2. Box the corners", items:[
+        "Pinch each bottom corner so the side seam meets the base seam.",
+        "Sew straight across at the gusset width.",
+        "Trim, leaving 1 cm.",
+      ]},
+      {h:"4-3. Make the casing", items:[
+        "Above the notch, press the allowances open and topstitch them down in a rectangle.",
+        "Turn the top edge under by 1 cm, then by the casing width.",
+        "Stitch close to the fold, all the way round.",
+      ]},
+      {h:"4-4. Thread the cords", items:[
+        "Thread two cords in opposite directions from either side.",
+        "Knot each one so pulling both sides closes the bag.",
+      ]},
+    ],
+    sewNote:"Linen lets moisture out at a measured rate, so bread does not sweat as it would in plastic. It does not stop it drying either — this suits bread eaten the same day or the next. Beyond that, freezing is the reliable answer.",
+    tips:[
+      "<strong>Wash and reuse</strong>: it goes in the machine, which is one fewer plastic bag.",
+      "<strong>Long and narrow for baguettes</strong>: the 16 × 44 cm preset is cut for them.",
+      "<strong>For giving bread away</strong>: it makes the loaf a present rather than a handover.",
+    ],
+    related:["kinchaku", "lunchbag", "teatowel"],
+  },
+
+  potmat: {
+    title:"Trivet", tab:"small", toolName:"Trivet",
+    sizeStep:"Enter the side length, the corner radius and the hanging loop. Presets cover small, standard, round and large.",
+    desc:"How to sew a trivet with two layers of wadding. Stack, quilt, and bind the edge.",
+    keywords:"trivet,pot mat,quilted,kitchen,how to sew,sewing pattern",
+    lead:"A thick trivet with two layers of wadding. Stack outer, wadding, wadding and lining, then bind the edge with bias tape. A loop at one corner lets it hang. Without the thickness the heat comes through, so use two layers.",
+    matNote:"one trivet, standard size",
+    materials:[
+      "Outer and lining (cotton or linen) — about 50 × 25 cm (two pieces)",
+      "Wadding (heavyweight) — about 25 × 25 cm × 2",
+      "Bias binding, 12.7 mm folded — about 90 cm",
+      "Sewing thread",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace the cutting line.",
+      "<strong>Cut the pieces</strong><br>One outer, one lining, two waddings. Cut the wadding on the finished line.",
+      "<strong>Cut the loop</strong><br>Cut one hanging loop.",
+    ],
+    sew:[
+      {h:"4-1. Stack the layers", items:[
+        "Lay lining wrong side up, then both waddings, then the outer right side up.",
+        "Baste or clip. It is thick, so pins do not go through easily.",
+      ]},
+      {h:"4-2. Quilt it", items:[
+        "Stitch a grid or diagonals from the right side, about 5 cm apart.",
+        "Work from the center outwards.",
+        "If the machine struggles with the thickness, reduce the presser-foot pressure.",
+      ]},
+      {h:"4-3. Add the loop", items:[
+        "Fold the loop in four and topstitch.",
+        "Fold it in half and stitch it to the corner notch.",
+        "Keep it inside the seam allowance so the binding catches it.",
+      ]},
+      {h:"4-4. Bind the edge", items:[
+        "Bind all round with bias tape and stitch.",
+        "Ease the tape as you go so it sits flat round the corners.",
+        "Overlap the start and finish by 1.5 cm.",
+      ]},
+    ],
+    sewNote:"Use two layers of wadding. One lets the heat through and marks the table. There is a reason shop-bought trivets are thick. If it is too thick to sew, reduce the presser-foot pressure or quilt it by hand.",
+    tips:[
+      "<strong>Two layers, heavyweight</strong>: do not economise here. Heat comes through.",
+      "<strong>Make it round</strong>: a large corner radius gives something close to a circle.",
+      "<strong>Match the pot holder</strong>: the same fabric as the pot holder or oven mitt makes a set.",
+    ],
+    related:["potholder", "ovenmitt", "coaster"],
+  },
+
+  teatowel: {
+    title:"Tea towel", tab:"small", toolName:"Tea towel",
+    sizeStep:"Enter the width, the height, the hem fold and the hanging loop. Presets cover small, standard and large.",
+    desc:"How to sew a tea towel. Cut a rectangle and hem the four sides — twenty minutes each.",
+    keywords:"tea towel,dish towel,linen,waffle,how to sew,sewing pattern",
+    lead:"The cloth you dry dishes with. Cut a rectangle of linen or waffle weave and hem the four sides. A loop makes it easy to hang. You will never have enough of them.",
+    matNote:"one towel, standard size",
+    materials:[
+      "Fabric (linen or waffle weave) — about 45 × 65 cm",
+      "Sewing thread",
+    ],
+    cut:[
+      "<strong>Pre-wash</strong><br>Linen shrinks noticeably. Wash, dry and press before cutting.",
+      "<strong>Trace the pattern</strong><br>One rectangle. You can rule it straight onto the fabric.",
+      "<strong>Cut the pieces</strong><br>Cut one, plus a loop if you want one.",
+    ],
+    sew:[
+      {h:"4-1. Fold the hems", items:[
+        "Turn each side under by 1 cm, then 1 cm again.",
+        "At the corners, fold the diagonal first and then the two sides to keep the bulk down.",
+        "Press the folds firmly and the stitching runs straight.",
+      ]},
+      {h:"4-2. Add the loop", items:[
+        "Fold the loop in four and topstitch.",
+        "Fold it in half and tuck it into the hem at one corner.",
+      ]},
+      {h:"4-3. Stitch all round", items:[
+        "Stitch close to the fold on all four sides.",
+        "Backstitch two or three times at the corner holding the loop.",
+        "At each corner, leave the needle down, lift the foot and pivot.",
+      ]},
+    ],
+    sewNote:"Pre-wash the linen before cutting. It shrinks 5–8%. Shrink it after sewing and the hems ripple. Wash, dry and press, then cut — that one step changes the result.",
+    tips:[
+      "<strong>Better with age</strong>: linen repels water at first and absorbs properly after a few washes.",
+      "<strong>Make a batch</strong>: twenty minutes each, three from a meter of fabric.",
+      "<strong>As a gift</strong>: a few tied with a ribbon make a thoughtful present.",
+    ],
+    related:["potholder", "placemat", "breadbag"],
+  },
+
+  coinpurse: {
+    title:"Coin purse", tab:"bag", toolName:"Coin purse",
+    sizeStep:"Enter the width, the height and the gusset. Presets cover small, standard and large.",
+    desc:"How to sew a flat coin purse with one zip. The outer and lining sandwich the zip, so no allowances show.",
+    keywords:"coin purse,zip pouch,scraps,how to sew,sewing pattern",
+    lead:"A flat coin purse made with a single zip. The outer and lining sandwich the zip tape, so no raw edges show anywhere. It takes a few cards too. Scraps are enough.",
+    matNote:"one purse, standard size",
+    materials:[
+      "Outer (canvas or Oxford cloth) — about 30 × 15 cm",
+      "Lining (light cotton) — about 30 × 15 cm",
+      "A zip, 12 cm or longer — 1",
+      "Lightweight fusible interfacing — about 30 × 15 cm",
+      "Sewing thread",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines.",
+      "<strong>Cut the pieces</strong><br>Two outer and two lining.",
+      "<strong>Fuse the interfacing</strong><br>Fusing the outer stops it going out of shape.",
+      "<strong>Transfer the notches</strong><br>Mark the zip position on the top edge.",
+    ],
+    sew:[
+      {h:"4-1. Sandwich the zip", items:[
+        "Lay an outer piece right side up, the zip face down on top, then a lining piece face down.",
+        "Sew the top edge through all three. A zipper foot lets you sew close to the teeth.",
+        "Repeat on the other side of the zip with the remaining pieces.",
+      ]},
+      {h:"4-2. Turn out and topstitch", items:[
+        "Fold outer and lining away from the zip and press.",
+        "Topstitch beside the teeth so the fabric does not catch in the zip.",
+      ]},
+      {h:"4-3. Sew round the outside", items:[
+        "<strong>Open the zip halfway first.</strong> Sewn shut, the purse cannot be turned.",
+        "Match outer to outer and lining to lining, right sides together, and sew round.",
+        "Leave about 6 cm open in the base of the lining.",
+      ]},
+      {h:"4-4. Box the corners and turn", items:[
+        "Pinch each bottom corner and sew across at the gusset width — four corners in all, outer and lining.",
+        "Turn through the gap and close it with ladder stitch.",
+        "Push the lining inside and shape.",
+      ]},
+    ],
+    sewNote:"Open the zip halfway before you sew round the outside. Sewn shut, you cannot open the zip to turn the purse through — and there is no way out of that except unpicking. It is a mistake worth guarding against every time.",
+    tips:[
+      "<strong>Use a longer zip</strong>: at least 2 cm longer than the width; the excess is caught in the side seam.",
+      "<strong>Interface it</strong>: even light fabric holds its shape once fused.",
+      "<strong>From scraps</strong>: 30 × 15 cm is all it takes.",
+    ],
+    related:["pouch", "gamaguchi", "cardcase"],
+  },
+
+  bifoldwallet: {
+    title:"Bifold wallet", tab:"bag", toolName:"Bifold wallet",
+    sizeStep:"Enter the opened width, the height and the number of card slots. Presets cover compact, standard and large.",
+    desc:"How to sew a bifold wallet with card slots. Every piece is a rectangle; the order of stacking is what matters.",
+    keywords:"bifold wallet,wallet,card slots,canvas,how to sew,sewing pattern",
+    lead:"A bifold wallet with a note section and card slots. Every piece is a rectangle, but the order they stack in is what matters. Canvas or a light faux leather. Fusible interfacing keeps it from going soft.",
+    matNote:"one wallet, standard size",
+    materials:[
+      "Outer (canvas or faux leather) — about 30 × 32 cm",
+      "Lining (light cotton) — about 30 × 15 cm",
+      "Fabric for the card slots — about 30 × 30 cm",
+      "Heavyweight fusible interfacing — about 30 × 15 cm",
+      "A snap or magnetic clasp — 1",
+      "Sewing thread",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines.",
+      "<strong>Cut the pieces</strong><br>One outer, one inner, one interfacing, and card slots to the number chosen.",
+      "<strong>Fuse the interfacing</strong><br>Fuse heavyweight interfacing to the outer. That is what gives the wallet its body.",
+      "<strong>Transfer the notches</strong><br>Mark the center fold line.",
+    ],
+    sew:[
+      {h:"4-1. Prepare the card slots", items:[
+        "Turn the top edge of each slot under twice and stitch.",
+        "Stack them on the inner piece from the bottom up, offsetting each by 1.7 cm.",
+        "Uneven offsets make the cards awkward to reach. Measure and mark before stacking.",
+      ]},
+      {h:"4-2. Fix the slots in place", items:[
+        "Stitch the sides and bottom of the stack to the inner piece.",
+        "Do not stitch between the layers — that would close the slots.",
+        "Keep them clear of the center fold, one group each side.",
+      ]},
+      {h:"4-3. Join outer and inner", items:[
+        "Place them right sides together and sew round.",
+        "Leave about 8 cm open along the bottom.",
+        "Trim the corner allowances diagonally — it is thick, and without that the corners will not turn out.",
+      ]},
+      {h:"4-4. Turn and finish", items:[
+        "Turn through the gap and ease the corners out.",
+        "Press, then topstitch all round, closing the gap.",
+        "Fold at the center notch and crease.",
+        "Fit the clasp with the wallet closed so the positions match.",
+      ]},
+    ],
+    sewNote:"Measure the offsets between card slots. Stacking by eye leaves uneven gaps and the cards become awkward to pull out. Mark 1.7 cm intervals with a ruler before stacking — that step decides how the wallet handles.",
+    tips:[
+      "<strong>Heavyweight interfacing</strong>: this is what gives the wallet its body.",
+      "<strong>Choose the slot count</strong>: three is standard, four if you carry more cards.",
+      "<strong>Clasp last</strong>: fold it first and mark where the halves actually meet.",
+    ],
+    related:["wallet", "coinpurse", "cardcase"],
+  },
+
+  gamaguchiwallet: {
+    title:"Gamaguchi wallet", tab:"bag", toolName:"Gamaguchi wallet",
+    sizeStep:"Enter the frame width, the depth and the gusset. Presets cover 8.5, 12 and 15 cm frames.",
+    desc:"How to sew a gamaguchi wallet on a metal frame. Shallower than a pouch, with a deep gusset so coins come out easily.",
+    keywords:"gamaguchi,clasp purse,metal frame,coin purse,how to sew,sewing pattern",
+    lead:"A wallet-shaped clasp purse on a metal frame. It is shallower than a pouch and the gusset is deeper, so coins come to hand. Buy the frame first and enter its measurements.",
+    matNote:"one purse, 12 cm frame",
+    materials:[
+      "Outer (cotton, Japanese print or canvas) — about 40 × 20 cm",
+      "Lining (light cotton) — about 40 × 20 cm",
+      "A gamaguchi frame, 12 cm — 1",
+      "Paper cord — supplied with the frame",
+      "Lightweight fusible interfacing — about 40 × 20 cm",
+      "An awl and craft glue",
+    ],
+    cut:[
+      "<strong>Measure the frame</strong><br>Buy the frame first and measure its width. You cannot make this without one.",
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines.",
+      "<strong>Cut the pieces</strong><br>Two outer and two lining.",
+      "<strong>Transfer the notches</strong><br>Mark where the frame is inserted on the top edge. You only sew below it.",
+    ],
+    sew:[
+      {h:"4-1. Sew outer and lining separately", items:[
+        "Place the two outer pieces right sides together and sew from notch to notch, round the bottom. Above the notches, leave open.",
+        "Do the same with the lining, leaving about 6 cm open in the base.",
+        "Clip the curved allowance.",
+      ]},
+      {h:"4-2. Box the corners", items:[
+        "Pinch each bottom corner so the side seam meets the base seam, and sew across at the gusset width.",
+        "Four corners in all — two in the outer, two in the lining.",
+      ]},
+      {h:"4-3. Join outer and lining", items:[
+        "Turn the outer right side out and drop it inside the lining, which stays wrong side out.",
+        "Sew round the frame opening.",
+        "Turn through the gap in the lining and close it.",
+      ]},
+      {h:"4-4. Set it into the frame", items:[
+        "Run a thin line of glue into the frame's channel.",
+        "Push the fabric in, working <strong>center first, then the two ends</strong>. Filling from one end always ends up out of true.",
+        "Press the paper cord in with an awl.",
+        "Wipe off any glue before it dries.",
+      ]},
+    ],
+    sewNote:"Set the fabric into the frame from the center outwards. Working from one end always leaves you short or with too much in the last few centimeters. Fix the center, then the two ends, then the sections between — that way it goes in true.",
+    tips:[
+      "<strong>Buy the frame first</strong>: the pattern is built around its actual width.",
+      "<strong>Paper cord comes with the frame</strong>: a few strands of kite string will do at a pinch.",
+      "<strong>An awl is essential</strong>: for pushing the cord in. A small flat screwdriver also works.",
+    ],
+    related:["gamaguchi", "coinpurse", "pouch"],
+  },
+
+  travelpouch: {
+    title:"Hanging travel pouch", tab:"bag", toolName:"Hanging travel pouch",
+    sizeStep:"Enter the width, the opened length, the pocket depth and the number of rows. Presets cover small, standard and large.",
+    desc:"How to sew a hanging travel pouch. Three rows of pockets, then it rolls up and ties.",
+    keywords:"travel pouch,hanging toiletry bag,washbag,how to sew,sewing pattern",
+    lead:"A travel pouch that unrolls and hangs from a hook. Three rows of pockets take a toothbrush and toiletries; then it rolls up and ties. Useful when there is nowhere to put anything in the bathroom.",
+    matNote:"one pouch, standard size",
+    materials:[
+      "Outer (nylon, water-repellent or Oxford cloth) — about 110 cm wide × 70 cm (43 × 28 in)",
+      "Lining (the same) — about 30 × 55 cm",
+      "Fabric for the ties — about 55 × 8 cm",
+      "An eyelet or D-ring for hanging — 1",
+      "Sewing thread",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines.",
+      "<strong>Cut the pieces</strong><br>One outer and one lining body, pockets to the number of rows, and two ties.",
+      "<strong>Transfer the notches</strong><br>Mark the pocket positions on the body and the divider positions on the pockets.",
+    ],
+    sew:[
+      {h:"4-1. Hem the pocket tops", items:[
+        "Turn the top edge of each pocket under twice, 1 cm each time, and stitch.",
+        "This edge is rubbed every time something goes in or out, so sew it well.",
+      ]},
+      {h:"4-2. Attach the pockets", items:[
+        "Lay the pockets onto the outer body at the marked positions, working from the bottom up.",
+        "Stitch the base and both sides of each pocket.",
+        "A line of stitching at the divider notches makes smaller compartments.",
+        "Backstitch a triangle at the top of each divider.",
+      ]},
+      {h:"4-3. Add the ties and loop", items:[
+        "Fold both ties in four and topstitch.",
+        "Stitch one at the top center as a hanging loop.",
+        "Stitch the other at the side, partway down, to tie the roll.",
+      ]},
+      {h:"4-4. Add the lining and finish", items:[
+        "Place outer and lining right sides together and sew round, leaving 10 cm open at the bottom.",
+        "Turn through the gap and press.",
+        "Topstitch all round, closing the gap.",
+      ]},
+    ],
+    sewNote:"Backstitch a triangle at the top of every divider seam. That point is pulled sideways each time something goes into the pocket. Plain stitching splits from the top after a few trips.",
+    tips:[
+      "<strong>Water-repellent fabric</strong>: it lives in a bathroom; something that shrugs off water suits.",
+      "<strong>Vary the pocket depths</strong>: cut pockets of different depths and stack them.",
+      "<strong>One clear pocket</strong>: a row in vinyl lets you see what is inside.",
+    ],
+    related:["cosmepouch", "gadgetpouch", "passportcase"],
+  },
+
+  keyboardcover: {
+    title:"Keyboard cover", tab:"bag", toolName:"Keyboard cover",
+    sizeStep:"Enter the width, the depth, the height and the ease. Presets cover tenkeyless, full size and low profile.",
+    desc:"How to sew a dust cover for a keyboard. A top panel and a band, sewn into a box shape.",
+    keywords:"keyboard cover,dust cover,desk,how to sew,sewing pattern",
+    lead:"A dust cover to drop over a keyboard. A top panel and a band sewn together make the box shape. Simply putting it on when you finish changes how often the keyboard needs cleaning. Measure your own and enter the figures.",
+    matNote:"one cover, tenkeyless",
+    materials:[
+      "Fabric (linen, canvas or Oxford cloth) — about 110 cm wide × 30 cm (43 × 12 in)",
+      "Bias binding, 12.7 mm folded — about 1.2 m",
+      "Sewing thread",
+    ],
+    cut:[
+      "<strong>Measure the keyboard</strong><br>Width, depth and height. Measure the height at its tallest point.",
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines.",
+      "<strong>Cut the pieces</strong><br>One top panel and one band.",
+      "<strong>Transfer the notches</strong><br>Mark the notches on the band — they meet the corners of the top panel.",
+    ],
+    sew:[
+      {h:"4-1. Join the band into a ring", items:[
+        "Place the two ends of the band right sides together and sew.",
+        "Press the allowance open.",
+      ]},
+      {h:"4-2. Attach it to the top", items:[
+        "Match the band's notches to the four corners of the top panel.",
+        "Sew right round, right sides together.",
+        "At each corner, leave the needle down, lift the foot and pivot.",
+      ]},
+      {h:"4-3. Finish the allowances", items:[
+        "Clip into the corner allowances. Without the clips the corners will not turn out square.",
+        "Zigzag the allowances or bind them with bias tape.",
+      ]},
+      {h:"4-4. Hem the lower edge", items:[
+        "Turn the band's lower edge under twice, 1 cm each time, and stitch.",
+        "Bias binding also works.",
+        "Try it over the keyboard and check the fit.",
+      ]},
+    ],
+    sewNote:"Do not forget to clip the corner allowances. Joining a flat top to a band pulls the fabric at each corner. With the clips, it settles into a proper box shape. Clip to within 1 mm of the stitching.",
+    tips:[
+      "<strong>Actual size plus 1 cm</strong>: an exact fit is awkward to put on.",
+      "<strong>Works for other things</strong>: the same method covers a laptop or a printer.",
+      "<strong>See also the sewing machine cover</strong>: it is built the same way.",
+    ],
+    related:["machinecover", "laptopcase", "tabletcase"],
+  },
+
+  phoneshoulder: {
+    title:"Phone shoulder bag", tab:"bag", toolName:"Phone shoulder bag",
+    sizeStep:"Enter the width, the height, the gusset, the strap length and the flap depth. Presets cover small, standard and large phones.",
+    desc:"How to sew a small crossbody bag for a phone. Both hands stay free.",
+    keywords:"phone bag,crossbody,shoulder pouch,how to sew,sewing pattern",
+    lead:"A small bag that carries a phone and hangs from the shoulder. Both hands stay free, which suits a walk or the shops. It is deep enough for a card or two. Decide the strap length with it actually on.",
+    matNote:"one bag, standard size",
+    materials:[
+      "Outer (canvas or linen) — about 140 cm wide × 45 cm (the strap is long; piece it if your fabric is narrower)",
+      "Lining (light cotton) — about 30 × 25 cm",
+      "Lightweight fusible interfacing — about 30 × 25 cm",
+      "A magnetic clasp — 1",
+      "Sewing thread",
+    ],
+    cut:[
+      "<strong>Measure the phone</strong><br>Width and thickness, with its case on.",
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines.",
+      "<strong>Cut the pieces</strong><br>Two outer, two lining, one strap, and two flap pieces if you want a flap.",
+      "<strong>Transfer the notches</strong><br>Mark the strap positions on the top edge.",
+    ],
+    sew:[
+      {h:"4-1. Make the flap", items:[
+        "Place the two flap pieces right sides together and sew the three lower edges, leaving the top open.",
+        "Trim the corners diagonally, turn and press.",
+        "Topstitch round it.",
+      ]},
+      {h:"4-2. Sew the body", items:[
+        "Place the two outer pieces right sides together and sew the sides and base.",
+        "Pinch the bottom corners and box them.",
+        "Sew the lining the same way, leaving 6 cm open in the base.",
+      ]},
+      {h:"4-3. Baste the strap and flap", items:[
+        "Fold the strap in four and topstitch.",
+        "Turn the outer right side out and baste the strap ends at the side notches.",
+        "Baste the flap to the back top edge, pointing outwards.",
+      ]},
+      {h:"4-4. Join outer and lining", items:[
+        "Drop the outer inside the lining, which stays wrong side out, and sew round the top — strap and flap are caught in.",
+        "Turn through the gap and close it.",
+        "Topstitch the top edge and fit the magnetic clasp.",
+      ]},
+    ],
+    sewNote:"Decide the strap length with the bag actually on. 120 cm puts it at hip height on an average build, but height changes that a great deal. Try it while the strap is only basted, then sew it in.",
+    tips:[
+      "<strong>Hands free</strong>: for walking, shopping, or being out with a child.",
+      "<strong>Magnetic clasp</strong>: it opens one-handed, which a button does not.",
+      "<strong>Keep the strap wide</strong>: narrow straps dig in. A 4 cm strip folded in four is about right.",
+    ],
+    related:["phonepouch", "sacoche", "bodybag"],
+  },
+
+  tabletstand: {
+    title:"Tablet stand", tab:"bag", toolName:"Tablet stand",
+    sizeStep:"Enter the width, the triangle's side and the lip height. Presets cover 8, 10 and 13 inch tablets.",
+    desc:"How to sew a fabric tablet stand filled with pellets. The triangular prism sets the angle by itself.",
+    keywords:"tablet stand,phone stand,bean bag stand,how to sew,sewing pattern",
+    lead:"A fabric stand filled with pellets that props a tablet up. The triangular prism sets the viewing angle by itself. It packs, so it works away from home too. Beans do the job as well as pellets.",
+    matNote:"one stand, for a 10-inch tablet",
+    materials:[
+      "Fabric (canvas or corduroy) — about 45 × 50 cm",
+      "Craft pellets — about 170 g",
+      "Hand-sewing thread",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines.",
+      "<strong>Cut the pieces</strong><br>One outer band, two triangular sides, one lip.",
+      "<strong>Transfer the notches</strong><br>Mark the fold lines on the outer band — they become the prism's edges.",
+    ],
+    sew:[
+      {h:"4-1. Attach the lip", items:[
+        "Fold the lip right sides together, sew the ends and turn.",
+        "Stitch it to the lower edge of the face that will be the front.",
+        "The tablet's bottom edge rests on it.",
+      ]},
+      {h:"4-2. Join the band into a ring", items:[
+        "Place the two ends of the band right sides together and sew.",
+        "Folding at the notches gives the triangular prism. Pressing the folds first makes the next step easier.",
+      ]},
+      {h:"4-3. Attach the sides", items:[
+        "Sew a triangular side to one end of the ring, right sides together.",
+        "At each corner, leave the needle down and pivot.",
+        "Do the same at the other end, but leave 8 cm of one edge open for turning.",
+      ]},
+      {h:"4-4. Turn and fill", items:[
+        "Turn right side out and ease the corners with an awl.",
+        "Add the pellets. <strong>Not too many</strong> — about 60% full.",
+        "Close the opening with ladder stitch.",
+      ]},
+    ],
+    sewNote:"Fill it to about 60%. Packed tight, the corners stand out and it rocks when you put it down. With the filling free to move a little, it settles onto whatever surface it is on. It should give when squeezed.",
+    tips:[
+      "<strong>The filling sets the angle</strong>: how you pack it changes the viewing angle. Adjust as you use it.",
+      "<strong>It travels</strong>: light enough to pack for a trip.",
+      "<strong>For a phone too</strong>: made small, it holds a phone.",
+    ],
+    related:["tabletcase", "laptopcase", "neckpillow"],
+  },
+
+  petbowtie: {
+    title:"Pet bow tie", tab:"pet", toolName:"Pet bow tie",
+    sizeStep:"Enter the bow width, the bow height and the collar width. Presets cover small dogs and cats, medium dogs and large dogs.",
+    desc:"How to sew a pet bow tie that slides onto the collar. Nothing new to buy — it uses the everyday collar.",
+    keywords:"pet bow tie,dog,cat,collar,how to sew,sewing pattern",
+    lead:"A bow tie that threads onto the collar. A loop on the back takes the existing collar, so it goes on and off in seconds. It comes out of scraps and earns its keep on birthdays and photographs.",
+    matNote:"one bow tie, medium dog",
+    materials:[
+      "Fabric (cotton print) — about 25 × 20 cm (scraps are fine)",
+      "Lightweight fusible interfacing — the same",
+      "Sewing thread",
+    ],
+    cut:[
+      "<strong>Measure the collar</strong><br>Measure the width of the collar you use. That sets the size of the loop.",
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines.",
+      "<strong>Cut the pieces</strong><br>One bow body and one loop strip.",
+      "<strong>Fuse the interfacing</strong><br>Fusing the bow body keeps it from collapsing.",
+    ],
+    sew:[
+      {h:"4-1. Sew a tube", items:[
+        "Fold the bow body right sides together and sew the long edge into a tube.",
+        "Leave about 5 cm open for turning.",
+      ]},
+      {h:"4-2. Turn and close the ends", items:[
+        "Turn right side out and press flat.",
+        "Turn the allowances at both ends inwards and topstitch closed.",
+      ]},
+      {h:"4-3. Gather the middle", items:[
+        "Pinch it vertically at the center notch.",
+        "Whip a few stitches by hand to hold the shape.",
+      ]},
+      {h:"4-4. Wrap the loop", items:[
+        "Fold the loop strip in four and topstitch.",
+        "Wrap it round the gathered middle and stitch on the underside.",
+        "Check the collar passes through before you stitch. Snug means it will not rotate.",
+      ]},
+    ],
+    sewNote:"Check the loop against the actual collar before stitching it down. A loose loop lets the bow rotate and end up sideways within minutes. Sized so the collar only just passes through, it faces forward for as long as the photographs take.",
+    tips:[
+      "<strong>For an occasion</strong>: a birthday or a gotcha day photograph.",
+      "<strong>Uses the everyday collar</strong>: nothing new to buy.",
+      "<strong>Match your own</strong>: the bow tie pattern makes a human-sized one.",
+    ],
+    related:["petbandana", "petcollar", "bowtie"],
+  },
+
+  petscarf: {
+    title:"Pet scarf", tab:"pet", toolName:"Pet scarf",
+    sizeStep:"Enter the neck measurement, the width and the overlap. Presets cover small dogs and cats, medium dogs and large dogs.",
+    desc:"How to sew a pet scarf that fastens with hook-and-loop. Nothing to knot, so nothing to catch.",
+    keywords:"pet scarf,dog snood,neck warmer,walk,how to sew,sewing pattern",
+    lead:"A narrow scarf for the neck, tapered at both ends and fastened with hook-and-loop. Nothing is knotted, so if it does snag it simply comes away. Fleece or jersey, for warmth on a walk.",
+    matNote:"one scarf, medium dog",
+    materials:[
+      "Outer (fleece or jersey) — about 50 × 15 cm",
+      "Lining (the same) — about 50 × 15 cm",
+      "Hook-and-loop tape (light grade) — about 5 cm",
+      "Sewing thread",
+    ],
+    cut:[
+      "<strong>Measure the neck</strong><br>Measure loosely, where the collar sits.",
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines.",
+      "<strong>Cut the pieces</strong><br>One outer and one lining.",
+      "<strong>Transfer the notches</strong><br>Mark where the taper begins at each end.",
+    ],
+    sew:[
+      {h:"4-1. Sew the two layers", items:[
+        "Place outer and lining right sides together and sew round.",
+        "Leave about 10 cm open along one long edge.",
+        "Trim the corner allowances diagonally.",
+      ]},
+      {h:"4-2. Turn and topstitch", items:[
+        "Turn through the gap and ease the corners.",
+        "Fold the gap's allowance inwards and topstitch all round.",
+      ]},
+      {h:"4-3. Add the fastening", items:[
+        "Wrap it round the neck and find where it should close.",
+        "Stitch the hook side to the face of one end and the loop side to the back of the other.",
+        "Stitch round all four sides so it cannot peel away.",
+      ]},
+    ],
+    sewNote:"Choose a light grade of hook-and-loop. A strong grade will not release if the scarf catches on something, and a scarf that cannot come away is a hazard round a neck. It needs to pull free under a light tug.",
+    tips:[
+      "<strong>Safety first</strong>: light-grade tape only. It has to release if it snags.",
+      "<strong>Fleece is light</strong>: warm, light, and quick to dry.",
+      "<strong>Do not leave it on</strong>: use it for the walk, not all day unattended.",
+    ],
+    related:["petsnood", "petbandana", "petcape"],
+  },
+
+  petseatcover: {
+    title:"Pet car seat cover", tab:"pet", toolName:"Pet car seat cover",
+    sizeStep:"Enter the seat width, the seat depth, the backrest height and the front drop. Presets cover a kei car, a standard car and an MPV.",
+    desc:"How to sew a car seat cover for pets. It ties at four corners to the headrests and under the seat.",
+    keywords:"car seat cover,pet,dog,travel,how to sew,sewing pattern",
+    lead:"A cover that goes over the back seat of a car, protecting it from hair and mud. Ties at the four corners fasten to the headrests and under the seat. In a water-repellent fabric it copes with wet paws.",
+    matNote:"one cover, standard car",
+    materials:[
+      "Fabric (water-repellent nylon or canvas) — about 150 cm wide × 130 cm (59 × 51 in)",
+      "Fabric for the ties — about 50 × 20 cm",
+      "Sewing thread",
+    ],
+    cut:[
+      "<strong>Measure the car</strong><br>Seat width, seat depth and backrest height. These vary a great deal between models.",
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace the cutting line. It is large — the floor is easier.",
+      "<strong>Cut the pieces</strong><br>One body and four ties.",
+      "<strong>Transfer the notches</strong><br>Mark the four tie positions and the fold lines.",
+    ],
+    sew:[
+      {h:"4-1. Hem the edges", items:[
+        "Turn all four sides under twice, 1 cm each time, and stitch.",
+        "It is large, so press as you go and work in sections.",
+      ]},
+      {h:"4-2. Make the ties", items:[
+        "Fold all four ties in four and topstitch.",
+        "Water-repellent fabric slips — clips help.",
+      ]},
+      {h:"4-3. Attach the ties", items:[
+        "Stitch a tie at each of the four corner notches.",
+        "Reinforce with a stitched square and its diagonals. These are pulled hard.",
+      ]},
+      {h:"4-4. Fit it", items:[
+        "Tie the top two to the headrests.",
+        "Pass the lower two under the seat and tie.",
+        "Pull out any slack.",
+      ]},
+    ],
+    sewNote:"Measure your own car. Even within a class, seat widths differ by more than 10 cm between models. The presets are a guide; a cover made to measured figures actually sits flat instead of shifting.",
+    tips:[
+      "<strong>Water-repellent fabric</strong>: after a wet walk, the seat stays dry.",
+      "<strong>Make it washable</strong>: untie it and it goes in the machine. Hair makes that essential.",
+      "<strong>Match the pet mat</strong>: made in the same fabric, the car looks of a piece.",
+    ],
+    related:["petmat", "petblanket", "petcarrier"],
+  },
+
+  petblanket: {
+    title:"Pet blanket", tab:"pet", toolName:"Pet blanket",
+    sizeStep:"Enter the width, the length and the corner radius. Presets cover small dogs and cats, medium dogs and large dogs.",
+    desc:"How to sew a pet blanket. Two layers sewn right sides together and turned — for the crate, the sofa or the carrier.",
+    keywords:"pet blanket,dog,cat,crate,fleece,how to sew,sewing pattern",
+    lead:"A small blanket for the crate, the sofa or inside the carrier. Two layers sewn right sides together and turned. In fleece it can be left raw. Having a few means always having a clean one.",
+    matNote:"one blanket, medium dog",
+    materials:[
+      "Fabric (fleece or toweling) — about 120 × 80 cm (for two pieces)",
+      "Sewing thread",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines.",
+      "<strong>Cut the pieces</strong><br>Cut two. Different fabrics front and back are fine.",
+      "<strong>Transfer the notches</strong><br>Mark the two notches on the bottom edge for the turning gap.",
+    ],
+    sew:[
+      {h:"4-1. Sew the two layers", items:[
+        "Place them right sides together and sew round.",
+        "Leave the section between the notches — about 17 cm — open for turning.",
+        "Clip the rounded corners every 1 cm.",
+      ]},
+      {h:"4-2. Turn", items:[
+        "Turn through the gap and ease the corners with an awl.",
+        "If you press, keep fleece on a low setting. Hot irons shrink it and it goes hard.",
+      ]},
+      {h:"4-3. Topstitch", items:[
+        "Topstitch all round, closing the gap.",
+        "Two rows, at 5 mm and 1 cm, stand up better to washing.",
+      ]},
+    ],
+    sewNote:"Press fleece on a low setting only. A hot iron melts the surface, and it goes flat and hard and never recovers. Use a pressing cloth and light steam — or skip the iron altogether and let the topstitching settle it.",
+    tips:[
+      "<strong>Raw edges are fine</strong>: fleece does not fray, so a single layer works too.",
+      "<strong>Make several</strong>: accidents and hair happen. A few lets you rotate.",
+      "<strong>In the carrier</strong>: a blanket that smells of home settles an animal on the move.",
+    ],
+    related:["petmat", "petbed", "petseatcover"],
+  },
+
+  pettent: {
+    title:"Pet tent", tab:"pet", toolName:"Pet tent",
+    sizeStep:"Enter the base width, the height, the depth and the door width. Presets cover cats and small dogs, standard, and medium dogs.",
+    desc:"How to sew a triangular pet tent over four dowels. Cats and small dogs prefer somewhere enclosed.",
+    keywords:"pet tent,pet house,cat,dog,bed,how to sew,sewing pattern",
+    lead:"A triangular tent: four dowels and a cover thrown over them. Cats and small dogs alike prefer somewhere enclosed. Shop-bought dowels do for the frame, and the fabric washes, so it stays clean.",
+    matNote:"one tent, standard size",
+    materials:[
+      "Fabric (canvas or heavy cotton) — about 110 cm wide × 130 cm (43 × 51 in)",
+      "Dowels, 1.5 cm diameter — 44 cm × 2 and 48 cm × 2",
+      "Bias binding, 12.7 mm — about 1.5 m",
+      "Sewing thread",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines.",
+      "<strong>Cut the pieces</strong><br>Two roof panels, one front, one back.",
+      "<strong>Transfer the notches</strong><br>Mark the ridge on the roof panels and the apex of the front and back.",
+    ],
+    sew:[
+      {h:"4-1. Finish the doorway", items:[
+        "Bind the edge of the doorway on the front panel with bias tape.",
+        "It is curved, so ease the tape as you go.",
+        "Doing this first makes the later steps easier.",
+      ]},
+      {h:"4-2. Join the roof", items:[
+        "Place the two roof panels right sides together and sew the ridge.",
+        "Press the allowance open and topstitch either side to settle the shape.",
+      ]},
+      {h:"4-3. Attach front and back", items:[
+        "Sew the front panel to one end of the roof and the back panel to the other, right sides together.",
+        "Match the apex notches first, then sew downwards.",
+        "If the apex is out, the whole tent twists.",
+      ]},
+      {h:"4-4. Hem and thread the dowels", items:[
+        "Hem the lower edges, forming casings for the dowels as you go.",
+        "Leave openings at the four corners for the dowels to go in.",
+        "Thread the four dowels and drop the cover over.",
+      ]},
+    ],
+    sewNote:"Match the apex notches before you sew the front and back on. Starting at the hem with the apex out of line always leaves excess at the top, and the tent leans to one side. Fix the apex, then sew downwards, and it stands straight.",
+    tips:[
+      "<strong>Dowels from the hardware shop</strong>: most will cut them to length for you.",
+      "<strong>It washes</strong>: the cover comes off the frame and goes in the machine.",
+      "<strong>Add a mat</strong>: the pet mat or pet blanket inside makes it somewhere to stay.",
+    ],
+    related:["petbed", "petmat", "petblanket"],
+  },
+
+  tapestry: {
+    title:"Wall hanging", tab:"home", toolName:"Wall hanging",
+    sizeStep:"Enter the width, the height, the rod casing width and whether there is a lower rod. Presets cover small, standard, large and top-only.",
+    desc:"How to sew a wall hanging. Casings top and bottom take a dowel — a single length of fabric becomes a picture.",
+    keywords:"wall hanging,tapestry,interior,seasonal,how to sew,sewing pattern",
+    lead:"A length of cloth to hang on the wall. Make a casing top and bottom, thread a dowel, and it is done. Changing it with the seasons changes the room. A single large print needs nothing else.",
+    matNote:"one hanging, standard size",
+    materials:[
+      "Fabric (linen or a large print) — about 70 × 120 cm",
+      "Dowel, 1.2 cm diameter — 62 cm × 2",
+      "Cord — about 80 cm",
+      "Sewing thread",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>One rectangle. You can rule it straight onto the fabric.",
+      "<strong>Cut the piece</strong><br>Cut one. Decide where the print falls before cutting.",
+      "<strong>Transfer the notches</strong><br>Mark the fold lines top and bottom.",
+    ],
+    sew:[
+      {h:"4-1. Hem the sides", items:[
+        "Turn each side under by 1 cm, then 1.5 cm, and stitch.",
+        "Press the folds first and the stitching runs straight.",
+      ]},
+      {h:"4-2. Make the top casing", items:[
+        "Turn the top edge under by 1 cm, then to the notch.",
+        "Stitch close to the fold, from edge to edge. That is the casing.",
+        "Check the dowel actually passes through before you sew.",
+      ]},
+      {h:"4-3. The bottom the same", items:[
+        "If you are using a lower rod, make the same casing at the bottom.",
+        "A rod at the bottom keeps it hanging straight.",
+        "For a top-only version, simply hem the bottom.",
+      ]},
+      {h:"4-4. Thread and hang", items:[
+        "Thread the dowels top and bottom.",
+        "Tie the cord to each end of the top dowel and hang it.",
+        "Trim the dowels if they stick out too far.",
+      ]},
+    ],
+    sewNote:"Test the dowel against the casing before you sew it. Even folded to the calculation, a thick fabric can leave the casing too tight. Finding out after the casing is stitched means unpicking it.",
+    tips:[
+      "<strong>Use a lower rod</strong>: the weight keeps it flat and it does not lift in a draught.",
+      "<strong>Change it with the seasons</strong>: a few of them make the room easy to refresh.",
+      "<strong>One big print</strong>: large prints look best uncut, used as a single panel.",
+    ],
+    related:["noren", "curtain", "cafecurtain"],
+  },
+
+  shelfcurtain: {
+    title:"Shelf curtain", tab:"home", toolName:"Shelf curtain",
+    sizeStep:"Enter the shelf width, the drop, the gather ratio, the rod casing width and whether to split it in two. Presets cover under-sink, small shelf and large shelf.",
+    desc:"How to sew a small curtain to screen a shelf or under a sink. The gather allowance is already in the width.",
+    keywords:"shelf curtain,under sink,screen,storage,interior,how to sew,sewing pattern",
+    lead:"A small curtain to screen a shelf or the space under a sink. Thread it onto a tension rod or attach it with hook-and-loop. The width already includes 1.4 times for gathers, so it falls in natural folds.",
+    matNote:"one pair, under-sink size",
+    materials:[
+      "Fabric (linen or cotton) — about 110 cm wide × 70 cm (43 × 28 in)",
+      "A tension rod to fit the shelf — 1",
+      "Sewing thread",
+    ],
+    cut:[
+      "<strong>Measure the shelf</strong><br>Measure the inside width and the drop you want to cover.",
+      "<strong>Trace the pattern</strong><br>A rectangle. The width already includes the gather ratio.",
+      "<strong>Cut the pieces</strong><br>Two panels if you are splitting it, one if not.",
+      "<strong>Transfer the notches</strong><br>Mark the fold line at the top.",
+    ],
+    sew:[
+      {h:"4-1. Hem the sides and bottom", items:[
+        "Turn each side under by 1 cm, then 1.5 cm, and stitch.",
+        "Hem the bottom the same way.",
+        "A slightly deeper bottom hem (2 cm) gives weight so it hangs.",
+      ]},
+      {h:"4-2. Make the top casing", items:[
+        "Turn the top edge under by 1 cm, then to the notch.",
+        "Stitch close to the fold, from edge to edge.",
+        "Check the tension rod passes through before you sew.",
+      ]},
+      {h:"4-3. Hang it", items:[
+        "Thread the tension rod and fit it into the shelf.",
+        "Where a rod will not work, stitch hook-and-loop to the top edge and stick it to the shelf.",
+        "Arrange the gathers evenly by hand.",
+      ]},
+    ],
+    sewNote:"The gather ratio is set to 1.4. At 1.0 — the shelf width exactly — it pulls flat and looks cheap; at 2.0 it becomes bulky and pushes out of the shelf. 1.4 gives natural folds and still sits inside the opening.",
+    tips:[
+      "<strong>Split it in two</strong>: two panels can be pushed to either side when you need access.",
+      "<strong>Hook-and-loop instead</strong>: for places a tension rod will not fit.",
+      "<strong>Something washable</strong>: in a kitchen, cotton or linen that can go in the machine.",
+    ],
+    related:["cafecurtain", "curtain", "noren"],
+  },
+
+  doormat: {
+    title:"Doormat", tab:"home", toolName:"Doormat",
+    sizeStep:"Enter the width, the depth and the corner radius. Presets cover small, standard and large.",
+    desc:"How to sew a washable doormat. Wadding between two layers, quilted and bound.",
+    keywords:"doormat,rug,quilted,entrance,interior,how to sew,sewing pattern",
+    lead:"A doormat of heavy fabric with wadding inside. Add a non-slip sheet underneath and it stays put. Being washable, it keeps cleaner than a bought one. The edge is bound with bias tape.",
+    matNote:"one mat, standard size",
+    materials:[
+      "Outer (canvas or heavy cotton) — about 70 × 45 cm",
+      "Lining (the same) — about 70 × 45 cm",
+      "Wadding (heavyweight) — about 65 × 42 cm",
+      "Bias binding, 25 mm folded — about 2.3 m",
+      "Non-slip sheet — about 60 × 38 cm",
+      "Sewing thread",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace the cutting line.",
+      "<strong>Cut the pieces</strong><br>One outer, one lining, one wadding. Cut the wadding without allowances.",
+      "<strong>Transfer the notches</strong><br>Mark the center of the top edge as the starting point for the binding.",
+    ],
+    sew:[
+      {h:"4-1. Stack the layers", items:[
+        "Lay lining wrong side up, then wadding, then outer right side up.",
+        "Baste or clip. It is thick, so pins do not go through easily.",
+        "Smooth from the center outwards.",
+      ]},
+      {h:"4-2. Quilt it", items:[
+        "Stitch a grid from the right side, about 8 cm apart.",
+        "Work from the center outwards.",
+        "Skip this and the wadding shifts and clumps in the wash.",
+      ]},
+      {h:"4-3. Bind the edge", items:[
+        "Bind all round with bias tape and stitch.",
+        "A doormat is walked on, so the wider 25 mm tape suits it.",
+        "Ease the tape round the corners.",
+        "Overlap the start and finish by 2 cm.",
+      ]},
+      {h:"4-4. Add the non-slip sheet", items:[
+        "Lay the non-slip sheet on the underside and stitch it at the corners and a few points in the middle.",
+        "Stitching all over makes it hard to wash — points are enough.",
+      ]},
+    ],
+    sewNote:"Do not skip the quilting. A doormat gets walked on and washed. Without the stitching, the wadding shifts and turns into lumps after a single wash. An 8 cm grid keeps it flat through any number of washes.",
+    tips:[
+      "<strong>Non-slip is essential</strong>: a mat that slides in an entrance is dangerous.",
+      "<strong>It washes</strong>: that is the advantage over a bought one.",
+      "<strong>Wide binding</strong>: at 25 mm the edge survives being trodden on.",
+    ],
+    related:["picnicmat", "chairpad", "slipper"],
   },
 };
