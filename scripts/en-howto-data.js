@@ -11285,10 +11285,10 @@ module.exports = {
     related:["picnicmat", "chairpad", "slipper"],
   },
   dogvest: {
-    title:"Dog vest (belly fastening)", tab:"pet", toolName:"Dog vest (belly fastening)",
+    title:"Dog vest (wrap style)", tab:"pet", toolName:"Dog vest (wrap style)",
     sizeStep:"Enter the chest, neck, back length, chest panel length, armhole size, belly panel length, overlap and ease. Presets cover toy, small, medium and large dogs. Tick the snap option if you are using snaps — the overlap reduces to suit.",
-    desc:"How to sew a dog vest that fastens under the belly. Nothing goes over the head and no legs are threaded, so it goes on in seconds.",
-    keywords:"dog vest,dog coat,hook and loop,velcro,snaps,easy on,how to sew,sewing pattern",
+    desc:"How to sew a wrap-style dog vest. The chest and belly panels simply fasten underneath, so nothing goes over the head and no leg has to be lifted through.",
+    keywords:"dog vest,wrap vest,dog coat,hook and loop,velcro,snaps,easy on,how to sew,sewing pattern",
     lead:"A vest built as chest panel, armhole, belly panel. <strong>The chest panel closes in front of the front leg and the belly panel behind it, and the space between them is the armhole.</strong> Both simply fasten under the body, so nothing goes over the head and no leg has to be lifted through. Hook-and-loop or snaps.",
     matNote:"one vest, medium dog",
     materials:[
