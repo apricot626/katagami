@@ -15,7 +15,7 @@ const DATA = require("./ja-howto-data.js");
 const ROOT = path.join(__dirname, "..");
 const DATE = "2026-07-30";
 
-const TAB = { human:"大人服", kids:"子供服", baby:"ベビー", small:"小物", bag:"バッグ", pet:"ペット", home:"ホーム" };
+const TAB = { human:"大人服", kids:"子供服", baby:"ベビー", small:"小物", bag:"バッグ", pet:"ペット", home:"ホーム", oshi:"推し活" };
 const TOOLS = ["ミシン（または針と糸）","チャコペン・鉛筆","定規・はさみ","アイロン","まち針またはクリップ"];
 
 const esc = s => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");

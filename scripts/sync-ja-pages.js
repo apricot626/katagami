@@ -39,6 +39,7 @@ const CATS = [
   { mode: "bag",   ja: "バッグ", en: "Bags" },
   { mode: "pet",   ja: "ペット", en: "Pets" },
   { mode: "home",  ja: "ホーム", en: "Home" },
+  { mode: "oshi",  ja: "推し活", en: "Fandom" },
 ];
 
 /* 見出し <h3>…</h3> の直後にある <ul class="…"> の中身を差し替える。 */

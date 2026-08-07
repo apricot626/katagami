@@ -16,7 +16,7 @@ const DATE = "2026-07-01";
 const TAB = {
   human: "Adult clothes", kids: "Kids' clothes", baby: "Baby",
   small: "Accessories", bag: "Bags", pet: "Pets", home: "Home"
-};
+, oshi:"Fandom"};
 
 function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
 function stripTags(s){ return String(s).replace(/<[^>]+>/g," ").replace(/&nbsp;/g," ").replace(/\s+/g," ").trim(); }
