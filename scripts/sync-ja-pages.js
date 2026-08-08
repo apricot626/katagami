@@ -42,6 +42,38 @@ const CATS = [
   { mode: "oshi",  ja: "推し活", en: "Fandom" },
 ];
 
+/* 検索語を組み立てる。型紙名だけだと「ズボン」でパンツが出ないので、
+   カテゴリ・副題に加えて、言い換えと作りの特徴語も入れておく。 */
+const ALIAS = [
+  [/パンツ|ズボン/, "パンツ ズボン ぱんつ"],
+  [/バッグ|リュック|トート/, "バッグ かばん カバン ばっぐ"],
+  [/帽子|ハット|キャップ|ベレー|キャスケット/, "帽子 ぼうし ハット キャップ"],
+  [/ワンピース|ドレス/, "ワンピース ドレス"],
+  [/Tシャツ|カットソー/, "Tシャツ ティーシャツ カットソー"],
+  [/エプロン/, "エプロン 前掛け"],
+  [/ポーチ|巾着/, "ポーチ 小物入れ きんちゃく 巾着"],
+  [/犬|ドッグ/, "犬 いぬ ドッグ"],
+  [/猫|キャット/, "猫 ねこ キャット"],
+  [/ぬい|ドール/, "ぬい ぬいぐるみ 推し 推し活 ドール"],
+  [/カバー|ケース/, "カバー ケース"],
+  [/甚平|浴衣|作務衣|半纏/, "和装 じんべい ゆかた さむえ"],
+  [/スタイ/, "スタイ よだれかけ"],
+  [/スカート/, "スカート すかーと"],
+  [/マスク/, "マスク ますく"],
+  [/ふとん|布団|枕|寝袋/, "寝具 ふとん まくら"],
+];
+/* 作りの特徴。note から拾えるものだけ、白名簿で。 */
+const FEATURES = ["ゴム", "ファスナー", "面ファスナー", "スナップ", "ボタン",
+  "ギャザー", "まち", "フード", "ポケット", "裏地", "バイアス", "キルト芯", "ニット"];
+function searchTerms(key, catJa, subJa) {
+  const p = PATTERNS[key];
+  const name = p.name;
+  const out = new Set([name, catJa, subJa]);
+  for (const [re, words] of ALIAS) if (re.test(name)) words.split(" ").forEach(w => out.add(w));
+  for (const f of FEATURES) if ((p.note || "").includes(f)) out.add(f);
+  return [...out].filter(Boolean).join(" ");
+}
+
 /* 見出し <h3>…</h3> の直後にある <ul class="…"> の中身を差し替える。 */
 function replaceList(html, heading, cls, body, file) {
   const head = new RegExp(
@@ -69,11 +101,17 @@ for (const [file, lang] of [["index.html", "ja"], ["en/index.html", "en"]]) {
     const grouped = new Set(groups.flatMap(g => g.keys));
     const rest = keys.filter(k => !grouped.has(k));
     if (rest.length) groups.push({ label: lang === "en" ? "Others" : "その他", keys: rest });
-    const li = k =>
-      `          <li><a href="tool.html?p=${k}">${esc(lang === "en" ? (EN_NAME[k] || PATTERNS[k].name) : PATTERNS[k].name)}</a></li>\n`;
-    const body = groups.map(g =>
-      `          <li class="pat-sub" role="presentation">${esc(g.label)}</li>\n` +
-      g.keys.map(li).join("")).join("");
+    const body = groups.map(g => {
+      const li = k => {
+        const nm = lang === "en" ? (EN_NAME[k] || PATTERNS[k].name) : PATTERNS[k].name;
+        const terms = lang === "en"
+          ? [nm, c.en, g.label].filter(Boolean).join(" ")
+          : searchTerms(k, c.ja, g.label);
+        return `          <li data-s="${esc(terms)}"><a href="tool.html?p=${k}">${esc(nm)}</a></li>\n`;
+      };
+      return `          <li class="pat-sub" role="presentation">${esc(g.label)}</li>\n` +
+        g.keys.map(li).join("");
+    }).join("");
     html = replaceList(html, lang === "en" ? c.en : c.ja, "pat-list", body, file);
     n += keys.length;
   }
@@ -100,7 +138,7 @@ const guidesOf = mode => guideKeys.filter(k => PATTERNS[k].mode === mode);
     const keys = guidesOf(c.mode);
     if (!keys.length) continue;
     const body = keys.map(k =>
-      `          <li><a href="howto-${k}.html">${esc(title(k))}</a></li>\n`).join("");
+      `          <li data-s="${esc([title(k), c.ja].join(" "))}"><a href="howto-${k}.html">${esc(title(k))}</a></li>\n`).join("");
     html = replaceList(html, c.ja, "howto-chips", body, "index.html");
     n += keys.length;
   }

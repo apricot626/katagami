@@ -170,61 +170,71 @@
     <div class="section-inner">
       <h2 class="sec-title">All patterns</h2>
 
+      <div class="search" id="siteSearch" hidden>
+        <label class="search-label" for="searchInput">Filter patterns</label>
+        <div class="search-row">
+          <input id="searchInput" type="search" autocomplete="off"
+                 placeholder="skirt, trousers, zip, dog vest …">
+          <button type="button" class="search-clear" hidden aria-label="Clear">×</button>
+        </div>
+        <p class="search-count" id="searchCount" role="status" aria-live="polite"></p>
+      </div>
+
       <div class="cat-block">
         <h3 class="cat-h">Adult clothes</h3>
         <ul class="pat-list">
           <li class="pat-sub" role="presentation">Tops</li>
-          <li><a href="tool.html?p=tee">T-shirt</a></li>
-          <li><a href="tool.html?p=raglantee">Raglan T-shirt</a></li>
-          <li><a href="tool.html?p=tunic">Tunic</a></li>
-          <li><a href="tool.html?p=camisole">Camisole</a></li>
-          <li><a href="tool.html?p=blouse">Blouse</a></li>
-          <li><a href="tool.html?p=shirt">Shirt</a></li>
-          <li><a href="tool.html?p=dolman">Dolman-sleeve top</a></li>
-          <li><a href="tool.html?p=hoodie">Hoodie</a></li>
-          <li><a href="tool.html?p=adultvest">Vest</a></li>
-          <li><a href="tool.html?p=cardigan">Cardigan</a></li>
+          <li data-s="T-shirt Adult clothes Tops"><a href="tool.html?p=tee">T-shirt</a></li>
+          <li data-s="Raglan T-shirt Adult clothes Tops"><a href="tool.html?p=raglantee">Raglan T-shirt</a></li>
+          <li data-s="Tunic Adult clothes Tops"><a href="tool.html?p=tunic">Tunic</a></li>
+          <li data-s="Camisole Adult clothes Tops"><a href="tool.html?p=camisole">Camisole</a></li>
+          <li data-s="Blouse Adult clothes Tops"><a href="tool.html?p=blouse">Blouse</a></li>
+          <li data-s="Shirt Adult clothes Tops"><a href="tool.html?p=shirt">Shirt</a></li>
+          <li data-s="Dolman-sleeve top Adult clothes Tops"><a href="tool.html?p=dolman">Dolman-sleeve top</a></li>
+          <li data-s="Hoodie Adult clothes Tops"><a href="tool.html?p=hoodie">Hoodie</a></li>
+          <li data-s="Vest Adult clothes Tops"><a href="tool.html?p=adultvest">Vest</a></li>
+          <li data-s="Cardigan Adult clothes Tops"><a href="tool.html?p=cardigan">Cardigan</a></li>
           <li class="pat-sub" role="presentation">Skirts</li>
-          <li><a href="tool.html?p=skirt">A-line skirt</a></li>
-          <li><a href="tool.html?p=flareskirt">Circle skirt</a></li>
-          <li><a href="tool.html?p=mermaid">Mermaid skirt</a></li>
-          <li><a href="tool.html?p=adultgather">Gathered skirt</a></li>
-          <li><a href="tool.html?p=tightskirt">Pencil skirt</a></li>
-          <li><a href="tool.html?p=pleatskirt">Pleated skirt</a></li>
-          <li><a href="tool.html?p=wrapskirt">Wrap skirt</a></li>
-          <li><a href="tool.html?p=tieredskirt">Tiered skirt</a></li>
+          <li data-s="A-line skirt Adult clothes Skirts"><a href="tool.html?p=skirt">A-line skirt</a></li>
+          <li data-s="Circle skirt Adult clothes Skirts"><a href="tool.html?p=flareskirt">Circle skirt</a></li>
+          <li data-s="Mermaid skirt Adult clothes Skirts"><a href="tool.html?p=mermaid">Mermaid skirt</a></li>
+          <li data-s="Gathered skirt Adult clothes Skirts"><a href="tool.html?p=adultgather">Gathered skirt</a></li>
+          <li data-s="Pencil skirt Adult clothes Skirts"><a href="tool.html?p=tightskirt">Pencil skirt</a></li>
+          <li data-s="Pleated skirt Adult clothes Skirts"><a href="tool.html?p=pleatskirt">Pleated skirt</a></li>
+          <li data-s="Wrap skirt Adult clothes Skirts"><a href="tool.html?p=wrapskirt">Wrap skirt</a></li>
+          <li data-s="Tiered skirt Adult clothes Skirts"><a href="tool.html?p=tieredskirt">Tiered skirt</a></li>
           <li class="pat-sub" role="presentation">Trousers</li>
-          <li><a href="tool.html?p=widepants">Wide pants (elastic waist)</a></li>
-          <li><a href="tool.html?p=taperedpants">Tapered pants</a></li>
-          <li><a href="tool.html?p=halfpants">Shorts</a></li>
-          <li><a href="tool.html?p=culotte">Culottes</a></li>
-          <li><a href="tool.html?p=sweatpants">Sweatpants (joggers)</a></li>
-          <li><a href="tool.html?p=cargopants">Cargo pants</a></li>
+          <li data-s="Wide pants (elastic waist) Adult clothes Trousers"><a href="tool.html?p=widepants">Wide pants (elastic waist)</a></li>
+          <li data-s="Tapered pants Adult clothes Trousers"><a href="tool.html?p=taperedpants">Tapered pants</a></li>
+          <li data-s="Shorts Adult clothes Trousers"><a href="tool.html?p=halfpants">Shorts</a></li>
+          <li data-s="Culottes Adult clothes Trousers"><a href="tool.html?p=culotte">Culottes</a></li>
+          <li data-s="Sweatpants (joggers) Adult clothes Trousers"><a href="tool.html?p=sweatpants">Sweatpants (joggers)</a></li>
+          <li data-s="Cargo pants Adult clothes Trousers"><a href="tool.html?p=cargopants">Cargo pants</a></li>
           <li class="pat-sub" role="presentation">Dresses &amp; all-in-ones</li>
-          <li><a href="tool.html?p=onepiece">Dress (with sleeves)</a></li>
-          <li><a href="tool.html?p=sleevedress">Sleeveless dress</a></li>
-          <li><a href="tool.html?p=shirtdress">Shirt dress</a></li>
-          <li><a href="tool.html?p=overall">Overalls (dungarees)</a></li>
-          <li><a href="tool.html?p=jumpsuit">Jumpsuit</a></li>
+          <li data-s="Dress (with sleeves) Adult clothes Dresses &amp; all-in-ones"><a href="tool.html?p=onepiece">Dress (with sleeves)</a></li>
+          <li data-s="Sleeveless dress Adult clothes Dresses &amp; all-in-ones"><a href="tool.html?p=sleevedress">Sleeveless dress</a></li>
+          <li data-s="Shirt dress Adult clothes Dresses &amp; all-in-ones"><a href="tool.html?p=shirtdress">Shirt dress</a></li>
+          <li data-s="Overalls (dungarees) Adult clothes Dresses &amp; all-in-ones"><a href="tool.html?p=overall">Overalls (dungarees)</a></li>
+          <li data-s="Jumpsuit Adult clothes Dresses &amp; all-in-ones"><a href="tool.html?p=jumpsuit">Jumpsuit</a></li>
           <li class="pat-sub" role="presentation">Outerwear</li>
-          <li><a href="tool.html?p=jacket">Jacket</a></li>
-          <li><a href="tool.html?p=nocollarjacket">Collarless jacket</a></li>
-          <li><a href="tool.html?p=coat">Coat</a></li>
-          <li><a href="tool.html?p=blouson">Blouson jacket</a></li>
-          <li><a href="tool.html?p=gown">Robe</a></li>
-          <li><a href="tool.html?p=poncho">Poncho</a></li>
+          <li data-s="Jacket Adult clothes Outerwear"><a href="tool.html?p=jacket">Jacket</a></li>
+          <li data-s="Collarless jacket Adult clothes Outerwear"><a href="tool.html?p=nocollarjacket">Collarless jacket</a></li>
+          <li data-s="Coat Adult clothes Outerwear"><a href="tool.html?p=coat">Coat</a></li>
+          <li data-s="Blouson jacket Adult clothes Outerwear"><a href="tool.html?p=blouson">Blouson jacket</a></li>
+          <li data-s="Robe Adult clothes Outerwear"><a href="tool.html?p=gown">Robe</a></li>
+          <li data-s="Poncho Adult clothes Outerwear"><a href="tool.html?p=poncho">Poncho</a></li>
           <li class="pat-sub" role="presentation">Japanese clothing</li>
-          <li><a href="tool.html?p=yukata">Yukata</a></li>
-          <li><a href="tool.html?p=samue">Samue (Japanese work jacket)</a></li>
-          <li><a href="tool.html?p=samuepants">Samue pants</a></li>
-          <li><a href="tool.html?p=adultjinbei">Jinbei top (adult)</a></li>
-          <li><a href="tool.html?p=hanten">Hanten (Japanese padded jacket)</a></li>
+          <li data-s="Yukata Adult clothes Japanese clothing"><a href="tool.html?p=yukata">Yukata</a></li>
+          <li data-s="Samue (Japanese work jacket) Adult clothes Japanese clothing"><a href="tool.html?p=samue">Samue (Japanese work jacket)</a></li>
+          <li data-s="Samue pants Adult clothes Japanese clothing"><a href="tool.html?p=samuepants">Samue pants</a></li>
+          <li data-s="Jinbei top (adult) Adult clothes Japanese clothing"><a href="tool.html?p=adultjinbei">Jinbei top (adult)</a></li>
+          <li data-s="Hanten (Japanese padded jacket) Adult clothes Japanese clothing"><a href="tool.html?p=hanten">Hanten (Japanese padded jacket)</a></li>
           <li class="pat-sub" role="presentation">Loungewear &amp; aprons</li>
-          <li><a href="tool.html?p=pajamas">Pajama top</a></li>
-          <li><a href="tool.html?p=pajamapants">Pajama pants</a></li>
-          <li><a href="tool.html?p=kappogi">Kappogi (Japanese cover-all apron)</a></li>
-          <li><a href="tool.html?p=apron">Apron</a></li>
-          <li><a href="tool.html?p=cafeapron">Cafe apron</a></li>
+          <li data-s="Pajama top Adult clothes Loungewear &amp; aprons"><a href="tool.html?p=pajamas">Pajama top</a></li>
+          <li data-s="Pajama pants Adult clothes Loungewear &amp; aprons"><a href="tool.html?p=pajamapants">Pajama pants</a></li>
+          <li data-s="Kappogi (Japanese cover-all apron) Adult clothes Loungewear &amp; aprons"><a href="tool.html?p=kappogi">Kappogi (Japanese cover-all apron)</a></li>
+          <li data-s="Apron Adult clothes Loungewear &amp; aprons"><a href="tool.html?p=apron">Apron</a></li>
+          <li data-s="Cafe apron Adult clothes Loungewear &amp; aprons"><a href="tool.html?p=cafeapron">Cafe apron</a></li>
         </ul>
       </div>
 
@@ -232,36 +242,36 @@
         <h3 class="cat-h">Kids' clothes</h3>
         <ul class="pat-list">
           <li class="pat-sub" role="presentation">Tops</li>
-          <li><a href="tool.html?p=kidstee">Kids' T-shirt</a></li>
-          <li><a href="tool.html?p=kidsraglan">Kids' raglan T-shirt</a></li>
-          <li><a href="tool.html?p=kidstank">Kids' tank top</a></li>
-          <li><a href="tool.html?p=kidsshirt">Kids' shirt</a></li>
-          <li><a href="tool.html?p=kidsvest">Kids' vest</a></li>
-          <li><a href="tool.html?p=kidshoodie">Kids' hoodie</a></li>
+          <li data-s="Kids' T-shirt Kids' clothes Tops"><a href="tool.html?p=kidstee">Kids' T-shirt</a></li>
+          <li data-s="Kids' raglan T-shirt Kids' clothes Tops"><a href="tool.html?p=kidsraglan">Kids' raglan T-shirt</a></li>
+          <li data-s="Kids' tank top Kids' clothes Tops"><a href="tool.html?p=kidstank">Kids' tank top</a></li>
+          <li data-s="Kids' shirt Kids' clothes Tops"><a href="tool.html?p=kidsshirt">Kids' shirt</a></li>
+          <li data-s="Kids' vest Kids' clothes Tops"><a href="tool.html?p=kidsvest">Kids' vest</a></li>
+          <li data-s="Kids' hoodie Kids' clothes Tops"><a href="tool.html?p=kidshoodie">Kids' hoodie</a></li>
           <li class="pat-sub" role="presentation">Bottoms</li>
-          <li><a href="tool.html?p=pants">Kids' pants</a></li>
-          <li><a href="tool.html?p=kidshalf">Kids' shorts</a></li>
-          <li><a href="tool.html?p=gather">Kids' gathered skirt</a></li>
-          <li><a href="tool.html?p=kidsculotte">Kids' culottes</a></li>
-          <li><a href="tool.html?p=kidsleggings">Kids' leggings</a></li>
+          <li data-s="Kids' pants Kids' clothes Bottoms"><a href="tool.html?p=pants">Kids' pants</a></li>
+          <li data-s="Kids' shorts Kids' clothes Bottoms"><a href="tool.html?p=kidshalf">Kids' shorts</a></li>
+          <li data-s="Kids' gathered skirt Kids' clothes Bottoms"><a href="tool.html?p=gather">Kids' gathered skirt</a></li>
+          <li data-s="Kids' culottes Kids' clothes Bottoms"><a href="tool.html?p=kidsculotte">Kids' culottes</a></li>
+          <li data-s="Kids' leggings Kids' clothes Bottoms"><a href="tool.html?p=kidsleggings">Kids' leggings</a></li>
           <li class="pat-sub" role="presentation">Dresses &amp; smocks</li>
-          <li><a href="tool.html?p=kidsdress">Kids' dress</a></li>
-          <li><a href="tool.html?p=jumperskirt">Pinafore dress</a></li>
-          <li><a href="tool.html?p=smock">Kids' smock</a></li>
-          <li><a href="tool.html?p=kidstunic">Kids' tunic</a></li>
-          <li><a href="tool.html?p=kidsrompers">Rompers</a></li>
+          <li data-s="Kids' dress Kids' clothes Dresses &amp; smocks"><a href="tool.html?p=kidsdress">Kids' dress</a></li>
+          <li data-s="Pinafore dress Kids' clothes Dresses &amp; smocks"><a href="tool.html?p=jumperskirt">Pinafore dress</a></li>
+          <li data-s="Kids' smock Kids' clothes Dresses &amp; smocks"><a href="tool.html?p=smock">Kids' smock</a></li>
+          <li data-s="Kids' tunic Kids' clothes Dresses &amp; smocks"><a href="tool.html?p=kidstunic">Kids' tunic</a></li>
+          <li data-s="Rompers Kids' clothes Dresses &amp; smocks"><a href="tool.html?p=kidsrompers">Rompers</a></li>
           <li class="pat-sub" role="presentation">Outerwear</li>
-          <li><a href="tool.html?p=kidscoat">Kids' coat</a></li>
-          <li><a href="tool.html?p=kidscape">Kids' cape</a></li>
-          <li><a href="tool.html?p=kidsponcho">Kids' poncho</a></li>
-          <li><a href="tool.html?p=kidsjacket">Kids' jacket</a></li>
-          <li><a href="tool.html?p=kidsraincoat">Kids' raincoat</a></li>
+          <li data-s="Kids' coat Kids' clothes Outerwear"><a href="tool.html?p=kidscoat">Kids' coat</a></li>
+          <li data-s="Kids' cape Kids' clothes Outerwear"><a href="tool.html?p=kidscape">Kids' cape</a></li>
+          <li data-s="Kids' poncho Kids' clothes Outerwear"><a href="tool.html?p=kidsponcho">Kids' poncho</a></li>
+          <li data-s="Kids' jacket Kids' clothes Outerwear"><a href="tool.html?p=kidsjacket">Kids' jacket</a></li>
+          <li data-s="Kids' raincoat Kids' clothes Outerwear"><a href="tool.html?p=kidsraincoat">Kids' raincoat</a></li>
           <li class="pat-sub" role="presentation">Jinbei &amp; mealtime</li>
-          <li><a href="tool.html?p=jinbei">Jinbei top</a></li>
-          <li><a href="tool.html?p=jinbeipants">Jinbei shorts</a></li>
-          <li><a href="tool.html?p=kidsyukata">Kids' yukata</a></li>
-          <li><a href="tool.html?p=kidsapron">Kids' apron</a></li>
-          <li><a href="tool.html?p=kidsbibapron">Feeding bib apron</a></li>
+          <li data-s="Jinbei top Kids' clothes Jinbei &amp; mealtime"><a href="tool.html?p=jinbei">Jinbei top</a></li>
+          <li data-s="Jinbei shorts Kids' clothes Jinbei &amp; mealtime"><a href="tool.html?p=jinbeipants">Jinbei shorts</a></li>
+          <li data-s="Kids' yukata Kids' clothes Jinbei &amp; mealtime"><a href="tool.html?p=kidsyukata">Kids' yukata</a></li>
+          <li data-s="Kids' apron Kids' clothes Jinbei &amp; mealtime"><a href="tool.html?p=kidsapron">Kids' apron</a></li>
+          <li data-s="Feeding bib apron Kids' clothes Jinbei &amp; mealtime"><a href="tool.html?p=kidsbibapron">Feeding bib apron</a></li>
         </ul>
       </div>
 
@@ -269,41 +279,41 @@
         <h3 class="cat-h">Baby</h3>
         <ul class="pat-list">
           <li class="pat-sub" role="presentation">Clothing</li>
-          <li><a href="tool.html?p=coverall">Baby coverall</a></li>
-          <li><a href="tool.html?p=bloomers">Bloomers</a></li>
-          <li><a href="tool.html?p=babypants">Baby pull-on pants</a></li>
-          <li><a href="tool.html?p=babyleggings">Baby leggings</a></li>
-          <li><a href="tool.html?p=sleeper">Baby sleep sack</a></li>
+          <li data-s="Baby coverall Baby Clothing"><a href="tool.html?p=coverall">Baby coverall</a></li>
+          <li data-s="Bloomers Baby Clothing"><a href="tool.html?p=bloomers">Bloomers</a></li>
+          <li data-s="Baby pull-on pants Baby Clothing"><a href="tool.html?p=babypants">Baby pull-on pants</a></li>
+          <li data-s="Baby leggings Baby Clothing"><a href="tool.html?p=babyleggings">Baby leggings</a></li>
+          <li data-s="Baby sleep sack Baby Clothing"><a href="tool.html?p=sleeper">Baby sleep sack</a></li>
           <li class="pat-sub" role="presentation">Sleep &amp; swaddle</li>
-          <li><a href="tool.html?p=swaddle">Swaddle (hooded)</a></li>
-          <li><a href="tool.html?p=babyblanket">Baby blanket</a></li>
-          <li><a href="tool.html?p=babypillow">Doughnut baby pillow</a></li>
-          <li><a href="tool.html?p=babyfuton">Baby duvet cover</a></li>
-          <li><a href="tool.html?p=napmat">Nap mat</a></li>
+          <li data-s="Swaddle (hooded) Baby Sleep &amp; swaddle"><a href="tool.html?p=swaddle">Swaddle (hooded)</a></li>
+          <li data-s="Baby blanket Baby Sleep &amp; swaddle"><a href="tool.html?p=babyblanket">Baby blanket</a></li>
+          <li data-s="Doughnut baby pillow Baby Sleep &amp; swaddle"><a href="tool.html?p=babypillow">Doughnut baby pillow</a></li>
+          <li data-s="Baby duvet cover Baby Sleep &amp; swaddle"><a href="tool.html?p=babyfuton">Baby duvet cover</a></li>
+          <li data-s="Nap mat Baby Sleep &amp; swaddle"><a href="tool.html?p=napmat">Nap mat</a></li>
           <li class="pat-sub" role="presentation">Bibs &amp; small things</li>
-          <li><a href="tool.html?p=stai">Baby bib</a></li>
-          <li><a href="tool.html?p=bandanastai">Bandana bib</a></li>
-          <li><a href="tool.html?p=babyhat">Baby hat (tulip hat)</a></li>
-          <li><a href="tool.html?p=babymitten">Baby mittens</a></li>
-          <li><a href="tool.html?p=babyshoes">Baby shoes</a></li>
+          <li data-s="Baby bib Baby Bibs &amp; small things"><a href="tool.html?p=stai">Baby bib</a></li>
+          <li data-s="Bandana bib Baby Bibs &amp; small things"><a href="tool.html?p=bandanastai">Bandana bib</a></li>
+          <li data-s="Baby hat (tulip hat) Baby Bibs &amp; small things"><a href="tool.html?p=babyhat">Baby hat (tulip hat)</a></li>
+          <li data-s="Baby mittens Baby Bibs &amp; small things"><a href="tool.html?p=babymitten">Baby mittens</a></li>
+          <li data-s="Baby shoes Baby Bibs &amp; small things"><a href="tool.html?p=babyshoes">Baby shoes</a></li>
           <li class="pat-sub" role="presentation">Out and about</li>
-          <li><a href="tool.html?p=babycape">Baby cape</a></li>
-          <li><a href="tool.html?p=nursingcape">Nursing cover</a></li>
-          <li><a href="tool.html?p=carriercover">Baby carrier strap covers</a></li>
-          <li><a href="tool.html?p=suckpad">Carrier suck pads</a></li>
-          <li><a href="tool.html?p=strollerseat">Stroller seat liner</a></li>
+          <li data-s="Baby cape Baby Out and about"><a href="tool.html?p=babycape">Baby cape</a></li>
+          <li data-s="Nursing cover Baby Out and about"><a href="tool.html?p=nursingcape">Nursing cover</a></li>
+          <li data-s="Baby carrier strap covers Baby Out and about"><a href="tool.html?p=carriercover">Baby carrier strap covers</a></li>
+          <li data-s="Carrier suck pads Baby Out and about"><a href="tool.html?p=suckpad">Carrier suck pads</a></li>
+          <li data-s="Stroller seat liner Baby Out and about"><a href="tool.html?p=strollerseat">Stroller seat liner</a></li>
           <li class="pat-sub" role="presentation">Diaper changing</li>
-          <li><a href="tool.html?p=diaperpouch">Diaper pouch</a></li>
-          <li><a href="tool.html?p=wipescase">Baby wipes case</a></li>
-          <li><a href="tool.html?p=diapercover">Diaper cover</a></li>
-          <li><a href="tool.html?p=nursingpillow">Nursing pillow cover</a></li>
-          <li><a href="tool.html?p=gauzehanky">Gauze square</a></li>
+          <li data-s="Diaper pouch Baby Diaper changing"><a href="tool.html?p=diaperpouch">Diaper pouch</a></li>
+          <li data-s="Baby wipes case Baby Diaper changing"><a href="tool.html?p=wipescase">Baby wipes case</a></li>
+          <li data-s="Diaper cover Baby Diaper changing"><a href="tool.html?p=diapercover">Diaper cover</a></li>
+          <li data-s="Nursing pillow cover Baby Diaper changing"><a href="tool.html?p=nursingpillow">Nursing pillow cover</a></li>
+          <li data-s="Gauze square Baby Diaper changing"><a href="tool.html?p=gauzehanky">Gauze square</a></li>
           <li class="pat-sub" role="presentation">Toys</li>
-          <li><a href="tool.html?p=babytoy">Baby rattle toy</a></li>
-          <li><a href="tool.html?p=fabricball">Fabric ball</a></li>
-          <li><a href="tool.html?p=clothbook">Cloth book</a></li>
-          <li><a href="tool.html?p=taghanky">Taggie square</a></li>
-          <li><a href="tool.html?p=otedama">Otedama beanbag</a></li>
+          <li data-s="Baby rattle toy Baby Toys"><a href="tool.html?p=babytoy">Baby rattle toy</a></li>
+          <li data-s="Fabric ball Baby Toys"><a href="tool.html?p=fabricball">Fabric ball</a></li>
+          <li data-s="Cloth book Baby Toys"><a href="tool.html?p=clothbook">Cloth book</a></li>
+          <li data-s="Taggie square Baby Toys"><a href="tool.html?p=taghanky">Taggie square</a></li>
+          <li data-s="Otedama beanbag Baby Toys"><a href="tool.html?p=otedama">Otedama beanbag</a></li>
         </ul>
       </div>
 
@@ -311,67 +321,67 @@
         <h3 class="cat-h">Accessories</h3>
         <ul class="pat-list">
           <li class="pat-sub" role="presentation">School &amp; nursery</li>
-          <li><a href="tool.html?p=kinchaku">Drawstring pouch</a></li>
-          <li><a href="tool.html?p=kincgusset">Cup bag (gusseted)</a></li>
-          <li><a href="tool.html?p=gymbag">Gym bag (drawstring backpack)</a></li>
-          <li><a href="tool.html?p=shoesbag">Shoe bag</a></li>
-          <li><a href="tool.html?p=movepocket">Clip-on pocket</a></li>
-          <li><a href="tool.html?p=nametag">Name tag holder</a></li>
-          <li><a href="tool.html?p=pencase">Pencil case</a></li>
-          <li><a href="tool.html?p=randocover">School satchel cover</a></li>
-          <li><a href="tool.html?p=recordercase">Recorder case</a></li>
-          <li><a href="tool.html?p=bousaizukin">Disaster hood cover</a></li>
-          <li><a href="tool.html?p=flaskcover">Water bottle cover</a></li>
-          <li><a href="tool.html?p=cutlerycase">Cutlery roll</a></li>
-          <li><a href="tool.html?p=bandana">Triangle headscarf</a></li>
+          <li data-s="Drawstring pouch Accessories School &amp; nursery"><a href="tool.html?p=kinchaku">Drawstring pouch</a></li>
+          <li data-s="Cup bag (gusseted) Accessories School &amp; nursery"><a href="tool.html?p=kincgusset">Cup bag (gusseted)</a></li>
+          <li data-s="Gym bag (drawstring backpack) Accessories School &amp; nursery"><a href="tool.html?p=gymbag">Gym bag (drawstring backpack)</a></li>
+          <li data-s="Shoe bag Accessories School &amp; nursery"><a href="tool.html?p=shoesbag">Shoe bag</a></li>
+          <li data-s="Clip-on pocket Accessories School &amp; nursery"><a href="tool.html?p=movepocket">Clip-on pocket</a></li>
+          <li data-s="Name tag holder Accessories School &amp; nursery"><a href="tool.html?p=nametag">Name tag holder</a></li>
+          <li data-s="Pencil case Accessories School &amp; nursery"><a href="tool.html?p=pencase">Pencil case</a></li>
+          <li data-s="School satchel cover Accessories School &amp; nursery"><a href="tool.html?p=randocover">School satchel cover</a></li>
+          <li data-s="Recorder case Accessories School &amp; nursery"><a href="tool.html?p=recordercase">Recorder case</a></li>
+          <li data-s="Disaster hood cover Accessories School &amp; nursery"><a href="tool.html?p=bousaizukin">Disaster hood cover</a></li>
+          <li data-s="Water bottle cover Accessories School &amp; nursery"><a href="tool.html?p=flaskcover">Water bottle cover</a></li>
+          <li data-s="Cutlery roll Accessories School &amp; nursery"><a href="tool.html?p=cutlerycase">Cutlery roll</a></li>
+          <li data-s="Triangle headscarf Accessories School &amp; nursery"><a href="tool.html?p=bandana">Triangle headscarf</a></li>
           <li class="pat-sub" role="presentation">Masks &amp; hygiene</li>
-          <li><a href="tool.html?p=mask">Pleated mask</a></li>
-          <li><a href="tool.html?p=fittedmask">Fitted mask</a></li>
-          <li><a href="tool.html?p=maskcover">Mask cover</a></li>
-          <li><a href="tool.html?p=maskcase">Mask case</a></li>
-          <li><a href="tool.html?p=armcover">Arm covers</a></li>
+          <li data-s="Pleated mask Accessories Masks &amp; hygiene"><a href="tool.html?p=mask">Pleated mask</a></li>
+          <li data-s="Fitted mask Accessories Masks &amp; hygiene"><a href="tool.html?p=fittedmask">Fitted mask</a></li>
+          <li data-s="Mask cover Accessories Masks &amp; hygiene"><a href="tool.html?p=maskcover">Mask cover</a></li>
+          <li data-s="Mask case Accessories Masks &amp; hygiene"><a href="tool.html?p=maskcase">Mask case</a></li>
+          <li data-s="Arm covers Accessories Masks &amp; hygiene"><a href="tool.html?p=armcover">Arm covers</a></li>
           <li class="pat-sub" role="presentation">Hats</li>
-          <li><a href="tool.html?p=sunhat">Bucket hat</a></li>
-          <li><a href="tool.html?p=beret">Beret</a></li>
-          <li><a href="tool.html?p=cap">Baseball cap</a></li>
-          <li><a href="tool.html?p=casquette">Casquette</a></li>
-          <li><a href="tool.html?p=bandanacap">Bandana cap</a></li>
+          <li data-s="Bucket hat Accessories Hats"><a href="tool.html?p=sunhat">Bucket hat</a></li>
+          <li data-s="Beret Accessories Hats"><a href="tool.html?p=beret">Beret</a></li>
+          <li data-s="Baseball cap Accessories Hats"><a href="tool.html?p=cap">Baseball cap</a></li>
+          <li data-s="Casquette Accessories Hats"><a href="tool.html?p=casquette">Casquette</a></li>
+          <li data-s="Bandana cap Accessories Hats"><a href="tool.html?p=bandanacap">Bandana cap</a></li>
           <li class="pat-sub" role="presentation">Hair</li>
-          <li><a href="tool.html?p=shuushu">Scrunchie</a></li>
-          <li><a href="tool.html?p=headband">Headband</a></li>
-          <li><a href="tool.html?p=hairturban">Hair turban</a></li>
-          <li><a href="tool.html?p=hairribbon">Hair ribbon</a></li>
-          <li><a href="tool.html?p=hairclip">Ribbon barrette</a></li>
+          <li data-s="Scrunchie Accessories Hair"><a href="tool.html?p=shuushu">Scrunchie</a></li>
+          <li data-s="Headband Accessories Hair"><a href="tool.html?p=headband">Headband</a></li>
+          <li data-s="Hair turban Accessories Hair"><a href="tool.html?p=hairturban">Hair turban</a></li>
+          <li data-s="Hair ribbon Accessories Hair"><a href="tool.html?p=hairribbon">Hair ribbon</a></li>
+          <li data-s="Ribbon barrette Accessories Hair"><a href="tool.html?p=hairclip">Ribbon barrette</a></li>
           <li class="pat-sub" role="presentation">Warmth &amp; rest</li>
-          <li><a href="tool.html?p=scarf">Scarf</a></li>
-          <li><a href="tool.html?p=neckwarmer">Neck warmer</a></li>
-          <li><a href="tool.html?p=legwarmer">Leg warmers</a></li>
-          <li><a href="tool.html?p=haramaki">Belly warmer</a></li>
-          <li><a href="tool.html?p=eyemask">Eye mask</a></li>
+          <li data-s="Scarf Accessories Warmth &amp; rest"><a href="tool.html?p=scarf">Scarf</a></li>
+          <li data-s="Neck warmer Accessories Warmth &amp; rest"><a href="tool.html?p=neckwarmer">Neck warmer</a></li>
+          <li data-s="Leg warmers Accessories Warmth &amp; rest"><a href="tool.html?p=legwarmer">Leg warmers</a></li>
+          <li data-s="Belly warmer Accessories Warmth &amp; rest"><a href="tool.html?p=haramaki">Belly warmer</a></li>
+          <li data-s="Eye mask Accessories Warmth &amp; rest"><a href="tool.html?p=eyemask">Eye mask</a></li>
           <li class="pat-sub" role="presentation">Cases &amp; covers</li>
-          <li><a href="tool.html?p=tissuecase">Tissue case</a></li>
-          <li><a href="tool.html?p=bookcover">Book cover</a></li>
-          <li><a href="tool.html?p=boshitecho">Health-record book case</a></li>
-          <li><a href="tool.html?p=cardcase">Card case</a></li>
-          <li><a href="tool.html?p=bankbook">Passbook case</a></li>
+          <li data-s="Tissue case Accessories Cases &amp; covers"><a href="tool.html?p=tissuecase">Tissue case</a></li>
+          <li data-s="Book cover Accessories Cases &amp; covers"><a href="tool.html?p=bookcover">Book cover</a></li>
+          <li data-s="Health-record book case Accessories Cases &amp; covers"><a href="tool.html?p=boshitecho">Health-record book case</a></li>
+          <li data-s="Card case Accessories Cases &amp; covers"><a href="tool.html?p=cardcase">Card case</a></li>
+          <li data-s="Passbook case Accessories Cases &amp; covers"><a href="tool.html?p=bankbook">Passbook case</a></li>
           <li class="pat-sub" role="presentation">Neckwear &amp; accents</li>
-          <li><a href="tool.html?p=bowtie">Bow tie</a></li>
-          <li><a href="tool.html?p=necktie">Necktie</a></li>
-          <li><a href="tool.html?p=brooch">Fabric brooch</a></li>
-          <li><a href="tool.html?p=pocketsquare">Pocket square</a></li>
-          <li><a href="tool.html?p=fabricbelt">Fabric belt</a></li>
+          <li data-s="Bow tie Accessories Neckwear &amp; accents"><a href="tool.html?p=bowtie">Bow tie</a></li>
+          <li data-s="Necktie Accessories Neckwear &amp; accents"><a href="tool.html?p=necktie">Necktie</a></li>
+          <li data-s="Fabric brooch Accessories Neckwear &amp; accents"><a href="tool.html?p=brooch">Fabric brooch</a></li>
+          <li data-s="Pocket square Accessories Neckwear &amp; accents"><a href="tool.html?p=pocketsquare">Pocket square</a></li>
+          <li data-s="Fabric belt Accessories Neckwear &amp; accents"><a href="tool.html?p=fabricbelt">Fabric belt</a></li>
           <li class="pat-sub" role="presentation">Kitchen &amp; table</li>
-          <li><a href="tool.html?p=potholder">Pot holder</a></li>
-          <li><a href="tool.html?p=placemat">Placemat</a></li>
-          <li><a href="tool.html?p=breadbag">Bread bag</a></li>
-          <li><a href="tool.html?p=potmat">Trivet</a></li>
-          <li><a href="tool.html?p=teatowel">Tea towel</a></li>
+          <li data-s="Pot holder Accessories Kitchen &amp; table"><a href="tool.html?p=potholder">Pot holder</a></li>
+          <li data-s="Placemat Accessories Kitchen &amp; table"><a href="tool.html?p=placemat">Placemat</a></li>
+          <li data-s="Bread bag Accessories Kitchen &amp; table"><a href="tool.html?p=breadbag">Bread bag</a></li>
+          <li data-s="Trivet Accessories Kitchen &amp; table"><a href="tool.html?p=potmat">Trivet</a></li>
+          <li data-s="Tea towel Accessories Kitchen &amp; table"><a href="tool.html?p=teatowel">Tea towel</a></li>
           <li class="pat-sub" role="presentation">Everyday carry</li>
-          <li><a href="tool.html?p=pincushion">Wrist pincushion</a></li>
-          <li><a href="tool.html?p=camerastrap">Camera strap</a></li>
-          <li><a href="tool.html?p=bottleholder">Bottle holder</a></li>
-          <li><a href="tool.html?p=keycase">Key case</a></li>
-          <li><a href="tool.html?p=glassescase">Glasses case</a></li>
+          <li data-s="Wrist pincushion Accessories Everyday carry"><a href="tool.html?p=pincushion">Wrist pincushion</a></li>
+          <li data-s="Camera strap Accessories Everyday carry"><a href="tool.html?p=camerastrap">Camera strap</a></li>
+          <li data-s="Bottle holder Accessories Everyday carry"><a href="tool.html?p=bottleholder">Bottle holder</a></li>
+          <li data-s="Key case Accessories Everyday carry"><a href="tool.html?p=keycase">Key case</a></li>
+          <li data-s="Glasses case Accessories Everyday carry"><a href="tool.html?p=glassescase">Glasses case</a></li>
         </ul>
       </div>
 
@@ -379,46 +389,46 @@
         <h3 class="cat-h">Bags</h3>
         <ul class="pat-list">
           <li class="pat-sub" role="presentation">Totes &amp; shoulder bags</li>
-          <li><a href="tool.html?p=tote">Tote bag</a></li>
-          <li><a href="tool.html?p=bucketbag">Bucket tote bag</a></li>
-          <li><a href="tool.html?p=shoulderbag">Shoulder bag (flap)</a></li>
-          <li><a href="tool.html?p=sacoche">Sacoche</a></li>
-          <li><a href="tool.html?p=bodybag">Sling bag (crossbody)</a></li>
-          <li><a href="tool.html?p=ecobag">Foldable shopping bag</a></li>
-          <li><a href="tool.html?p=ehonbag">Book bag (lesson bag)</a></li>
-          <li><a href="tool.html?p=itabag">Ita bag (clear window tote)</a></li>
+          <li data-s="Tote bag Bags Totes &amp; shoulder bags"><a href="tool.html?p=tote">Tote bag</a></li>
+          <li data-s="Bucket tote bag Bags Totes &amp; shoulder bags"><a href="tool.html?p=bucketbag">Bucket tote bag</a></li>
+          <li data-s="Shoulder bag (flap) Bags Totes &amp; shoulder bags"><a href="tool.html?p=shoulderbag">Shoulder bag (flap)</a></li>
+          <li data-s="Sacoche Bags Totes &amp; shoulder bags"><a href="tool.html?p=sacoche">Sacoche</a></li>
+          <li data-s="Sling bag (crossbody) Bags Totes &amp; shoulder bags"><a href="tool.html?p=bodybag">Sling bag (crossbody)</a></li>
+          <li data-s="Foldable shopping bag Bags Totes &amp; shoulder bags"><a href="tool.html?p=ecobag">Foldable shopping bag</a></li>
+          <li data-s="Book bag (lesson bag) Bags Totes &amp; shoulder bags"><a href="tool.html?p=ehonbag">Book bag (lesson bag)</a></li>
+          <li data-s="Ita bag (clear window tote) Bags Totes &amp; shoulder bags"><a href="tool.html?p=itabag">Ita bag (clear window tote)</a></li>
           <li class="pat-sub" role="presentation">Pouches</li>
-          <li><a href="tool.html?p=pouch">Zipper pouch</a></li>
-          <li><a href="tool.html?p=pouchgusset">Pouch (gusseted)</a></li>
-          <li><a href="tool.html?p=gamaguchi">Clasp purse (gamaguchi)</a></li>
-          <li><a href="tool.html?p=cosmepouch">Cosmetic pouch (stand-up)</a></li>
-          <li><a href="tool.html?p=gadgetpouch">Gadget pouch</a></li>
-          <li><a href="tool.html?p=phonepouch">Phone crossbody pouch</a></li>
-          <li><a href="tool.html?p=baginbag">Bag-in-bag organizer</a></li>
+          <li data-s="Zipper pouch Bags Pouches"><a href="tool.html?p=pouch">Zipper pouch</a></li>
+          <li data-s="Pouch (gusseted) Bags Pouches"><a href="tool.html?p=pouchgusset">Pouch (gusseted)</a></li>
+          <li data-s="Clasp purse (gamaguchi) Bags Pouches"><a href="tool.html?p=gamaguchi">Clasp purse (gamaguchi)</a></li>
+          <li data-s="Cosmetic pouch (stand-up) Bags Pouches"><a href="tool.html?p=cosmepouch">Cosmetic pouch (stand-up)</a></li>
+          <li data-s="Gadget pouch Bags Pouches"><a href="tool.html?p=gadgetpouch">Gadget pouch</a></li>
+          <li data-s="Phone crossbody pouch Bags Pouches"><a href="tool.html?p=phonepouch">Phone crossbody pouch</a></li>
+          <li data-s="Bag-in-bag organizer Bags Pouches"><a href="tool.html?p=baginbag">Bag-in-bag organizer</a></li>
           <li class="pat-sub" role="presentation">Wallets &amp; cards</li>
-          <li><a href="tool.html?p=wallet">Long wallet</a></li>
-          <li><a href="tool.html?p=passportcase">Passport case</a></li>
-          <li><a href="tool.html?p=coinpurse">Coin purse</a></li>
-          <li><a href="tool.html?p=bifoldwallet">Bifold wallet</a></li>
-          <li><a href="tool.html?p=gamaguchiwallet">Gamaguchi wallet</a></li>
+          <li data-s="Long wallet Bags Wallets &amp; cards"><a href="tool.html?p=wallet">Long wallet</a></li>
+          <li data-s="Passport case Bags Wallets &amp; cards"><a href="tool.html?p=passportcase">Passport case</a></li>
+          <li data-s="Coin purse Bags Wallets &amp; cards"><a href="tool.html?p=coinpurse">Coin purse</a></li>
+          <li data-s="Bifold wallet Bags Wallets &amp; cards"><a href="tool.html?p=bifoldwallet">Bifold wallet</a></li>
+          <li data-s="Gamaguchi wallet Bags Wallets &amp; cards"><a href="tool.html?p=gamaguchiwallet">Gamaguchi wallet</a></li>
           <li class="pat-sub" role="presentation">Backpacks &amp; travel</li>
-          <li><a href="tool.html?p=backpack">Backpack</a></li>
-          <li><a href="tool.html?p=bostonbag">Boston bag</a></li>
-          <li><a href="tool.html?p=waistbag">Belt bag (waist pack)</a></li>
-          <li><a href="tool.html?p=yogamatbag">Yoga mat bag</a></li>
-          <li><a href="tool.html?p=travelpouch">Hanging travel pouch</a></li>
+          <li data-s="Backpack Bags Backpacks &amp; travel"><a href="tool.html?p=backpack">Backpack</a></li>
+          <li data-s="Boston bag Bags Backpacks &amp; travel"><a href="tool.html?p=bostonbag">Boston bag</a></li>
+          <li data-s="Belt bag (waist pack) Bags Backpacks &amp; travel"><a href="tool.html?p=waistbag">Belt bag (waist pack)</a></li>
+          <li data-s="Yoga mat bag Bags Backpacks &amp; travel"><a href="tool.html?p=yogamatbag">Yoga mat bag</a></li>
+          <li data-s="Hanging travel pouch Bags Backpacks &amp; travel"><a href="tool.html?p=travelpouch">Hanging travel pouch</a></li>
           <li class="pat-sub" role="presentation">Laptops &amp; tablets</li>
-          <li><a href="tool.html?p=laptopcase">Laptop sleeve</a></li>
-          <li><a href="tool.html?p=tabletcase">Tablet case</a></li>
-          <li><a href="tool.html?p=keyboardcover">Keyboard cover</a></li>
-          <li><a href="tool.html?p=phoneshoulder">Phone shoulder bag</a></li>
-          <li><a href="tool.html?p=tabletstand">Tablet stand</a></li>
+          <li data-s="Laptop sleeve Bags Laptops &amp; tablets"><a href="tool.html?p=laptopcase">Laptop sleeve</a></li>
+          <li data-s="Tablet case Bags Laptops &amp; tablets"><a href="tool.html?p=tabletcase">Tablet case</a></li>
+          <li data-s="Keyboard cover Bags Laptops &amp; tablets"><a href="tool.html?p=keyboardcover">Keyboard cover</a></li>
+          <li data-s="Phone shoulder bag Bags Laptops &amp; tablets"><a href="tool.html?p=phoneshoulder">Phone shoulder bag</a></li>
+          <li data-s="Tablet stand Bags Laptops &amp; tablets"><a href="tool.html?p=tabletstand">Tablet stand</a></li>
           <li class="pat-sub" role="presentation">Japanese &amp; others</li>
-          <li><a href="tool.html?p=azuma">Azuma bag (Japanese origami tote)</a></li>
-          <li><a href="tool.html?p=panel">Fabric panel (square)</a></li>
-          <li><a href="tool.html?p=clutchbag">Clutch bag</a></li>
-          <li><a href="tool.html?p=roundkinchaku">Round-base drawstring bag</a></li>
-          <li><a href="tool.html?p=lunchbag">Insulated lunch bag</a></li>
+          <li data-s="Azuma bag (Japanese origami tote) Bags Japanese &amp; others"><a href="tool.html?p=azuma">Azuma bag (Japanese origami tote)</a></li>
+          <li data-s="Fabric panel (square) Bags Japanese &amp; others"><a href="tool.html?p=panel">Fabric panel (square)</a></li>
+          <li data-s="Clutch bag Bags Japanese &amp; others"><a href="tool.html?p=clutchbag">Clutch bag</a></li>
+          <li data-s="Round-base drawstring bag Bags Japanese &amp; others"><a href="tool.html?p=roundkinchaku">Round-base drawstring bag</a></li>
+          <li data-s="Insulated lunch bag Bags Japanese &amp; others"><a href="tool.html?p=lunchbag">Insulated lunch bag</a></li>
         </ul>
       </div>
 
@@ -426,30 +436,30 @@
         <h3 class="cat-h">Pets</h3>
         <ul class="pat-list">
           <li class="pat-sub" role="presentation">Dog &amp; cat clothes</li>
-          <li><a href="tool.html?p=dog">Dog clothes (tank top)</a></li>
-          <li><a href="tool.html?p=dogsleeved">Dog clothes (sleeved)</a></li>
-          <li><a href="tool.html?p=catfuku">Cat clothes (tank top)</a></li>
-          <li><a href="tool.html?p=petvest">Pet vest</a></li>
-          <li><a href="tool.html?p=dogvest">Dog vest (wrap style)</a></li>
-          <li><a href="tool.html?p=petcape">Pet raincoat</a></li>
+          <li data-s="Dog clothes (tank top) Pets Dog &amp; cat clothes"><a href="tool.html?p=dog">Dog clothes (tank top)</a></li>
+          <li data-s="Dog clothes (sleeved) Pets Dog &amp; cat clothes"><a href="tool.html?p=dogsleeved">Dog clothes (sleeved)</a></li>
+          <li data-s="Cat clothes (tank top) Pets Dog &amp; cat clothes"><a href="tool.html?p=catfuku">Cat clothes (tank top)</a></li>
+          <li data-s="Pet vest Pets Dog &amp; cat clothes"><a href="tool.html?p=petvest">Pet vest</a></li>
+          <li data-s="Dog vest (wrap style) Pets Dog &amp; cat clothes"><a href="tool.html?p=dogvest">Dog vest (wrap style)</a></li>
+          <li data-s="Pet raincoat Pets Dog &amp; cat clothes"><a href="tool.html?p=petcape">Pet raincoat</a></li>
           <li class="pat-sub" role="presentation">Around the neck</li>
-          <li><a href="tool.html?p=petbandana">Pet bandana</a></li>
-          <li><a href="tool.html?p=petsnood">Pet snood</a></li>
-          <li><a href="tool.html?p=petcollar">Collar cover</a></li>
-          <li><a href="tool.html?p=petbowtie">Pet bow tie</a></li>
-          <li><a href="tool.html?p=petscarf">Pet scarf</a></li>
+          <li data-s="Pet bandana Pets Around the neck"><a href="tool.html?p=petbandana">Pet bandana</a></li>
+          <li data-s="Pet snood Pets Around the neck"><a href="tool.html?p=petsnood">Pet snood</a></li>
+          <li data-s="Collar cover Pets Around the neck"><a href="tool.html?p=petcollar">Collar cover</a></li>
+          <li data-s="Pet bow tie Pets Around the neck"><a href="tool.html?p=petbowtie">Pet bow tie</a></li>
+          <li data-s="Pet scarf Pets Around the neck"><a href="tool.html?p=petscarf">Pet scarf</a></li>
           <li class="pat-sub" role="presentation">Out and about</li>
-          <li><a href="tool.html?p=mannerbelt">Dog belly band</a></li>
-          <li><a href="tool.html?p=petpouch">Dog walking pouch</a></li>
-          <li><a href="tool.html?p=petsling">Pet sling</a></li>
-          <li><a href="tool.html?p=petcarrier">Pet carrier bag</a></li>
-          <li><a href="tool.html?p=petseatcover">Pet car seat cover</a></li>
+          <li data-s="Dog belly band Pets Out and about"><a href="tool.html?p=mannerbelt">Dog belly band</a></li>
+          <li data-s="Dog walking pouch Pets Out and about"><a href="tool.html?p=petpouch">Dog walking pouch</a></li>
+          <li data-s="Pet sling Pets Out and about"><a href="tool.html?p=petsling">Pet sling</a></li>
+          <li data-s="Pet carrier bag Pets Out and about"><a href="tool.html?p=petcarrier">Pet carrier bag</a></li>
+          <li data-s="Pet car seat cover Pets Out and about"><a href="tool.html?p=petseatcover">Pet car seat cover</a></li>
           <li class="pat-sub" role="presentation">Rest &amp; play</li>
-          <li><a href="tool.html?p=petbed">Pet bed</a></li>
-          <li><a href="tool.html?p=petmat">Pet mat</a></li>
-          <li><a href="tool.html?p=pettoy">Kicker toy (for cats)</a></li>
-          <li><a href="tool.html?p=petblanket">Pet blanket</a></li>
-          <li><a href="tool.html?p=pettent">Pet tent</a></li>
+          <li data-s="Pet bed Pets Rest &amp; play"><a href="tool.html?p=petbed">Pet bed</a></li>
+          <li data-s="Pet mat Pets Rest &amp; play"><a href="tool.html?p=petmat">Pet mat</a></li>
+          <li data-s="Kicker toy (for cats) Pets Rest &amp; play"><a href="tool.html?p=pettoy">Kicker toy (for cats)</a></li>
+          <li data-s="Pet blanket Pets Rest &amp; play"><a href="tool.html?p=petblanket">Pet blanket</a></li>
+          <li data-s="Pet tent Pets Rest &amp; play"><a href="tool.html?p=pettent">Pet tent</a></li>
         </ul>
       </div>
 
@@ -457,38 +467,38 @@
         <h3 class="cat-h">Home</h3>
         <ul class="pat-list">
           <li class="pat-sub" role="presentation">Cushions &amp; covers</li>
-          <li><a href="tool.html?p=cushioncover">Cushion cover (envelope)</a></li>
-          <li><a href="tool.html?p=zabuton">Floor cushion cover</a></li>
-          <li><a href="tool.html?p=chairpad">Chair pad</a></li>
-          <li><a href="tool.html?p=chaircover">Chair back cover</a></li>
-          <li><a href="tool.html?p=pillowcase">Pillowcase (envelope)</a></li>
-          <li><a href="tool.html?p=neckpillow">Neck pillow</a></li>
+          <li data-s="Cushion cover (envelope) Home Cushions &amp; covers"><a href="tool.html?p=cushioncover">Cushion cover (envelope)</a></li>
+          <li data-s="Floor cushion cover Home Cushions &amp; covers"><a href="tool.html?p=zabuton">Floor cushion cover</a></li>
+          <li data-s="Chair pad Home Cushions &amp; covers"><a href="tool.html?p=chairpad">Chair pad</a></li>
+          <li data-s="Chair back cover Home Cushions &amp; covers"><a href="tool.html?p=chaircover">Chair back cover</a></li>
+          <li data-s="Pillowcase (envelope) Home Cushions &amp; covers"><a href="tool.html?p=pillowcase">Pillowcase (envelope)</a></li>
+          <li data-s="Neck pillow Home Cushions &amp; covers"><a href="tool.html?p=neckpillow">Neck pillow</a></li>
           <li class="pat-sub" role="presentation">Windows &amp; doorways</li>
-          <li><a href="tool.html?p=curtain">Curtain</a></li>
-          <li><a href="tool.html?p=cafecurtain">Cafe curtain</a></li>
-          <li><a href="tool.html?p=noren">Noren (Japanese doorway curtain)</a></li>
-          <li><a href="tool.html?p=tapestry">Wall hanging</a></li>
-          <li><a href="tool.html?p=shelfcurtain">Shelf curtain</a></li>
+          <li data-s="Curtain Home Windows &amp; doorways"><a href="tool.html?p=curtain">Curtain</a></li>
+          <li data-s="Cafe curtain Home Windows &amp; doorways"><a href="tool.html?p=cafecurtain">Cafe curtain</a></li>
+          <li data-s="Noren (Japanese doorway curtain) Home Windows &amp; doorways"><a href="tool.html?p=noren">Noren (Japanese doorway curtain)</a></li>
+          <li data-s="Wall hanging Home Windows &amp; doorways"><a href="tool.html?p=tapestry">Wall hanging</a></li>
+          <li data-s="Shelf curtain Home Windows &amp; doorways"><a href="tool.html?p=shelfcurtain">Shelf curtain</a></li>
           <li class="pat-sub" role="presentation">Kitchen &amp; table</li>
-          <li><a href="tool.html?p=tablecloth">Tablecloth</a></li>
-          <li><a href="tool.html?p=tablerunner">Table runner</a></li>
-          <li><a href="tool.html?p=coaster">Coaster</a></li>
-          <li><a href="tool.html?p=teacosy">Tea cozy</a></li>
-          <li><a href="tool.html?p=ovenmitt">Oven mitt</a></li>
-          <li><a href="tool.html?p=picnicmat">Picnic blanket</a></li>
+          <li data-s="Tablecloth Home Kitchen &amp; table"><a href="tool.html?p=tablecloth">Tablecloth</a></li>
+          <li data-s="Table runner Home Kitchen &amp; table"><a href="tool.html?p=tablerunner">Table runner</a></li>
+          <li data-s="Coaster Home Kitchen &amp; table"><a href="tool.html?p=coaster">Coaster</a></li>
+          <li data-s="Tea cozy Home Kitchen &amp; table"><a href="tool.html?p=teacosy">Tea cozy</a></li>
+          <li data-s="Oven mitt Home Kitchen &amp; table"><a href="tool.html?p=ovenmitt">Oven mitt</a></li>
+          <li data-s="Picnic blanket Home Kitchen &amp; table"><a href="tool.html?p=picnicmat">Picnic blanket</a></li>
           <li class="pat-sub" role="presentation">Storage</li>
-          <li><a href="tool.html?p=wallpocket">Wall pocket organizer</a></li>
-          <li><a href="tool.html?p=boxcover">Storage box cover</a></li>
-          <li><a href="tool.html?p=laundrybag">Laundry bag</a></li>
-          <li><a href="tool.html?p=fabricbasket">Fabric storage basket</a></li>
-          <li><a href="tool.html?p=remotepocket">Remote control caddy</a></li>
-          <li><a href="tool.html?p=tissuebox">Tissue box cover</a></li>
+          <li data-s="Wall pocket organizer Home Storage"><a href="tool.html?p=wallpocket">Wall pocket organizer</a></li>
+          <li data-s="Storage box cover Home Storage"><a href="tool.html?p=boxcover">Storage box cover</a></li>
+          <li data-s="Laundry bag Home Storage"><a href="tool.html?p=laundrybag">Laundry bag</a></li>
+          <li data-s="Fabric storage basket Home Storage"><a href="tool.html?p=fabricbasket">Fabric storage basket</a></li>
+          <li data-s="Remote control caddy Home Storage"><a href="tool.html?p=remotepocket">Remote control caddy</a></li>
+          <li data-s="Tissue box cover Home Storage"><a href="tool.html?p=tissuebox">Tissue box cover</a></li>
           <li class="pat-sub" role="presentation">Underfoot &amp; others</li>
-          <li><a href="tool.html?p=slipper">Room slippers</a></li>
-          <li><a href="tool.html?p=machinecover">Sewing machine cover</a></li>
-          <li><a href="tool.html?p=toiletcover">Toilet lid cover</a></li>
-          <li><a href="tool.html?p=treeskirt">Christmas tree skirt</a></li>
-          <li><a href="tool.html?p=doormat">Doormat</a></li>
+          <li data-s="Room slippers Home Underfoot &amp; others"><a href="tool.html?p=slipper">Room slippers</a></li>
+          <li data-s="Sewing machine cover Home Underfoot &amp; others"><a href="tool.html?p=machinecover">Sewing machine cover</a></li>
+          <li data-s="Toilet lid cover Home Underfoot &amp; others"><a href="tool.html?p=toiletcover">Toilet lid cover</a></li>
+          <li data-s="Christmas tree skirt Home Underfoot &amp; others"><a href="tool.html?p=treeskirt">Christmas tree skirt</a></li>
+          <li data-s="Doormat Home Underfoot &amp; others"><a href="tool.html?p=doormat">Doormat</a></li>
         </ul>
       </div>
 
@@ -496,30 +506,30 @@
         <h3 class="cat-h">Fandom</h3>
         <ul class="pat-list">
           <li class="pat-sub" role="presentation">Plushie clothes</li>
-          <li><a href="tool.html?p=nuitee">Plush T-shirt</a></li>
-          <li><a href="tool.html?p=nuihoodie">Plush hoodie</a></li>
-          <li><a href="tool.html?p=nuisailor">Plush sailor uniform</a></li>
-          <li><a href="tool.html?p=nuikigurumi">Plush kigurumi</a></li>
-          <li><a href="tool.html?p=nuiclothes">Plush toy dress</a></li>
-          <li><a href="tool.html?p=nuipajama">Plush pajamas</a></li>
-          <li><a href="tool.html?p=nuijinbei">Plush jinbei</a></li>
-          <li><a href="tool.html?p=nuiskirt">Plush skirt</a></li>
-          <li><a href="tool.html?p=nuipants">Plush pants</a></li>
-          <li><a href="tool.html?p=nuiponcho">Plush poncho</a></li>
-          <li><a href="tool.html?p=nuicape">Plush cape</a></li>
+          <li data-s="Plush T-shirt Fandom Plushie clothes"><a href="tool.html?p=nuitee">Plush T-shirt</a></li>
+          <li data-s="Plush hoodie Fandom Plushie clothes"><a href="tool.html?p=nuihoodie">Plush hoodie</a></li>
+          <li data-s="Plush sailor uniform Fandom Plushie clothes"><a href="tool.html?p=nuisailor">Plush sailor uniform</a></li>
+          <li data-s="Plush kigurumi Fandom Plushie clothes"><a href="tool.html?p=nuikigurumi">Plush kigurumi</a></li>
+          <li data-s="Plush toy dress Fandom Plushie clothes"><a href="tool.html?p=nuiclothes">Plush toy dress</a></li>
+          <li data-s="Plush pajamas Fandom Plushie clothes"><a href="tool.html?p=nuipajama">Plush pajamas</a></li>
+          <li data-s="Plush jinbei Fandom Plushie clothes"><a href="tool.html?p=nuijinbei">Plush jinbei</a></li>
+          <li data-s="Plush skirt Fandom Plushie clothes"><a href="tool.html?p=nuiskirt">Plush skirt</a></li>
+          <li data-s="Plush pants Fandom Plushie clothes"><a href="tool.html?p=nuipants">Plush pants</a></li>
+          <li data-s="Plush poncho Fandom Plushie clothes"><a href="tool.html?p=nuiponcho">Plush poncho</a></li>
+          <li data-s="Plush cape Fandom Plushie clothes"><a href="tool.html?p=nuicape">Plush cape</a></li>
           <li class="pat-sub" role="presentation">Plushie gear</li>
-          <li><a href="tool.html?p=nuihat">Plush hat</a></li>
-          <li><a href="tool.html?p=nuibag">Plush backpack</a></li>
-          <li><a href="tool.html?p=nuisleep">Plush sleeping bag</a></li>
-          <li><a href="tool.html?p=nuifuton">Plush futon set</a></li>
-          <li><a href="tool.html?p=dollclothes">Doll dress</a></li>
-          <li><a href="tool.html?p=teddy">Teddy bear</a></li>
+          <li data-s="Plush hat Fandom Plushie gear"><a href="tool.html?p=nuihat">Plush hat</a></li>
+          <li data-s="Plush backpack Fandom Plushie gear"><a href="tool.html?p=nuibag">Plush backpack</a></li>
+          <li data-s="Plush sleeping bag Fandom Plushie gear"><a href="tool.html?p=nuisleep">Plush sleeping bag</a></li>
+          <li data-s="Plush futon set Fandom Plushie gear"><a href="tool.html?p=nuifuton">Plush futon set</a></li>
+          <li data-s="Doll dress Fandom Plushie gear"><a href="tool.html?p=dollclothes">Doll dress</a></li>
+          <li data-s="Teddy bear Fandom Plushie gear"><a href="tool.html?p=teddy">Teddy bear</a></li>
           <li class="pat-sub" role="presentation">Fan goods</li>
-          <li><a href="tool.html?p=rosette">Rosette</a></li>
-          <li><a href="tool.html?p=canbadge">Badge cover</a></li>
-          <li><a href="tool.html?p=ribbonkey">Ribbon keyring</a></li>
-          <li><a href="tool.html?p=tradingcard">Trading card case</a></li>
-          <li><a href="tool.html?p=uchiwacover">Fan sleeve (uchiwa case)</a></li>
+          <li data-s="Rosette Fandom Fan goods"><a href="tool.html?p=rosette">Rosette</a></li>
+          <li data-s="Badge cover Fandom Fan goods"><a href="tool.html?p=canbadge">Badge cover</a></li>
+          <li data-s="Ribbon keyring Fandom Fan goods"><a href="tool.html?p=ribbonkey">Ribbon keyring</a></li>
+          <li data-s="Trading card case Fandom Fan goods"><a href="tool.html?p=tradingcard">Trading card case</a></li>
+          <li data-s="Fan sleeve (uchiwa case) Fandom Fan goods"><a href="tool.html?p=uchiwacover">Fan sleeve (uchiwa case)</a></li>
         </ul>
       </div>
 
@@ -642,5 +652,6 @@
   modal.addEventListener('click',function(e){if(e.target===modal)modal.classList.remove('open');});
 })();
 </script>
+<script src="../search.js"></script>
 </body>
 </html>

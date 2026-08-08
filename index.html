@@ -183,61 +183,71 @@
     <div class="section-inner">
       <h2 class="sec-title">型紙一覧</h2>
 
+      <div class="search" id="siteSearch" hidden>
+        <label class="search-label" for="searchInput">型紙とガイドを絞り込む</label>
+        <div class="search-row">
+          <input id="searchInput" type="search" autocomplete="off"
+                 placeholder="スカート、ズボン、ファスナー、犬 ベスト …">
+          <button type="button" class="search-clear" hidden aria-label="入力を消す">×</button>
+        </div>
+        <p class="search-count" id="searchCount" role="status" aria-live="polite"></p>
+      </div>
+
       <div class="cat-block">
         <h3 class="cat-h">大人服</h3>
         <ul class="pat-list">
           <li class="pat-sub" role="presentation">トップス</li>
-          <li><a href="tool.html?p=tee">Tシャツ</a></li>
-          <li><a href="tool.html?p=raglantee">ラグランTシャツ</a></li>
-          <li><a href="tool.html?p=tunic">チュニック</a></li>
-          <li><a href="tool.html?p=camisole">キャミソール</a></li>
-          <li><a href="tool.html?p=blouse">ブラウス</a></li>
-          <li><a href="tool.html?p=shirt">シャツ</a></li>
-          <li><a href="tool.html?p=dolman">ドルマンスリーブトップス</a></li>
-          <li><a href="tool.html?p=hoodie">パーカー</a></li>
-          <li><a href="tool.html?p=adultvest">ベスト</a></li>
-          <li><a href="tool.html?p=cardigan">カーディガン</a></li>
+          <li data-s="Tシャツ 大人服 トップス ティーシャツ カットソー ニット"><a href="tool.html?p=tee">Tシャツ</a></li>
+          <li data-s="ラグランTシャツ 大人服 トップス Tシャツ ティーシャツ カットソー ニット"><a href="tool.html?p=raglantee">ラグランTシャツ</a></li>
+          <li data-s="チュニック 大人服 トップス ニット"><a href="tool.html?p=tunic">チュニック</a></li>
+          <li data-s="キャミソール 大人服 トップス ニット"><a href="tool.html?p=camisole">キャミソール</a></li>
+          <li data-s="ブラウス 大人服 トップス ボタン"><a href="tool.html?p=blouse">ブラウス</a></li>
+          <li data-s="シャツ 大人服 トップス"><a href="tool.html?p=shirt">シャツ</a></li>
+          <li data-s="ドルマンスリーブトップス 大人服 トップス ニット"><a href="tool.html?p=dolman">ドルマンスリーブトップス</a></li>
+          <li data-s="パーカー 大人服 トップス フード ポケット"><a href="tool.html?p=hoodie">パーカー</a></li>
+          <li data-s="ベスト 大人服 トップス ボタン 裏地 バイアス"><a href="tool.html?p=adultvest">ベスト</a></li>
+          <li data-s="カーディガン 大人服 トップス ボタン ニット"><a href="tool.html?p=cardigan">カーディガン</a></li>
           <li class="pat-sub" role="presentation">スカート</li>
-          <li><a href="tool.html?p=skirt">Aラインスカート</a></li>
-          <li><a href="tool.html?p=flareskirt">フレアスカート</a></li>
-          <li><a href="tool.html?p=mermaid">マーメイドスカート</a></li>
-          <li><a href="tool.html?p=adultgather">ギャザースカート</a></li>
-          <li><a href="tool.html?p=tightskirt">タイトスカート</a></li>
-          <li><a href="tool.html?p=pleatskirt">プリーツスカート</a></li>
-          <li><a href="tool.html?p=wrapskirt">ラップスカート</a></li>
-          <li><a href="tool.html?p=tieredskirt">ティアードスカート</a></li>
+          <li data-s="Aラインスカート 大人服 スカート すかーと ゴム"><a href="tool.html?p=skirt">Aラインスカート</a></li>
+          <li data-s="フレアスカート 大人服 スカート すかーと ゴム"><a href="tool.html?p=flareskirt">フレアスカート</a></li>
+          <li data-s="マーメイドスカート 大人服 スカート すかーと"><a href="tool.html?p=mermaid">マーメイドスカート</a></li>
+          <li data-s="ギャザースカート 大人服 スカート すかーと ゴム ギャザー"><a href="tool.html?p=adultgather">ギャザースカート</a></li>
+          <li data-s="タイトスカート 大人服 スカート すかーと ゴム"><a href="tool.html?p=tightskirt">タイトスカート</a></li>
+          <li data-s="プリーツスカート 大人服 スカート すかーと ゴム"><a href="tool.html?p=pleatskirt">プリーツスカート</a></li>
+          <li data-s="ラップスカート 大人服 スカート すかーと"><a href="tool.html?p=wrapskirt">ラップスカート</a></li>
+          <li data-s="ティアードスカート 大人服 スカート すかーと ギャザー"><a href="tool.html?p=tieredskirt">ティアードスカート</a></li>
           <li class="pat-sub" role="presentation">パンツ</li>
-          <li><a href="tool.html?p=widepants">ワイドパンツ（ゴムウエスト）</a></li>
-          <li><a href="tool.html?p=taperedpants">テーパードパンツ</a></li>
-          <li><a href="tool.html?p=halfpants">ハーフパンツ</a></li>
-          <li><a href="tool.html?p=culotte">キュロット</a></li>
-          <li><a href="tool.html?p=sweatpants">スウェットパンツ</a></li>
-          <li><a href="tool.html?p=cargopants">カーゴパンツ</a></li>
+          <li data-s="ワイドパンツ（ゴムウエスト） 大人服 パンツ ズボン ぱんつ ゴム"><a href="tool.html?p=widepants">ワイドパンツ（ゴムウエスト）</a></li>
+          <li data-s="テーパードパンツ 大人服 パンツ ズボン ぱんつ"><a href="tool.html?p=taperedpants">テーパードパンツ</a></li>
+          <li data-s="ハーフパンツ 大人服 パンツ ズボン ぱんつ ゴム"><a href="tool.html?p=halfpants">ハーフパンツ</a></li>
+          <li data-s="キュロット 大人服 パンツ ゴム"><a href="tool.html?p=culotte">キュロット</a></li>
+          <li data-s="スウェットパンツ 大人服 パンツ ズボン ぱんつ ゴム"><a href="tool.html?p=sweatpants">スウェットパンツ</a></li>
+          <li data-s="カーゴパンツ 大人服 パンツ ズボン ぱんつ ゴム ファスナー ボタン ポケット"><a href="tool.html?p=cargopants">カーゴパンツ</a></li>
           <li class="pat-sub" role="presentation">ワンピース・つなぎ</li>
-          <li><a href="tool.html?p=onepiece">ワンピース（袖付き）</a></li>
-          <li><a href="tool.html?p=sleevedress">ノースリーブワンピース</a></li>
-          <li><a href="tool.html?p=shirtdress">シャツワンピース</a></li>
-          <li><a href="tool.html?p=overall">サロペット</a></li>
-          <li><a href="tool.html?p=jumpsuit">ジャンプスーツ</a></li>
+          <li data-s="ワンピース（袖付き） 大人服 ワンピース・つなぎ ワンピース ドレス"><a href="tool.html?p=onepiece">ワンピース（袖付き）</a></li>
+          <li data-s="ノースリーブワンピース 大人服 ワンピース・つなぎ ワンピース ドレス バイアス"><a href="tool.html?p=sleevedress">ノースリーブワンピース</a></li>
+          <li data-s="シャツワンピース 大人服 ワンピース・つなぎ ワンピース ドレス"><a href="tool.html?p=shirtdress">シャツワンピース</a></li>
+          <li data-s="サロペット 大人服 ワンピース・つなぎ"><a href="tool.html?p=overall">サロペット</a></li>
+          <li data-s="ジャンプスーツ 大人服 ワンピース・つなぎ ゴム"><a href="tool.html?p=jumpsuit">ジャンプスーツ</a></li>
           <li class="pat-sub" role="presentation">アウター</li>
-          <li><a href="tool.html?p=jacket">ジャケット</a></li>
-          <li><a href="tool.html?p=nocollarjacket">ノーカラージャケット</a></li>
-          <li><a href="tool.html?p=coat">コート</a></li>
-          <li><a href="tool.html?p=blouson">ブルゾン</a></li>
-          <li><a href="tool.html?p=gown">ガウン</a></li>
-          <li><a href="tool.html?p=poncho">ポンチョ</a></li>
+          <li data-s="ジャケット 大人服 アウター ボタン"><a href="tool.html?p=jacket">ジャケット</a></li>
+          <li data-s="ノーカラージャケット 大人服 アウター"><a href="tool.html?p=nocollarjacket">ノーカラージャケット</a></li>
+          <li data-s="コート 大人服 アウター ボタン 裏地"><a href="tool.html?p=coat">コート</a></li>
+          <li data-s="ブルゾン 大人服 アウター ファスナー ボタン"><a href="tool.html?p=blouson">ブルゾン</a></li>
+          <li data-s="ガウン 大人服 アウター ファスナー ボタン"><a href="tool.html?p=gown">ガウン</a></li>
+          <li data-s="ポンチョ 大人服 アウター バイアス"><a href="tool.html?p=poncho">ポンチョ</a></li>
           <li class="pat-sub" role="presentation">和装</li>
-          <li><a href="tool.html?p=yukata">浴衣</a></li>
-          <li><a href="tool.html?p=samue">作務衣（上衣）</a></li>
-          <li><a href="tool.html?p=samuepants">作務衣（パンツ）</a></li>
-          <li><a href="tool.html?p=adultjinbei">甚平（大人・上衣）</a></li>
-          <li><a href="tool.html?p=hanten">半纏（はんてん）</a></li>
+          <li data-s="浴衣 大人服 和装 じんべい ゆかた さむえ"><a href="tool.html?p=yukata">浴衣</a></li>
+          <li data-s="作務衣（上衣） 大人服 和装 じんべい ゆかた さむえ"><a href="tool.html?p=samue">作務衣（上衣）</a></li>
+          <li data-s="作務衣（パンツ） 大人服 和装 パンツ ズボン ぱんつ じんべい ゆかた さむえ ゴム"><a href="tool.html?p=samuepants">作務衣（パンツ）</a></li>
+          <li data-s="甚平（大人・上衣） 大人服 和装 じんべい ゆかた さむえ"><a href="tool.html?p=adultjinbei">甚平（大人・上衣）</a></li>
+          <li data-s="半纏（はんてん） 大人服 和装 じんべい ゆかた さむえ キルト芯"><a href="tool.html?p=hanten">半纏（はんてん）</a></li>
           <li class="pat-sub" role="presentation">部屋着・エプロン</li>
-          <li><a href="tool.html?p=pajamas">パジャマ（上衣）</a></li>
-          <li><a href="tool.html?p=pajamapants">パジャマ（パンツ）</a></li>
-          <li><a href="tool.html?p=kappogi">割烹着</a></li>
-          <li><a href="tool.html?p=apron">エプロン</a></li>
-          <li><a href="tool.html?p=cafeapron">カフェエプロン</a></li>
+          <li data-s="パジャマ（上衣） 大人服 部屋着・エプロン"><a href="tool.html?p=pajamas">パジャマ（上衣）</a></li>
+          <li data-s="パジャマ（パンツ） 大人服 部屋着・エプロン パンツ ズボン ぱんつ ゴム"><a href="tool.html?p=pajamapants">パジャマ（パンツ）</a></li>
+          <li data-s="割烹着 大人服 部屋着・エプロン ゴム"><a href="tool.html?p=kappogi">割烹着</a></li>
+          <li data-s="エプロン 大人服 部屋着・エプロン 前掛け ポケット"><a href="tool.html?p=apron">エプロン</a></li>
+          <li data-s="カフェエプロン 大人服 部屋着・エプロン エプロン 前掛け ポケット"><a href="tool.html?p=cafeapron">カフェエプロン</a></li>
         </ul>
       </div>
 
@@ -245,36 +255,36 @@
         <h3 class="cat-h">子供服</h3>
         <ul class="pat-list">
           <li class="pat-sub" role="presentation">トップス</li>
-          <li><a href="tool.html?p=kidstee">キッズTシャツ</a></li>
-          <li><a href="tool.html?p=kidsraglan">キッズラグランTシャツ</a></li>
-          <li><a href="tool.html?p=kidstank">キッズタンクトップ</a></li>
-          <li><a href="tool.html?p=kidsshirt">キッズシャツ</a></li>
-          <li><a href="tool.html?p=kidsvest">キッズベスト</a></li>
-          <li><a href="tool.html?p=kidshoodie">キッズパーカー</a></li>
+          <li data-s="キッズTシャツ 子供服 トップス Tシャツ ティーシャツ カットソー ニット"><a href="tool.html?p=kidstee">キッズTシャツ</a></li>
+          <li data-s="キッズラグランTシャツ 子供服 トップス Tシャツ ティーシャツ カットソー ニット"><a href="tool.html?p=kidsraglan">キッズラグランTシャツ</a></li>
+          <li data-s="キッズタンクトップ 子供服 トップス バイアス ニット"><a href="tool.html?p=kidstank">キッズタンクトップ</a></li>
+          <li data-s="キッズシャツ 子供服 トップス ボタン"><a href="tool.html?p=kidsshirt">キッズシャツ</a></li>
+          <li data-s="キッズベスト 子供服 トップス スナップ ボタン バイアス"><a href="tool.html?p=kidsvest">キッズベスト</a></li>
+          <li data-s="キッズパーカー 子供服 トップス フード"><a href="tool.html?p=kidshoodie">キッズパーカー</a></li>
           <li class="pat-sub" role="presentation">ボトムス</li>
-          <li><a href="tool.html?p=pants">キッズパンツ</a></li>
-          <li><a href="tool.html?p=kidshalf">キッズハーフパンツ</a></li>
-          <li><a href="tool.html?p=gather">キッズギャザースカート</a></li>
-          <li><a href="tool.html?p=kidsculotte">キッズキュロット</a></li>
-          <li><a href="tool.html?p=kidsleggings">キッズレギンス</a></li>
+          <li data-s="キッズパンツ 子供服 ボトムス パンツ ズボン ぱんつ ゴム"><a href="tool.html?p=pants">キッズパンツ</a></li>
+          <li data-s="キッズハーフパンツ 子供服 ボトムス パンツ ズボン ぱんつ ゴム"><a href="tool.html?p=kidshalf">キッズハーフパンツ</a></li>
+          <li data-s="キッズギャザースカート 子供服 ボトムス スカート すかーと ゴム ギャザー"><a href="tool.html?p=gather">キッズギャザースカート</a></li>
+          <li data-s="キッズキュロット 子供服 ボトムス ゴム"><a href="tool.html?p=kidsculotte">キッズキュロット</a></li>
+          <li data-s="キッズレギンス 子供服 ボトムス ニット"><a href="tool.html?p=kidsleggings">キッズレギンス</a></li>
           <li class="pat-sub" role="presentation">ワンピース・スモック</li>
-          <li><a href="tool.html?p=kidsdress">キッズワンピース</a></li>
-          <li><a href="tool.html?p=jumperskirt">ジャンパースカート</a></li>
-          <li><a href="tool.html?p=smock">キッズスモック</a></li>
-          <li><a href="tool.html?p=kidstunic">キッズチュニック</a></li>
-          <li><a href="tool.html?p=kidsrompers">ロンパース</a></li>
+          <li data-s="キッズワンピース 子供服 ワンピース・スモック ワンピース ドレス スナップ ボタン ギャザー バイアス"><a href="tool.html?p=kidsdress">キッズワンピース</a></li>
+          <li data-s="ジャンパースカート 子供服 ワンピース・スモック スカート すかーと ギャザー"><a href="tool.html?p=jumperskirt">ジャンパースカート</a></li>
+          <li data-s="キッズスモック 子供服 ワンピース・スモック ゴム ギャザー"><a href="tool.html?p=smock">キッズスモック</a></li>
+          <li data-s="キッズチュニック 子供服 ワンピース・スモック"><a href="tool.html?p=kidstunic">キッズチュニック</a></li>
+          <li data-s="ロンパース 子供服 ワンピース・スモック スナップ バイアス ニット"><a href="tool.html?p=kidsrompers">ロンパース</a></li>
           <li class="pat-sub" role="presentation">アウター</li>
-          <li><a href="tool.html?p=kidscoat">キッズコート</a></li>
-          <li><a href="tool.html?p=kidscape">キッズマント</a></li>
-          <li><a href="tool.html?p=kidsponcho">キッズポンチョ</a></li>
-          <li><a href="tool.html?p=kidsjacket">キッズジャケット</a></li>
-          <li><a href="tool.html?p=kidsraincoat">キッズレインコート</a></li>
+          <li data-s="キッズコート 子供服 アウター ボタン"><a href="tool.html?p=kidscoat">キッズコート</a></li>
+          <li data-s="キッズマント 子供服 アウター ギャザー"><a href="tool.html?p=kidscape">キッズマント</a></li>
+          <li data-s="キッズポンチョ 子供服 アウター"><a href="tool.html?p=kidsponcho">キッズポンチョ</a></li>
+          <li data-s="キッズジャケット 子供服 アウター スナップ ボタン 裏地 バイアス"><a href="tool.html?p=kidsjacket">キッズジャケット</a></li>
+          <li data-s="キッズレインコート 子供服 アウター まち フード"><a href="tool.html?p=kidsraincoat">キッズレインコート</a></li>
           <li class="pat-sub" role="presentation">甚平・食事まわり</li>
-          <li><a href="tool.html?p=jinbei">甚平（上衣）</a></li>
-          <li><a href="tool.html?p=jinbeipants">甚平（パンツ）</a></li>
-          <li><a href="tool.html?p=kidsyukata">キッズ浴衣</a></li>
-          <li><a href="tool.html?p=kidsapron">キッズエプロン</a></li>
-          <li><a href="tool.html?p=kidsbibapron">お食事エプロン</a></li>
+          <li data-s="甚平（上衣） 子供服 甚平・食事まわり 和装 じんべい ゆかた さむえ"><a href="tool.html?p=jinbei">甚平（上衣）</a></li>
+          <li data-s="甚平（パンツ） 子供服 甚平・食事まわり パンツ ズボン ぱんつ 和装 じんべい ゆかた さむえ ゴム"><a href="tool.html?p=jinbeipants">甚平（パンツ）</a></li>
+          <li data-s="キッズ浴衣 子供服 甚平・食事まわり 和装 じんべい ゆかた さむえ"><a href="tool.html?p=kidsyukata">キッズ浴衣</a></li>
+          <li data-s="キッズエプロン 子供服 甚平・食事まわり エプロン 前掛け ゴム"><a href="tool.html?p=kidsapron">キッズエプロン</a></li>
+          <li data-s="お食事エプロン 子供服 甚平・食事まわり エプロン 前掛け スナップ ポケット"><a href="tool.html?p=kidsbibapron">お食事エプロン</a></li>
         </ul>
       </div>
 
@@ -282,41 +292,41 @@
         <h3 class="cat-h">ベビー</h3>
         <ul class="pat-list">
           <li class="pat-sub" role="presentation">ウェア</li>
-          <li><a href="tool.html?p=coverall">カバーオール</a></li>
-          <li><a href="tool.html?p=bloomers">かぼちゃパンツ（ブルマ）</a></li>
-          <li><a href="tool.html?p=babypants">ベビーパンツ</a></li>
-          <li><a href="tool.html?p=babyleggings">ベビーレギンス</a></li>
-          <li><a href="tool.html?p=sleeper">スリーパー</a></li>
+          <li data-s="カバーオール ベビー ウェア カバー ケース スナップ ニット"><a href="tool.html?p=coverall">カバーオール</a></li>
+          <li data-s="かぼちゃパンツ（ブルマ） ベビー ウェア パンツ ズボン ぱんつ ゴム"><a href="tool.html?p=bloomers">かぼちゃパンツ（ブルマ）</a></li>
+          <li data-s="ベビーパンツ ベビー ウェア パンツ ズボン ぱんつ ゴム ニット"><a href="tool.html?p=babypants">ベビーパンツ</a></li>
+          <li data-s="ベビーレギンス ベビー ウェア ニット"><a href="tool.html?p=babyleggings">ベビーレギンス</a></li>
+          <li data-s="スリーパー ベビー ウェア スナップ"><a href="tool.html?p=sleeper">スリーパー</a></li>
           <li class="pat-sub" role="presentation">寝る・くるむ</li>
-          <li><a href="tool.html?p=swaddle">おくるみ（フード付き）</a></li>
-          <li><a href="tool.html?p=babyblanket">お昼寝ケット</a></li>
-          <li><a href="tool.html?p=babypillow">ベビー枕（ドーナツ型）</a></li>
-          <li><a href="tool.html?p=babyfuton">ベビー布団カバー</a></li>
-          <li><a href="tool.html?p=napmat">お昼寝マット</a></li>
+          <li data-s="おくるみ（フード付き） ベビー 寝る・くるむ フード"><a href="tool.html?p=swaddle">おくるみ（フード付き）</a></li>
+          <li data-s="お昼寝ケット ベビー 寝る・くるむ バイアス"><a href="tool.html?p=babyblanket">お昼寝ケット</a></li>
+          <li data-s="ベビー枕（ドーナツ型） ベビー 寝る・くるむ 寝具 ふとん まくら"><a href="tool.html?p=babypillow">ベビー枕（ドーナツ型）</a></li>
+          <li data-s="ベビー布団カバー ベビー 寝る・くるむ カバー ケース 寝具 ふとん まくら ファスナー ボタン"><a href="tool.html?p=babyfuton">ベビー布団カバー</a></li>
+          <li data-s="お昼寝マット ベビー 寝る・くるむ バイアス キルト芯"><a href="tool.html?p=napmat">お昼寝マット</a></li>
           <li class="pat-sub" role="presentation">スタイ・身につける小物</li>
-          <li><a href="tool.html?p=stai">スタイ</a></li>
-          <li><a href="tool.html?p=bandanastai">バンダナスタイ</a></li>
-          <li><a href="tool.html?p=babyhat">ベビー帽子（チューリップハット）</a></li>
-          <li><a href="tool.html?p=babymitten">ベビーミトン</a></li>
-          <li><a href="tool.html?p=babyshoes">ベビーシューズ</a></li>
+          <li data-s="スタイ ベビー スタイ・身につける小物 よだれかけ スナップ ボタン"><a href="tool.html?p=stai">スタイ</a></li>
+          <li data-s="バンダナスタイ ベビー スタイ・身につける小物 スタイ よだれかけ スナップ"><a href="tool.html?p=bandanastai">バンダナスタイ</a></li>
+          <li data-s="ベビー帽子（チューリップハット） ベビー スタイ・身につける小物 帽子 ぼうし ハット キャップ"><a href="tool.html?p=babyhat">ベビー帽子（チューリップハット）</a></li>
+          <li data-s="ベビーミトン ベビー スタイ・身につける小物 ゴム ニット"><a href="tool.html?p=babymitten">ベビーミトン</a></li>
+          <li data-s="ベビーシューズ ベビー スタイ・身につける小物 キルト芯"><a href="tool.html?p=babyshoes">ベビーシューズ</a></li>
           <li class="pat-sub" role="presentation">おでかけ</li>
-          <li><a href="tool.html?p=babycape">ベビーケープ</a></li>
-          <li><a href="tool.html?p=nursingcape">授乳ケープ</a></li>
-          <li><a href="tool.html?p=carriercover">抱っこ紐カバー</a></li>
-          <li><a href="tool.html?p=suckpad">抱っこ紐よだれカバー</a></li>
-          <li><a href="tool.html?p=strollerseat">ベビーカーシート</a></li>
+          <li data-s="ベビーケープ ベビー おでかけ スナップ ボタン"><a href="tool.html?p=babycape">ベビーケープ</a></li>
+          <li data-s="授乳ケープ ベビー おでかけ ギャザー"><a href="tool.html?p=nursingcape">授乳ケープ</a></li>
+          <li data-s="抱っこ紐カバー ベビー おでかけ カバー ケース ファスナー 面ファスナー スナップ"><a href="tool.html?p=carriercover">抱っこ紐カバー</a></li>
+          <li data-s="抱っこ紐よだれカバー ベビー おでかけ カバー ケース スナップ"><a href="tool.html?p=suckpad">抱っこ紐よだれカバー</a></li>
+          <li data-s="ベビーカーシート ベビー おでかけ"><a href="tool.html?p=strollerseat">ベビーカーシート</a></li>
           <li class="pat-sub" role="presentation">お世話</li>
-          <li><a href="tool.html?p=diaperpouch">おむつポーチ</a></li>
-          <li><a href="tool.html?p=wipescase">おしりふきケース</a></li>
-          <li><a href="tool.html?p=diapercover">おむつカバー</a></li>
-          <li><a href="tool.html?p=nursingpillow">授乳クッションカバー</a></li>
-          <li><a href="tool.html?p=gauzehanky">ガーゼハンカチ</a></li>
+          <li data-s="おむつポーチ ベビー お世話 ポーチ 小物入れ きんちゃく 巾着"><a href="tool.html?p=diaperpouch">おむつポーチ</a></li>
+          <li data-s="おしりふきケース ベビー お世話 カバー ケース ファスナー 面ファスナー"><a href="tool.html?p=wipescase">おしりふきケース</a></li>
+          <li data-s="おむつカバー ベビー お世話 カバー ケース ゴム スナップ"><a href="tool.html?p=diapercover">おむつカバー</a></li>
+          <li data-s="授乳クッションカバー ベビー お世話 カバー ケース"><a href="tool.html?p=nursingpillow">授乳クッションカバー</a></li>
+          <li data-s="ガーゼハンカチ ベビー お世話"><a href="tool.html?p=gauzehanky">ガーゼハンカチ</a></li>
           <li class="pat-sub" role="presentation">おもちゃ</li>
-          <li><a href="tool.html?p=babytoy">にぎにぎ</a></li>
-          <li><a href="tool.html?p=fabricball">布ボール</a></li>
-          <li><a href="tool.html?p=clothbook">布絵本</a></li>
-          <li><a href="tool.html?p=taghanky">タグハンカチ</a></li>
-          <li><a href="tool.html?p=otedama">お手玉</a></li>
+          <li data-s="にぎにぎ ベビー おもちゃ"><a href="tool.html?p=babytoy">にぎにぎ</a></li>
+          <li data-s="布ボール ベビー おもちゃ"><a href="tool.html?p=fabricball">布ボール</a></li>
+          <li data-s="布絵本 ベビー おもちゃ ボタン"><a href="tool.html?p=clothbook">布絵本</a></li>
+          <li data-s="タグハンカチ ベビー おもちゃ"><a href="tool.html?p=taghanky">タグハンカチ</a></li>
+          <li data-s="お手玉 ベビー おもちゃ"><a href="tool.html?p=otedama">お手玉</a></li>
         </ul>
       </div>
 
@@ -324,67 +334,67 @@
         <h3 class="cat-h">小物</h3>
         <ul class="pat-list">
           <li class="pat-sub" role="presentation">通園・通学</li>
-          <li><a href="tool.html?p=kinchaku">巾着袋</a></li>
-          <li><a href="tool.html?p=kincgusset">コップ袋（マチ付き）</a></li>
-          <li><a href="tool.html?p=gymbag">体操着袋（巾着リュック）</a></li>
-          <li><a href="tool.html?p=shoesbag">上履き入れ</a></li>
-          <li><a href="tool.html?p=movepocket">移動ポケット</a></li>
-          <li><a href="tool.html?p=nametag">名札ケース</a></li>
-          <li><a href="tool.html?p=pencase">ペンケース</a></li>
-          <li><a href="tool.html?p=randocover">ランドセルカバー</a></li>
-          <li><a href="tool.html?p=recordercase">リコーダーケース</a></li>
-          <li><a href="tool.html?p=bousaizukin">防災頭巾カバー</a></li>
-          <li><a href="tool.html?p=flaskcover">水筒カバー</a></li>
-          <li><a href="tool.html?p=cutlerycase">カトラリーケース（ロール式）</a></li>
-          <li><a href="tool.html?p=bandana">三角巾</a></li>
+          <li data-s="巾着袋 小物 通園・通学 ポーチ 小物入れ きんちゃく 巾着"><a href="tool.html?p=kinchaku">巾着袋</a></li>
+          <li data-s="コップ袋（マチ付き） 小物 通園・通学"><a href="tool.html?p=kincgusset">コップ袋（マチ付き）</a></li>
+          <li data-s="体操着袋（巾着リュック） 小物 通園・通学 バッグ かばん カバン ばっぐ ポーチ 小物入れ きんちゃく 巾着"><a href="tool.html?p=gymbag">体操着袋（巾着リュック）</a></li>
+          <li data-s="上履き入れ 小物 通園・通学"><a href="tool.html?p=shoesbag">上履き入れ</a></li>
+          <li data-s="移動ポケット 小物 通園・通学 ポケット"><a href="tool.html?p=movepocket">移動ポケット</a></li>
+          <li data-s="名札ケース 小物 通園・通学 カバー ケース"><a href="tool.html?p=nametag">名札ケース</a></li>
+          <li data-s="ペンケース 小物 通園・通学 カバー ケース ファスナー"><a href="tool.html?p=pencase">ペンケース</a></li>
+          <li data-s="ランドセルカバー 小物 通園・通学 カバー ケース ゴム"><a href="tool.html?p=randocover">ランドセルカバー</a></li>
+          <li data-s="リコーダーケース 小物 通園・通学 カバー ケース"><a href="tool.html?p=recordercase">リコーダーケース</a></li>
+          <li data-s="防災頭巾カバー 小物 通園・通学 カバー ケース ゴム"><a href="tool.html?p=bousaizukin">防災頭巾カバー</a></li>
+          <li data-s="水筒カバー 小物 通園・通学 カバー ケース 裏地"><a href="tool.html?p=flaskcover">水筒カバー</a></li>
+          <li data-s="カトラリーケース（ロール式） 小物 通園・通学 カバー ケース ポケット"><a href="tool.html?p=cutlerycase">カトラリーケース（ロール式）</a></li>
+          <li data-s="三角巾 小物 通園・通学 ゴム"><a href="tool.html?p=bandana">三角巾</a></li>
           <li class="pat-sub" role="presentation">マスク・衛生</li>
-          <li><a href="tool.html?p=mask">プリーツマスク</a></li>
-          <li><a href="tool.html?p=fittedmask">立体マスク</a></li>
-          <li><a href="tool.html?p=maskcover">不織布マスクカバー</a></li>
-          <li><a href="tool.html?p=maskcase">マスクケース</a></li>
-          <li><a href="tool.html?p=armcover">アームカバー</a></li>
+          <li data-s="プリーツマスク 小物 マスク・衛生 マスク ますく ゴム"><a href="tool.html?p=mask">プリーツマスク</a></li>
+          <li data-s="立体マスク 小物 マスク・衛生 マスク ますく"><a href="tool.html?p=fittedmask">立体マスク</a></li>
+          <li data-s="不織布マスクカバー 小物 マスク・衛生 カバー ケース マスク ますく ゴム"><a href="tool.html?p=maskcover">不織布マスクカバー</a></li>
+          <li data-s="マスクケース 小物 マスク・衛生 カバー ケース マスク ますく"><a href="tool.html?p=maskcase">マスクケース</a></li>
+          <li data-s="アームカバー 小物 マスク・衛生 カバー ケース ゴム ニット"><a href="tool.html?p=armcover">アームカバー</a></li>
           <li class="pat-sub" role="presentation">帽子</li>
-          <li><a href="tool.html?p=sunhat">バケットハット</a></li>
-          <li><a href="tool.html?p=beret">ベレー帽</a></li>
-          <li><a href="tool.html?p=cap">キャップ</a></li>
-          <li><a href="tool.html?p=casquette">キャスケット</a></li>
-          <li><a href="tool.html?p=bandanacap">バンダナキャップ</a></li>
+          <li data-s="バケットハット 小物 帽子 ぼうし ハット キャップ"><a href="tool.html?p=sunhat">バケットハット</a></li>
+          <li data-s="ベレー帽 小物 帽子 ぼうし ハット キャップ"><a href="tool.html?p=beret">ベレー帽</a></li>
+          <li data-s="キャップ 小物 帽子 ぼうし ハット"><a href="tool.html?p=cap">キャップ</a></li>
+          <li data-s="キャスケット 小物 帽子 ぼうし ハット キャップ"><a href="tool.html?p=casquette">キャスケット</a></li>
+          <li data-s="バンダナキャップ 小物 帽子 ぼうし ハット キャップ ゴム"><a href="tool.html?p=bandanacap">バンダナキャップ</a></li>
           <li class="pat-sub" role="presentation">ヘアもの</li>
-          <li><a href="tool.html?p=shuushu">シュシュ</a></li>
-          <li><a href="tool.html?p=headband">ヘアバンド</a></li>
-          <li><a href="tool.html?p=hairturban">ヘアターバン</a></li>
-          <li><a href="tool.html?p=hairribbon">ヘアリボン</a></li>
-          <li><a href="tool.html?p=hairclip">リボンバレッタ</a></li>
+          <li data-s="シュシュ 小物 ヘアもの ゴム"><a href="tool.html?p=shuushu">シュシュ</a></li>
+          <li data-s="ヘアバンド 小物 ヘアもの ゴム ニット"><a href="tool.html?p=headband">ヘアバンド</a></li>
+          <li data-s="ヘアターバン 小物 ヘアもの ゴム ニット"><a href="tool.html?p=hairturban">ヘアターバン</a></li>
+          <li data-s="ヘアリボン 小物 ヘアもの ゴム"><a href="tool.html?p=hairribbon">ヘアリボン</a></li>
+          <li data-s="リボンバレッタ 小物 ヘアもの"><a href="tool.html?p=hairclip">リボンバレッタ</a></li>
           <li class="pat-sub" role="presentation">防寒・リラックス</li>
-          <li><a href="tool.html?p=scarf">マフラー</a></li>
-          <li><a href="tool.html?p=neckwarmer">ネックウォーマー</a></li>
-          <li><a href="tool.html?p=legwarmer">レッグウォーマー</a></li>
-          <li><a href="tool.html?p=haramaki">腹巻き</a></li>
-          <li><a href="tool.html?p=eyemask">アイマスク</a></li>
+          <li data-s="マフラー 小物 防寒・リラックス"><a href="tool.html?p=scarf">マフラー</a></li>
+          <li data-s="ネックウォーマー 小物 防寒・リラックス ニット"><a href="tool.html?p=neckwarmer">ネックウォーマー</a></li>
+          <li data-s="レッグウォーマー 小物 防寒・リラックス ニット"><a href="tool.html?p=legwarmer">レッグウォーマー</a></li>
+          <li data-s="腹巻き 小物 防寒・リラックス ニット"><a href="tool.html?p=haramaki">腹巻き</a></li>
+          <li data-s="アイマスク 小物 防寒・リラックス マスク ますく ゴム キルト芯"><a href="tool.html?p=eyemask">アイマスク</a></li>
           <li class="pat-sub" role="presentation">ケース・カバー</li>
-          <li><a href="tool.html?p=tissuecase">ティッシュケース</a></li>
-          <li><a href="tool.html?p=bookcover">ブックカバー</a></li>
-          <li><a href="tool.html?p=boshitecho">母子手帳ケース</a></li>
-          <li><a href="tool.html?p=cardcase">カードケース</a></li>
-          <li><a href="tool.html?p=bankbook">通帳ケース</a></li>
+          <li data-s="ティッシュケース 小物 ケース・カバー カバー ケース ポケット"><a href="tool.html?p=tissuecase">ティッシュケース</a></li>
+          <li data-s="ブックカバー 小物 ケース・カバー カバー ケース"><a href="tool.html?p=bookcover">ブックカバー</a></li>
+          <li data-s="母子手帳ケース 小物 ケース・カバー カバー ケース ポケット"><a href="tool.html?p=boshitecho">母子手帳ケース</a></li>
+          <li data-s="カードケース 小物 ケース・カバー カバー ケース ポケット"><a href="tool.html?p=cardcase">カードケース</a></li>
+          <li data-s="通帳ケース 小物 ケース・カバー カバー ケース ゴム ポケット"><a href="tool.html?p=bankbook">通帳ケース</a></li>
           <li class="pat-sub" role="presentation">アクセサリー</li>
-          <li><a href="tool.html?p=bowtie">蝶ネクタイ</a></li>
-          <li><a href="tool.html?p=necktie">ネクタイ</a></li>
-          <li><a href="tool.html?p=brooch">布のブローチ</a></li>
-          <li><a href="tool.html?p=pocketsquare">ポケットチーフ</a></li>
-          <li><a href="tool.html?p=fabricbelt">布ベルト</a></li>
+          <li data-s="蝶ネクタイ 小物 アクセサリー ギャザー"><a href="tool.html?p=bowtie">蝶ネクタイ</a></li>
+          <li data-s="ネクタイ 小物 アクセサリー バイアス"><a href="tool.html?p=necktie">ネクタイ</a></li>
+          <li data-s="布のブローチ 小物 アクセサリー"><a href="tool.html?p=brooch">布のブローチ</a></li>
+          <li data-s="ポケットチーフ 小物 アクセサリー ポケット"><a href="tool.html?p=pocketsquare">ポケットチーフ</a></li>
+          <li data-s="布ベルト 小物 アクセサリー"><a href="tool.html?p=fabricbelt">布ベルト</a></li>
           <li class="pat-sub" role="presentation">キッチン・食卓</li>
-          <li><a href="tool.html?p=potholder">鍋つかみ</a></li>
-          <li><a href="tool.html?p=placemat">ランチョンマット</a></li>
-          <li><a href="tool.html?p=breadbag">パン袋</a></li>
-          <li><a href="tool.html?p=potmat">鍋敷き</a></li>
-          <li><a href="tool.html?p=teatowel">キッチンクロス</a></li>
+          <li data-s="鍋つかみ 小物 キッチン・食卓 キルト芯"><a href="tool.html?p=potholder">鍋つかみ</a></li>
+          <li data-s="ランチョンマット 小物 キッチン・食卓"><a href="tool.html?p=placemat">ランチョンマット</a></li>
+          <li data-s="パン袋 小物 キッチン・食卓"><a href="tool.html?p=breadbag">パン袋</a></li>
+          <li data-s="鍋敷き 小物 キッチン・食卓 バイアス キルト芯"><a href="tool.html?p=potmat">鍋敷き</a></li>
+          <li data-s="キッチンクロス 小物 キッチン・食卓"><a href="tool.html?p=teatowel">キッチンクロス</a></li>
           <li class="pat-sub" role="presentation">持ち歩きの小道具</li>
-          <li><a href="tool.html?p=pincushion">リストピンクッション</a></li>
-          <li><a href="tool.html?p=camerastrap">カメラストラップ</a></li>
-          <li><a href="tool.html?p=bottleholder">ペットボトルホルダー</a></li>
-          <li><a href="tool.html?p=keycase">キーケース</a></li>
-          <li><a href="tool.html?p=glassescase">メガネケース</a></li>
+          <li data-s="リストピンクッション 小物 持ち歩きの小道具 まち"><a href="tool.html?p=pincushion">リストピンクッション</a></li>
+          <li data-s="カメラストラップ 小物 持ち歩きの小道具 キルト芯"><a href="tool.html?p=camerastrap">カメラストラップ</a></li>
+          <li data-s="ペットボトルホルダー 小物 持ち歩きの小道具 裏地"><a href="tool.html?p=bottleholder">ペットボトルホルダー</a></li>
+          <li data-s="キーケース 小物 持ち歩きの小道具 カバー ケース スナップ"><a href="tool.html?p=keycase">キーケース</a></li>
+          <li data-s="メガネケース 小物 持ち歩きの小道具 カバー ケース スナップ キルト芯"><a href="tool.html?p=glassescase">メガネケース</a></li>
         </ul>
       </div>
 
@@ -392,46 +402,46 @@
         <h3 class="cat-h">バッグ</h3>
         <ul class="pat-list">
           <li class="pat-sub" role="presentation">トート・肩掛け</li>
-          <li><a href="tool.html?p=tote">トートバッグ</a></li>
-          <li><a href="tool.html?p=bucketbag">バケツ型トートバッグ</a></li>
-          <li><a href="tool.html?p=shoulderbag">ショルダーバッグ（フラップ型）</a></li>
-          <li><a href="tool.html?p=sacoche">サコッシュ</a></li>
-          <li><a href="tool.html?p=bodybag">ボディバッグ</a></li>
-          <li><a href="tool.html?p=ecobag">エコバッグ（折りたたみ）</a></li>
-          <li><a href="tool.html?p=ehonbag">絵本バッグ（レッスンバッグ）</a></li>
-          <li><a href="tool.html?p=itabag">痛バッグ（クリア窓トート）</a></li>
+          <li data-s="トートバッグ バッグ トート・肩掛け かばん カバン ばっぐ"><a href="tool.html?p=tote">トートバッグ</a></li>
+          <li data-s="バケツ型トートバッグ バッグ トート・肩掛け かばん カバン ばっぐ"><a href="tool.html?p=bucketbag">バケツ型トートバッグ</a></li>
+          <li data-s="ショルダーバッグ（フラップ型） バッグ トート・肩掛け かばん カバン ばっぐ"><a href="tool.html?p=shoulderbag">ショルダーバッグ（フラップ型）</a></li>
+          <li data-s="サコッシュ バッグ トート・肩掛け ファスナー"><a href="tool.html?p=sacoche">サコッシュ</a></li>
+          <li data-s="ボディバッグ バッグ トート・肩掛け かばん カバン ばっぐ ファスナー"><a href="tool.html?p=bodybag">ボディバッグ</a></li>
+          <li data-s="エコバッグ（折りたたみ） バッグ トート・肩掛け かばん カバン ばっぐ"><a href="tool.html?p=ecobag">エコバッグ（折りたたみ）</a></li>
+          <li data-s="絵本バッグ（レッスンバッグ） バッグ トート・肩掛け かばん カバン ばっぐ"><a href="tool.html?p=ehonbag">絵本バッグ（レッスンバッグ）</a></li>
+          <li data-s="痛バッグ（クリア窓トート） バッグ トート・肩掛け かばん カバン ばっぐ"><a href="tool.html?p=itabag">痛バッグ（クリア窓トート）</a></li>
           <li class="pat-sub" role="presentation">ポーチ</li>
-          <li><a href="tool.html?p=pouch">ファスナーポーチ</a></li>
-          <li><a href="tool.html?p=pouchgusset">ポーチ（マチ付き）</a></li>
-          <li><a href="tool.html?p=gamaguchi">がまぐちポーチ</a></li>
-          <li><a href="tool.html?p=cosmepouch">コスメポーチ（自立）</a></li>
-          <li><a href="tool.html?p=gadgetpouch">ガジェットポーチ</a></li>
-          <li><a href="tool.html?p=phonepouch">スマホポーチ</a></li>
-          <li><a href="tool.html?p=baginbag">バッグインバッグ</a></li>
+          <li data-s="ファスナーポーチ バッグ ポーチ 小物入れ きんちゃく 巾着 ファスナー"><a href="tool.html?p=pouch">ファスナーポーチ</a></li>
+          <li data-s="ポーチ（マチ付き） バッグ ポーチ 小物入れ きんちゃく 巾着"><a href="tool.html?p=pouchgusset">ポーチ（マチ付き）</a></li>
+          <li data-s="がまぐちポーチ バッグ ポーチ 小物入れ きんちゃく 巾着"><a href="tool.html?p=gamaguchi">がまぐちポーチ</a></li>
+          <li data-s="コスメポーチ（自立） バッグ ポーチ 小物入れ きんちゃく 巾着"><a href="tool.html?p=cosmepouch">コスメポーチ（自立）</a></li>
+          <li data-s="ガジェットポーチ バッグ ポーチ 小物入れ きんちゃく 巾着 ゴム ポケット"><a href="tool.html?p=gadgetpouch">ガジェットポーチ</a></li>
+          <li data-s="スマホポーチ バッグ ポーチ 小物入れ きんちゃく 巾着"><a href="tool.html?p=phonepouch">スマホポーチ</a></li>
+          <li data-s="バッグインバッグ バッグ ポーチ かばん カバン ばっぐ ポケット"><a href="tool.html?p=baginbag">バッグインバッグ</a></li>
           <li class="pat-sub" role="presentation">財布・カード</li>
-          <li><a href="tool.html?p=wallet">長財布</a></li>
-          <li><a href="tool.html?p=passportcase">パスポートケース</a></li>
-          <li><a href="tool.html?p=coinpurse">小銭入れ</a></li>
-          <li><a href="tool.html?p=bifoldwallet">二つ折り財布</a></li>
-          <li><a href="tool.html?p=gamaguchiwallet">がま口財布</a></li>
+          <li data-s="長財布 バッグ 財布・カード ポケット"><a href="tool.html?p=wallet">長財布</a></li>
+          <li data-s="パスポートケース バッグ 財布・カード カバー ケース ポケット"><a href="tool.html?p=passportcase">パスポートケース</a></li>
+          <li data-s="小銭入れ バッグ 財布・カード ファスナー"><a href="tool.html?p=coinpurse">小銭入れ</a></li>
+          <li data-s="二つ折り財布 バッグ 財布・カード ポケット"><a href="tool.html?p=bifoldwallet">二つ折り財布</a></li>
+          <li data-s="がま口財布 バッグ 財布・カード まち"><a href="tool.html?p=gamaguchiwallet">がま口財布</a></li>
           <li class="pat-sub" role="presentation">リュック・旅</li>
-          <li><a href="tool.html?p=backpack">リュックサック</a></li>
-          <li><a href="tool.html?p=bostonbag">ボストンバッグ</a></li>
-          <li><a href="tool.html?p=waistbag">ウエストポーチ</a></li>
-          <li><a href="tool.html?p=yogamatbag">ヨガマットケース</a></li>
-          <li><a href="tool.html?p=travelpouch">トラベルポーチ（吊り下げ）</a></li>
+          <li data-s="リュックサック バッグ リュック・旅 かばん カバン ばっぐ"><a href="tool.html?p=backpack">リュックサック</a></li>
+          <li data-s="ボストンバッグ バッグ リュック・旅 かばん カバン ばっぐ"><a href="tool.html?p=bostonbag">ボストンバッグ</a></li>
+          <li data-s="ウエストポーチ バッグ リュック・旅 ポーチ 小物入れ きんちゃく 巾着"><a href="tool.html?p=waistbag">ウエストポーチ</a></li>
+          <li data-s="ヨガマットケース バッグ リュック・旅 カバー ケース ファスナー 面ファスナー"><a href="tool.html?p=yogamatbag">ヨガマットケース</a></li>
+          <li data-s="トラベルポーチ（吊り下げ） バッグ リュック・旅 ポーチ 小物入れ きんちゃく 巾着 ポケット"><a href="tool.html?p=travelpouch">トラベルポーチ（吊り下げ）</a></li>
           <li class="pat-sub" role="presentation">PC・タブレット</li>
-          <li><a href="tool.html?p=laptopcase">ノートPCケース</a></li>
-          <li><a href="tool.html?p=tabletcase">タブレットケース</a></li>
-          <li><a href="tool.html?p=keyboardcover">キーボードカバー</a></li>
-          <li><a href="tool.html?p=phoneshoulder">スマホショルダー</a></li>
-          <li><a href="tool.html?p=tabletstand">タブレットスタンド（布）</a></li>
+          <li data-s="ノートPCケース バッグ PC・タブレット カバー ケース ファスナー 面ファスナー キルト芯"><a href="tool.html?p=laptopcase">ノートPCケース</a></li>
+          <li data-s="タブレットケース バッグ PC・タブレット カバー ケース スナップ キルト芯"><a href="tool.html?p=tabletcase">タブレットケース</a></li>
+          <li data-s="キーボードカバー バッグ PC・タブレット カバー ケース"><a href="tool.html?p=keyboardcover">キーボードカバー</a></li>
+          <li data-s="スマホショルダー バッグ PC・タブレット"><a href="tool.html?p=phoneshoulder">スマホショルダー</a></li>
+          <li data-s="タブレットスタンド（布） バッグ PC・タブレット"><a href="tool.html?p=tabletstand">タブレットスタンド（布）</a></li>
           <li class="pat-sub" role="presentation">和もの・その他</li>
-          <li><a href="tool.html?p=azuma">あずま袋</a></li>
-          <li><a href="tool.html?p=panel">四角パネル</a></li>
-          <li><a href="tool.html?p=clutchbag">クラッチバッグ</a></li>
-          <li><a href="tool.html?p=roundkinchaku">丸底巾着</a></li>
-          <li><a href="tool.html?p=lunchbag">保冷ランチバッグ</a></li>
+          <li data-s="あずま袋 バッグ 和もの・その他"><a href="tool.html?p=azuma">あずま袋</a></li>
+          <li data-s="四角パネル バッグ 和もの・その他"><a href="tool.html?p=panel">四角パネル</a></li>
+          <li data-s="クラッチバッグ バッグ 和もの・その他 かばん カバン ばっぐ ファスナー"><a href="tool.html?p=clutchbag">クラッチバッグ</a></li>
+          <li data-s="丸底巾着 バッグ 和もの・その他 ポーチ 小物入れ きんちゃく 巾着"><a href="tool.html?p=roundkinchaku">丸底巾着</a></li>
+          <li data-s="保冷ランチバッグ バッグ 和もの・その他 かばん カバン ばっぐ"><a href="tool.html?p=lunchbag">保冷ランチバッグ</a></li>
         </ul>
       </div>
 
@@ -439,30 +449,30 @@
         <h3 class="cat-h">ペット</h3>
         <ul class="pat-list">
           <li class="pat-sub" role="presentation">犬・猫の服</li>
-          <li><a href="tool.html?p=dog">犬服（タンクトップ）</a></li>
-          <li><a href="tool.html?p=dogsleeved">犬服（袖付き）</a></li>
-          <li><a href="tool.html?p=catfuku">猫服（タンクトップ）</a></li>
-          <li><a href="tool.html?p=petvest">ペットベスト</a></li>
-          <li><a href="tool.html?p=dogvest">犬ベスト（巻きつけ型）</a></li>
-          <li><a href="tool.html?p=petcape">ペットレインコート</a></li>
+          <li data-s="犬服（タンクトップ） ペット 犬・猫の服 犬 いぬ ドッグ"><a href="tool.html?p=dog">犬服（タンクトップ）</a></li>
+          <li data-s="犬服（袖付き） ペット 犬・猫の服 犬 いぬ ドッグ"><a href="tool.html?p=dogsleeved">犬服（袖付き）</a></li>
+          <li data-s="猫服（タンクトップ） ペット 犬・猫の服 猫 ねこ キャット"><a href="tool.html?p=catfuku">猫服（タンクトップ）</a></li>
+          <li data-s="ペットベスト ペット 犬・猫の服"><a href="tool.html?p=petvest">ペットベスト</a></li>
+          <li data-s="犬ベスト（巻きつけ型） ペット 犬・猫の服 犬 いぬ ドッグ ファスナー 面ファスナー スナップ"><a href="tool.html?p=dogvest">犬ベスト（巻きつけ型）</a></li>
+          <li data-s="ペットレインコート ペット 犬・猫の服"><a href="tool.html?p=petcape">ペットレインコート</a></li>
           <li class="pat-sub" role="presentation">首まわり</li>
-          <li><a href="tool.html?p=petbandana">ペットバンダナ</a></li>
-          <li><a href="tool.html?p=petsnood">ペットスヌード</a></li>
-          <li><a href="tool.html?p=petcollar">首輪カバー</a></li>
-          <li><a href="tool.html?p=petbowtie">ペットの蝶ネクタイ</a></li>
-          <li><a href="tool.html?p=petscarf">ペットマフラー</a></li>
+          <li data-s="ペットバンダナ ペット 首まわり"><a href="tool.html?p=petbandana">ペットバンダナ</a></li>
+          <li data-s="ペットスヌード ペット 首まわり ゴム"><a href="tool.html?p=petsnood">ペットスヌード</a></li>
+          <li data-s="首輪カバー ペット 首まわり カバー ケース"><a href="tool.html?p=petcollar">首輪カバー</a></li>
+          <li data-s="ペットの蝶ネクタイ ペット 首まわり"><a href="tool.html?p=petbowtie">ペットの蝶ネクタイ</a></li>
+          <li data-s="ペットマフラー ペット 首まわり ファスナー 面ファスナー ニット"><a href="tool.html?p=petscarf">ペットマフラー</a></li>
           <li class="pat-sub" role="presentation">おでかけ</li>
-          <li><a href="tool.html?p=mannerbelt">マナーベルト</a></li>
-          <li><a href="tool.html?p=petpouch">お散歩ポーチ</a></li>
-          <li><a href="tool.html?p=petsling">ペットスリング</a></li>
-          <li><a href="tool.html?p=petcarrier">ペットキャリーバッグ</a></li>
-          <li><a href="tool.html?p=petseatcover">ペット用ドライブシート</a></li>
+          <li data-s="マナーベルト ペット おでかけ ファスナー 面ファスナー"><a href="tool.html?p=mannerbelt">マナーベルト</a></li>
+          <li data-s="お散歩ポーチ ペット おでかけ ポーチ 小物入れ きんちゃく 巾着"><a href="tool.html?p=petpouch">お散歩ポーチ</a></li>
+          <li data-s="ペットスリング ペット おでかけ"><a href="tool.html?p=petsling">ペットスリング</a></li>
+          <li data-s="ペットキャリーバッグ ペット おでかけ バッグ かばん カバン ばっぐ"><a href="tool.html?p=petcarrier">ペットキャリーバッグ</a></li>
+          <li data-s="ペット用ドライブシート ペット おでかけ"><a href="tool.html?p=petseatcover">ペット用ドライブシート</a></li>
           <li class="pat-sub" role="presentation">くつろぐ</li>
-          <li><a href="tool.html?p=petbed">ペットベッド</a></li>
-          <li><a href="tool.html?p=petmat">ペットマット</a></li>
-          <li><a href="tool.html?p=pettoy">けりぐるみ</a></li>
-          <li><a href="tool.html?p=petblanket">ペットブランケット</a></li>
-          <li><a href="tool.html?p=pettent">ペットハウス（三角テント）</a></li>
+          <li data-s="ペットベッド ペット くつろぐ"><a href="tool.html?p=petbed">ペットベッド</a></li>
+          <li data-s="ペットマット ペット くつろぐ キルト芯"><a href="tool.html?p=petmat">ペットマット</a></li>
+          <li data-s="けりぐるみ ペット くつろぐ"><a href="tool.html?p=pettoy">けりぐるみ</a></li>
+          <li data-s="ペットブランケット ペット くつろぐ"><a href="tool.html?p=petblanket">ペットブランケット</a></li>
+          <li data-s="ペットハウス（三角テント） ペット くつろぐ"><a href="tool.html?p=pettent">ペットハウス（三角テント）</a></li>
         </ul>
       </div>
 
@@ -470,38 +480,38 @@
         <h3 class="cat-h">ホーム</h3>
         <ul class="pat-list">
           <li class="pat-sub" role="presentation">クッション・カバー</li>
-          <li><a href="tool.html?p=cushioncover">クッションカバー（封筒型）</a></li>
-          <li><a href="tool.html?p=zabuton">座布団カバー</a></li>
-          <li><a href="tool.html?p=chairpad">椅子クッション</a></li>
-          <li><a href="tool.html?p=chaircover">背もたれカバー</a></li>
-          <li><a href="tool.html?p=pillowcase">枕カバー（封筒型）</a></li>
-          <li><a href="tool.html?p=neckpillow">ネックピロー</a></li>
+          <li data-s="クッションカバー（封筒型） ホーム クッション・カバー カバー ケース ファスナー"><a href="tool.html?p=cushioncover">クッションカバー（封筒型）</a></li>
+          <li data-s="座布団カバー ホーム クッション・カバー カバー ケース 寝具 ふとん まくら ファスナー"><a href="tool.html?p=zabuton">座布団カバー</a></li>
+          <li data-s="椅子クッション ホーム クッション・カバー キルト芯"><a href="tool.html?p=chairpad">椅子クッション</a></li>
+          <li data-s="背もたれカバー ホーム クッション・カバー カバー ケース ゴム"><a href="tool.html?p=chaircover">背もたれカバー</a></li>
+          <li data-s="枕カバー（封筒型） ホーム クッション・カバー カバー ケース 寝具 ふとん まくら ファスナー"><a href="tool.html?p=pillowcase">枕カバー（封筒型）</a></li>
+          <li data-s="ネックピロー ホーム クッション・カバー ニット"><a href="tool.html?p=neckpillow">ネックピロー</a></li>
           <li class="pat-sub" role="presentation">窓・仕切り</li>
-          <li><a href="tool.html?p=curtain">カーテン</a></li>
-          <li><a href="tool.html?p=cafecurtain">カフェカーテン</a></li>
-          <li><a href="tool.html?p=noren">のれん</a></li>
-          <li><a href="tool.html?p=tapestry">タペストリー</a></li>
-          <li><a href="tool.html?p=shelfcurtain">棚下の目隠しカーテン</a></li>
+          <li data-s="カーテン ホーム 窓・仕切り"><a href="tool.html?p=curtain">カーテン</a></li>
+          <li data-s="カフェカーテン ホーム 窓・仕切り"><a href="tool.html?p=cafecurtain">カフェカーテン</a></li>
+          <li data-s="のれん ホーム 窓・仕切り"><a href="tool.html?p=noren">のれん</a></li>
+          <li data-s="タペストリー ホーム 窓・仕切り"><a href="tool.html?p=tapestry">タペストリー</a></li>
+          <li data-s="棚下の目隠しカーテン ホーム 窓・仕切り ファスナー 面ファスナー"><a href="tool.html?p=shelfcurtain">棚下の目隠しカーテン</a></li>
           <li class="pat-sub" role="presentation">キッチン・食卓</li>
-          <li><a href="tool.html?p=tablecloth">テーブルクロス</a></li>
-          <li><a href="tool.html?p=tablerunner">テーブルランナー</a></li>
-          <li><a href="tool.html?p=coaster">コースター</a></li>
-          <li><a href="tool.html?p=teacosy">ティーコゼー</a></li>
-          <li><a href="tool.html?p=ovenmitt">鍋つかみミトン</a></li>
-          <li><a href="tool.html?p=picnicmat">レジャーシート</a></li>
+          <li data-s="テーブルクロス ホーム キッチン・食卓"><a href="tool.html?p=tablecloth">テーブルクロス</a></li>
+          <li data-s="テーブルランナー ホーム キッチン・食卓"><a href="tool.html?p=tablerunner">テーブルランナー</a></li>
+          <li data-s="コースター ホーム キッチン・食卓"><a href="tool.html?p=coaster">コースター</a></li>
+          <li data-s="ティーコゼー ホーム キッチン・食卓 キルト芯"><a href="tool.html?p=teacosy">ティーコゼー</a></li>
+          <li data-s="鍋つかみミトン ホーム キッチン・食卓 キルト芯"><a href="tool.html?p=ovenmitt">鍋つかみミトン</a></li>
+          <li data-s="レジャーシート ホーム キッチン・食卓"><a href="tool.html?p=picnicmat">レジャーシート</a></li>
           <li class="pat-sub" role="presentation">収納</li>
-          <li><a href="tool.html?p=wallpocket">ウォールポケット</a></li>
-          <li><a href="tool.html?p=boxcover">収納ボックスカバー</a></li>
-          <li><a href="tool.html?p=laundrybag">ランドリーバッグ</a></li>
-          <li><a href="tool.html?p=fabricbasket">布バスケット</a></li>
-          <li><a href="tool.html?p=remotepocket">リモコンポケット</a></li>
-          <li><a href="tool.html?p=tissuebox">ボックスティッシュカバー</a></li>
+          <li data-s="ウォールポケット ホーム 収納 ポケット"><a href="tool.html?p=wallpocket">ウォールポケット</a></li>
+          <li data-s="収納ボックスカバー ホーム 収納 カバー ケース ゴム"><a href="tool.html?p=boxcover">収納ボックスカバー</a></li>
+          <li data-s="ランドリーバッグ ホーム 収納 バッグ かばん カバン ばっぐ"><a href="tool.html?p=laundrybag">ランドリーバッグ</a></li>
+          <li data-s="布バスケット ホーム 収納"><a href="tool.html?p=fabricbasket">布バスケット</a></li>
+          <li data-s="リモコンポケット ホーム 収納 ポケット"><a href="tool.html?p=remotepocket">リモコンポケット</a></li>
+          <li data-s="ボックスティッシュカバー ホーム 収納 カバー ケース"><a href="tool.html?p=tissuebox">ボックスティッシュカバー</a></li>
           <li class="pat-sub" role="presentation">足元・その他</li>
-          <li><a href="tool.html?p=slipper">ルームシューズ</a></li>
-          <li><a href="tool.html?p=machinecover">ミシンカバー</a></li>
-          <li><a href="tool.html?p=toiletcover">トイレフタカバー</a></li>
-          <li><a href="tool.html?p=treeskirt">ツリースカート</a></li>
-          <li><a href="tool.html?p=doormat">玄関マット</a></li>
+          <li data-s="ルームシューズ ホーム 足元・その他 キルト芯"><a href="tool.html?p=slipper">ルームシューズ</a></li>
+          <li data-s="ミシンカバー ホーム 足元・その他 カバー ケース"><a href="tool.html?p=machinecover">ミシンカバー</a></li>
+          <li data-s="トイレフタカバー ホーム 足元・その他 カバー ケース ゴム"><a href="tool.html?p=toiletcover">トイレフタカバー</a></li>
+          <li data-s="ツリースカート ホーム 足元・その他 スカート すかーと"><a href="tool.html?p=treeskirt">ツリースカート</a></li>
+          <li data-s="玄関マット ホーム 足元・その他 バイアス キルト芯"><a href="tool.html?p=doormat">玄関マット</a></li>
         </ul>
       </div>
 
@@ -509,30 +519,30 @@
         <h3 class="cat-h">推し活</h3>
         <ul class="pat-list">
           <li class="pat-sub" role="presentation">ぬい服</li>
-          <li><a href="tool.html?p=nuitee">ぬい服（Tシャツ）</a></li>
-          <li><a href="tool.html?p=nuihoodie">ぬい服（パーカー）</a></li>
-          <li><a href="tool.html?p=nuisailor">ぬい服（セーラー服）</a></li>
-          <li><a href="tool.html?p=nuikigurumi">ぬい服（着ぐるみ）</a></li>
-          <li><a href="tool.html?p=nuiclothes">ぬいぐるみ服（ワンピース）</a></li>
-          <li><a href="tool.html?p=nuipajama">ぬい服（パジャマ）</a></li>
-          <li><a href="tool.html?p=nuijinbei">ぬい服（甚平）</a></li>
-          <li><a href="tool.html?p=nuiskirt">ぬい服（スカート）</a></li>
-          <li><a href="tool.html?p=nuipants">ぬい服（ズボン）</a></li>
-          <li><a href="tool.html?p=nuiponcho">ぬい服（ポンチョ）</a></li>
-          <li><a href="tool.html?p=nuicape">ぬい服（ケープ）</a></li>
+          <li data-s="ぬい服（Tシャツ） 推し活 ぬい服 Tシャツ ティーシャツ カットソー ぬい ぬいぐるみ 推し ドール ファスナー 面ファスナー"><a href="tool.html?p=nuitee">ぬい服（Tシャツ）</a></li>
+          <li data-s="ぬい服（パーカー） 推し活 ぬい服 ぬい ぬいぐるみ 推し ドール ファスナー 面ファスナー フード ニット"><a href="tool.html?p=nuihoodie">ぬい服（パーカー）</a></li>
+          <li data-s="ぬい服（セーラー服） 推し活 ぬい服 ぬい ぬいぐるみ 推し ドール ギャザー"><a href="tool.html?p=nuisailor">ぬい服（セーラー服）</a></li>
+          <li data-s="ぬい服（着ぐるみ） 推し活 ぬい服 ぬい ぬいぐるみ 推し ドール ファスナー 面ファスナー フード"><a href="tool.html?p=nuikigurumi">ぬい服（着ぐるみ）</a></li>
+          <li data-s="ぬいぐるみ服（ワンピース） 推し活 ぬい服 ワンピース ドレス ぬい ぬいぐるみ 推し ドール スナップ"><a href="tool.html?p=nuiclothes">ぬいぐるみ服（ワンピース）</a></li>
+          <li data-s="ぬい服（パジャマ） 推し活 ぬい服 ぬい ぬいぐるみ 推し ドール ゴム"><a href="tool.html?p=nuipajama">ぬい服（パジャマ）</a></li>
+          <li data-s="ぬい服（甚平） 推し活 ぬい服 ぬい ぬいぐるみ 推し ドール 和装 じんべい ゆかた さむえ"><a href="tool.html?p=nuijinbei">ぬい服（甚平）</a></li>
+          <li data-s="ぬい服（スカート） 推し活 ぬい服 ぬい ぬいぐるみ 推し ドール スカート すかーと ファスナー 面ファスナー ギャザー"><a href="tool.html?p=nuiskirt">ぬい服（スカート）</a></li>
+          <li data-s="ぬい服（ズボン） 推し活 ぬい服 パンツ ズボン ぱんつ ぬい ぬいぐるみ 推し ドール ゴム"><a href="tool.html?p=nuipants">ぬい服（ズボン）</a></li>
+          <li data-s="ぬい服（ポンチョ） 推し活 ぬい服 ぬい ぬいぐるみ 推し ドール"><a href="tool.html?p=nuiponcho">ぬい服（ポンチョ）</a></li>
+          <li data-s="ぬい服（ケープ） 推し活 ぬい服 ぬい ぬいぐるみ 推し ドール"><a href="tool.html?p=nuicape">ぬい服（ケープ）</a></li>
           <li class="pat-sub" role="presentation">ぬいの持ちもの</li>
-          <li><a href="tool.html?p=nuihat">ぬいぐるみ帽子</a></li>
-          <li><a href="tool.html?p=nuibag">ぬいぐるみリュック</a></li>
-          <li><a href="tool.html?p=nuisleep">ぬいぐるみ寝袋</a></li>
-          <li><a href="tool.html?p=nuifuton">ぬいぐるみのおふとん</a></li>
-          <li><a href="tool.html?p=dollclothes">ドール服（ワンピース）</a></li>
-          <li><a href="tool.html?p=teddy">くまのぬいぐるみ</a></li>
+          <li data-s="ぬいぐるみ帽子 推し活 ぬいの持ちもの 帽子 ぼうし ハット キャップ ぬい ぬいぐるみ 推し ドール ゴム"><a href="tool.html?p=nuihat">ぬいぐるみ帽子</a></li>
+          <li data-s="ぬいぐるみリュック 推し活 ぬいの持ちもの バッグ かばん カバン ばっぐ ぬい ぬいぐるみ 推し ドール まち"><a href="tool.html?p=nuibag">ぬいぐるみリュック</a></li>
+          <li data-s="ぬいぐるみ寝袋 推し活 ぬいの持ちもの ぬい ぬいぐるみ 推し ドール 寝具 ふとん まくら キルト芯"><a href="tool.html?p=nuisleep">ぬいぐるみ寝袋</a></li>
+          <li data-s="ぬいぐるみのおふとん 推し活 ぬいの持ちもの ぬい ぬいぐるみ 推し ドール 寝具 ふとん まくら キルト芯"><a href="tool.html?p=nuifuton">ぬいぐるみのおふとん</a></li>
+          <li data-s="ドール服（ワンピース） 推し活 ぬいの持ちもの ワンピース ドレス ぬい ぬいぐるみ 推し ドール スナップ"><a href="tool.html?p=dollclothes">ドール服（ワンピース）</a></li>
+          <li data-s="くまのぬいぐるみ 推し活 ぬいの持ちもの ぬい ぬいぐるみ 推し ドール"><a href="tool.html?p=teddy">くまのぬいぐるみ</a></li>
           <li class="pat-sub" role="presentation">応援グッズ</li>
-          <li><a href="tool.html?p=rosette">ロゼット</a></li>
-          <li><a href="tool.html?p=canbadge">缶バッジカバー</a></li>
-          <li><a href="tool.html?p=ribbonkey">リボンキーホルダー</a></li>
-          <li><a href="tool.html?p=tradingcard">トレカケース</a></li>
-          <li><a href="tool.html?p=uchiwacover">うちわカバー</a></li>
+          <li data-s="ロゼット 推し活 応援グッズ ボタン"><a href="tool.html?p=rosette">ロゼット</a></li>
+          <li data-s="缶バッジカバー 推し活 応援グッズ カバー ケース まち"><a href="tool.html?p=canbadge">缶バッジカバー</a></li>
+          <li data-s="リボンキーホルダー 推し活 応援グッズ"><a href="tool.html?p=ribbonkey">リボンキーホルダー</a></li>
+          <li data-s="トレカケース 推し活 応援グッズ カバー ケース"><a href="tool.html?p=tradingcard">トレカケース</a></li>
+          <li data-s="うちわカバー 推し活 応援グッズ カバー ケース スナップ"><a href="tool.html?p=uchiwacover">うちわカバー</a></li>
         </ul>
       </div>
 
@@ -576,308 +586,308 @@
       <div class="cat-block">
         <h3 class="cat-h">大人服</h3>
         <ul class="howto-chips">
-          <li><a href="howto-tee.html">Tシャツ</a></li>
-          <li><a href="howto-apron.html">エプロン</a></li>
-          <li><a href="howto-skirt.html">Aラインスカート</a></li>
-          <li><a href="howto-flareskirt.html">フレアスカート</a></li>
-          <li><a href="howto-mermaid.html">マーメイドスカート</a></li>
-          <li><a href="howto-sleevedress.html">ノースリーブワンピース</a></li>
-          <li><a href="howto-adultgather.html">ギャザースカート</a></li>
-          <li><a href="howto-widepants.html">ワイドパンツ（ゴムウエスト）</a></li>
-          <li><a href="howto-halfpants.html">ハーフパンツ</a></li>
-          <li><a href="howto-tunic.html">チュニック</a></li>
-          <li><a href="howto-camisole.html">キャミソール</a></li>
-          <li><a href="howto-blouse.html">ブラウス</a></li>
-          <li><a href="howto-onepiece.html">ワンピース（袖付き）</a></li>
-          <li><a href="howto-jacket.html">ジャケット</a></li>
-          <li><a href="howto-coat.html">コート</a></li>
-          <li><a href="howto-tightskirt.html">タイトスカート</a></li>
-          <li><a href="howto-pleatskirt.html">プリーツスカート</a></li>
-          <li><a href="howto-wrapskirt.html">ラップスカート</a></li>
-          <li><a href="howto-tieredskirt.html">ティアードスカート</a></li>
-          <li><a href="howto-adultvest.html">ベスト</a></li>
-          <li><a href="howto-cardigan.html">カーディガン</a></li>
-          <li><a href="howto-taperedpants.html">テーパードパンツ</a></li>
-          <li><a href="howto-culotte.html">キュロット</a></li>
-          <li><a href="howto-poncho.html">ポンチョ</a></li>
-          <li><a href="howto-overall.html">サロペット</a></li>
-          <li><a href="howto-dolman.html">ドルマンスリーブトップス</a></li>
-          <li><a href="howto-hoodie.html">パーカー</a></li>
-          <li><a href="howto-raglantee.html">ラグランTシャツ</a></li>
-          <li><a href="howto-sweatpants.html">スウェットパンツ</a></li>
-          <li><a href="howto-shirtdress.html">シャツワンピース</a></li>
-          <li><a href="howto-shirt.html">シャツ</a></li>
-          <li><a href="howto-yukata.html">浴衣</a></li>
-          <li><a href="howto-samue.html">作務衣（上衣）</a></li>
-          <li><a href="howto-samuepants.html">作務衣（パンツ）</a></li>
-          <li><a href="howto-kappogi.html">割烹着</a></li>
-          <li><a href="howto-pajamas.html">パジャマ（上衣）</a></li>
-          <li><a href="howto-pajamapants.html">パジャマ（パンツ）</a></li>
-          <li><a href="howto-blouson.html">ブルゾン</a></li>
-          <li><a href="howto-gown.html">ガウン</a></li>
-          <li><a href="howto-nocollarjacket.html">ノーカラージャケット</a></li>
-          <li><a href="howto-cargopants.html">カーゴパンツ</a></li>
-          <li><a href="howto-hanten.html">半纏（はんてん）</a></li>
-          <li><a href="howto-jumpsuit.html">ジャンプスーツ</a></li>
-          <li><a href="howto-adultjinbei.html">甚平（大人・上衣）</a></li>
-          <li><a href="howto-cafeapron.html">カフェエプロン</a></li>
+          <li data-s="Tシャツ 大人服"><a href="howto-tee.html">Tシャツ</a></li>
+          <li data-s="エプロン 大人服"><a href="howto-apron.html">エプロン</a></li>
+          <li data-s="Aラインスカート 大人服"><a href="howto-skirt.html">Aラインスカート</a></li>
+          <li data-s="フレアスカート 大人服"><a href="howto-flareskirt.html">フレアスカート</a></li>
+          <li data-s="マーメイドスカート 大人服"><a href="howto-mermaid.html">マーメイドスカート</a></li>
+          <li data-s="ノースリーブワンピース 大人服"><a href="howto-sleevedress.html">ノースリーブワンピース</a></li>
+          <li data-s="ギャザースカート 大人服"><a href="howto-adultgather.html">ギャザースカート</a></li>
+          <li data-s="ワイドパンツ（ゴムウエスト） 大人服"><a href="howto-widepants.html">ワイドパンツ（ゴムウエスト）</a></li>
+          <li data-s="ハーフパンツ 大人服"><a href="howto-halfpants.html">ハーフパンツ</a></li>
+          <li data-s="チュニック 大人服"><a href="howto-tunic.html">チュニック</a></li>
+          <li data-s="キャミソール 大人服"><a href="howto-camisole.html">キャミソール</a></li>
+          <li data-s="ブラウス 大人服"><a href="howto-blouse.html">ブラウス</a></li>
+          <li data-s="ワンピース（袖付き） 大人服"><a href="howto-onepiece.html">ワンピース（袖付き）</a></li>
+          <li data-s="ジャケット 大人服"><a href="howto-jacket.html">ジャケット</a></li>
+          <li data-s="コート 大人服"><a href="howto-coat.html">コート</a></li>
+          <li data-s="タイトスカート 大人服"><a href="howto-tightskirt.html">タイトスカート</a></li>
+          <li data-s="プリーツスカート 大人服"><a href="howto-pleatskirt.html">プリーツスカート</a></li>
+          <li data-s="ラップスカート 大人服"><a href="howto-wrapskirt.html">ラップスカート</a></li>
+          <li data-s="ティアードスカート 大人服"><a href="howto-tieredskirt.html">ティアードスカート</a></li>
+          <li data-s="ベスト 大人服"><a href="howto-adultvest.html">ベスト</a></li>
+          <li data-s="カーディガン 大人服"><a href="howto-cardigan.html">カーディガン</a></li>
+          <li data-s="テーパードパンツ 大人服"><a href="howto-taperedpants.html">テーパードパンツ</a></li>
+          <li data-s="キュロット 大人服"><a href="howto-culotte.html">キュロット</a></li>
+          <li data-s="ポンチョ 大人服"><a href="howto-poncho.html">ポンチョ</a></li>
+          <li data-s="サロペット 大人服"><a href="howto-overall.html">サロペット</a></li>
+          <li data-s="ドルマンスリーブトップス 大人服"><a href="howto-dolman.html">ドルマンスリーブトップス</a></li>
+          <li data-s="パーカー 大人服"><a href="howto-hoodie.html">パーカー</a></li>
+          <li data-s="ラグランTシャツ 大人服"><a href="howto-raglantee.html">ラグランTシャツ</a></li>
+          <li data-s="スウェットパンツ 大人服"><a href="howto-sweatpants.html">スウェットパンツ</a></li>
+          <li data-s="シャツワンピース 大人服"><a href="howto-shirtdress.html">シャツワンピース</a></li>
+          <li data-s="シャツ 大人服"><a href="howto-shirt.html">シャツ</a></li>
+          <li data-s="浴衣 大人服"><a href="howto-yukata.html">浴衣</a></li>
+          <li data-s="作務衣（上衣） 大人服"><a href="howto-samue.html">作務衣（上衣）</a></li>
+          <li data-s="作務衣（パンツ） 大人服"><a href="howto-samuepants.html">作務衣（パンツ）</a></li>
+          <li data-s="割烹着 大人服"><a href="howto-kappogi.html">割烹着</a></li>
+          <li data-s="パジャマ（上衣） 大人服"><a href="howto-pajamas.html">パジャマ（上衣）</a></li>
+          <li data-s="パジャマ（パンツ） 大人服"><a href="howto-pajamapants.html">パジャマ（パンツ）</a></li>
+          <li data-s="ブルゾン 大人服"><a href="howto-blouson.html">ブルゾン</a></li>
+          <li data-s="ガウン 大人服"><a href="howto-gown.html">ガウン</a></li>
+          <li data-s="ノーカラージャケット 大人服"><a href="howto-nocollarjacket.html">ノーカラージャケット</a></li>
+          <li data-s="カーゴパンツ 大人服"><a href="howto-cargopants.html">カーゴパンツ</a></li>
+          <li data-s="半纏（はんてん） 大人服"><a href="howto-hanten.html">半纏（はんてん）</a></li>
+          <li data-s="ジャンプスーツ 大人服"><a href="howto-jumpsuit.html">ジャンプスーツ</a></li>
+          <li data-s="甚平（大人・上衣） 大人服"><a href="howto-adultjinbei.html">甚平（大人・上衣）</a></li>
+          <li data-s="カフェエプロン 大人服"><a href="howto-cafeapron.html">カフェエプロン</a></li>
         </ul>
       </div>
 
       <div class="cat-block">
         <h3 class="cat-h">子供服</h3>
         <ul class="howto-chips">
-          <li><a href="howto-kidstee.html">キッズTシャツ</a></li>
-          <li><a href="howto-kidsdress.html">キッズワンピース</a></li>
-          <li><a href="howto-smock.html">キッズスモック</a></li>
-          <li><a href="howto-kidsvest.html">キッズベスト</a></li>
-          <li><a href="howto-pants.html">キッズパンツ</a></li>
-          <li><a href="howto-kidshalf.html">キッズハーフパンツ</a></li>
-          <li><a href="howto-gather.html">キッズギャザースカート</a></li>
-          <li><a href="howto-jinbei.html">甚平（上衣）</a></li>
-          <li><a href="howto-kidsrompers.html">ロンパース</a></li>
-          <li><a href="howto-kidsraglan.html">キッズラグランTシャツ</a></li>
-          <li><a href="howto-jumperskirt.html">ジャンパースカート</a></li>
-          <li><a href="howto-kidshoodie.html">キッズパーカー</a></li>
-          <li><a href="howto-kidstank.html">キッズタンクトップ</a></li>
-          <li><a href="howto-kidscoat.html">キッズコート</a></li>
-          <li><a href="howto-kidsbibapron.html">お食事エプロン</a></li>
-          <li><a href="howto-jinbeipants.html">甚平（パンツ）</a></li>
-          <li><a href="howto-kidsculotte.html">キッズキュロット</a></li>
-          <li><a href="howto-kidsshirt.html">キッズシャツ</a></li>
-          <li><a href="howto-kidscape.html">キッズマント</a></li>
-          <li><a href="howto-kidsleggings.html">キッズレギンス</a></li>
-          <li><a href="howto-kidstunic.html">キッズチュニック</a></li>
-          <li><a href="howto-kidsponcho.html">キッズポンチョ</a></li>
-          <li><a href="howto-kidsjacket.html">キッズジャケット</a></li>
-          <li><a href="howto-kidsraincoat.html">キッズレインコート</a></li>
-          <li><a href="howto-kidsyukata.html">キッズ浴衣</a></li>
-          <li><a href="howto-kidsapron.html">キッズエプロン</a></li>
+          <li data-s="キッズTシャツ 子供服"><a href="howto-kidstee.html">キッズTシャツ</a></li>
+          <li data-s="キッズワンピース 子供服"><a href="howto-kidsdress.html">キッズワンピース</a></li>
+          <li data-s="キッズスモック 子供服"><a href="howto-smock.html">キッズスモック</a></li>
+          <li data-s="キッズベスト 子供服"><a href="howto-kidsvest.html">キッズベスト</a></li>
+          <li data-s="キッズパンツ 子供服"><a href="howto-pants.html">キッズパンツ</a></li>
+          <li data-s="キッズハーフパンツ 子供服"><a href="howto-kidshalf.html">キッズハーフパンツ</a></li>
+          <li data-s="キッズギャザースカート 子供服"><a href="howto-gather.html">キッズギャザースカート</a></li>
+          <li data-s="甚平（上衣） 子供服"><a href="howto-jinbei.html">甚平（上衣）</a></li>
+          <li data-s="ロンパース 子供服"><a href="howto-kidsrompers.html">ロンパース</a></li>
+          <li data-s="キッズラグランTシャツ 子供服"><a href="howto-kidsraglan.html">キッズラグランTシャツ</a></li>
+          <li data-s="ジャンパースカート 子供服"><a href="howto-jumperskirt.html">ジャンパースカート</a></li>
+          <li data-s="キッズパーカー 子供服"><a href="howto-kidshoodie.html">キッズパーカー</a></li>
+          <li data-s="キッズタンクトップ 子供服"><a href="howto-kidstank.html">キッズタンクトップ</a></li>
+          <li data-s="キッズコート 子供服"><a href="howto-kidscoat.html">キッズコート</a></li>
+          <li data-s="お食事エプロン 子供服"><a href="howto-kidsbibapron.html">お食事エプロン</a></li>
+          <li data-s="甚平（パンツ） 子供服"><a href="howto-jinbeipants.html">甚平（パンツ）</a></li>
+          <li data-s="キッズキュロット 子供服"><a href="howto-kidsculotte.html">キッズキュロット</a></li>
+          <li data-s="キッズシャツ 子供服"><a href="howto-kidsshirt.html">キッズシャツ</a></li>
+          <li data-s="キッズマント 子供服"><a href="howto-kidscape.html">キッズマント</a></li>
+          <li data-s="キッズレギンス 子供服"><a href="howto-kidsleggings.html">キッズレギンス</a></li>
+          <li data-s="キッズチュニック 子供服"><a href="howto-kidstunic.html">キッズチュニック</a></li>
+          <li data-s="キッズポンチョ 子供服"><a href="howto-kidsponcho.html">キッズポンチョ</a></li>
+          <li data-s="キッズジャケット 子供服"><a href="howto-kidsjacket.html">キッズジャケット</a></li>
+          <li data-s="キッズレインコート 子供服"><a href="howto-kidsraincoat.html">キッズレインコート</a></li>
+          <li data-s="キッズ浴衣 子供服"><a href="howto-kidsyukata.html">キッズ浴衣</a></li>
+          <li data-s="キッズエプロン 子供服"><a href="howto-kidsapron.html">キッズエプロン</a></li>
         </ul>
       </div>
 
       <div class="cat-block">
         <h3 class="cat-h">ベビー</h3>
         <ul class="howto-chips">
-          <li><a href="howto-bloomers.html">かぼちゃパンツ（ブルマ）</a></li>
-          <li><a href="howto-swaddle.html">おくるみ（フード付き）</a></li>
-          <li><a href="howto-bandanastai.html">バンダナスタイ</a></li>
-          <li><a href="howto-stai.html">スタイ</a></li>
-          <li><a href="howto-babyhat.html">ベビー帽子（チューリップハット）</a></li>
-          <li><a href="howto-sleeper.html">スリーパー</a></li>
-          <li><a href="howto-babyshoes.html">ベビーシューズ</a></li>
-          <li><a href="howto-babymitten.html">ベビーミトン</a></li>
-          <li><a href="howto-babycape.html">ベビーケープ</a></li>
-          <li><a href="howto-babypants.html">ベビーパンツ</a></li>
-          <li><a href="howto-babyblanket.html">お昼寝ケット</a></li>
-          <li><a href="howto-babytoy.html">にぎにぎ</a></li>
-          <li><a href="howto-fabricball.html">布ボール</a></li>
-          <li><a href="howto-clothbook.html">布絵本</a></li>
-          <li><a href="howto-taghanky.html">タグハンカチ</a></li>
-          <li><a href="howto-otedama.html">お手玉</a></li>
-          <li><a href="howto-babypillow.html">ベビー枕（ドーナツ型）</a></li>
-          <li><a href="howto-napmat.html">お昼寝マット</a></li>
-          <li><a href="howto-babyfuton.html">ベビー布団カバー</a></li>
-          <li><a href="howto-diapercover.html">おむつカバー</a></li>
-          <li><a href="howto-nursingpillow.html">授乳クッションカバー</a></li>
-          <li><a href="howto-gauzehanky.html">ガーゼハンカチ</a></li>
-          <li><a href="howto-babyleggings.html">ベビーレギンス</a></li>
-          <li><a href="howto-suckpad.html">抱っこ紐よだれカバー</a></li>
-          <li><a href="howto-diaperpouch.html">おむつポーチ</a></li>
-          <li><a href="howto-wipescase.html">おしりふきケース</a></li>
-          <li><a href="howto-carriercover.html">抱っこ紐カバー</a></li>
-          <li><a href="howto-nursingcape.html">授乳ケープ</a></li>
-          <li><a href="howto-strollerseat.html">ベビーカーシート</a></li>
-          <li><a href="howto-coverall.html">カバーオール</a></li>
+          <li data-s="かぼちゃパンツ（ブルマ） ベビー"><a href="howto-bloomers.html">かぼちゃパンツ（ブルマ）</a></li>
+          <li data-s="おくるみ（フード付き） ベビー"><a href="howto-swaddle.html">おくるみ（フード付き）</a></li>
+          <li data-s="バンダナスタイ ベビー"><a href="howto-bandanastai.html">バンダナスタイ</a></li>
+          <li data-s="スタイ ベビー"><a href="howto-stai.html">スタイ</a></li>
+          <li data-s="ベビー帽子（チューリップハット） ベビー"><a href="howto-babyhat.html">ベビー帽子（チューリップハット）</a></li>
+          <li data-s="スリーパー ベビー"><a href="howto-sleeper.html">スリーパー</a></li>
+          <li data-s="ベビーシューズ ベビー"><a href="howto-babyshoes.html">ベビーシューズ</a></li>
+          <li data-s="ベビーミトン ベビー"><a href="howto-babymitten.html">ベビーミトン</a></li>
+          <li data-s="ベビーケープ ベビー"><a href="howto-babycape.html">ベビーケープ</a></li>
+          <li data-s="ベビーパンツ ベビー"><a href="howto-babypants.html">ベビーパンツ</a></li>
+          <li data-s="お昼寝ケット ベビー"><a href="howto-babyblanket.html">お昼寝ケット</a></li>
+          <li data-s="にぎにぎ ベビー"><a href="howto-babytoy.html">にぎにぎ</a></li>
+          <li data-s="布ボール ベビー"><a href="howto-fabricball.html">布ボール</a></li>
+          <li data-s="布絵本 ベビー"><a href="howto-clothbook.html">布絵本</a></li>
+          <li data-s="タグハンカチ ベビー"><a href="howto-taghanky.html">タグハンカチ</a></li>
+          <li data-s="お手玉 ベビー"><a href="howto-otedama.html">お手玉</a></li>
+          <li data-s="ベビー枕（ドーナツ型） ベビー"><a href="howto-babypillow.html">ベビー枕（ドーナツ型）</a></li>
+          <li data-s="お昼寝マット ベビー"><a href="howto-napmat.html">お昼寝マット</a></li>
+          <li data-s="ベビー布団カバー ベビー"><a href="howto-babyfuton.html">ベビー布団カバー</a></li>
+          <li data-s="おむつカバー ベビー"><a href="howto-diapercover.html">おむつカバー</a></li>
+          <li data-s="授乳クッションカバー ベビー"><a href="howto-nursingpillow.html">授乳クッションカバー</a></li>
+          <li data-s="ガーゼハンカチ ベビー"><a href="howto-gauzehanky.html">ガーゼハンカチ</a></li>
+          <li data-s="ベビーレギンス ベビー"><a href="howto-babyleggings.html">ベビーレギンス</a></li>
+          <li data-s="抱っこ紐よだれカバー ベビー"><a href="howto-suckpad.html">抱っこ紐よだれカバー</a></li>
+          <li data-s="おむつポーチ ベビー"><a href="howto-diaperpouch.html">おむつポーチ</a></li>
+          <li data-s="おしりふきケース ベビー"><a href="howto-wipescase.html">おしりふきケース</a></li>
+          <li data-s="抱っこ紐カバー ベビー"><a href="howto-carriercover.html">抱っこ紐カバー</a></li>
+          <li data-s="授乳ケープ ベビー"><a href="howto-nursingcape.html">授乳ケープ</a></li>
+          <li data-s="ベビーカーシート ベビー"><a href="howto-strollerseat.html">ベビーカーシート</a></li>
+          <li data-s="カバーオール ベビー"><a href="howto-coverall.html">カバーオール</a></li>
         </ul>
       </div>
 
       <div class="cat-block">
         <h3 class="cat-h">小物</h3>
         <ul class="howto-chips">
-          <li><a href="howto-kinchaku.html">巾着袋</a></li>
-          <li><a href="howto-kincgusset.html">コップ袋（マチ付き）</a></li>
-          <li><a href="howto-gymbag.html">体操着袋（巾着リュック）</a></li>
-          <li><a href="howto-shoesbag.html">上履き入れ</a></li>
-          <li><a href="howto-movepocket.html">移動ポケット</a></li>
-          <li><a href="howto-mask.html">プリーツマスク</a></li>
-          <li><a href="howto-fittedmask.html">立体マスク</a></li>
-          <li><a href="howto-bandana.html">三角巾</a></li>
-          <li><a href="howto-placemat.html">ランチョンマット</a></li>
-          <li><a href="howto-shuushu.html">シュシュ</a></li>
-          <li><a href="howto-headband.html">ヘアバンド</a></li>
-          <li><a href="howto-tissuecase.html">ティッシュケース</a></li>
-          <li><a href="howto-bookcover.html">ブックカバー</a></li>
-          <li><a href="howto-bowtie.html">蝶ネクタイ</a></li>
-          <li><a href="howto-potholder.html">鍋つかみ</a></li>
-          <li><a href="howto-eyemask.html">アイマスク</a></li>
-          <li><a href="howto-neckwarmer.html">ネックウォーマー</a></li>
-          <li><a href="howto-legwarmer.html">レッグウォーマー</a></li>
-          <li><a href="howto-maskcase.html">マスクケース</a></li>
-          <li><a href="howto-armcover.html">アームカバー</a></li>
-          <li><a href="howto-keycase.html">キーケース</a></li>
-          <li><a href="howto-glassescase.html">メガネケース</a></li>
-          <li><a href="howto-sunhat.html">バケットハット</a></li>
-          <li><a href="howto-beret.html">ベレー帽</a></li>
-          <li><a href="howto-hairturban.html">ヘアターバン</a></li>
-          <li><a href="howto-bottleholder.html">ペットボトルホルダー</a></li>
-          <li><a href="howto-cap.html">キャップ</a></li>
-          <li><a href="howto-boshitecho.html">母子手帳ケース</a></li>
-          <li><a href="howto-cardcase.html">カードケース</a></li>
-          <li><a href="howto-bousaizukin.html">防災頭巾カバー</a></li>
-          <li><a href="howto-scarf.html">マフラー</a></li>
-          <li><a href="howto-nametag.html">名札ケース</a></li>
-          <li><a href="howto-pencase.html">ペンケース</a></li>
-          <li><a href="howto-bankbook.html">通帳ケース</a></li>
-          <li><a href="howto-flaskcover.html">水筒カバー</a></li>
-          <li><a href="howto-randocover.html">ランドセルカバー</a></li>
-          <li><a href="howto-recordercase.html">リコーダーケース</a></li>
-          <li><a href="howto-cutlerycase.html">カトラリーケース（ロール式）</a></li>
-          <li><a href="howto-necktie.html">ネクタイ</a></li>
-          <li><a href="howto-pincushion.html">リストピンクッション</a></li>
-          <li><a href="howto-camerastrap.html">カメラストラップ</a></li>
-          <li><a href="howto-maskcover.html">不織布マスクカバー</a></li>
-          <li><a href="howto-casquette.html">キャスケット</a></li>
-          <li><a href="howto-bandanacap.html">バンダナキャップ</a></li>
-          <li><a href="howto-hairribbon.html">ヘアリボン</a></li>
-          <li><a href="howto-hairclip.html">リボンバレッタ</a></li>
-          <li><a href="howto-haramaki.html">腹巻き</a></li>
-          <li><a href="howto-brooch.html">布のブローチ</a></li>
-          <li><a href="howto-pocketsquare.html">ポケットチーフ</a></li>
-          <li><a href="howto-fabricbelt.html">布ベルト</a></li>
-          <li><a href="howto-breadbag.html">パン袋</a></li>
-          <li><a href="howto-potmat.html">鍋敷き</a></li>
-          <li><a href="howto-teatowel.html">キッチンクロス</a></li>
+          <li data-s="巾着袋 小物"><a href="howto-kinchaku.html">巾着袋</a></li>
+          <li data-s="コップ袋（マチ付き） 小物"><a href="howto-kincgusset.html">コップ袋（マチ付き）</a></li>
+          <li data-s="体操着袋（巾着リュック） 小物"><a href="howto-gymbag.html">体操着袋（巾着リュック）</a></li>
+          <li data-s="上履き入れ 小物"><a href="howto-shoesbag.html">上履き入れ</a></li>
+          <li data-s="移動ポケット 小物"><a href="howto-movepocket.html">移動ポケット</a></li>
+          <li data-s="プリーツマスク 小物"><a href="howto-mask.html">プリーツマスク</a></li>
+          <li data-s="立体マスク 小物"><a href="howto-fittedmask.html">立体マスク</a></li>
+          <li data-s="三角巾 小物"><a href="howto-bandana.html">三角巾</a></li>
+          <li data-s="ランチョンマット 小物"><a href="howto-placemat.html">ランチョンマット</a></li>
+          <li data-s="シュシュ 小物"><a href="howto-shuushu.html">シュシュ</a></li>
+          <li data-s="ヘアバンド 小物"><a href="howto-headband.html">ヘアバンド</a></li>
+          <li data-s="ティッシュケース 小物"><a href="howto-tissuecase.html">ティッシュケース</a></li>
+          <li data-s="ブックカバー 小物"><a href="howto-bookcover.html">ブックカバー</a></li>
+          <li data-s="蝶ネクタイ 小物"><a href="howto-bowtie.html">蝶ネクタイ</a></li>
+          <li data-s="鍋つかみ 小物"><a href="howto-potholder.html">鍋つかみ</a></li>
+          <li data-s="アイマスク 小物"><a href="howto-eyemask.html">アイマスク</a></li>
+          <li data-s="ネックウォーマー 小物"><a href="howto-neckwarmer.html">ネックウォーマー</a></li>
+          <li data-s="レッグウォーマー 小物"><a href="howto-legwarmer.html">レッグウォーマー</a></li>
+          <li data-s="マスクケース 小物"><a href="howto-maskcase.html">マスクケース</a></li>
+          <li data-s="アームカバー 小物"><a href="howto-armcover.html">アームカバー</a></li>
+          <li data-s="キーケース 小物"><a href="howto-keycase.html">キーケース</a></li>
+          <li data-s="メガネケース 小物"><a href="howto-glassescase.html">メガネケース</a></li>
+          <li data-s="バケットハット 小物"><a href="howto-sunhat.html">バケットハット</a></li>
+          <li data-s="ベレー帽 小物"><a href="howto-beret.html">ベレー帽</a></li>
+          <li data-s="ヘアターバン 小物"><a href="howto-hairturban.html">ヘアターバン</a></li>
+          <li data-s="ペットボトルホルダー 小物"><a href="howto-bottleholder.html">ペットボトルホルダー</a></li>
+          <li data-s="キャップ 小物"><a href="howto-cap.html">キャップ</a></li>
+          <li data-s="母子手帳ケース 小物"><a href="howto-boshitecho.html">母子手帳ケース</a></li>
+          <li data-s="カードケース 小物"><a href="howto-cardcase.html">カードケース</a></li>
+          <li data-s="防災頭巾カバー 小物"><a href="howto-bousaizukin.html">防災頭巾カバー</a></li>
+          <li data-s="マフラー 小物"><a href="howto-scarf.html">マフラー</a></li>
+          <li data-s="名札ケース 小物"><a href="howto-nametag.html">名札ケース</a></li>
+          <li data-s="ペンケース 小物"><a href="howto-pencase.html">ペンケース</a></li>
+          <li data-s="通帳ケース 小物"><a href="howto-bankbook.html">通帳ケース</a></li>
+          <li data-s="水筒カバー 小物"><a href="howto-flaskcover.html">水筒カバー</a></li>
+          <li data-s="ランドセルカバー 小物"><a href="howto-randocover.html">ランドセルカバー</a></li>
+          <li data-s="リコーダーケース 小物"><a href="howto-recordercase.html">リコーダーケース</a></li>
+          <li data-s="カトラリーケース（ロール式） 小物"><a href="howto-cutlerycase.html">カトラリーケース（ロール式）</a></li>
+          <li data-s="ネクタイ 小物"><a href="howto-necktie.html">ネクタイ</a></li>
+          <li data-s="リストピンクッション 小物"><a href="howto-pincushion.html">リストピンクッション</a></li>
+          <li data-s="カメラストラップ 小物"><a href="howto-camerastrap.html">カメラストラップ</a></li>
+          <li data-s="不織布マスクカバー 小物"><a href="howto-maskcover.html">不織布マスクカバー</a></li>
+          <li data-s="キャスケット 小物"><a href="howto-casquette.html">キャスケット</a></li>
+          <li data-s="バンダナキャップ 小物"><a href="howto-bandanacap.html">バンダナキャップ</a></li>
+          <li data-s="ヘアリボン 小物"><a href="howto-hairribbon.html">ヘアリボン</a></li>
+          <li data-s="リボンバレッタ 小物"><a href="howto-hairclip.html">リボンバレッタ</a></li>
+          <li data-s="腹巻き 小物"><a href="howto-haramaki.html">腹巻き</a></li>
+          <li data-s="布のブローチ 小物"><a href="howto-brooch.html">布のブローチ</a></li>
+          <li data-s="ポケットチーフ 小物"><a href="howto-pocketsquare.html">ポケットチーフ</a></li>
+          <li data-s="布ベルト 小物"><a href="howto-fabricbelt.html">布ベルト</a></li>
+          <li data-s="パン袋 小物"><a href="howto-breadbag.html">パン袋</a></li>
+          <li data-s="鍋敷き 小物"><a href="howto-potmat.html">鍋敷き</a></li>
+          <li data-s="キッチンクロス 小物"><a href="howto-teatowel.html">キッチンクロス</a></li>
         </ul>
       </div>
 
       <div class="cat-block">
         <h3 class="cat-h">バッグ</h3>
         <ul class="howto-chips">
-          <li><a href="howto-tote.html">トートバッグ</a></li>
-          <li><a href="howto-pouch.html">ファスナーポーチ</a></li>
-          <li><a href="howto-pouchgusset.html">ポーチ（マチ付き）</a></li>
-          <li><a href="howto-gamaguchi.html">がまぐちポーチ</a></li>
-          <li><a href="howto-sacoche.html">サコッシュ</a></li>
-          <li><a href="howto-azuma.html">あずま袋</a></li>
-          <li><a href="howto-panel.html">四角パネル</a></li>
-          <li><a href="howto-clutchbag.html">クラッチバッグ</a></li>
-          <li><a href="howto-shoulderbag.html">ショルダーバッグ（フラップ型）</a></li>
-          <li><a href="howto-ecobag.html">エコバッグ（折りたたみ）</a></li>
-          <li><a href="howto-bucketbag.html">バケツ型トートバッグ</a></li>
-          <li><a href="howto-backpack.html">リュックサック</a></li>
-          <li><a href="howto-roundkinchaku.html">丸底巾着</a></li>
-          <li><a href="howto-bodybag.html">ボディバッグ</a></li>
-          <li><a href="howto-baginbag.html">バッグインバッグ</a></li>
-          <li><a href="howto-wallet.html">長財布</a></li>
-          <li><a href="howto-phonepouch.html">スマホポーチ</a></li>
-          <li><a href="howto-lunchbag.html">保冷ランチバッグ</a></li>
-          <li><a href="howto-cosmepouch.html">コスメポーチ（自立）</a></li>
-          <li><a href="howto-passportcase.html">パスポートケース</a></li>
-          <li><a href="howto-laptopcase.html">ノートPCケース</a></li>
-          <li><a href="howto-tabletcase.html">タブレットケース</a></li>
-          <li><a href="howto-waistbag.html">ウエストポーチ</a></li>
-          <li><a href="howto-bostonbag.html">ボストンバッグ</a></li>
-          <li><a href="howto-gadgetpouch.html">ガジェットポーチ</a></li>
-          <li><a href="howto-ehonbag.html">絵本バッグ（レッスンバッグ）</a></li>
-          <li><a href="howto-itabag.html">痛バッグ（クリア窓トート）</a></li>
-          <li><a href="howto-yogamatbag.html">ヨガマットケース</a></li>
-          <li><a href="howto-coinpurse.html">小銭入れ</a></li>
-          <li><a href="howto-bifoldwallet.html">二つ折り財布</a></li>
-          <li><a href="howto-gamaguchiwallet.html">がま口財布</a></li>
-          <li><a href="howto-travelpouch.html">トラベルポーチ（吊り下げ）</a></li>
-          <li><a href="howto-keyboardcover.html">キーボードカバー</a></li>
-          <li><a href="howto-phoneshoulder.html">スマホショルダー</a></li>
-          <li><a href="howto-tabletstand.html">タブレットスタンド（布）</a></li>
+          <li data-s="トートバッグ バッグ"><a href="howto-tote.html">トートバッグ</a></li>
+          <li data-s="ファスナーポーチ バッグ"><a href="howto-pouch.html">ファスナーポーチ</a></li>
+          <li data-s="ポーチ（マチ付き） バッグ"><a href="howto-pouchgusset.html">ポーチ（マチ付き）</a></li>
+          <li data-s="がまぐちポーチ バッグ"><a href="howto-gamaguchi.html">がまぐちポーチ</a></li>
+          <li data-s="サコッシュ バッグ"><a href="howto-sacoche.html">サコッシュ</a></li>
+          <li data-s="あずま袋 バッグ"><a href="howto-azuma.html">あずま袋</a></li>
+          <li data-s="四角パネル バッグ"><a href="howto-panel.html">四角パネル</a></li>
+          <li data-s="クラッチバッグ バッグ"><a href="howto-clutchbag.html">クラッチバッグ</a></li>
+          <li data-s="ショルダーバッグ（フラップ型） バッグ"><a href="howto-shoulderbag.html">ショルダーバッグ（フラップ型）</a></li>
+          <li data-s="エコバッグ（折りたたみ） バッグ"><a href="howto-ecobag.html">エコバッグ（折りたたみ）</a></li>
+          <li data-s="バケツ型トートバッグ バッグ"><a href="howto-bucketbag.html">バケツ型トートバッグ</a></li>
+          <li data-s="リュックサック バッグ"><a href="howto-backpack.html">リュックサック</a></li>
+          <li data-s="丸底巾着 バッグ"><a href="howto-roundkinchaku.html">丸底巾着</a></li>
+          <li data-s="ボディバッグ バッグ"><a href="howto-bodybag.html">ボディバッグ</a></li>
+          <li data-s="バッグインバッグ バッグ"><a href="howto-baginbag.html">バッグインバッグ</a></li>
+          <li data-s="長財布 バッグ"><a href="howto-wallet.html">長財布</a></li>
+          <li data-s="スマホポーチ バッグ"><a href="howto-phonepouch.html">スマホポーチ</a></li>
+          <li data-s="保冷ランチバッグ バッグ"><a href="howto-lunchbag.html">保冷ランチバッグ</a></li>
+          <li data-s="コスメポーチ（自立） バッグ"><a href="howto-cosmepouch.html">コスメポーチ（自立）</a></li>
+          <li data-s="パスポートケース バッグ"><a href="howto-passportcase.html">パスポートケース</a></li>
+          <li data-s="ノートPCケース バッグ"><a href="howto-laptopcase.html">ノートPCケース</a></li>
+          <li data-s="タブレットケース バッグ"><a href="howto-tabletcase.html">タブレットケース</a></li>
+          <li data-s="ウエストポーチ バッグ"><a href="howto-waistbag.html">ウエストポーチ</a></li>
+          <li data-s="ボストンバッグ バッグ"><a href="howto-bostonbag.html">ボストンバッグ</a></li>
+          <li data-s="ガジェットポーチ バッグ"><a href="howto-gadgetpouch.html">ガジェットポーチ</a></li>
+          <li data-s="絵本バッグ（レッスンバッグ） バッグ"><a href="howto-ehonbag.html">絵本バッグ（レッスンバッグ）</a></li>
+          <li data-s="痛バッグ（クリア窓トート） バッグ"><a href="howto-itabag.html">痛バッグ（クリア窓トート）</a></li>
+          <li data-s="ヨガマットケース バッグ"><a href="howto-yogamatbag.html">ヨガマットケース</a></li>
+          <li data-s="小銭入れ バッグ"><a href="howto-coinpurse.html">小銭入れ</a></li>
+          <li data-s="二つ折り財布 バッグ"><a href="howto-bifoldwallet.html">二つ折り財布</a></li>
+          <li data-s="がま口財布 バッグ"><a href="howto-gamaguchiwallet.html">がま口財布</a></li>
+          <li data-s="トラベルポーチ（吊り下げ） バッグ"><a href="howto-travelpouch.html">トラベルポーチ（吊り下げ）</a></li>
+          <li data-s="キーボードカバー バッグ"><a href="howto-keyboardcover.html">キーボードカバー</a></li>
+          <li data-s="スマホショルダー バッグ"><a href="howto-phoneshoulder.html">スマホショルダー</a></li>
+          <li data-s="タブレットスタンド（布） バッグ"><a href="howto-tabletstand.html">タブレットスタンド（布）</a></li>
         </ul>
       </div>
 
       <div class="cat-block">
         <h3 class="cat-h">ペット</h3>
         <ul class="howto-chips">
-          <li><a href="howto-dog.html">犬服（タンクトップ）</a></li>
-          <li><a href="howto-dogsleeved.html">犬服（袖付き）</a></li>
-          <li><a href="howto-mannerbelt.html">マナーベルト</a></li>
-          <li><a href="howto-petbandana.html">ペットバンダナ</a></li>
-          <li><a href="howto-petsnood.html">ペットスヌード</a></li>
-          <li><a href="howto-catfuku.html">猫服（タンクトップ）</a></li>
-          <li><a href="howto-petvest.html">ペットベスト</a></li>
-          <li><a href="howto-dogvest.html">犬ベスト（巻きつけ型）</a></li>
-          <li><a href="howto-petbed.html">ペットベッド</a></li>
-          <li><a href="howto-petcape.html">ペットレインコート</a></li>
-          <li><a href="howto-petcollar.html">首輪カバー</a></li>
-          <li><a href="howto-pettoy.html">けりぐるみ</a></li>
-          <li><a href="howto-petmat.html">ペットマット</a></li>
-          <li><a href="howto-petpouch.html">お散歩ポーチ</a></li>
-          <li><a href="howto-petsling.html">ペットスリング</a></li>
-          <li><a href="howto-petcarrier.html">ペットキャリーバッグ</a></li>
-          <li><a href="howto-petbowtie.html">ペットの蝶ネクタイ</a></li>
-          <li><a href="howto-petscarf.html">ペットマフラー</a></li>
-          <li><a href="howto-petseatcover.html">ペット用ドライブシート</a></li>
-          <li><a href="howto-petblanket.html">ペットブランケット</a></li>
-          <li><a href="howto-pettent.html">ペットハウス（三角テント）</a></li>
+          <li data-s="犬服（タンクトップ） ペット"><a href="howto-dog.html">犬服（タンクトップ）</a></li>
+          <li data-s="犬服（袖付き） ペット"><a href="howto-dogsleeved.html">犬服（袖付き）</a></li>
+          <li data-s="マナーベルト ペット"><a href="howto-mannerbelt.html">マナーベルト</a></li>
+          <li data-s="ペットバンダナ ペット"><a href="howto-petbandana.html">ペットバンダナ</a></li>
+          <li data-s="ペットスヌード ペット"><a href="howto-petsnood.html">ペットスヌード</a></li>
+          <li data-s="猫服（タンクトップ） ペット"><a href="howto-catfuku.html">猫服（タンクトップ）</a></li>
+          <li data-s="ペットベスト ペット"><a href="howto-petvest.html">ペットベスト</a></li>
+          <li data-s="犬ベスト（巻きつけ型） ペット"><a href="howto-dogvest.html">犬ベスト（巻きつけ型）</a></li>
+          <li data-s="ペットベッド ペット"><a href="howto-petbed.html">ペットベッド</a></li>
+          <li data-s="ペットレインコート ペット"><a href="howto-petcape.html">ペットレインコート</a></li>
+          <li data-s="首輪カバー ペット"><a href="howto-petcollar.html">首輪カバー</a></li>
+          <li data-s="けりぐるみ ペット"><a href="howto-pettoy.html">けりぐるみ</a></li>
+          <li data-s="ペットマット ペット"><a href="howto-petmat.html">ペットマット</a></li>
+          <li data-s="お散歩ポーチ ペット"><a href="howto-petpouch.html">お散歩ポーチ</a></li>
+          <li data-s="ペットスリング ペット"><a href="howto-petsling.html">ペットスリング</a></li>
+          <li data-s="ペットキャリーバッグ ペット"><a href="howto-petcarrier.html">ペットキャリーバッグ</a></li>
+          <li data-s="ペットの蝶ネクタイ ペット"><a href="howto-petbowtie.html">ペットの蝶ネクタイ</a></li>
+          <li data-s="ペットマフラー ペット"><a href="howto-petscarf.html">ペットマフラー</a></li>
+          <li data-s="ペット用ドライブシート ペット"><a href="howto-petseatcover.html">ペット用ドライブシート</a></li>
+          <li data-s="ペットブランケット ペット"><a href="howto-petblanket.html">ペットブランケット</a></li>
+          <li data-s="ペットハウス（三角テント） ペット"><a href="howto-pettent.html">ペットハウス（三角テント）</a></li>
         </ul>
       </div>
 
       <div class="cat-block">
         <h3 class="cat-h">ホーム</h3>
         <ul class="howto-chips">
-          <li><a href="howto-cushioncover.html">クッションカバー（封筒型）</a></li>
-          <li><a href="howto-tablecloth.html">テーブルクロス</a></li>
-          <li><a href="howto-pillowcase.html">枕カバー（封筒型）</a></li>
-          <li><a href="howto-curtain.html">カーテン</a></li>
-          <li><a href="howto-chairpad.html">椅子クッション</a></li>
-          <li><a href="howto-wallpocket.html">ウォールポケット</a></li>
-          <li><a href="howto-laundrybag.html">ランドリーバッグ</a></li>
-          <li><a href="howto-chaircover.html">背もたれカバー</a></li>
-          <li><a href="howto-boxcover.html">収納ボックスカバー</a></li>
-          <li><a href="howto-slipper.html">ルームシューズ</a></li>
-          <li><a href="howto-zabuton.html">座布団カバー</a></li>
-          <li><a href="howto-cafecurtain.html">カフェカーテン</a></li>
-          <li><a href="howto-coaster.html">コースター</a></li>
-          <li><a href="howto-ovenmitt.html">鍋つかみミトン</a></li>
-          <li><a href="howto-tissuebox.html">ボックスティッシュカバー</a></li>
-          <li><a href="howto-noren.html">のれん</a></li>
-          <li><a href="howto-remotepocket.html">リモコンポケット</a></li>
-          <li><a href="howto-neckpillow.html">ネックピロー</a></li>
-          <li><a href="howto-teacosy.html">ティーコゼー</a></li>
-          <li><a href="howto-treeskirt.html">ツリースカート</a></li>
-          <li><a href="howto-fabricbasket.html">布バスケット</a></li>
-          <li><a href="howto-tablerunner.html">テーブルランナー</a></li>
-          <li><a href="howto-picnicmat.html">レジャーシート</a></li>
-          <li><a href="howto-machinecover.html">ミシンカバー</a></li>
-          <li><a href="howto-toiletcover.html">トイレフタカバー</a></li>
-          <li><a href="howto-tapestry.html">タペストリー</a></li>
-          <li><a href="howto-shelfcurtain.html">棚下の目隠しカーテン</a></li>
-          <li><a href="howto-doormat.html">玄関マット</a></li>
+          <li data-s="クッションカバー（封筒型） ホーム"><a href="howto-cushioncover.html">クッションカバー（封筒型）</a></li>
+          <li data-s="テーブルクロス ホーム"><a href="howto-tablecloth.html">テーブルクロス</a></li>
+          <li data-s="枕カバー（封筒型） ホーム"><a href="howto-pillowcase.html">枕カバー（封筒型）</a></li>
+          <li data-s="カーテン ホーム"><a href="howto-curtain.html">カーテン</a></li>
+          <li data-s="椅子クッション ホーム"><a href="howto-chairpad.html">椅子クッション</a></li>
+          <li data-s="ウォールポケット ホーム"><a href="howto-wallpocket.html">ウォールポケット</a></li>
+          <li data-s="ランドリーバッグ ホーム"><a href="howto-laundrybag.html">ランドリーバッグ</a></li>
+          <li data-s="背もたれカバー ホーム"><a href="howto-chaircover.html">背もたれカバー</a></li>
+          <li data-s="収納ボックスカバー ホーム"><a href="howto-boxcover.html">収納ボックスカバー</a></li>
+          <li data-s="ルームシューズ ホーム"><a href="howto-slipper.html">ルームシューズ</a></li>
+          <li data-s="座布団カバー ホーム"><a href="howto-zabuton.html">座布団カバー</a></li>
+          <li data-s="カフェカーテン ホーム"><a href="howto-cafecurtain.html">カフェカーテン</a></li>
+          <li data-s="コースター ホーム"><a href="howto-coaster.html">コースター</a></li>
+          <li data-s="鍋つかみミトン ホーム"><a href="howto-ovenmitt.html">鍋つかみミトン</a></li>
+          <li data-s="ボックスティッシュカバー ホーム"><a href="howto-tissuebox.html">ボックスティッシュカバー</a></li>
+          <li data-s="のれん ホーム"><a href="howto-noren.html">のれん</a></li>
+          <li data-s="リモコンポケット ホーム"><a href="howto-remotepocket.html">リモコンポケット</a></li>
+          <li data-s="ネックピロー ホーム"><a href="howto-neckpillow.html">ネックピロー</a></li>
+          <li data-s="ティーコゼー ホーム"><a href="howto-teacosy.html">ティーコゼー</a></li>
+          <li data-s="ツリースカート ホーム"><a href="howto-treeskirt.html">ツリースカート</a></li>
+          <li data-s="布バスケット ホーム"><a href="howto-fabricbasket.html">布バスケット</a></li>
+          <li data-s="テーブルランナー ホーム"><a href="howto-tablerunner.html">テーブルランナー</a></li>
+          <li data-s="レジャーシート ホーム"><a href="howto-picnicmat.html">レジャーシート</a></li>
+          <li data-s="ミシンカバー ホーム"><a href="howto-machinecover.html">ミシンカバー</a></li>
+          <li data-s="トイレフタカバー ホーム"><a href="howto-toiletcover.html">トイレフタカバー</a></li>
+          <li data-s="タペストリー ホーム"><a href="howto-tapestry.html">タペストリー</a></li>
+          <li data-s="棚下の目隠しカーテン ホーム"><a href="howto-shelfcurtain.html">棚下の目隠しカーテン</a></li>
+          <li data-s="玄関マット ホーム"><a href="howto-doormat.html">玄関マット</a></li>
         </ul>
       </div>
 
       <div class="cat-block">
         <h3 class="cat-h">推し活</h3>
         <ul class="howto-chips">
-          <li><a href="howto-nuitee.html">ぬい服（Tシャツ）</a></li>
-          <li><a href="howto-nuihoodie.html">ぬい服（パーカー）</a></li>
-          <li><a href="howto-nuisailor.html">ぬい服（セーラー服）</a></li>
-          <li><a href="howto-nuikigurumi.html">ぬい服（着ぐるみ）</a></li>
-          <li><a href="howto-nuiclothes.html">ぬいぐるみ服（ワンピース）</a></li>
-          <li><a href="howto-nuipajama.html">ぬい服（パジャマ）</a></li>
-          <li><a href="howto-nuijinbei.html">ぬい服（甚平）</a></li>
-          <li><a href="howto-nuiskirt.html">ぬい服（スカート）</a></li>
-          <li><a href="howto-nuipants.html">ぬい服（ズボン）</a></li>
-          <li><a href="howto-nuiponcho.html">ぬい服（ポンチョ）</a></li>
-          <li><a href="howto-nuicape.html">ぬい服（ケープ）</a></li>
-          <li><a href="howto-nuihat.html">ぬいぐるみ帽子</a></li>
-          <li><a href="howto-nuibag.html">ぬいぐるみリュック</a></li>
-          <li><a href="howto-nuisleep.html">ぬいぐるみ寝袋</a></li>
-          <li><a href="howto-nuifuton.html">ぬいぐるみのおふとん</a></li>
-          <li><a href="howto-dollclothes.html">ドール服（ワンピース）</a></li>
-          <li><a href="howto-teddy.html">くまのぬいぐるみ</a></li>
-          <li><a href="howto-rosette.html">ロゼット</a></li>
-          <li><a href="howto-canbadge.html">缶バッジカバー</a></li>
-          <li><a href="howto-ribbonkey.html">リボンキーホルダー</a></li>
-          <li><a href="howto-tradingcard.html">トレカケース</a></li>
-          <li><a href="howto-uchiwacover.html">うちわカバー</a></li>
+          <li data-s="ぬい服（Tシャツ） 推し活"><a href="howto-nuitee.html">ぬい服（Tシャツ）</a></li>
+          <li data-s="ぬい服（パーカー） 推し活"><a href="howto-nuihoodie.html">ぬい服（パーカー）</a></li>
+          <li data-s="ぬい服（セーラー服） 推し活"><a href="howto-nuisailor.html">ぬい服（セーラー服）</a></li>
+          <li data-s="ぬい服（着ぐるみ） 推し活"><a href="howto-nuikigurumi.html">ぬい服（着ぐるみ）</a></li>
+          <li data-s="ぬいぐるみ服（ワンピース） 推し活"><a href="howto-nuiclothes.html">ぬいぐるみ服（ワンピース）</a></li>
+          <li data-s="ぬい服（パジャマ） 推し活"><a href="howto-nuipajama.html">ぬい服（パジャマ）</a></li>
+          <li data-s="ぬい服（甚平） 推し活"><a href="howto-nuijinbei.html">ぬい服（甚平）</a></li>
+          <li data-s="ぬい服（スカート） 推し活"><a href="howto-nuiskirt.html">ぬい服（スカート）</a></li>
+          <li data-s="ぬい服（ズボン） 推し活"><a href="howto-nuipants.html">ぬい服（ズボン）</a></li>
+          <li data-s="ぬい服（ポンチョ） 推し活"><a href="howto-nuiponcho.html">ぬい服（ポンチョ）</a></li>
+          <li data-s="ぬい服（ケープ） 推し活"><a href="howto-nuicape.html">ぬい服（ケープ）</a></li>
+          <li data-s="ぬいぐるみ帽子 推し活"><a href="howto-nuihat.html">ぬいぐるみ帽子</a></li>
+          <li data-s="ぬいぐるみリュック 推し活"><a href="howto-nuibag.html">ぬいぐるみリュック</a></li>
+          <li data-s="ぬいぐるみ寝袋 推し活"><a href="howto-nuisleep.html">ぬいぐるみ寝袋</a></li>
+          <li data-s="ぬいぐるみのおふとん 推し活"><a href="howto-nuifuton.html">ぬいぐるみのおふとん</a></li>
+          <li data-s="ドール服（ワンピース） 推し活"><a href="howto-dollclothes.html">ドール服（ワンピース）</a></li>
+          <li data-s="くまのぬいぐるみ 推し活"><a href="howto-teddy.html">くまのぬいぐるみ</a></li>
+          <li data-s="ロゼット 推し活"><a href="howto-rosette.html">ロゼット</a></li>
+          <li data-s="缶バッジカバー 推し活"><a href="howto-canbadge.html">缶バッジカバー</a></li>
+          <li data-s="リボンキーホルダー 推し活"><a href="howto-ribbonkey.html">リボンキーホルダー</a></li>
+          <li data-s="トレカケース 推し活"><a href="howto-tradingcard.html">トレカケース</a></li>
+          <li data-s="うちわカバー 推し活"><a href="howto-uchiwacover.html">うちわカバー</a></li>
         </ul>
       </div>
 
@@ -983,5 +993,6 @@
   modal.addEventListener('click',function(e){if(e.target===modal)modal.classList.remove('open');});
 })();
 </script>
+<script src="search.js"></script>
 </body>
 </html>
