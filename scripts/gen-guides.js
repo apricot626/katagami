@@ -138,6 +138,7 @@ const CFG = {
     toc: "目次", faqH: "よくある質問", relH: "あわせて読みたい",
     ctaText: "型紙はカタガミで無料生成できます。好きなサイズで作って、実寸印刷できます。", ctaBtn: "型紙ツールを開く →",
     footHowto: { href: "howto.html", label: "作り方一覧" }, footTool: { href: "tool.html", label: "型紙ツール" },
+    footAbout: { href: "about.html", label: "運営者情報" },
     terms: true
   },
   en: {
@@ -150,6 +151,7 @@ const CFG = {
     toc: "Contents", faqH: "Frequently asked questions", relH: "Related guides",
     ctaText: "Draft a pattern in your own size and print it at actual size on Letter or A4.", ctaBtn: "Open the pattern tool →",
     footHowto: { href: "howto.html", label: "Sewing guides" }, footTool: { href: "tool.html", label: "Pattern tool" },
+    footAbout: { href: "about.html", label: "About" },
     terms: false
   }
 };
@@ -262,6 +264,7 @@ ${related}</article>
   <span>© 2026 Katagami</span>
   <a href="${c.footHowto.href}">${c.footHowto.label}</a>
   <a href="${c.footTool.href}">${c.footTool.label}</a>
+  <a href="${c.footAbout.href}">${c.footAbout.label}</a>
 </footer>
 ${c.terms ? '<script src="terms.js"></script>\n' : ""}</body>
 </html>
