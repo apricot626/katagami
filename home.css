@@ -129,6 +129,23 @@ a:hover{text-decoration:underline}
 }
 .how-steps li b{display:block;font-weight:700;margin-bottom:4px}
 
+/* ---- 絞り込み ---- */
+.search{margin:0 0 22px}
+.search-label{display:block;font-size:11px;font-weight:700;letter-spacing:.1em;
+  color:var(--muted);margin-bottom:6px}
+.search-row{display:flex;align-items:stretch;gap:0;
+  border:1.5px solid var(--ink);border-radius:2px;background:var(--paper2);
+  max-width:440px}
+.search-row input{
+  flex:1;min-width:0;font-family:inherit;font-size:14px;color:var(--ink);
+  padding:9px 11px;border:0;background:none;outline:none}
+.search-row input::placeholder{color:var(--muted)}
+.search-row input:focus-visible{outline:2px solid var(--chalk);outline-offset:-2px}
+.search-clear{font-family:inherit;font-size:17px;line-height:1;cursor:pointer;
+  padding:0 12px;border:0;background:none;color:var(--muted)}
+.search-clear:hover{color:var(--ink)}
+.search-count{font-size:11.5px;color:var(--muted);margin:6px 0 0;min-height:1.2em}
+
 /* ---- patterns section ---- */
 .pat-section{padding:40px 0;border-bottom:1px solid var(--rule-soft)}
 .cat-block{margin-bottom:34px}
