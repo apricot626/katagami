@@ -1,0 +1,129 @@
+/* ============================================================
+   型紙（patterns.js）から完成イメージ図を組み立てます。
+   手描きの座標を持たず、gen() が返す出来上がり線ポリゴンだけを使うので、
+   型紙を直せば図も一緒に動きます。図の寸法は型紙と同一物です。
+
+   図として決めているのは腕の角度（ARM_ANGLE）だけです。正面図に立体を
+   落とすときの作図上の約束で、これ以外の寸法はすべて型紙から取ります。
+
+   単位は patterns.js と同じ mm（cm = v*10）。
+   ============================================================ */
+const fs = require("fs");
+const path = require("path");
+const vm = require("vm");
+
+const ROOT = path.join(__dirname, "..");
+
+/* 腕が垂直から外へ開く角度。フラット画の慣習で15〜20度。 */
+const ARM_ANGLE = 16;
+
+function loadPatterns() {
+  const box = { window: {}, console };
+  vm.createContext(box);
+  vm.runInContext(
+    fs.readFileSync(path.join(ROOT, "patterns.js"), "utf8") + ";globalThis.__P=PATTERNS;",
+    box);
+  return box.__P;
+}
+
+const bbox = pts => ({
+  x0: Math.min(...pts.map(p => p.x)), x1: Math.max(...pts.map(p => p.x)),
+  y0: Math.min(...pts.map(p => p.y)), y1: Math.max(...pts.map(p => p.y)),
+});
+const mirror = pts => pts.map(p => ({ x: -p.x, y: p.y }));
+const shiftY = (pts, dy) => pts.map(p => ({ x: p.x, y: p.y + dy }));
+/* 「わ」で裁つ半身を左右に開く */
+const openFold = pts => pts.concat(mirror(pts.slice().reverse()));
+const near = (a, b) => Math.abs(a - b) < 0.01;
+
+/* 袖：肩先から袖山を曲線で回し、二の腕→袖口→脇下と閉じる。s=-1 で左右反転 */
+const sleevePath = (S, s) => {
+  const f = p => `${(p.x * s).toFixed(1)},${p.y.toFixed(1)}`;
+  return `M${f(S.start)} Q${f(S.cap)} ${f(S.bicep)} L${f(S.cuffOut)} L${f(S.cuffIn)} L${f(S.underarm)} Z`;
+};
+const poly = pts => "M" + pts.map(p => `${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(" L") + " Z";
+const line = pts => "M" + pts.map(p => `${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(" L");
+
+/* ---- ワンピース（袖付き） ---------------------------------
+   前身頃・スカートは「わ」で開いて正面に、袖は肩先と脇下に接続します。 */
+function onepiece(P, vals) {
+  const { pieces } = P.onepiece.gen(vals, 0);          // 縫い代0＝出来上がり線
+  const [front, , skirt, sleeve] = pieces;
+  const fPts = front.finished, sPts = skirt.finished, slPts = sleeve.finished;
+  const bF = bbox(fPts), bS = bbox(sPts), bSl = bbox(slPts);
+
+  const BL = bF.y1;                                    // ボディス丈
+  const shoulder = fPts.filter(p => near(p.y, 0)).reduce((a, p) => p.x > a.x ? p : a);
+  const neckEnd = fPts.filter(p => near(p.y, 0)).reduce((a, p) => p.x < a.x ? p : a);
+  const underarm = front.notches[0];                   // 型紙が宣言している脇下
+  const waistHalf = Math.max(...fPts.filter(p => near(p.y, bF.y1)).map(p => p.x));
+
+  /* 袖：二の腕の見え幅＝袖幅の半分。袖丈・袖山・袖口はパーツの実寸から。 */
+  const bicepHalf = bSl.x1 / 2;
+  const hemXs = slPts.filter(p => near(p.y, bSl.y1)).map(p => p.x);
+  const cuffHalf = (Math.max(...hemXs) - Math.min(...hemXs)) / 2;
+  const SL = bSl.y1;
+  const capH = Math.min(...slPts.filter(p => p.y > 0).map(p => p.y));
+
+  const th = ARM_ANGLE * Math.PI / 180;
+  const ax = { x: Math.sin(th), y: Math.cos(th) };     // 腕の軸（下・外向き）
+  const nx = { x: Math.cos(th), y: -Math.sin(th) };    // 軸に直交・外向き
+  const add = (p, v, k) => ({ x: p.x + v.x * k, y: p.y + v.y * k });
+
+  const bicepOut = add(underarm, nx, bicepHalf);       // 二の腕の外側
+  const cuffOut = add(bicepOut, ax, SL - capH);        // 袖口の外側
+  /* 正面図に見えるのは筒の半分。二の腕も袖口も「半分の幅」で描く。 */
+  const cuffIn = add(cuffOut, nx, -cuffHalf);          // 袖口の内側
+  /* 肩先から二の腕までは袖山のふくらみ。直線だと翼のように見えるので
+     袖山の高さぶんだけ外へ張り出す2次曲線にする。 */
+  const capBulge = add(
+    { x: (shoulder.x + bicepOut.x) / 2, y: (shoulder.y + bicepOut.y) / 2 },
+    nx, capH * 1.2);
+  const sleeveR = { start: shoulder, cap: capBulge, bicep: bicepOut,
+                    cuffOut, cuffIn, underarm };
+
+  /* 衿ぐり曲線（中心の前下がりから肩側の端まで） */
+  const neckIdx = fPts.findIndex(p => near(p.y, 0));
+  const neckCurve = fPts.slice(0, neckIdx + 1);
+  /* スカートの裾曲線（下端に沿う点列） */
+  const hemCurve = sPts.filter(p => p.y > bS.y1 * 0.97);
+
+  const bodice = openFold(fPts);
+  const skirtFull = shiftY(openFold(sPts), BL);
+
+  return {
+    /* 奥から手前の順。境界がそのまま縫い目に見える */
+    parts: [
+      { role: "sleeve", d: sleevePath(sleeveR, 1) },
+      { role: "sleeve", d: sleevePath(sleeveR, -1) },
+      { role: "skirt",  d: poly(skirtFull) },
+      { role: "bodice", d: poly(bodice) },
+    ],
+    /* 赤い破線＝縫う線。位置はすべて型紙由来 */
+    seams: [
+      line(neckCurve.concat(mirror(neckCurve.slice().reverse()))),
+      line([{ x: -waistHalf, y: BL }, { x: waistHalf, y: BL }]),
+      line(shiftY(hemCurve.concat(mirror(hemCurve.slice().reverse())), BL)),
+      line([cuffOut, cuffIn]),
+      line(mirror([cuffOut, cuffIn])),
+    ],
+    anchors: {
+      neck:   neckEnd,
+      sleeve: add(bicepOut, ax, (SL - capH) * 0.5),
+      waist:  { x: waistHalf, y: BL },
+      skirt:  { x: (waistHalf + bS.x1) * 0.5 + 20, y: BL + bS.y1 * 0.6 },
+      hem:    { x: bS.x1 * 0.9, y: BL + bS.y1 - 8 },
+    },
+    /* audit がこの値と型紙の寸法を突き合わせる（すべて mm） */
+    dims: {
+      bodiceLen: BL, skirtLen: bS.y1, sleeveLen: SL,
+      shoulderHalf: shoulder.x, bustHalf: bF.x1, waistHalf, hemHalf: bS.x1,
+      neckHalf: neckEnd.x, neckDrop: fPts[0].y, armholeDepth: underarm.y,
+      bicep: bicepHalf * 2, cuff: cuffHalf * 2,
+    },
+  };
+}
+
+const BUILDERS = { onepiece };
+
+module.exports = { loadPatterns, BUILDERS, bbox, ARM_ANGLE };
