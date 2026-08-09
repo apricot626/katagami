@@ -14,7 +14,8 @@
   return {
     human: [
       { ja: "トップス", en: "Tops",
-        keys: ["tee", "raglantee", "tunic", "camisole", "blouse", "shirt",
+        keys: ["tee", "fabrictee", "ribbontee", "pockettee", "raglantee",
+               "tunic", "camisole", "blouse", "shirt",
                "dolman", "hoodie", "adultvest", "cardigan"] },
       { ja: "スカート", en: "Skirts",
         keys: ["skirt", "flareskirt", "mermaid", "adultgather", "tightskirt",
@@ -103,7 +104,7 @@
 
     pet: [
       { ja: "犬・猫の服", en: "Dog & cat clothes",
-        keys: ["dog", "dogsleeved", "catfuku", "petvest", "dogvest", "petcape"] },
+        keys: ["dog", "dogsleeved", "catfuku", "petvest", "dogvest", "dogsailor", "petcape"] },
       { ja: "首まわり", en: "Around the neck",
         keys: ["petbandana", "petsnood", "petcollar", "petbowtie", "petscarf"] },
       { ja: "おでかけ", en: "Out and about",

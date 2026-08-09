@@ -370,6 +370,9 @@ function arrowMarker(id,scale){
 // 型紙ごとの作り方記事（ある型紙だけ文脈リンクを表示）
 const HOWTO={
   tee:{url:"howto-tee.html", label:"📄 Tシャツの作り方を見る"},
+  fabrictee:{url:"howto-fabrictee.html", label:"📄 布帛Tシャツの作り方を見る"},
+  ribbontee:{url:"howto-ribbontee.html", label:"📄 袖リボンTシャツの作り方を見る"},
+  pockettee:{url:"howto-pockettee.html", label:"📄 ポッケ付きTシャツの作り方を見る"},
   apron:{url:"howto-apron.html", label:"📄 エプロンの作り方を見る"},
   skirt:{url:"howto-skirt.html", label:"📄 Aラインスカートの作り方を見る"},
   flareskirt:{url:"howto-flareskirt.html", label:"📄 フレアスカートの作り方を見る"},
@@ -566,6 +569,7 @@ const HOWTO={
   catfuku:{url:"howto-catfuku.html", label:"📄 猫服（タンクトップ）の作り方を見る"},
   petvest:{url:"howto-petvest.html", label:"📄 ペットベストの作り方を見る"},
   dogvest:{url:"howto-dogvest.html", label:"📄 犬ベスト（巻きつけ型）の作り方を見る"},
+  dogsailor:{url:"howto-dogsailor.html", label:"📄 犬セーラーベストの作り方を見る"},
   petbed:{url:"howto-petbed.html", label:"📄 ペットベッドの作り方を見る"},
   petcape:{url:"howto-petcape.html", label:"📄 ペットレインコートの作り方を見る"},
   petcollar:{url:"howto-petcollar.html", label:"📄 首輪カバーの作り方を見る"},
