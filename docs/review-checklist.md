@@ -17,6 +17,7 @@ node scripts/audit.js     # 0件になればOK（1件でもあれば終了コー
 node scripts/gen-ja-howto.js        # 和文ガイドを生成（データにあるキーだけ）
 node scripts/gen-en-howto.js        # 英文ガイドを生成
 node scripts/inject-howto-figs.js   # 各ガイドに図解SVGを挿入
+node scripts/inject-howto-heroes.js # 冒頭の完成イメージ図を挿入（和文・英文）
 node scripts/enrich-material-links.js  # 材料ボックスの楽天リンクを組み直す
 node scripts/sync-en-pages.js       # en/howto.html のカード・sitemap・HOWTO_EN
 node scripts/sync-ja-pages.js       # index.html / howto.html の一覧

@@ -10,6 +10,7 @@ const fs = require("fs");
 const path = require("path");
 const vm = require("vm");
 const { figFor } = require("./howto-figs.js");
+const { heroFor } = require("./howto-heroes.js");
 const DATA = require("./ja-howto-data.js");
 
 const ROOT = path.join(__dirname, "..");
@@ -65,6 +66,9 @@ function render(key, g, allKeys){
     const head = b.h ? `    <h3>${b.h}</h3>\n` : "";
     return `${head}    <ol class="steps">\n${items}\n    </ol>`;
   }).join("\n\n");
+  const hero = heroFor(key, "ja");
+  const heroHtml = hero
+    ? `    <!-- howto-hero:START -->\n    ${hero}\n    <!-- howto-hero:END -->\n` : "";
   const sewNote = g.sewNote ? `\n    <p class="note">✏️ ${g.sewNote}</p>\n` : "";
 
   /* ---- 構造化データ ---- */
@@ -162,7 +166,7 @@ ${crumbLd}
     <p class="lead">
       ${g.lead}
     </p>
-    <div class="toc">
+${heroHtml}    <div class="toc">
       <p class="toc-h">目次</p>
       <ol>
         <li><a href="#materials">材料と道具</a></li>

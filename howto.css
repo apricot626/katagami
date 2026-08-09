@@ -83,6 +83,9 @@ body{
 .fig{margin:18px 0 4px;text-align:center}
 .fig svg{width:100%;max-width:360px;height:auto;background:var(--paper2);border:1.5px solid var(--rule);border-radius:4px;padding:8px}
 .fig figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.6}
+/* ---- 完成イメージ（記事冒頭）。図解より一回り大きく見せる ---- */
+.hero-fig{margin:0 0 26px}
+.hero-fig svg{max-width:460px}
 h1{font-size:26px;font-weight:800;margin:0 0 16px;line-height:1.3;letter-spacing:.02em}
 .lead{font-size:14px;line-height:1.9;color:var(--muted);margin:0 0 24px}
 
