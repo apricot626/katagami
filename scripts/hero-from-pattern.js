@@ -46,7 +46,7 @@ const line = pts => "M" + pts.map(p => `${p.x.toFixed(1)},${p.y.toFixed(1)}`).jo
 
 /* ---- ワンピース（袖付き） ---------------------------------
    前身頃・スカートは「わ」で開いて正面に、袖は肩先と脇下に接続します。 */
-function onepiece(P, vals) {
+function onepiece(P, vals, opts = {}) {
   const { pieces } = P.onepiece.gen(vals, 0);          // 縫い代0＝出来上がり線
   const [front, , skirt, sleeve] = pieces;
   const fPts = front.finished, sPts = skirt.finished, slPts = sleeve.finished;
@@ -65,7 +65,7 @@ function onepiece(P, vals) {
   const SL = bSl.y1;
   const capH = Math.min(...slPts.filter(p => p.y > 0).map(p => p.y));
 
-  const th = ARM_ANGLE * Math.PI / 180;
+  const th = (opts.armAngle ?? ARM_ANGLE) * Math.PI / 180;
   const ax = { x: Math.sin(th), y: Math.cos(th) };     // 腕の軸（下・外向き）
   const nx = { x: Math.cos(th), y: -Math.sin(th) };    // 軸に直交・外向き
   const add = (p, v, k) => ({ x: p.x + v.x * k, y: p.y + v.y * k });
@@ -107,6 +107,13 @@ function onepiece(P, vals) {
       line([cuffOut, cuffIn]),
       line(mirror([cuffOut, cuffIn])),
     ],
+    /* ドレープ線。寸法ではなく布の落ち感を示す飾りなので、
+       スカートの幅に対する割合で置く。 */
+    drape: [0.32, 0.62].flatMap(f => {
+      const wTop = waistHalf * f, wBot = bS.x1 * (f * 1.06);
+      return [line([{ x: wTop, y: BL + 24 }, { x: wBot, y: BL + bS.y1 - 30 }]),
+              line([{ x: -wTop, y: BL + 24 }, { x: -wBot, y: BL + bS.y1 - 30 }])];
+    }),
     anchors: {
       neck:   neckEnd,
       sleeve: add(bicepOut, ax, (SL - capH) * 0.5),
