@@ -32,8 +32,12 @@ function findChrome() {
   return undefined;
 }
 
-/* 320px は iPhone SE、390px は iPhone 15 相当。狭いほうで崩れがちです。 */
-const WIDTHS = [320, 390];
+/* 320px は iPhone SE、390px は iPhone 15 相当。狭いほうで崩れがちです。
+   660/768/1024px はタブレット。iPadのSplit Viewと縦持ちがここに入ります。
+   **スマホ幅とPC幅だけ見ても中間は守れません。** 実際、ホームのヒーローは
+   601〜1159pxのあいだ本文が1文字幅までつぶれていたのに、320/390pxでは
+   正常だったので気づけませんでした。 */
+const WIDTHS = [320, 390, 660, 768, 1024];
 const PAGES = [
   "index.html", "howto.html", "yougoshu.html",
   "tool.html?p=tee", "tool.html?p=coverall", "tool.html?p=picnicmat",
@@ -58,7 +62,16 @@ const PAGES = [
       await page.goto("http://localhost:8099/" + url, { waitUntil: "load" });
       await page.waitForTimeout(400);
       const r = await page.evaluate(() => {
-        const out = { scrollW: document.documentElement.scrollWidth, innerW: window.innerWidth, cut: [] };
+        const out = { scrollW: document.documentElement.scrollWidth, innerW: window.innerWidth, cut: [], squeezed: [] };
+        /* 段組みがつぶれて、本文が細長い柱になっていないか。
+           横スクロールは出ないので、幅と高さの比で見つけるしかありません。 */
+        for (const el of document.querySelectorAll("p, li, figcaption, td")) {
+          const b = el.getBoundingClientRect();
+          const len = (el.textContent || "").trim().length;
+          if (len >= 12 && b.width > 0 && b.width < 90 && b.height > b.width * 3)
+            out.squeezed.push(`${el.tagName.toLowerCase()}.${el.className || "-"} ${Math.round(b.width)}x${Math.round(b.height)}px`);
+        }
+        out.squeezed = [...new Set(out.squeezed)].slice(0, 4);
         for (const el of document.querySelectorAll("button, a, .card-title, .pat-list li")) {
           // scrollWidth が clientWidth を超える＝文字が枠から出て見えなくなっている
           if (el.clientWidth > 0 && el.scrollWidth > el.clientWidth + 1)
@@ -72,6 +85,8 @@ const PAGES = [
         findings.push(`${where}: 横スクロールが出ています（${r.scrollW} > ${r.innerW}）`);
       if (r.cut.length)
         findings.push(`${where}: 文字が切れています → ${r.cut.join(" / ")}`);
+      if (r.squeezed.length)
+        findings.push(`${where}: 段がつぶれて本文が縦一列になっています → ${r.squeezed.join(" / ")}`);
       if (jsErrors.length)
         findings.push(`${where}: JSエラー → ${jsErrors[0].slice(0, 100)}`);
     }
