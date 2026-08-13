@@ -1037,6 +1037,116 @@ PATTERNS.dogsleeved={
   }
 };
 
+/* ---- 犬用アロハシャツ ---- */
+PATTERNS.dogaloha={
+  mode:"pet",
+  name:"犬用アロハシャツ",
+  note:"開襟衿と半袖を付けた犬用シャツ。前足を袖に通してから、お腹側の前立てをボタンで留めます。頭からかぶせないので、顔まわりを触られるのが苦手な子にも着せやすい形です。背パネル1枚＋腹パネル2枚＋前足袖2枚＋衿2枚。レーヨンや薄手コットンなど落ち感のある生地が向きます。前足の形は個体差が大きいので、まず仮縫いで合わせてください。",
+  params:[
+    {key:"chest",     label:"胴回り",        unit:"cm",min:24,max:90,step:1,  val:48},
+    {key:"len",       label:"背丈（背側）",  unit:"cm",min:18,max:60,step:1,  val:34},
+    {key:"bellylen",  label:"腹側の丈",      unit:"cm",min:10,max:45,step:1,  val:24},
+    {key:"neck",      label:"首回り",        unit:"cm",min:16,max:60,step:1,  val:28},
+    {key:"legpos",    label:"前足ぐり位置",  unit:"cm",min:6, max:20,step:0.5,val:11},
+    {key:"legw",      label:"前足ぐり大きさ",unit:"cm",min:3, max:14,step:0.5,val:7},
+    {key:"ease",      label:"ゆとり（総量）",unit:"cm",min:0, max:16,step:1,  val:6},
+    {key:"sleevecirc",label:"前足回り",      unit:"cm",min:6, max:22,step:0.5,val:10},
+    {key:"sleevelen", label:"袖丈",          unit:"cm",min:2, max:15,step:0.5,val:5},
+    {key:"sleeveease",label:"袖ゆとり",      unit:"cm",min:1, max:6, step:0.5,val:2},
+    {key:"collar",    label:"衿の幅",        unit:"cm",min:2, max:8, step:0.5,val:4},
+    {key:"placket",   label:"前立ての幅",    unit:"cm",min:1, max:4, step:0.5,val:2},
+  ],
+  presets:[
+    {label:"小型犬S", vals:{chest:36, len:26, bellylen:18, neck:22, legpos:8,  legw:5,  ease:5, sleevecirc:7,  sleevelen:3.5, sleeveease:1.5, collar:3,   placket:1.5}},
+    {label:"中型犬M", vals:{chest:56, len:40, bellylen:28, neck:34, legpos:12, legw:8,  ease:6, sleevecirc:11, sleevelen:5,   sleeveease:2,   collar:4.5, placket:2}},
+    {label:"大型犬L", vals:{chest:76, len:52, bellylen:36, neck:44, legpos:15, legw:10, ease:8, sleevecirc:15, sleevelen:7,   sleeveease:2.5, collar:6,   placket:2.5}},
+  ],
+  toggles:[{key:"pocket",label:"胸ポケットを付ける",val:true}],
+  gen(p,sa){
+    const HW=cm(p.chest)/4+cm(p.ease)/4;
+    // 首まわりが胴回りに対して大きいと衿ぐりが脇を追い越すので、半身幅の8割まで
+    const NWh=Math.min(cm(p.neck)/4, HW*0.8);
+    const PL=cm(p.placket);
+
+    /* 背パネルは中心を「わ」。腹パネルは中心で割り、前立て分を外に足して左右2枚。 */
+    const panel=(belly)=>{
+      const L=cm(belly?p.bellylen:p.len);
+      const Ndrop=Math.min(cm(belly?6:2.5), L*0.35);
+      const legW=Math.min(cm(p.legw), (L-Ndrop)*0.7);
+      const legY=Math.min(Math.max(cm(p.legpos), Ndrop+legW/2), L-legW/2);
+      const off=belly?PL:0;
+      let fin=[{x:0,y:Ndrop}];
+      if(belly) fin.push({x:off,y:Ndrop});
+      const neck=quad({x:off,y:Ndrop},{x:off+NWh*0.5,y:Ndrop},{x:off+NWh,y:0},8);
+      fin=fin.concat(neck);
+      fin.push({x:off+HW,y:legY-legW/2});
+      fin=fin.concat(quad({x:off+HW,y:legY-legW/2},{x:off+HW-legW*0.5,y:legY},{x:off+HW,y:legY+legW/2},6));
+      fin.push({x:off+HW,y:L});
+      fin.push({x:0,y:L});
+      const isFold=(a,b)=> !belly && a.x===0 && b.x===0;
+      const pc=pieceFrom(fin,isFold,sa);
+      return {
+        piece:{
+          title:belly?"腹パネル（前立て付き）":"背パネル",
+          cutInfo:belly?`2枚（左右対称に裁つ）／前端に前立てを含む`:`中心を「わ」／1枚（背側）`,
+          ...pc, foldX:belly?null:0,
+          grain:{x1:off+HW*0.5,y1:legY+legW,x2:off+HW*0.5,y2:L-12},
+          notches:[{x:off+HW,y:legY-legW/2},{x:off+HW,y:legY+legW/2}],
+          labelAt:{x:off+HW*0.5,y:(legY+legW+L)/2}
+        },
+        // 衿ぐりの実長（中心から脇まで）。衿の長さはこれに合わせる
+        neckLen:(belly?PL:0)+arcLen({x:off,y:Ndrop},neck),
+        L, Ndrop
+      };
+    };
+    const B=panel(false), F=panel(true);
+
+    /* 開襟衿：後ろ中心を「わ」にして、前端を尖らせたキャンプカラー。
+       長さは背・腹の衿ぐり実長の合計＝首まわり半周ぶん。 */
+    const CL=B.neckLen+F.neckLen;
+    const CH=Math.min(cm(p.collar), CL*0.45);   // 幅が長さに近いと角が自己交差する
+    const cf=[{x:0,y:0},{x:CL,y:0},{x:CL+CH*0.45,y:CH*0.55},{x:CL*0.92,y:CH},{x:0,y:CH}];
+    const cpc=pieceFrom(cf,(a,b)=>a.x===0&&b.x===0,sa);
+    const collar={
+      title:"開襟衿", cutInfo:"中心を「わ」／表・裏の2枚（芯を貼ると衿先が立ちます）",
+      ...cpc, foldX:0,
+      grain:{x1:CL*0.5,y1:CH*0.15,x2:CL*0.5,y2:CH*0.85},
+      notches:[{x:B.neckLen,y:0}],       // 背と腹の境目＝脇の合印
+      labelAt:{x:CL*0.45,y:CH*0.5}
+    };
+
+    /* 前足袖：筒。袖口は折って始末する */
+    const SC=cm(p.sleevecirc)+cm(p.sleeveease), SL=cm(p.sleevelen);
+    const spc=pieceFrom([{x:0,y:0},{x:SC,y:0},{x:SC,y:SL},{x:0,y:SL}],()=>false,sa);
+    const sleeve={
+      title:"前足袖", cutInfo:"2枚（左右）／ 袖口端を折ってから前足ぐり合印に合わせて縫い付ける",
+      ...spc, foldX:null,
+      grain:{x1:SC/2,y1:SL*0.2,x2:SC/2,y2:SL*0.8},
+      notches:[], labelAt:{x:SC/2,y:SL/2}
+    };
+
+    const pieces=[B.piece,F.piece,sleeve,collar];
+
+    /* 胸ポケット：胴回りから大きさを決める。上端は折り返し分を含む */
+    if(p.pocket){
+      const PW=Math.max(cm(2.5),Math.min(cm(7),cm(p.chest)/12));
+      const PH=PW*1.2, HEM=cm(1.5);
+      const ppc=pieceFrom([{x:0,y:0},{x:PW,y:0},{x:PW,y:PH+HEM},{x:0,y:PH+HEM}],()=>false,sa);
+      pieces.push({
+        title:"胸ポケット", cutInfo:"1枚／上端を三つ折りして縫ってから、周囲を折って腹パネルに付ける",
+        ...ppc, foldX:null,
+        grain:{x1:PW/2,y1:HEM+6,x2:PW/2,y2:PH+HEM-6},
+        notches:[], labelAt:{x:PW/2,y:(PH+HEM)/2}
+      });
+    }
+
+    const nb=Math.max(2,Math.round(p.bellylen/6));
+    return {pieces,
+      memo:`衿は背・腹の衿ぐりに合わせて長さ${(CL/10).toFixed(1)}cm（わで裁って倍）。`+
+           `ボタンは${nb}個を目安に前立ての中心へ等間隔で。前足袖は前足ぐりの合印間に縫い付ける。`};
+  }
+};
+
 /* ---- フレアスカート（サーキュラー） ---- */
 PATTERNS.flareskirt={
   mode:"human",
@@ -11279,7 +11389,7 @@ PATTERNS.dogsailor={
     /* ベビー */  'bloomers','swaddle','bandanastai','stai','babyhat','sleeper','babyshoes','babymitten','babycape','babypants','babyblanket','babytoy','fabricball','clothbook','taghanky','otedama','babypillow','napmat','babyfuton','diapercover','nursingpillow','gauzehanky','babyleggings','suckpad','diaperpouch','wipescase','carriercover', 'nursingcape','strollerseat', 'coverall',
     /* 小物 */    'kinchaku','kincgusset','gymbag','shoesbag','movepocket','mask','fittedmask','bandana','placemat','shuushu','headband','tissuecase','bookcover','bowtie','potholder','eyemask','neckwarmer','legwarmer','maskcase','armcover','keycase','glassescase','sunhat','beret','hairturban','bottleholder','cap','boshitecho','cardcase','bousaizukin','dollclothes','teddy','scarf','nametag', 'pencase','bankbook','flaskcover','randocover','recordercase','nuiclothes', 'uchiwacover','cutlerycase','necktie','pincushion','camerastrap','maskcover','casquette','bandanacap','hairribbon','hairclip','haramaki','brooch','pocketsquare','fabricbelt','breadbag','potmat','teatowel',
     /* バッグ */  'tote','pouch','pouchgusset','gamaguchi','sacoche','azuma','panel','clutchbag','shoulderbag','ecobag','bucketbag','backpack','roundkinchaku','bodybag','baginbag','wallet','phonepouch','lunchbag', 'cosmepouch','passportcase','laptopcase','tabletcase','waistbag','bostonbag','gadgetpouch','ehonbag', 'itabag','yogamatbag','coinpurse','bifoldwallet','gamaguchiwallet','travelpouch','keyboardcover','phoneshoulder','tabletstand',
-    /* ペット */  'dog','dogsleeved','mannerbelt','petbandana','petsnood','catfuku','petvest','dogvest','dogsailor','petbed','petcape','petcollar','pettoy','petmat','petpouch', 'petsling','petcarrier','petbowtie','petscarf','petseatcover','petblanket','pettent',
+    /* ペット */  'dog','dogsleeved','dogaloha','mannerbelt','petbandana','petsnood','catfuku','petvest','dogvest','dogsailor','petbed','petcape','petcollar','pettoy','petmat','petpouch', 'petsling','petcarrier','petbowtie','petscarf','petseatcover','petblanket','pettent',
     /* ホーム */  'cushioncover','tablecloth','pillowcase','curtain','chairpad','wallpocket','laundrybag','chaircover','boxcover','slipper','zabuton','cafecurtain','coaster','ovenmitt', 'tissuebox','noren','remotepocket','neckpillow', 'teacosy','treeskirt','fabricbasket','tablerunner','picnicmat','machinecover','toiletcover','tapestry','shelfcurtain','doormat',
     /* 推し活 */  'nuitee','nuihoodie','nuisailor','nuikigurumi','nuiclothes','nuipajama','nuijinbei','nuiskirt','nuipants','nuiponcho','nuicape','nuihat','nuibag','nuisleep','nuifuton','dollclothes','teddy','rosette','canbadge','ribbonkey','tradingcard','uchiwacover',
   ];

@@ -104,7 +104,8 @@
 
     pet: [
       { ja: "犬・猫の服", en: "Dog & cat clothes",
-        keys: ["dog", "dogsleeved", "catfuku", "petvest", "dogvest", "dogsailor", "petcape"] },
+        keys: ["dog", "dogsleeved", "dogaloha", "catfuku", "petvest", "dogvest",
+               "dogsailor", "petcape"] },
       { ja: "首まわり", en: "Around the neck",
         keys: ["petbandana", "petsnood", "petcollar", "petbowtie", "petscarf"] },
       { ja: "おでかけ", en: "Out and about",

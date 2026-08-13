@@ -34,7 +34,11 @@
         return;
       }
     }else if(node.nodeType===1){
-      if(['A','SCRIPT','STYLE','H1','H2','H3'].includes(node.tagName))return;
+      /* SVG の中には入らない。<text> に HTML の <a> を挿すと文字が消えるため
+         （図の「裾は三つ折り」が「裾は」だけになっていた）。
+         SVG 要素の tagName は小文字なので大文字に揃えて比べる。 */
+      const tag=(node.tagName||'').toUpperCase();
+      if(['A','SCRIPT','STYLE','H1','H2','H3','SVG'].includes(tag))return;
       [...node.childNodes].forEach(walk);
     }
   }

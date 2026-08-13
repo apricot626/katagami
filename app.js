@@ -563,6 +563,7 @@ const HOWTO={
   tabletstand:{url:"howto-tabletstand.html", label:"📄 タブレットスタンド（布）の作り方を見る"},
   dog:{url:"howto-dog.html", label:"📄 犬服（タンクトップ）の作り方を見る"},
   dogsleeved:{url:"howto-dogsleeved.html", label:"📄 犬服（袖付き）の作り方を見る"},
+  dogaloha:{url:"howto-dogaloha.html", label:"📄 犬用アロハシャツの作り方を見る"},
   mannerbelt:{url:"howto-mannerbelt.html", label:"📄 マナーベルトの作り方を見る"},
   petbandana:{url:"howto-petbandana.html", label:"📄 ペットバンダナの作り方を見る"},
   petsnood:{url:"howto-petsnood.html", label:"📄 ペットスヌードの作り方を見る"},

@@ -246,9 +246,23 @@ a:hover{text-decoration:underline}
 .modal-body a{color:var(--chalk)}
 .policy-date{color:var(--muted);font-size:11px;margin-top:16px}
 
-@media(max-width:600px){
-  .hero-inner{flex-direction:column;gap:20px}
+/* hero は「見出し｜本文｜ボタン」を横1列に並べ、右に飾りを置く配置です。
+   横1列に要る幅は 見出し174 + 本文440 + ボタン181 + すきま64 = 859px。
+   これに飾り260pxと左右の余白40pxを足した 1159px を下回ったら、
+   まず飾りを落とし、さらに899pxを下回ったら縦積みに切り替えます。
+
+   以前はこの切り替えが600pxしかなく、601〜1159pxのあいだは横1列のまま
+   本文だけが縮んでいました（見出しとボタンは flex-shrink:0 と nowrap で
+   縮まないため）。iPadの縦持ちやSplit Viewがちょうどこの幅に入り、
+   本文が1文字幅までつぶれて縦一列に流れていました。 */
+@media(max-width:1159px){
   .hero-deco{display:none}
+}
+@media(max-width:899px){
+  .hero-inner{flex-direction:column;gap:20px}
+}
+
+@media(max-width:600px){
   .hero-h{font-size:22px}
   .hdr-btn{display:none}
   .how-steps{flex-direction:column}

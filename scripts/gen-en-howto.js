@@ -7,6 +7,7 @@
 const fs = require("fs");
 const path = require("path");
 const { figFor } = require("./howto-figs.js");
+const { heroFor } = require("./howto-heroes.js");
 
 const ROOT = path.join(__dirname, "..");
 const OUT = path.join(ROOT, "en");
@@ -78,6 +79,9 @@ function render(key, g){
   ];
   const figJson = figFor(key, "en");
   const figHtml = figJson ? `    ${figJson}\n` : "";
+  const hero = heroFor(key, "en");
+  const heroHtml = hero
+    ? `    <!-- howto-hero:START -->\n    ${hero}\n    <!-- howto-hero:END -->\n` : "";
   const sew = g.sew.map(block=>{
     return `    <h3>${block.h}</h3>\n` + steps(block.items);
   }).join("\n\n");
@@ -184,7 +188,7 @@ ${crumbLd}
     <p class="lead">
       ${g.lead}
     </p>
-    <div class="toc">
+${heroHtml}    <div class="toc">
       <p class="toc-h">Contents</p>
       <ol>
         <li><a href="#materials">Materials &amp; tools</a></li>
