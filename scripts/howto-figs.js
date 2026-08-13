@@ -195,7 +195,7 @@ const FIG_MAP = {
   keyboardcover:"gusset", phoneshoulder:"gusset", tabletstand:"gusset",
   petbowtie:"tube", petscarf:"mitsuori", petseatcover:"mitsuori", petblanket:"mitsuori",
   pettent:"bias", tapestry:"casing", shelfcurtain:"casing", doormat:"bias",
-  dogvest:"turnout",
+  dogvest:"turnout", dogaloha:"turnout",
   // 2026-08 推し活
   nuitee:"mitsuori", nuihoodie:"bias", nuisailor:"gusset", nuikigurumi:"turnout",
   nuipajama:"mitsuori", nuijinbei:"mitsuori", nuiskirt:"casing", nuipants:"casing",
