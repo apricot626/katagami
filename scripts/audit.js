@@ -670,15 +670,59 @@ for (const f of jaPages.filter(x => x.startsWith("howto-") && !redirects.has(x))
 }
 
 /* =========================================================
+   11. 件数表記
+   紹介文や meta description に手で書いた「型紙◯種」は、どこにも
+   つながっていないので型紙を足しても古いまま残ります。実際
+   「190種類以上」が265種になっても直っていませんでした。検索結果に
+   出る文言なので、ずれたら気づけるようにします。
+   直すのは scripts/sync-counts.js です。
+   更新履歴（news-list）はそのときの事実なので対象外にします。
+   ========================================================= */
+{
+  const guides = d => fs.readdirSync(path.join(ROOT, d))
+    .filter(f => /^howto-.+\.html$/.test(f))
+    .filter(f => !isNoindex(d === "." ? f : d + "/" + f)).length;
+  const REAL = {
+    型紙: Object.keys(PATTERNS).length,
+    和文: guides("."), 英文: guides("en"),
+  };
+  /* 数の直前・直後にある言い回しで、何を数えた数かを見分ける。
+     「2種類の線」「作り方は2種類」のような、型紙の数とは関係のない
+     言い回しを拾わないよう、後ろの語まで含めて限定します。 */
+  const SHAPES = [
+    [/型紙(\d+)種(?![類を])/g, "型紙"],
+    [/(\d+)種類(?:以上)?(?:に対応|から選択可能|すべて)/g, "型紙"],
+    [/(?:all|the) (\d+) patterns/g, "型紙"],
+    [/are (\d+) patterns and (?:\d+) how-to guides/g, "型紙"],
+    [/patterns and (\d+) how-to guides/g, "合計"],
+    [/(\d+) in Japanese/g, "和文"], [/(\d+) in English/g, "英文"],
+    [/ガイド(\d+)本/g, "合計"], [/日本語(\d+)本/g, "和文"], [/英語(\d+)本/g, "英文"],
+  ];
+  REAL.合計 = REAL.和文 + REAL.英文;
+  for (const f of [...jaPages, ...enPages]) {
+    if (redirects.has(f) || /^(en\/)?howto-/.test(f)) continue;   // 各ガイドは対象外
+    /* 更新履歴（見出しの帯と一覧）は、そのときの事実を書いた過去の記録です。
+       「型紙27種を追加」は今も正しいので、書き換えても直しても意味がありません。 */
+    const h = read(f)
+      .replace(/<ul class="news-list">[\s\S]*?<\/ul>/g, "")
+      .replace(/<button class="news-head"[\s\S]*?<\/button>/g, "");
+    for (const [re, kind] of SHAPES)
+      for (const m of h.matchAll(re))
+        if (+m[1] !== REAL[kind])
+          add("count", f, `${kind}の数が古いままです: 「${m[0]}」→ 実際は ${REAL[kind]}`);
+  }
+}
+
+/* =========================================================
    出力
    ========================================================= */
 const byKind = {};
 for (const f of findings) (byKind[f.kind] = byKind[f.kind] || []).push(f);
-const order = ["pattern", "html", "link", "seo", "sitemap", "jsonld", "ogp", "meta", "i18n", "affiliate", "group"];
+const order = ["pattern", "html", "link", "seo", "sitemap", "jsonld", "ogp", "meta", "i18n", "affiliate", "group", "count"];
 const LABEL = {
   pattern: "製図", html: "HTML", link: "リンク", seo: "canonical/hreflang",
   sitemap: "sitemap", jsonld: "構造化データ", ogp: "OGP", meta: "メタ情報",
-  i18n: "翻訳", affiliate: "アフィリエイト", group: "一覧の副題",
+  i18n: "翻訳", affiliate: "アフィリエイト", group: "一覧の副題", count: "件数表記",
 };
 console.log(`対象: 日本語 ${jaPages.length} ページ / 英語 ${enPages.length} ページ / 型紙 ${Object.keys(PATTERNS).length} 種\n`);
 for (const k of order) {
