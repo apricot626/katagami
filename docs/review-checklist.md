@@ -22,6 +22,7 @@ node scripts/enrich-material-links.js  # 材料ボックスの楽天リンクを
 node scripts/sync-en-pages.js       # en/howto.html のカード・sitemap・HOWTO_EN
 node scripts/sync-ja-pages.js       # index.html / howto.html の一覧
 node scripts/sync-hreflang.js       # 英語版の有無に合わせて hreflang を整える
+node scripts/sync-counts.js         # 紹介文・meta の「型紙◯種」「ガイド◯本」を実数に合わせる
 node scripts/gen-ogp.js             # OGP画像（引数でキーを絞れる）
 node scripts/audit.js               # 点検
 node scripts/check-mobile.js        # スマホ幅（サーバー必要）
@@ -274,6 +275,18 @@ node scripts/gen-ogp.js bostonbag neckpillow   # キー指定で部分生成
 python3 -m http.server 8099 &
 node scripts/check-mobile.js      # 320 / 390px で横スクロール・文字切れ・JSエラーを見る
 ```
+
+### 本文に書いた数は、放っておくと古くなります
+
+一覧やカードの件数は `sync-ja-pages.js` / `sync-en-pages.js` が直しますが、
+**紹介文・meta description・構造化データに手で書いた数だけは、どこにもつながっていない**
+ので置いていかれます。型紙が265種になってもトップの meta description は「190種類以上」
+のままで、検索結果にそのまま出ていました。英語版の作り方一覧に至っては
+「残り113種は日本語のみ」と、すでに事実でないことを書いていました。
+
+`sync-counts.js` が直し、`audit.js` の「件数表記」が残りを見張ります。
+**更新履歴（`news-list` と `news-head`）はそのときの事実なので、どちらも触りません。**
+「型紙27種を追加（2026.08.05）」は今も正しい記述です。
 
 `check-mobile.js` が見るのは4つだけです。どれも「見れば分かるが、見ないと気づかない」種類のものです。
 
