@@ -17,13 +17,15 @@ const ROOT = path.join(__dirname, "..");
 /* 腕が垂直から外へ開く角度。フラット画の慣習で15〜20度。 */
 const ARM_ANGLE = 16;
 
+let _patterns = null;
 function loadPatterns() {
+  if (_patterns) return _patterns;            // 260ページ分呼ばれるので1回だけ読む
   const box = { window: {}, console };
   vm.createContext(box);
   vm.runInContext(
     fs.readFileSync(path.join(ROOT, "patterns.js"), "utf8") + ";globalThis.__P=PATTERNS;",
     box);
-  return box.__P;
+  return (_patterns = box.__P);
 }
 
 const bbox = pts => ({
@@ -133,4 +135,57 @@ function onepiece(P, vals, opts = {}) {
 
 const BUILDERS = { onepiece };
 
-module.exports = { loadPatterns, BUILDERS, bbox, ARM_ANGLE };
+/* ---- SVGに起こす ------------------------------------------
+   寸法は build の座標をそのまま拡大縮小するだけ。陰影とドレープは
+   布の落ち感を示す飾りで、寸法には触れません。 */
+function renderSVG(build, { labels, aria, armShade = true }) {
+  const nums = s => s.match(/-?\d+(\.\d+)?/g).map(Number);
+  const xs = [], ys = [];
+  for (const p of build.parts) {
+    const n = nums(p.d);
+    for (let i = 0; i < n.length; i += 2) { xs.push(n[i]); ys.push(n[i + 1]); }
+  }
+  const X0 = Math.min(...xs), X1 = Math.max(...xs);
+  const Y0 = Math.min(...ys), Y1 = Math.max(...ys);
+
+  const H = 330, k = H / (Y1 - Y0), W = (X1 - X0) * k;
+  const PAD = 10, FS = 17;
+  /* 全角は約1em、半角は約0.55em。ここを見誤るとラベルが枠の外で切れる */
+  const emWidth = t => [...t].reduce((n, c) => n + (/[\u3000-\u9fff\uff00-\uffef]/.test(c) ? 1 : 0.55), 0);
+  const COL = Math.round(Math.max(...labels.map(l => emWidth(l.text))) * FS) + 34;
+  const VW = Math.round(W + PAD * 2 + COL), VH = Math.round(H + PAD * 2);
+  const tx = PAD - X0 * k, ty = PAD - Y0 * k;
+  const w = v => (v / k).toFixed(1);                  // 線幅は拡大率で戻す
+
+  const lx = Math.round(PAD + W + 26);
+  const step = labels.length > 1 ? (H - 60) / (labels.length - 1) : 0;
+  let leaders = "", texts = "";
+  labels.forEach((l, i) => {
+    const a = build.anchors[l.at];
+    const ax = tx + a.x * k, ay = ty + a.y * k, ly = PAD + 30 + step * i;
+    leaders += `<line x1="${ax.toFixed(1)}" y1="${ay.toFixed(1)}" x2="${lx - 7}" y2="${(ly - FS * 0.32).toFixed(1)}"/>` +
+               `<circle cx="${ax.toFixed(1)}" cy="${ay.toFixed(1)}" r="2.4"/>`;
+    texts += `<text x="${lx}" y="${ly.toFixed(1)}">${l.text}</text>`;
+  });
+
+  const shade = armShade
+    ? `<defs><linearGradient id="hg" x1="0" x2="1">` +
+      `<stop offset="0" stop-color="#2E63B4" stop-opacity=".13"/>` +
+      `<stop offset=".38" stop-color="#2E63B4" stop-opacity=".05"/>` +
+      `<stop offset=".72" stop-color="#2E63B4" stop-opacity=".05"/>` +
+      `<stop offset="1" stop-color="#2E63B4" stop-opacity=".13"/></linearGradient></defs>` : "";
+  const fill = armShade ? "url(#hg)" : "rgba(46,99,180,.07)";
+
+  return `      <svg viewBox="0 0 ${VW} ${VH}" role="img" aria-label="${aria}">
+        ${shade}
+        <g transform="translate(${tx.toFixed(2)},${ty.toFixed(2)}) scale(${k.toFixed(4)})">
+${build.parts.map(p => `          <path d="${p.d}" fill="${fill}" stroke="#1B1D1A" stroke-width="${w(1.5)}" stroke-linejoin="round" stroke-linecap="round"/>`).join("\n")}
+${build.drape.map(d => `          <path d="${d}" fill="none" stroke="#1B1D1A" stroke-width="${w(0.9)}" opacity=".22"/>`).join("\n")}
+${build.seams.map(d => `          <path d="${d}" fill="none" stroke="#C24033" stroke-width="${w(1.5)}" stroke-dasharray="${w(6)} ${w(4)}"/>`).join("\n")}
+        </g>
+        <g stroke="#6b6b60" stroke-width="1" fill="#6b6b60">${leaders}</g>
+        <g font-size="${FS}" font-family="sans-serif" fill="#1B1D1A">${texts}</g>
+      </svg>`;
+}
+
+module.exports = { loadPatterns, BUILDERS, bbox, renderSVG, ARM_ANGLE };
