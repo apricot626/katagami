@@ -201,7 +201,9 @@ const FIG_MAP = {
   nuipajama:"mitsuori", nuijinbei:"mitsuori", nuiskirt:"casing", nuipants:"casing",
   nuiponcho:"bias", nuicape:"bias", nuihat:"gusset", nuibag:"gusset",
   nuisleep:"turnout", nuifuton:"turnout", rosette:"gusset", canbadge:"turnout",
-  ribbonkey:"tube", tradingcard:"turnout"
+  ribbonkey:"tube", tradingcard:"turnout",
+  // 2026-08 Tシャツ派生・犬セーラー
+  fabrictee:"bias", ribbontee:"casing", pockettee:"mitsuori", dogsailor:"turnout"
 };
 
 /* returns the figure HTML for a pattern key, or "" if unmapped */

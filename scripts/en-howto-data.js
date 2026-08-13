@@ -12244,6 +12244,246 @@ module.exports = {
     ],
     related:["canbadge", "rosette", "cardcase"],
   },
+  fabrictee: {
+    title:"Woven-fabric T-shirt", tab:"human", toolName:"Woven-fabric T-shirt",
+    sizeStep:"Enter the bust, length, shoulder width, sleeve length, cuff width, neckline width (one side), front neckline depth, back opening length and ease. Presets cover S, M, L and XL. The fabric does not stretch, so do not reduce the ease below the default 16 cm.",
+    desc:"How to sew a T-shirt from woven fabric. In linen or cotton lawn it reads more like a shirt. A back opening with one button lets your head through.",
+    keywords:"woven t-shirt,linen t-shirt,cotton lawn,no knit fabric,back opening,how to sew,sewing pattern",
+    lead:"A T-shirt made without jersey. In linen or cotton lawn it keeps the ease of a T-shirt but looks as tidy as a shirt. <strong>An ordinary machine and ordinary thread are all you need, so if knits give you trouble this is the easier route.</strong> The catch is that a woven neckline will not stretch over your head, so there is an opening at center back closed with one button.",
+    matNote:"one shirt, size M",
+    materials:[
+      "Outer (linen, cotton lawn, double gauze or any woven) — about 110 cm wide × 180 cm (43 × 71 in)",
+      "Lightweight fusible interfacing — about 10 × 20 cm to reinforce the back opening",
+      "Button, about 1 cm — 1",
+      "Sewing thread to match",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side of the fabric and trace both the cutting line and the finished line. Front and back are both cut on the fold at center.",
+      "<strong>Cut the pieces</strong><br>One front and one back, each on the fold; two sleeves; one bias strip for the neckline. Cut the bias strip at a true 45 degrees to the grain.",
+      "<strong>Transfer the notches</strong><br>Mark the sleeve-cap notch, the armhole notches, and above all <strong>the notch on the back that marks the end of the back opening</strong> — that is how far you cut down.",
+      "<strong>Interface the back opening</strong><br>Fuse a 10 × 20 cm piece of lightweight interfacing around center back at the opening. It stops the cut edges fraying.",
+    ],
+    sew:[
+      {h:"4-1. Make the back opening", items:[
+        "Cut straight down center back, from the top edge to the notch.",
+        "Turn the cut edges under twice, narrowly (5 mm then 5 mm), and stitch. The fabric gets very narrow at the bottom of the slit, so go slowly.",
+        "Backstitch about 1 cm across the bottom of the slit. That is the point that tears.",
+        "At the top of one side, either catch in a 7 cm loop of self-fabric cord for the button, or work a buttonhole.",
+      ]},
+      {h:"4-2. Sew the shoulders", items:[
+        "Place front and back right sides together and sew the shoulder seams.",
+        "Overlock or zigzag the allowances and press them towards the back.",
+      ]},
+      {h:"4-3. Bind the neckline", items:[
+        "Lay the bias strip along the neckline, right sides together, and sew from one edge of the back opening to the other. Fold 1 cm under at each end before you start.",
+        "Press the strip towards the allowance, turn it to the inside and topstitch.",
+        "<strong>Do not pull the strip through the tight curves.</strong> Stretching it shrinks the neckline, and then your head really will not go through.",
+      ]},
+      {h:"4-4. Set the sleeves", items:[
+        "Match the sleeve-cap notch to the shoulder seam and set each sleeve into the armhole, right sides together.",
+        "Woven fabric will not ease, so where there is a lot of fullness run a gathering stitch first and draw it up slightly.",
+        "Finish the allowances and press them towards the body.",
+      ]},
+      {h:"4-5. Sew the sides and underarms", items:[
+        "Place front and back right sides together and sew in one pass from the cuff down to the hem. Repeat on the other side.",
+        "Finish the side allowances.",
+      ]},
+      {h:"4-6. Hem, and add the button", items:[
+        "Turn each cuff under 1 cm then 2 cm and stitch.",
+        "Hem the same way.",
+        "Sew the button to the top of the back opening and it is done.",
+      ]},
+    ],
+    sewNote:"Almost everything that goes wrong with a woven T-shirt goes wrong at the neckline — it does not stretch, so if it will not go on there is no rescue. <strong>Finish the neckline binding before you sew the body, and try it over your head once.</strong> If it will not pass, lengthening the back opening by 2–3 cm fixes it. Discover it after the shirt is finished and you have to unpick the neckline to do the same thing.",
+    tips:[
+      "<strong>Choosing fabric</strong>: linen, cotton lawn, double gauze, chambray. Anything very fine will let the neckline go limp, so with lawn also fuse a narrow strip of interfacing along the neckline.",
+      "<strong>How it differs from the jersey T-shirt</strong>: same garment, about 4 cm more ease. That extra is doing the job the stretch would otherwise do — take it away and you cannot lift your arms.",
+      "<strong>No button at all</strong>: at 15 cm or more the opening lets your head through unfastened. If you are going to leave it open, bind the edges with self-fabric bias for a neater finish.",
+      "<strong>A wider neckline</strong>: increasing the neckline width lets you shorten the opening. Above about 9.5 cm per side it may go on with no opening at all — measure round your head and check.",
+      "<strong>Long sleeves</strong>: a sleeve length around 50 cm gives a full-length sleeve. Leave the cuff as a plain double-fold hem rather than adding elastic; it suits linen better.",
+    ],
+    related:["tee", "pockettee", "ribbontee", "blouse"],
+  },
+
+  ribbontee: {
+    title:"Ribbon-cuff T-shirt", tab:"human", toolName:"Ribbon-cuff T-shirt",
+    sizeStep:"Enter the bust, length, shoulder width, sleeve length, sleeve fullness, gathered cuff measurement, neckline width (one side) and ease. Presets cover S, M, L and a short-sleeved version. The greater the sleeve fullness, the more the cuff gathers when you tie it.",
+    desc:"How to sew a T-shirt with a ribbon drawn through each cuff. How tightly you tie it changes the puff. The casing is just a double-fold hem, so if you can sew a T-shirt you can sew this.",
+    keywords:"ribbon sleeve,puff sleeve,drawstring cuff,casing,gathered sleeve,how to sew,sewing pattern",
+    lead:"A T-shirt with a casing at each cuff and a ribbon drawn through. <strong>How tightly you tie it changes how much the sleeve puffs, so one shirt behaves differently depending on your mood.</strong> The casing is nothing more than a double-fold hem; the ribbon is a strip of self-fabric folded in quarters and stitched. The body is exactly an ordinary T-shirt.",
+    matNote:"one shirt, size M",
+    materials:[
+      "Outer (cotton lawn, voile or any light cotton) — about 110 cm wide × 200 cm (43 × 79 in)",
+      "Or, if buying ribbon: 1.5 cm satin ribbon — about 150 cm",
+      "Sewing thread to match",
+      "A bodkin (a safety pin will do)",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines. Front and back are cut on the fold at center.",
+      "<strong>Cut the pieces</strong><br>One front and one back, each on the fold; two sleeves; one bias strip for the neckline; two sleeve ribbons.",
+      "<strong>Transfer the notches</strong><br>Mark the sleeve-cap notch and <strong>the casing fold line at the cuff</strong> — that is where the double fold goes.",
+      "<strong>Make the self-fabric ribbons</strong><br>Fold each strip in quarters (both edges to the center, then in half) and topstitch the open edge. Shop-bought satin ribbon works just as well.",
+    ],
+    sew:[
+      {h:"4-1. Sew the shoulders", items:[
+        "Place front and back right sides together and sew the shoulder seams.",
+        "Finish the allowances and press them towards the back.",
+      ]},
+      {h:"4-2. Bind the neckline", items:[
+        "Join the bias strip into a loop, then sew it round the neckline right sides together.",
+        "Turn it to the inside and topstitch.",
+      ]},
+      {h:"4-3. Make the cuff casings", items:[
+        "<strong>Finish the cuffs before setting the sleeves in.</strong> Once the sleeve is a tube the double fold is much harder to stitch.",
+        "Turn the cuff under 1 cm, then 2.5 cm, and press.",
+        "Topstitch along the upper fold, right round. That is your casing.",
+        "Make two exits for the ribbon on what will be the outside of the sleeve. Cut a 1.5 cm slit through the inner layer only and finish each slit with buttonhole stitch or a tight zigzag. <strong>Skip that reinforcement and the slits will tear the first few times you pull the ribbon.</strong>",
+      ]},
+      {h:"4-4. Set the sleeves", items:[
+        "Match the sleeve-cap notch to the shoulder seam and set each sleeve in, right sides together.",
+        "Finish the allowances and press them towards the body.",
+      ]},
+      {h:"4-5. Sew the sides and underarms", items:[
+        "Place front and back right sides together and sew from the cuff down to the hem in one pass. Repeat on the other side.",
+        "Check that the seam allowance has not closed off the casing — if it has, the ribbon will not pass.",
+      ]},
+      {h:"4-6. Hem, then thread the ribbons", items:[
+        "Turn the hem under 1 cm then 2 cm and stitch.",
+        "Thread a ribbon through each casing with a bodkin or safety pin and bring both ends out of the slits.",
+        "Put the shirt on, decide how tight you like it, then trim the ribbon ends on the diagonal.",
+      ]},
+    ],
+    sewNote:"The trick to this pattern is finishing the cuffs while the sleeve is still flat. Flat, the double fold and the topstitching go in straight; as a tube you are feeding the sleeve round the machine arm and the stitching wanders. Keep to that order and the rest is an ordinary T-shirt.",
+    tips:[
+      "<strong>Play with the ribbon</strong>: self-fabric is quiet, a contrasting satin makes it an occasion. Make several and swap them.",
+      "<strong>Adjusting the puff</strong>: set the sleeve fullness to 12 cm or more and the cuff gathers into a proper puff sleeve. Around 8 cm gives a soft, restrained ripple.",
+      "<strong>The short-sleeve preset</strong>: even short, the ribbon at the cuff quietly covers the upper arm.",
+      "<strong>Nothing to tie</strong>: thread 1 cm flat elastic instead of ribbon and the sleeve needs no tying at all — better if you are making this for a child.",
+      "<strong>Keep it light</strong>: thick fabric makes a bulky casing that the ribbon will not pass through. Lawn or voile.",
+    ],
+    related:["tee", "fabrictee", "pockettee", "blouse"],
+  },
+
+  pockettee: {
+    title:"Pocket T-shirt", tab:"human", toolName:"Pocket T-shirt",
+    sizeStep:"Enter the bust, length, shoulder width, sleeve length, cuff width, neckline width (one side), pocket width, pocket depth and ease. Presets cover S, M, L and a larger pocket.",
+    desc:"How to sew a T-shirt with a chest pocket. A notch on the pattern fixes the pocket position, so it never goes on crooked. Cut the pocket from a scrap for contrast.",
+    keywords:"pocket t-shirt,chest pocket,patch pocket,scrap fabric,how to sew,sewing pattern",
+    lead:"A T-shirt with one patch pocket on the chest. <strong>A single pocket changes the whole character of a plain T-shirt.</strong> The front pattern piece carries a notch that marks the top-left corner of the pocket, so there is no guessing and nothing ends up crooked. Cut the pocket from a different fabric and one scrap is enough.",
+    matNote:"one shirt, size M",
+    materials:[
+      "Outer (jersey or interlock) — about 110 cm wide × 190 cm (43 × 75 in)",
+      "Or, for a contrast pocket: a scrap about 20 × 20 cm",
+      "Ballpoint machine needle and thread for knits",
+      "Lightweight fusible interfacing for the pocket opening — about 15 × 5 cm",
+    ],
+    cut:[
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines. Front and back are cut on the fold at center.",
+      "<strong>Cut the pieces</strong><br>One front and one back, each on the fold; two sleeves; one pocket; one bias strip for the neckline.",
+      "<strong>Transfer the notches</strong><br><strong>The notch on the front marks the top-left corner of the pocket.</strong> Mark it with tailor's chalk. The left chest is the usual place, but hold the piece up in front of a mirror first so you put it on the side you meant to.",
+      "<strong>Interface the pocket opening</strong><br>Fuse a narrow strip behind the fold at the top of the pocket. Jersey stretches at the opening, and without it the pocket gapes with use.",
+    ],
+    sew:[
+      {h:"4-1. Make the pocket", items:[
+        "Turn the top edge under 1 cm, then 2 cm, and topstitch.",
+        "Press the remaining three allowances to the wrong side. The two lower corners are chamfered on the pattern, so the folds meet neatly instead of stacking up.",
+        "Baste them down and the next step will not shift.",
+      ]},
+      {h:"4-2. Attach the pocket to the front", items:[
+        "<strong>Do this while the front is still a flat single piece.</strong> Once the sides are sewn the body will not fit round the machine arm.",
+        "Line the pocket's top-left corner up with the notch and pin or clip it.",
+        "Topstitch down one side, across the bottom and up the other, leaving the opening free.",
+        "Reinforce both ends of the opening with a small triangle of backstitching. Every time a hand goes in, that is where the strain lands — do not skip it.",
+      ]},
+      {h:"4-3. Sew the shoulders", items:[
+        "Place front and back right sides together and sew the shoulder seams.",
+        "Finish the allowances and press them towards the back.",
+      ]},
+      {h:"4-4. Bind the neckline", items:[
+        "Join the bias strip into a loop, then sew it round the neckline right sides together.",
+        "Turn it to the inside and topstitch.",
+      ]},
+      {h:"4-5. Set the sleeves and sew the sides", items:[
+        "Match the sleeve-cap notch to the shoulder seam and set each sleeve in, right sides together.",
+        "Place front and back right sides together and sew from the cuff down to the hem in one pass. Repeat on the other side.",
+      ]},
+      {h:"4-6. Hem the cuffs and the body", items:[
+        "Turn each cuff under twice and stitch with a stretch stitch.",
+        "Hem the body the same way and it is done.",
+      ]},
+    ],
+    sewNote:"Attach the pocket while the front is still one flat piece. Sew the sides first and you are feeding a tube round the machine arm, and the pocket will not go on straight. Moving one step earlier in the order changes the whole result.",
+    tips:[
+      "<strong>Contrast is the point</strong>: a checked or printed pocket lifts a plain T-shirt entirely. A 20 cm square of scrap is enough.",
+      "<strong>Where it sits</strong>: the notch puts the pocket about 20 cm down from the shoulder and 12 cm from center. If it looks low on you, raise it 2 cm next time — holding the piece against yourself in a mirror beats any number.",
+      "<strong>The larger-pocket preset</strong>: 15 cm wide by 16 cm deep swallows a phone. Anything heavy will drag the front out of shape, though, so keep it to light things.",
+      "<strong>One on each side</strong>: the pattern marks both positions. Two pockets give it a work-shirt look.",
+      "<strong>Works in woven fabric too</strong>: the pocket is made the same way. For a non-stretch version, add this pocket to the woven-fabric T-shirt pattern.",
+    ],
+    related:["tee", "fabrictee", "ribbontee", "raglantee"],
+  },
+
+  dogsailor: {
+    title:"Dog sailor vest", tab:"pet", toolName:"Dog sailor vest",
+    sizeStep:"Enter the chest, back length, belly length, neck, front-leg opening position, front-leg opening size, sailor collar length and ease. Presets cover toy, small and medium dogs, and cats.",
+    desc:"How to sew a sailor vest for a dog or cat. A tube-shaped vest with a square sailor collar. Two lines of white tape on the collar are what make it read as a sailor suit.",
+    keywords:"dog sailor,dog vest,cat clothes,sailor collar,pet clothes,how to sew,sewing pattern",
+    lead:"A tube-shaped vest — a back panel and a belly panel joined at the sides — with a square sailor collar. <strong>Two lines of narrow white tape on the collar do most of the work.</strong> The front-leg openings are nothing more than a scoop in each side seam, so there are no sleeves to set. For birthdays and New Year photographs.",
+    matNote:"one vest, small dog",
+    materials:[
+      "Outer (light cotton, chambray or jersey) — about 110 cm wide × 40 cm (43 × 16 in)",
+      "Contrast for the collar (navy or white) — about 30 × 20 cm",
+      "White ribbon tape, 6 mm — about 60 cm",
+      "Double-fold bias tape, 1.1 cm — about 60 cm, for the leg scoops and neckline",
+      "Lightweight fusible interfacing for the collar — about 30 × 20 cm",
+      "Sewing thread",
+    ],
+    cut:[
+      "<strong>Measure first</strong><br>Chest (the widest point behind the front legs), neck, and back length (base of neck to base of tail). <strong>Measure standing, with two fingers' slack under the tape.</strong>",
+      "<strong>Trace the pattern</strong><br>Lay the pattern on the wrong side and trace both lines. Back panel and belly panel are both cut on the fold at center.",
+      "<strong>Cut the pieces</strong><br>One back panel and one belly panel, each on the fold; the sailor collar in outer ×2 and lining ×2. Cutting the collar from a contrast fabric is what gives it the color break.",
+      "<strong>Transfer the notches</strong><br><strong>Mark the two front-leg notches on each side seam.</strong> Between them the side is scooped inwards, and that scoop is where the front leg goes.",
+      "<strong>Interface the collar</strong><br>Fuse lightweight interfacing to the outer collar pieces. A limp collar makes the whole thing look untidy.",
+    ],
+    sew:[
+      {h:"4-1. Make the sailor collar", items:[
+        "Stitch two lines of white tape onto the outer collar, parallel to the outer edge at 5 mm and 12 mm. <strong>Those two lines are most of what makes it a sailor collar.</strong> Match the spacing on left and right.",
+        "Place outer and lining right sides together and sew all round, leaving open only the edge that joins the neckline.",
+        "Trim the corners diagonally, turn, push the points out and press.",
+        "Two collars in all.",
+      ]},
+      {h:"4-2. Finish the leg scoops", items:[
+        "<strong>Finish the scoops before you sew the sides.</strong> Once the vest is a tube these small curves are unsewable.",
+        "Bind each scoop on both panels with bias tape: sew it on right sides together, turn it to the inside and topstitch.",
+        "Without bias tape, clip the curve every 5 mm before turning the allowance under twice. <strong>Fold an unclipped curve and it will pucker every time.</strong>",
+      ]},
+
+      {h:"4-3. Join the sides into a tube", items:[
+        "Place the back panel and belly panel right sides together, matching notch to notch, and sew the side seams.",
+        "Sew from the neck end down to the upper notch, and from the lower notch to the hem. <strong>The scoops left between them are the leg openings.</strong>",
+        "Overlock or zigzag the allowances.",
+      ]},
+      {h:"4-4. Attach the collar", items:[
+        "Lay the two collars on the neckline, meeting at center back, with their open edges towards the neckline.",
+        "Check on a flat surface that the two sides are level before you pin. If they are off, it shows the moment the vest goes on.",
+        "Stitch all round the neckline.",
+      ]},
+      {h:"4-5. Finish the neckline and hems", items:[
+        "Bind the neckline allowance with bias tape, or turn it to the inside and topstitch.",
+        "Turn the lower edge of each panel under 1 cm twice and stitch.",
+        "Slip a finger round each leg opening to check nothing is restricting movement, and it is done.",
+      ]},
+    ],
+    sewNote:"Dogs of the same breed vary enormously, so do not cut into your good fabric first. Make a toile from calico or an old shirt and put it on. <strong>You only need to check two things: where the leg openings sit and how big they are.</strong> The openings are nothing but a scoop in the side seam, so at the toile stage you can move them or make them bigger as often as you like. A dog that dislikes the fit will try to get out of it, so keep two fingers' slack.",
+    tips:[
+      "<strong>Always two white lines</strong>: one looks unfinished, three looks like a child's dress. About 7 mm between them reads most convincingly as a sailor collar.",
+      "<strong>Collar length</strong>: about a third of the back length. Longer and it covers the back, which gets hot.",
+      "<strong>Add a scarf</strong>: a red ribbon tied at the center front finishes the look. It is a swallowing hazard, though — put it on for the photograph and take it off afterwards.",
+      "<strong>For cats</strong>: the cat preset runs narrower through the body. Cats object to anything tight, so feel free to take the ease up to about 7 cm.",
+      "<strong>Do not leave it on</strong>: with no fastening it will not fall off, which also means your pet cannot get out of it if it snags. Take it off whenever you are not watching.",
+    ],
+    related:["petvest", "dogvest", "dog", "petcape"],
+  },
   dogaloha: {
     title:"Dog aloha shirt",
     tab:"pet",
