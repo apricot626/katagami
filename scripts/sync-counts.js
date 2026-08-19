@@ -43,6 +43,10 @@ const RULES = [
   ["404.html",       `all ${N} patterns`,  () => `all ${EN} patterns`],
   ["en/index.html",  `the ${N} patterns`,  () => `the ${EN} patterns`],
   ["en/howto.html",  `the ${N} patterns`,  () => `the ${EN} patterns`],
+  /* 「190+ patterns」「190+ free patterns」の切り上げ表記。$2 は "free " か空。
+     meta description・JSON-LD・トップの説明カードに散っています。 */
+  ["en/index.html",  `${N}\\+ (free )?patterns`, () => `${EN} $2patterns`],
+  ["en/tool.html",   `${N}\\+ (free )?patterns`, () => `${EN} $2patterns`],
   ["about.html",
    `型紙${N}種と、作り方ガイド${N}本（日本語${N}本・英語${N}本）`,
    () => `型紙${PAT}種と、作り方ガイド${JA + EN}本（日本語${JA}本・英語${EN}本）`],
