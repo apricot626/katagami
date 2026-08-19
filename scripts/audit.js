@@ -693,6 +693,7 @@ for (const f of jaPages.filter(x => x.startsWith("howto-") && !redirects.has(x))
     [/型紙(\d+)種(?![類を])/g, "型紙"],
     [/(\d+)種類(?:以上)?(?:に対応|から選択可能|すべて)/g, "型紙"],
     [/(?:all|the) (\d+) patterns/g, "型紙"],
+    [/(\d+)\+ (?:free )?patterns/g, "型紙"],   // 「190+ patterns」の切り上げ表記
     [/are (\d+) patterns and (?:\d+) how-to guides/g, "型紙"],
     [/patterns and (\d+) how-to guides/g, "合計"],
     [/(\d+) in Japanese/g, "和文"], [/(\d+) in English/g, "英文"],
