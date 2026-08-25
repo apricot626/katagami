@@ -254,6 +254,7 @@ ${relatedHtml}</article>
   <a href="howto.html">All guides</a>
   <a href="tool.html">Pattern tool</a>
   <a href="about.html">About</a>
+  <a href="privacy.html">Privacy Policy</a>
 </footer>
 </body>
 </html>
