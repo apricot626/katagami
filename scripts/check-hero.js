@@ -29,6 +29,10 @@ const EXPECT = {
     neckHalf:     cm(p.neckw) / 2,
     cuff:         cm(p.cuff),
   }),
+  skirt: p => ({
+    waistHalf: cm(p.waist) / 4,
+    hemHalf:   cm(p.hip) / 4 + cm(p.flare),
+  }),
 };
 
 function casesFor(pat) {
