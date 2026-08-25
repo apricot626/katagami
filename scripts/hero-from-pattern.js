@@ -133,7 +133,48 @@ function onepiece(P, vals, opts = {}) {
   };
 }
 
-const BUILDERS = { onepiece };
+/* ---- スカート（ウエスト〜裾の一枚） ---------------------------
+   「わ」で開いて正面の台形に。上端がウエスト、下端が裾。 */
+function skirt(P, vals, opts = {}) {
+  const { pieces } = P.skirt.gen(vals, 0);
+  const sPts = pieces[0].finished;   // 中心ウエスト→右脇→裾→中心裾 の順
+  const L = bbox(sPts).y1;
+  /* ウエストと裾はまっすぐでなく緩く弧を描きます。丈に対する割合で帯を取ると
+     丈が長いとき脇線を巻き込むので、端から辺を辿り、傾きが急になった点＝
+     「ほぼ水平なウエスト／裾」から「斜めに落ちる脇線」への角で止めます。
+     ウエスト・裾は傾き0.1前後、脇はフレアを効かせても0.6以上なので、
+     しきい値0.4で確実に分かれます。 */
+  const flat = (a, b) => Math.abs(b.y - a.y) < 0.4 * Math.abs(b.x - a.x);
+  let i = 0;
+  while (i + 1 < sPts.length && flat(sPts[i], sPts[i + 1])) i++;
+  let j = sPts.length - 1;
+  while (j - 1 >= 0 && flat(sPts[j], sPts[j - 1])) j--;
+  const waistCurve = sPts.slice(0, i + 1);
+  const hemCurve = sPts.slice(j);
+  const waistHalf = Math.max(...waistCurve.map(p => p.x));
+  const hemHalf = Math.max(...hemCurve.map(p => p.x));
+
+  return {
+    parts: [{ role: "skirt", d: poly(openFold(sPts)) }],
+    seams: [
+      line(waistCurve.concat(mirror(waistCurve.slice().reverse()))),  // ウエスト
+      line(hemCurve.concat(mirror(hemCurve.slice().reverse()))),      // 裾
+    ],
+    /* 布の落ち感（飾り）。ウエスト幅に対する割合で置く */
+    drape: [0.4, 0.72].flatMap(f => [
+      line([{ x: waistHalf * f, y: L * 0.12 }, { x: hemHalf * (f * 1.02), y: L - 12 }]),
+      line([{ x: -waistHalf * f, y: L * 0.12 }, { x: -hemHalf * (f * 1.02), y: L - 12 }]),
+    ]),
+    anchors: {
+      waist: { x: waistHalf, y: 0 },
+      side:  { x: (waistHalf + hemHalf) / 2, y: L * 0.5 },
+      hem:   { x: hemHalf * 0.9, y: L },
+    },
+    dims: { skirtLen: L, waistHalf, hemHalf },
+  };
+}
+
+const BUILDERS = { onepiece, skirt };
 
 /* ---- SVGに起こす ------------------------------------------
    寸法は build の座標をそのまま拡大縮小するだけ。陰影とドレープは

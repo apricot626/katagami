@@ -24,6 +24,13 @@ const WRAP = (svg, cap) =>
 
 const T = (ja, en, l) => (l === "ja" ? ja : en);
 
+/* キャプションはどの型紙も同じ言い回し。「この数値を入れれば同じ型紙が出る」
+   という約束を全図で共有します（shown の数値がそのままレシピになる）。 */
+const CAP = {
+  ja: s => `完成イメージ（${s}）。赤い破線が縫う線です。この数値をツールに入れると同じ型紙が出ます。`,
+  en: s => `What it looks like finished (${s}). Red dashed lines are the stitching — enter these numbers in the tool to get this exact pattern.`,
+};
+
 const SPECS = {
   onepiece: {
     /* 既定は袖丈54cm（長袖）。半袖・広めの衿ぐり・フレア多めのほうが
@@ -43,10 +50,23 @@ const SPECS = {
       { at: "skirt",  ja: "Aラインスカート",      en: "A-line skirt" },
       { at: "hem",    ja: "裾は三つ折り",         en: "Double-fold hem" },
     ],
-    caption: {
-      ja: s => `完成イメージ（${s}）。赤い破線が縫う線です。この数値をツールに入れると同じ型紙が出ます。`,
-      en: s => `What it looks like finished (${s}). Red dashed lines are the stitching — enter these numbers in the tool to get this exact pattern.`,
+    caption: CAP,
+  },
+
+  skirt: {
+    /* フレアを少し足してAラインらしく見せる。 */
+    vals: { flare: 12 },
+    shown: { ja: "ウエスト70cm・スカート丈58cm・フレア12cm", en: "70 cm waist, 58 cm length, 12 cm flare" },
+    aria: {
+      ja: "Aラインスカートの完成イメージ。ウエストから裾へ広がる台形。ウエストはゴム、裾は三つ折り",
+      en: "Finished A-line skirt: a trapezoid widening from the waist to the hem, with an elastic waist and a double-fold hem",
     },
+    labels: [
+      { at: "waist", ja: "ウエストはゴム", en: "Elastic waist" },
+      { at: "side",  ja: "脇を縫う",       en: "Side seam" },
+      { at: "hem",   ja: "裾は三つ折り",   en: "Double-fold hem" },
+    ],
+    caption: CAP,
   },
 };
 
