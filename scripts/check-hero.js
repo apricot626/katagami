@@ -29,6 +29,15 @@ const EXPECT = {
     neckHalf:     cm(p.neckw) / 2,
     cuff:         cm(p.cuff),
   }),
+  /* bustHalf（身頃の最大幅）は、肩を広げると袖ぐりのぶん（＋3cm）が
+     バスト幅を追い越すので、入力値と1対1で対応しません。素直に対応する
+     着丈・袖丈・衿ぐり・袖口だけを検算します。 */
+  tee: p => ({
+    bodiceLen: cm(p.len),
+    sleeveLen: cm(p.sleeve),
+    neckHalf:  cm(p.neckw) / 2,
+    cuff:      cm(p.cuff),
+  }),
   skirt: p => ({
     waistHalf: cm(p.waist) / 4,
     hemHalf:   cm(p.hip) / 4 + cm(p.flare),

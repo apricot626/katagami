@@ -133,6 +133,77 @@ function onepiece(P, vals, opts = {}) {
   };
 }
 
+/* ---- Tシャツ（袖付きトップス） --------------------------------
+   前身頃を「わ」で開いて正面に、袖を肩先に接続します。
+
+   ワンピースとの違いが2つあります。
+   ①肩が前下がり（袖ぐりの上端＝肩先が y=0 に来ない）ので、肩先は
+     「右上に最も張り出す点」＝x−y が最大の点として取ります。
+   ②これは肩を落としたボックスTで、袖山がほぼ0のドロップショルダーです。
+     袖ぐりが深い（肩先→脇下で20cm）ため、ワンピースのように袖を「脇下」
+     起点で描くと、その深さぶん袖が下にずれて長袖に見えてしまいます。
+     袖は肩先を起点にして袖丈ぶん下ろします。 */
+function tee(P, vals, opts = {}) {
+  const { pieces } = P.tee.gen(vals, 0);
+  const [front, , sleeve] = pieces;
+  const fPts = front.finished, slPts = sleeve.finished;
+  const bF = bbox(fPts), bSl = bbox(slPts);
+
+  const BL = bF.y1;                                       // 着丈
+  const underarm = front.notches[0];                      // 脇下（袖の内側はここへ閉じる）
+  const shoulder = fPts.reduce((a, p) => (p.x - p.y) > (a.x - a.y) ? p : a); // 肩先
+  const neckIdx = fPts.findIndex(p => near(p.y, 0));
+  const neckCurve = fPts.slice(0, neckIdx + 1);
+  const neckEnd = fPts[neckIdx];
+
+  const bicepHalf = bSl.x1 / 2;
+  const hemXs = slPts.filter(p => near(p.y, bSl.y1)).map(p => p.x);
+  const cuffHalf = (Math.max(...hemXs) - Math.min(...hemXs)) / 2;
+  const SL = bSl.y1;
+  const capH = Math.min(...slPts.filter(p => p.y > 0.5).map(p => p.y));
+
+  const th = (opts.armAngle ?? ARM_ANGLE) * Math.PI / 180;
+  const ax = { x: Math.sin(th), y: Math.cos(th) };
+  const nx = { x: Math.cos(th), y: -Math.sin(th) };
+  const add = (p, v, k) => ({ x: p.x + v.x * k, y: p.y + v.y * k });
+
+  const bicepOut = add(shoulder, nx, bicepHalf);          // ★肩先を起点に外へ
+  const cuffOut = add(bicepOut, ax, SL - capH);           // 袖丈ぶん下ろす
+  const cuffIn = add(cuffOut, nx, -cuffHalf);
+  /* 袖山が浅いので、ふくらみは控えめに（最低8mm）張り出させる */
+  const capBulge = add(
+    { x: (shoulder.x + bicepOut.x) / 2, y: (shoulder.y + bicepOut.y) / 2 },
+    nx, Math.max(capH, 8));
+  const sleeveR = { start: shoulder, cap: capBulge, bicep: bicepOut,
+                    cuffOut, cuffIn, underarm };
+
+  const body = openFold(fPts);
+  return {
+    parts: [
+      { role: "sleeve", d: sleevePath(sleeveR, 1) },
+      { role: "sleeve", d: sleevePath(sleeveR, -1) },
+      { role: "body",   d: poly(body) },
+    ],
+    seams: [
+      line(neckCurve.concat(mirror(neckCurve.slice().reverse()))),
+      line([{ x: -bF.x1, y: BL }, { x: bF.x1, y: BL }]),   // 裾
+      line([cuffOut, cuffIn]),
+      line(mirror([cuffOut, cuffIn])),
+    ],
+    drape: [],
+    anchors: {
+      neck:   neckEnd,
+      sleeve: add(bicepOut, ax, (SL - capH) * 0.5),
+      side:   { x: bF.x1, y: BL * 0.62 },
+      hem:    { x: bF.x1 * 0.5, y: BL },
+    },
+    dims: {
+      bodiceLen: BL, sleeveLen: SL,
+      bustHalf: bF.x1, neckHalf: neckEnd.x, cuff: cuffHalf * 2,
+    },
+  };
+}
+
 /* ---- スカート（ウエスト〜裾の一枚） ---------------------------
    「わ」で開いて正面の台形に。上端がウエスト、下端が裾。 */
 function skirt(P, vals, opts = {}) {
@@ -174,7 +245,7 @@ function skirt(P, vals, opts = {}) {
   };
 }
 
-const BUILDERS = { onepiece, skirt };
+const BUILDERS = { onepiece, tee, skirt };
 
 /* ---- SVGに起こす ------------------------------------------
    寸法は build の座標をそのまま拡大縮小するだけ。陰影とドレープは

@@ -53,6 +53,24 @@ const SPECS = {
     caption: CAP,
   },
 
+  tee: {
+    /* 既定のボックスTそのまま。肩を落とした半袖が自然に見える角度に。 */
+    vals: {},
+    shown: { ja: "バスト100cm・着丈66cm・袖丈20cm", en: "100 cm bust, 66 cm length, 20 cm sleeves" },
+    armAngle: 14,
+    aria: {
+      ja: "Tシャツの完成イメージ。肩を落とした半袖のボックスシルエット、前後身頃と袖、始末した衿ぐり",
+      en: "Finished T-shirt: a boxy drop-shoulder short-sleeve silhouette with front and back bodice, sleeves and a finished neckline",
+    },
+    labels: [
+      { at: "neck",   ja: "衿ぐりの始末", en: "Neckline finish" },
+      { at: "sleeve", ja: "袖を付ける",   en: "Sleeve" },
+      { at: "side",   ja: "脇を縫う",     en: "Side seam" },
+      { at: "hem",    ja: "裾は三つ折り", en: "Double-fold hem" },
+    ],
+    caption: CAP,
+  },
+
   skirt: {
     /* フレアを少し足してAラインらしく見せる。 */
     vals: { flare: 12 },
