@@ -109,7 +109,7 @@
       { ja: "首まわり", en: "Around the neck",
         keys: ["petbandana", "petsnood", "petcollar", "petbowtie", "petscarf"] },
       { ja: "おでかけ", en: "Out and about",
-        keys: ["mannerbelt", "petpouch", "petsling", "petcarrier", "petseatcover"] },
+        keys: ["mannerbelt", "petpouch", "petsling", "petcarrier", "petcartstep", "petseatcover"] },
       { ja: "くつろぐ", en: "Rest & play",
         keys: ["petbed", "petmat", "pettoy", "petblanket", "pettent"] },
     ],

@@ -36,17 +36,23 @@ const JA = guides("."), EN = guides("en");
    探す側も数を変数にしてあるので、次に数が変わっても同じ表で追随します。 */
 const N = "(\\d+)";
 const RULES = [
-  ["index.html",     `${N}種類以上に対応`, () => `${PAT}種類に対応`],
-  ["index.html",     `${N}種類以上から選択可能`, () => `${PAT}種類から選択可能`],
+  /* 「以上」は初回の修正で外したので、付いていても外れていても拾えるよう
+     任意扱いにする（付けっぱなしだと、次に数が変わったとき素通りする）。 */
+  ["index.html",     `${N}種類(?:以上)?に対応`, () => `${PAT}種類に対応`],
+  ["index.html",     `${N}種類(?:以上)?から選択可能`, () => `${PAT}種類から選択可能`],
   ["howto.html",     `${N}種類すべての`,   () => `${PAT}種類すべての`],
   ["404.html",       `型紙${N}種の一覧`,   () => `型紙${PAT}種の一覧`],
   ["404.html",       `all ${N} patterns`,  () => `all ${EN} patterns`],
   ["en/index.html",  `the ${N} patterns`,  () => `the ${EN} patterns`],
   ["en/howto.html",  `the ${N} patterns`,  () => `the ${EN} patterns`],
-  /* 「190+ patterns」「190+ free patterns」の切り上げ表記。$2 は "free " か空。
-     meta description・JSON-LD・トップの説明カードに散っています。 */
-  ["en/index.html",  `${N}\\+ (free )?patterns`, () => `${EN} $2patterns`],
-  ["en/tool.html",   `${N}\\+ (free )?patterns`, () => `${EN} $2patterns`],
+  /* 英語トップ／ツールの meta・JSON-LD・説明カードの件数。以前は「190+」の
+     "+" を目印にしていたが、実数化で "+" が消えて素通りするようになったので、
+     数字だけでなく前後の語で場所を特定する（お知らせ欄の「N patterns in total」
+     とは文言が違うので誤爆しない）。 */
+  ["en/index.html",  `${N} patterns for clothes`,        () => `${EN} patterns for clothes`],
+  ["en/index.html",  `${N} free patterns you can print`, () => `${EN} free patterns you can print`],
+  ["en/index.html",  `${N} patterns across clothes`,     () => `${EN} patterns across clothes`],
+  ["en/tool.html",   `${N} free patterns\\.`,            () => `${EN} free patterns.`],
   ["about.html",
    `型紙${N}種と、作り方ガイド${N}本（日本語${N}本・英語${N}本）`,
    () => `型紙${PAT}種と、作り方ガイド${JA + EN}本（日本語${JA}本・英語${EN}本）`],
