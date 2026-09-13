@@ -579,6 +579,7 @@ const HOWTO={
   petpouch:{url:"howto-petpouch.html", label:"📄 お散歩ポーチの作り方を見る"},
   petsling:{url:"howto-petsling.html", label:"📄 ペットスリングの作り方を見る"},
   petcarrier:{url:"howto-petcarrier.html", label:"📄 ペットキャリーバッグの作り方を見る"},
+  petcartstep:{url:"howto-petcartstep.html", label:"📄 ペットカート用足置きの作り方を見る"},
   petbowtie:{url:"howto-petbowtie.html", label:"📄 ペットの蝶ネクタイの作り方を見る"},
   petscarf:{url:"howto-petscarf.html", label:"📄 ペットマフラーの作り方を見る"},
   petseatcover:{url:"howto-petseatcover.html", label:"📄 ペット用ドライブシートの作り方を見る"},

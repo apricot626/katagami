@@ -11381,6 +11381,56 @@ PATTERNS.dogsailor={
   }
 };
 
+/* ---- ペットカート用足置き ---- */
+PATTERNS.petcartstep={
+  mode:"pet",
+  name:"ペットカート用足置き",
+  note:"ペットカートの座面と前カゴの段差を埋める、平らな足置きクッション。ここが埋まると床が平らになり、小型犬が段差に落ち込まず、ゆったり乗れます。天面・底面・側面（まち）の箱型で、中に PPシートや厚手ダンボール＋ウレタンを入れて、荷重に耐える硬さにします。カートの内寸は機種でまちまちなので、必ず実測してから作ってください。",
+  params:[
+    {key:"w",       label:"床の幅",         unit:"cm",min:15,max:55,step:0.5,val:30},
+    {key:"d",       label:"床の奥行",       unit:"cm",min:20,max:70,step:0.5,val:45},
+    {key:"h",       label:"厚み（段差ぶん）",unit:"cm",min:2, max:12,step:0.5,val:4},
+    {key:"strapLen",label:"固定ベルトの長さ",unit:"cm",min:15,max:60,step:1,  val:32},
+  ],
+  presets:[
+    {label:"小型カート",vals:{w:26,d:38,h:3,strapLen:28}},
+    {label:"標準カート",vals:{w:30,d:45,h:4,strapLen:32}},
+    {label:"大型カート",vals:{w:36,d:55,h:5,strapLen:40}},
+  ],
+  toggles:[{key:"straps",label:"固定ベルトを付ける",val:true}],
+  gen(p,sa){
+    const W=cm(p.w), D=cm(p.d), H=cm(p.h);
+    const rect=(w,h)=>pieceFrom([{x:0,y:0},{x:w,y:0},{x:w,y:h},{x:0,y:h}],()=>false,sa);
+    const top=rect(W,D), bottom=rect(W,D);
+    // まち（側面）：周囲ぶんの帯。角の合印で天面・底面の四隅に合わせる
+    const PER=2*(W+D);
+    const band=rect(PER,H);
+    const pieces=[
+      {title:"天面", cutInfo:"1枚", ...top, foldX:null,
+       grain:{x1:W*0.5,y1:cm(1),x2:W*0.5,y2:D-cm(1)},
+       notches:[], labelAt:{x:W*0.5,y:D*0.5}},
+      {title:"底面", cutInfo:"1枚（滑り止め生地）／芯の差し込み口を片側に残す", ...bottom, foldX:null,
+       grain:{x1:W*0.5,y1:cm(1),x2:W*0.5,y2:D-cm(1)},
+       notches:[{x:0,y:D*0.5},{x:W,y:D*0.5}], labelAt:{x:W*0.5,y:D*0.5}},
+      {title:"まち（側面）", cutInfo:"1本／両端を縫って輪にし、合印を四隅に合わせる", ...band, foldX:null,
+       grain:{x1:PER*0.5,y1:H*0.3,x2:PER*0.5,y2:H*0.7},
+       notches:[{x:W,y:0},{x:W+D,y:0},{x:2*W+D,y:0}], labelAt:{x:PER*0.5,y:H*0.5}},
+    ];
+    if(p.straps){
+      const SL=cm(p.strapLen), SW=cm(4);
+      const strap=rect(SL,SW);
+      pieces.push({title:"固定ベルト", cutInfo:"2本（4つ折りにして縫う）／面ファスナーでカートの枠に留める",
+       ...strap, foldX:null, grain:{x1:SL*0.2,y1:SW/2,x2:SL*0.8,y2:SW/2},
+       notches:[], labelAt:{x:SL/2,y:SW/2}});
+    }
+    return {pieces,
+      memo:`厚み${p.h}cmは、座面と前カゴの段差の深さに合わせてください ／ `+
+           `中身は PPシートや厚手ダンボールに薄いウレタンを重ねると、荷重に耐えて平らになります ／ `+
+           `底面は滑り止め生地にし、差し込み口から芯を入れてまつるか面ファスナーで閉じます`+
+           (p.straps?` ／ 固定ベルトはカートの枠に巻いて面ファスナーで留めます`:``)};
+  }
+};
+
 /* ---- 人気順に表示順を整列 ---- */
 (function(){
   const ORDER=[
@@ -11389,7 +11439,7 @@ PATTERNS.dogsailor={
     /* ベビー */  'bloomers','swaddle','bandanastai','stai','babyhat','sleeper','babyshoes','babymitten','babycape','babypants','babyblanket','babytoy','fabricball','clothbook','taghanky','otedama','babypillow','napmat','babyfuton','diapercover','nursingpillow','gauzehanky','babyleggings','suckpad','diaperpouch','wipescase','carriercover', 'nursingcape','strollerseat', 'coverall',
     /* 小物 */    'kinchaku','kincgusset','gymbag','shoesbag','movepocket','mask','fittedmask','bandana','placemat','shuushu','headband','tissuecase','bookcover','bowtie','potholder','eyemask','neckwarmer','legwarmer','maskcase','armcover','keycase','glassescase','sunhat','beret','hairturban','bottleholder','cap','boshitecho','cardcase','bousaizukin','dollclothes','teddy','scarf','nametag', 'pencase','bankbook','flaskcover','randocover','recordercase','nuiclothes', 'uchiwacover','cutlerycase','necktie','pincushion','camerastrap','maskcover','casquette','bandanacap','hairribbon','hairclip','haramaki','brooch','pocketsquare','fabricbelt','breadbag','potmat','teatowel',
     /* バッグ */  'tote','pouch','pouchgusset','gamaguchi','sacoche','azuma','panel','clutchbag','shoulderbag','ecobag','bucketbag','backpack','roundkinchaku','bodybag','baginbag','wallet','phonepouch','lunchbag', 'cosmepouch','passportcase','laptopcase','tabletcase','waistbag','bostonbag','gadgetpouch','ehonbag', 'itabag','yogamatbag','coinpurse','bifoldwallet','gamaguchiwallet','travelpouch','keyboardcover','phoneshoulder','tabletstand',
-    /* ペット */  'dog','dogsleeved','dogaloha','mannerbelt','petbandana','petsnood','catfuku','petvest','dogvest','dogsailor','petbed','petcape','petcollar','pettoy','petmat','petpouch', 'petsling','petcarrier','petbowtie','petscarf','petseatcover','petblanket','pettent',
+    /* ペット */  'dog','dogsleeved','dogaloha','mannerbelt','petbandana','petsnood','catfuku','petvest','dogvest','dogsailor','petbed','petcape','petcollar','pettoy','petmat','petpouch', 'petsling','petcarrier','petcartstep','petbowtie','petscarf','petseatcover','petblanket','pettent',
     /* ホーム */  'cushioncover','tablecloth','pillowcase','curtain','chairpad','wallpocket','laundrybag','chaircover','boxcover','slipper','zabuton','cafecurtain','coaster','ovenmitt', 'tissuebox','noren','remotepocket','neckpillow', 'teacosy','treeskirt','fabricbasket','tablerunner','picnicmat','machinecover','toiletcover','tapestry','shelfcurtain','doormat',
     /* 推し活 */  'nuitee','nuihoodie','nuisailor','nuikigurumi','nuiclothes','nuipajama','nuijinbei','nuiskirt','nuipants','nuiponcho','nuicape','nuihat','nuibag','nuisleep','nuifuton','dollclothes','teddy','rosette','canbadge','ribbonkey','tradingcard','uchiwacover',
   ];
