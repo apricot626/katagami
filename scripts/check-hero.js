@@ -38,10 +38,19 @@ const EXPECT = {
     neckHalf:  cm(p.neckw) / 2,
     cuff:      cm(p.cuff),
   }),
+  kidstee: p => ({
+    bodiceLen: cm(p.len),
+    sleeveLen: cm(p.sleeve),
+    neckHalf:  cm(p.neckw) / 2,
+    cuff:      cm(p.cuff),
+  }),
   skirt: p => ({
     waistHalf: cm(p.waist) / 4,
     hemHalf:   cm(p.hip) / 4 + cm(p.flare),
   }),
+  petblanket: p => ({ w: cm(p.w), h: cm(p.h) }),
+  tote:       p => ({ w: cm(p.w), h: cm(p.h), handleLen: cm(p.hl) }),
+  kinchaku:   p => ({ w: cm(p.w), h: cm(p.h) }),
 };
 
 function casesFor(pat) {
