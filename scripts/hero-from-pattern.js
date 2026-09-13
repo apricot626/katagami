@@ -250,15 +250,15 @@ function skirt(P, vals, opts = {}) {
   };
 }
 
-/* ---- ペットブランケット（角丸の一枚） -------------------------
+/* ---- 角丸の一枚もの（ブランケット・マット） --------------------
    出来上がりの外形そのもの。まわりのステッチを内側に少し縮めて描く。 */
-function petblanket(P, vals) {
-  const pts = P.petblanket.gen(vals, 0).pieces[0].finished;
+function flatRounded(pat, vals) {
+  const pts = pat.gen(vals, 0).pieces[0].finished;
   const b = bbox(pts);
   const cx = (b.x0 + b.x1) / 2, cy = (b.y0 + b.y1) / 2;
   const inset = pts.map(p => ({ x: cx + (p.x - cx) * 0.93, y: cy + (p.y - cy) * 0.93 }));
   return {
-    parts: [{ role: "blanket", d: poly(pts) }],
+    parts: [{ role: "flat", d: poly(pts) }],
     seams: [line(inset.concat([inset[0]]))],       // まわりをぐるりとステッチ
     drape: [],
     anchors: {
@@ -269,6 +269,8 @@ function petblanket(P, vals) {
     dims: { w: b.x1 - b.x0, h: b.y1 - b.y0 },
   };
 }
+const petblanket = (P, vals) => flatRounded(P.petblanket, vals);
+const petmat = (P, vals) => flatRounded(P.petmat, vals);
 
 /* ---- トートバッグ（正面の見え姿） ------------------------------
    出来上がりの正面を、型紙から取った寸法で組み立てます。
@@ -343,15 +345,104 @@ function kinchaku(P, vals) {
   };
 }
 
-const BUILDERS = { onepiece, tee, kidstee, skirt, petblanket, tote, kinchaku };
+/* ---- ファスナーポーチ（正面の見え姿） -------------------------
+   前後同じ一枚。上にファスナー、両脇と底を縫うだけ。 */
+function pouch(P, vals) {
+  const pts = P.pouch.gen(vals, 0).pieces[0].finished;
+  const b = bbox(pts);
+  const W = b.x1 - b.x0, H = b.y1 - b.y0;
+  const bodyRect = [{ x: -W / 2, y: 0 }, { x: W / 2, y: 0 }, { x: W / 2, y: H }, { x: -W / 2, y: H }];
+  const n = Math.max(6, Math.round(W / cm(1.3)));
+  const teeth = [];
+  for (let i = 0; i <= n; i++) { const x = -W / 2 + W * i / n; teeth.push(line([{ x, y: 0 }, { x, y: cm(0.8) }])); }
+  return {
+    parts: [{ role: "pouch", d: poly(bodyRect) }],
+    seams: [line([{ x: -W / 2, y: cm(1.4) }, { x: W / 2, y: cm(1.4) }])],  // ファスナー下の縫い
+    drape: teeth,                                                          // ファスナーの務歯
+    anchors: {
+      zip:  { x: W * 0.1, y: cm(0.4) },
+      side: { x: W / 2, y: H * 0.55 },
+      base: { x: -W * 0.2, y: H },
+    },
+    dims: { w: W, h: H },
+  };
+}
+
+/* 長い斜め掛けひもは実寸で描くと本体が豆粒になるので、描く高さは抑え、
+   本当の長さはキャプションに出す（check-hero はパーツの実寸で照合）。 */
+function strapArc(sx, SH, W) {
+  const f = v => v.toFixed(1);
+  return `M${f(-sx)},0 Q${f(-W * 0.58)},${f(-SH)} 0,${f(-SH)} Q${f(W * 0.58)},${f(-SH)} ${f(sx)},0`;
+}
+
+/* ---- サコッシュ（本体＋斜め掛けひも） -------------------------- */
+function sacoche(P, vals) {
+  const { pieces } = P.sacoche.gen(vals, 0);
+  const bB = bbox(pieces[0].finished), bS = bbox(pieces[1].finished);
+  const W = bB.x1 - bB.x0, H = bB.y1 - bB.y0;
+  const strapLen = Math.max(bS.x1 - bS.x0, bS.y1 - bS.y0);
+  const bodyRect = [{ x: -W / 2, y: 0 }, { x: W / 2, y: 0 }, { x: W / 2, y: H }, { x: -W / 2, y: H }];
+  const SH = H * 1.25;
+  return {
+    parts: [{ role: "body", d: poly(bodyRect) }],
+    straps: [strapArc(W * 0.42, SH, W)],
+    seams: [line([{ x: -W / 2, y: cm(1.2) }, { x: W / 2, y: cm(1.2) }])],   // 袋口
+    drape: [],
+    anchors: {
+      strap:   { x: W * 0.29, y: -SH * 0.72 },
+      opening: { x: -W * 0.15, y: cm(1.2) },
+      body:    { x: W * 0.3, y: H * 0.62 },
+    },
+    dims: { w: W, h: H, strapLen },
+  };
+}
+
+/* ---- ショルダーバッグ（フラップ＋斜め掛けひも） --------------- */
+function shoulderbag(P, vals) {
+  const { pieces } = P.shoulderbag.gen(vals, 0);
+  const bB = bbox(pieces[0].finished);
+  const bF = bbox(pieces[1].finished);      // フラップ
+  const bS = bbox(pieces[2].finished);      // ストラップ
+  const W = bB.x1 - bB.x0, H = bB.y1 - bB.y0;
+  const FD = bF.y1 - bF.y0;                  // フラップの垂れ
+  const strapLen = Math.max(bS.x1 - bS.x0, bS.y1 - bS.y0);
+  const bodyRect = [{ x: -W / 2, y: 0 }, { x: W / 2, y: 0 }, { x: W / 2, y: H }, { x: -W / 2, y: H }];
+  const r = Math.min(FD * 0.5, W * 0.12);
+  /* フラップ：上辺いっぱい、下の両角を落として前面にかぶせる台形 */
+  const flap = [
+    { x: -W / 2, y: 0 }, { x: W / 2, y: 0 },
+    { x: W / 2, y: FD - r }, { x: W / 2 - r, y: FD },
+    { x: -W / 2 + r, y: FD }, { x: -W / 2, y: FD - r },
+  ];
+  const SH = H * 1.15;
+  return {
+    parts: [
+      { role: "body", d: poly(bodyRect) },
+      { role: "flap", d: poly(flap) },
+    ],
+    straps: [strapArc(W * 0.44, SH, W)],
+    seams: [line([{ x: -W / 2 + r, y: FD }, { x: W / 2 - r, y: FD }])],   // フラップの縫い目
+    drape: [],
+    anchors: {
+      strap: { x: W * 0.3, y: -SH * 0.72 },
+      flap:  { x: W * 0.28, y: FD * 0.5 },
+      body:  { x: -W * 0.28, y: H * 0.78 },
+    },
+    dims: { w: W, h: H, strapLen },
+  };
+}
+
+const BUILDERS = { onepiece, tee, kidstee, skirt, petblanket, petmat, tote, kinchaku, pouch, sacoche, shoulderbag };
 
 /* ---- SVGに起こす ------------------------------------------
    寸法は build の座標をそのまま拡大縮小するだけ。陰影とドレープは
    布の落ち感を示す飾りで、寸法には触れません。 */
 function renderSVG(build, { labels, aria, armShade = true }) {
   const nums = s => s.match(/-?\d+(\.\d+)?/g).map(Number);
+  const straps = build.straps || [];
   const xs = [], ys = [];
-  for (const p of build.parts) {
+  /* 持ち手・ショルダーは本体より上に出るので、枠の計算にも含める（切れ防止） */
+  for (const p of [...build.parts, ...straps.map(d => ({ d }))]) {
     const n = nums(p.d);
     for (let i = 0; i < n.length; i += 2) { xs.push(n[i]); ys.push(n[i + 1]); }
   }
@@ -389,7 +480,7 @@ function renderSVG(build, { labels, aria, armShade = true }) {
   return `      <svg viewBox="0 0 ${VW} ${VH}" role="img" aria-label="${aria}">
         ${shade}
         <g transform="translate(${tx.toFixed(2)},${ty.toFixed(2)}) scale(${k.toFixed(4)})">
-${build.parts.map(p => `          <path d="${p.d}" fill="${fill}" stroke="#1B1D1A" stroke-width="${w(1.5)}" stroke-linejoin="round" stroke-linecap="round"/>`).join("\n")}
+${straps.map(d => `          <path d="${d}" fill="none" stroke="#1B1D1A" stroke-width="${w(2.2)}" stroke-linejoin="round" stroke-linecap="round"/>\n`).join("")}${build.parts.map(p => `          <path d="${p.d}" fill="${fill}" stroke="#1B1D1A" stroke-width="${w(1.5)}" stroke-linejoin="round" stroke-linecap="round"/>`).join("\n")}
 ${build.drape.map(d => `          <path d="${d}" fill="none" stroke="#1B1D1A" stroke-width="${w(0.9)}" opacity=".22"/>`).join("\n")}
 ${build.seams.map(d => `          <path d="${d}" fill="none" stroke="#C24033" stroke-width="${w(1.5)}" stroke-dasharray="${w(6)} ${w(4)}"/>`).join("\n")}
         </g>
