@@ -233,7 +233,10 @@ const PATTERNS={
     toggles:[],
     gen(p,sa){
       const HW=cm(p.bust)/4+cm(p.ease)/4, L=cm(p.len), NWh=cm(p.neckw)/2;
-      const slope=cm(4), SHx=cm(p.shoulder)/2+cm(3), ADy=cm(24);
+      // 袖ぐりの深さはバストに比例させる（大人の既定 bust100 で 24cm＝従来どおり）。
+      // 固定値にすると、この gen を継承するキッズTで大人と同じ深さ・袖幅になり、
+      // 子供の身幅より袖が広くなってしまう。丈の55%で頭打ちにして破綻も防ぐ。
+      const slope=cm(4), SHx=cm(p.shoulder)/2+cm(3), ADy=Math.min(cm(p.bust)*0.24, L*0.55);
       const body=(back)=>{
         const FD=cm(back?2.5:8);
         const neckCurve=quad({x:0,y:FD},{x:NWh*0.5,y:FD},{x:NWh,y:0},10);
