@@ -48,9 +48,13 @@ const EXPECT = {
     waistHalf: cm(p.waist) / 4,
     hemHalf:   cm(p.hip) / 4 + cm(p.flare),
   }),
-  petblanket: p => ({ w: cm(p.w), h: cm(p.h) }),
-  tote:       p => ({ w: cm(p.w), h: cm(p.h), handleLen: cm(p.hl) }),
-  kinchaku:   p => ({ w: cm(p.w), h: cm(p.h) }),
+  petblanket:  p => ({ w: cm(p.w), h: cm(p.h) }),
+  petmat:      p => ({ w: cm(p.w), h: cm(p.h) }),
+  tote:        p => ({ w: cm(p.w), h: cm(p.h), handleLen: cm(p.hl) }),
+  kinchaku:    p => ({ w: cm(p.w), h: cm(p.h) }),
+  pouch:       p => ({ w: cm(p.w), h: cm(p.h) }),
+  sacoche:     p => ({ w: cm(p.w), h: cm(p.h), strapLen: cm(p.strapL) }),
+  shoulderbag: p => ({ w: cm(p.w), h: cm(p.h), strapLen: cm(p.strapl) }),
 };
 
 function casesFor(pat) {

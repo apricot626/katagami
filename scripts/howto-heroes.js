@@ -148,6 +148,66 @@ const SPECS = {
     ],
     caption: CAP,
   },
+
+  petmat: {
+    vals: {},
+    shown: { ja: "幅55cm・長さ40cm・角丸5cm", en: "55 × 40 cm, 5 cm rounded corners" },
+    aria: {
+      ja: "ペットマットの完成イメージ。角を丸くした長方形、まわりをステッチ",
+      en: "Finished pet mat: a rounded rectangle topstitched around the edge",
+    },
+    labels: [
+      { at: "corner", ja: "角は丸く",             en: "Rounded corners" },
+      { at: "edge",   ja: "まわりをステッチ",     en: "Topstitch the edge" },
+      { at: "center", ja: "中に芯を入れてもOK",   en: "Add batting if you like" },
+    ],
+    caption: CAP,
+  },
+
+  pouch: {
+    vals: {},
+    shown: { ja: "幅20cm・丈15cm", en: "20 cm wide, 15 cm tall" },
+    aria: {
+      ja: "ファスナーポーチの完成イメージ。上にファスナー、両脇と底を縫う",
+      en: "Finished zip pouch: a zip along the top, sides and base sewn",
+    },
+    labels: [
+      { at: "zip",  ja: "ファスナー",   en: "Zip" },
+      { at: "side", ja: "両脇を縫う",   en: "Sew the sides" },
+      { at: "base", ja: "底を縫う",     en: "Sew the base" },
+    ],
+    caption: CAP,
+  },
+
+  sacoche: {
+    vals: {},
+    shown: { ja: "幅22cm・丈18cm・ショルダー120cm", en: "22 × 18 cm, 120 cm strap" },
+    aria: {
+      ja: "サコッシュの完成イメージ。前後1枚の平たい袋に、長い斜め掛けひも",
+      en: "Finished sacoche: a flat pouch with a long crossbody strap",
+    },
+    labels: [
+      { at: "strap",   ja: "ショルダーひも", en: "Crossbody strap" },
+      { at: "opening", ja: "袋口",           en: "Opening" },
+      { at: "body",    ja: "本体（前後1枚）", en: "Body (front & back)" },
+    ],
+    caption: CAP,
+  },
+
+  shoulderbag: {
+    vals: {},
+    shown: { ja: "幅26cm・丈22cm・フラップ10cm・ショルダー120cm", en: "26 × 22 cm, 10 cm flap, 120 cm strap" },
+    aria: {
+      ja: "フラップ型ショルダーバッグの完成イメージ。前面をフラップで覆い、斜め掛けひも",
+      en: "Finished flap shoulder bag: a flap over the front and a crossbody strap",
+    },
+    labels: [
+      { at: "strap", ja: "ショルダーひも", en: "Crossbody strap" },
+      { at: "flap",  ja: "フラップ",       en: "Flap" },
+      { at: "body",  ja: "本体",           en: "Body" },
+    ],
+    caption: CAP,
+  },
 };
 
 /* 型紙の既定値＋プリセット＋見せる設定を重ねる */
