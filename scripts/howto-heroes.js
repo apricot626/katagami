@@ -86,6 +86,68 @@ const SPECS = {
     ],
     caption: CAP,
   },
+
+  kidstee: {
+    vals: {},
+    shown: { ja: "バスト64cm・着丈40cm・袖丈14cm", en: "64 cm chest, 40 cm length, 14 cm sleeves" },
+    armAngle: 14,
+    aria: {
+      ja: "キッズTシャツの完成イメージ。肩を落とした半袖のボックスシルエット",
+      en: "Finished kids' T-shirt: a boxy drop-shoulder short-sleeve silhouette",
+    },
+    labels: [
+      { at: "neck",   ja: "衿ぐりの始末", en: "Neckline finish" },
+      { at: "sleeve", ja: "袖を付ける",   en: "Sleeve" },
+      { at: "side",   ja: "脇を縫う",     en: "Side seam" },
+      { at: "hem",    ja: "裾は三つ折り", en: "Double-fold hem" },
+    ],
+    caption: CAP,
+  },
+
+  petblanket: {
+    vals: {},
+    shown: { ja: "幅55cm・長さ70cm・角丸4cm", en: "55 × 70 cm, 4 cm rounded corners" },
+    aria: {
+      ja: "ペットブランケットの完成イメージ。角を丸くした長方形、まわりをステッチ",
+      en: "Finished pet blanket: a rounded rectangle topstitched around the edge",
+    },
+    labels: [
+      { at: "corner", ja: "角は丸く",             en: "Rounded corners" },
+      { at: "edge",   ja: "まわりをステッチ",     en: "Topstitch the edge" },
+      { at: "center", ja: "2枚を中表に縫って返す", en: "Two layers, sewn and turned" },
+    ],
+    caption: CAP,
+  },
+
+  tote: {
+    vals: {},
+    shown: { ja: "幅34cm・丈36cm・マチ12cm・持ち手55cm", en: "34 cm wide, 36 cm tall, 12 cm gusset, 55 cm handles" },
+    aria: {
+      ja: "トートバッグの完成イメージ。底にマチ、袋口を三つ折り、持ち手が2本",
+      en: "Finished tote bag: a boxed bottom, a folded opening and two handles",
+    },
+    labels: [
+      { at: "handle",  ja: "持ち手",         en: "Handle" },
+      { at: "opening", ja: "袋口を三つ折り", en: "Folded opening" },
+      { at: "gusset",  ja: "底のマチ",       en: "Boxed bottom" },
+    ],
+    caption: CAP,
+  },
+
+  kinchaku: {
+    vals: {},
+    shown: { ja: "幅22cm・丈26cm・ひも通し4cm", en: "22 cm wide, 26 cm tall, 4 cm casing" },
+    aria: {
+      ja: "巾着袋の完成イメージ。上をひも通しにして絞る、底は「わ」",
+      en: "Finished drawstring pouch: a drawstring casing at the top, folded at the base",
+    },
+    labels: [
+      { at: "casing", ja: "ひも通し",     en: "Drawstring casing" },
+      { at: "top",    ja: "ひもで絞る",   en: "Draw it closed" },
+      { at: "fold",   ja: "底は「わ」",   en: "Fold at the base" },
+    ],
+    caption: CAP,
+  },
 };
 
 /* 型紙の既定値＋プリセット＋見せる設定を重ねる */

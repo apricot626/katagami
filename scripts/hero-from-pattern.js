@@ -28,6 +28,7 @@ function loadPatterns() {
   return (_patterns = box.__P);
 }
 
+const cm = v => v * 10;               // patterns.js と同じ mm 換算
 const bbox = pts => ({
   x0: Math.min(...pts.map(p => p.x)), x1: Math.max(...pts.map(p => p.x)),
   y0: Math.min(...pts.map(p => p.y)), y1: Math.max(...pts.map(p => p.y)),
@@ -143,8 +144,8 @@ function onepiece(P, vals, opts = {}) {
      袖ぐりが深い（肩先→脇下で20cm）ため、ワンピースのように袖を「脇下」
      起点で描くと、その深さぶん袖が下にずれて長袖に見えてしまいます。
      袖は肩先を起点にして袖丈ぶん下ろします。 */
-function tee(P, vals, opts = {}) {
-  const { pieces } = P.tee.gen(vals, 0);
+function boxTee(pat, vals, opts = {}) {
+  const { pieces } = pat.gen(vals, 0);
   const [front, , sleeve] = pieces;
   const fPts = front.finished, slPts = sleeve.finished;
   const bF = bbox(fPts), bSl = bbox(slPts);
@@ -203,6 +204,10 @@ function tee(P, vals, opts = {}) {
     },
   };
 }
+/* 大人Tシャツと子供Tシャツは同じ構成（前身頃・袖・脇下の合印）なので、
+   同じ作図を使い回す。 */
+const tee = (P, vals, opts = {}) => boxTee(P.tee, vals, opts);
+const kidstee = (P, vals, opts = {}) => boxTee(P.kidstee, vals, opts);
 
 /* ---- スカート（ウエスト〜裾の一枚） ---------------------------
    「わ」で開いて正面の台形に。上端がウエスト、下端が裾。 */
@@ -245,7 +250,100 @@ function skirt(P, vals, opts = {}) {
   };
 }
 
-const BUILDERS = { onepiece, tee, skirt };
+/* ---- ペットブランケット（角丸の一枚） -------------------------
+   出来上がりの外形そのもの。まわりのステッチを内側に少し縮めて描く。 */
+function petblanket(P, vals) {
+  const pts = P.petblanket.gen(vals, 0).pieces[0].finished;
+  const b = bbox(pts);
+  const cx = (b.x0 + b.x1) / 2, cy = (b.y0 + b.y1) / 2;
+  const inset = pts.map(p => ({ x: cx + (p.x - cx) * 0.93, y: cy + (p.y - cy) * 0.93 }));
+  return {
+    parts: [{ role: "blanket", d: poly(pts) }],
+    seams: [line(inset.concat([inset[0]]))],       // まわりをぐるりとステッチ
+    drape: [],
+    anchors: {
+      corner: { x: b.x1 - (b.x1 - b.x0) * 0.06, y: b.y0 + (b.y1 - b.y0) * 0.06 },
+      edge:   { x: b.x1, y: cy },
+      center: { x: cx, y: cy },
+    },
+    dims: { w: b.x1 - b.x0, h: b.y1 - b.y0 },
+  };
+}
+
+/* ---- トートバッグ（正面の見え姿） ------------------------------
+   出来上がりの正面を、型紙から取った寸法で組み立てます。
+   本体の裁ち幅は 幅＋マチ、合印がマチの位置（＝マチ/2）なので、
+   そこから仕上がりの 幅・丈を逆算します。持ち手の長さは持ち手パーツから。 */
+function tote(P, vals) {
+  const { pieces } = P.tote.gen(vals, 0);
+  const body = pieces[0], handle = pieces[1];
+  const bB = bbox(body.finished), bH = bbox(handle.finished);
+  const dHalf = Math.min(...body.notches.map(n => n.x));   // マチ/2
+  const W = (bB.x1 - bB.x0) - 2 * dHalf;                    // 仕上がり幅
+  const H = (bB.y1 - bB.y0) - dHalf;                        // 仕上がり丈
+  const handleLen = Math.max(bH.x1 - bH.x0, bH.y1 - bH.y0);
+  const HW = Math.min(bH.x1 - bH.x0, bH.y1 - bH.y0);
+  const bodyRect = [{ x: -W / 2, y: 0 }, { x: W / 2, y: 0 }, { x: W / 2, y: H }, { x: -W / 2, y: H }];
+  const ax = W * 0.26;                                      // 持ち手付け位置（中心から）
+  const RISE = Math.min(handleLen * 0.32, H * 0.75);
+  const f = v => v.toFixed(1);
+  const handlePath = `M${f(-ax)},0 Q0,${f(-RISE)} ${f(ax)},0 Q0,${f(-RISE + HW)} ${f(-ax)},0 Z`;
+  return {
+    parts: [
+      { role: "handle", d: handlePath },
+      { role: "body",   d: poly(bodyRect) },
+    ],
+    seams: [
+      line([{ x: -W / 2, y: cm(2) }, { x: W / 2, y: cm(2) }]),           // 袋口
+      line([{ x: -W / 2, y: H - dHalf }, { x: -W / 2 + dHalf, y: H }]),  // 底のマチ（左）
+      line([{ x: W / 2, y: H - dHalf }, { x: W / 2 - dHalf, y: H }]),    // 底のマチ（右）
+    ],
+    drape: [],
+    anchors: {
+      handle:  { x: ax, y: -RISE * 0.7 },
+      opening: { x: -W * 0.2, y: cm(2) },
+      gusset:  { x: W / 2 - dHalf * 0.5, y: H - dHalf * 0.5 },
+    },
+    dims: { w: W, h: H, handleLen },
+  };
+}
+
+/* ---- 巾着袋（正面の見え姿） -----------------------------------
+   一枚を底で二つ折りにする袋。裁ち高さは仕上がり丈の2倍なので半分に。
+   上をひも通しにして絞るので、口を少しすぼめて描く。 */
+function kinchaku(P, vals) {
+  const pts = P.kinchaku.gen(vals, 0).pieces[0].finished;
+  const b = bbox(pts);
+  const W = b.x1 - b.x0;
+  const H = (b.y1 - b.y0) / 2;
+  const casY = cm(vals.casing);
+  const cinch = W * 0.14;
+  /* ひも通し（casY）から上だけを絞る。下は本体そのままの長方形。
+     上をすぼめ、下を真っすぐにすると、スカートでなく巾着に見える。 */
+  const bodyPts = [
+    { x: -W / 2 + cinch, y: 0 }, { x: W / 2 - cinch, y: 0 },
+    { x: W / 2, y: casY }, { x: W / 2, y: H },
+    { x: -W / 2, y: H }, { x: -W / 2, y: casY },
+  ];
+  return {
+    parts: [{ role: "bag", d: poly(bodyPts) }],
+    seams: [
+      line([{ x: -W / 2 + cinch * 0.5, y: casY }, { x: W / 2 - cinch * 0.5, y: casY }]), // ひも通し
+      line([{ x: -W / 2, y: H }, { x: W / 2, y: H }]),                                    // 底は「わ」
+    ],
+    /* 口のギャザーを短い縦線で示す（絞りぎわの飾り） */
+    drape: [-0.45, -0.15, 0.15, 0.45].map(t =>
+      line([{ x: W * t * 0.72, y: cm(0.4) }, { x: W * t * 0.9, y: casY - cm(0.4) }])),
+    anchors: {
+      casing: { x: W / 2, y: casY },
+      top:    { x: 0, y: cm(0.4) },
+      fold:   { x: -W * 0.3, y: H },
+    },
+    dims: { w: W, h: H },
+  };
+}
+
+const BUILDERS = { onepiece, tee, kidstee, skirt, petblanket, tote, kinchaku };
 
 /* ---- SVGに起こす ------------------------------------------
    寸法は build の座標をそのまま拡大縮小するだけ。陰影とドレープは
