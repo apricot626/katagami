@@ -55,6 +55,10 @@ const EXPECT = {
   pouch:       p => ({ w: cm(p.w), h: cm(p.h) }),
   sacoche:     p => ({ w: cm(p.w), h: cm(p.h), strapLen: cm(p.strapL) }),
   shoulderbag: p => ({ w: cm(p.w), h: cm(p.h), strapLen: cm(p.strapl) }),
+  ehonbag:     p => ({ w: cm(p.w), h: cm(p.h), handleLen: cm(p.handle) }),
+  clutchbag:   p => ({ w: cm(p.w), h: cm(p.h) }),
+  bostonbag:   p => ({ w: cm(p.w), h: cm(p.h), handleLen: cm(p.handle) }),
+  backpack:    p => ({ w: cm(p.w), h: cm(p.h), strapLen: cm(p.strap) }),
 };
 
 function casesFor(pat) {

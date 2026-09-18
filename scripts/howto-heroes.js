@@ -206,6 +206,66 @@ const SPECS = {
     ],
     caption: CAP,
   },
+
+  ehonbag: {
+    vals: {},
+    shown: { ja: "幅40cm・丈30cm・持ち手34cm", en: "40 × 30 cm, 34 cm handles" },
+    aria: {
+      ja: "絵本バッグ（レッスンバッグ）の完成イメージ。マチなしの平らなトートに持ち手2本",
+      en: "Finished lesson bag: a flat tote with no gusset and two handles",
+    },
+    labels: [
+      { at: "handle",  ja: "持ち手",         en: "Handles" },
+      { at: "opening", ja: "袋口を三つ折り", en: "Folded opening" },
+      { at: "body",    ja: "本体（底でわ）", en: "Body (fold at base)" },
+    ],
+    caption: CAP,
+  },
+
+  clutchbag: {
+    vals: {},
+    shown: { ja: "幅24cm・丈16cm・フラップ9cm", en: "24 × 16 cm, 9 cm flap" },
+    aria: {
+      ja: "クラッチバッグの完成イメージ。平らな本体にかぶせ蓋",
+      en: "Finished clutch bag: a flat body with a fold-over flap",
+    },
+    labels: [
+      { at: "flap", ja: "かぶせ蓋",   en: "Flap" },
+      { at: "body", ja: "本体",       en: "Body" },
+      { at: "fold", ja: "底は「わ」", en: "Fold at the base" },
+    ],
+    caption: CAP,
+  },
+
+  bostonbag: {
+    vals: {},
+    shown: { ja: "幅45cm・丈28cm・マチ20cm・持ち手52cm", en: "45 × 28 cm, 20 cm gusset, 52 cm handles" },
+    aria: {
+      ja: "ボストンバッグの完成イメージ。角丸の本体に持ち手2本、口はファスナー",
+      en: "Finished Boston bag: a rounded body with two handles and a zip opening",
+    },
+    labels: [
+      { at: "handle",  ja: "持ち手",       en: "Handles" },
+      { at: "opening", ja: "ファスナー口", en: "Zip opening" },
+      { at: "body",    ja: "本体",         en: "Body" },
+    ],
+    caption: CAP,
+  },
+
+  backpack: {
+    vals: {},
+    shown: { ja: "幅28cm・丈36cm・マチ12cm・フラップ16cm・肩ひも75cm", en: "28 × 36 cm, 12 cm gusset, 16 cm flap, 75 cm straps" },
+    aria: {
+      ja: "リュックサックの完成イメージ。本体にかぶせ蓋、背中側から肩ひも",
+      en: "Finished backpack: a body with a fold-over flap and shoulder straps",
+    },
+    labels: [
+      { at: "strap", ja: "肩ひも",     en: "Shoulder straps" },
+      { at: "flap",  ja: "かぶせ蓋",   en: "Flap" },
+      { at: "body",  ja: "本体",       en: "Body" },
+    ],
+    caption: CAP,
+  },
 };
 
 /* 型紙の既定値＋プリセット＋見せる設定を重ねる */
