@@ -16,6 +16,9 @@ const ROOT = path.join(__dirname, "..");
 
 /* 腕が垂直から外へ開く角度。フラット画の慣習で15〜20度。 */
 const ARM_ANGLE = 16;
+/* Tシャツの袖を「外・下」へ垂らす角度（水平から下向き）。普通の半袖は
+   水平よりだいぶ下がって見えるので、30度前後に置く。 */
+const SLEEVE_DROP = 28;
 
 let _patterns = null;
 function loadPatterns() {
@@ -163,26 +166,29 @@ function boxTee(pat, vals, opts = {}) {
   const SL = bSl.y1;
   const capH = Math.min(...slPts.filter(p => p.y > 0.5).map(p => p.y));
 
-  const th = (opts.armAngle ?? ARM_ANGLE) * Math.PI / 180;
-  const ax = { x: Math.sin(th), y: Math.cos(th) };
-  const nx = { x: Math.cos(th), y: -Math.sin(th) };
+  /* 袖は肩先(shoulder)と脇下(underarm)から「外・下」へ垂らす。以前は袖ぐりに
+     直交する向き（上向き成分あり）に二の腕を置いたため、袖が上を向いていた。
+     普通のTシャツの袖は下に垂れるので、水平から下向きの角度で伸ばす。 */
+  const drop = (opts.armAngle ?? SLEEVE_DROP) * Math.PI / 180;  // 水平からの下がり角
+  const d  = { x: Math.cos(drop), y: Math.sin(drop) };          // 外・下
+  const perp = { x: -Math.sin(drop), y: Math.cos(drop) };       // 直交・下向き
   const add = (p, v, k) => ({ x: p.x + v.x * k, y: p.y + v.y * k });
 
-  const bicepOut = add(shoulder, nx, bicepHalf);          // ★肩先を起点に外へ
-  const cuffOut = add(bicepOut, ax, SL - capH);           // 袖丈ぶん下ろす
-  const cuffIn = add(cuffOut, nx, -cuffHalf);
-  /* 袖山が浅いので、ふくらみは控えめに（最低8mm）張り出させる */
-  const capBulge = add(
-    { x: (shoulder.x + bicepOut.x) / 2, y: (shoulder.y + bicepOut.y) / 2 },
-    nx, Math.max(capH, 8));
-  const sleeveR = { start: shoulder, cap: capBulge, bicep: bicepOut,
-                    cuffOut, cuffIn, underarm };
+  const cuffOut = add(shoulder, d, SL - capH);            // 袖口の外(上)側＝肩先から袖丈ぶん
+  const cuffIn = add(cuffOut, perp, cuffHalf);            // 袖口の内(下)側
+  /* 上辺（肩先→袖口）を袖山のぶんだけ軽く外へふくらませる */
+  const capMid = add(
+    { x: (shoulder.x + cuffOut.x) / 2, y: (shoulder.y + cuffOut.y) / 2 },
+    perp, -Math.max(capH, cm(0.4)));
+  const f = (p, s) => `${(p.x * s).toFixed(1)},${p.y.toFixed(1)}`;
+  const sleevePath2 = s =>
+    `M${f(shoulder, s)} Q${f(capMid, s)} ${f(cuffOut, s)} L${f(cuffIn, s)} L${f(underarm, s)} Z`;
 
   const body = openFold(fPts);
   return {
     parts: [
-      { role: "sleeve", d: sleevePath(sleeveR, 1) },
-      { role: "sleeve", d: sleevePath(sleeveR, -1) },
+      { role: "sleeve", d: sleevePath2(1) },
+      { role: "sleeve", d: sleevePath2(-1) },
       { role: "body",   d: poly(body) },
     ],
     seams: [
@@ -194,7 +200,7 @@ function boxTee(pat, vals, opts = {}) {
     drape: [],
     anchors: {
       neck:   neckEnd,
-      sleeve: add(bicepOut, ax, (SL - capH) * 0.5),
+      sleeve: { x: (cuffOut.x + underarm.x) / 2, y: (cuffOut.y + underarm.y) / 2 },
       side:   { x: bF.x1, y: BL * 0.62 },
       hem:    { x: bF.x1 * 0.5, y: BL },
     },
