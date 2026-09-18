@@ -717,15 +717,47 @@ for (const f of jaPages.filter(x => x.startsWith("howto-") && !redirects.has(x))
 }
 
 /* =========================================================
+   12. アクセス解析
+   計測タグはページごとに手で貼っているので、新しく足したページで
+   抜けても誰も気づけません。実際 404・運営者情報・プライバシー
+   ポリシーの5ページが抜けたままでした。抜けたページは GA4 から
+   丸ごと見えなくなるので、貼り忘れと二重貼りを機械で見張ります。
+   転送用ページ（meta refresh）は即座に移動するので対象外です。
+   ========================================================= */
+{
+  const GA_ID = "G-3HFK3VE3Q8";
+  const loader = h => (h.match(/googletagmanager\.com\/gtag\/js\?id=([\w-]+)/g) || []);
+  for (const f of pages) {
+    const h = read(f);
+    if (/<meta http-equiv="refresh"/.test(h)) continue;   // 転送用ページは対象外
+    const tags = loader(h);
+    if (!tags.length) { add("ga", f, `計測タグ（${GA_ID}）がありません`); continue; }
+    if (tags.length > 1) add("ga", f, `計測タグが${tags.length}本あります（PVが二重に数えられます）`);
+    for (const t of tags) {
+      const id = t.split("=").pop();
+      if (id !== GA_ID) add("ga", f, `計測IDが違います: ${id}`);
+    }
+    if (!new RegExp(`gtag\\(["']config["'],\\s*["']${GA_ID}["']`).test(h))
+      add("ga", f, `gtag("config","${GA_ID}") の呼び出しがありません`);
+  }
+  /* 生成ページのひな形からタグが落ちると、次の生成で数百ページが一度に
+     計測から外れます。ひな形そのものも見ておきます。 */
+  for (const s of ["gen-ja-howto.js", "gen-en-howto.js", "gen-guides.js"])
+    if (!fs.readFileSync(path.join(__dirname, s), "utf8").includes(GA_ID))
+      add("ga", "scripts/" + s, `ひな形から計測タグ（${GA_ID}）が消えています`);
+}
+
+/* =========================================================
    出力
    ========================================================= */
 const byKind = {};
 for (const f of findings) (byKind[f.kind] = byKind[f.kind] || []).push(f);
-const order = ["pattern", "html", "link", "seo", "sitemap", "jsonld", "ogp", "meta", "i18n", "affiliate", "group", "count"];
+const order = ["pattern", "html", "link", "seo", "sitemap", "jsonld", "ogp", "meta", "i18n", "affiliate", "group", "count", "ga"];
 const LABEL = {
   pattern: "製図", html: "HTML", link: "リンク", seo: "canonical/hreflang",
   sitemap: "sitemap", jsonld: "構造化データ", ogp: "OGP", meta: "メタ情報",
   i18n: "翻訳", affiliate: "アフィリエイト", group: "一覧の副題", count: "件数表記",
+  ga: "アクセス解析",
 };
 console.log(`対象: 日本語 ${jaPages.length} ページ / 英語 ${enPages.length} ページ / 型紙 ${Object.keys(PATTERNS).length} 種\n`);
 for (const k of order) {
