@@ -71,21 +71,43 @@
       else count.textContent = EN ? "No matches" : "見つかりませんでした";
     }
     if (clear) clear.hidden = !words.length;
+    return { words: words, hit: hit };
+  }
+
+  /* ---- 何を探して、見つかったかどうか ----
+     絞り込みは画面の中だけで終わるのでURLが変わらず、GA4 のサイト内検索は
+     発火しません。ここから自分で送ります。
+     知りたいのは「探したのに無かった語」です（作るべき型紙のヒントになります）。
+     入力のたびに送ると打鍵ごとの断片（「く」「くる」「くるみ」）が積もるので、
+     手が止まってから1回だけ送ります。同じ語は繰り返し送りません。 */
+  function ga(name, params) {
+    if (typeof gtag === "function") gtag("event", name, params);
+  }
+  var sent = "", sendTimer;
+  function report(r) {
+    clearTimeout(sendTimer);
+    if (!r.words.length) { sent = ""; return; }   // 消したら次の語は送れるように戻す
+    var term = input.value.trim().slice(0, 100);  // GA4 のパラメータ値は100字まで
+    if (term === sent) return;
+    sendTimer = setTimeout(function () {
+      sent = term;
+      ga("search", { search_term: term, results: r.hit });
+    }, 1200);
   }
 
   var timer;
   input.addEventListener("input", function () {
     clearTimeout(timer);
-    timer = setTimeout(function () { apply(input.value); }, 80);
+    timer = setTimeout(function () { report(apply(input.value)); }, 80);
   });
   input.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") { input.value = ""; apply(""); }
+    if (e.key === "Escape") { input.value = ""; report(apply("")); }
   });
   if (clear) clear.addEventListener("click", function () {
-    input.value = ""; apply(""); input.focus();
+    input.value = ""; report(apply("")); input.focus();
   });
 
   /* ?q=... で開かれたときは、その語で絞った状態にする */
   var q = new URLSearchParams(location.search).get("q");
-  if (q) { input.value = q; apply(q); }
+  if (q) { input.value = q; report(apply(q)); }
 })();
