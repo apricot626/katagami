@@ -327,6 +327,136 @@ const SPECS = {
     ],
     caption: CAP,
   },
+
+  /* ---- パンツ類（正面の見え姿） ----
+     どれも「前後同じ一枚」を左右2本に組み立てた正面図。ラベルは共通。 */
+  widepants: {
+    vals: {},
+    shown: { ja: "ヒップ96cm・股上30cm・股下66cm", en: "96 cm hip, 30 cm rise, 66 cm inseam" },
+    aria: {
+      ja: "ワイドパンツの完成イメージ。ウエストゴムでまっすぐ落ちる幅広の2本脚",
+      en: "Finished wide-leg pants: two straight, roomy legs with an elastic waist",
+    },
+    labels: [
+      { at: "waist",  ja: "ウエストはゴム",   en: "Elastic waist" },
+      { at: "crotch", ja: "中心・股ぐりを縫う", en: "Center & crotch seam" },
+      { at: "side",   ja: "脇を縫う",         en: "Side seam" },
+      { at: "hem",    ja: "裾は三つ折り",     en: "Double-fold hem" },
+    ],
+    caption: CAP,
+  },
+
+  halfpants: {
+    vals: {},
+    shown: { ja: "ヒップ96cm・股上28cm・股下26cm", en: "96 cm hip, 28 cm rise, 26 cm inseam" },
+    aria: {
+      ja: "ハーフパンツの完成イメージ。ウエストゴムの短い2本脚",
+      en: "Finished half pants: short two-leg shorts with an elastic waist",
+    },
+    labels: [
+      { at: "waist",  ja: "ウエストはゴム",   en: "Elastic waist" },
+      { at: "crotch", ja: "中心・股ぐりを縫う", en: "Center & crotch seam" },
+      { at: "side",   ja: "脇を縫う",         en: "Side seam" },
+      { at: "hem",    ja: "裾は三つ折り",     en: "Double-fold hem" },
+    ],
+    caption: CAP,
+  },
+
+  taperedpants: {
+    vals: {},
+    shown: { ja: "ヒップ94cm・股下66cm・裾幅19cm", en: "94 cm hip, 66 cm inseam, 19 cm hem width" },
+    aria: {
+      ja: "テーパードパンツの完成イメージ。裾に向かって細くなる2本脚",
+      en: "Finished tapered pants: two legs narrowing toward the hem",
+    },
+    labels: [
+      { at: "waist",  ja: "ウエストはゴム",   en: "Elastic waist" },
+      { at: "crotch", ja: "中心・股ぐりを縫う", en: "Center & crotch seam" },
+      { at: "side",   ja: "脇を縫う",         en: "Side seam" },
+      { at: "hem",    ja: "裾は三つ折り",     en: "Double-fold hem" },
+    ],
+    caption: CAP,
+  },
+
+  sweatpants: {
+    vals: {},
+    shown: { ja: "ヒップ96cm・股下64cm・裾幅20cm", en: "96 cm hip, 64 cm inseam, 20 cm hem width" },
+    aria: {
+      ja: "スウェットパンツの完成イメージ。裾を絞ったリラックスシルエットの2本脚",
+      en: "Finished sweatpants: a relaxed two-leg silhouette gathered at the hem",
+    },
+    labels: [
+      { at: "waist",  ja: "ウエストはゴム",   en: "Elastic waist" },
+      { at: "crotch", ja: "中心・股ぐりを縫う", en: "Center & crotch seam" },
+      { at: "side",   ja: "脇を縫う",         en: "Side seam" },
+      { at: "hem",    ja: "裾はリブ",         en: "Ribbed hem" },
+    ],
+    caption: CAP,
+  },
+
+  culotte: {
+    vals: {},
+    shown: { ja: "ヒップ94cm・股下42cm・フレア12cm", en: "94 cm hip, 42 cm inseam, 12 cm flare" },
+    aria: {
+      ja: "キュロットの完成イメージ。スカートのように広がる2本脚",
+      en: "Finished culotte: two wide legs that flare out like a skirt",
+    },
+    labels: [
+      { at: "waist",  ja: "ウエストはゴム",   en: "Elastic waist" },
+      { at: "crotch", ja: "中心・股ぐりを縫う", en: "Center & crotch seam" },
+      { at: "side",   ja: "脇を縫う",         en: "Side seam" },
+      { at: "hem",    ja: "裾は三つ折り",     en: "Double-fold hem" },
+    ],
+    caption: CAP,
+  },
+
+  cargopants: {
+    vals: {},
+    shown: { ja: "ヒップ92cm・股下70cm・裾まわり40cm", en: "92 cm hip, 70 cm inseam, 40 cm hem circumference" },
+    aria: {
+      ja: "カーゴパンツの完成イメージ。ウエストゴムのワークパンツ（脇に貼りポケット）",
+      en: "Finished cargo pants: elastic-waist work pants (with side patch pockets)",
+    },
+    labels: [
+      { at: "waist",  ja: "ウエストはゴム",   en: "Elastic waist" },
+      { at: "crotch", ja: "中心・股ぐりを縫う", en: "Center & crotch seam" },
+      { at: "side",   ja: "脇にポケット",     en: "Side pocket" },
+      { at: "hem",    ja: "裾は三つ折り",     en: "Double-fold hem" },
+    ],
+    caption: CAP,
+  },
+
+  pants: {
+    vals: {},
+    shown: { ja: "ヒップ68cm・股上24cm・股下30cm", en: "68 cm hip, 24 cm rise, 30 cm inseam" },
+    aria: {
+      ja: "キッズパンツの完成イメージ。ウエストゴムのゆったり2本脚",
+      en: "Finished kids' pants: roomy two-leg pants with an elastic waist",
+    },
+    labels: [
+      { at: "waist",  ja: "ウエストはゴム",   en: "Elastic waist" },
+      { at: "crotch", ja: "中心・股ぐりを縫う", en: "Center & crotch seam" },
+      { at: "side",   ja: "脇を縫う",         en: "Side seam" },
+      { at: "hem",    ja: "裾は三つ折り",     en: "Double-fold hem" },
+    ],
+    caption: CAP,
+  },
+
+  kidshalf: {
+    vals: {},
+    shown: { ja: "ヒップ60cm・股上21cm・股下14cm", en: "60 cm hip, 21 cm rise, 14 cm inseam" },
+    aria: {
+      ja: "キッズハーフパンツの完成イメージ。ウエストゴムの短い2本脚",
+      en: "Finished kids' half pants: short two-leg shorts with an elastic waist",
+    },
+    labels: [
+      { at: "waist",  ja: "ウエストはゴム",   en: "Elastic waist" },
+      { at: "crotch", ja: "中心・股ぐりを縫う", en: "Center & crotch seam" },
+      { at: "side",   ja: "脇を縫う",         en: "Side seam" },
+      { at: "hem",    ja: "裾は三つ折り",     en: "Double-fold hem" },
+    ],
+    caption: CAP,
+  },
 };
 
 /* 型紙の既定値＋プリセット＋見せる設定を重ねる */
