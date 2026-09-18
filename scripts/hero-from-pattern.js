@@ -438,7 +438,124 @@ function shoulderbag(P, vals) {
   };
 }
 
-const BUILDERS = { onepiece, tee, kidstee, skirt, petblanket, petmat, tote, kinchaku, pouch, sacoche, shoulderbag };
+/* 持ち手（アーチ状の帯）。両端が袋口に付き、上にふくらむレンズ形。 */
+function handleArch(ax, rise, hw) {
+  const f = v => v.toFixed(1);
+  return `M${f(-ax)},0 Q0,${f(-rise)} ${f(ax)},0 Q0,${f(-rise + hw)} ${f(-ax)},0 Z`;
+}
+/* かぶせ蓋（下の両角を落とした台形） */
+function flapShape(W, FD, r) {
+  return [
+    { x: -W / 2, y: 0 }, { x: W / 2, y: 0 },
+    { x: W / 2, y: FD - r }, { x: W / 2 - r, y: FD },
+    { x: -W / 2 + r, y: FD }, { x: -W / 2, y: FD - r },
+  ];
+}
+
+/* ---- 絵本バッグ（レッスンバッグ）：マチなしの平らなトート ---- */
+function ehonbag(P, vals) {
+  const { pieces } = P.ehonbag.gen(vals, 0);
+  const bB = bbox(pieces[0].finished), bH = bbox(pieces[1].finished);
+  const W = bB.x1 - bB.x0, H = (bB.y1 - bB.y0) / 2;      // 底で二つ折り
+  const handleLen = Math.max(bH.x1 - bH.x0, bH.y1 - bH.y0);
+  const HW = Math.min(bH.x1 - bH.x0, bH.y1 - bH.y0);
+  const bodyRect = [{ x: -W / 2, y: 0 }, { x: W / 2, y: 0 }, { x: W / 2, y: H }, { x: -W / 2, y: H }];
+  const ax = W * 0.25;
+  const rise = Math.min(handleLen * 0.42, H * 0.6);
+  return {
+    parts: [{ role: "handle", d: handleArch(ax, rise, HW) }, { role: "body", d: poly(bodyRect) }],
+    seams: [line([{ x: -W / 2, y: cm(2) }, { x: W / 2, y: cm(2) }])],  // 袋口
+    drape: [],
+    anchors: {
+      handle:  { x: ax, y: -rise * 0.7 },
+      opening: { x: -W * 0.2, y: cm(2) },
+      body:    { x: W * 0.25, y: H * 0.6 },
+    },
+    dims: { w: W, h: H, handleLen },
+  };
+}
+
+/* ---- クラッチバッグ：平らな本体＋かぶせ蓋 ---- */
+function clutchbag(P, vals) {
+  const bB = bbox(P.clutchbag.gen(vals, 0).pieces[0].finished);
+  const W = bB.x1 - bB.x0, H = (bB.y1 - bB.y0) / 2;      // 底で二つ折り
+  const FD = cm(vals.flap);
+  const bodyRect = [{ x: -W / 2, y: 0 }, { x: W / 2, y: 0 }, { x: W / 2, y: H }, { x: -W / 2, y: H }];
+  const r = Math.min(FD * 0.5, W * 0.12);
+  return {
+    parts: [{ role: "body", d: poly(bodyRect) }, { role: "flap", d: poly(flapShape(W, FD, r)) }],
+    seams: [line([{ x: -W / 2 + r, y: FD }, { x: W / 2 - r, y: FD }])],  // 蓋の縫い目
+    drape: [],
+    anchors: {
+      flap: { x: W * 0.26, y: FD * 0.5 },
+      body: { x: -W * 0.26, y: H * 0.78 },
+      fold: { x: -W * 0.3, y: H },
+    },
+    dims: { w: W, h: H },
+  };
+}
+
+/* ---- ボストンバッグ：角丸の本体＋2本の持ち手 ---- */
+function bostonbag(P, vals) {
+  const { pieces } = P.bostonbag.gen(vals, 0);
+  const bB = bbox(pieces[0].finished), bH = bbox(pieces[2].finished);
+  const W = bB.x1 - bB.x0, H = bB.y1 - bB.y0;
+  const handleLen = Math.max(bH.x1 - bH.x0, bH.y1 - bH.y0);
+  const HW = Math.min(bH.x1 - bH.x0, bH.y1 - bH.y0);
+  const r = Math.min(cm(vals.round) + cm(1), H * 0.3, W * 0.15);
+  // 上下4角とも丸めた角丸長方形
+  const body = [
+    { x: -W / 2 + r, y: 0 }, { x: W / 2 - r, y: 0 },
+    { x: W / 2, y: r }, { x: W / 2, y: H - r }, { x: W / 2 - r, y: H },
+    { x: -W / 2 + r, y: H }, { x: -W / 2, y: H - r }, { x: -W / 2, y: r },
+  ];
+  const ax = W * 0.22;
+  const rise = Math.min(handleLen * 0.34, H * 0.9);
+  return {
+    parts: [{ role: "handle", d: handleArch(ax, rise, HW) }, { role: "body", d: poly(body) }],
+    seams: [line([{ x: -W / 2 + r, y: cm(2) }, { x: W / 2 - r, y: cm(2) }])],  // ファスナー口
+    drape: [],
+    anchors: {
+      handle:  { x: ax, y: -rise * 0.7 },
+      opening: { x: -W * 0.18, y: cm(2) },
+      body:    { x: W * 0.3, y: H * 0.6 },
+    },
+    dims: { w: W, h: H, handleLen },
+  };
+}
+
+/* ---- リュックサック：本体＋かぶせ蓋＋肩ひも ---- */
+function backpack(P, vals) {
+  const { pieces } = P.backpack.gen(vals, 0);
+  const bB = bbox(pieces[0].finished), bF = bbox(pieces[2].finished), bS = bbox(pieces[3].finished);
+  const W = bB.x1 - bB.x0, H = bB.y1 - bB.y0;
+  const FD = bF.y1 - bF.y0;
+  const strapLen = Math.max(bS.x1 - bS.x0, bS.y1 - bS.y0);
+  const bodyRect = [{ x: -W / 2, y: 0 }, { x: W / 2, y: 0 }, { x: W / 2, y: H }, { x: -W / 2, y: H }];
+  const r = Math.min(FD * 0.5, W * 0.12);
+  /* 肩ひも：背中側から肩へ回るので、上端の内側から上へ弧を描いて覗かせる */
+  const f = v => v.toFixed(1);
+  const strapArcOne = s =>
+    `M${f(s * W * 0.16)},${f(cm(1))} Q${f(s * W * 0.42)},${f(-H * 0.42)} ${f(s * W * 0.30)},${f(-H * 0.52)}`;
+  return {
+    parts: [
+      { role: "body", d: poly(bodyRect) },
+      { role: "flap", d: poly(flapShape(W, FD, r)) },
+    ],
+    straps: [strapArcOne(1), strapArcOne(-1)],
+    seams: [line([{ x: -W / 2 + r, y: FD }, { x: W / 2 - r, y: FD }])],  // 蓋の縫い目
+    drape: [],
+    anchors: {
+      strap: { x: W * 0.36, y: -H * 0.45 },
+      flap:  { x: -W * 0.28, y: FD * 0.5 },
+      body:  { x: W * 0.28, y: H * 0.8 },
+    },
+    dims: { w: W, h: H, strapLen },
+  };
+}
+
+const BUILDERS = { onepiece, tee, kidstee, skirt, petblanket, petmat, tote, kinchaku, pouch, sacoche, shoulderbag,
+                   ehonbag, clutchbag, bostonbag, backpack };
 
 /* ---- SVGに起こす ------------------------------------------
    寸法は build の座標をそのまま拡大縮小するだけ。陰影とドレープは
