@@ -266,6 +266,67 @@ const SPECS = {
     ],
     caption: CAP,
   },
+
+  tunic: {
+    vals: {},
+    shown: { ja: "バスト100cm・着丈84cm・袖丈46cm", en: "100 cm bust, 84 cm length, 46 cm sleeves" },
+    aria: {
+      ja: "チュニックの完成イメージ。丈の長いドロップショルダーのボックスシルエット",
+      en: "Finished tunic: a long boxy drop-shoulder silhouette with sleeves",
+    },
+    labels: [
+      { at: "neck",   ja: "衿ぐりの始末", en: "Neckline finish" },
+      { at: "sleeve", ja: "袖を付ける",   en: "Sleeve" },
+      { at: "side",   ja: "脇を縫う",     en: "Side seam" },
+      { at: "hem",    ja: "裾は三つ折り", en: "Double-fold hem" },
+    ],
+    caption: CAP,
+  },
+
+  camisole: {
+    vals: {},
+    shown: { ja: "バスト92cm・着丈60cm・肩ひも28cm", en: "92 cm bust, 60 cm length, 28 cm straps" },
+    aria: {
+      ja: "キャミソールの完成イメージ。前後の身頃に肩ひも2本",
+      en: "Finished camisole: front and back bodice with two shoulder straps",
+    },
+    labels: [
+      { at: "strap", ja: "肩ひも",       en: "Shoulder straps" },
+      { at: "neck",  ja: "衿ぐり",       en: "Neckline" },
+      { at: "hem",   ja: "裾は三つ折り", en: "Double-fold hem" },
+    ],
+    caption: CAP,
+  },
+
+  kidstank: {
+    vals: {},
+    shown: { ja: "胸囲58cm・着丈36cm", en: "58 cm chest, 36 cm length" },
+    aria: {
+      ja: "キッズタンクトップの完成イメージ。肩ひもも身頃と続きの一枚",
+      en: "Finished kids' tank top: straps cut in one with the body",
+    },
+    labels: [
+      { at: "neck", ja: "衿ぐり",       en: "Neckline" },
+      { at: "arm",  ja: "袖ぐり",       en: "Armhole" },
+      { at: "hem",  ja: "裾は三つ折り", en: "Double-fold hem" },
+    ],
+    caption: CAP,
+  },
+
+  dolman: {
+    vals: {},
+    shown: { ja: "バスト96cm・着丈60cm・リーチ52cm", en: "96 cm bust, 60 cm length, 52 cm reach" },
+    aria: {
+      ja: "ドルマンスリーブトップスの完成イメージ。袖が身頃と続きのバットウィング",
+      en: "Finished dolman-sleeve top: a batwing with the sleeve cut in one with the body",
+    },
+    labels: [
+      { at: "neck", ja: "衿ぐり",       en: "Neckline" },
+      { at: "cuff", ja: "袖口",         en: "Cuff" },
+      { at: "hem",  ja: "裾は三つ折り", en: "Double-fold hem" },
+    ],
+    caption: CAP,
+  },
 };
 
 /* 型紙の既定値＋プリセット＋見せる設定を重ねる */
