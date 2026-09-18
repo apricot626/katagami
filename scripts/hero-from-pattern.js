@@ -636,8 +636,71 @@ function dolman(P, vals) {
   };
 }
 
+/* ---- パンツ（正面の見え姿） ------------------------------------
+   型紙は「前後同じ一枚（脇〜中心）」。左端が脇、右端が股ぐり（中心側）で、
+   股ぐりの合印がウエストから股までの位置です。ここから正面姿を組み立てます：
+   ・ウエスト幅（片脚前幅）＝y=0 の辺の幅＝HW＝(ヒップ＋ゆとり)/4
+   ・股ぐりの深さ＝股ぐり合印のy
+   ・総丈＝型紙の高さ
+   ・裾の脚幅＝裾（最下辺）の幅
+   中心で左右を突き合わせ、股点から下を少し開いて2本の脚に見せます
+   （開きは飾りで、寸法には触れません）。 */
+function pantsFront(pat, vals) {
+  const { pieces } = pat.gen(vals, 0);
+  const pts = pieces[0].finished;
+  const ys = pts.map(p => p.y);
+  const H = Math.max(...ys), y0 = Math.min(...ys);
+  const waistPts = pts.filter(p => near(p.y, y0));
+  const HW = Math.max(...waistPts.map(p => p.x)) - Math.min(...waistPts.map(p => p.x));
+  const hemPts = pts.filter(p => near(p.y, H));
+  const hemW = Math.max(...hemPts.map(p => p.x)) - Math.min(...hemPts.map(p => p.x));
+  const ns = pieces[0].notches || [];
+  const crotch = ns.reduce((a, b) => (b.x > a.x ? b : a), ns[0]);   // 右端＝股ぐり側の合印
+  const cy = crotch.y;
+
+  const GAP = Math.max(cm(1.5), hemW * 0.14);   // 左右の脚を分ける飾りの隙間
+  const innerHem = GAP, outerHem = GAP + hemW;
+  const dip = Math.min(cm(2.5), (H - cy) * 0.18);
+  const f = n => n.toFixed(1);
+
+  const d =
+    `M${f(-HW)},0 L${f(HW)},0 ` +
+    `L${f(outerHem)},${f(H)} L${f(innerHem)},${f(H)} ` +
+    `Q0,${f(cy + dip)} 0,${f(cy)} ` +
+    `Q0,${f(cy + dip)} ${f(-innerHem)},${f(H)} ` +
+    `L${f(-outerHem)},${f(H)} Z`;
+
+  return {
+    parts: [{ role: "pants", d }],
+    seams: [
+      line([{ x: -HW, y: 0 }, { x: HW, y: 0 }]),          // ウエスト（ゴム）
+      line([{ x: 0, y: 0 }, { x: 0, y: cy }]),            // 中心前線
+    ],
+    drape: [
+      line([{ x: HW * 0.42, y: cy + dip }, { x: (innerHem + outerHem) / 2, y: H - 12 }]),
+      line([{ x: -HW * 0.42, y: cy + dip }, { x: -(innerHem + outerHem) / 2, y: H - 12 }]),
+    ],
+    anchors: {
+      waist:  { x: HW, y: 0 },
+      side:   { x: (HW + outerHem) / 2, y: (cy + H) / 2 },
+      crotch: { x: 0, y: cy },
+      hem:    { x: (innerHem + outerHem) / 2, y: H },
+    },
+    dims: { waistHalf: HW, length: H, crotchY: cy },
+  };
+}
+const widepants    = (P, vals) => pantsFront(P.widepants, vals);
+const halfpants    = (P, vals) => pantsFront(P.halfpants, vals);
+const taperedpants = (P, vals) => pantsFront(P.taperedpants, vals);
+const sweatpants   = (P, vals) => pantsFront(P.sweatpants, vals);
+const culotte      = (P, vals) => pantsFront(P.culotte, vals);
+const cargopants   = (P, vals) => pantsFront(P.cargopants, vals);
+const pants        = (P, vals) => pantsFront(P.pants, vals);
+const kidshalf     = (P, vals) => pantsFront(P.kidshalf, vals);
+
 const BUILDERS = { onepiece, tee, kidstee, tunic, skirt, petblanket, petmat, tote, kinchaku, pouch, sacoche, shoulderbag,
-                   ehonbag, clutchbag, bostonbag, backpack, camisole, kidstank, dolman };
+                   ehonbag, clutchbag, bostonbag, backpack, camisole, kidstank, dolman,
+                   widepants, halfpants, taperedpants, sweatpants, culotte, cargopants, pants, kidshalf };
 
 /* ---- SVGに起こす ------------------------------------------
    寸法は build の座標をそのまま拡大縮小するだけ。陰影とドレープは

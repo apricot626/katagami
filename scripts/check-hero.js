@@ -68,6 +68,16 @@ const EXPECT = {
   camisole: p => ({ bodiceLen: cm(p.len), bustHalf: cm(p.bust + p.ease) / 4, strapLen: cm(p.strapl) }),
   kidstank: p => ({ bodiceLen: cm(p.len), bustHalf: cm(p.chest + p.ease) / 4 }),
   dolman:   p => ({ bodiceLen: cm(p.len), reachHalf: cm(p.reach) }),
+  /* パンツ類：前身頃1枚の幅＝(ヒップ＋ゆとり)/4、総丈＝折り返し＋股上＋股下。
+     カーゴだけ型紙の高さに折り返しを含めない作図なので股上＋股下で見る。 */
+  widepants:    p => ({ waistHalf: cm(p.hip + p.ease) / 4, length: cm(p.casing + p.rise + p.inseam) }),
+  halfpants:    p => ({ waistHalf: cm(p.hip + p.ease) / 4, length: cm(p.casing + p.rise + p.inseam) }),
+  taperedpants: p => ({ waistHalf: cm(p.hip + p.ease) / 4, length: cm(p.casing + p.rise + p.inseam) }),
+  sweatpants:   p => ({ waistHalf: cm(p.hip + p.ease) / 4, length: cm(p.casing + p.rise + p.inseam) }),
+  culotte:      p => ({ waistHalf: cm(p.hip + p.ease) / 4, length: cm(p.casing + p.rise + p.inseam) }),
+  cargopants:   p => ({ waistHalf: cm(p.hip + p.ease) / 4, length: cm(p.rise + p.inseam) }),
+  pants:        p => ({ waistHalf: cm(p.hip + p.ease) / 4, length: cm(p.casing + p.rise + p.inseam) }),
+  kidshalf:     p => ({ waistHalf: cm(p.hip + p.ease) / 4, length: cm(p.casing + p.rise + p.inseam) }),
 };
 
 function casesFor(pat) {
