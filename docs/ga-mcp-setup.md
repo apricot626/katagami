@@ -13,6 +13,20 @@ Google 公式の MCP サーバー（[googleanalytics/google-analytics-mcp](https
 
 ---
 
+## 鍵をどこに置くか（結論）
+
+**リポジトリには置きません。置き場所は使う場所によって2つです。**
+
+| 使う場所 | 鍵の置き場所 |
+|---|---|
+| 手元のパソコン | パソコン内の好きな場所（リポジトリの外）。そのパスを `GOOGLE_APPLICATION_CREDENTIALS` に入れる |
+| クラウドのセッション | **ファイルとしては置けません。** 環境変数に中身を入れ、セッション開始時にフックがファイル化します |
+
+クラウドのコンテナは毎回まっさらで、手元のファイルは入っていません。
+だから「鍵を置く」のではなく「鍵の中身を環境変数で渡す」形になります。
+
+---
+
 ## 先に知っておくこと
 
 - **鍵（JSONキー）は絶対にこのリポジトリに入れないでください。** 公開リポジトリです。
@@ -76,28 +90,46 @@ export GOOGLE_PROJECT_ID="あなたのプロジェクトID"
 
 ## 3-B. クラウドのセッションでつなぐ
 
-リポジトリの `.mcp.json` は**クラウドセッションでも自動で読み込まれます**。
-足りないのは鍵だけです。コンテナは毎回まっさらなので、鍵をファイルとして用意する必要があります。
+### 手順1. 鍵を1行の base64 にする
 
-1. Claude Code の**環境設定**で、環境変数に鍵の中身そのものを入れる
+環境変数は `.env` 形式（1行1つの `KEY=value`）で、**複数行の値は引用符で囲む必要があります**。
+鍵JSONは改行を含むうえ `private_key` の中に `\n` が入っているので、そのまま貼ると壊れがちです。
+base64 にして1行にすれば、引用符も改行も考えずに済みます。
 
-   | 変数名 | 中身 |
-   |---|---|
-   | `GA_SERVICE_ACCOUNT_JSON` | ダウンロードしたJSONの中身を丸ごと |
-   | `GOOGLE_PROJECT_ID` | Google Cloud のプロジェクトID |
+```bash
+# macOS（クリップボードに入ります）
+base64 -i ga-service-account.json | tr -d '\n' | pbcopy
 
-2. 同じく環境設定の**セットアップスクリプト**に、次を足す
+# Linux
+base64 -w0 ga-service-account.json
+```
 
-   ```bash
-   if [ -n "$GA_SERVICE_ACCOUNT_JSON" ]; then
-     mkdir -p /home/user/.config/katagami
-     printf '%s' "$GA_SERVICE_ACCOUNT_JSON" > /home/user/.config/katagami/ga-service-account.json
-     chmod 600 /home/user/.config/katagami/ga-service-account.json
-   fi
-   ```
+### 手順2. 環境変数に入れる
 
-`.mcp.json` の既定値がこのパスを指しているので、これだけでつながります。
-**書き出し先はリポジトリの外**（`/home/user/.config/katagami/`）です。`git status` に出てきません。
+[claude.ai/code](https://claude.ai/code) の**環境設定ダイアログ**を開き、**環境変数**の欄に貼ります。
+
+```
+GA_SERVICE_ACCOUNT_B64=（手順1で作った1行）
+GOOGLE_PROJECT_ID=あなたのGoogle CloudプロジェクトID
+```
+
+環境変数は**セッション開始時に一度だけ読み込まれます**。いま開いているセッションには反映されません。
+
+### 手順3. （設定済み）セッション開始フック
+
+`.claude/hooks/session-start.sh` が、セッションのたびに環境変数を復号して
+`/home/user/.config/katagami/ga-service-account.json` に書き出します。
+`.mcp.json` の既定値がこのパスなので、これだけでつながります。
+
+**書き出し先はリポジトリの外**です。`git status` には出てきません。
+
+鍵の中身をログに出さず、JSONとして読めなければ書きかけのファイルを消します。
+環境変数が未設定なら何もせず終了するので、設定前でもセッションは普通に起動します。
+
+> **セットアップスクリプトではなくフックにしている理由**
+> セットアップスクリプトの結果は約7日間ファイルスナップショットとしてキャッシュされ、
+> 2回目以降のセッションでは実行されません。鍵を入れ替えても古いファイルが残り続けます。
+> フックは毎セッション走るので、入れ替えが次のセッションから効きます。
 
 ---
 
@@ -118,6 +150,8 @@ GA4 のアカウントとプロパティの一覧を見せて
 | `PERMISSION_DENIED` | Data API または Admin API が有効化されていない |
 | `DefaultCredentialsError` | 鍵ファイルのパスが違う。`GOOGLE_APPLICATION_CREDENTIALS` を確認 |
 | サーバーが出てこない | 設定前から開いていたセッション。開き直す |
+| `File ... was not found` | 環境変数が未設定のまま。手順2を確認し、**セッションを開き直す** |
+| `base64を復号できませんでした` | 貼り付けた base64 に改行が混ざっている。`tr -d '\n'` / `-w0` を使う |
 
 ---
 

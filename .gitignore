@@ -4,7 +4,12 @@ docs/
 !docs/
 !docs/review-checklist.md
 !docs/ga-mcp-setup.md
-.claude/
+.claude/*
+# GA4連携のセッション開始フックだけは共有する（個人設定 settings.local.json は除外のまま）
+!.claude/settings.json
+!.claude/hooks/
+.claude/hooks/*
+!.claude/hooks/session-start.sh
 node_modules/
 package-lock.json
 package.json
