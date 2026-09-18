@@ -28,6 +28,7 @@ node scripts/audit.js               # 点検
 node scripts/check-mobile.js        # スマホ幅（サーバー必要）
 node scripts/check-print.js         # 実寸印刷（サーバー必要）
 node scripts/check-a11y.js          # 読み上げ・コントラスト（サーバー必要）
+node scripts/check-ga.js            # 計測イベント（サーバー必要）
 ```
 
 一覧ページは**手で足さない**でください。`sync-*.js` がデータと実ファイルから毎回作り直します。
@@ -180,11 +181,38 @@ node scripts/gen-ogp.js bostonbag neckpillow   # キー指定で部分生成
   タグが消えていない**。ひな形から落ちると、次の生成で数百ページが一度に計測から外れます。
 - 転送用ページ（`meta refresh`）は即座に移動するので対象外です。
 
-ツール画面の操作は `app.js` の `ga(name, params)` からイベントとして送っています
-（`select_mode` / `select_pattern` / `open_group` / `print_pattern` / `save_profile` /
-`load_profile` / `set_paper` / `set_unit` / `view_privacy_policy`）。
-**採寸値そのものは絶対に送らないでください。** ブラウザ内だけで処理すると
-プライバシーポリシーで約束しています。送ってよいのは型紙のキーや用紙・単位の選択までです。
+### 送っているイベント
+
+| イベント | どこ | 分かること |
+|---|---|---|
+| `open_tool` | `app.js` 起動時 | **どのガイドがツールへ送客できているか**（`from_page` / `from_kind`） |
+| `select_mode` / `select_pattern` / `open_group` | `app.js` | 画面内でどう探されているか |
+| `print_pattern` | `app.js` | **何の型紙が何枚で印刷されたか**（このサイトのゴール） |
+| `save_profile` / `load_profile` | `app.js` | 設定の保存が使われているか |
+| `set_paper` / `set_unit` | `app.js`（英語版のみ） | Letter・インチの需要 |
+| `view_privacy_policy` | `app.js` | — |
+| `search` | `search.js` | **探したのに無かった語**（`results` が 0 のもの） |
+
+送客の計測を**ガイド側のクリックではなく、着地した `app.js` 側の `document.referrer` で**
+取っているのは、ガイドが562ページあるからです。クリックを数えると全ページに仕掛けが要り、
+1ページ貼り忘れれば静かに欠けます。着地側なら1か所で済み、離脱ぶんを含まない実数になります。
+**外部サイトからの参照元URLは送りません**（クエリに何が入っているか分からないため）。
+種別だけ `external` として記録します。
+
+ホームの絞り込みは画面の中だけで終わりURLが変わらないため、GA4 のサイト内検索機能は
+発火しません。`search.js` から自分で送っています。打鍵ごとの断片（「く」「くる」「くるみ」）が
+積もらないよう、手が止まって1.2秒後に1回だけ送ります。
+
+### 採寸値は絶対に送らない
+
+**ブラウザ内だけで処理するとプライバシーポリシーで約束しています。**
+送ってよいのは型紙のキー・モード・用紙・単位・枚数・縫い代までです。
+`state.params` をそのままイベントに広げると約束を破ります。
+
+`check-ga.js` が本物のブラウザでイベントを発火させ、`patterns.js` の全パラメータ名と
+突き合わせて混入を見張ります（計測の通信は遮断したうえで `dataLayer` を読みます）。
+イベントは壊れても画面に何も出ないので、気づけるのは**レポートが空になった数週間後**です。
+ツール画面や `search.js` を触ったら流してください。
 
 ---
 
