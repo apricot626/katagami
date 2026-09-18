@@ -554,8 +554,90 @@ function backpack(P, vals) {
   };
 }
 
-const BUILDERS = { onepiece, tee, kidstee, skirt, petblanket, petmat, tote, kinchaku, pouch, sacoche, shoulderbag,
-                   ehonbag, clutchbag, bostonbag, backpack };
+/* チュニックは長いTシャツ（前身頃・袖・脇下の合印が同じ）。作図を流用。 */
+const tunic = (P, vals, opts = {}) => boxTee(P.tunic, vals, opts);
+
+/* 袖のない・袖が身頃と続きの身頃を、そのまま正面に開いて描く共通処理。
+   前身頃の外形が出来上がりのシルエットそのものになるものに使う
+   （キャミソール本体・タンク・ドルマン）。 */
+function bodiceOutline(front) {
+  const fPts = front.finished;
+  const b = bbox(fPts);
+  const neckIdx = fPts.findIndex(p => near(p.y, 0));
+  const neckCurve = neckIdx > 0 ? fPts.slice(0, neckIdx + 1) : [fPts[0]];
+  const neckEnd = fPts[Math.max(neckIdx, 0)];
+  return { b, neckCurve, neckEnd, body: openFold(fPts), centerNeckY: fPts[0].y };
+}
+
+/* ---- キャミソール：身頃＋肩ひも2本 ---- */
+function camisole(P, vals) {
+  const { pieces } = P.camisole.gen(vals, 0);
+  const o = bodiceOutline(pieces[0]);
+  const bS = bbox(pieces[2].finished);
+  const strapLen = Math.max(bS.x1 - bS.x0, bS.y1 - bS.y0);
+  const b = o.b, topX = o.neckEnd.x;
+  const f = v => v.toFixed(1);
+  const strapArc = s =>
+    `M${f(s * topX * 0.72)},0 Q${f(s * topX * 0.5)},${f(-b.y1 * 0.5)} ${f(s * topX * 0.9)},${f(-b.y1 * 0.55)}`;
+  return {
+    parts: [{ role: "body", d: poly(o.body) }],
+    straps: [strapArc(1), strapArc(-1)],
+    seams: [
+      line(o.neckCurve.concat(mirror(o.neckCurve.slice().reverse()))),   // 衿ぐり
+      line([{ x: -b.x1, y: b.y1 }, { x: b.x1, y: b.y1 }]),               // 裾
+    ],
+    drape: [],
+    anchors: {
+      strap: { x: topX * 0.7, y: -b.y1 * 0.42 },
+      neck:  { x: 0, y: o.centerNeckY },
+      hem:   { x: b.x1 * 0.4, y: b.y1 },
+    },
+    dims: { bodiceLen: b.y1, bustHalf: b.x1, strapLen },
+  };
+}
+
+/* ---- キッズタンクトップ：肩ひもも身頃続きの一枚 ---- */
+function kidstank(P, vals) {
+  const o = bodiceOutline(P.kidstank.gen(vals, 0).pieces[0]);
+  const b = o.b;
+  return {
+    parts: [{ role: "body", d: poly(o.body) }],
+    seams: [
+      line(o.neckCurve.concat(mirror(o.neckCurve.slice().reverse()))),   // 衿ぐり
+      line([{ x: -b.x1, y: b.y1 }, { x: b.x1, y: b.y1 }]),               // 裾
+    ],
+    drape: [],
+    anchors: {
+      neck: { x: o.neckEnd.x * 0.5, y: o.centerNeckY * 0.5 },
+      arm:  { x: b.x1, y: b.y1 * 0.32 },
+      hem:  { x: b.x1 * 0.4, y: b.y1 },
+    },
+    dims: { bodiceLen: b.y1, bustHalf: b.x1 },
+  };
+}
+
+/* ---- ドルマンスリーブ：袖が身頃と続きのバットウィング一枚 ---- */
+function dolman(P, vals) {
+  const o = bodiceOutline(P.dolman.gen(vals, 0).pieces[0]);
+  const b = o.b;
+  return {
+    parts: [{ role: "body", d: poly(o.body) }],
+    seams: [
+      line(o.neckCurve.concat(mirror(o.neckCurve.slice().reverse()))),   // 衿ぐり
+      line([{ x: -b.x1, y: b.y1 }, { x: b.x1, y: b.y1 }]),               // 裾
+    ],
+    drape: [],
+    anchors: {
+      neck: { x: o.neckEnd.x, y: 0 },
+      cuff: { x: b.x1, y: b.y1 * 0.22 },
+      hem:  { x: b.x1 * 0.35, y: b.y1 },
+    },
+    dims: { bodiceLen: b.y1, reachHalf: b.x1 },
+  };
+}
+
+const BUILDERS = { onepiece, tee, kidstee, tunic, skirt, petblanket, petmat, tote, kinchaku, pouch, sacoche, shoulderbag,
+                   ehonbag, clutchbag, bostonbag, backpack, camisole, kidstank, dolman };
 
 /* ---- SVGに起こす ------------------------------------------
    寸法は build の座標をそのまま拡大縮小するだけ。陰影とドレープは

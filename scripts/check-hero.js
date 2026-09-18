@@ -59,6 +59,15 @@ const EXPECT = {
   clutchbag:   p => ({ w: cm(p.w), h: cm(p.h) }),
   bostonbag:   p => ({ w: cm(p.w), h: cm(p.h), handleLen: cm(p.handle) }),
   backpack:    p => ({ w: cm(p.w), h: cm(p.h), strapLen: cm(p.strap) }),
+  tunic: p => ({
+    bodiceLen: cm(p.len),
+    sleeveLen: cm(p.sleeve),
+    neckHalf:  cm(p.neckw) / 2,
+    cuff:      cm(p.cuff),
+  }),
+  camisole: p => ({ bodiceLen: cm(p.len), bustHalf: cm(p.bust + p.ease) / 4, strapLen: cm(p.strapl) }),
+  kidstank: p => ({ bodiceLen: cm(p.len), bustHalf: cm(p.chest + p.ease) / 4 }),
+  dolman:   p => ({ bodiceLen: cm(p.len), reachHalf: cm(p.reach) }),
 };
 
 function casesFor(pat) {
