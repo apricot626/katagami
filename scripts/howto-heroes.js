@@ -57,7 +57,6 @@ const SPECS = {
     /* 既定のボックスTそのまま。肩を落とした半袖が自然に見える角度に。 */
     vals: {},
     shown: { ja: "バスト100cm・着丈66cm・袖丈20cm", en: "100 cm bust, 66 cm length, 20 cm sleeves" },
-    armAngle: 14,
     aria: {
       ja: "Tシャツの完成イメージ。肩を落とした半袖のボックスシルエット、前後身頃と袖、始末した衿ぐり",
       en: "Finished T-shirt: a boxy drop-shoulder short-sleeve silhouette with front and back bodice, sleeves and a finished neckline",
@@ -90,7 +89,6 @@ const SPECS = {
   kidstee: {
     vals: {},
     shown: { ja: "バスト64cm・着丈40cm・袖丈14cm", en: "64 cm chest, 40 cm length, 14 cm sleeves" },
-    armAngle: 14,
     aria: {
       ja: "キッズTシャツの完成イメージ。肩を落とした半袖のボックスシルエット",
       en: "Finished kids' T-shirt: a boxy drop-shoulder short-sleeve silhouette",
