@@ -457,6 +457,98 @@ const SPECS = {
     ],
     caption: CAP,
   },
+
+  /* ---- ベスト（正面の見え姿） ---- */
+  adultvest: {
+    vals: {},
+    shown: { ja: "バスト96cm・着丈58cm・V衿深さ18cm", en: "96 cm bust, 58 cm length, 18 cm V-neck depth" },
+    aria: {
+      ja: "ベストの完成イメージ。前開きのV衿、袖なしの身頃",
+      en: "Finished vest: a front-opening V-neck sleeveless body",
+    },
+    labels: [
+      { at: "neck", ja: "V衿・前開き",   en: "V-neck front opening" },
+      { at: "arm",  ja: "袖ぐりの始末", en: "Armhole finish" },
+      { at: "hem",  ja: "裾は三つ折り", en: "Double-fold hem" },
+    ],
+    caption: CAP,
+  },
+
+  kidsvest: {
+    vals: {},
+    shown: { ja: "バスト62cm・着丈34cm・肩幅26cm", en: "62 cm chest, 34 cm length, 26 cm shoulders" },
+    aria: {
+      ja: "キッズベストの完成イメージ。丸首・袖なしの身頃",
+      en: "Finished kids' vest: a round-neck sleeveless body",
+    },
+    labels: [
+      { at: "neck", ja: "丸首の衿ぐり", en: "Round neckline" },
+      { at: "arm",  ja: "袖ぐりの始末", en: "Armhole finish" },
+      { at: "hem",  ja: "裾は三つ折り", en: "Double-fold hem" },
+    ],
+    caption: CAP,
+  },
+
+  /* ---- 角丸の一枚もの（マット・ケット類） ---- */
+  babyblanket: {
+    vals: {},
+    shown: { ja: "幅80cm・長さ100cm・角丸5cm", en: "80 × 100 cm, 5 cm rounded corners" },
+    aria: {
+      ja: "お昼寝ケットの完成イメージ。角を丸くした長方形、まわりをステッチ",
+      en: "Finished nap blanket: a rounded rectangle topstitched around the edge",
+    },
+    labels: [
+      { at: "corner", ja: "角は丸く",             en: "Rounded corners" },
+      { at: "edge",   ja: "まわりをステッチ",     en: "Topstitch the edge" },
+      { at: "center", ja: "2枚を中表に縫って返す", en: "Two layers, sewn and turned" },
+    ],
+    caption: CAP,
+  },
+
+  napmat: {
+    vals: {},
+    shown: { ja: "幅70cm・長さ120cm・角丸5cm", en: "70 × 120 cm, 5 cm rounded corners" },
+    aria: {
+      ja: "お昼寝マットの完成イメージ。角を丸くした長方形、まわりをステッチ",
+      en: "Finished nap mat: a rounded rectangle topstitched around the edge",
+    },
+    labels: [
+      { at: "corner", ja: "角は丸く",         en: "Rounded corners" },
+      { at: "edge",   ja: "まわりをステッチ", en: "Topstitch the edge" },
+      { at: "center", ja: "中に綿を入れる",   en: "Add batting inside" },
+    ],
+    caption: CAP,
+  },
+
+  picnicmat: {
+    vals: {},
+    shown: { ja: "幅140cm・奥行100cm・角丸6cm", en: "140 × 100 cm, 6 cm rounded corners" },
+    aria: {
+      ja: "レジャーシートの完成イメージ。角を丸くした大きな長方形、まわりをステッチ",
+      en: "Finished picnic mat: a large rounded rectangle topstitched around the edge",
+    },
+    labels: [
+      { at: "corner", ja: "角は丸く",             en: "Rounded corners" },
+      { at: "edge",   ja: "まわりをステッチ",     en: "Topstitch the edge" },
+      { at: "center", ja: "裏に防水布を合わせる", en: "Back with waterproof fabric" },
+    ],
+    caption: CAP,
+  },
+
+  doormat: {
+    vals: {},
+    shown: { ja: "幅60cm・奥行38cm・角丸3cm", en: "60 × 38 cm, 3 cm rounded corners" },
+    aria: {
+      ja: "玄関マットの完成イメージ。角を丸くした長方形、まわりをステッチ",
+      en: "Finished doormat: a rounded rectangle topstitched around the edge",
+    },
+    labels: [
+      { at: "corner", ja: "角は丸く",           en: "Rounded corners" },
+      { at: "edge",   ja: "まわりをステッチ",   en: "Topstitch the edge" },
+      { at: "center", ja: "中に芯を入れてもOK", en: "Add batting if you like" },
+    ],
+    caption: CAP,
+  },
 };
 
 /* 型紙の既定値＋プリセット＋見せる設定を重ねる */

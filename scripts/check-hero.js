@@ -78,6 +78,14 @@ const EXPECT = {
   cargopants:   p => ({ waistHalf: cm(p.hip + p.ease) / 4, length: cm(p.rise + p.inseam) }),
   pants:        p => ({ waistHalf: cm(p.hip + p.ease) / 4, length: cm(p.casing + p.rise + p.inseam) }),
   kidshalf:     p => ({ waistHalf: cm(p.hip + p.ease) / 4, length: cm(p.casing + p.rise + p.inseam) }),
+  /* ベスト：前身頃の脇幅＝(バスト＋ゆとり)/4、着丈＝len */
+  adultvest: p => ({ bodiceLen: cm(p.len), bustHalf: cm(p.bust + p.ease) / 4 }),
+  kidsvest:  p => ({ bodiceLen: cm(p.len), bustHalf: cm(p.bust + p.ease) / 4 }),
+  /* 角丸の一枚もの：仕上がりの外形そのもの */
+  babyblanket: p => ({ w: cm(p.w), h: cm(p.h) }),
+  napmat:      p => ({ w: cm(p.w), h: cm(p.l) }),
+  picnicmat:   p => ({ w: cm(p.w), h: cm(p.d) }),
+  doormat:     p => ({ w: cm(p.w), h: cm(p.h) }),
 };
 
 function casesFor(pat) {
