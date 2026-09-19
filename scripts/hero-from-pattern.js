@@ -277,6 +277,10 @@ function flatRounded(pat, vals) {
 }
 const petblanket = (P, vals) => flatRounded(P.petblanket, vals);
 const petmat = (P, vals) => flatRounded(P.petmat, vals);
+const babyblanket = (P, vals) => flatRounded(P.babyblanket, vals);
+const napmat = (P, vals) => flatRounded(P.napmat, vals);
+const picnicmat = (P, vals) => flatRounded(P.picnicmat, vals);
+const doormat = (P, vals) => flatRounded(P.doormat, vals);
 
 /* ---- トートバッグ（正面の見え姿） ------------------------------
    出来上がりの正面を、型紙から取った寸法で組み立てます。
@@ -636,6 +640,42 @@ function dolman(P, vals) {
   };
 }
 
+/* ---- ベスト（正面の見え姿） ------------------------------------
+   前身頃（脇線が「わ」でない側）を中心で突き合わせて正面姿にします。
+   前立ての出（中心をまたぐマイナスx）は中心へ寄せ、衿ぐりは V でも
+   丸首でも型紙の形のまま。open:true で前開きの中心線を引きます。 */
+function vestBody(pat, vals, opts = {}) {
+  const pieces = pat.gen(vals, 0).pieces;
+  const front = pieces.find(p => p.foldX === null || p.foldX === undefined) || pieces[1] || pieces[0];
+  const pts = front.finished.map(p => ({ x: Math.max(0, p.x), y: p.y }));
+  const b = bbox(pts);
+  const Hh = b.y1;
+  const neckIdx = pts.findIndex(p => near(p.y, 0));
+  const neckCurve = pts.slice(0, neckIdx + 1);       // 中心衿ぐり→肩の衿つけ
+  const neckSeam = neckCurve.length > 1
+    ? line(mirror(neckCurve).slice().reverse().concat(neckCurve.slice(1)))   // 上に横線を出さない
+    : "";
+  const notch = (front.notches && front.notches[0]) || { x: b.x1, y: Hh * 0.35 };
+  const nMid = neckCurve[Math.floor(neckCurve.length / 2)] || neckCurve[0];
+  return {
+    parts: [{ role: "body", d: poly(openFold(pts)) }],
+    seams: [
+      neckSeam,
+      line([{ x: -b.x1, y: Hh }, { x: b.x1, y: Hh }]),                        // 裾
+      ...(opts.open ? [line([{ x: 0, y: pts[0].y }, { x: 0, y: Hh }])] : []), // 前開き
+    ].filter(Boolean),
+    drape: [],
+    anchors: {
+      neck: { x: nMid.x, y: nMid.y },
+      arm:  { x: b.x1, y: notch.y * 0.72 },
+      hem:  { x: b.x1 * 0.4, y: Hh },
+    },
+    dims: { bodiceLen: Hh, bustHalf: b.x1 },
+  };
+}
+const adultvest = (P, vals) => vestBody(P.adultvest, vals, { open: true });
+const kidsvest  = (P, vals) => vestBody(P.kidsvest, vals);
+
 /* ---- パンツ（正面の見え姿） ------------------------------------
    型紙は「前後同じ一枚（脇〜中心）」。左端が脇、右端が股ぐり（中心側）で、
    股ぐりの合印がウエストから股までの位置です。ここから正面姿を組み立てます：
@@ -700,7 +740,8 @@ const kidshalf     = (P, vals) => pantsFront(P.kidshalf, vals);
 
 const BUILDERS = { onepiece, tee, kidstee, tunic, skirt, petblanket, petmat, tote, kinchaku, pouch, sacoche, shoulderbag,
                    ehonbag, clutchbag, bostonbag, backpack, camisole, kidstank, dolman,
-                   widepants, halfpants, taperedpants, sweatpants, culotte, cargopants, pants, kidshalf };
+                   widepants, halfpants, taperedpants, sweatpants, culotte, cargopants, pants, kidshalf,
+                   babyblanket, napmat, picnicmat, doormat, adultvest, kidsvest };
 
 /* ---- SVGに起こす ------------------------------------------
    寸法は build の座標をそのまま拡大縮小するだけ。陰影とドレープは
