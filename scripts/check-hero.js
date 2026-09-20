@@ -81,6 +81,8 @@ const EXPECT = {
   /* ベスト：前身頃の脇幅＝(バスト＋ゆとり)/4、着丈＝len */
   adultvest: p => ({ bodiceLen: cm(p.len), bustHalf: cm(p.bust + p.ease) / 4 }),
   kidsvest:  p => ({ bodiceLen: cm(p.len), bustHalf: cm(p.bust + p.ease) / 4 }),
+  /* カーディガン：Tシャツと同じ検算（着丈・袖丈・衿ぐり・袖口） */
+  cardigan: p => ({ bodiceLen: cm(p.len), sleeveLen: cm(p.sleeve), neckHalf: cm(p.neckw) / 2, cuff: cm(p.cuff) }),
   /* 角丸の一枚もの：仕上がりの外形そのもの */
   babyblanket: p => ({ w: cm(p.w), h: cm(p.h) }),
   napmat:      p => ({ w: cm(p.w), h: cm(p.l) }),

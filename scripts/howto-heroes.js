@@ -489,6 +489,22 @@ const SPECS = {
     caption: CAP,
   },
 
+  cardigan: {
+    vals: {},
+    shown: { ja: "バスト98cm・着丈62cm・袖丈52cm", en: "98 cm bust, 62 cm length, 52 cm sleeves" },
+    aria: {
+      ja: "カーディガンの完成イメージ。前開き・丸首のドロップショルダー、長袖",
+      en: "Finished cardigan: a front-opening round-neck drop-shoulder with long sleeves",
+    },
+    labels: [
+      { at: "neck",   ja: "丸首・前開き",   en: "Round neck, front opening" },
+      { at: "sleeve", ja: "袖を付ける",     en: "Sleeve" },
+      { at: "side",   ja: "脇を縫う",       en: "Side seam" },
+      { at: "hem",    ja: "裾は三つ折り",   en: "Double-fold hem" },
+    ],
+    caption: CAP,
+  },
+
   /* ---- 角丸の一枚もの（マット・ケット類） ---- */
   babyblanket: {
     vals: {},
