@@ -505,6 +505,66 @@ const SPECS = {
     caption: CAP,
   },
 
+  /* ---- エプロン類（正面の見え姿） ---- */
+  apron: {
+    vals: {},
+    shown: { ja: "胸幅34cm・裾幅58cm・丈70cm", en: "34 cm chest, 58 cm hem, 70 cm length" },
+    aria: {
+      ja: "エプロンの完成イメージ。胸当てからAラインに広がる本体、首ひもと腰ひも",
+      en: "Finished apron: an A-line body from the bib, with a neck loop and waist ties",
+    },
+    labels: [
+      { at: "neck",  ja: "首ひも",       en: "Neck loop" },
+      { at: "waist", ja: "腰ひも",       en: "Waist ties" },
+      { at: "hem",   ja: "裾は三つ折り", en: "Double-fold hem" },
+    ],
+    caption: CAP,
+  },
+
+  cafeapron: {
+    vals: {},
+    shown: { ja: "幅62cm・丈40cm・腰ひも90cm", en: "62 cm wide, 40 cm long, 90 cm ties" },
+    aria: {
+      ja: "カフェエプロンの完成イメージ。腰から下の一枚に長い腰ひも",
+      en: "Finished cafe apron: a waist-down panel with long waist ties",
+    },
+    labels: [
+      { at: "waist", ja: "腰ひも",       en: "Waist ties" },
+      { at: "bib",   ja: "本体",         en: "Body" },
+      { at: "hem",   ja: "裾は三つ折り", en: "Double-fold hem" },
+    ],
+    caption: CAP,
+  },
+
+  kidsapron: {
+    vals: {},
+    shown: { ja: "胸当て幅29cm・裾幅40cm・丈50cm", en: "29 cm bib, 40 cm hem, 50 cm length" },
+    aria: {
+      ja: "キッズエプロンの完成イメージ。胸当てから広がる本体、首ひもと腰ひも",
+      en: "Finished kids' apron: a body flaring from the bib, with a neck loop and waist ties",
+    },
+    labels: [
+      { at: "neck",  ja: "首ひも",       en: "Neck loop" },
+      { at: "waist", ja: "腰ひも",       en: "Waist ties" },
+      { at: "hem",   ja: "裾は三つ折り", en: "Double-fold hem" },
+    ],
+    caption: CAP,
+  },
+
+  kidsbibapron: {
+    vals: {},
+    shown: { ja: "幅28cm・丈32cm・首まわり14cm", en: "28 cm wide, 32 cm long, 14 cm neck" },
+    aria: {
+      ja: "お食事エプロンの完成イメージ。首まわりをくり抜いた大きな胸当て、首ひも",
+      en: "Finished feeding bib: a large bib with a scooped neckline and a neck loop",
+    },
+    labels: [
+      { at: "neck", ja: "首ひも",       en: "Neck loop" },
+      { at: "hem",  ja: "すそを縫う",   en: "Hem" },
+    ],
+    caption: CAP,
+  },
+
   /* ---- 角丸の一枚もの（マット・ケット類） ---- */
   babyblanket: {
     vals: {},

@@ -83,6 +83,12 @@ const EXPECT = {
   kidsvest:  p => ({ bodiceLen: cm(p.len), bustHalf: cm(p.bust + p.ease) / 4 }),
   /* カーディガン：Tシャツと同じ検算（着丈・袖丈・衿ぐり・袖口） */
   cardigan: p => ({ bodiceLen: cm(p.len), sleeveLen: cm(p.sleeve), neckHalf: cm(p.neckw) / 2, cuff: cm(p.cuff) }),
+  /* エプロン：本体の丈と幅（片側）を検算。ひもは飾りなので対象外。
+     胸当てエプロンは丈＝len。お食事エプロンは首ぐりのぶん丈が伸びるので幅だけ。 */
+  apron:        p => ({ length: cm(p.len), hemW: cm(p.hip) / 2, topW: cm(p.chest) / 2 }),
+  cafeapron:    p => ({ length: cm(p.len), hemW: cm(p.w) / 2 }),
+  kidsapron:    p => ({ length: cm(p.len), hemW: cm(p.skirtw) }),
+  kidsbibapron: p => ({ hemW: cm(p.w) / 2 }),
   /* 角丸の一枚もの：仕上がりの外形そのもの */
   babyblanket: p => ({ w: cm(p.w), h: cm(p.h) }),
   napmat:      p => ({ w: cm(p.w), h: cm(p.l) }),
