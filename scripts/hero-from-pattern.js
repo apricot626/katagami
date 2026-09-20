@@ -681,6 +681,69 @@ function vestBody(pat, vals, opts = {}) {
 const adultvest = (P, vals) => vestBody(P.adultvest, vals, { open: true });
 const kidsvest  = (P, vals) => vestBody(P.kidsvest, vals);
 
+/* ---- エプロン（正面の見え姿） ------------------------------------
+   本体（胸当て＋スカート、または腰から下）を型紙のまま描き、首ひもは
+   胸当ての上端から回すアーチ、腰ひもは脇から外へ垂らすひもで添えます。
+   ひもは見え姿の飾りで、寸法（本体の丈・幅）には触れません。 */
+function rightEdgeX(pts, y) {                    // 高さ y での右輪郭 x
+  let best = -Infinity;
+  for (let i = 0; i < pts.length; i++) {
+    const a = pts[i], b = pts[(i + 1) % pts.length];
+    if ((a.y - y) * (b.y - y) <= 0 && a.y !== b.y) {
+      const x = a.x + (b.x - a.x) * (y - a.y) / (b.y - a.y);
+      if (x > best) best = x;
+    }
+  }
+  return best === -Infinity ? Math.max(...pts.map(p => p.x)) : best;
+}
+function apronFront(pat, vals, opts = {}) {
+  const bodyPc = pat.gen(vals, 0).pieces[0];
+  let pts = bodyPc.finished.map(p => ({ x: p.x, y: p.y }));
+  if (bodyPc.foldX === 0) pts = openFold(pts);
+  else { const b0 = bbox(pts); const cx = (b0.x0 + b0.x1) / 2; pts = pts.map(p => ({ x: p.x - cx, y: p.y })); }
+  const b = bbox(pts);
+  const W = b.x1, Hh = b.y1, top = b.y0;
+  const topR = Math.max(...pts.filter(p => near(p.y, top)).map(p => p.x));
+  const f = n => n.toFixed(1);
+  const straps = [];
+  if (opts.neck) {
+    const rise = (Hh - top) * 0.33;
+    straps.push(`M${f(-topR)},${f(top)} Q0,${f(top - rise)} ${f(topR)},${f(top)}`);
+  }
+  let waistY, sideX, tiePt;
+  if (opts.cafe) {                               // 腰エプロン：上辺＝ウエスト
+    waistY = top; sideX = W;
+    const out = W * 0.75;
+    straps.push(`M${f(W)},${f(top)} L${f(W + out)},${f(top + out * 0.32)}`);
+    straps.push(`M${f(-W)},${f(top)} L${f(-(W + out))},${f(top + out * 0.32)}`);
+    tiePt = { x: W + out, y: top + out * 0.32 };
+  } else {                                       // 胸当てエプロン：脇の腰ひも
+    waistY = top + (Hh - top) * (opts.waistFrac ?? 0.35);
+    sideX = rightEdgeX(pts, waistY);
+    const out = W * 0.75;
+    straps.push(`M${f(sideX)},${f(waistY)} Q${f(sideX + out * 0.55)},${f(waistY + out * 0.12)} ${f(sideX + out)},${f(waistY + out * 0.38)}`);
+    straps.push(`M${f(-sideX)},${f(waistY)} Q${f(-(sideX + out * 0.55))},${f(waistY + out * 0.12)} ${f(-(sideX + out))},${f(waistY + out * 0.38)}`);
+    tiePt = { x: sideX + out, y: waistY + out * 0.38 };
+  }
+  return {
+    parts: [{ role: "apron", d: poly(pts) }],
+    straps,
+    seams: [line([{ x: -W, y: Hh }, { x: W, y: Hh }])],
+    drape: [],
+    anchors: {
+      neck:  opts.neck ? { x: 0, y: top - (Hh - top) * 0.28 } : { x: topR, y: top },
+      waist: tiePt,
+      hem:   { x: W * 0.5, y: Hh },
+      bib:   { x: topR * 0.5, y: top + (Hh - top) * 0.12 },
+    },
+    dims: { length: Hh - top, hemW: rightEdgeX(pts, Hh), topW: topR },
+  };
+}
+const apron        = (P, vals) => apronFront(P.apron, vals, { neck: true, waistFrac: 0.24 });
+const cafeapron    = (P, vals) => apronFront(P.cafeapron, vals, { cafe: true });
+const kidsapron    = (P, vals) => apronFront(P.kidsapron, vals, { neck: true, waistFrac: 0.40 });
+const kidsbibapron = (P, vals) => apronFront(P.kidsbibapron, vals, { neck: true });
+
 /* ---- パンツ（正面の見え姿） ------------------------------------
    型紙は「前後同じ一枚（脇〜中心）」。左端が脇、右端が股ぐり（中心側）で、
    股ぐりの合印がウエストから股までの位置です。ここから正面姿を組み立てます：
@@ -746,7 +809,8 @@ const kidshalf     = (P, vals) => pantsFront(P.kidshalf, vals);
 const BUILDERS = { onepiece, tee, kidstee, tunic, skirt, petblanket, petmat, tote, kinchaku, pouch, sacoche, shoulderbag,
                    ehonbag, clutchbag, bostonbag, backpack, camisole, kidstank, dolman,
                    widepants, halfpants, taperedpants, sweatpants, culotte, cargopants, pants, kidshalf,
-                   babyblanket, napmat, picnicmat, doormat, adultvest, kidsvest, cardigan };
+                   babyblanket, napmat, picnicmat, doormat, adultvest, kidsvest, cardigan,
+                   apron, cafeapron, kidsapron, kidsbibapron };
 
 /* ---- SVGに起こす ------------------------------------------
    寸法は build の座標をそのまま拡大縮小するだけ。陰影とドレープは
