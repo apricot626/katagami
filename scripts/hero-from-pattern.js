@@ -149,7 +149,10 @@ function onepiece(P, vals, opts = {}) {
      袖は肩先を起点にして袖丈ぶん下ろします。 */
 function boxTee(pat, vals, opts = {}) {
   const { pieces } = pat.gen(vals, 0);
-  const [front, , sleeve] = pieces;
+  /* Tシャツ系は 前身頃=0・袖=2。カーディガンは 後=0・前=1・袖=2 なので
+     opts で前身頃と袖の位置を指定できるようにする（既定はTシャツ）。 */
+  const front = pieces[opts.frontIndex ?? 0];
+  const sleeve = pieces[opts.sleeveIndex ?? 2];
   const fPts = front.finished, slPts = sleeve.finished;
   const bF = bbox(fPts), bSl = bbox(slPts);
 
@@ -196,6 +199,7 @@ function boxTee(pat, vals, opts = {}) {
       line([{ x: -bF.x1, y: BL }, { x: bF.x1, y: BL }]),   // 裾
       line([cuffOut, cuffIn]),
       line(mirror([cuffOut, cuffIn])),
+      ...(opts.open ? [line([{ x: 0, y: fPts[0].y }, { x: 0, y: BL }])] : []),  // 前開き
     ],
     drape: [],
     anchors: {
@@ -213,6 +217,7 @@ function boxTee(pat, vals, opts = {}) {
 /* 大人Tシャツと子供Tシャツは同じ構成（前身頃・袖・脇下の合印）なので、
    同じ作図を使い回す。 */
 const tee = (P, vals, opts = {}) => boxTee(P.tee, vals, opts);
+const cardigan = (P, vals, opts = {}) => boxTee(P.cardigan, vals, { ...opts, frontIndex: 1, sleeveIndex: 2, open: true });
 const kidstee = (P, vals, opts = {}) => boxTee(P.kidstee, vals, opts);
 
 /* ---- スカート（ウエスト〜裾の一枚） ---------------------------
@@ -741,7 +746,7 @@ const kidshalf     = (P, vals) => pantsFront(P.kidshalf, vals);
 const BUILDERS = { onepiece, tee, kidstee, tunic, skirt, petblanket, petmat, tote, kinchaku, pouch, sacoche, shoulderbag,
                    ehonbag, clutchbag, bostonbag, backpack, camisole, kidstank, dolman,
                    widepants, halfpants, taperedpants, sweatpants, culotte, cargopants, pants, kidshalf,
-                   babyblanket, napmat, picnicmat, doormat, adultvest, kidsvest };
+                   babyblanket, napmat, picnicmat, doormat, adultvest, kidsvest, cardigan };
 
 /* ---- SVGに起こす ------------------------------------------
    寸法は build の座標をそのまま拡大縮小するだけ。陰影とドレープは
