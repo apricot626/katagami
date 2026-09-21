@@ -39,10 +39,10 @@ function findChrome() {
    正常だったので気づけませんでした。 */
 const WIDTHS = [320, 390, 660, 768, 1024];
 const PAGES = [
-  "index.html", "howto.html", "yougoshu.html",
+  "index.html", "howto.html", "yougoshu.html", "season.html",
   "tool.html?p=tee", "tool.html?p=coverall", "tool.html?p=picnicmat",
   "howto-tee.html", "howto-coverall.html",
-  "en/index.html", "en/howto.html",
+  "en/index.html", "en/howto.html", "en/season.html",
   "en/tool.html?p=tee", "en/tool.html?p=coverall",
   "en/howto-tee.html",
 ];
