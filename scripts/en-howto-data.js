@@ -12614,4 +12614,70 @@ module.exports = {
     ],
     related:["petmat", "petbed", "petseatcover", "petcarrier"],
   },
+
+/* ===================== Costume ===================== */
+
+witchhat:{
+  title:"Witch hat", tab:"small", toolName:"Witch hat",
+  sizeStep:"Enter the head circumference, the cone length (peak) and the brim width. Presets for child, adult, and low crown / wide brim. Always measure the head and enter the real number.",
+  desc:"How to sew a pointed witch hat for Halloween. Just two pieces — a fan-shaped cone crown and a doughnut-shaped brim. Felt or fusible interfacing makes the point stand up. Print the pattern at actual size with Katagami.",
+  keywords:"witch hat,pointed hat,Halloween,costume,cosplay,hat,sewing,pattern,felt",
+  lead:"The Halloween classic. It is made from just <strong>two pieces — a fan-shaped cone crown and a doughnut-shaped brim</strong>. Felt or a stiff fabric backed with fusible interfacing keeps the point standing instead of flopping. Measure the head before you start.",
+  matNote:"For the adult size (57 cm head)",
+  buy:"felt fabric craft", buyLabel:"Felt / stiff fabric",
+  materials:[
+    "Main fabric (felt, heavy cotton or canvas — something with body) — about 90 cm wide × 70 cm",
+    "Fusible interfacing (heavyweight, optional) — enough for the cone and brim",
+    "Optional: lining fabric (to make the brim double-layered)",
+    "Optional: trims (ribbon, buckle, stars)",
+    "Sewing thread",
+  ],
+  cut:[
+    "<strong>Measure the head</strong><br>Measure the actual head circumference and enter it. <strong>Add 1–2 cm for a loose fit.</strong> For a child, measuring their own head is the surest way.",
+    "<strong>Trace the pattern</strong><br>Trace the printed pattern onto the fabric. Felt does not fray, so a small seam allowance (about 0.7 cm) is fine. Fuse interfacing wherever you want the point to stand.",
+    "<strong>Cut</strong><br>Cut one cone crown and two brim halves in the main fabric. For a double-layer brim, cut two more in lining. Fuse interfacing to the cone and the outer brim.",
+  ],
+  sew:[
+    {
+      h:"4-1. Roll the crown into a cone",
+      items:[
+        "With right sides together, sew the <strong>two straight edges of the fan</strong> to each other. That forms the cone.",
+        "Press the seam open or to one side.",
+        "If you are lining it, sew the lining into a cone the same way.",
+      ],
+    },
+    {
+      h:"4-2. Join the brim into a ring",
+      items:[
+        "Put the two main-fabric brim halves right sides together and <strong>sew both straight ends</strong> to make a ring (doughnut).",
+        "Join the two lining halves into a ring the same way.",
+        "Put the main ring and lining ring right sides together and <strong>sew all the way around the outer edge</strong>. Turn right side out through the inner hole and press the outer edge.",
+      ],
+    },
+    {
+      h:"4-3. Attach the brim to the crown",
+      items:[
+        "With right sides together, match the base of the cone (the bottom arc) to the inner hole of the brim. <strong>The circumferences are equal, so it fits all the way around.</strong>",
+        "Match the center-front notch, then pin all around.",
+        "Stitch once around the inner edge. Press the seam toward the brim for a clean opening.",
+      ],
+    },
+    {
+      h:"4-4. Finish",
+      items:[
+        "Shape the tip of the point with an awl. With interfacing or felt it will stand on its own.",
+        "If needed, fold the opening edge (inner brim) under and finish it narrowly.",
+        "Add a ribbon, buckle or star motif to make it read as a proper witch hat.",
+      ],
+    },
+  ],
+  sewNote:"If the point will not stand, fuse a second layer of interfacing inside the crown, or slip a rolled piece of thin plastic sheet or a length of wire inside the cone to hold it up.",
+  tips:[
+    "<strong>Change it by color</strong>: black with a purple band for a witch; shorten the point for a party hat; make it white or red as a base for a Santa hat.",
+    "<strong>Add a chin strap</strong>: for small children or outdoors, a thin elastic or ribbon at each side of the brim keeps it on.",
+    "<strong>Make it stand</strong>: felt or interfacing is the shortcut. A single layer of thin fabric will let the point flop forward.",
+    "<strong>Size guide</strong>: measuring is surest. The child preset assumes 52 cm, the adult preset 57 cm.",
+  ],
+  related:["beret", "sunhat", "cap", "petcape"],
+},
 };

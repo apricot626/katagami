@@ -9397,6 +9397,49 @@ PATTERNS.bandanacap={
   }
 };
 
+/* ---- 魔女帽（とんがり帽子・ハロウィン） ---- */
+PATTERNS.witchhat={
+  mode:"small",
+  name:"魔女帽（とんがり帽子）",
+  note:"円すいの帽子とドーナツ型のつばで作る、とんがり帽子。ハロウィンの仮装に。フェルトや厚手の生地で作ると、とんがりが自立します。芯を入れなくても、接着芯を貼ればしっかり立ちます。頭まわりを実測して入れてください。",
+  params:[
+    {key:"head", label:"頭まわり",       unit:"cm",min:46,max:62, step:1,  val:56},
+    {key:"height",label:"とんがりの長さ", unit:"cm",min:18,max:45, step:1,  val:32},
+    {key:"brim", label:"つばの幅",        unit:"cm",min:6, max:16, step:0.5,val:11},
+  ],
+  presets:[
+    {label:"子供",  vals:{head:52,height:28,brim:9}},
+    {label:"大人",  vals:{head:57,height:34,brim:12}},
+    {label:"低めつば広",vals:{head:57,height:24,brim:15}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const C=cm(p.head), R=cm(p.height);       // C=底の円周(=弧長)、R=斜辺(=扇形の半径)
+    const r=C/(2*Math.PI);                     // 底の円の半径（つば内周と同じ）
+    const th=C/R, half=th/2;                   // 扇形の中心角
+    // 円すい（扇形）：頂点を上、下向きに開く
+    const cone=[{x:0,y:0}];
+    const N=28;
+    for(let i=0;i<=N;i++){const a=half-th*(i/N); cone.push({x:R*Math.sin(a), y:R*Math.cos(a)});}
+    const conePc=pieceFrom(cone,()=>false,sa);
+    // つば（半ドーナツ）：内半径 r、外半径 r+つば幅、180°
+    const ri=r, ro=r+cm(p.brim), M=28, brim=[];
+    for(let i=0;i<=M;i++){const a=Math.PI*(i/M); brim.push({x:ro*Math.cos(a), y:ro*Math.sin(a)});}   // 外弧 (ro,0)→(-ro,0)
+    for(let i=0;i<=M;i++){const a=Math.PI*(1-i/M); brim.push({x:ri*Math.cos(a), y:ri*Math.sin(a)});}  // 内弧 (-ri,0)→(ri,0)
+    const brimPc=pieceFrom(brim,()=>false,sa);
+    const standH=Math.round(Math.sqrt(Math.max(R*R-r*r,0))/10);
+    return {pieces:[
+      {title:"帽子（円すい）", cutInfo:"表布1枚（＋好みで裏布・接着芯）／中心の直線を中表に縫って円すいにする",
+       ...conePc, foldX:null, grain:{x1:0,y1:R*0.2,x2:0,y2:R*0.86},
+       notches:[{x:0,y:R}], labelAt:{x:0,y:R*0.5}},
+      {title:"つば（半分）", cutInfo:"表2枚・裏2枚（半分ずつ）／2枚を中表につないで輪にし、内周を帽子の裾に付ける",
+       ...brimPc, foldX:null, grain:{x1:0,y1:ri+(ro-ri)*0.25,x2:0,y2:ro*0.9},
+       notches:[{x:0,y:ri},{x:0,y:ro}], labelAt:{x:0,y:(ri+ro)/2}}
+    ],
+    memo:`できあがりの高さ 約${standH}cm（斜辺${p.height}cm）／つばの直径 約${Math.round(2*ro/10)}cm。フェルトや接着芯でとんがりが自立します`};
+  }
+};
+
 /* ---- ヘアリボン ---- */
 PATTERNS.hairribbon={
   mode:"small",
