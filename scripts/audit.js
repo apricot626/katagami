@@ -134,8 +134,8 @@ for (const f of pages) {
       : path.join(dir, clean);
     if (!fs.existsSync(target)) add("link", f, "リンク切れ: " + href);
   }
-  // tool.html?p=xxx のキーが実在するか
-  for (const m of h.matchAll(/tool\.html\?p=([a-zA-Z]+)/g))
+  // tool.html#p=xxx（旧 ?p=）のキーが実在するか
+  for (const m of h.matchAll(/tool\.html[?#]p=([a-zA-Z]+)/g))
     if (!PATTERNS[m[1]]) add("link", f, "存在しない型紙キー: " + m[1]);
 }
 

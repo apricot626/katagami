@@ -40,10 +40,10 @@ function findChrome() {
 const WIDTHS = [320, 390, 660, 768, 1024];
 const PAGES = [
   "index.html", "howto.html", "yougoshu.html",
-  "tool.html?p=tee", "tool.html?p=coverall", "tool.html?p=picnicmat",
+  "tool.html#p=tee", "tool.html#p=coverall", "tool.html#p=picnicmat",
   "howto-tee.html", "howto-coverall.html",
   "en/index.html", "en/howto.html",
-  "en/tool.html?p=tee", "en/tool.html?p=coverall",
+  "en/tool.html#p=tee", "en/tool.html#p=coverall",
   "en/howto-tee.html",
 ];
 

@@ -230,7 +230,7 @@ ${g.tips.map(t=>`      <li>\n        ${t}\n      </li>`).join("\n")}
 
     <div class="cta-box">
       <p>型紙はカタガミで無料生成できます。サイズを変えてすぐに試せます。</p>
-      <a href="tool.html?p=${key}" class="cta-btn">型紙ツールを開く →</a>
+      <a href="tool.html#p=${key}" class="cta-btn">型紙ツールを開く →</a>
     </div>
   </section>
   <nav class="related" aria-label="関連する作り方">

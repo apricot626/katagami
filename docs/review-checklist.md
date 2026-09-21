@@ -99,7 +99,7 @@ node scripts/gen-ogp.js bostonbag neckpillow   # キー指定で部分生成
 ## 3. リンク　【自動】
 
 - 相対リンクの先が実在する（`href` / `src` 両方）
-- `tool.html?p=xxx` のキーが `PATTERNS` に実在する
+- `tool.html#p=xxx` のキーが `PATTERNS` に実在する
 - **全型紙に和文・英文の作り方ガイドがある**
 - **和文にあるページの英語版がある**（逆も）。基礎ガイドが和文6本・英語3本のまま
   気づかれずにいました

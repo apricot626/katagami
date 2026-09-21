@@ -1074,7 +1074,14 @@ function buildPaperUnitControls(){
 
 /* ---- 起動 ---- */
 (()=>{
-  const key=new URLSearchParams(location.search).get('p');
+  /* 型紙の指定は # で受けます。? だと tool.html?p=<キー> が型紙の数だけ
+     別URLに見え、和文・英文あわせて532本の重複URLが生まれます。canonical で
+     tool.html にまとめてはいますが、Google はそれでも1本ずつ取りに来るので、
+     まだ一度もクロールされていない記事があるうちは、そこに予算を使わせたく
+     ありません。# はURLの一部として送られないので、重複が最初から生じません。
+     ? の形は既に配ったリンクやブックマークのために残します。 */
+  const hashKey=(()=>{ try{ return new URLSearchParams(location.hash.slice(1)).get('p'); }catch(e){ return null; } })();
+  const key = hashKey || new URLSearchParams(location.search).get('p');
   const hit = !!(key && PATTERNS[key]);
   if(hit){ state.pat=key; state.mode=PATTERNS[key].mode; }
 
@@ -1109,3 +1116,14 @@ function buildPaperUnitControls(){
 })();
 initParams(); buildModes(); buildTabs(); buildFields(); buildSAControls(); buildPaperUnitControls(); render(); renderProfiles();
 window.addEventListener("resize",()=>render());
+
+/* # だけが変わる移動では、ブラウザはページを読み込み直しません。戻る・進むや
+   URLの手直しで tool.html#p=tote → tool.html#p=coverall と動いたとき、
+   上の起動処理は走らず、前の型紙が出たままになります。? の頃は毎回読み込み
+   直されていたので、その挙動をここで補います。 */
+window.addEventListener("hashchange",()=>{
+  let k=null; try{ k=new URLSearchParams(location.hash.slice(1)).get('p'); }catch(e){}
+  if(!k || !PATTERNS[k] || k===state.pat) return;
+  state.pat=k; state.mode=PATTERNS[k].mode;
+  initParams(); buildModes(); buildTabs(); buildFields(); render();
+});

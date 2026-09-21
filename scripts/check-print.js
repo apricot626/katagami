@@ -35,10 +35,10 @@ function findChrome() {
 }
 
 const CASES = [
-  { url: "tool.html?p=tee",                     w: 210, h: 297, label: "和文（A4固定）" },
-  { url: "en/tool.html?p=tee&paper=a4",         w: 210, h: 297, label: "英語 A4" },
-  { url: "en/tool.html?p=tee&paper=letter",     w: 216, h: 279, label: "英語 Letter" },
-  { url: "en/tool.html?p=coverall&paper=letter", w: 216, h: 279, label: "英語 Letter（別の型紙）" },
+  { url: "tool.html#p=tee",                     w: 210, h: 297, label: "和文（A4固定）" },
+  { url: "en/tool.html?paper=a4#p=tee",         w: 210, h: 297, label: "英語 A4" },
+  { url: "en/tool.html?paper=letter#p=tee",     w: 216, h: 279, label: "英語 Letter" },
+  { url: "en/tool.html?paper=letter#p=coverall", w: 216, h: 279, label: "英語 Letter（別の型紙）" },
 ];
 
 (async () => {

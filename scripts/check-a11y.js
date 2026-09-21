@@ -36,9 +36,9 @@ function findChrome() {
 }
 
 const PAGES = [
-  "index.html", "tool.html?p=tee", "tool.html?p=coverall", "howto.html",
+  "index.html", "tool.html#p=tee", "tool.html#p=coverall", "howto.html",
   "howto-tee.html", "yougoshu.html", "guide-print.html",
-  "en/index.html", "en/tool.html?p=tee", "en/howto.html", "en/howto-tee.html", "en/guide-knit.html",
+  "en/index.html", "en/tool.html#p=tee", "en/howto.html", "en/howto-tee.html", "en/guide-knit.html",
 ];
 
 (async () => {

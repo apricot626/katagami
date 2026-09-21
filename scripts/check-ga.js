@@ -74,7 +74,7 @@ const MEASURES = (() => {
 
   /* 1. ガイド → ツール */
   const g = await open("/howto-tote.html");
-  await g.click('a[href="tool.html?p=tote"]');
+  await g.click('a[href="tool.html#p=tote"]');
   await waitFor(g, "open_tool").catch(() => findings.push("ガイドから来てもイベントが飛びません"));
   const e1 = (await events(g)).find(e => e.name === "open_tool");
   if (e1) {

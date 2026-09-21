@@ -107,7 +107,7 @@ for (const [file, lang] of [["index.html", "ja"], ["en/index.html", "en"]]) {
         const terms = lang === "en"
           ? [nm, c.en, g.label].filter(Boolean).join(" ")
           : searchTerms(k, c.ja, g.label);
-        return `          <li data-s="${esc(terms)}"><a href="tool.html?p=${k}">${esc(nm)}</a></li>\n`;
+        return `          <li data-s="${esc(terms)}"><a href="tool.html#p=${k}">${esc(nm)}</a></li>\n`;
       };
       return `          <li class="pat-sub" role="presentation">${esc(g.label)}</li>\n` +
         g.keys.map(li).join("");

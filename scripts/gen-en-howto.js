@@ -243,7 +243,7 @@ ${li(g.tips)}
 
     <div class="cta-box">
       <p>Generate the pattern for free in Katagami and print it at actual size. Change the size and try again in seconds.</p>
-      <a href="tool.html?p=${key}" class="cta-btn">Open the pattern tool →</a>
+      <a href="tool.html#p=${key}" class="cta-btn">Open the pattern tool →</a>
     </div>
   </section>
 
