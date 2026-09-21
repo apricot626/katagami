@@ -19,3 +19,6 @@ package.json
 *-sa.json
 gcp-key*.json
 client_secret*.json
+# Google Cloud がダウンロードさせる鍵は「＜プロジェクトID＞-＜12桁の16進＞.json」
+# という名前です（例: katagami-509005-21963ba55538.json）。上の名前では拾えません。
+*-[0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f].json
