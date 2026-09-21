@@ -9440,6 +9440,81 @@ PATTERNS.witchhat={
   }
 };
 
+/* ---- マント（仮装用・ギャザー） ---- */
+PATTERNS.costumecape={
+  mode:"small",
+  name:"マント（仮装用）",
+  note:"上端をギャザーで縮め、首ひも付きの帯ではさむだけの簡単マント。ハロウィンの魔女・吸血鬼・ヒーローに。サテンやツイル、フェルトなど、ドレープの出る生地で。前は開いたまま、首もとのひもで結びます。",
+  params:[
+    {key:"width",label:"身幅（ギャザー前）",unit:"cm",min:50,max:150,step:1, val:88},
+    {key:"len",  label:"着丈",            unit:"cm",min:30,max:110,step:1, val:55},
+    {key:"neck", label:"首まわり",        unit:"cm",min:26,max:46, step:1, val:34},
+    {key:"tie",  label:"結びひもの長さ",  unit:"cm",min:15,max:45, step:1, val:24},
+  ],
+  presets:[
+    {label:"子供",  vals:{width:70, len:45,neck:30,tie:20}},
+    {label:"大人",  vals:{width:100,len:75,neck:38,tie:28}},
+    {label:"ロング",vals:{width:112,len:98,neck:38,tie:30}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const W=cm(p.width), L=cm(p.len), NECK=cm(p.neck), TIE=cm(p.tie);
+    const body=[{x:0,y:0},{x:W,y:0},{x:W,y:L},{x:0,y:L}];
+    const bodyPc=pieceFrom(body,()=>false,sa);
+    const BH=cm(3);                         // 出来上がりの帯幅
+    const bandLen=NECK+TIE*2;
+    const band=[{x:0,y:0},{x:bandLen,y:0},{x:bandLen,y:BH*2},{x:0,y:BH*2}];  // 二つ折り
+    const bandPc=pieceFrom(band,()=>false,sa);
+    return {pieces:[
+      {title:"マント本体", cutInfo:"1枚（お好みで裏布も1枚）／上端をぐし縫いで首まわりの長さに縮める",
+       ...bodyPc, foldX:null, grain:{x1:W/2,y1:cm(2),x2:W/2,y2:L-cm(2)},
+       notches:[{x:W/2,y:0}], labelAt:{x:W/2,y:L*0.5}},
+      {title:"首ひも・見返し", cutInfo:"1本（二つ折り）／中央にギャザーを寄せた本体をはさみ、両端をひもにする",
+       ...bandPc, foldX:null, grain:{x1:cm(2),y1:BH,x2:bandLen-cm(2),y2:BH},
+       notches:[{x:TIE,y:0},{x:TIE+NECK,y:0}], labelAt:{x:bandLen/2,y:BH}}
+    ],
+    memo:`本体の上端 ${p.width}cm を、首まわり ${p.neck}cm までギャザーで縮めます（約${(p.width/p.neck).toFixed(1)}倍のふんわり感）`};
+  }
+};
+
+/* ---- ネコ耳カチューシャ（仮装用） ---- */
+PATTERNS.catears={
+  mode:"small",
+  name:"ネコ耳カチューシャ",
+  note:"三角の耳を市販のカチューシャに付ける、仮装の定番。耳は表裏2枚を縫って返すだけ。中に接着芯を入れると、耳がぴんと立ちます。ネコにも、クマ・ウサギ（耳を細長く）にもアレンジできます。",
+  params:[
+    {key:"earW", label:"耳の幅",    unit:"cm",min:5, max:14, step:0.5,val:8},
+    {key:"earH", label:"耳の高さ",  unit:"cm",min:5, max:16, step:0.5,val:9},
+    {key:"band", label:"カチューシャの長さ",unit:"cm",min:30,max:44,step:1, val:36},
+  ],
+  presets:[
+    {label:"ネコ（標準）",vals:{earW:8, earH:9, band:36}},
+    {label:"クマ（丸め）",vals:{earW:9, earH:7, band:36}},
+    {label:"ウサギ（細長）",vals:{earW:6, earH:15,band:36}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const EW=cm(p.earW), EH=cm(p.earH), BL=cm(p.band);
+    // 耳：底辺を少しカーブさせた三角形（頂点を上）
+    const ear=[{x:0,y:EH},{x:EW/2,y:0},{x:EW,y:EH}];
+    ear.push(...quad({x:EW,y:EH},{x:EW/2,y:EH+cm(0.8)},{x:0,y:EH},6)); // 底辺をゆるく下カーブ
+    const earPc=pieceFrom(ear,()=>false,sa);
+    // カチューシャ包み布：細長い帯（二つ折りで巻く）
+    const BW=cm(3);
+    const wrap=[{x:0,y:0},{x:BL,y:0},{x:BL,y:BW*2},{x:0,y:BW*2}];
+    const wrapPc=pieceFrom(wrap,()=>false,sa);
+    return {pieces:[
+      {title:"耳", cutInfo:"4枚（1つの耳に表裏2枚／中に接着芯を入れると立つ）",
+       ...earPc, foldX:null, grain:{x1:EW/2,y1:EH*0.35,x2:EW/2,y2:EH*0.85},
+       notches:[], labelAt:{x:EW/2,y:EH*0.62}},
+      {title:"カチューシャ包み布", cutInfo:"1本（二つ折りで市販のカチューシャに巻いて縫う）",
+       ...wrapPc, foldX:null, grain:{x1:cm(2),y1:BW,x2:BL-cm(2),y2:BW},
+       notches:[{x:BL*0.5-BL*0.14,y:0},{x:BL*0.5+BL*0.14,y:0}], labelAt:{x:BL/2,y:BW}}
+    ],
+    memo:`耳2つを、カチューシャの中央から左右${Math.round(p.band*0.14)}cmほどの位置に付けます`};
+  }
+};
+
 /* ---- ヘアリボン ---- */
 PATTERNS.hairribbon={
   mode:"small",

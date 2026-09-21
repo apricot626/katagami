@@ -12680,4 +12680,113 @@ witchhat:{
   ],
   related:["beret", "sunhat", "cap", "petcape"],
 },
+
+costumecape:{
+  title:"Cape (costume)", tab:"small", toolName:"Cape (costume)",
+  sizeStep:"Enter the body width (before gathering), the length, the neck measurement and the tie length. Presets for child, adult and long. ",
+  desc:"How to sew a Halloween costume cape. Gather the top edge and sandwich it in a tie band — that's it. Works for witches, vampires and superheroes. Print the pattern at actual size with Katagami.",
+  keywords:"cape,cloak,costume,cosplay,Halloween,witch,vampire,superhero,sewing,pattern",
+  lead:"A simple cape: <strong>gather the top edge and sandwich it in a tie band</strong>. It stays open at the front and ties at the neck. <strong>Change the fabric and it becomes a witch, a vampire or a superhero.</strong> Satin and twill drape; felt holds its shape.",
+  matNote:"For the adult size (75 cm length)",
+  buy:"satin fabric Halloween", buyLabel:"Satin / twill fabric",
+  materials:[
+    "Main fabric (satin, twill or felt) — about 110 cm wide × (length + 15 cm)",
+    "Optional: lining (same amount; a contrast color looks great)",
+    "Optional: trims (sequins, appliqué)",
+    "Sewing thread",
+  ],
+  cut:[
+    "<strong>Decide the measurements</strong><br>Set the length from the shoulder. Make the body width <strong>2–3× the neck measurement</strong> for a soft, gathered fullness. Use the ratio shown in the tool as a guide.",
+    "<strong>Mark the fabric</strong><br>Everything is straight, so you can draw it straight onto the fabric from the guide sheet. Two pieces: the body (a rectangle) and the neck band / ties (a long strip).",
+    "<strong>Cut</strong><br>Cut one body (two if lined) and one band.",
+  ],
+  sew:[
+    {
+      h:"4-1. Finish the edges of the body",
+      items:[
+        "If you are not lining it, <strong>double-fold the sides and hem</strong> and topstitch. Felt can be left with raw edges.",
+        "If lining it, put main and lining right sides together, sew all but the top edge, and turn out.",
+      ],
+    },
+    {
+      h:"4-2. Gather the top edge",
+      items:[
+        "Run <strong>two rows of long machine stitches</strong> across the top edge inside the seam allowance (loosen the top tension to pull more easily).",
+        "Pull both bobbin threads together to <strong>gather the top down to the neck measurement.</strong> Spread the gathers evenly.",
+      ],
+    },
+    {
+      h:"4-3. Sandwich it in the tie band",
+      items:[
+        "Fold the band <strong>in half lengthwise, right sides together</strong>, sew each end (the ties) and turn out through the corners.",
+        "Slip the <strong>gathered top of the body into the open middle of the band</strong> and edgestitch. Use the notches (tie / neck boundary) as a guide.",
+      ],
+    },
+    {
+      h:"4-4. Finish",
+      items:[
+        "Trim the tie ends at an angle or a point so they are easy to knot.",
+        "Add sequins or a star appliqué if you like — it reads much more as a costume.",
+      ],
+    },
+  ],
+  sewNote:"If the gathers collapse in a thin fabric, fuse a narrow strip of interfacing along the top edge before gathering, and the gathers will hold.",
+  tips:[
+    "<strong>Change the character</strong>: black with a red lining for a vampire, black with purple for a witch, primary colors for a superhero. A contrast lining flashes when it flips.",
+    "<strong>Length changes the look</strong>: short is a shoulder cape, long is a trailing robe. The Long preset is a full-length adult version.",
+    "<strong>Felt is easiest</strong>: raw edges do not fray, so you can skip finishing the edges. Great for a quick costume for a small child.",
+  ],
+  related:["poncho", "kidscape", "witchhat", "petcape"],
+},
+
+catears:{
+  title:"Cat-ear headband", tab:"small", toolName:"Cat-ear headband",
+  sizeStep:"Enter the ear width, ear height and headband length. Presets for cat, bear and rabbit. Change the ear shape freely with width and height.",
+  desc:"How to make a cat-ear headband for dress-up. Just attach triangular ears to a ready-made headband. Interfacing makes the ears stand up. Adapt it into bear or rabbit ears. Print the pattern at actual size with Katagami.",
+  keywords:"cat ears,headband,costume,cosplay,Halloween,ears,bear,rabbit,sewing,pattern",
+  lead:"A dress-up classic: triangular ears on a ready-made headband. <strong>Each ear is just two layers sewn and turned</strong>, and interfacing makes them stand up. Change the width and height for <strong>cat, bear or rabbit</strong> ears. Scraps are enough.",
+  matNote:"For two ears",
+  buy:"felt fabric craft", buyLabel:"Felt / scraps",
+  materials:[
+    "Main fabric (felt, heavy cotton) — scraps about 20 cm square each",
+    "Fusible interfacing (to stiffen the ears)",
+    "A ready-made plastic headband",
+    "Craft glue or sewing thread",
+  ],
+  cut:[
+    "<strong>Decide the ear shape</strong><br>Enter width and height. <strong>Tall and narrow reads as a rabbit; rounded reads as a bear.</strong>",
+    "<strong>Cut</strong><br>Cut four ears (two per ear, front and back) and one headband cover. Fuse interfacing to one side of the ears. Felt can be left with raw edges.",
+  ],
+  sew:[
+    {
+      h:"4-1. Make the ears",
+      items:[
+        "Put an ear front and back right sides together and <strong>sew the two sides, leaving the base open.</strong>",
+        "Trim the seam allowance at the tip, turn out, and push the point out with an awl. <strong>Interfacing makes it stand.</strong>",
+        "Make the second ear the same way. In felt, you can simply layer two pieces wrong sides out and edgestitch.",
+      ],
+    },
+    {
+      h:"4-2. Cover the headband",
+      items:[
+        "Fold the cover in half, <strong>wrap it around the headband</strong>, and stitch close to the edge by machine or by hand (craft glue also works).",
+        "Fold the ends under to finish.",
+      ],
+    },
+    {
+      h:"4-3. Attach the ears",
+      items:[
+        "Fold the ear base under and stitch each ear <strong>a little out to each side of the center</strong> (glue also works).",
+        "Match the spacing and angle of the two ears so they look balanced.",
+      ],
+    },
+  ],
+  sewNote:"If the ears will not stand, use a heavier interfacing or fuse two layers. Even two layers of felt will stand up reasonably well on their own.",
+  tips:[
+    "<strong>Change the animal</strong>: long ears for a rabbit, round ears for a bear; add a contrast inner fabric (pink) for a realistic touch.",
+    "<strong>Vary the color</strong>: black cat, white rabbit, brown bear. Pair with a tail (separate pattern) for a matching set.",
+    "<strong>The easiest way</strong>: cut two layers of felt, and glue them to the headband. Great for a quick costume for a small child.",
+  ],
+  related:["hairturban", "headband", "witchhat", "costumecape"],
+},
 };

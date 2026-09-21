@@ -636,6 +636,8 @@ const HOWTO={
   tradingcard:{url:"howto-tradingcard.html", label:"📄 トレカケースの作り方を見る"},
   uchiwacover:{url:"howto-uchiwacover.html", label:"📄 うちわカバーの作り方を見る"},
   witchhat:{url:"howto-witchhat.html", label:"📄 魔女帽（とんがり帽子）の作り方を見る"},
+  costumecape:{url:"howto-costumecape.html", label:"📄 マント（仮装用）の作り方を見る"},
+  catears:{url:"howto-catears.html", label:"📄 ネコ耳カチューシャの作り方を見る"},
 };
 
 /* ---- 飾り（レース・リボン・パイピング）の目安 ----
