@@ -657,6 +657,8 @@ for (const f of jaPages.filter(x => x.startsWith("howto-") && !redirects.has(x))
   if (!/本ページはアフィリエイト広告/.test(h)) add("affiliate", f, "アフィリエイトの表記がありません");
   if (am.length && !/Amazonアソシエイト/.test(h))
     add("affiliate", f, "開示文がAmazonに触れていません");
+  if (!/<script src="affiliate\.js"><\/script>/.test(h))
+    add("affiliate", f, "affiliate.js が読まれていません（クリックが計測されません）");
 }
 
 /* 英語ガイドは Amazon アソシエイト。タグが抜けたリンクは報酬が付かないので、
@@ -679,6 +681,8 @@ for (const f of enPages.filter(x => x.startsWith("en/howto-") && !redirects.has(
   }
   if (!/As an Amazon Associate I earn from qualifying purchases\./.test(h))
     add("affiliate", f, "アフィリエイトの表記がありません");
+  if (!/<script src="\.\.\/affiliate\.js"><\/script>/.test(h))
+    add("affiliate", f, "affiliate.js が読まれていません（クリックが計測されません）");
 }
 
 /* =========================================================

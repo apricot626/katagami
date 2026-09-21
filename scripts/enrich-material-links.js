@@ -57,6 +57,12 @@ for(const f of files){
   let out = html.replace(box[0], next);
   if(out.includes(PR_OLD)) out = out.split(PR_OLD).join(PR_NEW);
 
+  /* 材料リンクのクリック計測。gen-ja-howto.js が作らない手書きページにも
+     要るので、材料ボックスを組んだこの場で一緒に入れます。 */
+  if(!out.includes('src="affiliate.js"'))
+    out = out.replace('<script src="terms.js"></script>',
+                      '<script src="terms.js"></script>\n<script src="affiliate.js"></script>');
+
   if(out === html){ skipped++; continue; }
   fs.writeFileSync(p, out);
   changed++;

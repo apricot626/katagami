@@ -267,6 +267,7 @@ ${relatedHtml}</article>
   <a href="about.html">About</a>
   <a href="privacy.html">Privacy Policy</a>
 </footer>
+<script src="../affiliate.js"></script>
 </body>
 </html>
 `;

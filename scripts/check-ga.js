@@ -14,6 +14,7 @@
      4. ホームの絞り込みで、探した語と件数が記録されるか
      5. 打鍵ごとの断片（「く」「くる」「くるみ」）が送られていないか
      6. **採寸値がイベントに混ざっていないか**
+     7. 材料リンクを押したとき、店（楽天／Amazon）と資材名が記録されるか
 
    6 がこの検査の主目的です。採寸値はブラウザ内だけで処理するとプライバシー
    ポリシーで約束しているので、うっかりパラメータに足すと約束を破ります。
@@ -109,8 +110,34 @@ const MEASURES = (() => {
   if (e4[0] && !(e4[0].p.results > 0)) findings.push("「犬 ベスト」が0件になっています");
   if (e4[1] && e4[1].p.results !== 0) findings.push("存在しない語が0件になっていません");
 
+  /* 7. 材料リンクのクリック（和文・英文）
+     対になった楽天とAmazonを見分けられないと、どちらで買われているか
+     分からなくなります。店名が item に混ざっていないことも見ます。 */
+  const clicks = [];
+  for (const [url, cls, shop] of [
+    ["/howto-tote.html",    "ml-btn-rakuten", "rakuten"],
+    ["/howto-tote.html",    "ml-btn-amazon",  "amazon"],
+    ["/en/howto-tote.html", "ml-btn-amazon",  "amazon"],
+  ]) {
+    const c = await open(url);
+    // target="_blank" で別タブが開くと検査が散らかるので、遷移だけ止めます
+    await c.evaluate(() => document.querySelectorAll("a.ml-btn")
+      .forEach(a => a.addEventListener("click", e => e.preventDefault())));
+    await c.click(`a.${cls}`);
+    await waitFor(c, "affiliate_click")
+      .catch(() => findings.push(`${url} の ${shop} のリンクを押してもイベントが飛びません`));
+    const e7 = (await events(c)).find(e => e.name === "affiliate_click");
+    if (e7) {
+      if (e7.p.shop !== shop) findings.push(`${url}: 店名が違います: ${e7.p.shop}`);
+      if (!e7.p.item) findings.push(`${url}: 資材名が空です`);
+      else if (/楽天|Amazon|—/.test(e7.p.item))
+        findings.push(`${url}: 資材名に店名か区切りが残っています: ${e7.p.item}`);
+    }
+    clicks.push(...await events(c));
+  }
+
   /* 6. 採寸値が混ざっていないこと */
-  const all = [...await events(g), ...await events(t), ...await events(h)];
+  const all = [...await events(g), ...await events(t), ...await events(h), ...clicks];
   for (const e of all)
     for (const k of Object.keys(e.p || {}))
       if (MEASURES.includes(k))
