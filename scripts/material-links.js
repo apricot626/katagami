@@ -1,13 +1,23 @@
-/* 材料ボックスに出す楽天アフィリエイトリンクを組み立てる。
+/* 材料ボックスに出す楽天・Amazonのアフィリエイトリンクを組み立てる。
    生地のリンク1本だけでは選択肢が少ないので、材料リストに出てくる
-   副資材（ゴム・ファスナー・接着芯など）を拾って最大4本まで並べます。 */
+   副資材（ゴム・ファスナー・接着芯など）を拾って最大4本まで並べます。
+
+   資材1つにつき楽天とAmazonを1本ずつ出します。検索語は共通なので、
+   下の対応表を直せば両方に効きます。 */
 
 const A_ID = "5652284", P_ID = "54", PC_ID = "54", PL_ID = "616";
+const AMAZON_TAG = "katagami-22";   // Amazon.co.jp（日本）のアソシエイトタグ
 
 function rakuten(kw){
   const inner = "https://search.rakuten.co.jp/search/mall/" + encodeURIComponent(kw) + "/";
   return "//af.moshimo.com/af/c/click?a_id=" + A_ID + "&p_id=" + P_ID +
          "&pc_id=" + PC_ID + "&pl_id=" + PL_ID + "&url=" + encodeURIComponent(inner);
+}
+
+/* 英語版と同じく、商品ページではなく検索結果に飛ばします。
+   廃番や在庫切れでリンクが死なないので、266ページ分を保守できます。 */
+function amazonJp(kw){
+  return "https://www.amazon.co.jp/s?k=" + encodeURIComponent(kw) + "&tag=" + AMAZON_TAG;
 }
 
 /* 材料の文言 → 検索キーワードと表示名。上から順に判定します。
@@ -67,7 +77,7 @@ function materialLinks(materials, fabricKw, fabricLabel){
     if(links.length >= MIN_LINKS) break;
     links.push(g);
   }
-  return links.map(l => ({ href:rakuten(l.kw), label:l.label }));
+  return links.map(l => ({ href:rakuten(l.kw), amazonHref:amazonJp(l.kw), label:l.label }));
 }
 
-module.exports = { rakuten, materialLinks, MAX_LINKS };
+module.exports = { rakuten, amazonJp, materialLinks, MAX_LINKS, AMAZON_TAG };
