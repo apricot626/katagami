@@ -26,7 +26,21 @@ const ld = o => '<script type="application/ld+json">\n'+JSON.stringify(o,null,2)
 
 /* 楽天アフィリエイト検索リンク（既存ページと同じ もしも経由の形式）。
    生地1本だけだと選びにくいので、材料リストから副資材も拾って並べます。 */
-const { materialLinks } = require("./material-links.js");
+const { materialLinks, toolLinks } = require("./material-links.js");
+
+/* 材料と道具で同じ形の枠を2つ出すので、組み立てはここにまとめます。 */
+function shopBox(head, links){
+  return `    <div class="material-box">
+      <p class="material-box-head">${head}</p>
+      <div class="material-links">
+${links.map(l =>
+`        <a class="ml-btn ml-btn-rakuten" href="${l.href}" target="_blank" rel="nofollow" referrerpolicy="no-referrer-when-downgrade" attributionsrc>楽天 — ${esc(l.label)}</a>\n` +
+`        <a class="ml-btn ml-btn-amazon" href="${esc(l.amazonHref)}" target="_blank" rel="nofollow sponsored">Amazon — ${esc(l.label)}</a>`).join("\n")}
+      </div>
+      <img src="//i.moshimo.com/af/i/impression?a_id=5652284&p_id=54&pc_id=54&pl_id=616" width="1" height="1" style="border:none;" alt="" loading="lazy">
+      <p class="material-pr">※ 本ページはアフィリエイト広告（楽天アフィリエイト・Amazonアソシエイト）を含みます。</p>
+    </div>`;
+}
 
 /* 型紙の和名。ja-howto-data.js より前に手で書いたガイドはデータを持たないので、
    関連リンクの表示名はここから引きます。キーをそのまま出すと、和文ページに
@@ -184,20 +198,12 @@ ${heroHtml}    <div class="toc">
     <ul>
 ${g.materials.map(m=>`      <li>${m}</li>`).join("\n")}
     </ul>
+${shopBox("材料をネットで探す", materialLinks(g.materials, g.buy, g.buyLabel))}
     <h3>道具</h3>
     <ul>
 ${TOOLS.map(t=>`      <li>${t}</li>`).join("\n")}
     </ul>
-    <div class="material-box">
-      <p class="material-box-head">材料をネットで探す</p>
-      <div class="material-links">
-${materialLinks(g.materials, g.buy, g.buyLabel).map(l=>
-`        <a class="ml-btn ml-btn-rakuten" href="${l.href}" target="_blank" rel="nofollow" referrerpolicy="no-referrer-when-downgrade" attributionsrc>楽天 — ${esc(l.label)}</a>\n` +
-`        <a class="ml-btn ml-btn-amazon" href="${esc(l.amazonHref)}" target="_blank" rel="nofollow sponsored">Amazon — ${esc(l.label)}</a>`).join("\n")}
-      </div>
-      <img src="//i.moshimo.com/af/i/impression?a_id=5652284&p_id=54&pc_id=54&pl_id=616" width="1" height="1" style="border:none;" alt="" loading="lazy">
-      <p class="material-pr">※ 本ページはアフィリエイト広告（楽天アフィリエイト・Amazonアソシエイト）を含みます。</p>
-    </div>
+${shopBox("道具をネットで探す", toolLinks(g.materials))}
   </section>
 
   <section id="pattern">

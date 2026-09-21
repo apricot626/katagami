@@ -114,18 +114,20 @@ const MEASURES = (() => {
      対になった楽天とAmazonを見分けられないと、どちらで買われているか
      分からなくなります。店名が item に混ざっていないことも見ます。 */
   const clicks = [];
-  for (const [url, cls, shop] of [
-    ["/howto-tote.html",    "ml-btn-rakuten", "rakuten"],
-    ["/howto-tote.html",    "ml-btn-amazon",  "amazon"],
-    ["/en/howto-tote.html", "ml-btn-amazon",  "amazon"],
+  for (const [url, cls, shop, box] of [
+    ["/howto-tote.html",    "ml-btn-rakuten", "rakuten", 0],
+    ["/howto-tote.html",    "ml-btn-amazon",  "amazon",  0],
+    ["/howto-tote.html",    "ml-btn-rakuten", "rakuten", 1],   // 道具の枠
+    ["/en/howto-tote.html", "ml-btn-amazon",  "amazon",  0],
+    ["/en/howto-tote.html", "ml-btn-amazon",  "amazon",  1],   // 道具の枠
   ]) {
     const c = await open(url);
     // target="_blank" で別タブが開くと検査が散らかるので、遷移だけ止めます
     await c.evaluate(() => document.querySelectorAll("a.ml-btn")
       .forEach(a => a.addEventListener("click", e => e.preventDefault())));
-    await c.click(`a.${cls}`);
+    await c.click(`.material-links >> nth=${box} >> a.${cls} >> nth=0`);
     await waitFor(c, "affiliate_click")
-      .catch(() => findings.push(`${url} の ${shop} のリンクを押してもイベントが飛びません`));
+      .catch(() => findings.push(`${url} の枠${box + 1}（${shop}）のリンクを押してもイベントが飛びません`));
     const e7 = (await events(c)).find(e => e.name === "affiliate_click");
     if (e7) {
       if (e7.p.shop !== shop) findings.push(`${url}: 店名が違います: ${e7.p.shop}`);

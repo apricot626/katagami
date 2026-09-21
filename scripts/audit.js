@@ -627,60 +627,120 @@ for (const k of Object.keys(PATTERNS)) {
 /* =========================================================
    9. アフィリエイトリンク
    ========================================================= */
+/* 買い物枠は材料と道具の2つ。見出しと中身が食い違っていないか、
+   枠ごとに見ます（道具の枠に生地が出ていたら、それは事故です）。 */
+function shopBoxes(h) {
+  return [...h.matchAll(/<div class="material-box">([\s\S]*?)<p class="material-pr">([^<]*)<\/p>/g)]
+    .map(m => ({
+      head: (m[1].match(/<p class="material-box-head">([^<]*)<\/p>/) || [, ""])[1],
+      body: m[1],
+      pr: m[2],
+    }));
+}
+
 for (const f of jaPages.filter(x => x.startsWith("howto-") && !redirects.has(x))) {
   const h = read(f);
-  const btns = [...h.matchAll(/<a class="ml-btn[^"]*" href="([^"]+)"[^>]*>楽天 — ([^<]+)<\/a>/g)];
-  if (!btns.length) { add("affiliate", f, "材料リンクがありません"); continue; }
-  if (btns.length < 3) add("affiliate", f, `材料リンクが ${btns.length} 本（3本以上にしたい）`);
-  const labels = btns.map(b => b[2]);
-  for (let i = 0; i < labels.length; i++)
-    for (let j = i + 1; j < labels.length; j++)
-      if (labels[i].includes(labels[j]) || labels[j].includes(labels[i]))
-        add("affiliate", f, `材料リンクのラベルが重複: ${labels[i]} / ${labels[j]}`);
-  for (const b of btns) {
-    if (!b[1].startsWith("//af.moshimo.com/af/c/click?a_id="))
-      add("affiliate", f, "リンク形式がおかしい: " + b[1].slice(0, 60));
-    if (!/url=https%3A%2F%2Fsearch\.rakuten\.co\.jp/.test(b[1]))
-      add("affiliate", f, "楽天の検索URLが二重エンコードされていません: " + b[2]);
+  const boxes = shopBoxes(h);
+  const mat = boxes.find(b => b.head === "材料をネットで探す");
+  const tool = boxes.find(b => b.head === "道具をネットで探す");
+  if (!mat) { add("affiliate", f, "材料の買い物枠がありません"); continue; }
+  if (!tool) add("affiliate", f, "道具の買い物枠がありません");
+  if (boxes.length !== 2)
+    add("affiliate", f, `買い物枠が ${boxes.length} 個（材料と道具の2個のはず）`);
+
+  for (const box of boxes) {
+    const btns = [...box.body.matchAll(/<a class="ml-btn[^"]*" href="([^"]+)"[^>]*>楽天 — ([^<]+)<\/a>/g)];
+    const am = [...box.body.matchAll(/<a class="ml-btn[^"]*" href="([^"]+)"[^>]*>Amazon — ([^<]+)<\/a>/g)];
+    const where = box.head;
+
+    /* 材料は型紙によって1本しかないこともあります（布だけで作るもの）。
+       穴埋めに道具を混ぜるのをやめたので、少ないこと自体は異常ではありません。
+       道具はどのページも同じ4本なので、欠けていたら組み立てが壊れています。 */
+    if (!btns.length) add("affiliate", f, `${where}: リンクがありません`);
+    if (box === tool && btns.length !== 4)
+      add("affiliate", f, `${where}: リンクが ${btns.length} 本（4本のはず）`);
+
+    /* 材料は「キルト芯」と「キルト芯・厚手コットン生地」が並ぶと選択肢が増えないので
+       部分一致で見ます。道具は「ミシン」と「ミシン糸」が別物なので完全一致だけ見ます。 */
+    const labels = btns.map(b => b[2]);
+    const dup = box === tool
+      ? (a, b) => a === b
+      : (a, b) => a.includes(b) || b.includes(a);
+    for (let i = 0; i < labels.length; i++)
+      for (let j = i + 1; j < labels.length; j++)
+        if (dup(labels[i], labels[j]))
+          add("affiliate", f, `${where}: ラベルが重複: ${labels[i]} / ${labels[j]}`);
+
+    for (const b of btns) {
+      if (!b[1].startsWith("//af.moshimo.com/af/c/click?a_id="))
+        add("affiliate", f, `${where}: リンク形式がおかしい: ` + b[1].slice(0, 60));
+      if (!/url=https%3A%2F%2Fsearch\.rakuten\.co\.jp/.test(b[1]))
+        add("affiliate", f, `${where}: 楽天の検索URLが二重エンコードされていません: ` + b[2]);
+    }
+    /* 楽天とAmazonは1つにつき1本ずつ。片方だけ増減すると対になりません。
+       タグが抜けたリンクは踏まれても報酬にならないので、1本ずつ確かめます。 */
+    if (am.length !== btns.length)
+      add("affiliate", f, `${where}: 楽天 ${btns.length} 本に対して Amazon ${am.length} 本（対になっていません）`);
+    for (const b of am) {
+      if (!b[1].startsWith("https://www.amazon.co.jp/s?k="))
+        add("affiliate", f, `${where}: Amazonのリンク形式がおかしい: ` + b[1].slice(0, 60));
+      if (!/(?:[?&]|&amp;)tag=katagami-22$/.test(b[1]))
+        add("affiliate", f, `${where}: アソシエイトタグが付いていません: ` + b[2]);
+    }
+    if (!/本ページはアフィリエイト広告/.test(box.pr) || !/Amazonアソシエイト/.test(box.pr))
+      add("affiliate", f, `${where}: 開示文が足りません`);
   }
-  /* 楽天とAmazonは資材1つにつき1本ずつ出します。片方だけ増減すると対になりません。
-     タグが抜けたリンクは踏まれても報酬にならないので、1本ずつ確かめます。 */
-  const am = [...h.matchAll(/<a class="ml-btn[^"]*" href="([^"]+)"[^>]*>Amazon — ([^<]+)<\/a>/g)];
-  if (am.length !== btns.length)
-    add("affiliate", f, `楽天 ${btns.length} 本に対して Amazon ${am.length} 本（対になっていません）`);
-  for (const b of am) {
-    if (!b[1].startsWith("https://www.amazon.co.jp/s?k="))
-      add("affiliate", f, "Amazonのリンク形式がおかしい: " + b[1].slice(0, 60));
-    if (!/(?:[?&]|&amp;)tag=katagami-22$/.test(b[1]))
-      add("affiliate", f, "アソシエイトタグが付いていません: " + b[2]);
-  }
-  if (!/本ページはアフィリエイト広告/.test(h)) add("affiliate", f, "アフィリエイトの表記がありません");
-  if (am.length && !/Amazonアソシエイト/.test(h))
-    add("affiliate", f, "開示文がAmazonに触れていません");
+
+  /* 材料の枠に道具が出ていたら、見出しと中身が食い違っています。 */
+  if (mat && /楽天 — (ミシン|ミシン糸|裁ちばさみ|チャコペン)/.test(mat.body))
+    add("affiliate", f, "材料の枠に道具が混ざっています");
+
   if (!/<script src="affiliate\.js"><\/script>/.test(h))
     add("affiliate", f, "affiliate.js が読まれていません（クリックが計測されません）");
 }
 
-/* 英語ガイドは Amazon アソシエイト。タグが抜けたリンクは報酬が付かないので、
-   1本ずつ tag= を確かめます。開示文は Amazon が文言を指定しています。 */
+/* 英語ガイドは Amazon.com。作りは和文と同じで、店が1つぶん少ないだけです。 */
 for (const f of enPages.filter(x => x.startsWith("en/howto-") && !redirects.has(x))) {
   const h = read(f);
-  const btns = [...h.matchAll(/<a class="ml-btn[^"]*" href="([^"]+)"[^>]*>Amazon — ([^<]+)<\/a>/g)];
-  if (!btns.length) { add("affiliate", f, "材料リンクがありません"); continue; }
-  if (btns.length < 3) add("affiliate", f, `材料リンクが ${btns.length} 本（3本以上にしたい）`);
-  const labels = btns.map(b => b[2]);
-  for (let i = 0; i < labels.length; i++)
-    for (let j = i + 1; j < labels.length; j++)
-      if (labels[i].includes(labels[j]) || labels[j].includes(labels[i]))
-        add("affiliate", f, `材料リンクのラベルが重複: ${labels[i]} / ${labels[j]}`);
-  for (const b of btns) {
-    if (!b[1].startsWith("https://www.amazon.com/s?k="))
-      add("affiliate", f, "リンク形式がおかしい: " + b[1].slice(0, 60));
-    if (!/(?:[?&]|&amp;)tag=katagami-20$/.test(b[1]))
-      add("affiliate", f, "アソシエイトタグが付いていません: " + b[2]);
+  const boxes = shopBoxes(h);
+  const mat = boxes.find(b => b.head === "Find materials online");
+  const tool = boxes.find(b => b.head === "Find tools online");
+  if (!mat) { add("affiliate", f, "材料の買い物枠がありません"); continue; }
+  if (!tool) add("affiliate", f, "道具の買い物枠がありません");
+  if (boxes.length !== 2)
+    add("affiliate", f, `買い物枠が ${boxes.length} 個（材料と道具の2個のはず）`);
+
+  for (const box of boxes) {
+    const btns = [...box.body.matchAll(/<a class="ml-btn[^"]*" href="([^"]+)"[^>]*>Amazon — ([^<]+)<\/a>/g)];
+    const where = box.head;
+    if (!btns.length) add("affiliate", f, `${where}: リンクがありません`);
+    if (box === tool && btns.length !== 4)
+      add("affiliate", f, `${where}: リンクが ${btns.length} 本（4本のはず）`);
+
+    /* 材料は「キルト芯」と「キルト芯・厚手コットン生地」が並ぶと選択肢が増えないので
+       部分一致で見ます。道具は「ミシン」と「ミシン糸」が別物なので完全一致だけ見ます。 */
+    const labels = btns.map(b => b[2]);
+    const dup = box === tool
+      ? (a, b) => a === b
+      : (a, b) => a.includes(b) || b.includes(a);
+    for (let i = 0; i < labels.length; i++)
+      for (let j = i + 1; j < labels.length; j++)
+        if (dup(labels[i], labels[j]))
+          add("affiliate", f, `${where}: ラベルが重複: ${labels[i]} / ${labels[j]}`);
+
+    for (const b of btns) {
+      if (!b[1].startsWith("https://www.amazon.com/s?k="))
+        add("affiliate", f, `${where}: リンク形式がおかしい: ` + b[1].slice(0, 60));
+      if (!/(?:[?&]|&amp;)tag=katagami-20$/.test(b[1]))
+        add("affiliate", f, `${where}: アソシエイトタグが付いていません: ` + b[2]);
+    }
+    if (!/As an Amazon Associate I earn from qualifying purchases\./.test(box.pr))
+      add("affiliate", f, `${where}: 開示文が足りません`);
   }
-  if (!/As an Amazon Associate I earn from qualifying purchases\./.test(h))
-    add("affiliate", f, "アフィリエイトの表記がありません");
+
+  if (mat && /Amazon — (Sewing machine|Sewing thread|Scissors & cutter|Marker & ruler)/.test(mat.body))
+    add("affiliate", f, "材料の枠に道具が混ざっています");
+
   if (!/<script src="\.\.\/affiliate\.js"><\/script>/.test(h))
     add("affiliate", f, "affiliate.js が読まれていません（クリックが計測されません）");
 }

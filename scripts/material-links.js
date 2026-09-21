@@ -45,20 +45,28 @@ const SUPPLIES = [
   { test:/透明ビニール|ビニール（/,                  kw:"透明ビニール 生地 手芸",     label:"透明ビニール" },
   { test:/メッシュ/,                                 kw:"メッシュ 生地 手芸",         label:"メッシュ生地" },
   { test:/口金|がま口/,                              kw:"がま口 口金 手芸",           label:"がま口金具" },
-  { test:/ニット用(ミシン)?針|レジロン/,             kw:"ニット用 ミシン針 レジロン", label:"ニット用の針・糸" },
 ];
 
-/* 副資材が少ないページでも選択肢が並ぶよう、道具まわりの汎用リンクで埋めます。
-   道具（ミシン・チャコペン・定規・まち針）はどのページでも使うものなので、
-   材料リストに書いていなくても関連は外れません。 */
-const GENERIC = [
-  { kw:"ミシン糸 シャッペスパイ 手芸",   label:"ミシン糸" },
-  { kw:"まち針 クリップ ソーイング 手芸", label:"まち針・クリップ" },
+/* 道具はどのページでも同じものを使うので、材料とは別の枠に固定で出します。
+   以前は材料が少ないページの穴埋めに混ぜていましたが、「材料をネットで探す」
+   という見出しの下にミシン糸やまち針が並ぶのは、書いてあることと違います。 */
+const TOOLS = [
+  { kw:"ミシン 初心者 コンパクト",        label:"ミシン" },
+  { kw:"ミシン糸 シャッペスパイ 手芸",    label:"ミシン糸" },
+  { kw:"裁ちばさみ ロータリーカッター",   label:"裁ちばさみ・カッター" },
   { kw:"チャコペン 定規 ソーイング 手芸", label:"チャコペン・定規" },
 ];
 
-const MIN_LINKS = 3;
+/* 型紙ごとに要る道具。材料欄に書かれていたら、固定の道具より前に出します。
+   ニット地に普通の針を使うと目が飛ぶので、そのページでは何より先に要ります。 */
+const SPECIAL_TOOLS = [
+  { test:/ニット用(ミシン)?針|レジロン/, kw:"ニット用 ミシン針 レジロン", label:"ニット用の針・糸" },
+  { test:/ゴム通し|ひも通し/,            kw:"ゴム通し ひも通し 手芸",     label:"ゴム通し" },
+  { test:/目打ち/,                       kw:"目打ち ソーイング 手芸",     label:"目打ち" },
+];
+
 const MAX_LINKS = 4;
+const MAX_TOOLS = 4;
 
 /* materials: 材料リストの文字列配列（HTMLタグを含んでいても構いません）
    fabricKw / fabricLabel: 生地の検索語と表示名（各ガイドが持っている値） */
@@ -73,11 +81,22 @@ function materialLinks(materials, fabricKw, fabricLabel){
       links.push({ kw:s.kw, label:s.label });
     }
   }
-  for(const g of GENERIC){
-    if(links.length >= MIN_LINKS) break;
-    links.push(g);
-  }
-  return links.map(l => ({ href:rakuten(l.kw), amazonHref:amazonJp(l.kw), label:l.label }));
+  return links.map(withHrefs);
 }
 
-module.exports = { rakuten, amazonJp, materialLinks, MAX_LINKS, AMAZON_TAG };
+/* 道具の枠。どのページも同じ4本で、型紙固有の道具があれば先頭に入ります。 */
+function toolLinks(materials){
+  const text = (materials || []).join("\n").replace(/<[^>]+>/g, "");
+  const links = SPECIAL_TOOLS.filter(t => t.test.test(text)).map(t => ({ kw:t.kw, label:t.label }));
+  for(const t of TOOLS){
+    if(links.length >= MAX_TOOLS) break;
+    if(!links.some(l => l.label === t.label)) links.push(t);
+  }
+  return links.slice(0, MAX_TOOLS).map(withHrefs);
+}
+
+function withHrefs(l){
+  return { href:rakuten(l.kw), amazonHref:amazonJp(l.kw), label:l.label };
+}
+
+module.exports = { rakuten, amazonJp, materialLinks, toolLinks, MAX_LINKS, MAX_TOOLS, AMAZON_TAG };
