@@ -643,7 +643,42 @@ for (const f of jaPages.filter(x => x.startsWith("howto-") && !redirects.has(x))
     if (!/url=https%3A%2F%2Fsearch\.rakuten\.co\.jp/.test(b[1]))
       add("affiliate", f, "楽天の検索URLが二重エンコードされていません: " + b[2]);
   }
+  /* 楽天とAmazonは資材1つにつき1本ずつ出します。片方だけ増減すると対になりません。
+     タグが抜けたリンクは踏まれても報酬にならないので、1本ずつ確かめます。 */
+  const am = [...h.matchAll(/<a class="ml-btn[^"]*" href="([^"]+)"[^>]*>Amazon — ([^<]+)<\/a>/g)];
+  if (am.length !== btns.length)
+    add("affiliate", f, `楽天 ${btns.length} 本に対して Amazon ${am.length} 本（対になっていません）`);
+  for (const b of am) {
+    if (!b[1].startsWith("https://www.amazon.co.jp/s?k="))
+      add("affiliate", f, "Amazonのリンク形式がおかしい: " + b[1].slice(0, 60));
+    if (!/(?:[?&]|&amp;)tag=katagami-22$/.test(b[1]))
+      add("affiliate", f, "アソシエイトタグが付いていません: " + b[2]);
+  }
   if (!/本ページはアフィリエイト広告/.test(h)) add("affiliate", f, "アフィリエイトの表記がありません");
+  if (am.length && !/Amazonアソシエイト/.test(h))
+    add("affiliate", f, "開示文がAmazonに触れていません");
+}
+
+/* 英語ガイドは Amazon アソシエイト。タグが抜けたリンクは報酬が付かないので、
+   1本ずつ tag= を確かめます。開示文は Amazon が文言を指定しています。 */
+for (const f of enPages.filter(x => x.startsWith("en/howto-") && !redirects.has(x))) {
+  const h = read(f);
+  const btns = [...h.matchAll(/<a class="ml-btn[^"]*" href="([^"]+)"[^>]*>Amazon — ([^<]+)<\/a>/g)];
+  if (!btns.length) { add("affiliate", f, "材料リンクがありません"); continue; }
+  if (btns.length < 3) add("affiliate", f, `材料リンクが ${btns.length} 本（3本以上にしたい）`);
+  const labels = btns.map(b => b[2]);
+  for (let i = 0; i < labels.length; i++)
+    for (let j = i + 1; j < labels.length; j++)
+      if (labels[i].includes(labels[j]) || labels[j].includes(labels[i]))
+        add("affiliate", f, `材料リンクのラベルが重複: ${labels[i]} / ${labels[j]}`);
+  for (const b of btns) {
+    if (!b[1].startsWith("https://www.amazon.com/s?k="))
+      add("affiliate", f, "リンク形式がおかしい: " + b[1].slice(0, 60));
+    if (!/(?:[?&]|&amp;)tag=katagami-20$/.test(b[1]))
+      add("affiliate", f, "アソシエイトタグが付いていません: " + b[2]);
+  }
+  if (!/As an Amazon Associate I earn from qualifying purchases\./.test(h))
+    add("affiliate", f, "アフィリエイトの表記がありません");
 }
 
 /* =========================================================

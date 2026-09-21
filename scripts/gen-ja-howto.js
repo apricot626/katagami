@@ -192,10 +192,11 @@ ${TOOLS.map(t=>`      <li>${t}</li>`).join("\n")}
       <p class="material-box-head">材料をネットで探す</p>
       <div class="material-links">
 ${materialLinks(g.materials, g.buy, g.buyLabel).map(l=>
-`        <a class="ml-btn ml-btn-rakuten" href="${l.href}" target="_blank" rel="nofollow" referrerpolicy="no-referrer-when-downgrade" attributionsrc>楽天 — ${esc(l.label)}</a>`).join("\n")}
+`        <a class="ml-btn ml-btn-rakuten" href="${l.href}" target="_blank" rel="nofollow" referrerpolicy="no-referrer-when-downgrade" attributionsrc>楽天 — ${esc(l.label)}</a>\n` +
+`        <a class="ml-btn ml-btn-amazon" href="${esc(l.amazonHref)}" target="_blank" rel="nofollow sponsored">Amazon — ${esc(l.label)}</a>`).join("\n")}
       </div>
       <img src="//i.moshimo.com/af/i/impression?a_id=5652284&p_id=54&pc_id=54&pl_id=616" width="1" height="1" style="border:none;" alt="" loading="lazy">
-      <p class="material-pr">※ 本ページはアフィリエイト広告（楽天アフィリエイト）を含みます。</p>
+      <p class="material-pr">※ 本ページはアフィリエイト広告（楽天アフィリエイト・Amazonアソシエイト）を含みます。</p>
     </div>
   </section>
 

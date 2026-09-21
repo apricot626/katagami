@@ -46,12 +46,19 @@ for(const f of files){
 
   const links = materialLinks(materialsOf(html), kw, first[2]);
   const body = links.map(l =>
-    `        <a class="ml-btn ml-btn-rakuten" href="${l.href}" target="_blank" rel="nofollow" referrerpolicy="no-referrer-when-downgrade" attributionsrc>楽天 — ${esc(l.label)}</a>`
+    `        <a class="ml-btn ml-btn-rakuten" href="${l.href}" target="_blank" rel="nofollow" referrerpolicy="no-referrer-when-downgrade" attributionsrc>楽天 — ${esc(l.label)}</a>\n` +
+    `        <a class="ml-btn ml-btn-amazon" href="${esc(l.amazonHref)}" target="_blank" rel="nofollow sponsored">Amazon — ${esc(l.label)}</a>`
   ).join("\n");
   const next = box[1] + "\n" + body + "\n      " + box[3];
 
-  if(next === box[0]){ skipped++; continue; }
-  fs.writeFileSync(p, html.replace(box[0], next));
+  /* Amazonを併記したので、開示文も楽天だけの文言から直します。 */
+  const PR_OLD = "※ 本ページはアフィリエイト広告（楽天アフィリエイト）を含みます。";
+  const PR_NEW = "※ 本ページはアフィリエイト広告（楽天アフィリエイト・Amazonアソシエイト）を含みます。";
+  let out = html.replace(box[0], next);
+  if(out.includes(PR_OLD)) out = out.split(PR_OLD).join(PR_NEW);
+
+  if(out === html){ skipped++; continue; }
+  fs.writeFileSync(p, out);
   changed++;
 }
 
