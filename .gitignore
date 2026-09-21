@@ -1,9 +1,24 @@
 .DS_Store
 docs/
-# レビュー手順書だけは共有したいので除外の例外にする
+# レビュー手順書とGA連携の手順書だけは共有したいので除外の例外にする
 !docs/
 !docs/review-checklist.md
-.claude/
+!docs/ga-mcp-setup.md
+.claude/*
+# GA4連携のセッション開始フックだけは共有する（個人設定 settings.local.json は除外のまま）
+!.claude/settings.json
+!.claude/hooks/
+.claude/hooks/*
+!.claude/hooks/session-start.sh
 node_modules/
 package-lock.json
 package.json
+
+# 認証鍵は絶対にコミットしない（公開リポジトリです）
+*service-account*.json
+*-sa.json
+gcp-key*.json
+client_secret*.json
+# Google Cloud がダウンロードさせる鍵は「＜プロジェクトID＞-＜12桁の16進＞.json」
+# という名前です（例: katagami-509005-21963ba55538.json）。上の名前では拾えません。
+*-[0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f].json

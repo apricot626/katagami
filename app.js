@@ -1075,7 +1075,37 @@ function buildPaperUnitControls(){
 /* ---- 起動 ---- */
 (()=>{
   const key=new URLSearchParams(location.search).get('p');
-  if(key && PATTERNS[key]){ state.pat=key; state.mode=PATTERNS[key].mode; }
+  const hit = !!(key && PATTERNS[key]);
+  if(hit){ state.pat=key; state.mode=PATTERNS[key].mode; }
+
+  /* ---- どこから来たか ----
+     「どのガイドがツールへ人を送れているか」を知りたいのですが、ガイド側で
+     クリックを数えると 562ページ全部に仕掛けが要ります。着地したこちらで
+     参照元を見れば、同じことが1か所で分かります。クリックではなく到達を
+     数えるので、離脱ぶんも含めず実数になります。
+     送るのは自サイト内のパスだけです。外部からの流入は GA4 の参照元
+     レポートで分かるので、こちらからは送りません（外部URLのクエリには
+     何が入っているか分かりません）。
+     採寸値は送りません。ブラウザ内だけで処理するとプライバシーポリシーで
+     約束しています。 */
+  let from='', kind='direct';
+  try{
+    const r=document.referrer;
+    if(r){
+      const u=new URL(r);
+      if(u.origin!==location.origin) kind='external';
+      else {
+        from=u.pathname;
+        kind = /howto-[^/]+\.html$/.test(from)   ? 'howto'
+             : /guide-[^/]+\.html$/.test(from)   ? 'guide'
+             : /howto\.html$/.test(from)         ? 'howto_list'
+             : /(\/|\/index\.html)$/.test(from) ? 'home'
+             : /tool\.html$/.test(from)          ? 'tool'
+             : 'site';
+      }
+    }
+  }catch(e){ /* 参照元が読めない環境では kind だけ送る */ }
+  ga('open_tool',{pattern: hit?key:'(none)', from_page: from, from_kind: kind});
 })();
 initParams(); buildModes(); buildTabs(); buildFields(); buildSAControls(); buildPaperUnitControls(); render(); renderProfiles();
 window.addEventListener("resize",()=>render());
