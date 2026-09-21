@@ -57,11 +57,105 @@ Google 公式の MCP サーバー（[googleanalytics/google-analytics-mcp](https
 
 ---
 
-## 3. 手元のパソコンでつなぐ（Claude Desktop / ローカルの Claude Code）
+## 3. 手元のパソコンでつなぐ（Windows / ローカルの Claude Code）
 
-ダウンロードした鍵を、**リポジトリの外**の安全な場所に置きます。
+### 3-1. 鍵を置く
 
-Claude Desktop なら `claude_desktop_config.json` に書きます。
+ダウンロードした鍵を、**リポジトリの外**に置きます。Windows ならたとえばここです。
+
+```
+C:\Users\あなた\.config\katagami\ga-service-account.json
+```
+
+`.config` フォルダはエクスプローラーの「新しいフォルダー」では作りにくいので、
+PowerShell で作るのが早いです。
+
+```powershell
+New-Item -ItemType Directory -Force "$env:USERPROFILE\.config\katagami"
+```
+
+### 3-2. 鍵の場所を Claude Code に教える（推奨）
+
+`.claude/settings.local.json` に書きます。**この方法を勧めます。**
+
+- OS やシェルに依存しません（PowerShell でも Git Bash でも同じ）
+- `claude` をどう起動しても効きます（ショートカット起動でも効く）
+- `.gitignore` の `.claude/*` で除外されるので、**git には入りません**
+
+リポジトリの `.claude/settings.local.json` を新規作成し、こう書きます。
+
+```json
+{
+  "env": {
+    "GOOGLE_APPLICATION_CREDENTIALS": "C:\\Users\\あなた\\.config\\katagami\\ga-service-account.json",
+    "GOOGLE_PROJECT_ID": "katagami-509005"
+  }
+}
+```
+
+> **JSON ではバックスラッシュを2つ重ねます。** `C:\Users` は `C:\\Users` と書きます。
+> `C:/Users/あなた/...` のようにスラッシュで書いても動きます。
+
+公式ドキュメントにこうあります。
+
+> Add variables under the `env` key in a `settings.json` file (...)
+> Claude Code reads them directly from the file, so they **take effect no matter how `claude` was launched**.
+>
+> Claude Code writes each `env` entry into the process environment.
+
+`.mcp.json` の `google-analytics` は Claude Code の子プロセスとして起動するので、
+ここで書いた値をそのまま受け取ります。
+
+<details>
+<summary>PowerShell の環境変数で設定する場合（代替）</summary>
+
+`settings.local.json` を使わないなら、PowerShell で設定します。
+**Windows に `export` はありません。**
+
+```powershell
+# このウィンドウだけ有効（試すとき用）
+$env:GOOGLE_APPLICATION_CREDENTIALS = "$env:USERPROFILE\.config\katagami\ga-service-account.json"
+$env:GOOGLE_PROJECT_ID = "katagami-509005"
+
+# ずっと有効（次に開くウィンドウから効きます）
+[Environment]::SetEnvironmentVariable(
+  "GOOGLE_APPLICATION_CREDENTIALS",
+  "$env:USERPROFILE\.config\katagami\ga-service-account.json", "User")
+[Environment]::SetEnvironmentVariable("GOOGLE_PROJECT_ID", "katagami-509005", "User")
+```
+
+`SetEnvironmentVariable` で設定した場合、**すでに開いている端末や Claude Code には反映されません。**
+開き直してください。
+
+macOS / Linux なら次のとおりです。
+
+```bash
+export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.config/katagami/ga-service-account.json"
+export GOOGLE_PROJECT_ID="katagami-509005"
+```
+
+</details>
+
+### 3-3. `uvx` を入れる
+
+`.mcp.json` は `uvx analytics-mcp` でサーバーを起動します。
+`uvx` は [uv](https://docs.astral.sh/uv/) に付属します。
+
+```powershell
+winget install --id=astral-sh.uv -e
+```
+
+入ったか確認します。
+
+```powershell
+uvx --version
+```
+
+<details>
+<summary>Claude Desktop で使う場合</summary>
+
+Claude Desktop はこのリポジトリの `.mcp.json` を読みません。
+`claude_desktop_config.json` に直接書きます。
 
 ```json
 {
@@ -70,24 +164,34 @@ Claude Desktop なら `claude_desktop_config.json` に書きます。
       "command": "uvx",
       "args": ["analytics-mcp"],
       "env": {
-        "GOOGLE_APPLICATION_CREDENTIALS": "/Users/あなた/.config/katagami/ga-service-account.json",
-        "GOOGLE_PROJECT_ID": "あなたのプロジェクトID"
+        "GOOGLE_APPLICATION_CREDENTIALS": "C:\\Users\\あなた\\.config\\katagami\\ga-service-account.json",
+        "GOOGLE_PROJECT_ID": "katagami-509005"
       }
     }
   }
 }
 ```
 
-`uvx` は [uv](https://docs.astral.sh/uv/) に付属します。`pipx` を使っているなら
-`"command": "pipx", "args": ["run", "analytics-mcp"]` でも同じです。
+</details>
 
-ローカルの Claude Code で使う場合は、このリポジトリの `.mcp.json` がそのまま効きます。
-鍵の置き場所だけ環境変数で教えてください。
+### 3-4. セッション開始フックについて
 
-```bash
-export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.config/katagami/ga-service-account.json"
-export GOOGLE_PROJECT_ID="あなたのプロジェクトID"
+`.claude/hooks/session-start.sh` は **`GOOGLE_APPLICATION_CREDENTIALS` を読むだけ**で、
+環境変数を設定することはありません。設定するのは 3-2 のあなたの作業です。
+フックは状況を一行知らせるだけです（設定済みなら何も言いません）。
+
+フックは bash スクリプトなので、Windows では **Git Bash** 経由で動きます。
+Git for Windows を入れていれば入っています。`.claude/settings.json` で `"shell": "bash"` を
+明示してあるので、PowerShell に落ちて失敗することはありません。
+
+Git Bash が無い環境では、フックが起動できず次のような注意が出ることがあります。
+
 ```
+Failed with non-blocking status code ...
+```
+
+**これはセッションを止めません。** GA4 の接続にも影響しません（フックは鍵を扱わないため）。
+気になる場合は Git for Windows を入れてください。
 
 ## 4. クラウドでは使わない理由
 
@@ -154,11 +258,14 @@ GA4 のアカウントとプロパティの一覧を見せて
 
 | 症状 | 原因 |
 |---|---|
-| プロパティが空で返る | GA4 側でサービスアカウントに閲覧者を与えていない |
+| プロパティが空で返る | GA4 側でサービスアカウントに閲覧者を与えていない（いちばん多い） |
 | `PERMISSION_DENIED` | Data API または Admin API が有効化されていない |
 | `DefaultCredentialsError` | 鍵ファイルのパスが違う。`GOOGLE_APPLICATION_CREDENTIALS` を確認 |
 | サーバーが出てこない | 設定前から開いていたセッション。開き直す |
-| `File ... was not found` | クラウドのセッションで聞いている。方針どおりなので、手元のパソコンで聞く |
+| `File ... was not found`（クラウド） | クラウドで聞いている。方針どおり。手元のパソコンで聞く |
+| `File ... was not found`（手元のPC） | パスが違う。JSON でバックスラッシュが `\\` になっているか確認 |
+| `uvx` が見つからない | uv が未インストール。`winget install --id=astral-sh.uv -e` |
+| `Failed with non-blocking status code` | Git Bash が無くフックが起動できない。**害はありません**（フックは鍵を扱わない） |
 
 ---
 

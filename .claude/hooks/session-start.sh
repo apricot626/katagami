@@ -12,6 +12,11 @@
 #   経緯と代替案は docs/ga-mcp-setup.md に書いてあります。
 #
 # このフックは鍵を書き出しません。状況を一行知らせるだけです。
+# 環境変数の設定もしません。GOOGLE_APPLICATION_CREDENTIALS を「読む」だけです。
+# 設定する場所は .claude/settings.local.json の env（git管理外）。docs/ga-mcp-setup.md の 3-2 を参照。
+#
+# Windows では Git Bash 経由で動きます（.claude/settings.json で "shell": "bash" を明示）。
+# Git Bash が無ければ起動に失敗しますが、非ブロッキングなのでセッションは普通に続きます。
 
 set -uo pipefail
 
@@ -38,9 +43,9 @@ fi
 
 # 手元のパソコンだが、まだ設定されていない場合。
 if [ -n "$CRED" ]; then
-  echo "GOOGLE_APPLICATION_CREDENTIALS が指すファイルが見つかりません（$CRED）。パスを確認してください。docs/ga-mcp-setup.md の「3. 手元のパソコンでつなぐ」を参照。"
+  echo "GOOGLE_APPLICATION_CREDENTIALS が指すファイルが見つかりません（$CRED）。パスを確認してください。docs/ga-mcp-setup.md の「3-2. 鍵の場所を Claude Code に教える」を参照。"
 else
-  echo "GA4のMCPは未設定です。使うなら GOOGLE_APPLICATION_CREDENTIALS に鍵ファイルのパスを入れてください。docs/ga-mcp-setup.md の「3. 手元のパソコンでつなぐ」を参照。"
+  echo "GA4のMCPは未設定です。使うなら .claude/settings.local.json の env に GOOGLE_APPLICATION_CREDENTIALS（鍵ファイルのパス）を入れてください。docs/ga-mcp-setup.md の「3-2. 鍵の場所を Claude Code に教える」を参照。"
 fi
 
 exit 0
