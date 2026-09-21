@@ -111,7 +111,7 @@ const FIGS = {
 /* pattern key -> star technique figure */
 const FIG_MAP = {
   // costume
-  witchhat:"turnout",
+  witchhat:"turnout", costumecape:"mitsuori", catears:"turnout",
   // adult clothes
   tee:"knit", skirt:"casing", gather:"casing", apron:"mitsuori", tunic:"mitsuori",
   camisole:"bias", sleevedress:"bias", onepiece:"mitsuori", blouse:"mitsuori",
