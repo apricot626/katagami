@@ -1,54 +1,46 @@
 #!/bin/bash
-# GA4 の MCP サーバー（.mcp.json の google-analytics）が使うサービスアカウント鍵を、
-# 環境変数からファイルに書き出す。
+# GA4 の MCP サーバー（.mcp.json の google-analytics）の状態をセッション開始時に知らせる。
 #
-# クラウドのコンテナは毎回まっさらなので、鍵をファイルとして置き直す必要があります。
-# 鍵そのものはリポジトリに入れません。環境設定の「環境変数」に入れた値だけを読みます。
+# 方針: GA4 の鍵は「手元のパソコンだけ」で使います。クラウドのセッションでは使いません。
 #
-# なぜ SessionStart フックで、セットアップスクリプトではないのか:
-#   セットアップスクリプトの結果はファイルスナップショットとして約7日キャッシュされ、
-#   2回目以降のセッションでは実行されません。鍵を入れ替えても古いファイルが残ります。
-#   このフックは毎セッション走るので、入れ替えが次のセッションから効きます。
+# なぜクラウドで使わないのか:
+#   クラウドの環境変数は、公式ドキュメントにこうあります。
+#     - "any command Claude runs can read"（セッション内のどのコマンドからも読める）
+#     - "Anyone who uses the environment can read the values"（その環境を使う人は誰でも読める）
+#   つまりリポジトリには出ませんが、秘密としては守られません。
+#   このリポジトリは公開なので、鍵はクラウドに置かない方針にしました。
+#   経緯と代替案は docs/ga-mcp-setup.md に書いてあります。
 #
-# 環境変数（どちらか一方でよい）:
-#   GA_SERVICE_ACCOUNT_B64   … 鍵JSONを base64 にした1行の文字列（推奨）
-#   GA_SERVICE_ACCOUNT_JSON  … 鍵JSONそのもの
-# 手元のパソコンでは GOOGLE_APPLICATION_CREDENTIALS に実ファイルを指すので、何もしません。
+# このフックは鍵を書き出しません。状況を一行知らせるだけです。
 
 set -uo pipefail
 
-DEST="/home/user/.config/katagami/ga-service-account.json"
+CRED="${GOOGLE_APPLICATION_CREDENTIALS:-}"
 
-# すでに実ファイルを指しているなら触らない（手元のパソコン向け）
-if [ -n "${GOOGLE_APPLICATION_CREDENTIALS:-}" ] && [ -f "${GOOGLE_APPLICATION_CREDENTIALS}" ]; then
+# 手元のパソコンで、鍵の置き場所が正しく設定されている場合。黙って終わる。
+if [ -n "$CRED" ] && [ -f "$CRED" ]; then
   exit 0
 fi
 
-write_key() {
-  mkdir -p "$(dirname "$DEST")" || return 1
-  umask 077
-  cat > "$DEST" || return 1
-  chmod 600 "$DEST" 2>/dev/null
-  # 中身がJSONとして読めるかだけ見る（鍵の中身は絶対に出力しない）
-  if python3 -c "import json,sys; d=json.load(open('$DEST')); sys.exit(0 if d.get('client_email') else 1)" 2>/dev/null; then
-    return 0
-  fi
-  rm -f "$DEST"
-  return 1
-}
+if [ -n "${CLAUDE_CODE_REMOTE:-}" ]; then
+  # クラウドのセッション。google-analytics のツールは一覧に出ますが、
+  # 呼ぶと「File ... was not found」で失敗します。方針どおりなので、そう伝える。
+  echo "GA4のMCPは手元のパソコン専用です（方針）。このクラウドセッションでは google-analytics のツールは使えません。GA4の数字が要るときは、手元のパソコンのClaude Codeで聞いてください。詳しくは docs/ga-mcp-setup.md。"
 
-if [ -n "${GA_SERVICE_ACCOUNT_B64:-}" ]; then
-  if printf '%s' "$GA_SERVICE_ACCOUNT_B64" | base64 -d 2>/dev/null | write_key; then
-    echo "GA4の鍵を用意しました（$DEST）。google-analytics の MCP ツールが使えます。"
-  else
-    echo "GA_SERVICE_ACCOUNT_B64 を復号できませんでした。base64が途中で切れていないか確認してください（改行が混ざっていると失敗します）。"
-  fi
-elif [ -n "${GA_SERVICE_ACCOUNT_JSON:-}" ]; then
-  if printf '%s' "$GA_SERVICE_ACCOUNT_JSON" | write_key; then
-    echo "GA4の鍵を用意しました（$DEST）。google-analytics の MCP ツールが使えます。"
-  else
-    echo "GA_SERVICE_ACCOUNT_JSON が正しいJSONとして読めませんでした。改行やクォートで壊れている可能性があります。GA_SERVICE_ACCOUNT_B64（base64）のほうが確実です。"
-  fi
+  # 方針に反して鍵がクラウドに置かれていないか見張る（値は絶対に出力しない）。
+  for v in GA_SERVICE_ACCOUNT_B64 GA_SERVICE_ACCOUNT_JSON; do
+    if [ -n "${!v:-}" ]; then
+      echo "【注意】環境変数 $v に値が入っています。この方針では不要です。クラウド環境の設定から削除し、Google Cloud でその鍵を無効化してください。"
+    fi
+  done
+  exit 0
+fi
+
+# 手元のパソコンだが、まだ設定されていない場合。
+if [ -n "$CRED" ]; then
+  echo "GOOGLE_APPLICATION_CREDENTIALS が指すファイルが見つかりません（$CRED）。パスを確認してください。docs/ga-mcp-setup.md の「3. 手元のパソコンでつなぐ」を参照。"
+else
+  echo "GA4のMCPは未設定です。使うなら GOOGLE_APPLICATION_CREDENTIALS に鍵ファイルのパスを入れてください。docs/ga-mcp-setup.md の「3. 手元のパソコンでつなぐ」を参照。"
 fi
 
 exit 0
