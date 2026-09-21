@@ -250,6 +250,7 @@ ${relHtml}
   <a href="privacy.html">プライバシーポリシー</a>
 </footer>
 <script src="terms.js"></script>
+<script src="affiliate.js"></script>
 </body>
 </html>
 `;
