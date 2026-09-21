@@ -10,7 +10,19 @@ const { figFor } = require("./howto-figs.js");
 const { heroFor } = require("./howto-heroes.js");
 /* Amazon アソシエイトの検索リンク。和文の楽天リンクと同じ考え方で、
    材料リストから副資材を拾って並べます（scripts/material-links-en.js）。 */
-const { materialLinksEn } = require("./material-links-en.js");
+const { materialLinksEn, toolLinksEn } = require("./material-links-en.js");
+
+/* 材料と道具で同じ形の枠を2つ出すので、組み立てはここにまとめます。 */
+function shopBox(head, links){
+  return `    <div class="material-box">
+      <p class="material-box-head">${head}</p>
+      <div class="material-links">
+${links.map(l =>
+`        <a class="ml-btn ml-btn-amazon" href="${esc(l.href)}" target="_blank" rel="nofollow sponsored">Amazon — ${esc(l.label)}</a>`).join("\n")}
+      </div>
+      <p class="material-pr">As an Amazon Associate I earn from qualifying purchases.</p>
+    </div>`;
+}
 
 const ROOT = path.join(__dirname, "..");
 const OUT = path.join(ROOT, "en");
@@ -209,6 +221,7 @@ ${heroHtml}    <div class="toc">
     <ul>
 ${li(g.materials)}
     </ul>
+${shopBox("Find materials online", materialLinksEn(g.materials))}
     <h3>Tools</h3>
     <ul>
       <li>Sewing machine (or needle and thread)</li>
@@ -217,14 +230,7 @@ ${li(g.materials)}
       <li>Iron</li>
       <li>Pins or clips</li>
     </ul>
-    <div class="material-box">
-      <p class="material-box-head">Find materials online</p>
-      <div class="material-links">
-${materialLinksEn(g.materials).map(l=>
-`        <a class="ml-btn ml-btn-amazon" href="${esc(l.href)}" target="_blank" rel="nofollow sponsored">Amazon — ${esc(l.label)}</a>`).join("\n")}
-      </div>
-      <p class="material-pr">As an Amazon Associate I earn from qualifying purchases.</p>
-    </div>
+${shopBox("Find tools online", toolLinksEn(g.materials))}
   </section>
 
   <section id="pattern">

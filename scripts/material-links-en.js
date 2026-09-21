@@ -54,7 +54,6 @@ const SUPPLIES = [
   { test:/eyelet|grommet/,                          kw:"grommet eyelet kit fabric",          label:"Eyelets" },
   { test:/purse frame|clasp frame/,                 kw:"metal purse frame kiss lock",        label:"Purse frame" },
   { test:/cord\b|drawstring/,                       kw:"cotton drawstring cord 5mm",         label:"Drawstring cord" },
-  { test:/ballpoint|stretch needle|stretch thread/, kw:"ballpoint needles knit sewing machine", label:"Ballpoint needles" },
   { test:/buttons?\b/,                              kw:"sewing buttons assorted shirt",      label:"Buttons" },
   { test:/ribbon/,                                  kw:"grosgrain ribbon sewing",            label:"Ribbon" },
   { test:/lace/,                                    kw:"lace trim sewing",                   label:"Lace trim" },
@@ -63,24 +62,31 @@ const SUPPLIES = [
   { test:/mesh/,                                    kw:"mesh fabric sewing",                 label:"Mesh fabric" },
   { test:/insulated|thermal|foil/,                  kw:"insulated lining fabric sewing",     label:"Insulated lining" },
   { test:/curtain tape|pleat tape/,                 kw:"curtain heading tape",               label:"Curtain tape" },
-  { test:/bodkin/,                                  kw:"bodkin threader elastic",            label:"Bodkin" },
 ];
 
-/* 副資材が少ないページでも選択肢が並ぶよう、道具まわりの汎用リンクで埋めます。
-   糸・まち針・チャコペンはどのページでも使うので、材料リストに書いていなくても
-   関連は外れません。 */
-const GENERIC = [
+/* 道具はどのページでも同じものを使うので、材料とは別の枠に固定で出します。
+   以前は材料が少ないページの穴埋めに混ぜていましたが、"Find materials online"
+   という見出しの下に糸やまち針が並ぶのは、書いてあることと違います。 */
+const TOOLS = [
+  { kw:"sewing machine for beginners",            label:"Sewing machine" },
   { kw:"all purpose polyester sewing thread set", label:"Sewing thread" },
-  { kw:"sewing clips and pins",                   label:"Pins & clips" },
+  { kw:"fabric scissors and rotary cutter",       label:"Scissors & cutter" },
   { kw:"fabric marking pen and ruler sewing",     label:"Marker & ruler" },
 ];
 
-const MIN_LINKS = 3;
+/* 型紙ごとに要る道具。材料欄に書かれていたら、固定の道具より前に出します。 */
+const SPECIAL_TOOLS = [
+  { test:/ballpoint|stretch needle|stretch thread/, kw:"ballpoint needles knit sewing machine", label:"Ballpoint needles" },
+  { test:/bodkin|threader/,                         kw:"bodkin threader elastic",               label:"Bodkin" },
+  { test:/awl|stiletto/,                            kw:"sewing awl stiletto",                   label:"Awl" },
+];
+
 const MAX_LINKS = 4;
+const MAX_TOOLS = 4;
 
 /* materials: 材料リストの文字列配列（HTMLタグを含んでいても構いません） */
 function materialLinksEn(materials){
-  const text = (materials || []).join("\n").replace(/<[^>]+>/g, "").toLowerCase();
+  const text = textOf(materials);
   const fabric = FABRICS.find(f => f.test.test(text));
   const links = [{ kw:fabric.kw, label:fabric.label }];
 
@@ -92,11 +98,22 @@ function materialLinksEn(materials){
       links.push({ kw:s.kw, label:s.label });
     }
   }
-  for(const g of GENERIC){
-    if(links.length >= MIN_LINKS) break;
-    links.push(g);
-  }
   return links.map(l => ({ href:amazon(l.kw), label:l.label }));
 }
 
-module.exports = { amazon, materialLinksEn, TAG, MAX_LINKS };
+/* 道具の枠。どのページも同じ4本で、型紙固有の道具があれば先頭に入ります。 */
+function toolLinksEn(materials){
+  const text = textOf(materials);
+  const links = SPECIAL_TOOLS.filter(t => t.test.test(text)).map(t => ({ kw:t.kw, label:t.label }));
+  for(const t of TOOLS){
+    if(links.length >= MAX_TOOLS) break;
+    if(!links.some(l => l.label === t.label)) links.push(t);
+  }
+  return links.slice(0, MAX_TOOLS).map(l => ({ href:amazon(l.kw), label:l.label }));
+}
+
+function textOf(materials){
+  return (materials || []).join("\n").replace(/<[^>]+>/g, "").toLowerCase();
+}
+
+module.exports = { amazon, materialLinksEn, toolLinksEn, TAG, MAX_LINKS, MAX_TOOLS };
