@@ -181,6 +181,13 @@ for (const u of smUrls) {
   if (!isFile(file)) add("sitemap", "sitemap.xml", "存在しないURL: " + u);
 }
 const smSet = new Set(smUrls.map(u => u.replace(SITE + "/", "").replace(/\/$/, "/index.html") || "index.html"));
+/* 逆向きも見る。noindex のページを sitemap に載せると、Google に「登録して」と
+   言いながら「登録するな」と返すことになり、クロールの予算だけを食う。
+   実際に 404.html がこれで並んでいた。 */
+for (const f of redirects) {
+  const key = f === "index.html" ? "index.html" : f === "en/index.html" ? "en/index.html" : f;
+  if (smSet.has(key)) add("sitemap", "sitemap.xml", "検索対象にしないページが載っている: " + f);
+}
 for (const f of pages) {
   if (redirects.has(f)) continue;
   const key = f === "index.html" ? "index.html" : f === "en/index.html" ? "en/index.html" : f;

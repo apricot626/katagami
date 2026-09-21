@@ -88,8 +88,12 @@ const allPages = [
 let added = 0;
 let block = "";
 for (const f of allPages) {
-  // 転送用ページは検索対象にしないので載せない
-  if (/<meta http-equiv="refresh"/.test(fs.readFileSync(path.join(ROOT, f), "utf8"))) continue;
+  // 検索対象にしないページは載せない。転送用ページだけを見ていたので 404.html が
+  // すり抜け、Search Console に「検出 - インデックス未登録」として並んでいた。
+  // noindex も一緒に見て、載せない基準を audit.js と揃える。
+  const html = fs.readFileSync(path.join(ROOT, f), "utf8");
+  if (/<meta http-equiv="refresh"/.test(html)) continue;
+  if (/<meta name="robots" content="[^"]*noindex/.test(html)) continue;
   const url = SITE + "/" + (f === "index.html" ? "" : f === "en/index.html" ? "en/" : f);
   if (sm.includes(`<loc>${url}</loc>`)) continue;
   block += `  <url>\n    <loc>${url}</loc>\n    <lastmod>${today}</lastmod>\n` +
