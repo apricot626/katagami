@@ -9662,6 +9662,93 @@ PATTERNS.costumewings={
   }
 };
 
+/* ---- サンタ帽（クリスマス） ---- */
+PATTERNS.santahat={
+  mode:"small",
+  name:"サンタ帽",
+  note:"円すいの帽子に白いふち（ボア）とポンポンを付けた、クリスマスの定番。フェルトやフリースで、子供にも大人にも。とんがりを長めにすると、だぶっと垂れたかわいいサンタ帽になります。頭まわりを実測して入れてください。",
+  params:[
+    {key:"head",  label:"頭まわり",   unit:"cm",min:46,max:62,step:1,val:54},
+    {key:"height",label:"とんがりの長さ",unit:"cm",min:24,max:46,step:1,val:34},
+    {key:"band",  label:"白いふちの幅",unit:"cm",min:4, max:10,step:0.5,val:6},
+  ],
+  presets:[
+    {label:"子供",  vals:{head:52,height:28,band:5}},
+    {label:"大人",  vals:{head:57,height:36,band:7}},
+    {label:"だぶっと長め",vals:{head:57,height:44,band:7}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const C=cm(p.head), R=cm(p.height), BW=cm(p.band);
+    const th=C/R, half=th/2, N=28;
+    const cone=[{x:0,y:0}];
+    for(let i=0;i<=N;i++){const a=half-th*(i/N); cone.push({x:R*Math.sin(a),y:R*Math.cos(a)});}
+    const conePc=pieceFrom(cone,()=>false,sa);
+    const band=[{x:0,y:0},{x:C+cm(2),y:0},{x:C+cm(2),y:BW*2},{x:0,y:BW*2}];  // 二つ折り（白ボア）
+    const bandPc=pieceFrom(band,()=>false,sa);
+    const PR=cm(4), M=20, pom=[];                                            // ポンポン（丸）
+    for(let i=0;i<M;i++){const a=2*Math.PI*i/M; pom.push({x:PR+PR*Math.cos(a),y:PR+PR*Math.sin(a)});}
+    const pomPc=pieceFrom(pom,()=>false,sa);
+    return {pieces:[
+      {title:"帽子（円すい）", cutInfo:"表布1枚／中心の直線を中表に縫って円すいにする",
+       ...conePc, foldX:null, grain:{x1:0,y1:R*0.2,x2:0,y2:R*0.86},
+       notches:[{x:0,y:R}], labelAt:{x:0,y:R*0.5}},
+      {title:"白いふち（帯）", cutInfo:"白いボア・フェルトを1本（二つ折り）／帽子の裾に輪にして付ける",
+       ...bandPc, foldX:null, grain:{x1:cm(2),y1:BW,x2:C-cm(2),y2:BW},
+       notches:[], labelAt:{x:(C+cm(2))/2,y:BW}},
+      {title:"ポンポン", cutInfo:"白いボアを1枚（周りをぐし縫いで絞り、綿を詰めて丸める）／とんがりの先に付ける",
+       ...pomPc, foldX:null, grain:{x1:PR,y1:PR*0.4,x2:PR,y2:PR*1.6},
+       notches:[], labelAt:{x:PR,y:PR}}
+    ],
+    memo:`できあがりの高さ 約${Math.round(Math.sqrt(Math.max(R*R-Math.pow(C/(2*Math.PI),2),0))/10)}cm。フリースやフェルトで、子供にも大人にも`};
+  }
+};
+
+/* ---- クリスマスの靴下 ---- */
+PATTERNS.stocking={
+  mode:"home",
+  name:"クリスマスの靴下",
+  note:"暖炉やツリーに飾る、クリスマスの靴下。本体を2枚縫い合わせ、履き口に折り返し（別布）と吊るしループを付けるだけ。フェルトやニット地で。名前やモチーフを付けると特別感が出ます。プレゼントを入れても。",
+  params:[
+    {key:"len",  label:"丈（履き口〜かかと）",unit:"cm",min:24,max:50,step:1,val:36},
+    {key:"width",label:"筒の幅",           unit:"cm",min:12,max:22,step:1,val:16},
+    {key:"foot", label:"足の長さ",         unit:"cm",min:14,max:26,step:1,val:19},
+  ],
+  presets:[
+    {label:"小（オーナメント）",vals:{len:26,width:13,foot:15}},
+    {label:"標準",            vals:{len:36,width:16,foot:19}},
+    {label:"大（プレゼント用）",vals:{len:46,width:20,foot:24}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const LH=cm(p.len), W=cm(p.width), FL=cm(p.foot), FH=W*0.9;   // FH:足首〜底
+    const legX0=cm(1), legX1=legX0+W, soleY=LH+FH;
+    let fin=[{x:legX0,y:0},{x:legX1,y:0},{x:legX1,y:LH}];         // 履き口→後ろ（かかと側）を下へ
+    fin.push(...quad({x:legX1,y:LH},{x:legX1+cm(1.5),y:LH+FH*0.6},{x:legX1-cm(1),y:soleY},10)); // かかと
+    fin.push({x:legX0-FL+cm(3),y:soleY});                          // 底（つま先方向へ）
+    fin.push(...quad({x:legX0-FL+cm(3),y:soleY},{x:legX0-FL,y:soleY-cm(2.5)},{x:legX0-FL+cm(1),y:soleY-cm(5)},8)); // つま先の丸み
+    fin.push(...quad({x:legX0-FL+cm(1),y:soleY-cm(5)},{x:legX0-cm(1),y:LH+cm(2)},{x:legX0,y:LH-cm(2)},10)); // 甲のカーブ
+    fin.push({x:legX0,y:0});                                        // 前を履き口へ
+    const pc=pieceFrom(fin,()=>false,sa);
+    const cuff=[{x:0,y:0},{x:W,y:0},{x:W,y:cm(7)},{x:0,y:cm(7)}];   // 履き口の折り返し（別布）
+    const cuffPc=pieceFrom(cuff,()=>false,sa);
+    const loop=[{x:0,y:0},{x:cm(3),y:0},{x:cm(3),y:cm(12)},{x:0,y:cm(12)}]; // 吊るしループ
+    const loopPc=pieceFrom(loop,()=>false,sa);
+    return {pieces:[
+      {title:"靴下本体", cutInfo:"2枚（左右対称に／中表に合わせて周りを縫い、履き口から返す）",
+       ...pc, foldX:null, grain:{x1:legX0+W/2,y1:cm(3),x2:legX0+W/2,y2:LH-cm(3)},
+       notches:[{x:legX0,y:0},{x:legX1,y:0}], labelAt:{x:legX0+W*0.4,y:LH*0.55}},
+      {title:"履き口の折り返し", cutInfo:"別布（白ボアなど）を1〜2枚／履き口に輪にして付け、外側へ折り返す",
+       ...cuffPc, foldX:null, grain:{x1:W/2,y1:cm(1),x2:W/2,y2:cm(6)},
+       notches:[], labelAt:{x:W/2,y:cm(3.5)}},
+      {title:"吊るしループ", cutInfo:"1本（四つ折りにして縫う）／履き口の後ろに輪にして付ける",
+       ...loopPc, foldX:null, grain:{x1:cm(1.5),y1:cm(2),x2:cm(1.5),y2:cm(10)},
+       notches:[], labelAt:{x:cm(1.5),y:cm(6)}}
+    ],
+    memo:`本体は左右対称に2枚。フェルトなら切りっぱなしでも作れます`};
+  }
+};
+
 /* ---- ヘアリボン ---- */
 PATTERNS.hairribbon={
   mode:"small",

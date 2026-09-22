@@ -642,6 +642,8 @@ const HOWTO={
   tutu:{url:"howto-tutu.html", label:"📄 チュチュスカート（仮装用）の作り方を見る"},
   crown:{url:"howto-crown.html", label:"📄 王冠（クラウン）の作り方を見る"},
   costumewings:{url:"howto-costumewings.html", label:"📄 羽根（天使・悪魔）の作り方を見る"},
+  santahat:{url:"howto-santahat.html", label:"📄 サンタ帽の作り方を見る"},
+  stocking:{url:"howto-stocking.html", label:"📄 クリスマスの靴下の作り方を見る"},
 };
 
 /* ---- 飾り（レース・リボン・パイピング）の目安 ----
