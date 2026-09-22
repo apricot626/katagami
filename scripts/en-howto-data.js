@@ -13085,4 +13085,101 @@ stocking:{
   ],
   related:["treeskirt", "santahat", "boxcover", "tapestry"],
 },
+
+jaggedcape:{
+  title:"Cape (jagged hem)", tab:"small", toolName:"Cape (jagged hem)",
+  sizeStep:"Enter the body width (before gathering), length, neck measurement and zigzag depth. Presets for child, adult and long.",
+  desc:"How to make a costume cape with a jagged, pointed hem. Gather the top edge and sandwich it in a tie band. For witches, vampires and wizards. Print the pattern at actual size with Katagami.",
+  keywords:"cape,cloak,jagged hem,costume,cosplay,Halloween,witch,vampire,wizard,sewing,pattern",
+  lead:"A costume cape with a jagged, pointed hem. <strong>It is made just like a plain cape — gather the top edge and sandwich it in a tie band</strong> — and the pointed hem gives the witch, vampire or wizard look. In felt, the raw jagged hem works as-is.",
+  matNote:"For the adult size",
+  buy:"satin fabric Halloween", buyLabel:"Satin / felt fabric",
+  materials:[
+    "Main fabric (satin, twill or felt) — about 110 cm wide × (length + 15 cm)",
+    "Optional: lining (same amount; a contrast color pops)",
+    "Sewing thread",
+  ],
+  cut:[
+    "<strong>Decide the measurements</strong><br>Set the length, and the body width (2–3× the neck for fullness). A larger <strong>zigzag depth</strong> makes the points more dramatic.",
+    "<strong>Cut</strong><br>Cut one body (two if lined) and one neck band / ties. Cut the jagged hem along the pattern line.",
+  ],
+  sew:[
+    {
+      h:"4-1. Finish the hem and sides",
+      items:[
+        "Unlined: <strong>double-fold the jagged hem and the sides</strong> and topstitch (clip into the valleys so they fold). Felt can be left raw.",
+        "Lined: put main and lining right sides together, sew all but the top, and turn out for crisp points.",
+      ],
+    },
+    {
+      h:"4-2. Gather the top edge",
+      items:[
+        "Run two rows of long stitches across the top and <strong>gather down to the neck measurement.</strong> Spread the gathers evenly.",
+      ],
+    },
+    {
+      h:"4-3. Sandwich it in the tie band",
+      items:[
+        "Fold the band in half right sides together, sew the ends (ties) and turn out.",
+        "Slip the <strong>gathered top into the middle of the band</strong> and edgestitch. Use the notches as a guide.",
+      ],
+    },
+  ],
+  sewNote:"Clip into the valleys of the zigzag so the double-fold or the turn comes out crisp. Felt is the easiest finish.",
+  tips:[
+    "<strong>Change the character</strong>: black with a red lining for a vampire, black with purple for a witch, deeper points for a wizard robe.",
+    "<strong>A contrast lining</strong> flashes the inside of the points as it flips.",
+    "<strong>Felt is easy</strong>: raw edges are fine, so you can skip finishing.",
+  ],
+  related:["costumecape", "witchhat", "costumewings", "poncho"],
+},
+
+costumeponcho:{
+  title:"Poncho (costume)", tab:"small", toolName:"Poncho (costume)",
+  sizeStep:"Enter the body width (shoulder), length (neck to point), neckline width and front neckline depth. Presets for child, adult and large.",
+  desc:"How to make a pull-over diamond poncho with pointed corners. Just sew the front and back at the shoulders. For wizards, superheroes and fairies. Print the pattern at actual size with Katagami.",
+  keywords:"poncho,costume,cosplay,Halloween,wizard,superhero,fairy,kids,sewing,pattern",
+  lead:"A pull-over diamond poncho with pointed corners. <strong>Just sew the front and back at the shoulders.</strong> For wizards, superheroes and fairies. Fleece, felt or light blanket fabric; add fringe to the hem for fun.",
+  matNote:"For the adult size",
+  buy:"fleece fabric plain", buyLabel:"Fleece / felt fabric",
+  materials:[
+    "Main fabric (fleece, felt or light blanket fabric) — about (length × 2 + 20 cm) square",
+    "Bias tape for the neckline (or self-fabric)",
+    "Sewing thread",
+  ],
+  cut:[
+    "<strong>Decide the measurements</strong><br>Set the shoulder width and the length (neck to point). A longer length makes the four points drape more.",
+    "<strong>Cut</strong><br>Cut the front and back <strong>each on the fold, one piece each</strong>. The front neckline is deeper, the back shallower (per the pattern).",
+  ],
+  sew:[
+    {
+      h:"4-1. Sew the shoulders",
+      items:[
+        "Right sides together, <strong>sew each shoulder line</strong> on the left and right.",
+        "The neck opening forms naturally for the head to pass through.",
+      ],
+    },
+    {
+      h:"4-2. Finish the neckline",
+      items:[
+        "<strong>Bind the neckline with bias tape</strong>, or double-fold and topstitch.",
+        "Try it on; if the neck is tight, widen it a little.",
+      ],
+    },
+    {
+      h:"4-3. Finish the hem",
+      items:[
+        "Double-fold the hem all around, including the four points (felt can be left raw).",
+        "<strong>Snip the hem into fringe</strong>, or add a separate fringe trim.",
+      ],
+    },
+  ],
+  sewNote:"If the neckline is smaller than the head it will not go on. Check that the head passes through with paper or a quick baste before sewing; a slightly deeper front opening helps.",
+  tips:[
+    "<strong>Change the character</strong>: stars or purple for a wizard, primary colors for a superhero, pastels for a fairy.",
+    "<strong>Fringe hem</strong>: snipping the hem of felt or fleece makes an easy fringed poncho.",
+    "<strong>Add a hood</strong>: a hood at the neckline makes a more convincing wizard robe.",
+  ],
+  related:["poncho", "jaggedcape", "costumecape", "witchhat"],
+},
 };

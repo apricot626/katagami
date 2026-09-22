@@ -9749,6 +9749,86 @@ PATTERNS.stocking={
   }
 };
 
+/* ---- マント（裾ギザギザ・仮装用） ---- */
+PATTERNS.jaggedcape={
+  mode:"small",
+  name:"マント（裾ギザギザ）",
+  note:"裾をギザギザにとがらせた仮装マント。魔女・吸血鬼・魔法使いに。上端をギャザーで縮め、首ひも付きの帯ではさむだけ。前は開いたまま結びます。フェルトなら切りっぱなしで、とがった裾がそのまま活きます。",
+  params:[
+    {key:"width", label:"身幅（ギャザー前）",unit:"cm",min:50,max:150,step:1, val:90},
+    {key:"len",   label:"着丈",            unit:"cm",min:30,max:110,step:1, val:60},
+    {key:"neck",  label:"首まわり",        unit:"cm",min:26,max:46, step:1, val:34},
+    {key:"point", label:"ギザギザの深さ",  unit:"cm",min:4, max:16, step:1, val:8},
+  ],
+  presets:[
+    {label:"子供",  vals:{width:70, len:48,neck:30,point:7}},
+    {label:"大人",  vals:{width:104,len:78,neck:38,point:10}},
+    {label:"ロング",vals:{width:112,len:100,neck:38,point:12}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const W=cm(p.width), L=cm(p.len), NECK=cm(p.neck), PD=cm(p.point);
+    const Z=Math.max(4,Math.round(W/cm(11)));      // ギザギザの山数（約11cmごと）
+    const body=[{x:0,y:0},{x:W,y:0},{x:W,y:L-PD}];
+    for(let i=0;i<Z;i++){
+      body.push({x:W*(1-(i+0.5)/Z), y:L});         // 下がった先（とんがり）
+      body.push({x:W*(1-(i+1)/Z),   y:L-PD});      // 谷
+    }
+    const bodyPc=pieceFrom(body,()=>false,sa);
+    const BH=cm(3), bandLen=NECK+cm(24)*2;         // 首ひも（左右24cm）付きの帯
+    const band=[{x:0,y:0},{x:bandLen,y:0},{x:bandLen,y:BH*2},{x:0,y:BH*2}];
+    const bandPc=pieceFrom(band,()=>false,sa);
+    return {pieces:[
+      {title:"マント本体", cutInfo:"1枚（お好みで裏布も1枚）／上端をぐし縫いで首まわりの長さに縮める",
+       ...bodyPc, foldX:null, grain:{x1:W/2,y1:cm(2),x2:W/2,y2:L-PD-cm(2)},
+       notches:[{x:W/2,y:0}], labelAt:{x:W/2,y:L*0.45}},
+      {title:"首ひも・見返し", cutInfo:"1本（二つ折り）／中央にギャザーを寄せた本体をはさみ、両端をひもにする",
+       ...bandPc, foldX:null, grain:{x1:cm(2),y1:BH,x2:bandLen-cm(2),y2:BH},
+       notches:[{x:cm(24),y:0},{x:cm(24)+NECK,y:0}], labelAt:{x:bandLen/2,y:BH}}
+    ],
+    memo:`本体の上端 ${p.width}cm を、首まわり ${p.neck}cm までギャザーで縮めます。裾はギザギザ${Z}山`};
+  }
+};
+
+/* ---- ポンチョ（仮装用・ダイヤ形） ---- */
+PATTERNS.costumeponcho={
+  mode:"small",
+  name:"ポンチョ（仮装用）",
+  note:"頭からかぶる、四隅がとがったダイヤ形のポンチョ。前後2枚を肩で縫うだけ。魔法使い・スーパーヒーロー・妖精の羽織りに。フリースやフェルト、薄手のブランケット地で。裾にフリンジを付けても。",
+  params:[
+    {key:"width", label:"身幅（肩まわり）",unit:"cm",min:56,max:120,step:1,  val:84},
+    {key:"len",   label:"着丈（衿〜先）",  unit:"cm",min:36,max:90, step:1,  val:56},
+    {key:"neckw", label:"衿ぐり幅",       unit:"cm",min:16,max:30, step:0.5,val:22},
+    {key:"neckd", label:"前衿ぐり深さ",   unit:"cm",min:5, max:16, step:0.5,val:8},
+  ],
+  presets:[
+    {label:"子供",  vals:{width:64, len:42,neckw:19,neckd:6}},
+    {label:"大人",  vals:{width:84, len:56,neckw:22,neckd:8}},
+    {label:"大判",  vals:{width:104,len:70,neckw:24,neckd:9}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const HW=cm(p.width)/2, L=cm(p.len), NW=cm(p.neckw)/2;
+    const mk=back=>{
+      const ND=back?cm(2.5):cm(p.neckd);
+      const neck=quad({x:0,y:ND},{x:NW*0.55,y:ND},{x:NW,y:0},12);
+      let fin=[{x:0,y:ND}].concat(neck);
+      fin.push({x:HW,y:L*0.42});                    // 肩から脇の先（いちばん外）
+      fin.push({x:0,y:L});                           // 中心のとんがり（前/後の先）
+      const pc=pieceFrom(fin,(a,b)=>a.x===0&&b.x===0,sa);
+      return {pc, neck:arcLen({x:0,y:ND},neck)};
+    };
+    const F=mk(false), B=mk(true);
+    return {pieces:[
+      {title:"前身頃", cutInfo:"中心を「わ」／前 1枚（肩で後ろと縫い合わせる）", ...F.pc, foldX:0,
+       grain:{x1:HW*0.4,y1:cm(2),x2:HW*0.4,y2:L*0.6}, notches:[{x:HW,y:L*0.42}], labelAt:{x:HW*0.4,y:L*0.5}},
+      {title:"後身頃", cutInfo:"中心を「わ」／後ろ 1枚", ...B.pc, foldX:0,
+       grain:{x1:HW*0.4,y1:cm(2),x2:HW*0.4,y2:L*0.6}, notches:[{x:HW,y:L*0.42}], labelAt:{x:HW*0.4,y:L*0.5}}
+    ],
+    memo:`衿ぐり1周 約${((F.neck+B.neck)/10).toFixed(0)}cm。肩線を左右それぞれ縫い、四隅がとがったダイヤ形に`};
+  }
+};
+
 /* ---- ヘアリボン ---- */
 PATTERNS.hairribbon={
   mode:"small",
