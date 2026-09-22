@@ -61,7 +61,32 @@ const ALIAS = [
   [/スカート/, "スカート すかーと"],
   [/マスク/, "マスク ますく"],
   [/ふとん|布団|枕|寝袋/, "寝具 ふとん まくら"],
+  /* 仮装・コスプレ小物の言い換え */
+  [/魔女/, "ハロウィン 魔女 ウィッチ"],
+  [/マント|ケープ|ポンチョ/, "マント ケープ ポンチョ 羽織り"],
+  [/ネコ耳/, "ねこみみ 猫耳 カチューシャ どうぶつ"],
+  [/しっぽ|尻尾/, "しっぽ 尻尾 どうぶつ"],
+  [/チュチュ/, "チュチュ ちゅちゅ バレエ"],
+  [/王冠|クラウン/, "王冠 クラウン ティアラ プリンセス 誕生日"],
+  [/羽根|翼/, "羽根 はね 翼 天使 悪魔 エンジェル"],
+  [/サンタ/, "サンタ クリスマス"],
 ];
+/* 副題ベースの検索語（言い換え）。仮装まわりを季節語でも引けるようにする。 */
+const SUB_TAGS = {
+  "仮装・コスプレ": { ja: "仮装 コスプレ ハロウィン 変装", en: "costume cosplay halloween dress-up" },
+};
+/* 型紙名から季節を拾う（副題に依らないもの＝ホームのクリスマス飾りなど） */
+const SEASON_TAGS = [
+  { re: /サンタ|クリスマス|ツリー/, ja: "クリスマス", en: "christmas xmas" },
+  { re: /魔女|ハロウィン|コウモリ/, ja: "ハロウィン", en: "halloween" },
+];
+function extraTags(key, subJa, lang) {
+  const set = new Set();
+  const st = SUB_TAGS[subJa]; if (st) st[lang].split(" ").forEach(w => set.add(w));
+  const name = PATTERNS[key].name;
+  for (const s of SEASON_TAGS) if (s.re.test(name)) s[lang].split(" ").forEach(w => set.add(w));
+  return [...set].join(" ");
+}
 /* 作りの特徴。note から拾えるものだけ、白名簿で。 */
 const FEATURES = ["ゴム", "ファスナー", "面ファスナー", "スナップ", "ボタン",
   "ギャザー", "まち", "フード", "ポケット", "裏地", "バイアス", "キルト芯", "ニット"];
@@ -96,6 +121,7 @@ for (const [file, lang] of [["index.html", "ja"], ["en/index.html", "en"]]) {
     /* 副題ごとに並べ直す。どのグループにも無いものは末尾の「その他」へ。 */
     const groups = (GROUPS[c.mode] || []).map(g => ({
       label: lang === "en" ? g.en : g.ja,
+      ja: g.ja,
       keys: g.keys.filter(k => keys.includes(k)),
     })).filter(g => g.keys.length);
     const grouped = new Set(groups.flatMap(g => g.keys));
@@ -104,9 +130,10 @@ for (const [file, lang] of [["index.html", "ja"], ["en/index.html", "en"]]) {
     const body = groups.map(g => {
       const li = k => {
         const nm = lang === "en" ? (EN_NAME[k] || PATTERNS[k].name) : PATTERNS[k].name;
-        const terms = lang === "en"
-          ? [nm, c.en, g.label].filter(Boolean).join(" ")
-          : searchTerms(k, c.ja, g.label);
+        const raw = lang === "en"
+          ? [nm, c.en, g.label, extraTags(k, g.ja, "en")]
+          : [searchTerms(k, c.ja, g.label), extraTags(k, g.ja, "ja")];
+        const terms = [...new Set(raw.filter(Boolean).join(" ").split(/\s+/).filter(Boolean))].join(" ");
         return `          <li data-s="${esc(terms)}"><a href="tool.html?p=${k}">${esc(nm)}</a></li>\n`;
       };
       return `          <li class="pat-sub" role="presentation">${esc(g.label)}</li>\n` +
