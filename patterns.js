@@ -9515,6 +9515,76 @@ PATTERNS.catears={
   }
 };
 
+/* ---- しっぽ（仮装用） ---- */
+PATTERNS.costumetail={
+  mode:"small",
+  name:"しっぽ（仮装用）",
+  note:"綿を詰めるふさふさのしっぽ。ネコ・イヌ・悪魔などの仮装に。表裏2枚を中表に縫って返し、綿を詰めるだけ。つけ根に安全ピンやクリップ、ベルト通しを付けて、ズボンやスカートに留めます。ボア生地やフェルトで。",
+  params:[
+    {key:"len",  label:"長さ",       unit:"cm",min:22,max:60, step:1,  val:40},
+    {key:"baseW",label:"つけ根の太さ",unit:"cm",min:5, max:14, step:0.5,val:8},
+    {key:"curve",label:"曲がり",     unit:"cm",min:0, max:16, step:1,  val:8},
+  ],
+  presets:[
+    {label:"ネコ",  vals:{len:42,baseW:7, curve:12}},
+    {label:"イヌ",  vals:{len:30,baseW:9, curve:6}},
+    {label:"悪魔（細め）",vals:{len:44,baseW:6, curve:2}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const L=cm(p.len), W=cm(p.baseW), CX=cm(p.curve), N=24;
+    const cx=y=>CX*Math.pow(1-y/L,2);            // つけ根で0、先で最大に曲がる
+    const w =y=>W*Math.pow(y/L,0.7);             // つけ根で最大、先で0（先すぼまり）
+    const fin=[];
+    for(let i=0;i<=N;i++){const y=L*(1-i/N); fin.push({x:cx(y)-w(y)/2, y});}   // 左側：つけ根→先
+    for(let i=0;i<=N;i++){const y=L*(i/N);     fin.push({x:cx(y)+w(y)/2, y});}   // 右側：先→つけ根
+    const pc=pieceFrom(fin,()=>false,sa);
+    return {pieces:[
+      {title:"しっぽ", cutInfo:"2枚（中表に縫って返し、綿を詰める）／つけ根は開けておく",
+       ...pc, foldX:null, grain:{x1:0,y1:L*0.15,x2:CX,y2:L*0.8},
+       notches:[{x:-W/2,y:L},{x:W/2,y:L}], labelAt:{x:CX*0.4,y:L*0.5}}
+    ],
+    memo:`つけ根(${p.baseW}cm)を開けて綿を詰め、安全ピンやベルト通しで留めます`};
+  }
+};
+
+/* ---- チュチュスカート（仮装用） ---- */
+PATTERNS.tutu={
+  mode:"small",
+  name:"チュチュスカート（仮装用）",
+  note:"チュールをたっぷりギャザーで寄せた、ふんわりスカート。バレエ・妖精・仮装に。チュールを重ねるほどボリュームが出ます。ウエストは平ゴムのベルトに縫い付けるので、サイズ調整も簡単。縫わずにチュールを結ぶ作り方にも応用できます。",
+  params:[
+    {key:"waist", label:"ウエスト",      unit:"cm",min:44,max:96,step:1, val:60},
+    {key:"len",   label:"スカート丈",    unit:"cm",min:16,max:50,step:1, val:30},
+    {key:"fullness",label:"ふくらみ（倍率）",unit:"倍",min:2,max:5,step:0.5,val:3},
+  ],
+  presets:[
+    {label:"子供",  vals:{waist:52,len:24,fullness:3}},
+    {label:"大人",  vals:{waist:66,len:38,fullness:3}},
+    {label:"ボリューム",vals:{waist:60,len:32,fullness:4.5}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const WA=cm(p.waist), L=cm(p.len), F=p.fullness;
+    const skW=WA*F;
+    const skirt=[{x:0,y:0},{x:skW,y:0},{x:skW,y:L},{x:0,y:L}];
+    const skPc=pieceFrom(skirt,()=>false,sa);
+    const BH=cm(3.5);                              // ベルト幅（平ゴム用）
+    const BL=WA+cm(2);
+    const belt=[{x:0,y:0},{x:BL,y:0},{x:BL,y:BH*2},{x:0,y:BH*2}];
+    const beltPc=pieceFrom(belt,()=>false,sa);
+    return {pieces:[
+      {title:"スカート（チュール）", cutInfo:"チュールを3〜5枚ほど重ねて裁つ／上端をギャザーで縮める",
+       ...skPc, foldX:null, grain:{x1:skW/2,y1:cm(2),x2:skW/2,y2:L-cm(2)},
+       notches:[{x:skW/2,y:0}], labelAt:{x:skW/2,y:L*0.5}},
+      {title:"ウエストベルト", cutInfo:"1本（二つ折り）／中に平ゴムを通すか、ゴムベルトに縫い付ける",
+       ...beltPc, foldX:null, grain:{x1:cm(2),y1:BH,x2:BL-cm(2),y2:BH},
+       notches:[], labelAt:{x:BL/2,y:BH}}
+    ],
+    memo:`チュール上端 ${Math.round(skW/10)}cm を、ウエスト ${p.waist}cm までギャザーで縮めます（約${F}倍）`};
+  }
+};
+
 /* ---- ヘアリボン ---- */
 PATTERNS.hairribbon={
   mode:"small",

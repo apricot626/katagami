@@ -638,6 +638,8 @@ const HOWTO={
   witchhat:{url:"howto-witchhat.html", label:"📄 魔女帽（とんがり帽子）の作り方を見る"},
   costumecape:{url:"howto-costumecape.html", label:"📄 マント（仮装用）の作り方を見る"},
   catears:{url:"howto-catears.html", label:"📄 ネコ耳カチューシャの作り方を見る"},
+  costumetail:{url:"howto-costumetail.html", label:"📄 しっぽ（仮装用）の作り方を見る"},
+  tutu:{url:"howto-tutu.html", label:"📄 チュチュスカート（仮装用）の作り方を見る"},
 };
 
 /* ---- 飾り（レース・リボン・パイピング）の目安 ----

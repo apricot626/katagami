@@ -12789,4 +12789,104 @@ catears:{
   ],
   related:["hairturban", "headband", "witchhat", "costumecape"],
 },
+
+costumetail:{
+  title:"Tail (costume)", tab:"small", toolName:"Tail (costume)",
+  sizeStep:"Enter the length, base width and curve. Presets for cat, dog and devil. Set the curve to 0 for a straight tail.",
+  desc:"How to make a costume tail. Sew two layers right sides together, turn, and stuff. Curve it for a cat, keep it straight for a devil or dog. Boa fabric or felt works. Print the pattern at actual size with Katagami.",
+  keywords:"tail,costume,cosplay,Halloween,cat,dog,devil,sewing,pattern",
+  lead:"A stuffed, fluffy tail. <strong>Sew two layers right sides together, turn, and stuff — that's it.</strong> Curve it for a cat, keep it straight for a devil or dog. Boa fabric gives fur; felt gives a crisp shape.",
+  matNote:"For one tail",
+  buy:"boa fabric craft fur", buyLabel:"Boa / faux fur / felt",
+  materials:[
+    "Main fabric (boa, faux fur or felt) — a scrap about (length + 10 cm) square",
+    "Polyester stuffing — a handful",
+    "A safety pin, or tape / a clip for a belt loop",
+    "Sewing thread",
+  ],
+  cut:[
+    "<strong>Decide the shape</strong><br>A larger curve gives a <strong>cat's curl</strong>; near zero gives a <strong>straight devil or dog tail</strong>. Set length and thickness to taste.",
+    "<strong>Cut</strong><br>Cut two of the same shape. With boa or fur, <strong>keep the nap running the same way</strong> (flowing toward the tip) for a clean finish.",
+  ],
+  sew:[
+    {
+      h:"4-1. Sew the two layers",
+      items:[
+        "Put the two pieces right sides together and <strong>sew all around except the base.</strong>",
+        "Clip the seam allowance on the curves and the narrow tip so it does not pull when turned.",
+      ],
+    },
+    {
+      h:"4-2. Turn and stuff",
+      items:[
+        "Turn right side out through the base opening. <strong>Push the narrow tip out with an awl or a chopstick.</strong>",
+        "Stuff <strong>a little at a time, from the tip.</strong> Overstuffing straightens the curve, so check the shape as you go.",
+      ],
+    },
+    {
+      h:"4-3. Add a fastening",
+      items:[
+        "Fold the base seam allowance in and close it.",
+        "Add a <strong>safety pin, a clip, or a loop of tape</strong> so it attaches to trousers or a skirt.",
+      ],
+    },
+  ],
+  sewNote:"With long-pile boa, tuck the pile inward as you sew so it does not catch in the seam — the tail comes out full and fluffy when turned.",
+  tips:[
+    "<strong>Change the animal</strong>: short and thick for a squirrel, thin and long for a devil, stripes for a tiger or raccoon.",
+    "<strong>Match the cat ears</strong>: make the cat-ear headband (separate pattern) in the same fabric for a set.",
+    "<strong>Contrast the tip</strong>: a different fabric at the tip reads as a white-tipped fox or cat.",
+  ],
+  related:["catears", "witchhat", "costumecape", "teddy"],
+},
+
+tutu:{
+  title:"Tutu skirt (costume)", tab:"small", toolName:"Tutu skirt (costume)",
+  sizeStep:"Enter the waist, skirt length and fullness (ratio). Presets for child, adult and extra full. A higher ratio means more volume.",
+  desc:"How to make a tutu skirt. Gather lots of tulle and sew it onto a flat elastic band. For ballet, fairies and Halloween. It also adapts to a no-sew tied version. Print the pattern at actual size with Katagami.",
+  keywords:"tutu,tutu skirt,ballet,fairy,costume,cosplay,Halloween,tulle,sewing,pattern",
+  lead:"A fluffy tulle skirt gathered onto an elastic band. <strong>The more layers of tulle, the more volume.</strong> It sews onto a flat elastic band, so sizing is easy, and tulle does not fray so the hem needs no finishing.",
+  matNote:"For the adult size (38 cm length)",
+  buy:"tulle soft fabric", buyLabel:"Tulle (soft)",
+  materials:[
+    "Tulle (soft) — enough for 3–5 wide layers",
+    "Flat elastic (2.5–3 cm wide) — waist length plus overlap",
+    "Optional: a lining fabric (to prevent see-through)",
+    "Sewing thread",
+  ],
+  cut:[
+    "<strong>Decide the measurements</strong><br>Set the length and the fullness ratio. <strong>A higher ratio means more gathers and more volume.</strong> Use the top-edge figure shown in the tool as a guide.",
+    "<strong>Cut</strong><br>Cut <strong>3–5 layers of tulle</strong> to the same rectangle. Cut one waistband.",
+  ],
+  sew:[
+    {
+      h:"4-1. Gather the tulle",
+      items:[
+        "Keeping the layers together, run <strong>two rows of long machine stitches</strong> along the top edge.",
+        "Pull the bobbin threads to <strong>gather it down to the waist measurement.</strong> Spread the gathers evenly.",
+      ],
+    },
+    {
+      h:"4-2. Attach the waistband",
+      items:[
+        "Cut the flat elastic to the waist length and join it into a ring (or thread it through the band strip).",
+        "Sew the gathered tulle onto the band, or <strong>sandwich it in the folded band</strong> and stitch.",
+      ],
+    },
+    {
+      h:"4-3. Finish",
+      items:[
+        "The hem can be <strong>left raw</strong> — tulle does not fray.",
+        "Cutting the hem in steps, or layering tulle of different lengths, adds movement.",
+      ],
+    },
+  ],
+  sewNote:"If see-through is a concern, add a plain (ungathered) satin under-skirt inside; it hides underwear and helps the tulle stand out.",
+  tips:[
+    "<strong>Layer colors</strong>: layering different-colored tulle flashes color as it moves — try rainbow or pastels.",
+    "<strong>No-sew version</strong>: fold and knot strips of tulle onto flat elastic one by one — no machine needed.",
+    "<strong>Change the character</strong>: black for Halloween, white for ballet or a swan, pastels for a fairy or princess.",
+  ],
+  related:["adultgather", "gather", "costumecape", "catears"],
+},
 };
