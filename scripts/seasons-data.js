@@ -69,7 +69,7 @@
           months: [10],
           ja_note: "魔女帽・マント・ネコ耳などの仮装小物と、お菓子を入れるバッグ、ペットの仮装。",
           en_note: "Costume pieces (witch hat, cape, cat ears), trick-or-treat bags and pet costumes.",
-          keys: ["witchhat", "costumecape", "catears", "kinchaku", "ehonbag", "tote", "petcape", "petbandana", "catfuku"] },
+          keys: ["witchhat", "costumecape", "catears", "costumetail", "tutu", "kinchaku", "ehonbag", "tote", "petcape", "petbandana", "catfuku"] },
         { id: "christmas", emoji: "🎄", ja: "クリスマス", en: "Christmas",
           months: [12],
           ja_note: "ツリーの足元布と、サンタ気分のペット・ぬいの小物。",
