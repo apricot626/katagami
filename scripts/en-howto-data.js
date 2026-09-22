@@ -12889,4 +12889,100 @@ tutu:{
   ],
   related:["adultgather", "gather", "costumecape", "catears"],
 },
+
+crown:{
+  title:"Crown", tab:"small", toolName:"Crown",
+  sizeStep:"Enter the head circumference, height and number of points. Presets for child, adult and more points.",
+  desc:"How to make a costume crown. Join a band of pointed spikes into a ring — that's it. For princess or king costumes and birthdays. Felt or interfacing makes the points stand up. Print the pattern at actual size with Katagami.",
+  keywords:"crown,tiara,costume,cosplay,Halloween,birthday,princess,king,felt,sewing,pattern",
+  lead:"A crown with a row of pointed spikes. <strong>Join the band into a ring and fasten the back with elastic or hook-and-loop.</strong> Felt or an interfaced heavy fabric keeps the points standing. Gold or silver felt looks festive.",
+  matNote:"For one crown",
+  buy:"felt gold craft", buyLabel:"Felt (gold / silver)",
+  materials:[
+    "Main fabric (felt or heavy cotton) — about (head + 6 cm) × 20 cm",
+    "Fusible interfacing (to stiffen the points)",
+    "Flat elastic or hook-and-loop (to fasten the back)",
+    "Optional: trims (sequins, beads, jewel motifs)",
+    "Sewing thread",
+  ],
+  cut:[
+    "<strong>Measure the head</strong><br>Measure and enter the real head circumference. <strong>A little small is fine since elastic joins the back.</strong>",
+    "<strong>Cut</strong><br>Cut two crown bands (front and back). To stiffen the points, cut interfacing to the same shape and fuse it. Felt can be left with raw edges.",
+  ],
+  sew:[
+    {
+      h:"4-1. Sew front and back together",
+      items:[
+        "Right sides together, <strong>sew the top (zigzag) edge.</strong> Leave the straight bottom open.",
+        "Clip into the valleys and trim the points, then turn out through the bottom opening.",
+        "Push the points out with an awl and press. In felt, you can just layer two pieces and edgestitch.",
+      ],
+    },
+    {
+      h:"4-2. Make the back fasten",
+      items:[
+        "Add <strong>elastic across the back</strong>, or <strong>hook-and-loop</strong>, so it fits the head.",
+        "Cut the elastic a little shorter than the head so it stays put.",
+      ],
+    },
+    {
+      h:"4-3. Decorate",
+      items:[
+        "Add sequins, beads or jewel motifs to make it read as a crown.",
+        "Gold or silver pens and glitter also look festive.",
+      ],
+    },
+  ],
+  sewNote:"If the points flop, use a heavier interfacing or two layers. Even two layers of felt will stand reasonably well.",
+  tips:[
+    "<strong>Change the use</strong>: few, low points for a tiara; many, tall points for a king's crown.",
+    "<strong>For birthdays</strong>: add a number or a message for a birthday crown.",
+    "<strong>The easiest way</strong>: cut a single layer of felt and join the back with elastic.",
+  ],
+  related:["catears", "witchhat", "rosette", "hairclip"],
+},
+
+costumewings:{
+  title:"Wings (angel / devil)", tab:"small", toolName:"Wings (angel / devil)",
+  sizeStep:"Enter the wing width (one wing), wing height and number of feather tips. Presets for child and adult angel, and bat.",
+  desc:"How to make costume wings (angel or devil). Sew one wing from two layers and turn; a pair is two wings. Hold the shape with interfacing or wire. Print the pattern at actual size with Katagami.",
+  keywords:"wings,angel,devil,bat,costume,cosplay,Halloween,sewing,pattern",
+  lead:"Wings for the back. <strong>Sew one wing from two layers, turn it out; a pair is two wings (4 pieces).</strong> Interfacing or wire inside holds the shape. Felt or satin for an angel, black fabric for a devil or bat.",
+  matNote:"For a pair (4 pieces)",
+  buy:"felt satin craft", buyLabel:"Felt / satin fabric",
+  materials:[
+    "Main fabric (felt, satin) — about (wing height + 10 cm) × (width × 2 + 10 cm)",
+    "Firm fusible interfacing, or shaping wire",
+    "An elastic harness, or safety pins (to attach to the back)",
+    "Sewing thread",
+  ],
+  cut:[
+    "<strong>Decide the shape</strong><br>Enter width, height and feather tips. <strong>More tips read as a soft angel; fewer, pointier tips read as a bat or devil.</strong>",
+    "<strong>Cut</strong><br>Cut two layers per wing, <strong>four pieces in total</strong> for the pair (mirror the backs). Fuse interfacing, or insert wire after turning.",
+  ],
+  sew:[
+    {
+      h:"4-1. Make one wing",
+      items:[
+        "Right sides together, <strong>sew the outer (feather) edge.</strong> Leave the base (the straight inner edge) open.",
+        "Clip into the scallops and curves, then turn out through the base opening.",
+        "Shape it with interfacing or wire. Make the other (mirrored) wing the same way.",
+      ],
+    },
+    {
+      h:"4-2. Join the pair",
+      items:[
+        "Match the <strong>two wing bases at the center</strong> and sew them into a pair.",
+        "Add an elastic harness (two loops over the shoulders) at the center, or attach with safety pins.",
+      ],
+    },
+  ],
+  sewNote:"If large wings droop, run <strong>a length of wire from base to tip</strong> to hold them open. Wrap the wire ends with tape so they do not damage the fabric.",
+  tips:[
+    "<strong>Angel or devil</strong>: white or pastel felt for an angel, black for a devil or bat. Pointier tips read as a bat.",
+    "<strong>Make it fluffy</strong>: layer white feathers or lace along the tips for lavish angel wings.",
+    "<strong>Attaching</strong>: an elastic harness leaves the hands free; for small children, safety-pin it to the clothes.",
+  ],
+  related:["costumetail", "witchhat", "costumecape", "petcape"],
+},
 };

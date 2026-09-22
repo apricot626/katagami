@@ -9585,6 +9585,83 @@ PATTERNS.tutu={
   }
 };
 
+/* ---- 王冠（仮装用） ---- */
+PATTERNS.crown={
+  mode:"small",
+  name:"王冠（クラウン）",
+  note:"ギザギザのとんがりが並んだ王冠。お姫様・王様の仮装や、誕生日に。フェルトや接着芯を貼った厚手の生地で作ると、とんがりが立ちます。後ろは平ゴムでつなぐか、面ファスナーで留めます。金・銀のフェルトが華やか。",
+  params:[
+    {key:"head", label:"頭まわり",unit:"cm",min:42,max:60,step:1,val:52},
+    {key:"height",label:"高さ",   unit:"cm",min:6, max:16,step:0.5,val:10},
+    {key:"teeth", label:"とんがりの数",unit:"個",min:3,max:9,step:1,val:5},
+  ],
+  presets:[
+    {label:"子供",  vals:{head:50,height:9, teeth:5}},
+    {label:"大人",  vals:{head:56,height:12,teeth:6}},
+    {label:"とんがり多め",vals:{head:52,height:11,teeth:8}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const L=cm(p.head), H=cm(p.height), T=Math.max(3,Math.round(p.teeth));
+    const valley=H*0.5;
+    const fin=[{x:0,y:H}];                     // 左下
+    fin.push({x:0,y:valley});                  // 左の谷
+    for(let i=0;i<T;i++){
+      fin.push({x:L*(i+0.5)/T,y:0});           // 山（とんがり）
+      fin.push({x:L*(i+1)/T,y:valley});        // 谷
+    }
+    fin.push({x:L,y:H});                        // 右下
+    const pc=pieceFrom(fin,()=>false,sa);
+    return {pieces:[
+      {title:"王冠", cutInfo:"2枚（表・裏／間に接着芯を入れると立つ）／後ろを輪にして平ゴムか面ファスナーで留める",
+       ...pc, foldX:null, grain:{x1:cm(2),y1:H*0.75,x2:L-cm(2),y2:H*0.75},
+       notches:[{x:0,y:valley},{x:L,y:valley}], labelAt:{x:L/2,y:H*0.8}}
+    ],
+    memo:`後ろは平ゴム（約${Math.round(p.head*0.25)}cm）でつなぐと、かぶりやすく外れにくい`};
+  }
+};
+
+/* ---- 羽根（天使・悪魔／仮装用） ---- */
+PATTERNS.costumewings={
+  mode:"small",
+  name:"羽根（天使・悪魔）",
+  note:"背中に付ける片翼×2の羽根。表裏2枚を縫って返し、接着芯やワイヤーで形を保ちます。フェルトやサテンで天使、黒で悪魔（コウモリ）に。ゴムのハーネスや安全ピンで背中に留めます。左右で1組（計4枚）。",
+  params:[
+    {key:"width", label:"羽根の幅（片翼）",unit:"cm",min:16,max:45,step:1,val:28},
+    {key:"height",label:"羽根の高さ",    unit:"cm",min:16,max:50,step:1,val:34},
+    {key:"scallop",label:"羽先の数",     unit:"個",min:3,max:7, step:1,val:4},
+  ],
+  presets:[
+    {label:"子供・天使",vals:{width:24,height:28,scallop:4}},
+    {label:"大人・天使",vals:{width:34,height:42,scallop:5}},
+    {label:"コウモリ",  vals:{width:30,height:32,scallop:3}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const W=cm(p.width), H=cm(p.height), N=Math.max(3,Math.round(p.scallop));
+    const tip={x:W,y:H*0.30};
+    let fin=[{x:0,y:0}];                                   // つけ根の上
+    fin.push(...quad({x:0,y:0},{x:W*0.5,y:-H*0.06},tip,12)); // 上の弧 → 羽先
+    const base={x:0,y:H};                                  // つけ根の下
+    for(let i=1;i<=N;i++){
+      const t0=(i-1)/N, t1=i/N;
+      const a={x:tip.x+(base.x-tip.x)*t0, y:tip.y+(base.y-tip.y)*t0};
+      const b={x:tip.x+(base.x-tip.x)*t1, y:tip.y+(base.y-tip.y)*t1};
+      const dx=b.x-a.x, dy=b.y-a.y, len=Math.hypot(dx,dy)||1;
+      const nx=dy/len, ny=-dx/len;                         // 外向き（下）へふくらむ
+      const bump=cm(2.4);
+      fin.push(...quad(a,{x:(a.x+b.x)/2+nx*bump,y:(a.y+b.y)/2+ny*bump},b,5));
+    }
+    const pc=pieceFrom(fin,()=>false,sa);
+    return {pieces:[
+      {title:"羽根（片翼）", cutInfo:"4枚（1枚の羽根に表裏2枚／左右で2枚ずつ・裏は反転）／中に接着芯やワイヤー",
+       ...pc, foldX:null, grain:{x1:W*0.2,y1:H*0.35,x2:W*0.75,y2:H*0.4},
+       notches:[{x:0,y:0},{x:0,y:H}], labelAt:{x:W*0.42,y:H*0.5}}
+    ],
+    memo:`左右で1組（計4枚）。つけ根どうしを合わせ、ゴムのハーネスや安全ピンで背中に留めます`};
+  }
+};
+
 /* ---- ヘアリボン ---- */
 PATTERNS.hairribbon={
   mode:"small",
