@@ -646,6 +646,8 @@ const HOWTO={
   stocking:{url:"howto-stocking.html", label:"📄 クリスマスの靴下の作り方を見る"},
   jaggedcape:{url:"howto-jaggedcape.html", label:"📄 マント（裾ギザギザ）の作り方を見る"},
   costumeponcho:{url:"howto-costumeponcho.html", label:"📄 ポンチョ（仮装用）の作り方を見る"},
+  hoodcape:{url:"howto-hoodcape.html", label:"📄 フード付きマントの作り方を見る"},
+  costumecollar:{url:"howto-costumecollar.html", label:"📄 つけ襟（フリル）の作り方を見る"},
 };
 
 /* ---- 飾り（レース・リボン・パイピング）の目安 ----

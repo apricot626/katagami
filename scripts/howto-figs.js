@@ -113,7 +113,7 @@ const FIG_MAP = {
   // costume
   witchhat:"turnout", costumecape:"mitsuori", catears:"turnout", costumetail:"turnout", tutu:"casing",
   crown:"turnout", costumewings:"turnout", santahat:"turnout", stocking:"turnout",
-  jaggedcape:"mitsuori", costumeponcho:"bias",
+  jaggedcape:"mitsuori", costumeponcho:"bias", hoodcape:"mitsuori", costumecollar:"mitsuori",
   // adult clothes
   tee:"knit", skirt:"casing", gather:"casing", apron:"mitsuori", tunic:"mitsuori",
   camisole:"bias", sleevedress:"bias", onepiece:"mitsuori", blouse:"mitsuori",
