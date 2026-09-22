@@ -13182,4 +13182,100 @@ costumeponcho:{
   ],
   related:["poncho", "jaggedcape", "costumecape", "witchhat"],
 },
+
+hoodcape:{
+  title:"Hooded cape", tab:"small", toolName:"Hooded cape",
+  sizeStep:"Enter the body width (before gathering), length, neck measurement and hood height. Presets for child, adult and long.",
+  desc:"How to make a hooded costume cape. Gather the body and sandwich it, with the hood, into a tie band. For Little Red Riding Hood, wizards or a reaper. Print the pattern at actual size with Katagami.",
+  keywords:"hooded cape,hood cape,cloak,costume,cosplay,Halloween,red riding hood,wizard,reaper,sewing,pattern",
+  lead:"A costume cape with a hood. <strong>Gather the body and sandwich it, with the hood, into a tie band.</strong> It stays open at the front. Red Riding Hood, a wizard or a reaper — just change the fabric color. Fleece, felt or light blanket fabric.",
+  matNote:"For the adult size (90 cm length)",
+  buy:"fleece fabric plain", buyLabel:"Fleece / blanket fabric",
+  materials:[
+    "Main fabric (fleece, felt or light blanket fabric) — about 110 cm wide × (length + hood height + 20 cm)",
+    "Optional: lining (for the hood lining and facing)",
+    "Sewing thread",
+  ],
+  cut:[
+    "<strong>Decide the measurements</strong><br>Set the length, the body width (2–3× the neck for fullness) and the hood height. <strong>The hood must actually fit over the head</strong>, so make it tall enough.",
+    "<strong>Cut</strong><br>Cut one body, two hood pieces and one neck band / ties.",
+  ],
+  sew:[
+    {
+      h:"4-1. Make the hood",
+      items:[
+        "Right sides together, <strong>sew the two hood pieces along the center-back (curved) edge.</strong>",
+        "Hem the face edge (the front).",
+      ],
+    },
+    {
+      h:"4-2. Gather the body",
+      items:[
+        "Run two rows of long stitches across the top and <strong>gather it down to the neck measurement.</strong>",
+        "Match the bottom of the hood to the same neck length.",
+      ],
+    },
+    {
+      h:"4-3. Sandwich hood and body in the band",
+      items:[
+        "Fold the band in half right sides together, sew the ends (ties) and turn out.",
+        "Layer the <strong>hood bottom and the gathered body top</strong> and sandwich them in the middle of the band, then stitch. Hood on top, cape below.",
+      ],
+    },
+  ],
+  sewNote:"If the hood is small it will not go on. Hold just the hood to the head before sewing to check the size. A lining makes the inside neat when the hood is up.",
+  tips:[
+    "<strong>Change the character</strong>: red for Red Riding Hood, black for a reaper or wizard, purple or stars for a witch.",
+    "<strong>Contrast hood</strong>: a different color for the hood or lining frames the face when it is up.",
+    "<strong>Fastening</strong>: besides the neck ties, a button or snap also closes it neatly.",
+  ],
+  related:["costumecape", "jaggedcape", "costumeponcho", "witchhat"],
+},
+
+costumecollar:{
+  title:"Frill collar", tab:"small", toolName:"Frill collar",
+  sizeStep:"Enter the neck measurement, frill width, fullness (ratio) and tie length. Presets for child, adult and full (pierrot).",
+  desc:"How to make a frilled collar. Gather the frill and sandwich it in a neckband with ties. For pierrot, clown or noble costumes, or as everyday layering. Print the pattern at actual size with Katagami.",
+  keywords:"frill collar,ruffle collar,detachable collar,pierrot,clown,costume,cosplay,Halloween,layering,sewing,pattern",
+  lead:"A frilled collar for the neck. <strong>Gather the frill and sandwich it in a neckband with ties.</strong> For a pierrot, clown or noble costume — and as an accent for everyday layering. Organza or broadcloth for a soft ruffle.",
+  matNote:"For the adult size",
+  buy:"organza fabric craft", buyLabel:"Organza / broadcloth",
+  materials:[
+    "Frill fabric (organza, broadcloth or tulle) — enough for 1–2 wide layers",
+    "Neckband fabric (self or contrast)",
+    "Sewing thread",
+  ],
+  cut:[
+    "<strong>Decide the measurements</strong><br>Set the neck, frill width and fullness. <strong>A higher ratio makes a denser, fuller frill.</strong>",
+    "<strong>Cut</strong><br>Cut 1–2 frills (more layers = fuller) and one neckband. The outer edge of the frill can be left raw (organza etc.) or double-folded.",
+  ],
+  sew:[
+    {
+      h:"4-1. Finish the frill edge",
+      items:[
+        "Finish the <strong>outer edge and both ends</strong> of the frill with a double fold or an overlock (fabrics you leave raw can stay as-is).",
+      ],
+    },
+    {
+      h:"4-2. Gather the frill",
+      items:[
+        "Run two rows of long stitches along the top and <strong>gather it down to the neck measurement.</strong> Gather stacked layers together.",
+      ],
+    },
+    {
+      h:"4-3. Sandwich it in the neckband",
+      items:[
+        "Fold the neckband in half right sides together, sew the ends (ties) and turn out.",
+        "Sandwich the <strong>gathered top of the frill</strong> in the middle of the band and stitch. Use the notches as a guide.",
+      ],
+    },
+  ],
+  sewNote:"Sheer fabrics gather beautifully but slip when sewing; place tissue paper on top and sew through it, then tear it away, for easier handling.",
+  tips:[
+    "<strong>Layer colors</strong>: two frills in different colors flash color as they move.",
+    "<strong>Change the character</strong>: white for a pierrot, black for gothic, gold or red for a noble look.",
+    "<strong>Everyday too</strong>: layered over a plain top, it is an accent that brightens the neckline.",
+  ],
+  related:["costumecape", "hoodcape", "hairribbon", "brooch"],
+},
 };

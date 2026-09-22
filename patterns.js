@@ -9829,6 +9829,84 @@ PATTERNS.costumeponcho={
   }
 };
 
+/* ---- フード付きマント（仮装用） ---- */
+PATTERNS.hoodcape={
+  mode:"small",
+  name:"フード付きマント",
+  note:"フードの付いた仮装マント。赤ずきん・魔法使い・死神などに。本体はギャザーで縮め、フードと一緒に首もとの帯ではさみます。前は開いたまま、首もとで結びます。フリースやフェルト、薄手のブランケット地で。",
+  params:[
+    {key:"width", label:"身幅（ギャザー前）",unit:"cm",min:50,max:150,step:1, val:96},
+    {key:"len",   label:"着丈",            unit:"cm",min:36,max:120,step:1, val:70},
+    {key:"neck",  label:"首まわり",        unit:"cm",min:28,max:50, step:1, val:36},
+    {key:"hoodh", label:"フードの高さ",    unit:"cm",min:26,max:40, step:1, val:32},
+  ],
+  presets:[
+    {label:"子供",  vals:{width:76, len:52, neck:32,hoodh:28}},
+    {label:"大人",  vals:{width:108,len:90, neck:40,hoodh:36}},
+    {label:"ロング",vals:{width:116,len:110,neck:40,hoodh:37}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const W=cm(p.width), L=cm(p.len), NECK=cm(p.neck), HH=cm(p.hoodh);
+    const body=pieceFrom([{x:0,y:0},{x:W,y:0},{x:W,y:L},{x:0,y:L}],()=>false,sa);
+    // フード（左右2枚。x=0が顔まわり、右側の弧が後ろ中心の縫い目）：下端＝首まわりの半分
+    const NB=NECK/2;
+    let hf=[{x:0,y:0},{x:NB,y:0}];                                  // 衿ぐり：顔側→後ろ側
+    hf=hf.concat(quad({x:NB,y:0},{x:NB*1.1,y:HH*0.6},{x:NB*0.7,y:HH},12)); // 後ろ中心を上へ
+    hf.push({x:0,y:HH});                                            // 上・顔側
+    const hood=pieceFrom(hf,()=>false,sa);                         // (0,HH)→(0,0) が顔まわり
+    const BH=cm(3), bandLen=NECK+cm(24)*2;
+    const band=pieceFrom([{x:0,y:0},{x:bandLen,y:0},{x:bandLen,y:BH*2},{x:0,y:BH*2}],()=>false,sa);
+    return {pieces:[
+      {title:"マント本体", cutInfo:"1枚／上端をぐし縫いで首まわりの長さに縮める",
+       ...body, foldX:null, grain:{x1:W/2,y1:cm(2),x2:W/2,y2:L-cm(2)},
+       notches:[{x:W/2,y:0}], labelAt:{x:W/2,y:L*0.5}},
+      {title:"フード", cutInfo:"2枚（後ろ中心を縫い合わせ、顔まわりを三つ折り、下端を本体・帯と合わせる）",
+       ...hood, foldX:null, grain:{x1:NB*0.45,y1:cm(2),x2:NB*0.45,y2:HH-cm(3)},
+       notches:[{x:NB,y:0}], labelAt:{x:NB*0.4,y:HH*0.5}},
+      {title:"首ひも・見返し", cutInfo:"1本（二つ折り）／フードとギャザーした本体をはさみ、両端をひもにする",
+       ...band, foldX:null, grain:{x1:cm(2),y1:BH,x2:bandLen-cm(2),y2:BH},
+       notches:[{x:cm(24),y:0},{x:cm(24)+NECK,y:0}], labelAt:{x:bandLen/2,y:BH}}
+    ],
+    memo:`本体の上端 ${p.width}cm を首まわり ${p.neck}cm まで縮め、フードと一緒に帯ではさみます`};
+  }
+};
+
+/* ---- つけ襟（フリル・仮装用） ---- */
+PATTERNS.costumecollar={
+  mode:"small",
+  name:"つけ襟（フリル）",
+  note:"首もとに付けるフリルのつけ襟。ピエロ・道化・貴族の仮装や、ふだんの重ね着にも。フリルをギャザーで寄せて、首ベルト（ひも付き）ではさむだけ。オーガンジーやブロードで、ふんわりと。",
+  params:[
+    {key:"neck",  label:"首まわり",      unit:"cm",min:26,max:44,step:1, val:34},
+    {key:"width", label:"フリルの幅",    unit:"cm",min:4, max:14,step:0.5,val:8},
+    {key:"fullness",label:"ふくらみ（倍率）",unit:"倍",min:2,max:4,step:0.5,val:2.5},
+    {key:"tie",   label:"結びひもの長さ",unit:"cm",min:15,max:40,step:1, val:24},
+  ],
+  presets:[
+    {label:"子供",      vals:{neck:30,width:7, fullness:2.5,tie:20}},
+    {label:"大人",      vals:{neck:36,width:9, fullness:2.5,tie:26}},
+    {label:"たっぷりピエロ",vals:{neck:36,width:12,fullness:3.5,tie:26}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const NECK=cm(p.neck), FW=cm(p.width), F=p.fullness, TIE=cm(p.tie);
+    const frillLen=NECK*F;
+    const frill=pieceFrom([{x:0,y:0},{x:frillLen,y:0},{x:frillLen,y:FW},{x:0,y:FW}],()=>false,sa);
+    const BH=cm(2.5), bandLen=NECK+TIE*2;
+    const band=pieceFrom([{x:0,y:0},{x:bandLen,y:0},{x:bandLen,y:BH*2},{x:0,y:BH*2}],()=>false,sa);
+    return {pieces:[
+      {title:"フリル", cutInfo:"1〜2枚（重ねるほどたっぷり）／上端をギャザーで首まわりの長さに縮める",
+       ...frill, foldX:null, grain:{x1:frillLen/2,y1:cm(1),x2:frillLen/2,y2:FW-cm(1)},
+       notches:[{x:frillLen/2,y:0}], labelAt:{x:frillLen/2,y:FW/2}},
+      {title:"首ベルト・ひも", cutInfo:"1本（二つ折り）／ギャザーしたフリルをはさみ、両端をひもにする",
+       ...band, foldX:null, grain:{x1:cm(2),y1:BH,x2:bandLen-cm(2),y2:BH},
+       notches:[{x:TIE,y:0},{x:TIE+NECK,y:0}], labelAt:{x:bandLen/2,y:BH}}
+    ],
+    memo:`フリル上端 ${Math.round(frillLen/10)}cm を、首まわり ${p.neck}cm までギャザーで縮めます（約${F}倍）`};
+  }
+};
+
 /* ---- ヘアリボン ---- */
 PATTERNS.hairribbon={
   mode:"small",
