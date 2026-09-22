@@ -12985,4 +12985,104 @@ costumewings:{
   ],
   related:["costumetail", "witchhat", "costumecape", "petcape"],
 },
+
+santahat:{
+  title:"Santa hat", tab:"small", toolName:"Santa hat",
+  sizeStep:"Enter the head circumference, cone length and white brim width. Presets for child, adult and long & floppy. Measure the head and enter the real number.",
+  desc:"How to make a Santa hat. Add a white (boa) brim and a pompom to a cone hat — that's it. Felt or fleece, for kids and adults. Print the pattern at actual size with Katagami.",
+  keywords:"Santa hat,Santa,Christmas,hat,costume,kids,felt,fleece,sewing,pattern",
+  lead:"The Christmas classic. <strong>Add a white (boa) brim and a pompom to a cone hat.</strong> Felt or fleece works, for kids and adults. A longer point makes a cute, floppy Santa hat.",
+  matNote:"For the adult size (57 cm head)",
+  buy:"fleece red fabric", buyLabel:"Fleece / felt (red)",
+  materials:[
+    "Main fabric (red fleece or felt) — about 70 × 60 cm",
+    "White boa (for the brim and pompom) — about (head + 5 cm) × 15 cm",
+    "Polyester stuffing (for the pompom) — a little",
+    "Sewing thread",
+  ],
+  cut:[
+    "<strong>Measure the head</strong><br>Measure and enter the real head circumference; add 1–2 cm for a loose fit. For a child, measure their own head.",
+    "<strong>Cut</strong><br>Cut one cone hat, one white brim band and one circle for the pompom. Felt can be left with raw edges.",
+  ],
+  sew:[
+    {
+      h:"4-1. Roll the hat into a cone",
+      items:[
+        "<strong>Sew the straight center edges right sides together</strong> to form the cone.",
+        "Press the seam open or to one side.",
+      ],
+    },
+    {
+      h:"4-2. Attach the white brim",
+      items:[
+        "Fold the white boa band, sew the ends into a ring.",
+        "Match the ring to the hat's opening right sides together and <strong>sew all the way around.</strong> Fold the brim to the outside.",
+      ],
+    },
+    {
+      h:"4-3. Make and attach the pompom",
+      items:[
+        "<strong>Gather the edge of the circle</strong>, stuff it and round it into a pompom.",
+        "Sew it firmly to the tip of the cone.",
+      ],
+    },
+  ],
+  sewNote:"In felt, the edges do not fray, so you can attach the brim as a single (unfolded) layer, or just stack circles for the pompom — even simpler.",
+  tips:[
+    "<strong>Floppy look</strong>: make the point longer and let the tip flop forward for a cute, plush Santa hat.",
+    "<strong>Change the color</strong>: green for an elf, white and pale blue for a snow fairy; sequins on the brim look festive.",
+    "<strong>For pets</strong>: make it small and add a chin strap for a pet Santa hat.",
+  ],
+  related:["witchhat", "crown", "catears", "petcape"],
+},
+
+stocking:{
+  title:"Christmas stocking", tab:"home", toolName:"Christmas stocking",
+  sizeStep:"Enter the length (cuff to heel), leg width and foot length. Presets for small (ornament), standard and large (for gifts).",
+  desc:"How to make a Christmas stocking. Sew two body pieces together, add a folded cuff and a hanging loop. For the mantel or tree. Felt or knit fabric. Print the pattern at actual size with Katagami.",
+  keywords:"Christmas,stocking,sock,ornament,mantel,felt,sewing,pattern",
+  lead:"A Christmas stocking for the mantel or tree. <strong>Sew two body pieces together, add a folded cuff and a hanging loop.</strong> Felt or knit fabric. Add a name or motif to make it special — big enough for small gifts.",
+  matNote:"For the standard size",
+  buy:"felt fabric Christmas", buyLabel:"Felt / knit fabric",
+  materials:[
+    "Main fabric (felt or knit) — enough for two pieces of about (length + 15 cm) × (foot + 10 cm)",
+    "Contrast fabric (for the cuff, e.g. white boa) — about 40 × 15 cm",
+    "Optional: felt or embroidery thread for a name or motif",
+    "Sewing thread",
+  ],
+  cut:[
+    "<strong>Decide the size</strong><br>Small for a decoration, large for gifts. <strong>Cut two body pieces, mirrored</strong> (flip one over).",
+    "<strong>Cut</strong><br>Cut two body pieces, one or two cuffs, and one hanging loop. Felt can be left with raw edges.",
+  ],
+  sew:[
+    {
+      h:"4-1. Sew the body",
+      items:[
+        "Right sides together, <strong>sew all around except the top opening.</strong>",
+        "Clip the curves at the heel and toe, then turn out through the opening. In felt, you can layer the two pieces and edgestitch instead.",
+      ],
+    },
+    {
+      h:"4-2. Add the cuff",
+      items:[
+        "Join the cuff fabric into a ring, <strong>sew it to the opening right sides together and fold it to the outside.</strong>",
+        "This cuff becomes the white band like a real stocking.",
+      ],
+    },
+    {
+      h:"4-3. Add the hanging loop",
+      items:[
+        "Fold the loop strip in four and sew, then <strong>fold it into a loop.</strong>",
+        "Tuck it inside the <strong>heel side (back)</strong> of the opening and sew it in.",
+      ],
+    },
+  ],
+  sewNote:"Add the name or motif to the front piece before sewing the body together, so it comes out neat and is not hidden in the seam.",
+  tips:[
+    "<strong>Decorate it</strong>: cut a name, snowflakes or a tree from felt for a festive look.",
+    "<strong>Size by use</strong>: small for an ornament, standard for decor, large for sweets and gifts.",
+    "<strong>Make a set</strong>: one per family member in different colors and sizes fills out the mantel or tree.",
+  ],
+  related:["treeskirt", "santahat", "boxcover", "tapestry"],
+},
 };
