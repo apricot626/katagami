@@ -118,6 +118,12 @@ node scripts/gen-ogp.js bostonbag neckpillow   # キー指定で部分生成
   （英語版がないページには hreflang を出さない。`sync-hreflang.js` が面倒を見る）
 - 英語版がないページの「English」リンクは、英語トップか英語の作り方一覧へ送る
 - sitemap の URL が実在し、重複がなく、全ページが載っている
+- **`robots.txt` がAIのクローラーを止めていない**（`GPTBot` / `OAI-SearchBot` /
+  `ClaudeBot` / `PerplexityBot` / `Google-Extended` など）。
+  このサイトの流入は**約半分が ChatGPT 経由**です（2026年9月で47.6%）。
+  ここを塞いだ瞬間は何も起きないので、気づけるのは数週間後にGA4が落ちてからです。
+  「AIに学習されたくない」という理由で書きたくなる場所ですが、
+  このサイトは中身を読まれることで人が来ています。詳しくは `docs/seo-2026-09.md` の2章。
 
 ---
 

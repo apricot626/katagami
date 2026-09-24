@@ -785,6 +785,30 @@ for (const f of enPages.filter(x => x.startsWith("en/howto-") && !redirects.has(
   }
 }
 
+/* robots.txt がAIのクローラーを止めていないか。
+   このサイトの流入は約半分が ChatGPT 経由です（2026年9月で47.6%）。
+   ここを塞ぐと半分が消えますが、塞いだ瞬間は何も起きないので気づけません。
+   数字を見て決めたうえで止めるなら、この検査ごと外してください。 */
+{
+  const rb = read("robots.txt");
+  const AI = ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-Web",
+              "anthropic-ai", "PerplexityBot", "CCBot", "Google-Extended"];
+  // User-agent ごとに Disallow を拾う（コメント行は見ない）
+  let ua = null;
+  for (const raw of rb.split("\n")) {
+    const line = raw.replace(/#.*$/, "").trim();
+    if (!line) continue;
+    const m = line.match(/^User-agent:\s*(.+)$/i);
+    if (m) { ua = m[1].trim(); continue; }
+    const d = line.match(/^Disallow:\s*(.*)$/i);
+    if (d && d[1].trim() === "/" && ua && AI.some(a => a.toLowerCase() === ua.toLowerCase()))
+      add("seo", "robots.txt",
+        `${ua} を全面的に止めています。流入の約半分がAI経由なので、意図した変更か確かめてください`);
+  }
+  if (!/流入/.test(rb))
+    add("seo", "robots.txt", "AIクローラーについての注意書きが消えています");
+}
+
 /* =========================================================
    10. 一覧の副題（groups.js）
    型紙を足したときにグループへ入れ忘れると、一覧の末尾の「その他」に
