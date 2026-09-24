@@ -15,6 +15,7 @@
      5. 打鍵ごとの断片（「く」「くる」「くるみ」）が送られていないか
      6. **採寸値がイベントに混ざっていないか**
      7. 材料リンクを押したとき、店（楽天／Amazon）と資材名が記録されるか
+     8. ツールで印刷したあとに買い物枠が出て、タグ付きリンクが並ぶか
 
    6 がこの検査の主目的です。採寸値はブラウザ内だけで処理するとプライバシー
    ポリシーで約束しているので、うっかりパラメータに足すと約束を破ります。
@@ -136,6 +137,36 @@ const MEASURES = (() => {
         findings.push(`${url}: 資材名に店名か区切りが残っています: ${e7.p.item}`);
     }
     clicks.push(...await events(c));
+  }
+
+  /* 8. 印刷したあとの買い物枠（ツール画面）
+     押す前に出ていたら邪魔なだけ、押した後に出なければ置いた意味がありません。
+     どちらも画面を見ないと分からないので、ここで見張ります。 */
+  for (const [url, tag] of [["/tool.html?p=tote", "katagami-22"], ["/en/tool.html?p=tote", "katagami-20"]]) {
+    const c = await open(url);
+    await c.evaluate(() => { window.print = () => {}; });   // 印刷ダイアログは開かせない
+    if (!(await c.$eval("#toolMaterials", e => e.hidden)))
+      findings.push(`${url}: 印刷する前から買い物枠が出ています`);
+    await c.click("#printBtn");
+    await c.waitForTimeout(400);
+    if (await c.$eval("#toolMaterials", e => e.hidden)) {
+      findings.push(`${url}: 印刷しても買い物枠が出ません`);
+    } else {
+      const links = await c.$$eval("#toolMaterialLinks a.ml-btn", as => as.map(a => a.href));
+      if (!links.length) findings.push(`${url}: 買い物枠にリンクがありません`);
+      for (const h of links)
+        if (!h.includes(tag) && !h.includes("af.moshimo.com"))
+          findings.push(`${url}: タグの無いリンク → ${h.slice(0, 60)}`);
+      await c.evaluate(() => document.querySelectorAll("#toolMaterialLinks a")
+        .forEach(a => a.addEventListener("click", e => e.preventDefault())));
+      await c.click("#toolMaterialLinks a.ml-btn");
+      const e8 = (await events(c)).find(e => e.name === "affiliate_click");
+      if (!e8) findings.push(`${url}: 買い物枠を押しても計測されません`);
+      else if (!e8.p.item || /楽天|Amazon|—/.test(e8.p.item))
+        findings.push(`${url}: 資材名がおかしい: ${e8.p.item}`);
+      clicks.push(...await events(c));
+    }
+    await c.close();
   }
 
   /* 6. 採寸値が混ざっていないこと */

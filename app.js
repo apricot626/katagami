@@ -169,6 +169,8 @@ function buildTabs(){
       const b=document.createElement("button");
       b.textContent=KG.name(k,v.name); b.setAttribute("aria-pressed", k===state.pat);
       b.onclick=()=>{state.pat=k; initParams(); render(); buildFields(); buildTabs();
+        // 型紙を変えたら、前の型紙の材料が残らないよう買い物枠は畳む
+        const mb=el("toolMaterials"); if(mb) mb.hidden=true;
         ga('select_pattern',{pattern:k,pattern_name:v.name,mode:state.mode});
       };
       grid.appendChild(b);
@@ -1048,12 +1050,68 @@ function renderProfiles(){
 
 el("saveProfileBtn").onclick=()=>saveProfile();
 
+/* ---- 印刷したあとに出す買い物枠 ----
+   材料リンクは作り方ページにも置いていますが、そこは「作れるかな」と
+   検討している人が読む場所です。ツールで寸法を入れて印刷を押した人は、
+   もう作ると決めていて、何がどれだけ要るかも画面で分かっています。
+   買いに行くのはこの瞬間なので、ここにも置きます。
+   押していない人には出しません（widget を出したいのではなく、
+   必要になった人にだけ見せたいので）。 */
+function showToolMaterials(){
+  const box=el("toolMaterials"), list=el("toolMaterialLinks");
+  if(!box||!list) return;
+  const en=KG.lang==='en';
+  const table=en ? (typeof TOOL_MATERIALS_EN!=='undefined'&&TOOL_MATERIALS_EN)
+                 : (typeof TOOL_MATERIALS!=='undefined'&&TOOL_MATERIALS);
+  const items=table&&table[state.pat];
+  if(!items||!items.length) return;          // データが無い型紙では出さない
+
+  /* URLの組み立ては scripts/material-links.js と同じ形にすること。
+     片方だけ直すとリンクの形式が食い違い、audit.js が拾えなくなります。 */
+  const rakuten=kw=>"//af.moshimo.com/af/c/click?a_id=5652284&p_id=54&pc_id=54&pl_id=616&url="+
+    encodeURIComponent("https://search.rakuten.co.jp/search/mall/"+encodeURIComponent(kw)+"/");
+  const amazon=kw=>"https://www.amazon."+(en?"com":"co.jp")+"/s?k="+
+    encodeURIComponent(kw)+"&tag=katagami-"+(en?"20":"22");
+
+  list.innerHTML="";
+  for(const [label,kw] of items){
+    if(!en){
+      const r=document.createElement("a");
+      r.className="ml-btn ml-btn-rakuten"; r.href=rakuten(kw);
+      r.target="_blank"; r.rel="nofollow"; r.textContent="楽天 — "+label;
+      list.appendChild(r);
+    }
+    const a=document.createElement("a");
+    a.className="ml-btn ml-btn-amazon"; a.href=amazon(kw);
+    a.target="_blank"; a.rel="nofollow sponsored";
+    a.textContent="Amazon — "+label;
+    list.appendChild(a);
+  }
+  box.hidden=false;
+}
+
+/* 材料リンクのクリックを作り方ページと同じイベントで送る（affiliate.js と同じ形）。
+   ツールと作り方で別のイベント名にすると、集計のたびに足し合わせる羽目になります。 */
+(function(){
+  const list=el("toolMaterialLinks");
+  if(!list) return;
+  list.addEventListener("click",e=>{
+    const a=e.target.closest&&e.target.closest("a.ml-btn");
+    if(!a) return;
+    ga('affiliate_click',{
+      shop:a.classList.contains("ml-btn-amazon")?"amazon":"rakuten",
+      item:a.textContent.split("—").pop().trim().slice(0,100)
+    });
+  });
+})();
+
 el("printBtn").onclick=()=>{
   buildPrintSheets();
   const {canvasW,canvasH}=layout();
   const {cols,rows}=tileGrid(canvasW,canvasH);
   ga('print_pattern',{pattern:state.pat,pattern_name:PATTERNS[state.pat].name,
     mode:state.mode,sheet_count:cols*rows,seam_allowance:state.sa});
+  showToolMaterials();
   setTimeout(()=>window.print(),60);
 };
 

@@ -19,6 +19,7 @@ node scripts/gen-en-howto.js        # 英文ガイドを生成
 node scripts/inject-howto-figs.js   # 各ガイドに図解SVGを挿入
 node scripts/inject-howto-heroes.js # 冒頭の完成イメージ図を挿入（和文・英文）
 node scripts/enrich-material-links.js  # 材料・道具の買い物枠を組み直す
+node scripts/gen-tool-materials.js  # ツールの印刷後の買い物枠（ガイドから拾う）
 node scripts/sync-en-pages.js       # en/howto.html のカード・sitemap・HOWTO_EN
 node scripts/sync-ja-pages.js       # index.html / howto.html の一覧
 node scripts/sync-hreflang.js       # 英語版の有無に合わせて hreflang を整える
@@ -221,6 +222,24 @@ ASPもタグも違うので、点検は別建てです。
   **タグが抜けたリンクは踏まれても報酬になりません。** 目で見ても分からないので監査で見張ります。
 - `As an Amazon Associate I earn from qualifying purchases.` の表記がある（Amazonが文言を指定しています）
 
+### 買い物枠はツール画面にもある
+
+印刷ボタンを押したあとだけ出ます（`tool.html` / `en/tool.html` の `#toolMaterials`）。
+
+作り方ページの材料リンクは「作れるかな」と検討している人が読む場所です。
+**ツールで寸法を入れて印刷を押した人は、もう作ると決めています。** 何がどれだけ
+要るかも画面で分かっているので、買いに行くのはこの瞬間です。押していない人には
+出しません。
+
+材料は `tool-materials.js`（自動生成）から引きます。対応表をツール用に書き直すと
+必ず片方が古くなるので、**出来上がった作り方ガイドのHTMLから拾っています。**
+ガイドを直したら `node scripts/gen-tool-materials.js` を流してください。
+流し忘れると監査が全型紙を突き合わせて拾います。
+
+URLの組み立ては `app.js` の `showToolMaterials()` にもあります。
+`scripts/material-links.js` と**同じ形にすること**。片方だけ直すと形式が食い違い、
+監査が拾えなくなります。
+
 ### リンク先は検索結果
 
 商品ページではありません。532ページ×数本を手で保守できないので、廃番や在庫切れで
@@ -257,7 +276,7 @@ Special Link にあたるので、SiteStripeで1商品ずつ作る必要はあ�
 | `set_paper` / `set_unit` | `app.js`（英語版のみ） | Letter・インチの需要 |
 | `view_privacy_policy` | `app.js` | — |
 | `search` | `search.js` | **探したのに無かった語**（`results` が 0 のもの） |
-| `affiliate_click` | `affiliate.js` | **どの資材・道具がどの店で踏まれたか**（`shop` / `item`） |
+| `affiliate_click` | `affiliate.js` / `app.js` | **どの資材・道具がどの店で踏まれたか**（`shop` / `item`）。作り方ページとツールの両方から同じ名前で送ります |
 
 送客の計測を**ガイド側のクリックではなく、着地した `app.js` 側の `document.referrer` で**
 取っているのは、ガイドが562ページあるからです。クリックを数えると全ページに仕掛けが要り、

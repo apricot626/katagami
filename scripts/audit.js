@@ -745,6 +745,46 @@ for (const f of enPages.filter(x => x.startsWith("en/howto-") && !redirects.has(
     add("affiliate", f, "affiliate.js が読まれていません（クリックが計測されません）");
 }
 
+/* 印刷したあとの買い物枠（ツール画面）。
+   tool-materials.js は作り方ガイドから生成したものなので、ガイドを直したあとに
+   流し忘れると、ツールだけ古い材料を出し続けます。中身を突き合わせて見張ります。 */
+{
+  const tmPath = path.join(ROOT, "tool-materials.js");
+  if (!fs.existsSync(tmPath)) {
+    add("affiliate", "tool-materials.js", "ありません（node scripts/gen-tool-materials.js）");
+  } else {
+    const box = vm.createContext({ console });
+    vm.runInContext(fs.readFileSync(tmPath, "utf8") +
+      ";globalThis.__J=TOOL_MATERIALS;globalThis.__E=TOOL_MATERIALS_EN;", box);
+    for (const [name, table] of [["和文", box.__J], ["英文", box.__E]]) {
+      const missing = Object.keys(PATTERNS).filter(k => !table[k]);
+      if (missing.length)
+        add("affiliate", "tool-materials.js",
+          `${name}で材料が取れていない型紙が ${missing.length} 種: ${missing.slice(0, 5).join(", ")}`);
+    }
+    // ガイド側を直して流し忘れていないか、全型紙を実物と突き合わせる。
+    // 1つでもずれていれば、ツールだけ古い材料を出している状態です。
+    const stale = [];
+    for (const [key, items] of Object.entries(box.__J)) {
+      const f = `howto-${key}.html`;
+      if (!isFile(f)) continue;
+      const h = read(f);
+      for (const [, kw] of items)
+        if (!h.includes(encodeURIComponent(encodeURIComponent(kw)))) { stale.push(`${key}「${kw}」`); break; }
+    }
+    if (stale.length)
+      add("affiliate", "tool-materials.js",
+        `作り方ガイドと中身が食い違う型紙が ${stale.length} 種（${stale.slice(0, 3).join("、")}）。` +
+        `node scripts/gen-tool-materials.js を流し直してください`);
+  }
+  for (const [f, src] of [["tool.html", '<script src="tool-materials.js"></script>'],
+                          ["en/tool.html", '<script src="../tool-materials.js"></script>']]) {
+    const h = read(f);
+    if (!h.includes(src)) add("affiliate", f, "tool-materials.js を読み込んでいません");
+    if (!h.includes('id="toolMaterials"')) add("affiliate", f, "印刷後の買い物枠がありません");
+  }
+}
+
 /* =========================================================
    10. 一覧の副題（groups.js）
    型紙を足したときにグループへ入れ忘れると、一覧の末尾の「その他」に
