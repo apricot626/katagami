@@ -4,6 +4,7 @@ docs/
 !docs/
 !docs/review-checklist.md
 !docs/ga-mcp-setup.md
+!docs/seo-2026-09.md
 .claude/*
 # GA4連携のセッション開始フックだけは共有する（個人設定 settings.local.json は除外のまま）
 !.claude/settings.json
