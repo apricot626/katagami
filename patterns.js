@@ -9907,6 +9907,89 @@ PATTERNS.costumecollar={
   }
 };
 
+/* ---- トナカイ角カチューシャ（クリスマス） ---- */
+PATTERNS.antlers={
+  mode:"small",
+  name:"トナカイ角カチューシャ",
+  note:"枝分かれしたトナカイの角を、市販のカチューシャに付ける仮装小物。角は表裏2枚を縫って返し、中に接着芯やワイヤーを入れて形を保ちます。左右で1組（計4枚）。クリスマスや発表会に。茶色のフェルトやボアで。",
+  params:[
+    {key:"height",label:"角の高さ",unit:"cm",min:12,max:26,step:1,val:18},
+    {key:"width", label:"角の広がり",unit:"cm",min:8, max:20,step:1,val:13},
+    {key:"band",  label:"カチューシャの長さ",unit:"cm",min:30,max:44,step:1,val:36},
+  ],
+  presets:[
+    {label:"子供",  vals:{height:15,width:11,band:34}},
+    {label:"大人",  vals:{height:20,width:14,band:38}},
+    {label:"大きめ",vals:{height:24,width:17,band:38}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const H=cm(p.height), W=cm(p.width), BL=cm(p.band);
+    // 枝分かれした角（内側にプロング2本＋先端）。base下、先上。
+    const fin=[
+      {x:0,y:H}, {x:W*0.34,y:H},                       // つけ根
+      {x:W*0.40,y:H*0.66},                              // 幹
+      {x:W,y:H*0.52}, {x:W*0.44,y:H*0.46},              // 下の枝→谷
+      {x:W*0.86,y:H*0.24}, {x:W*0.40,y:H*0.22},         // 上の枝→谷
+      {x:W*0.46,y:0},                                   // 先端
+      {x:W*0.12,y:H*0.5},                               // 外側の辺を下る
+    ];
+    const antler=pieceFrom(fin,()=>false,sa);
+    const BW=cm(3);
+    const wrap=pieceFrom([{x:0,y:0},{x:BL,y:0},{x:BL,y:BW*2},{x:0,y:BW*2}],()=>false,sa);
+    return {pieces:[
+      {title:"角", cutInfo:"4枚（1本に表裏2枚／左右2本ぶん・裏は反転）／中に接着芯やワイヤー",
+       ...antler, foldX:null, grain:{x1:W*0.35,y1:H*0.35,x2:W*0.4,y2:H*0.85},
+       notches:[], labelAt:{x:W*0.4,y:H*0.6}},
+      {title:"カチューシャ包み布", cutInfo:"1本（二つ折りで市販のカチューシャに巻いて縫う）",
+       ...wrap, foldX:null, grain:{x1:cm(2),y1:BW,x2:BL-cm(2),y2:BW},
+       notches:[{x:BL*0.5-BL*0.14,y:0},{x:BL*0.5+BL*0.14,y:0}], labelAt:{x:BL/2,y:BW}}
+    ],
+    memo:`角2本を、カチューシャの中央から左右${Math.round(p.band*0.14)}cmほどの位置に、少し外へ傾けて付けます`};
+  }
+};
+
+/* ---- エルフ帽（クリスマス） ---- */
+PATTERNS.elfhat={
+  mode:"small",
+  name:"エルフ帽",
+  note:"とんがりの長い、サンタのお手伝い（エルフ）の帽子。円すいの帽子に、折り返しのふちと先端の鈴を付けます。緑×赤など、クリスマスカラーで。フェルトやフリースで、子供にも大人にも。頭まわりを実測して入れてください。",
+  params:[
+    {key:"head",  label:"頭まわり",     unit:"cm",min:46,max:62,step:1,val:54},
+    {key:"height",label:"とんがりの長さ",unit:"cm",min:30,max:55,step:1,val:42},
+    {key:"band",  label:"折り返しの幅",  unit:"cm",min:4, max:9, step:0.5,val:6},
+  ],
+  presets:[
+    {label:"子供",  vals:{head:52,height:34,band:5}},
+    {label:"大人",  vals:{head:57,height:44,band:7}},
+    {label:"ロング",vals:{head:57,height:54,band:7}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const C=cm(p.head), R=cm(p.height), BW=cm(p.band);
+    const th=C/R, half=th/2, N=28;
+    const cone=[{x:0,y:0}];
+    for(let i=0;i<=N;i++){const a=half-th*(i/N); cone.push({x:R*Math.sin(a),y:R*Math.cos(a)});}
+    const conePc=pieceFrom(cone,()=>false,sa);
+    const band=pieceFrom([{x:0,y:0},{x:C+cm(2),y:0},{x:C+cm(2),y:BW*2},{x:0,y:BW*2}],()=>false,sa);
+    const PR=cm(2.6), M=20, bell=[];
+    for(let i=0;i<M;i++){const a=2*Math.PI*i/M; bell.push({x:PR+PR*Math.cos(a),y:PR+PR*Math.sin(a)});}
+    const bellPc=pieceFrom(bell,()=>false,sa);
+    return {pieces:[
+      {title:"帽子（円すい）", cutInfo:"表布1枚／中心の直線を中表に縫って円すいにする",
+       ...conePc, foldX:null, grain:{x1:0,y1:R*0.2,x2:0,y2:R*0.88},
+       notches:[{x:0,y:R}], labelAt:{x:0,y:R*0.5}},
+      {title:"折り返しのふち（帯）", cutInfo:"別布を1本（二つ折り）／帽子の裾に輪にして付け、外へ折り返す",
+       ...band, foldX:null, grain:{x1:cm(2),y1:BW,x2:C-cm(2),y2:BW},
+       notches:[], labelAt:{x:(C+cm(2))/2,y:BW}},
+      {title:"鈴（丸）", cutInfo:"1枚（周りをぐし縫いで絞り、綿を詰めて丸める）／とんがりの先に付ける（市販の鈴でも）",
+       ...bellPc, foldX:null, grain:{x1:PR,y1:PR*0.4,x2:PR,y2:PR*1.6},
+       notches:[], labelAt:{x:PR,y:PR}}
+    ],
+    memo:`できあがりの高さ 約${Math.round(Math.sqrt(Math.max(R*R-Math.pow(C/(2*Math.PI),2),0))/10)}cm。先を前や横に垂らすとエルフらしく`};
+  }
+};
+
 /* ---- ヘアリボン ---- */
 PATTERNS.hairribbon={
   mode:"small",

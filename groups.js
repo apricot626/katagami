@@ -84,7 +84,7 @@
       { ja: "持ち歩きの小道具", en: "Everyday carry",
         keys: ["pincushion", "camerastrap", "bottleholder", "keycase", "glassescase"] },
       { ja: "仮装・コスプレ", en: "Costume & cosplay",
-        keys: ["witchhat", "costumecape", "jaggedcape", "hoodcape", "costumeponcho", "catears", "costumecollar", "costumetail", "tutu", "crown", "costumewings", "santahat"] },
+        keys: ["witchhat", "costumecape", "jaggedcape", "hoodcape", "costumeponcho", "catears", "costumecollar", "costumetail", "tutu", "crown", "costumewings", "santahat", "antlers", "elfhat"] },
     ],
 
     bag: [
