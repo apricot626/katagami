@@ -648,6 +648,8 @@ const HOWTO={
   costumeponcho:{url:"howto-costumeponcho.html", label:"📄 ポンチョ（仮装用）の作り方を見る"},
   hoodcape:{url:"howto-hoodcape.html", label:"📄 フード付きマントの作り方を見る"},
   costumecollar:{url:"howto-costumecollar.html", label:"📄 つけ襟（フリル）の作り方を見る"},
+  antlers:{url:"howto-antlers.html", label:"📄 トナカイ角カチューシャの作り方を見る"},
+  elfhat:{url:"howto-elfhat.html", label:"📄 エルフ帽の作り方を見る"},
 };
 
 /* ---- 飾り（レース・リボン・パイピング）の目安 ----

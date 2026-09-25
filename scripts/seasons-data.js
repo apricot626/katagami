@@ -74,7 +74,7 @@
           months: [12],
           ja_note: "ツリーの足元布と、サンタ気分のペット・ぬいの小物。",
           en_note: "A tree skirt and Santa-style extras for pets and plushies.",
-          keys: ["santahat", "stocking", "treeskirt", "petcape", "petbandana", "nuicape", "nuihat", "kinchaku"] },
+          keys: ["santahat", "antlers", "elfhat", "stocking", "treeskirt", "petcape", "petbandana", "nuicape", "nuihat", "kinchaku"] },
       ],
     },
     {

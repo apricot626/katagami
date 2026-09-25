@@ -12986,6 +12986,106 @@ costumewings:{
   related:["costumetail", "witchhat", "costumecape", "petcape"],
 },
 
+antlers:{
+  title:"Reindeer antlers headband", tab:"small", toolName:"Reindeer antlers headband",
+  sizeStep:"Enter the antler height, antler spread and headband length. Presets for child, adult and large. Adjust the length to your store-bought headband.",
+  desc:"How to make a reindeer antlers headband. Sew two layers per antler, turn, hold the shape with interfacing or wire, and attach to a store-bought headband. A Christmas costume accessory.",
+  keywords:"reindeer,antlers,headband,Christmas,costume,cosplay,kids,felt,sewing,pattern",
+  lead:"Branched reindeer antlers on a headband. <strong>Sew two layers per antler, turn, hold the shape with interfacing or wire, and attach to a store-bought headband.</strong> Brown felt or boa, for kids and adults — perfect for Christmas or a recital.",
+  matNote:"For the adult size (20 cm antler height)",
+  buy:"felt brown craft", buyLabel:"Felt / boa (brown)",
+  materials:[
+    "Main fabric (brown felt or boa) — about 40 × 50 cm (for 4 antler pieces)",
+    "Fusible interfacing or wire (to shape the antlers) — a little",
+    "A store-bought headband — 1",
+    "Headband cover fabric (felt) — about 40 × 8 cm",
+    "Sewing / hand-sewing thread",
+  ],
+  cut:[
+    "<strong>Prepare the headband</strong><br>Measure the length of your headband (end to end along the arc) and enter it; an ordinary one is about 30–40 cm.",
+    "<strong>Cut</strong><br>Cut 4 antler pieces (2 layers per antler, 2 antlers; mirror the pattern for the back pieces) and one headband cover. Felt can be left with raw edges.",
+  ],
+  sew:[
+    {
+      h:"4-1. Sew and turn the antlers",
+      items:[
+        "Place two antler layers right sides together and <strong>sew all the way around, leaving the base open.</strong> Clip the seam allowance at the inner branch valleys so it turns cleanly.",
+        "Turn right side out through the base and <strong>insert interfacing or wire</strong> to hold the shape. Make a second antler the same way.",
+      ],
+    },
+    {
+      h:"4-2. Cover the headband",
+      items:[
+        "Fold the cover fabric, <strong>wrap it over the store-bought headband and sew along the edge.</strong> Fabric glue also works.",
+      ],
+    },
+    {
+      h:"4-3. Attach the antlers",
+      items:[
+        "Sew the two antlers <strong>about 5 cm to each side of the center</strong> of the headband, tilting them slightly outward.",
+        "Whipstitch firmly around the base so they stay steady.",
+      ],
+    },
+  ],
+  sewNote:"In felt the edges do not fray, so you can skip turning: just stack two layers, sew around, and slip the interfacing between them. Wire lets you bend the antlers into any pose.",
+  tips:[
+    "<strong>Change the color</strong>: brown for realistic antlers, white for a baby reindeer; a little beige at the tips looks more real.",
+    "<strong>Add ears</strong>: make the cat-ears pattern in brown and attach them too for a fuller reindeer look.",
+    "<strong>For pets</strong>: make it smaller for dog or cat reindeer antlers.",
+  ],
+  related:["santahat", "elfhat", "catears", "petcape"],
+},
+
+elfhat:{
+  title:"Elf hat", tab:"small", toolName:"Elf hat",
+  sizeStep:"Enter the head circumference, cone length and cuff width. Presets for child, adult and long. Measure the head and enter the real number.",
+  desc:"How to make an elf hat. Add a folded cuff and a bell to a long cone hat — that's it. Green and red Christmas colors, for kids and adults. Print at actual size with Katagami.",
+  keywords:"elf,hat,Christmas,Santa,costume,cosplay,kids,felt,sewing,pattern",
+  lead:"A hat for Santa's helper, the elf. <strong>Add a folded cuff and a bell at the tip to a long cone hat.</strong> Christmas colors like green and red, for kids and adults — easy in felt or fleece.",
+  matNote:"For the adult size (57 cm head)",
+  buy:"felt green large", buyLabel:"Felt / fleece (green)",
+  materials:[
+    "Main fabric (green felt or fleece) — about 70 × 60 cm",
+    "Contrast fabric (for the cuff, red etc.) — about (head + 5 cm) × 15 cm",
+    "Stuffing and a fabric circle (for the bell), or a store-bought bell — a little",
+    "Sewing thread",
+  ],
+  cut:[
+    "<strong>Measure the head</strong><br>Measure and enter the real head circumference; add 1–2 cm for a loose fit. For a child, measure their own head.",
+    "<strong>Cut</strong><br>Cut one cone hat, one cuff band and one circle for the bell. Felt can be left with raw edges.",
+  ],
+  sew:[
+    {
+      h:"4-1. Roll the hat into a cone",
+      items:[
+        "<strong>Sew the straight center edges right sides together</strong> to form the cone.",
+        "Press the seam open or to one side.",
+      ],
+    },
+    {
+      h:"4-2. Attach the cuff",
+      items:[
+        "Fold the contrast band and sew the ends into a ring.",
+        "Match the ring to the hat's opening right sides together and <strong>sew all the way around.</strong> Fold the cuff to the outside.",
+      ],
+    },
+    {
+      h:"4-3. Make and attach the bell",
+      items:[
+        "<strong>Gather the edge of the circle</strong>, stuff it and round it. A store-bought bell also works.",
+        "Sew it firmly to the tip of the cone.",
+      ],
+    },
+  ],
+  sewNote:"In felt the edges do not fray, so you can attach the cuff as a single (unfolded) layer, or just stack circles for the bell. Let the point flop forward or to the side for a real elf look.",
+  tips:[
+    "<strong>Change the color</strong>: green and red is classic; red and white leans Santa, striped fabric gives a toyland feel.",
+    "<strong>Add ears</strong>: make pointed fairy ears and attach them at the sides for a more complete elf.",
+    "<strong>Go long</strong>: with the long preset, a longer drooping point looks comical and cute.",
+  ],
+  related:["santahat", "antlers", "witchhat", "crown"],
+},
+
 santahat:{
   title:"Santa hat", tab:"small", toolName:"Santa hat",
   sizeStep:"Enter the head circumference, cone length and white brim width. Presets for child, adult and long & floppy. Measure the head and enter the real number.",
