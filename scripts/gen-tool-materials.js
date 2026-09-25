@@ -37,14 +37,21 @@ function materialsOf(file, kind) {
 
   const out = [];
   if (kind === "ja") {
-    // 楽天のリンクから、二重エンコードされた検索語を戻す
-    for (const m of box[1].matchAll(/<a class="ml-btn[^"]*" href="([^"]+)"[^>]*>楽天 — ([^<]+)<\/a>/g)) {
-      const u = m[1].match(/[?&]url=([^"&]+)/);
-      if (!u) continue;
+    // 買い物枠は1品につき1ボタン（楽天とAmazonが1つおき）。表示順のまま、
+    // 楽天は二重エンコードのurl=から、Amazonは k= から検索語を戻します。
+    for (const m of box[1].matchAll(/<a class="ml-btn[^"]*" href="([^"]+)"[^>]*>(楽天|Amazon) — ([^<]+)<\/a>/g)) {
+      const href = m[1], label = m[3];
       try {
-        const inner = decodeURIComponent(u[1]);
-        const k = inner.match(/\/search\/mall\/([^/]+)\//);
-        if (k) out.push([m[2], decodeURIComponent(k[1])]);
+        if (m[2] === "楽天") {
+          const u = href.match(/[?&]url=([^"&]+)/);
+          if (!u) continue;
+          const inner = decodeURIComponent(u[1]);
+          const k = inner.match(/\/search\/mall\/([^/]+)\//);
+          if (k) out.push([label, decodeURIComponent(k[1])]);
+        } else {
+          const k = href.match(/[?&]k=([^&"]+)/);
+          if (k) out.push([label, decodeURIComponent(k[1])]);
+        }
       } catch (e) { /* 壊れたURLは飛ばす */ }
     }
   } else {

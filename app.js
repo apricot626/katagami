@@ -1079,19 +1079,23 @@ function showToolMaterials(){
     encodeURIComponent(kw)+"&tag=katagami-"+(en?"20":"22");
 
   list.innerHTML="";
-  for(const [label,kw] of items){
-    if(!en){
+  /* 作り方ページと同じく、1品につき1ボタン（楽天とAmazonを1つおき）。
+     8個並ぶと威圧感があるので点数を半分にし、店も内容もバラけさせます。
+     英語版は楽天がないので、すべてAmazonにします。 */
+  items.forEach(([label,kw],i)=>{
+    if(!en && i%2===0){
       const r=document.createElement("a");
       r.className="ml-btn ml-btn-rakuten"; r.href=rakuten(kw);
       r.target="_blank"; r.rel="nofollow"; r.textContent="楽天 — "+label;
       list.appendChild(r);
+    }else{
+      const a=document.createElement("a");
+      a.className="ml-btn ml-btn-amazon"; a.href=amazon(kw);
+      a.target="_blank"; a.rel="nofollow sponsored";
+      a.textContent="Amazon — "+label;
+      list.appendChild(a);
     }
-    const a=document.createElement("a");
-    a.className="ml-btn ml-btn-amazon"; a.href=amazon(kw);
-    a.target="_blank"; a.rel="nofollow sponsored";
-    a.textContent="Amazon — "+label;
-    list.appendChild(a);
-  }
+  });
   box.hidden=false;
 }
 
