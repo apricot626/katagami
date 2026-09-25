@@ -12986,6 +12986,152 @@ costumewings:{
   related:["costumetail", "witchhat", "costumecape", "petcape"],
 },
 
+garland:{
+  title:"Flag garland (bunting)", tab:"home", toolName:"Flag garland (bunting)",
+  sizeStep:"Enter the flag top width, flag length and number of flags. Presets for mini, standard and large. Choose the count to fit where you'll hang it.",
+  desc:"How to make a flag garland (bunting). Sew the triangle flags, then sandwich them in store-bought tape or ribbon and sew. For birthdays, Christmas and Halloween.",
+  keywords:"garland,bunting,flags,pennant,decoration,birthday,party,Christmas,Halloween,Easter,sewing,pattern",
+  lead:"A party and event classic: a row of triangle flags. <strong>Sew the flags, then sandwich their tops in store-bought bias tape or ribbon and sew.</strong> Change the fabric and it works all year — birthdays, Christmas, Halloween, Easter. Great for using up scraps.",
+  matNote:"For the standard size (10 flags)",
+  buy:"bias tape cotton", buyLabel:"Cotton fabric / bias tape",
+  materials:[
+    "Main fabric (cotton or felt) — about 110 × 55 cm (for 10 flags; double if lined)",
+    "Store-bought bias tape or ribbon (for the tops) — enough for the full length",
+    "Optional: fusible interfacing (to stiffen the flags)",
+    "Sewing thread",
+  ],
+  cut:[
+    "<strong>Decide the length</strong><br>From the space you want to fill, decide how many flags you need — roughly the flag top width plus 2 cm of spacing each.",
+    "<strong>Cut</strong><br>Cut one flag per pennant (two per flag if lined). Felt can stay single-layer. For the tape, allow the full length plus about 20 cm of tie at each end.",
+  ],
+  sew:[
+    {
+      h:"4-1. Make the flags",
+      items:[
+        "If lining, <strong>place two layers right sides together, sew the two lower edges (leave the top open)</strong>, clip the point and turn out.",
+        "In felt, use a single layer with raw edges. Trimming the edges with pinking shears keeps them from fraying and looks decorative.",
+      ],
+    },
+    {
+      h:"4-2. Sandwich in the tape",
+      items:[
+        "Open the bias tape and <strong>tuck the flag tops in at even spacing</strong>, pinning as you go.",
+        "<strong>Sew the tape closed along its whole length</strong>, catching each flag. Leave a tie at each end to hook or pin it up.",
+      ],
+    },
+  ],
+  sewNote:"Flag size and count are up to you: many small flags look delicate, a few big ones look bold. Instead of tape you can sew the flags onto yarn or jute twine for a rustic look.",
+  tips:[
+    "<strong>Change colors by event</strong>: bright for birthdays, orange and black for Halloween, red and green for Christmas, pastels for Easter.",
+    "<strong>Add letters</strong>: applique felt letters onto the flags for a \"HAPPY BIRTHDAY\" banner.",
+    "<strong>Change the shape</strong>: square or rounded bottoms work as well as triangles.",
+  ],
+  related:["treeskirt", "stocking", "crown", "rosette"],
+},
+
+bunnyears:{
+  title:"Bunny ears headband", tab:"small", toolName:"Bunny ears headband",
+  sizeStep:"Enter the ear width, ear height and headband length. Presets for child, adult and long. Adjust the length to your store-bought headband.",
+  desc:"How to make a bunny ears headband. Sew two layers per ear, turn, add a pink inner piece and attach to a store-bought headband. For Easter and costumes.",
+  keywords:"bunny ears,rabbit,Easter,headband,costume,cosplay,kids,felt,sewing,pattern",
+  lead:"Tall, upright bunny ears on a headband. <strong>Sew two layers per ear, turn, top with a pink inner piece, and attach to a store-bought headband.</strong> Interfacing or wire inside lets the ears stand or bend to any angle. For Easter, recitals or Halloween.",
+  matNote:"For the adult size (26 cm ear height)",
+  buy:"felt white pink craft", buyLabel:"Felt (white / pink)",
+  materials:[
+    "Main fabric (white felt or boa) — about 40 × 60 cm (for 4 ear pieces)",
+    "Contrast fabric (pink, for the inner) — about 20 × 40 cm",
+    "Fusible interfacing or wire (to shape the ears) — a little",
+    "A store-bought headband — 1",
+    "Headband cover fabric (felt) — about 40 × 8 cm",
+    "Sewing / hand-sewing thread",
+  ],
+  cut:[
+    "<strong>Prepare the headband</strong><br>Measure the length of your headband (end to end along the arc) and enter it; an ordinary one is about 30–40 cm.",
+    "<strong>Cut</strong><br>Cut 4 outer ears (2 layers per ear), 2 pink inner pieces and one headband cover. Felt can be left with raw edges.",
+  ],
+  sew:[
+    {
+      h:"4-1. Add the pink inner",
+      items:[
+        "On the two ear pieces that will face front, <strong>sew a pink inner piece to the center</strong>, stitching all the way around like an applique.",
+      ],
+    },
+    {
+      h:"4-2. Sew and turn the ears",
+      items:[
+        "Place two ear layers right sides together and <strong>sew all the way around, leaving the base open.</strong> Clip the curves so they turn cleanly.",
+        "Turn right side out through the base and <strong>insert interfacing or wire</strong> to hold the shape. Make the second ear the same way.",
+      ],
+    },
+    {
+      h:"4-3. Attach to the headband",
+      items:[
+        "Fold the cover fabric, <strong>wrap it over the store-bought headband and sew along the edge.</strong>",
+        "Sew the two ears <strong>about 5 cm to each side of the center</strong>, tilting them slightly.",
+      ],
+    },
+  ],
+  sewNote:"In felt the edges do not fray, so you can skip turning: stack two layers, sew around, and slip the interfacing between. Wire lets you fold one ear over for character.",
+  tips:[
+    "<strong>Change the color</strong>: white and pink is classic; brown for a bear, gray for a mouse, black for a black rabbit.",
+    "<strong>Pair with a tail</strong>: make the costume tail in white boa for a full bunny outfit.",
+    "<strong>For Easter</strong>: pair with a tutu skirt for an Easter bunny costume.",
+  ],
+  related:["catears", "costumetail", "tutu", "antlers"],
+},
+
+pumpkinbag:{
+  title:"Pumpkin bag", tab:"bag", toolName:"Pumpkin bag",
+  sizeStep:"Enter the width, height and handle length. Presets for child (small), standard and large. Go large for lots of candy.",
+  desc:"How to make a pumpkin bag. Sew two body pieces, add a handle and a stem. For Halloween trick-or-treating. Add black felt for a jack-o'-lantern.",
+  keywords:"pumpkin,bag,Halloween,trick or treat,candy,jack-o-lantern,kids,felt,sewing,pattern",
+  lead:"A round pumpkin-shaped Halloween candy bag. <strong>Sew two body pieces together and add a handle and a green stem.</strong> Orange felt or cotton. Add eyes and a mouth in black felt for a jack-o'-lantern. Perfect for trick-or-treating.",
+  matNote:"For the standard size (26 cm wide)",
+  buy:"felt orange large", buyLabel:"Felt / cotton (orange)",
+  materials:[
+    "Main fabric (orange felt or cotton) — about 60 × 55 cm (for 2 body pieces)",
+    "Lining (optional) — about 60 × 55 cm",
+    "Contrast fabric (green, for the stem) — about 10 × 10 cm",
+    "Fabric for the handle, or a store-bought handle / ribbon — a little",
+    "Optional: black felt (for eyes and mouth)",
+    "Sewing thread",
+  ],
+  cut:[
+    "<strong>Decide the size</strong><br>Go bigger for more candy. <strong>Cut the body as 2 pieces on the fold (front and back)</strong>; add 2 lining pieces if lining.",
+    "<strong>Cut</strong><br>Cut 2 body pieces (+2 lining), 2 handle straps and 2 stem pieces. Felt can be left with raw edges.",
+  ],
+  sew:[
+    {
+      h:"4-1. Prepare the face and stem",
+      items:[
+        "For a jack-o'-lantern, <strong>first attach black-felt eyes and a mouth to the front</strong> of the body.",
+        "Sew the stem's two pieces right sides together and turn, or use a single felt layer.",
+      ],
+    },
+    {
+      h:"4-2. Sew the body",
+      items:[
+        "Place the two body pieces <strong>right sides together and sew around the sides, leaving the opening.</strong> Clip the curves so it rounds out neatly when turned.",
+        "Sew the lining the same way, then join it to the outer at the opening (catching the handle and stem). Turn through the gap.",
+      ],
+    },
+    {
+      h:"4-3. Attach the handle and stem",
+      items:[
+        "Fold the handle in four and sew, then <strong>attach it inside the opening on each side.</strong>",
+        "<strong>Sandwich or sew the green stem at the center (front)</strong> of the opening. Close the gap to finish.",
+      ],
+    },
+  ],
+  sewNote:"In felt you can skip the lining: just hold two body pieces wrong sides together and sew around (leave the opening) for a cute raw-edge bag. A store-bought handle or ribbon makes it even quicker.",
+  tips:[
+    "<strong>Different faces</strong>: a smile, a scary grin, a winking eye — the black felt placement sets the expression.",
+    "<strong>Ghost version</strong>: make it in white for a round ghost bag.",
+    "<strong>Add a base</strong>: sew across the bottom corners for a boxed base that holds more candy.",
+  ],
+  related:["tote", "ehonbag", "kinchaku", "witchhat"],
+},
+
 antlers:{
   title:"Reindeer antlers headband", tab:"small", toolName:"Reindeer antlers headband",
   sizeStep:"Enter the antler height, antler spread and headband length. Presets for child, adult and large. Adjust the length to your store-bought headband.",

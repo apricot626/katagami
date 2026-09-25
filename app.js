@@ -652,6 +652,9 @@ const HOWTO={
   costumecollar:{url:"howto-costumecollar.html", label:"📄 つけ襟（フリル）の作り方を見る"},
   antlers:{url:"howto-antlers.html", label:"📄 トナカイ角カチューシャの作り方を見る"},
   elfhat:{url:"howto-elfhat.html", label:"📄 エルフ帽の作り方を見る"},
+  garland:{url:"howto-garland.html", label:"📄 フラッグガーランドの作り方を見る"},
+  bunnyears:{url:"howto-bunnyears.html", label:"📄 うさぎ耳カチューシャの作り方を見る"},
+  pumpkinbag:{url:"howto-pumpkinbag.html", label:"📄 かぼちゃバッグの作り方を見る"},
 };
 
 /* ---- 飾り（レース・リボン・パイピング）の目安 ----

@@ -9990,6 +9990,131 @@ PATTERNS.elfhat={
   }
 };
 
+/* ---- フラッグガーランド（パーティー飾り） ---- */
+PATTERNS.garland={
+  mode:"home",
+  name:"フラッグガーランド",
+  note:"三角の旗をつなげた、パーティーやイベントの定番飾り。旗は表裏2枚を縫って返すか、フェルトなら1枚のまま。上辺を市販のバイアステープやリボンにはさんで縫うだけ。誕生日・クリスマス・ハロウィン・イースターと、生地を変えて一年中使えます。",
+  params:[
+    {key:"top",  label:"旗の上辺の幅",   unit:"cm",min:10,max:24,step:1,val:16},
+    {key:"drop", label:"旗の丈",         unit:"cm",min:14,max:30,step:1,val:22},
+    {key:"count",label:"旗の枚数（連数）",unit:"枚",min:5, max:16,step:1,val:10},
+  ],
+  presets:[
+    {label:"ミニ（10連）", vals:{top:12,drop:16,count:10}},
+    {label:"標準（10連）", vals:{top:16,drop:22,count:10}},
+    {label:"大きめ（8連）",vals:{top:20,drop:28,count:8}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const W=cm(p.top), H=cm(p.drop), N=p.count;
+    // 三角の旗（上辺を上に、頂点を下に）
+    const flag=[{x:0,y:0},{x:W,y:0},{x:W/2,y:H}];
+    const flagPc=pieceFrom(flag,()=>false,sa);
+    const pitch=Math.round(p.top+2);
+    const total=N*pitch+40;                 // テープ全長のめやす(cm)：間隔×枚数＋両端の結びしろ
+    return {pieces:[
+      {title:"三角の旗", cutInfo:"連数ぶん（裏地を付けるなら各2枚。フェルトなら1枚でも）",
+       ...flagPc, foldX:null, grain:{x1:W/2,y1:H*0.15,x2:W/2,y2:H*0.8},
+       notches:[{x:W/2,y:0}], labelAt:{x:W/2,y:H*0.4}}
+    ],
+    memo:`旗を${N}枚。上辺をテープ（市販のバイアステープ・リボン）に約${pitch}cm間隔ではさんで縫います。両端に結びしろを足して、テープの全長は約${total}cmが目安です`};
+  }
+};
+
+/* ---- うさぎ耳カチューシャ（イースター・仮装） ---- */
+PATTERNS.bunnyears={
+  mode:"small",
+  name:"うさぎ耳カチューシャ",
+  note:"ぴんと長いうさぎの耳を、市販のカチューシャに付ける仮装小物。耳は表裏2枚を縫って返し、内側にピンクの布を重ねます。中に接着芯やワイヤーを入れると、耳が立ったり好きな角度に曲げられます。イースターやお遊戯会、ハロウィンに。",
+  params:[
+    {key:"earW", label:"耳の幅",   unit:"cm",min:5, max:12, step:0.5,val:7},
+    {key:"earH", label:"耳の高さ", unit:"cm",min:16,max:32, step:1,  val:24},
+    {key:"band", label:"カチューシャの長さ",unit:"cm",min:30,max:44,step:1,val:36},
+  ],
+  presets:[
+    {label:"子供",  vals:{earW:6, earH:20, band:34}},
+    {label:"大人",  vals:{earW:7, earH:26, band:38}},
+    {label:"ロング",vals:{earW:8, earH:32, band:38}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const EW=cm(p.earW), EH=cm(p.earH), BL=cm(p.band);
+    // 耳（外）：細長い木の葉形（下すぼまり・上まる）
+    let ear=[{x:EW/2,y:0}];                                              // つけ根（下）
+    ear=ear.concat(quad({x:EW/2,y:0},{x:EW,y:EH*0.45},{x:EW/2,y:EH},14));// 右辺を上へ
+    ear=ear.concat(quad({x:EW/2,y:EH},{x:0,y:EH*0.45},{x:EW/2,y:0},14)); // 左辺を下へ
+    const earPc=pieceFrom(ear,()=>false,sa);
+    // 耳（内・ピンク）：ひとまわり小さい葉形
+    const iw=EW*0.55, base=EH*0.12, ih=EH*0.8;
+    let inner=[{x:EW/2,y:base}];
+    inner=inner.concat(quad({x:EW/2,y:base},{x:EW/2+iw/2,y:base+ih*0.5},{x:EW/2,y:base+ih},10));
+    inner=inner.concat(quad({x:EW/2,y:base+ih},{x:EW/2-iw/2,y:base+ih*0.5},{x:EW/2,y:base},10));
+    const innerPc=pieceFrom(inner,()=>false,sa);
+    const BW=cm(3);
+    const wrap=pieceFrom([{x:0,y:0},{x:BL,y:0},{x:BL,y:BW*2},{x:0,y:BW*2}],()=>false,sa);
+    return {pieces:[
+      {title:"耳（外）", cutInfo:"4枚（1つの耳に表裏2枚／中に接着芯やワイヤー）",
+       ...earPc, foldX:null, grain:{x1:EW/2,y1:EH*0.2,x2:EW/2,y2:EH*0.85},
+       notches:[{x:EW/2,y:0}], labelAt:{x:EW/2,y:EH*0.55}},
+      {title:"耳（内・ピンク）", cutInfo:"2枚（各耳の表側に重ねて縫う）",
+       ...innerPc, foldX:null, grain:{x1:EW/2,y1:base+ih*0.2,x2:EW/2,y2:base+ih*0.8},
+       notches:[], labelAt:{x:EW/2,y:base+ih*0.5}},
+      {title:"カチューシャ包み布", cutInfo:"1本（二つ折りで市販のカチューシャに巻いて縫う）",
+       ...wrap, foldX:null, grain:{x1:cm(2),y1:BW,x2:BL-cm(2),y2:BW},
+       notches:[{x:BL*0.5-BL*0.14,y:0},{x:BL*0.5+BL*0.14,y:0}], labelAt:{x:BL/2,y:BW}}
+    ],
+    memo:`耳2つを、カチューシャの中央から左右${Math.round(p.band*0.14)}cmほどの位置に付けます`};
+  }
+};
+
+/* ---- かぼちゃバッグ（ハロウィン） ---- */
+PATTERNS.pumpkinbag={
+  mode:"bag",
+  name:"かぼちゃバッグ",
+  note:"まるいかぼちゃの形をした、ハロウィンのお菓子バッグ。本体を2枚縫い合わせ、持ち手とヘタ（緑）を付けるだけ。オレンジのフェルトやコットンで。黒いフェルトで目や口を貼れば、ジャック・オ・ランタンに。トリック・オア・トリートのお供に。",
+  params:[
+    {key:"dia",    label:"幅（いちばん広いところ）",unit:"cm",min:18,max:34,step:1,val:26},
+    {key:"h",      label:"高さ",           unit:"cm",min:15,max:30,step:1,val:22},
+    {key:"handle", label:"持ち手の長さ",   unit:"cm",min:18,max:40,step:1,val:28},
+    {key:"handlew",label:"持ち手の裁ち幅", unit:"cm",min:4, max:9, step:0.5,val:6},
+  ],
+  presets:[
+    {label:"子供（小）",vals:{dia:22,h:19,handle:24,handlew:5}},
+    {label:"標準",     vals:{dia:26,h:22,handle:28,handlew:6}},
+    {label:"大きめ",   vals:{dia:30,h:26,handle:32,handlew:7}},
+  ],
+  toggles:[],
+  gen(p,sa){
+    const W=cm(p.dia), H=cm(p.h), RX=W/2, RY=H/2;
+    // 本体：かぼちゃ形（わで半分／つぶれた楕円）。左端の直線を「わ」に。
+    const half=[{x:0,y:0}];                 // 上中心
+    const M=22;
+    for(let i=1;i<M;i++){const a=Math.PI*i/M; half.push({x:RX*Math.sin(a), y:RY-RY*Math.cos(a)});}
+    half.push({x:0,y:H});                    // 下中心
+    const bodyTest=(A,B)=>Math.abs(A.x)<0.01&&Math.abs(B.x)<0.01;
+    const bodyPc=pieceFrom(half,bodyTest,sa);
+    // 持ち手
+    const HL=cm(p.handle), HW=cm(p.handlew);
+    const handlePc=pieceFrom([{x:0,y:0},{x:HL,y:0},{x:HL,y:HW},{x:0,y:HW}],()=>false,sa);
+    // ヘタ（緑）：台形
+    const sw=cm(4), sh=cm(4);
+    const stem=pieceFrom([{x:sw*0.25,y:0},{x:sw*0.75,y:0},{x:sw,y:sh},{x:0,y:sh}],()=>false,sa);
+    return {pieces:[
+      {title:"本体", cutInfo:"わ で2枚（前後）／裏布も2枚。中表に脇を縫い、返し口から返す",
+       ...bodyPc, foldX:0, grain:{x1:RX*0.5,y1:H*0.2,x2:RX*0.5,y2:H*0.8},
+       notches:[{x:RX*0.62,y:H*0.5}], labelAt:{x:RX*0.42,y:H*0.5}},
+      {title:"持ち手", cutInfo:"2本（4つ折りにして縫う）／袋口の内側に付ける",
+       ...handlePc, foldX:null, grain:{x1:HL*0.2,y1:HW/2,x2:HL*0.8,y2:HW/2},
+       notches:[], labelAt:{x:HL*0.5,y:HW*0.5}},
+      {title:"ヘタ（緑）", cutInfo:"2枚（中表に縫って返す）／袋口の中央に挟む",
+       ...stem, foldX:null, grain:{x1:sw/2,y1:sh*0.2,x2:sw/2,y2:sh*0.8},
+       notches:[], labelAt:{x:sw/2,y:sh*0.55}}
+    ],
+    memo:`本体の幅 約${p.dia}cm・高さ 約${p.h}cm。黒フェルトで目・鼻・口を貼るとジャック・オ・ランタンに`};
+  }
+};
+
 /* ---- ヘアリボン ---- */
 PATTERNS.hairribbon={
   mode:"small",
