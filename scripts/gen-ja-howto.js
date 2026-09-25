@@ -29,13 +29,16 @@ const ld = o => '<script type="application/ld+json">\n'+JSON.stringify(o,null,2)
 const { materialLinks, toolLinks } = require("./material-links.js");
 
 /* 材料と道具で同じ形の枠を2つ出すので、組み立てはここにまとめます。 */
+/* ボタンは1品につき1つだけ。楽天とAmazonを1つおきに出して、点数を半分にしつつ
+   店も内容もバラけさせます（8個並ぶと威圧感があるため）。先頭は必ず楽天にして、
+   楽天のインプレッション計測（moshimo）が空振りしないようにします。 */
 function shopBox(head, links){
   return `    <div class="material-box">
       <p class="material-box-head">${head}</p>
       <div class="material-links">
-${links.map(l =>
-`        <a class="ml-btn ml-btn-rakuten" href="${l.href}" target="_blank" rel="nofollow" referrerpolicy="no-referrer-when-downgrade" attributionsrc>楽天 — ${esc(l.label)}</a>\n` +
-`        <a class="ml-btn ml-btn-amazon" href="${esc(l.amazonHref)}" target="_blank" rel="nofollow sponsored">Amazon — ${esc(l.label)}</a>`).join("\n")}
+${links.map((l, i) => (i % 2 === 0)
+? `        <a class="ml-btn ml-btn-rakuten" href="${l.href}" target="_blank" rel="nofollow" referrerpolicy="no-referrer-when-downgrade" attributionsrc>楽天 — ${esc(l.label)}</a>`
+: `        <a class="ml-btn ml-btn-amazon" href="${esc(l.amazonHref)}" target="_blank" rel="nofollow sponsored">Amazon — ${esc(l.label)}</a>`).join("\n")}
       </div>
       <img src="//i.moshimo.com/af/i/impression?a_id=5652284&p_id=54&pc_id=54&pl_id=616" width="1" height="1" style="border:none;" alt="" loading="lazy">
       <p class="material-pr">※ 本ページはアフィリエイト広告（楽天アフィリエイト・Amazonアソシエイト）を含みます。</p>

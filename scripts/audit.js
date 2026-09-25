@@ -649,20 +649,22 @@ for (const f of jaPages.filter(x => x.startsWith("howto-") && !redirects.has(x))
     add("affiliate", f, `買い物枠が ${boxes.length} 個（材料と道具の2個のはず）`);
 
   for (const box of boxes) {
-    const btns = [...box.body.matchAll(/<a class="ml-btn[^"]*" href="([^"]+)"[^>]*>楽天 — ([^<]+)<\/a>/g)];
+    /* ボタンは1品につき1つ（楽天とAmazonを1つおき）。楽天ぶんとAmazonぶんを
+       別々に拾い、合わせて「その枠のボタン数」を数えます。 */
+    const rk = [...box.body.matchAll(/<a class="ml-btn[^"]*" href="([^"]+)"[^>]*>楽天 — ([^<]+)<\/a>/g)];
     const am = [...box.body.matchAll(/<a class="ml-btn[^"]*" href="([^"]+)"[^>]*>Amazon — ([^<]+)<\/a>/g)];
+    const labels = [...rk, ...am].map(b => b[2]);
     const where = box.head;
 
     /* 材料は型紙によって1本しかないこともあります（布だけで作るもの）。
        穴埋めに道具を混ぜるのをやめたので、少ないこと自体は異常ではありません。
        道具はどのページも同じ4本なので、欠けていたら組み立てが壊れています。 */
-    if (!btns.length) add("affiliate", f, `${where}: リンクがありません`);
-    if (box === tool && btns.length !== 4)
-      add("affiliate", f, `${where}: リンクが ${btns.length} 本（4本のはず）`);
+    if (!labels.length) add("affiliate", f, `${where}: リンクがありません`);
+    if (box === tool && labels.length !== 4)
+      add("affiliate", f, `${where}: リンクが ${labels.length} 本（4本のはず）`);
 
     /* 材料は「キルト芯」と「キルト芯・厚手コットン生地」が並ぶと選択肢が増えないので
        部分一致で見ます。道具は「ミシン」と「ミシン糸」が別物なので完全一致だけ見ます。 */
-    const labels = btns.map(b => b[2]);
     const dup = box === tool
       ? (a, b) => a === b
       : (a, b) => a.includes(b) || b.includes(a);
@@ -671,16 +673,12 @@ for (const f of jaPages.filter(x => x.startsWith("howto-") && !redirects.has(x))
         if (dup(labels[i], labels[j]))
           add("affiliate", f, `${where}: ラベルが重複: ${labels[i]} / ${labels[j]}`);
 
-    for (const b of btns) {
+    for (const b of rk) {
       if (!b[1].startsWith("//af.moshimo.com/af/c/click?a_id="))
         add("affiliate", f, `${where}: リンク形式がおかしい: ` + b[1].slice(0, 60));
       if (!/url=https%3A%2F%2Fsearch\.rakuten\.co\.jp/.test(b[1]))
         add("affiliate", f, `${where}: 楽天の検索URLが二重エンコードされていません: ` + b[2]);
     }
-    /* 楽天とAmazonは1つにつき1本ずつ。片方だけ増減すると対になりません。
-       タグが抜けたリンクは踏まれても報酬にならないので、1本ずつ確かめます。 */
-    if (am.length !== btns.length)
-      add("affiliate", f, `${where}: 楽天 ${btns.length} 本に対して Amazon ${am.length} 本（対になっていません）`);
     for (const b of am) {
       if (!b[1].startsWith("https://www.amazon.co.jp/s?k="))
         add("affiliate", f, `${where}: Amazonのリンク形式がおかしい: ` + b[1].slice(0, 60));
@@ -692,7 +690,7 @@ for (const f of jaPages.filter(x => x.startsWith("howto-") && !redirects.has(x))
   }
 
   /* 材料の枠に道具が出ていたら、見出しと中身が食い違っています。 */
-  if (mat && /楽天 — (ミシン|ミシン糸|裁ちばさみ|チャコペン)/.test(mat.body))
+  if (mat && /(?:楽天|Amazon) — (ミシン|ミシン糸|裁ちばさみ|チャコペン)/.test(mat.body))
     add("affiliate", f, "材料の枠に道具が混ざっています");
 
   if (!/<script src="affiliate\.js"><\/script>/.test(h))
@@ -769,8 +767,11 @@ for (const f of enPages.filter(x => x.startsWith("en/howto-") && !redirects.has(
       const f = `howto-${key}.html`;
       if (!isFile(f)) continue;
       const h = read(f);
+      // 買い物枠は1品につき1ボタン（楽天=二重エンコード / Amazon=一重エンコード）。
+      // どちらかの形でガイドに出ていれば、ツール側と食い違っていない。
       for (const [, kw] of items)
-        if (!h.includes(encodeURIComponent(encodeURIComponent(kw)))) { stale.push(`${key}「${kw}」`); break; }
+        if (!h.includes(encodeURIComponent(encodeURIComponent(kw))) &&
+            !h.includes(encodeURIComponent(kw))) { stale.push(`${key}「${kw}」`); break; }
     }
     if (stale.length)
       add("affiliate", "tool-materials.js",
