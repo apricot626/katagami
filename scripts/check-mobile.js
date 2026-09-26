@@ -42,6 +42,8 @@ const PAGES = [
   "index.html", "howto.html", "yougoshu.html", "season.html",
   "tool.html?p=tee", "tool.html?p=coverall", "tool.html?p=picnicmat",
   "howto-tee.html", "howto-coverall.html",
+  // 工程の図解ページ。丸ボタンの列が横に並ぶので、320px で溢れやすい
+  "howto-poncho.html", "step-poncho-shoulder.html", "en/step-poncho-shoulder.html",
   // 表があるページ。表は横幅が縮まないので、スマホで真っ先にはみ出します。
   // 実際 .g-table の2列目は nowrap 指定で、320px で212pxはみ出していました。
   "howto-bandana.html",

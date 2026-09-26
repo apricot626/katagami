@@ -881,6 +881,25 @@ for (const f of enPages.filter(x => x.startsWith("en/howto-") && !redirects.has(
 }
 
 /* =========================================================
+   11b. 工程の図解ページ
+   gen-ja-howto.js でガイドを作り直すと、枠に差し込んだ「図解で見る」が
+   消えます。図解ページだけ残ってガイドから辿れなくなるので見張ります。
+   ========================================================= */
+{
+  const FLOWS = require("./step-flow-data.js");
+  for (const [key, flows] of Object.entries(FLOWS))
+    for (const f of flows)
+      for (const lang of ["ja", "en"]) {
+        const page = (lang === "en" ? "en/" : "") + `step-${key}-${f.slug}.html`;
+        if (!isFile(page)) { add("link", page, "図解ページがありません（gen-step-flows.js を流してください）"); continue; }
+        const guide = (lang === "en" ? "en/" : "") + `howto-${key}.html`;
+        if (f.match && f.match[lang] && isFile(guide) &&
+            !read(guide).includes(`<a class="flow-link" href="step-${key}-${f.slug}.html">`))
+          add("link", guide, `枠から ${page} へのリンクが消えています（gen-step-flows.js を流してください）`);
+      }
+}
+
+/* =========================================================
    12. アクセス解析
    計測タグはページごとに手で貼っているので、新しく足したページで
    抜けても誰も気づけません。実際 404・運営者情報・プライバシー

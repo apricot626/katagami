@@ -198,3 +198,90 @@ a:hover{text-decoration:underline}
   .article{padding:24px 16px 60px}
   h1{font-size:21px}
 }
+
+/* ---- 図解ページへのリンク（ガイドの枠ごと押せる） ---- */
+.steps li.has-flow{padding-right:40px;transition:border-color .15s,background .15s}
+.steps li.has-flow::after{
+  content:"›";position:absolute;right:14px;top:50%;transform:translateY(-50%);
+  font-size:22px;line-height:1;color:var(--chalk);font-weight:700;
+}
+.steps li.has-flow:hover{border-color:var(--chalk);background:#fff}
+.flow-link{
+  display:table;margin-top:6px;padding:3px 10px;border-radius:99px;
+  font-size:11.5px;font-weight:700;line-height:1.6;text-decoration:none;
+  color:var(--chalk);background:rgba(46,99,180,.1);
+}
+/* 枠全体を押せるようにする。用語集リンクは上に出して、そちらも押せるままにする */
+.flow-link::before{content:"";position:absolute;inset:0}
+.steps li.has-flow .term-link{position:relative;z-index:1}
+
+/* ---- 工程の図解ページ（step-*.html） ---- */
+.flow-head{margin-bottom:22px}
+.flow-head h1{margin-bottom:12px}
+.flow-source{
+  font-size:13px;line-height:1.8;color:var(--muted);margin:0;
+  padding:10px 14px;background:var(--paper2);border-left:3px solid var(--rule);
+}
+.flow-source span{display:block;font-size:11px;font-weight:700;letter-spacing:.1em}
+.flow-nav{
+  position:sticky;top:var(--flow-top,58px);z-index:5;
+  background:var(--paper);padding:10px 0 12px;margin:0 0 6px;
+}
+.flow-nav ol{
+  list-style:none;margin:0;padding:0;display:flex;justify-content:space-between;
+  position:relative;
+}
+/* 丸ボタンをつなぐ線 */
+.flow-nav ol::before{
+  content:"";position:absolute;left:22px;right:22px;top:50%;height:2px;
+  background:var(--rule);transform:translateY(-50%);
+}
+.flow-nav li{margin:0;position:relative}
+.flow-dot{
+  display:flex;align-items:center;justify-content:center;
+  width:44px;height:44px;border-radius:50%;
+  font-size:17px;font-weight:800;text-decoration:none;
+  color:var(--chalk);background:var(--paper2);border:2px solid var(--chalk);
+}
+.flow-dot:hover{background:#fff;text-decoration:none}
+.flow-dot.is-done{background:#DCE5F3}
+.flow-dot[aria-current="step"]{background:var(--chalk);color:#fff}
+.flow-step{margin:0 0 30px}
+.flow-step h2{display:flex;align-items:flex-start;gap:10px;font-size:17px;line-height:1.5}
+.flow-no{
+  flex:none;width:28px;height:28px;border-radius:50%;margin-top:-1px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--chalk);color:#fff;font-size:14px;
+}
+.flow-step p{font-size:14.5px}
+.flow-fig{margin:4px 0 16px}
+.flow-fig svg{max-width:560px;padding:4px}
+.flow.is-js .flow-step{margin-bottom:0;min-height:0}
+.flow-pager{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  margin:18px 0 0;padding-top:14px;border-top:1px solid var(--rule);
+}
+.flow-pager button{
+  font:inherit;font-size:14px;font-weight:700;cursor:pointer;
+  min-width:96px;padding:10px 16px;border-radius:2px;
+  border:1.5px solid var(--chalk);background:var(--paper2);color:var(--chalk);
+}
+.flow-pager .flow-next{background:var(--chalk);color:#fff}
+.flow-pager button:disabled{opacity:.35;cursor:default}
+.flow-count{font-size:13px;color:var(--muted);font-weight:700}
+.flow-foot{margin:34px 0 0;display:flex;flex-direction:column;gap:10px}
+.flow-nextlink{
+  display:block;padding:12px 16px;background:var(--paper2);
+  border:1.5px solid var(--chalk);border-radius:2px;
+  text-decoration:none;color:var(--ink);font-weight:700;font-size:14px;
+}
+.flow-nextlink span{display:block;font-size:11px;color:var(--muted);letter-spacing:.1em}
+.flow-back{font-size:13.5px}
+@media print{
+  .flow-nav,.flow-pager{display:none}
+  .flow-step[hidden]{display:block}
+}
+@media (max-width:600px){
+  .flow-dot{width:40px;height:40px;font-size:16px}
+  .flow-step h2{font-size:16px}
+}

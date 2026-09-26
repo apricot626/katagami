@@ -18,6 +18,7 @@ node scripts/gen-ja-howto.js        # 和文ガイドを生成（データにあ
 node scripts/gen-en-howto.js        # 英文ガイドを生成
 node scripts/inject-howto-figs.js   # 各ガイドに図解SVGを挿入
 node scripts/inject-howto-heroes.js # 冒頭の完成イメージ図を挿入（和文・英文）
+node scripts/gen-step-flows.js      # 工程の図解ページ（step-*.html）と、ガイドの枠からのリンク
 node scripts/enrich-material-links.js  # 材料・道具の買い物枠を組み直す
 node scripts/gen-tool-materials.js  # ツールの印刷後の買い物枠（ガイドから拾う）
 node scripts/sync-en-pages.js       # en/howto.html のカード・sitemap・HOWTO_EN
