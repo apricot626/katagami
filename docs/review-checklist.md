@@ -18,7 +18,7 @@ node scripts/gen-ja-howto.js        # 和文ガイドを生成（データにあ
 node scripts/gen-en-howto.js        # 英文ガイドを生成
 node scripts/inject-howto-figs.js   # 各ガイドに図解SVGを挿入
 node scripts/inject-howto-heroes.js # 冒頭の完成イメージ図を挿入（和文・英文）
-node scripts/gen-step-flows.js      # 工程の図解ページ（step-*.html）と、ガイドの枠からのリンク
+node scripts/gen-step-flows.js      # 工程の図解ページ（step-*.html）と、ガイドの枠からのリンク（docs/step-flow-runbook.md）
 node scripts/enrich-material-links.js  # 材料・道具の買い物枠を組み直す
 node scripts/gen-tool-materials.js  # ツールの印刷後の買い物枠（ガイドから拾う）
 node scripts/sync-en-pages.js       # en/howto.html のカード・sitemap・HOWTO_EN
@@ -31,6 +31,7 @@ node scripts/check-mobile.js        # スマホ幅（サーバー必要）
 node scripts/check-print.js         # 実寸印刷（サーバー必要）
 node scripts/check-a11y.js          # 読み上げ・コントラスト（サーバー必要）
 node scripts/check-ga.js            # 計測イベント（サーバー必要）
+node scripts/check-step-figs.js     # 図解の文字のはみ出し・重なり（サーバー必要）
 ```
 
 一覧ページは**手で足さない**でください。`sync-*.js` がデータと実ファイルから毎回作り直します。
