@@ -64,12 +64,37 @@ const stitch = (x1, y1, x2, y2, done = false) =>
 const backtack = (x, y) =>
   pathEl(`M${x - 5},${y - 3} L${x + 5},${y - 3} M${x - 5},${y + 3} L${x + 5},${y + 3}`, { stroke: RED, w: 1.6 });
 
-/* 表・裏の凡例 */
-const legend = (x, y, l) =>
-  `        <rect x="${x}" y="${y - 9}" width="14" height="10" fill="${OMOTE}" stroke="${INK}" stroke-width="1"/>\n` +
-  txt(x + 18, y, T("表", "right side", l), { a: "start", size: 10, c: MUTED }) + "\n" +
-  `        <rect x="${x + (l === "ja" ? 40 : 84)}" y="${y - 9}" width="14" height="10" fill="${URA}" stroke="${INK}" stroke-width="1"/>\n` +
-  txt(x + (l === "ja" ? 58 : 102), y, T("裏", "wrong side", l), { a: "start", size: 10, c: MUTED });
+/* 縫い代：布端から縫う線までの帯を、薄い赤で塗る */
+const SA_FILL = "rgba(194,64,51,.2)";
+const saBand = (x, y, w, h) => `        <rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${SA_FILL}"/>`;
+
+/* かがり縫い（ジグザグミシン・手縫いのかがり）：布端に沿った青いギザギザ */
+function zigzag(x1, x2, y, amp = 4, step = 6) {
+  const pts = [];
+  for (let x = x1, up = true; x <= x2; x += step, up = !up) pts.push(`${x},${up ? y - amp : y + amp}`);
+  return pathEl("M" + pts.join(" L"), { stroke: BLUE, w: 1.8 });
+}
+
+/* 凡例。items を左から並べる（右端は 360 を越えないこと）
+   omote=表 / ura=裏 / sa=縫い代 / stitch=縫う線 / zig=かがる */
+function key(l, items, y = 232, x = 12) {
+  const cw = l === "ja" ? 10 : 5.4;
+  const LBL = {
+    omote: T("表", "right side", l), ura: T("裏", "wrong side", l),
+    sa: T("縫い代", "seam allowance", l), stitch: T("縫う線", "stitch line", l), zig: T("かがる", "overcast", l),
+  };
+  const out = [];
+  for (const k of items) {
+    if (k === "omote" || k === "ura")
+      out.push(`        <rect x="${x}" y="${y - 9}" width="14" height="10" fill="${k === "omote" ? OMOTE : URA}" stroke="${INK}" stroke-width="1"/>`);
+    else if (k === "sa") out.push(saBand(x, y - 9, 14, 10));
+    else if (k === "stitch") out.push(line(x, y - 4, x + 14, y - 4, RED, 2.4, "5 3"));
+    else if (k === "zig") out.push(zigzag(x, x + 14, y - 4, 3, 3.5));
+    out.push(txt(x + 18, y, LBL[k], { a: "start", size: 10, c: MUTED }));
+    x += 18 + LBL[k].length * cw + 12;
+  }
+  return out.join("\n");
+}
 
 /* ポンチョの身頃（長方形の上辺の中央に衿ぐり）。
    down=true のときは上下を返して、衿ぐりが下辺に来る。
@@ -88,14 +113,18 @@ const piece = (d, fill) => pathEl(d, { fill, stroke: INK, w: 2 });
 /* ---------- 肩を縫う：重ねた2枚（上が前身頃の裏、下に後身頃の表） ---------- */
 const SX = 60, SY = 62, SW = 240, SH = 140, SNW = 27, SFD = 22, SBD = 6;
 const SCX = SX + SW / 2, SL = SCX - SNW, SR = SCX + SNW;   // 左肩の終わり・右肩の始まり
+const SY_SA = 11;   // 縫い代の幅（見やすいように実寸より太く描く）
+const SLINE = SY + SY_SA;   // 縫う線
 function stacked(l, extra) {
   return [
     piece(ponchoPiece(SX, SY, SW, SH, SNW, SBD), OMOTE),
     piece(ponchoPiece(SX, SY, SW, SH, SNW, SFD), URA),
     txt(SCX, SY + 80, T("前身頃（裏）", "front (wrong side up)", l), { size: 12, bold: true }),
     txt(SCX, SY + 98, T("下に後身頃（表）が重なっている", "back underneath, right side up", l), { size: 10, c: MUTED }),
+    // 肩の縫い代（布端から縫う線まで）
+    saBand(SX + 1, SY + 1, SL - SX - 1, SY_SA - 1), saBand(SR, SY + 1, SX + SW - SR - 1, SY_SA - 1),
     extra,
-    legend(l === "ja" ? 250 : 206, 232, l),
+    key(l, ["omote", "ura", "sa", "stitch"]),
   ].join("\n");
 }
 const shoulderLabels = l => [
@@ -116,6 +145,85 @@ const iron = (x, y) =>
    ============================================================ */
 module.exports = {
   poncho: [
+    /* ---------------- 3 ③ 端の処理（布端をかがる） ---------------- */
+    {
+      slug: "edge", sec: "3", n: 3, anchor: "cut",
+      match: { ja: "<strong>端の処理</strong><br>フリースはほつれないので省略できます。それ以外は縫い代の端を処理しておきます。" },
+      title: { ja: "布端をかがる（端の処理）", en: "Finish the raw edges" },
+      steps: [
+        {
+          h: { ja: "かがる場所を確かめる", en: "See which edges to finish" },
+          text: {
+            ja: "前身頃・後身頃とも、肩の布端をかがります。肩はあとで縫い代を割るので、縫う前に1枚ずつかがっておきます。衿ぐりはバイアステープでくるみ、裾と脇は三つ折りにするので、ここではかがらなくて大丈夫です。",
+            en: "Finish the shoulder edges of both the front and the back. The shoulder seams are pressed open later, so each edge is finished separately, before sewing. The neckline is bound and the outer edges are hemmed, so they need nothing now.",
+          },
+          note: {
+            ja: "フリースはほつれないので、この工程は省略できます。",
+            en: "Fleece does not fray — you can skip this step.",
+          },
+          svg: l => svg(T("かがる場所", "the edges to finish", l), [
+            piece(ponchoPiece(20, 70, 140, 96, 16, 4), URA),
+            piece(ponchoPiece(200, 70, 140, 96, 16, 13), URA),
+            saBand(21, 71, 53, 8), saBand(106, 71, 53, 8), saBand(201, 71, 53, 8), saBand(286, 71, 53, 8),
+            zigzag(22, 72, 70, 3.5, 5), zigzag(108, 158, 70, 3.5, 5),
+            zigzag(202, 252, 70, 3.5, 5), zigzag(288, 338, 70, 3.5, 5),
+            txt(90, 124, T("後ろ", "back", l), { size: 13, bold: true }),
+            txt(270, 124, T("前", "front", l), { size: 13, bold: true }),
+            txt(90, 50, T("肩の布端", "shoulder edges", l), { c: BLUE, bold: true }),
+            txt(270, 50, T("肩の布端", "shoulder edges", l), { c: BLUE, bold: true }),
+            txt(180, 190, T("衿ぐり・裾・脇はかがらない", "not the neck, hem or sides", l), { size: 10, c: MUTED }),
+            key(l, ["ura", "sa", "zig"]),
+          ].join("\n")),
+        },
+        {
+          h: { ja: "ジグザグミシンで布端をかがる", en: "Zigzag over the edge" },
+          text: {
+            ja: "ミシンをジグザグ縫いに切り替え、布の裏を上にして、肩の布端に沿って縫います。針が右に振れたときに、布端のすぐ外側に落ちるくらいの位置がちょうどよく、糸が布端を包んでほつれを止めます。",
+            en: "Switch the machine to zigzag and sew along each shoulder edge, wrong side up. Place it so the right-hand swing of the needle drops just off the edge — the thread then wraps the edge and stops it fraying.",
+          },
+          note: {
+            ja: "かがるのは布端だけ。赤い点線（あとで縫う線）より外側の、縫い代の中に収まります。",
+            en: "The zigzag stays inside the seam allowance, outside the red line you will sew later.",
+          },
+          svg: l => svg(T("ジグザグミシンでかがる", "zigzagging the edge", l), [
+            `        <rect x="30" y="70" width="300" height="120" fill="${URA}" stroke="${INK}" stroke-width="2"/>`,
+            saBand(31, 71, 298, 40),
+            zigzag(40, 320, 80, 8, 12),
+            line(30, 110, 330, 110, RED, 2, "6 4"),
+            pathEl(`M338,70 L344,70 L344,110 L338,110`, { stroke: RED, w: 1.4 }),
+            txt(40, 132, T("あとで縫う線", "stitch line (later)", l), { a: "start", size: 10, c: RED, bold: true }),
+            txt(180, 58, T("布端", "raw edge", l), { size: 10, c: MUTED }),
+            arrow(270, 40, 290, 70, BLUE, 6),
+            txt(262, 36, T("針の右振りは布端のすぐ外", "right swing just off the edge", l), { a: "end", size: 10, c: BLUE, bold: true }),
+            txt(180, 164, T("肩の布端（裏から見たところ）", "shoulder edge, wrong side up", l), { size: 10, c: MUTED }),
+            key(l, ["sa", "stitch", "zig"]),
+          ].join("\n")),
+        },
+        {
+          h: { ja: "手縫いなら、かがり縫いで", en: "By hand: an overcast stitch" },
+          text: {
+            ja: "ミシンがなければ手縫いのかがり縫いで。布端から3〜5mm内側に針を出し、糸を布端に巻きつけるようにして、5mmほどの間隔で進みます。糸は引きすぎず、布端が縮まない程度に。",
+            en: "No machine? Overcast by hand: bring the needle up 3–5 mm in from the edge, take the thread over the edge and come up again about 5 mm along. Keep the tension easy so the edge does not pucker.",
+          },
+          svg: l => svg(T("手縫いのかがり縫い", "hand overcasting", l), [
+            `        <rect x="30" y="70" width="300" height="120" fill="${URA}" stroke="${INK}" stroke-width="2"/>`,
+            saBand(31, 71, 298, 40),
+            ...Array.from({ length: 11 }, (_, i) => {
+              const x = 54 + i * 22;
+              return pathEl(`M${x},86 L${x + 12},64 Q${x + 16},58 ${x + 14},70`, { stroke: BLUE, w: 1.8 });
+            }),
+            line(30, 110, 330, 110, RED, 2, "6 4"),
+            txt(40, 132, T("あとで縫う線", "stitch line (later)", l), { a: "start", size: 10, c: RED, bold: true }),
+            txt(300, 150, T("3〜5mm内側に針を出す", "needle up 3–5 mm in", l), { a: "end", size: 10, c: BLUE, bold: true }),
+            arrow(292, 142, 296, 90, BLUE, 6),
+            txt(180, 44, T("糸を布端に巻きつける", "thread wraps over the edge", l), { size: 10, c: BLUE, bold: true }),
+            txt(180, 178, T("裏から見たところ", "wrong side up", l), { size: 10, c: MUTED }),
+            key(l, ["sa", "stitch", "zig"]),
+          ].join("\n")),
+        },
+      ],
+    },
+
     /* ---------------- 4-1 ① 肩を縫う ---------------- */
     {
       slug: "shoulder", sec: "4-1", n: 1,
@@ -138,7 +246,7 @@ module.exports = {
             txt(270, 98, T("衿ぐりが深い", "deeper neck", l), { size: 10, c: BLUE }),
             arrow(262, 60, 104, 60, BLUE, 34),
             txt(183, 22, T("重ねる", "lay on top", l), { c: BLUE, bold: true }),
-            legend(l === "ja" ? 250 : 206, 232, l),
+            key(l, ["omote", "ura"]),
           ].join("\n")),
         },
         {
@@ -152,9 +260,10 @@ module.exports = {
             en: "Do not pin across the neck opening in the middle — it stays open.",
           },
           svg: l => svg(T("肩をまち針でとめる", "pinning the shoulders", l), stacked(l, [
-            `        <rect x="${SX}" y="${SY - 5}" width="${SL - SX}" height="12" fill="${TAPE}" opacity=".35"/>`,
-            `        <rect x="${SR}" y="${SY - 5}" width="${SX + SW - SR}" height="12" fill="${TAPE}" opacity=".35"/>`,
-            pin(84, SY), pin(126, SY), pin(234, SY), pin(276, SY),
+            line(SX + 2, SLINE, SL - 2, SLINE, RED, 1.2, "3 3"), line(SR + 2, SLINE, SX + SW - 2, SLINE, RED, 1.2, "3 3"),
+            pin(84, SY + 4), pin(126, SY + 4), pin(234, SY + 4), pin(276, SY + 4),
+            arrow(112, SY + 40, 106, SY + 14, RED, 6),
+            txt(112, SY + 54, T("縫い代（1cm）", "allowance (1 cm)", l), { size: 10, c: RED, bold: true }),
             shoulderLabels(l),
             txt(SCX, SY - 26, T("衿ぐり", "neck", l), { size: 10, c: MUTED }),
           ].join("\n"))),
@@ -170,13 +279,13 @@ module.exports = {
             en: "Stop at the corner of the neck opening — the middle stays open.",
           },
           svg: l => svg(T("左の肩を縫う", "sewing the left shoulder", l), stacked(l, [
-            stitch(SX + 2, SY + 6, SL - 2, SY + 6),
-            arrow(SX + 30, SY + 18, SL - 22, SY + 18, RED),
-            backtack(SX + 8, SY + 6), backtack(SL - 8, SY + 6),
-            pin(234, SY), pin(276, SY),
+            stitch(SX + 2, SLINE, SL - 2, SLINE),
+            arrow(SX + 30, SLINE + 12, SL - 22, SLINE + 12, RED),
+            backtack(SX + 8, SLINE), backtack(SL - 8, SLINE),
+            pin(234, SY + 4), pin(276, SY + 4),
             shoulderLabels(l),
-            txt(SX + 4, SY + 34, T("端から", "from edge", l), { a: "start", size: 10, c: RED }),
-            txt(SL, SY + 34, T("角で止める", "stop", l), { size: 10, c: RED }),
+            txt(SX + 4, SLINE + 28, T("端から", "from edge", l), { a: "start", size: 10, c: RED }),
+            txt(SL, SLINE + 28, T("角で止める", "stop", l), { size: 10, c: RED }),
             pathEl(`M${SL + 4},${SY + 4} Q${SCX},${SY + 30} ${SR - 4},${SY + 4}`, { stroke: MUTED, w: 1.2, dash: "3 3" }),
             txt(SCX, SY - 10, T("縫わない", "leave open", l), { size: 10, c: MUTED, bold: true }),
           ].join("\n"))),
@@ -192,14 +301,14 @@ module.exports = {
             en: "Sewing both sides from the outside in keeps the two neck corners level.",
           },
           svg: l => svg(T("右の肩を縫う", "sewing the right shoulder", l), stacked(l, [
-            stitch(SX + 2, SY + 6, SL - 2, SY + 6, true),
-            stitch(SX + SW - 2, SY + 6, SR + 2, SY + 6),
-            arrow(SX + SW - 30, SY + 18, SR + 22, SY + 18, RED),
-            backtack(SX + SW - 8, SY + 6), backtack(SR + 8, SY + 6),
+            stitch(SX + 2, SLINE, SL - 2, SLINE, true),
+            stitch(SX + SW - 2, SLINE, SR + 2, SLINE),
+            arrow(SX + SW - 30, SLINE + 12, SR + 22, SLINE + 12, RED),
+            backtack(SX + SW - 8, SLINE), backtack(SR + 8, SLINE),
             shoulderLabels(l),
-            txt(SX + SW - 4, SY + 34, T("端から", "from edge", l), { a: "end", size: 10, c: RED }),
-            txt(SR, SY + 34, T("角で止める", "stop", l), { size: 10, c: RED }),
-            txt((SX + SL) / 2, SY + 34, T("縫えた", "done", l), { size: 10, c: MUTED }),
+            txt(SX + SW - 4, SLINE + 28, T("端から", "from edge", l), { a: "end", size: 10, c: RED }),
+            txt(SR, SLINE + 28, T("角で止める", "stop", l), { size: 10, c: RED }),
+            txt((SX + SL) / 2, SLINE + 28, T("縫えた", "done", l), { size: 10, c: MUTED }),
             txt(SCX, SY - 10, T("縫わない", "leave open", l), { size: 10, c: MUTED, bold: true }),
           ].join("\n"))),
         },
@@ -238,6 +347,7 @@ module.exports = {
             en: "Open the pieces out and lay them wrong side up on the ironing board. At the seam, the two seam allowances stand up together.",
           },
           svg: l => svg(T("縫い代が立っている断面", "cross-section: seam allowances standing up", l), [
+            saBand(172, 96, 16, 48),
             layer(`M40,150 L176,150 L176,96`), layer(`M320,150 L184,150 L184,96`),
             line(176, 146, 184, 146, RED, 2.4),
             txt(180, 84, T("縫い代（2枚）", "seam allowances", l), { bold: true }),
@@ -245,7 +355,8 @@ module.exports = {
             txt(228, 134, T("縫い目", "seam", l), { a: "start", size: 10, c: RED }),
             txt(100, 176, T("前身頃（裏）", "front (wrong side)", l), { c: MUTED }),
             txt(262, 176, T("後身頃（裏）", "back (wrong side)", l), { c: MUTED }),
-            txt(180, 222, T("肩の縫い目を横から見たところ", "shoulder seam, side view", l), { size: 10, c: MUTED }),
+            txt(180, 206, T("肩の縫い目を横から見たところ", "shoulder seam, side view", l), { size: 10, c: MUTED }),
+            key(l, ["sa", "stitch"]),
           ].join("\n")),
         },
         {
@@ -255,6 +366,7 @@ module.exports = {
             en: "Split the two allowances with your fingers and fold one to each side, so the seam sits in the middle. This is called pressing the seam open.",
           },
           svg: l => svg(T("縫い代を左右に開く", "folding the allowances apart", l), [
+            saBand(132, 138, 96, 10),
             layer(`M40,150 L176,150`), layer(`M320,150 L184,150`),
             layer(`M176,150 L176,144 L132,144`), layer(`M184,150 L184,144 L228,144`),
             pathEl(`M176,146 L176,96`, { stroke: MUTED, w: 1.4, dash: "4 3" }),
@@ -264,6 +376,7 @@ module.exports = {
             txt(180, 76, T("左右に分けて倒す", "fold one each way", l), { c: BLUE, bold: true }),
             txt(100, 176, T("前身頃（裏）", "front (wrong side)", l), { c: MUTED }),
             txt(262, 176, T("後身頃（裏）", "back (wrong side)", l), { c: MUTED }),
+            key(l, ["sa", "stitch"]),
           ].join("\n")),
         },
         {
@@ -277,6 +390,7 @@ module.exports = {
             en: "Fleece and wool are heat-sensitive: use a low setting and a press cloth.",
           },
           svg: l => svg(T("アイロンで押さえる", "pressing with an iron", l), [
+            saBand(132, 148, 96, 10),
             layer(`M40,160 L176,160`), layer(`M320,160 L184,160`),
             layer(`M176,160 L176,154 L132,154`), layer(`M184,160 L184,154 L228,154`),
             line(176, 160, 184, 160, RED, 2.4),
@@ -284,6 +398,7 @@ module.exports = {
             arrow(180, 126, 180, 146, BLUE),
             txt(180, 56, T("すべらせずに、置いて押さえる", "press — don't slide", l), { c: BLUE, bold: true }),
             txt(180, 190, T("縫い目が真ん中、縫い代は平らに", "seam centered, allowances flat", l), { size: 10, c: MUTED }),
+            key(l, ["sa", "stitch"]),
           ].join("\n")),
         },
       ],
@@ -347,12 +462,16 @@ module.exports = {
             layer(`M40,140 L270,140`, INK),
             `        <rect x="40" y="141" width="230" height="5" fill="${OMOTE}"/>`,
             pathEl(`M270,132 L140,132 L140,124 L170,124`, { stroke: TAPE, w: 4 }),
+            saBand(248, 118, 22, 30),
             line(248, 104, 248, 164, RED, 2.6, "6 4"),
+            pathEl(`M248,172 L248,178 L270,178 L270,172`, { stroke: RED, w: 1.4 }),
+            txt(259, 192, T("縫い代", "allowance", l), { size: 10, c: RED, bold: true }),
             txt(248, 94, T("折り目の上を縫う", "stitch on the crease", l), { c: RED, bold: true }),
             txt(150, 110, T("テープ", "tape", l), { size: 10, c: "#9A6A16", bold: true }),
             txt(120, 166, T("身頃（表を上）", "body, right side up", l), { size: 10, c: MUTED }),
             txt(282, 146, T("布端", "edge", l), { a: "start", size: 10, c: MUTED }),
-            txt(180, 212, T("布端とテープの端をそろえる", "tape edge level with the raw edge", l), { size: 10, c: MUTED }),
+            txt(120, 212, T("布端とテープの端をそろえる", "tape edge level with the raw edge", l), { size: 10, c: MUTED }),
+            key(l, ["sa", "stitch"]),
           ].join("\n")),
         },
         {
@@ -437,13 +556,15 @@ module.exports = {
             en: "With the wrong side up, fold the raw edge over 1 cm toward you and press. Do the whole way round with this first fold.",
           },
           svg: l => svg(T("1回目の折り", "first fold", l), [
+            saBand(222, 122, 40, 22),
             layer(`M40,140 L260,140 L260,126 L222,126`),
             arrow(250, 90, 238, 118, BLUE, 8),
             pathEl(`M222,158 L222,166 L260,166 L260,158`, { stroke: RED, w: 1.6 }),
             txt(241, 184, T("1cm", "1 cm", l), { c: RED, bold: true }),
             txt(120, 124, T("裏", "wrong side", l), { size: 10, c: MUTED }),
             txt(120, 164, T("表", "right side", l), { size: 10, c: MUTED }),
-            txt(180, 220, T("布端を横から見たところ", "edge, side view", l), { size: 10, c: MUTED }),
+            txt(180, 212, T("布端を横から見たところ", "edge, side view", l), { size: 10, c: MUTED }),
+            key(l, ["sa"]),
           ].join("\n")),
         },
         {
@@ -453,6 +574,7 @@ module.exports = {
             en: "Fold it over once more, by the rest of the seam allowance, so the raw edge is tucked inside. Pin it in place.",
           },
           svg: l => svg(T("2回目の折り（三つ折り）", "second fold (double-fold hem)", l), [
+            saBand(196, 118, 66, 36),
             layer(`M40,150 L260,150 L260,136 L196,136 L196,122 L240,122`),
             arrow(270, 96, 246, 118, BLUE, 8),
             pin(222, 136, 40),
@@ -485,12 +607,14 @@ module.exports = {
             en: "From the wrong side, stitch 1–2 mm from the inner fold all the way round. At each corner, leave the needle down, lift the presser foot, turn the fabric 90° and carry on.",
           },
           svg: l => svg(T("三つ折りの際を縫う", "stitching the double-fold hem", l), [
+            saBand(196, 118, 66, 36),
             layer(`M40,150 L260,150 L260,136 L196,136 L196,122 L240,122`),
             line(206, 104, 206, 166, RED, 2.6, "6 4"),
             txt(206, 94, T("折り山の際を縫う", "stitch by the fold", l), { c: RED, bold: true }),
             txt(120, 134, T("裏", "wrong side", l), { size: 10, c: MUTED }),
             txt(120, 174, T("表", "right side", l), { size: 10, c: MUTED }),
-            txt(180, 212, T("これで完成！", "and it's finished", l), { size: 12, c: BLUE, bold: true }),
+            txt(180, 206, T("これで完成！", "and it's finished", l), { size: 12, c: BLUE, bold: true }),
+            key(l, ["sa", "stitch"]),
           ].join("\n")),
         },
       ],

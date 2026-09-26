@@ -81,11 +81,14 @@ function render(key, flows, i, lang) {
   const url = `${SITE}/${lang === "en" ? "en/" : ""}${file}`;
   const jaUrl = `${SITE}/${file}`, enUrl = `${SITE}/en/${file}`;
   const guideFile = `howto-${key}.html`;
+  const anchor = f.anchor || "sew";
   const title = t.pageTitle(f.title[lang], gTitle);
   const heads = f.steps.map(s => s.h[lang]);
   const desc = t.desc(gTitle, f.title[lang], heads);
   const og = `${SITE}/ogp/${key}.png`;
-  const source = f.match && f.match[lang];
+  // ガイドの枠の文章（<strong> などのタグは外して見せる）
+  const source = f.match && f.match[lang] &&
+    f.match[lang].replace(/<br\s*\/?>/g, " ").replace(/<[^>]+>/g, "");
   const next = flows[i + 1];
 
   const nav = f.steps.map((s, j) =>
@@ -158,7 +161,7 @@ ${ld(crumbLd)}
 
 <article class="article">
   <div class="article-head flow-head">
-    <nav class="crumb" aria-label="${t.crumbLabel}"><a href="index.html">${t.site}</a><span class="sep" aria-hidden="true">›</span><a href="howto.html">${t.guides}</a><span class="sep" aria-hidden="true">›</span><a href="${guideFile}#sew">${esc(t.howto(gTitle))}</a><span class="sep" aria-hidden="true">›</span><span class="cur">${esc(f.title[lang])}</span></nav>
+    <nav class="crumb" aria-label="${t.crumbLabel}"><a href="index.html">${t.site}</a><span class="sep" aria-hidden="true">›</span><a href="howto.html">${t.guides}</a><span class="sep" aria-hidden="true">›</span><a href="${guideFile}#${anchor}">${esc(t.howto(gTitle))}</a><span class="sep" aria-hidden="true">›</span><span class="cur">${esc(f.title[lang])}</span></nav>
     <p class="category">${esc(t.cat(gTitle, f.sec, f.n))}</p>
     <h1>${esc(f.title[lang])}</h1>${source ? `
     <p class="flow-source"><span>${t.source}</span>${esc(source)}</p>` : ""}
@@ -175,7 +178,7 @@ ${panels}
 
   <nav class="flow-foot" aria-label="${lang === "ja" ? "前後の工程" : "More steps"}">${next ? `
     <a class="flow-nextlink" href="${fileOf(key, next.slug)}"><span>${t.nextFlow}</span>${esc(next.title[lang])} ›</a>` : ""}
-    <a class="flow-back" href="${guideFile}#sew">${esc(t.back(gTitle))}</a>
+    <a class="flow-back" href="${guideFile}#${anchor}">${esc(t.back(gTitle))}</a>
   </nav>
 
   <div class="cta-box">
